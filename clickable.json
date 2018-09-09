@@ -4,5 +4,7 @@
   "dependencies": [
     "gperf",
     "libssl-dev"
-  ]
+  ],
+  "prebuild": "git submodule update --init --recursive",
+  "sdk": "ubuntu-sdk-16.04"
 }
