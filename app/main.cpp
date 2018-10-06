@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("Suru");
 
-    QCoreApplication::setApplicationName(QStringLiteral("telegram-plus"));
+    QCoreApplication::setApplicationName(QStringLiteral("telegram-plus.dpniel"));
     QCoreApplication::setApplicationVersion(QStringLiteral("0.0.1"));
 
     registerQuickFluxQmlTypes();
