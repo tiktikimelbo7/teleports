@@ -5,5 +5,6 @@
     "gperf",
     "libssl-dev"
   ],
-  "prebuild": "git submodule update --init --recursive"
+  "dir": "build/telegram-plus",
+  "make_jobs": "1"
 }

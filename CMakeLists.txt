@@ -28,6 +28,8 @@ set(FULL_PROJECT_NAME "telegram-plus.dpniel")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
+set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
+set(CURRENT_TDLIB_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../tdlib)
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -39,8 +41,11 @@ execute_process(
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
-#install(DIRECTORY qml DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
+
+install(PROGRAMS ${CURRENT_LIBRARY_DIR}/qtdlib/libQTdlib.so DESTINATION ${QT_IMPORTS_DIR})
+install(PROGRAMS ${CURRENT_TDLIB_BUILD_DIR}/libtdjson.so DESTINATION ${QT_IMPORTS_DIR})
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/app/${PROJECT_NAME} DESTINATION ${DATA_DIR})
 
 # Translations
 file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po qml/*.qml qml/*.js)
@@ -62,6 +67,8 @@ add_custom_target(${DESKTOP_FILE_NAME} ALL
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DATA_DIR})
+
+link_directories(${CURRENT_TDLIB_BUILD_DIR})
 
 add_subdirectory(po)
 add_subdirectory(libs)
