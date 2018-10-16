@@ -29,7 +29,7 @@ Page {
        id: sendNumber
        script: {
 
-           AppActions.auth.setPhoneNumber("+44", message.number);
+           AppActions.auth.setPhoneNumber("+49", message.number);
 
            once(AuthKey.authPhoneNumberError, function(message) {
                errorLabel.text = message.error;
