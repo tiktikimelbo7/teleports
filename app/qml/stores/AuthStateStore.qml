@@ -42,7 +42,7 @@ Store {
         }
 
         onWaitingForPassword: {
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPasswordPage.qml"})
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPasswordPage.qml", properties: {"hint": passwordHint}})
         }
 
         onWaitingForUserProfile: {

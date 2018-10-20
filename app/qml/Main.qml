@@ -28,7 +28,7 @@ ApplicationWindow {
         Filter {
             type: "pushToStack"
             onDispatched: {
-                pageStack.push(message.view)
+                pageStack.push(message.view, message.properties)
             }
         }
 
@@ -38,7 +38,7 @@ ApplicationWindow {
                 if (pageStack.depth) {
                     pageStack.clear()
                 }
-                pageStack.push(message.view)
+                pageStack.push(message.view, message.properties)
             }
         }
     }

@@ -62,28 +62,28 @@ void QTdAuthStateWaitCode::unmarshalJson(const QJsonObject &json)
     emit infoChanged();
 }
 
-QTdAuthStatePassword::QTdAuthStatePassword(QObject *parent) : QTdAuthState(parent),
+QTdAuthStateWaitPassword::QTdAuthStateWaitPassword(QObject *parent) : QTdAuthState(parent),
     m_hasRecovery(false)
 {
     setType(AUTHORIZATION_STATE_WAIT_PASSWORD);
 }
 
-QString QTdAuthStatePassword::passwordHint() const
+QString QTdAuthStateWaitPassword::passwordHint() const
 {
     return m_hint;
 }
 
-QString QTdAuthStatePassword::recoveryEmail() const
+QString QTdAuthStateWaitPassword::recoveryEmail() const
 {
     return m_recovery;
 }
 
-bool QTdAuthStatePassword::hasRecoveryEmail() const
+bool QTdAuthStateWaitPassword::hasRecoveryEmail() const
 {
     return m_hasRecovery;
 }
 
-void QTdAuthStatePassword::unmarshalJson(const QJsonObject &json)
+void QTdAuthStateWaitPassword::unmarshalJson(const QJsonObject &json)
 {
     m_hint = json["password_hint"].toString();
     m_recovery = json["recovery_email_address_pattern"].toString();

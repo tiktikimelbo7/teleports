@@ -6,8 +6,10 @@ import "../actions"
 Page {
     id: waitPasswordPage
 
+    property string hint
+
     header: PageHeader {
-        title: "Enter Password"
+        title: qsTr("Enter Password")
     }
 
     TextField {
@@ -19,7 +21,7 @@ Page {
 
     Label {
         id: hintLabel
-        text: "Password hint: "
+        text: qsTr("Password hint: %1").arg(hint)
         anchors {
             top: passwordField.bottom
             topMargin: units.gu(1)
@@ -28,6 +30,7 @@ Page {
     }
 
     Button {
+        text: i18n.tr("Next...")
         anchors {
             top: hintLabel.bottom
             topMargin: units.gu(1)

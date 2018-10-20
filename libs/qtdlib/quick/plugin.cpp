@@ -61,7 +61,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdAuthStateWaitPhoneNumber>(uri, 1, 0, "QTdAuthStateWaitPhoneNumber", "c++ class");
     qmlRegisterUncreatableType<QTdAuthStateWaitCode>(uri, 1, 0, "QTdAuthStateWaitCode", "c++ class");
     qmlRegisterUncreatableType<QTdAuthCodeInfo>(uri, 1, 0, "QTdAuthCodeInfo", "c++ class");
-    qmlRegisterUncreatableType<QTdAuthStatePassword>(uri, 1, 0, "QTdAuthStatePassword", "c++ class");
+    qmlRegisterUncreatableType<QTdAuthStateWaitPassword>(uri, 1, 0, "QTdAuthStateWaitPassword", "c++ class");
     qmlRegisterUncreatableType<QTdAuthStateReady>(uri, 1, 0, "QTdAuthStateReady", "c++ class");
     qmlRegisterUncreatableType<QTdAuthStateLoggingOut>(uri, 1, 0, "QTdAuthStateLoggingOut", "c++ class");
     qmlRegisterUncreatableType<QTdAuthStateClosing>(uri, 1, 0, "QTdAuthStateClosing", "c++ class");
