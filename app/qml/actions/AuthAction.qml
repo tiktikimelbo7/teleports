@@ -70,9 +70,9 @@ ActionCreator {
      *        once(AuthKey.authPasswordAccepted, exit.bind(this,0));
      *    }
      * }
-     * Button { onClicked: sendCode.run() }
+     * Button { onClicked: sendPassword.run() }
      */
-    signal setPassword(string code)
+    signal setPassword(string password)
     signal authPasswordAccepted()
     signal authPasswordError(string error)
 }

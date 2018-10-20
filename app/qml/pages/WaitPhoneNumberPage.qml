@@ -19,7 +19,7 @@ Page {
     Button {
         anchors {
             top: textfield.bottom
-            topMargin: untis.gu(1)
+            topMargin: units.gu(1)
             horizontalCenter: parent.horizontalCenter
         }
         onClicked: sendNumber.run({number: textfield.text})

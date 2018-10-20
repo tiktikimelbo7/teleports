@@ -38,6 +38,7 @@ public slots:
     void setEncryptionKey(const QString &key);
     void sendPhoneNumber(const QString &number);
     void sendCode(const QString &code);
+    void sendPassword(const QString &password);
 
 signals:
     void stateChanged(State state);
