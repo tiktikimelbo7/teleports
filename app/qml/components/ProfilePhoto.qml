@@ -6,6 +6,26 @@ import QTelegram 1.0
 
 Item {
     property QTdProfilePhoto photo: null
+    property string initials: ""
+    property var avatarColor: "#000"
+    
+    onAvatarColorChanged: {
+        console.log("avatarColor", avatarColor);
+    }
+    
+    Rectangle {
+        id: rectImage
+        anchors.fill: parent
+        color: photo.small.local.path ? "transparent" : avatarColor
+    }
+
+    UITK.Label {
+        id: initialsLabel
+        anchors.centerIn: parent
+        textSize: UITK.Label.Large
+        color: "#fff"
+        text: initials
+    }
 
     UITK.UbuntuShape {
         anchors.fill: parent

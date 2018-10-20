@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import "../components"
+import "../actions"
 
 ItemDelegate {
     id: base
@@ -32,6 +33,8 @@ ItemDelegate {
                 width: parent.width
                 height: parent.height
                 photo: message.sender ? message.sender.profilePhoto : null
+                initials: message.sender ? message.sender.initials : "N/A"
+                avatarColor: message.sender ? message.sender.avatarColor : "#000"
             }
         }
 

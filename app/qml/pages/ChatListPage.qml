@@ -68,6 +68,12 @@ Page {
                             source: chat.chatPhoto.small.local.path ? Qt.resolvedUrl("file://" + chat.chatPhoto.small.local.path) : ""
                         }
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        
+                        Component.onCompleted: {
+                            if(chat.chatPhoto.small) {
+                                console.log(JSON.stringify(chat.chatPhoto.small));
+                            }
+                        }
                     }
 
                     UITK.UbuntuShape {

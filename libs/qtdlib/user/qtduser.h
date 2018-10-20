@@ -5,6 +5,7 @@
 #include <QPointer>
 #include <QScopedPointer>
 #include <QList>
+#include <QColor>
 #include "common/qabstractint32id.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
@@ -24,6 +25,8 @@ class QTdUser : public QAbstractInt32Id
     Q_PROPERTY(QString lastName READ lastName WRITE setLastName NOTIFY lastNameChanged)
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
     Q_PROPERTY(QString phoneNumber READ phoneNumber WRITE setPhoneNumber NOTIFY phoneNumberChanged)
+    Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
+    Q_PROPERTY(QString avatarColor READ avatarColor NOTIFY avatarColorChanged)
     Q_PROPERTY(QTdUserStatus* status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(QTdProfilePhoto* profilePhoto READ profilePhoto NOTIFY profilePhotoChanged)
     Q_PROPERTY(QTdLinkState* outgoingLink READ outgoingLink NOTIFY outgoingLinkChanged)
@@ -39,6 +42,8 @@ public:
     QString lastName() const;
     QString username() const;
     QString phoneNumber() const;
+    QString initials() const;
+    QString avatarColor();
     QTdUserStatus* status() const;
     QTdProfilePhoto* profilePhoto() const;
     QTdLinkState* outgoingLink() const;
@@ -55,6 +60,8 @@ signals:
     void lastNameChanged(QString lastName);
     void usernameChanged(QString username);
     void phoneNumberChanged(QString phoneNumber);
+    void initialsChanged(QString initials);
+    void avatarColorChanged(QColor avatarColor);
     void statusChanged(QTdUserStatus* status);
     void profilePhotoChanged(QTdProfilePhoto* profilePhoto);
     void outgoingLinkChanged(QTdLinkState* outgoingLink);
@@ -78,6 +85,8 @@ private:
     QString m_lastName;
     QString m_username;
     QString m_phoneNumber;
+    bool m_avatarColorSet;
+    QColor m_avatarColor;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
     QPointer<QTdLinkState> m_outgoingLink;
