@@ -27,6 +27,7 @@ set(
     auth/requests/qtdauthphonenumberresponse.cpp
     auth/requests/qtdauthcoderesponse.cpp
     auth/requests/qtdauthpasswordresponse.cpp
+    auth/requests/qtdauthlogoutresponse.cpp
     chat/qtdchat.cpp
     chat/qtdchataction.cpp
     chat/qtdchatactionfactory.cpp

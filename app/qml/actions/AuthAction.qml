@@ -76,4 +76,5 @@ ActionCreator {
     signal authPasswordAccepted()
     signal authPasswordError(string error)
 
+    signal logOut()
 }

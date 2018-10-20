@@ -40,6 +40,7 @@ public slots:
     void sendPhoneNumber(const QString &number);
     void sendCode(const QString &code, const QString &firstname = "", const QString &lastname = "");
     void sendPassword(const QString &password);
+    void logOut();
 
 signals:
     void stateChanged(State state);
