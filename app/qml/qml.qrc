@@ -23,5 +23,6 @@
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
+        <file>pages/WaitPassword.qml</file>
     </qresource>
 </RCC>

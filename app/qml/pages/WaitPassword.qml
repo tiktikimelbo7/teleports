@@ -7,7 +7,7 @@ Page {
     id: waitPasswordPage
 
     header: PageHeader {
-        title: "Enter Password"
+        title: i18n.tr("Enter Password")
     }
 
     TextField {
@@ -19,7 +19,7 @@ Page {
 
     Label {
         id: hintLabel
-        text: "Password hint: "
+        text: i18n.tr("Password hint: ")
         anchors {
             top: passwordField.bottom
             topMargin: units.gu(1)

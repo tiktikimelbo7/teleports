@@ -7,7 +7,7 @@ Page {
     id: waitPhoneNumberPage
 
     header: PageHeader {
-        title: "Phone Number:"
+        title: i18n.tr("Enter Phone Number")
     }
 
     TextField {
@@ -18,10 +18,10 @@ Page {
     }
 
     Button {
-        text: "Send Number"
+        text: i18n.tr("Next...")
         anchors {
             top: textfield.bottom
-            topMargin: untis.gu(1)
+            topMargin: units.gu(1)
             horizontalCenter: parent.horizontalCenter
         }
         onClicked: sendNumber.run({number: textfield.text})

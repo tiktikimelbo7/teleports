@@ -7,19 +7,16 @@ Page {
     id: waitCodePage
 
     header: PageHeader {
-        title: "Enter Code"
+        title: i18n.tr("Enter Code")
     }
 
-    Label {
-        text: "Enter Code:"
-    }
     TextField {
         id: codeField
         anchors.centerIn: parent
 
     }
     Button {
-        text: "Send Code"
+        text: i18n.tr("Next...")
         anchors {
             top: codeField.bottom
             topMargin: units.gu(1)

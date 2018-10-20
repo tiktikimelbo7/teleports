@@ -7,8 +7,7 @@ import QTelegram 1.0
 import "./stores"
 
 ApplicationWindow {
-    Suru.theme: Suru.Dark
-
+    Suru.theme: Suru
     /**
      * Only show the window once we have reached a state
      * that has something to display.
