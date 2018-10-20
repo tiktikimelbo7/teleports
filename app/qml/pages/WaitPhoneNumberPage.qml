@@ -33,8 +33,8 @@ Page {
     AppScript {
        id: sendNumber
        script: {
-
-           AppActions.auth.setPhoneNumber("+49", message.number);
+           // Enter number including dial code
+           AppActions.auth.setPhoneNumber("", message.number);
 
            once(AuthKey.authPhoneNumberError, function(message) {
                errorLabel.text = message.error;
