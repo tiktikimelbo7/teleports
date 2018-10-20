@@ -94,21 +94,36 @@ Page {
 
             TextArea {
                 id: entry
+
+                placeholderText: "Send a message"
+
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+
+                function send() {
+                    AppActions.chat.sendMessage(entry.text);
+                    entry.text = "";
+                }
+
                 Keys.onReturnPressed: {
-                    console.log("asdf")
+                    if (event.modifiers & Qt.ShiftModifier) {
+                        entry.send();
+                        return;
+                    }
+                    event.accepted = false;
                 }
             }
+
             Image {
                 visible: entry.text !== ""
                 sourceSize.height: parent.height * 0.75
                 sourceSize.width: sourceSize.height
                 source: "qrc:/qml/icons/send.png"
+
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        console.log("TODO: hook up send application logic" )
+                        entry.send();
                     }
                 }
             }

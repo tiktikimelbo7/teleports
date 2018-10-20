@@ -25,6 +25,7 @@ signals:
 public slots:
     void setChat(QTdChat *chat);
     void loadMore();
+    void sendMessage(const QString &message);
 
 private slots:
     void cleanUp();

@@ -7,4 +7,5 @@ ActionCreator {
     signal closeCurrentChat()
 
     signal loadMoreMessages();
+    signal sendMessage(string text);
 }

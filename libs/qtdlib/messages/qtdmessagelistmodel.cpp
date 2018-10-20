@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QJsonArray>
 #include "client/qtdclient.h"
+#include "requests/qtdsendmessagerequest.h"
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     m_model(Q_NULLPTR), m_chat(Q_NULLPTR)
@@ -117,4 +118,15 @@ void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId)
                                     {"limit", 100},
                                     {"only_local", false},
                                 });
+}
+
+void QTdMessageListModel::sendMessage(const QString &message)
+{
+    if (!m_chat) {
+        return;
+    }
+    auto request = new QTdSendMessageRequest();
+    request->setChatId(m_chat->id());
+    request->setText(message);
+    QTdClient::instance()->send(request);
 }
