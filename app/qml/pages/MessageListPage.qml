@@ -90,20 +90,30 @@ Page {
         RowLayout {
             anchors.fill: parent
             anchors.margins: Suru.units.gu(1)
-            Item {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+            spacing: Suru.units.gu(1)
 
-                TextArea {
-                    id: entry
-                    anchors {
-                        bottom: parent.bottom
-                        left: parent.left
-                        right: parent.right
-                    }
-//                    maximumLineCount: 5
+            TextArea {
+                id: entry
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Keys.onReturnPressed: {
+                    console.log("asdf")
                 }
             }
+            Image {
+                visible: entry.text !== ""
+                sourceSize.height: parent.height * 0.75
+                sourceSize.width: sourceSize.height
+                source: "qrc:/qml/icons/send.png"
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("TODO: hook up send application logic" )
+                    }
+                }
+            }
+
         }
+
     }
 }
