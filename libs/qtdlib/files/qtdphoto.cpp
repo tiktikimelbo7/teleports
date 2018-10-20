@@ -1,26 +1,43 @@
 #include "qtdphoto.h"
-#include "qtdlocalfile.h"
-#include "qtdremotefile.h"
+#include <QJsonArray>
+#include <QDebug>
 
-QTdPhoto::QTdPhoto(QObject *parent) : QTdObject(parent),
-    m_small(new QTdFile), m_big(new QTdFile)
+
+QTdPhoto::QTdPhoto(QObject *parent) : QAbstractInt64Id(parent),
+    m_hasStickers(false), m_sizes(Q_NULLPTR)
 {
+    m_sizes = new QQmlObjectListModel<QTdPhotoSize>(this, "", "type");
 }
 
-QTdFile *QTdPhoto::small() const
+QTdPhoto::~QTdPhoto()
 {
-    return m_small.data();
-}
-
-QTdFile *QTdPhoto::big() const
-{
-    return m_big.data();
+    m_sizes->clear();
 }
 
 void QTdPhoto::unmarshalJson(const QJsonObject &json)
 {
-    m_small->unmarshalJson(json["small"].toObject());
-    emit smallChanged(m_small.data());
-    m_big->unmarshalJson(json["big"].toObject());
-    emit bigChanged(m_big.data());
+    m_hasSitckers = json["has_stickers"].toBool();
+    const QJsonArray sizes = json["sizes"].toArray();
+    for (const QJsonValue &size : sizes) {
+        auto *s = new QTdPhotoSize();
+        s->unmarshalJson(size.toObject());
+        m_sizes->append(s);
+    }
+    QAbstractInt64Id::unmarshalJson(json);
+    emit photosChanged();
+}
+
+bool QTdPhoto::hasStickers() const
+{
+    return m_hasSitckers;
+}
+
+QObject *QTdPhoto::qmlSizes() const
+{
+    return m_sizes;
+}
+
+QQmlObjectListModel<QTdPhotoSize> *QTdPhoto::sizes() const
+{
+    return m_sizes;
 }
