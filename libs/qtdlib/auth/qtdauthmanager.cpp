@@ -85,7 +85,7 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
     QTdClient::instance()->send(resp);
 }
 
-void QTdAuthManager::sendCode(const QString &code)
+void QTdAuthManager::sendCode(const QString &code, const QString &firstname, const QString &lastname)
 {
     if (m_state != WaitCode) {
         qWarning() << "TDLib isn't waiting for a code";
@@ -93,6 +93,8 @@ void QTdAuthManager::sendCode(const QString &code)
     }
     auto *resp = new QTdAuthCodeResponse;
     resp->setCode(code);
+    resp->setFirstName(firstname);
+    resp->setLastName(lastname);
     QTdClient::instance()->send(resp);
 }
 
@@ -130,8 +132,17 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE:
     {
-        m_state = WaitCode;
-        emit waitingForCode();
+        auto currentState = (QTdAuthStateWaitCode*) state;
+        if (currentState->isRegistered())
+        {
+            m_state = WaitCode;
+            emit waitingForCode();
+        }
+        else
+        {
+            m_state = WaitUserProfile;
+            emit waitingForUserProfile();
+        }
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PASSWORD:

@@ -20,6 +20,7 @@ Store {
             useMessageDatabase: true
             useSecretChats: true
             useStorageOptimizer: true
+            useTestDC: true
         }
 
         onWaitingForTdParams: {
@@ -42,6 +43,10 @@ Store {
 
         onWaitingForPassword: {
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPasswordPage.qml"})
+        }
+
+        onWaitingForUserProfile: {
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitUserProfilePage.qml"})
         }
 
         onWaitingForCode: {
@@ -83,7 +88,7 @@ Store {
                 AppActions.auth.authCodeError("Incorrect auth code length.");
                 return;
             }
-            authState.sendCode(message.code)
+            authState.sendCode(message.code, message.firstname, message.lastname)
             AppActions.auth.authCodeAccepted()
         }
     }
