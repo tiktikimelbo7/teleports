@@ -74,7 +74,6 @@ Store {
     Filter {
         type: AuthKey.setCode
         onDispatched: {
-            console.log("setCode Begin")
             if (authState.state !== AuthState.WaitCode) {
                 AppActions.auth.authCodeError("Auth code not expected right now")
                 console.log("setCode: Auth code not expected right now")
@@ -94,7 +93,6 @@ Store {
             }
             authState.sendCode(message.code, message.firstname, message.lastname)
             AppActions.auth.authCodeAccepted()
-            console.log("setCode End")
         }
     }
 

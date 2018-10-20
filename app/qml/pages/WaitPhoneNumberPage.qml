@@ -14,7 +14,7 @@ Page {
         id: textfield
         anchors.centerIn: parent
         text: ""
-        inputMethodHints: Qt.import QuickFlux 1.1ImhFormattedNumbersOnly
+        inputMethodHints: Qt.ImhFormattedNumbersOnly
         placeholderText: "+<intl><phonenumber>"
     }
 
