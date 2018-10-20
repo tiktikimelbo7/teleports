@@ -10,14 +10,11 @@ Page {
         title: "Phone Number:"
     }
 
-    Label {
-        text: "Enter Phone Number:"
-    }
-
     TextField {
         id: textfield
         anchors.centerIn: parent
         text: ""
+        placeholderText: "+<intl><phonenumber>"
     }
 
     Button {
