@@ -147,7 +147,8 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PASSWORD:
     {
         m_state = WaitPassword;
-        emit waitingForPassword();
+        auto currentState = (QTdAuthStateWaitPassword*) state;
+        emit waitingForPassword(currentState->passwordHint(), currentState->hasRecoveryEmail(), currentState->recoveryEmail());
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_READY:
