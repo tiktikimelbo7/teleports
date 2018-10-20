@@ -1,7 +1,8 @@
 [Desktop Entry]
 _Name=Telegram Plus
 Exec=telegram-plus
-Icon=assets/logo.svg
+Icon=assets/icon.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
+X-Ubuntu-SymbolicIcon=assets/icon-large.png
