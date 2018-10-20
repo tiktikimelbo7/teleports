@@ -5,14 +5,17 @@ BUILD_DIR=build/tdlib
 TGPLUS_SOURCE_DIR=$PWD
 TDLIB_SOURCE_DIR=libs/vendor/tdlib
 
+DO_CLEAN=0
+ARCH="armhf"
+
 function usage
 {
-    echo "usage: $0 [clean]"
+    echo "usage: $0 [arch] [clean]"
 }
 
 function clean
 {
-    docker run -i -v $TGPLUS_SOURCE_DIR:/home/root/tgplus -w /home/root/tgplus clickable/ubuntu-sdk:16.04-armhf bash <<-EOF
+    docker run -i -v $TGPLUS_SOURCE_DIR:/home/root/tgplus -w /home/root/tgplus clickable/ubuntu-sdk:16.04-$ARCH bash <<-EOF
     #!/bin/bash
     echo "TODO: clean gernated files in $TDLIB_SOURCE_DIR"
     rm -rf $BUILD_DIR
@@ -31,7 +34,7 @@ function build
     cmake --build . --target tl_generate_c
     cmake --build . --target tdmime_auto
     cd ../../
-    docker run -i -v $TGPLUS_SOURCE_DIR:/home/root/tgplus -w /home/root/tgplus clickable/ubuntu-sdk:16.04-armhf bash <<-EOF
+    docker run -i -v $TGPLUS_SOURCE_DIR:/home/root/tgplus -w /home/root/tgplus clickable/ubuntu-sdk:16.04-$ARCH bash <<-EOF
     #!/bin/bash
     export MAKEFLAGS=-j1
     apt-get update
@@ -43,18 +46,43 @@ function build
 EOF
 }
 
+function parse
+{
+    if [ $# -gt 2 ]; then
+        echo "Too many parameters..."
+        return 1
+    fi
 
-if [ $# -gt 1 ]; then
+    if [ $# -eq 2 -a "$1" != "clean" -a "$2" != "clean" ]; then
+        return 1
+    fi
+
+    for param in $*; do
+        case $param in
+            "clean")
+                DO_CLEAN=1
+                ;;
+            "amd64")
+                ARCH="amd64"
+                ;;
+            "armhf")
+                ;;
+            *)
+                return 1
+        esac
+    done
+
+    return 0
+}
+
+parse $* 
+
+if [ $? -eq 1 ]; then
     usage
     exit 1
 fi
 
-if [ $# -eq 1 -a "$1" != "clean" ]; then
-    usage
-    exit 1
-fi
-
-if [ "$1" = "clean" ]; then
+if [ $DO_CLEAN -eq 1 ]; then
     echo "Cleaning..."
     clean
     echo "Done..."
