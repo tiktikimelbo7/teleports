@@ -12,7 +12,7 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: "Chat List"
+        title: i18n.tr("Telegram Plus")
 
         UITK.StyleHints {
             foregroundColor: hf

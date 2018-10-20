@@ -65,7 +65,7 @@ Page {
               font.bold: true
               color: theme.palette.normal.backgroundText
               horizontalAlignment: Text.AlignHCenter
-              text: i18n.tr("Telegram-plus")
+              text: i18n.tr("Telegram Plus")
           }
           Label {
               width: parent.width
