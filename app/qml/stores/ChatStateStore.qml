@@ -93,6 +93,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.sendMessage
+        onDispatched: {
+            messageList.sendMessage(message.text);
+        }
+    }
+
     Timer {
         id: enableLoadTimer
         interval: 1000

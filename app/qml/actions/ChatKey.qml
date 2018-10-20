@@ -6,4 +6,5 @@ KeyTable {
     property string setCurrentChat
     property string closeCurrentChat
     property string loadMoreMessages
+    property string sendMessage
 }
