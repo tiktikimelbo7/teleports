@@ -41,7 +41,7 @@ Store {
         }
 
         onWaitingForPassword: {
-            // TODO!!!
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPasswordPage.qml"})
         }
 
         onWaitingForCode: {
@@ -58,7 +58,7 @@ Store {
         onDispatched: {
             var number = message.dialcode.trim() + message.phonenumber.trim()
 //            if (!PhoneNumber.valid(number)) {
-//                AuthAction.authPhoneNumberError("Invalid phone number");
+//                AppActions.auth.authPhoneNumberError("Invalid phone number");
 //                return
 //            }
 
@@ -70,21 +70,32 @@ Store {
         type: AuthKey.setCode
         onDispatched: {
             if (authState.state !== AuthState.WaitCode) {
-                AuthAction.authCodeError("Auth code not expected right now")
+                AppActions.auth.authCodeError("Auth code not expected right now")
                 return
             }
             var info = authState.type.info;
             if (!info) {
-                AuthAction.authCodeError("Oops! Internal error.")
+                AppActions.auth.authCodeError("Oops! Internal error.")
                 return
             }
 
             if (message.code.length !== parseInt(info.type.length)) {
-                AuthAction.authCodeError("Incorrect auth code length.");
+                AppActions.auth.authCodeError("Incorrect auth code length.");
                 return;
             }
             authState.sendCode(message.code)
-            AuthAction.authCodeAccepted()
+            AppActions.auth.authCodeAccepted()
+        }
+    }
+
+    Filter {
+        type: AuthKey.setPassword
+        onDispatched: {
+            if (authState.state !== AuthState.WaitPassword) {
+                AppActions.auth.authPasswordError("Password not expected right now")
+                return
+            }
+            authState.sendPassword(message.password)
         }
     }
 }
