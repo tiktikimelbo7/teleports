@@ -4,27 +4,29 @@ import "../actions"
 
 // TODO: Use qqc2-suru
 Page {
-    id: waitCodePage
+    id: waitPassword
 
     header: PageHeader {
-        title: "Enter Code"
+        title: "Enter Password:"
     }
 
-    Label {
-        text: "Enter Code:"
-    }
     TextField {
-        id: codeField
+        id: passwordField
         anchors.centerIn: parent
 
     }
+
+    Label {
+        text: "Password hint: "
+    }
+
     Button {
-        text: "Send Code"
+        text: "Send"
         anchors {
-            top: codeField.bottom
+            top: passwordField.bottom
             topMargin: units.gu(1)
             horizontalCenter: parent.horizontalCenter
         }
-        onClicked: AppActions.auth.setCode(codeField.text)
+        onClicked: AppActions.auth.setPassword(passwordField.text)
     }
 }

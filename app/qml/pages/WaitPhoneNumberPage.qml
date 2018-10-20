@@ -7,7 +7,11 @@ Page {
     id: waitPhoneNumberPage
 
     header: PageHeader {
-        title: "Phone Number"
+        title: "Phone Number:"
+    }
+
+    Label {
+        text: "Enter Phone Number:"
     }
 
     TextField {
@@ -17,6 +21,7 @@ Page {
     }
 
     Button {
+        text: "Send Number"
         anchors {
             top: textfield.bottom
             topMargin: untis.gu(1)
