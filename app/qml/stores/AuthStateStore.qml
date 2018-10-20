@@ -56,6 +56,9 @@ Store {
         onReady: {
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
         }
+        onClosed: {
+              Qt.quit();
+        }
     }
 
     Filter {
@@ -104,6 +107,13 @@ Store {
                 return
             }
             authState.sendPassword(message.password)
+        }
+    }
+
+    Filter {
+        type: AuthKey.logOut
+        onDispatched: {
+            authState.logOut()
         }
     }
 }

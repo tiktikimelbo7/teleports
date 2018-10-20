@@ -5,6 +5,7 @@
 #include "requests/qtdauthparametersresponse.h"
 #include "requests/qtdauthphonenumberresponse.h"
 #include "requests/qtdauthcoderesponse.h"
+#include "requests/qtdauthlogoutresponse.h"
 #include "requests/qtdauthpasswordresponse.h"
 
 QTdAuthManager::QTdAuthManager(QObject *parent) : QObject(parent),
@@ -82,6 +83,12 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
     }
     auto *resp = new QTdAuthPhoneNumberResponse;
     resp->setPhoneNumber(number);
+    QTdClient::instance()->send(resp);
+}
+
+void QTdAuthManager::logOut()
+{
+    auto *resp = new QTdAuthLogOutResponse;
     QTdClient::instance()->send(resp);
 }
 

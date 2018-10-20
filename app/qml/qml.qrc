@@ -12,6 +12,8 @@
         <file>pages/WaitCodePage.qml</file>
         <file>pages/WaitPasswordPage.qml</file>
         <file>pages/ChatListPage.qml</file>
+        <file>pages/SettingsPage.qml</file>
+        <file>pages/AboutPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
