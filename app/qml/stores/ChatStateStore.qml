@@ -83,7 +83,7 @@ Store {
     }
 
     Filter {
-        type: ChatKey.loadMoreMessages
+        type: ChatKey.loadMoreMessageschatStatechatState
         onDispatched: {
             if (d.canLoadMoreMessages) {
                 messageList.loadMore()

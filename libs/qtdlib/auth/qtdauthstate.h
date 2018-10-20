@@ -93,17 +93,17 @@ private:
 };
 
 /**
- * @brief The QTdAuthStatePassword class
+ * @brief The QTdAuthStateWaitPassword class
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_wait_password.html
  */
-class QTdAuthStatePassword : public QTdAuthState {
+class QTdAuthStateWaitPassword : public QTdAuthState {
     Q_OBJECT
     Q_PROPERTY(QString passwordHint READ passwordHint NOTIFY dataChanged)
     Q_PROPERTY(bool hasRecoveryEmail READ hasRecoveryEmail NOTIFY dataChanged)
     Q_PROPERTY(QString recoveryEmail READ recoveryEmail NOTIFY dataChanged)
 public:
-    explicit QTdAuthStatePassword (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateWaitPassword (QObject * parent = Q_NULLPTR);
 
     QString passwordHint() const;
     QString recoveryEmail() const;

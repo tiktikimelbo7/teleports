@@ -24,7 +24,7 @@ QTdAuthState *QTdAuthStateFactory::create(const QJsonObject &data, QObject *pare
     } else if (type == "authorizationStateClosed") {
         stateObj = new QTdAuthStateClosed(parent);
     } else if (type == "authorizationStateWaitPassword") {
-        stateObj = new QTdAuthStatePassword(parent);
+        stateObj = new QTdAuthStateWaitPassword(parent);
     } else {
         qWarning() << "Unknown auth state type: " << type;
     }

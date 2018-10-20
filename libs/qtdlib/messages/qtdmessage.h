@@ -39,7 +39,8 @@ public:
     qint32 senderUserId() const;
     QString qmlChatId() const;
     qint64 chatId() const;
-
+    QString getSenderInitials() const;
+    
     QTdUser *sender() const;
 
     void unmarshalJson(const QJsonObject &json);

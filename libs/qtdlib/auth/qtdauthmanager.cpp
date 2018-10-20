@@ -5,6 +5,7 @@
 #include "requests/qtdauthparametersresponse.h"
 #include "requests/qtdauthphonenumberresponse.h"
 #include "requests/qtdauthcoderesponse.h"
+#include "requests/qtdauthpasswordresponse.h"
 
 QTdAuthManager::QTdAuthManager(QObject *parent) : QObject(parent),
     m_state(Invalid),
@@ -84,7 +85,7 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
     QTdClient::instance()->send(resp);
 }
 
-void QTdAuthManager::sendCode(const QString &code)
+void QTdAuthManager::sendCode(const QString &code, const QString &firstname, const QString &lastname)
 {
     if (m_state != WaitCode) {
         qWarning() << "TDLib isn't waiting for a code";
@@ -92,6 +93,19 @@ void QTdAuthManager::sendCode(const QString &code)
     }
     auto *resp = new QTdAuthCodeResponse;
     resp->setCode(code);
+    resp->setFirstName(firstname);
+    resp->setLastName(lastname);
+    QTdClient::instance()->send(resp);
+}
+
+void QTdAuthManager::sendPassword(const QString &password)
+{
+    if (m_state != WaitPassword) {
+        qWarning() << "TDLib isn't waiting for a password";
+        return;
+    }
+    auto *resp = new QTdAuthPasswordResponse;
+    resp->setPassword(password);
     QTdClient::instance()->send(resp);
 }
 
@@ -118,14 +132,23 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE:
     {
+        auto currentState = (QTdAuthStateWaitCode*) state;
+        if (currentState->isRegistered())
+        {
+            emit waitingForCode();
+        }
+        else
+        {
+            emit waitingForUserProfile();
+        }
         m_state = WaitCode;
-        emit waitingForCode();
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PASSWORD:
     {
         m_state = WaitPassword;
-        emit waitingForPassword();
+        auto currentState = (QTdAuthStateWaitPassword*) state;
+        emit waitingForPassword(currentState->passwordHint(), currentState->hasRecoveryEmail(), currentState->recoveryEmail());
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_READY:

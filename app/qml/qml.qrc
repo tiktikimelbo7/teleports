@@ -10,6 +10,7 @@
         <file>actions/AuthKey.qml</file>
         <file>actions/qmldir</file>
         <file>pages/WaitCodePage.qml</file>
+        <file>pages/WaitPasswordPage.qml</file>
         <file>pages/ChatListPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
@@ -23,6 +24,6 @@
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
-        <file>pages/WaitPassword.qml</file>
+        <file>pages/WaitUserProfilePage.qml</file>
     </qresource>
 </RCC>

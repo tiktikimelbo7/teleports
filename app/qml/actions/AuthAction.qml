@@ -48,7 +48,7 @@ ActionCreator {
      * }
      * Button { onClicked: sendCode.run() }
      */
-    signal setCode(string code)
+    signal setCode(string code, string firstname, string lastname)
     signal authCodeAccepted()
     signal authCodeError(string error)
 
@@ -70,9 +70,10 @@ ActionCreator {
      *        once(AuthKey.authPasswordAccepted, exit.bind(this,0));
      *    }
      * }
-     * Button { onClicked: sendCode.run() }
+     * Button { onClicked: sendPassword.run() }
      */
-    signal setPassword(string code)
+    signal setPassword(string password)
     signal authPasswordAccepted()
     signal authPasswordError(string error)
+
 }

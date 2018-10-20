@@ -7,10 +7,12 @@ QTdUser::QTdUser(QObject *parent) : QAbstractInt32Id(parent),
   m_profilePhoto(new QTdProfilePhoto),
   m_outgoingLink(Q_NULLPTR),
   m_incomingLink(Q_NULLPTR),
+  m_avatarColorSet(false),
   m_isVerified(false),
   m_userType(Q_NULLPTR)
 {
     setType(USER);
+    m_avatarColor = QColor(0, 0, 0, 0);
 }
 
 void QTdUser::unmarshalJson(const QJsonObject &json)
@@ -172,4 +174,33 @@ QString QTdUser::username() const
 QString QTdUser::phoneNumber() const
 {
     return m_phoneNumber;
+}
+
+QString QTdUser::initials() const
+{
+    if(m_firstName != "") {
+        if(m_lastName != "") {
+            return (m_firstName.trimmed().left(1) + m_lastName.trimmed().left(1)).toUpper();
+        }
+        return m_firstName.trimmed().left(2).toUpper();
+    }
+    if(m_lastName != "") {
+        return m_lastName.trimmed().left(2).toUpper();
+    }
+    if(m_username != "") {
+        return m_username.trimmed().left(2).toUpper();
+    }
+    return "N/A";
+}
+
+QString QTdUser::avatarColor()
+{
+    if(!m_avatarColorSet) {
+        int r = rand() % 101;
+        int g = rand() % 101;
+        int b = rand() % 101;
+        m_avatarColor.setRgb(r, g, b, 0);
+        m_avatarColorSet = true;
+    }
+    return m_avatarColor.name();
 }

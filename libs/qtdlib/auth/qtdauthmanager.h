@@ -20,6 +20,7 @@ public:
         WaitEncryptionKey,
         WaitPhoneNumber,
         WaitCode,
+        WaitUserProfile,
         WaitPassword,
         Ready,
         LoggingOut,
@@ -37,7 +38,8 @@ public slots:
     void sendParams();
     void setEncryptionKey(const QString &key);
     void sendPhoneNumber(const QString &number);
-    void sendCode(const QString &code);
+    void sendCode(const QString &code, const QString &firstname = "", const QString &lastname = "");
+    void sendPassword(const QString &password);
 
 signals:
     void stateChanged(State state);
@@ -45,7 +47,8 @@ signals:
     void waitingForEncryptionKey();
     void waitingForPhoneNumber();
     void waitingForCode();
-    void waitingForPassword();
+    void waitingForUserProfile();
+    void waitingForPassword(QString passwordHint, bool hasRecoveryEmailAddress, QString recoveryEmailAddressPattern);
     void ready();
     void loggingOut();
     void closing();

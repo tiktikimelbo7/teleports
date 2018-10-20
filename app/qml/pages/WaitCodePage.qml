@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import QuickFlux 1.1
 import "../actions"
 
 // TODO: Use qqc2-suru
@@ -16,12 +17,39 @@ Page {
 
     }
     Button {
+        id: nextButton
         text: i18n.tr("Next...")
         anchors {
             top: codeField.bottom
             topMargin: units.gu(1)
             horizontalCenter: parent.horizontalCenter
         }
-        onClicked: AppActions.auth.setCode(codeField.text)
+        onClicked: sendCode.run({code: codeField.text})
+    }
+
+    Label {
+        anchors {
+            top: nextButton.bottom
+            topMargin: units.gu(1)
+            horizontalCenter: parent.horizontalCenter
+        }
+        id: errorLabel
+        visible: text != ""
+        color: "red"
+    }
+
+    AppScript {
+       id: sendCode
+       script: {
+           // Enter number including dial code
+           AppActions.auth.setCode(message.code, "", "");
+
+           once(AuthKey.authCodeError, function(message) {
+               errorLabel.text = message.error;
+               exit(1);
+           })
+
+           once(AuthKey.authCodeAccepted, exit.bind(this,0))
+       }
     }
 }

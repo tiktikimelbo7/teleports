@@ -14,10 +14,12 @@ Page {
         id: textfield
         anchors.centerIn: parent
         text: ""
+        inputMethodHints: Qt.ImhFormattedNumbersOnly
         placeholderText: "+<intl><phonenumber>"
     }
 
     Button {
+        id: nextButton
         text: i18n.tr("Next...")
         anchors {
             top: textfield.bottom
@@ -25,6 +27,17 @@ Page {
             horizontalCenter: parent.horizontalCenter
         }
         onClicked: sendNumber.run({number: textfield.text})
+    }
+
+    Label {
+        id: errorLabel
+        anchors {
+            top: nextButton.bottom
+            topMargin: units.gu(1)
+            horizontalCenter: parent.horizontalCenter
+        }
+        visible: text != ""
+        color: "red"
     }
 
     AppScript {

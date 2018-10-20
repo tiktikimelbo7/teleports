@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/qml/icons">
+        <file>send.png</file>
+    </qresource>
+</RCC>
