@@ -14,11 +14,12 @@ Page {
         id: textfield
         anchors.centerIn: parent
         text: ""
-        inputMethodHints: Qt.ImhFormattedNumbersOnly
+        inputMethodHints: Qt.import QuickFlux 1.1ImhFormattedNumbersOnly
         placeholderText: "+<intl><phonenumber>"
     }
 
     Button {
+        id: nextButton
         text: i18n.tr("Next...")
         anchors {
             top: textfield.bottom
@@ -30,6 +31,11 @@ Page {
 
     Label {
         id: errorLabel
+        anchors {
+            top: nextButton.bottom
+            topMargin: units.gu(1)
+            horizontalCenter: parent.horizontalCenter
+        }
         visible: text != ""
         color: "red"
     }

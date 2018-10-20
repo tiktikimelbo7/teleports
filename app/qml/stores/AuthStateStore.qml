@@ -20,7 +20,7 @@ Store {
             useMessageDatabase: true
             useSecretChats: true
             useStorageOptimizer: true
-            useTestDC: true
+            useTestDC: false
         }
 
         onWaitingForTdParams: {
@@ -74,22 +74,27 @@ Store {
     Filter {
         type: AuthKey.setCode
         onDispatched: {
+            console.log("setCode Begin")
             if (authState.state !== AuthState.WaitCode) {
                 AppActions.auth.authCodeError("Auth code not expected right now")
+                console.log("setCode: Auth code not expected right now")
                 return
             }
             var info = authState.type.info;
             if (!info) {
                 AppActions.auth.authCodeError("Oops! Internal error.")
+                console.log("setCode: Oops! Internal error.")
                 return
             }
 
             if (message.code.length !== parseInt(info.type.length)) {
                 AppActions.auth.authCodeError("Incorrect auth code length.");
+                console.log("setCode: Incorrect auth code length.")
                 return;
             }
             authState.sendCode(message.code, message.firstname, message.lastname)
             AppActions.auth.authCodeAccepted()
+            console.log("setCode End")
         }
     }
 

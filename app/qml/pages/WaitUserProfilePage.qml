@@ -66,7 +66,8 @@ Page {
     AppScript {
        id: sendCode
        script: {
-           // Enter number including dial code
+
+           console.log("sendCode Begin")
            AppActions.auth.setCode(message.code, message.firstname, message.lastname);
 
            once(AuthKey.authCodeError, function(message) {
@@ -75,6 +76,7 @@ Page {
            })
 
            once(AuthKey.authCodeAccepted, exit.bind(this,0))
+           console.log("sendCode End")
        }
     }
 }
