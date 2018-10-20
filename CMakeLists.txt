@@ -29,7 +29,7 @@ set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
-set(CURRENT_TDLIB_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../tdlib)
+set(CURRENT_TDLIB_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../tdlib/${ARCH_TRIPLET})
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
