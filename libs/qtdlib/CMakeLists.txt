@@ -28,6 +28,7 @@ set(
     auth/requests/qtdauthcoderesponse.cpp
     auth/requests/qtdauthpasswordresponse.cpp
     auth/requests/qtdauthlogoutresponse.cpp
+    auth/requests/qtdauthdeleteaccountresponse.cpp
     chat/qtdchat.cpp
     chat/qtdchataction.cpp
     chat/qtdchatactionfactory.cpp

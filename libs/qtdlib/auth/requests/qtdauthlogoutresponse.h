@@ -11,8 +11,6 @@ public:
     explicit QTdAuthLogOutResponse(QObject *parent = nullptr);
 
     QJsonObject marshalJson();
-private:
-    QString m_number;
 };
 
 #endif // QTDAUTHLOGOUTRESPONSE_H

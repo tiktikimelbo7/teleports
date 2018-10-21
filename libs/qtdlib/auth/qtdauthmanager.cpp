@@ -7,6 +7,7 @@
 #include "requests/qtdauthcoderesponse.h"
 #include "requests/qtdauthlogoutresponse.h"
 #include "requests/qtdauthpasswordresponse.h"
+#include "requests/qtdauthdeleteaccountresponse.h"
 
 QTdAuthManager::QTdAuthManager(QObject *parent) : QObject(parent),
     m_state(Invalid),
@@ -89,6 +90,13 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
 void QTdAuthManager::logOut()
 {
     auto *resp = new QTdAuthLogOutResponse;
+    QTdClient::instance()->send(resp);
+}
+
+void QTdAuthManager::deleteAccount(const QString &reason)
+{
+    auto *resp = new QTdAuthDeleteAccountResponse;
+    resp->setReason(reason);
     QTdClient::instance()->send(resp);
 }
 
