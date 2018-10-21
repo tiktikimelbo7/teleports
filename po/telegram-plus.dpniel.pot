@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-21 09:05+0000\n"
+"POT-Creation-Date: 2018-10-21 09:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/qml/pages/WaitCodePage.qml:11
-msgid "Enter Code"
+#: ../app/qml/pages/WaitUserProfilePage.qml:10
+msgid "Enter User Details"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:21
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
+#: ../app/qml/pages/WaitUserProfilePage.qml:19
+msgid "First Name"
+msgstr ""
+
+#: ../app/qml/pages/WaitUserProfilePage.qml:29
+msgid "Last Name"
+msgstr ""
+
+#: ../app/qml/pages/WaitUserProfilePage.qml:39
+msgid "Code"
+msgstr ""
+
 #: ../app/qml/pages/WaitUserProfilePage.qml:44
 #: ../app/qml/pages/WaitPasswordPage.qml:33
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
+#: ../app/qml/pages/WaitCodePage.qml:21
 msgid "Next..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:15 ../app/qml/pages/AboutPage.qml:68
-#: telegram-plus.desktop.in.h:1
-msgid "Telegram Plus"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:29 ../app/qml/pages/SettingsPage.qml:14
-msgid "Settings"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:38 ../app/qml/pages/AboutPage.qml:14
+#: ../app/qml/pages/AboutPage.qml:14 ../app/qml/pages/ChatListPage.qml:39
 msgid "About"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:10
-msgid "Enter Phone Number"
 msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:24
@@ -61,26 +60,27 @@ msgstr ""
 msgid "Help translate"
 msgstr ""
 
+#: ../app/qml/pages/AboutPage.qml:68 ../app/qml/pages/ChatListPage.qml:16
+#: telegram-plus.desktop.in.h:1
+msgid "Telegram Plus"
+msgstr ""
+
 #: ../app/qml/pages/AboutPage.qml:74
 msgid "Version %1"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:14
+msgid "Settings"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:10
+msgid "Enter Phone Number"
 msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:51
 msgid "Logout"
 msgstr ""
 
-#: ../app/qml/pages/WaitUserProfilePage.qml:10
-msgid "Enter User Details"
-msgstr ""
-
-#: ../app/qml/pages/WaitUserProfilePage.qml:19
-msgid "First Name"
-msgstr ""
-
-#: ../app/qml/pages/WaitUserProfilePage.qml:29
-msgid "Last Name"
-msgstr ""
-
-#: ../app/qml/pages/WaitUserProfilePage.qml:39
-msgid "Code"
+#: ../app/qml/pages/WaitCodePage.qml:11
+msgid "Enter Code"
 msgstr ""
