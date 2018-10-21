@@ -36,5 +36,14 @@ private:
     QScopedPointer<QTdWebPage> m_webPage;
     bool m_hasWebPage;
 };
+class QTdMessageAction : public QTdMessageContent
+{
+    Q_OBJECT
+public:
+    explicit QTdMessageAction(QObject *parent = nullptr);
+
+private:
+    Q_DISABLE_COPY(QTdMessageAction)
+};
 
 #endif // QTDMESSAGECONTENT_H

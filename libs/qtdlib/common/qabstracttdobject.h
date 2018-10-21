@@ -84,6 +84,7 @@ public:
         MESSAGE_AUDIO,
         MESSAGE_DOCUMENT,
         MESSAGE_TEXT,
+        MESSAGE_ACTION,
         MESSAGE_PHOTO,
         MESSAGE_STICKER,
         MESSAGE_VIDEO,

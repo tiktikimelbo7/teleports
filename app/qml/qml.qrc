@@ -25,6 +25,7 @@
         <file>components/ChatPhoto.qml</file>
         <file>components/ProfilePhoto.qml</file>
         <file>delegates/MessageTextItem.qml</file>
+        <file>delegates/MessageActionItem.qml</file>
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
