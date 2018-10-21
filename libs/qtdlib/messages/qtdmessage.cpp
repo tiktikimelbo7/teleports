@@ -3,7 +3,7 @@
 #include "client/qtdclient.h"
 #include "user/qtdusers.h"
 #include "qtdmessagecontentfactory.h"
-
+#include "common/qtdhelpers.h"
 
 QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_date(0), m_sender_user_id(0), m_chatId(0),
@@ -160,12 +160,7 @@ QString QTdMessage::summary() const
 
 QString QTdMessage::formatDate(const QDateTime &dt)
 {
-    const QDateTime now = QDateTime::currentDateTimeUtc().toLocalTime();
-    const QDateTime localdt = dt.toLocalTime();
-    if (now.daysTo(localdt) == 0) {
-        return localdt.toString("hh:mm");
-    }
-    return localdt.toString("ddd hh:mm");
+    return QTdHelpers::formatDate(dt);
 }
 
 bool QTdMessage::isValid() const
