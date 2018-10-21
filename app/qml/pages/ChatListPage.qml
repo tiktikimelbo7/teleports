@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3 as UITK
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
+import "../components"
 import "../actions"
 import "../stores"
 
@@ -72,20 +73,16 @@ Page {
                     subtitle.text: chat.summary
                     subtitle.color: Suru.foregroundColor
                     summary.color: Suru.foregroundColor
-                    UITK.UbuntuShape {
-                        aspect: UITK.UbuntuShape.Flat
-                        height: Suru.units.gu(5)
-                        width: height
-                        source: Image {
-                            asynchronous: true
-                            source: chat.chatPhoto.small.local.path ? Qt.resolvedUrl("file://" + chat.chatPhoto.small.local.path) : ""
-                        }
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+
+                    Item {
+                        width: Suru.units.gu(5)
+                        height: width
                         
-                        Component.onCompleted: {
-                            if(chat.chatPhoto.small) {
-                                console.log(JSON.stringify(chat.chatPhoto.small));
-                            }
+                        GenericPhoto {
+                            anchors.fill: parent
+                            photoPath: chat && chat.chatPhoto.small.local.path ? chat.chatPhoto.small.local.path : ""
+                            initials: chat && chat.initials ? chat.initials : "N/A"
+                            avatarColor: chat && chat.avatarColor
                         }
                     }
 
