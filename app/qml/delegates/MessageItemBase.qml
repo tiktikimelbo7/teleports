@@ -40,15 +40,14 @@ ItemDelegate {
 
         Rectangle {
             id: contentCol
-            color: Suru.secondaryBackgroundColor
-            border.color: {
+            color: {
                 if (message.isOutgoing) {
                     if (message.sendingState) {
-                        // TODO: return warning and error colors for sending states
+                        return "lightblue"
                     }
                     return Suru.darkPositive
                 }
-                return Suru.darkMid
+                return "lightgrey"
             }
             radius: 4
             Layout.fillWidth: true

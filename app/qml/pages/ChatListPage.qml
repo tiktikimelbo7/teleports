@@ -72,18 +72,6 @@ Page {
                     subtitle.text: chat.summary
                     subtitle.color: Suru.foregroundColor
                     summary.color: Suru.foregroundColor
-                    //                summary.text: chat.lastMessage ? Qt.formatDateTime(chat.lastMessage.date) : ""
-                    summary.text: {
-                        switch (chat.chatType.type) {
-                        case QTdChatType.CHAT_TYPE_BASIC_GROUP:
-                        case QTdChatType.CHAT_TYPE_SUPERGROUP:
-                            // TODO: why are supergroup members counts
-                            // always 0??
-                            return "Members: " + chat.memberCount
-                        default:
-                            return ""
-                        }
-                    }
                     UITK.UbuntuShape {
                         aspect: UITK.UbuntuShape.Flat
                         height: Suru.units.gu(5)
@@ -101,9 +89,15 @@ Page {
                         }
                     }
 
+                    UITK.Label {
+                        text: chat.lastMessage ? chat.formatDate(chat.lastMessage.date) : ""
+                        anchors.top: parent
+                        anchors.topMargin: Suru.units.gu(1)
+                    }
+
                     UITK.UbuntuShape {
-                        height: Suru.units.gu(2.5)
-                        width: Suru.units.gu(2.5)
+                        height: Suru.units.gu(2)
+                        width: Suru.units.gu(2)
                         color: Suru.darkPositive
                         visible: chat.hasUnreadMessages
                         UITK.Label {
@@ -114,9 +108,9 @@ Page {
                         }
                     }
                     UITK.UbuntuShape {
-                        height: Suru.units.gu(2.5)
-                        width: Suru.units.gu(2.5)
-                        color: UITK.UbuntuColors.green
+                        height: Suru.units.gu(2)
+                        width: Suru.units.gu(2)
+                        color: Suru.darkPositive
                         visible: chat.hasUnreadMentions
                         UITK.Label {
                             anchors.centerIn: parent

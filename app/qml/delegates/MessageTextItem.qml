@@ -21,9 +21,9 @@ MessageItemBase {
             width: parent.width
             height: contentHeight
             readOnly: true
-            selectByMouse: true
             text: textContent.text.text
-            color: Suru.foregroundColor
+            color: message.isOutgoing ? "white" : Suru.foregroundColor
+            horizontalAlignment: message.isOutgoing ? TextEdit.AlignRight : TextEdit.AlignLeft
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.Wrap
             onLinkActivated: {
