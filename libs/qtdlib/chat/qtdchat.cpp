@@ -20,7 +20,6 @@ QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
     emit messagesChanged();
-    m_avatarColor = QColor(0, 0, 0, 0);
 }
 
 void QTdChat::unmarshalJson(const QJsonObject &json)
