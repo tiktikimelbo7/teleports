@@ -77,6 +77,7 @@ Page {
                     Item {
                         width: Suru.units.gu(5)
                         height: width
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         
                         GenericPhoto {
                             anchors.fill: parent
