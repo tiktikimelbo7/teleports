@@ -33,3 +33,8 @@ void QTdMessageText::unmarshalJson(const QJsonObject &json)
     }
     emit dataChanged();
 }
+
+QTdMessageAction::QTdMessageAction(QObject *parent) : QTdMessageContent(parent)
+{
+  setType(MESSAGE_ACTION);
+}
