@@ -33,6 +33,8 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QTdChatType* chatType READ chatType NOTIFY chatTypeChanged)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QTdChatPhoto* chatPhoto READ chatPhoto NOTIFY chatPhotoChanged)
+    Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
+    Q_PROPERTY(QString avatarColor READ avatarColor NOTIFY avatarColorChanged)
     Q_PROPERTY(QTdMessage* lastMessage READ lastMessage NOTIFY lastMessageChanged)
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
     Q_PROPERTY(bool isPinned READ isPinned NOTIFY isPinnedChanged)
@@ -72,6 +74,14 @@ public:
      * @return QTdChatPhoto* or NULL
      */
     QTdChatPhoto *chatPhoto() const;
+    /**
+     * @brief Chat title initials
+     */
+    QString initials() const;
+    /**
+     * @brief Chat title background color
+     */
+    QString avatarColor();
     /**
      * @brief QML representation of the position in the chat list
      * \see order()
@@ -193,6 +203,8 @@ signals:
     void titleChanged(QString title);
     void lastMessageChanged(QTdMessage *lastMessage);
     void chatPhotoChanged(QTdChatPhoto *chatPhoto);
+    void initialsChanged(QString initials);
+    void avatarColorChanged(QColor avatarColor);
     void orderChanged();
     void isPinnedChanged();
     void canBeReportedChanged();
@@ -231,6 +243,8 @@ private:
     QString m_title;
     QScopedPointer<QTdMessage> m_lastMessage;
     QScopedPointer<QTdChatPhoto> m_chatPhoto;
+    bool m_avatarColorSet;
+    QColor m_avatarColor;
     QTdInt64 m_order;
     bool m_isPinned;
     bool m_canBeReported;

@@ -196,9 +196,9 @@ QString QTdUser::initials() const
 QString QTdUser::avatarColor()
 {
     if(!m_avatarColorSet) {
-        int r = rand() % 101;
-        int g = rand() % 101;
-        int b = rand() % 101;
+        int r = rand() % 201;
+        int g = rand() % 201;
+        int b = rand() % 201;
         m_avatarColor.setRgb(r, g, b, 0);
         m_avatarColorSet = true;
     }

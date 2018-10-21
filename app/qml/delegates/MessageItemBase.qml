@@ -27,12 +27,11 @@ ItemDelegate {
             width: Suru.units.gu(4.5)
             height: Suru.units.gu(4.5)
             Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-
-            ProfilePhoto {
+            
+            GenericPhoto {
                 visible: !message.isOutgoing
-                width: parent.width
-                height: parent.height
-                photo: message.sender ? message.sender.profilePhoto : null
+                anchors.fill: parent
+                photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
                 avatarColor: message.sender ? message.sender.avatarColor : "#000"
             }
