@@ -7,6 +7,7 @@
 #include <qtdlib/quick/plugin.h>
 #include <QtQuickControls2/QQuickStyle>
 #include "messagedelegatemap.h"
+#define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
 
 int main(int argc, char *argv[])
 {
