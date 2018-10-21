@@ -243,8 +243,6 @@ private:
     QString m_title;
     QScopedPointer<QTdMessage> m_lastMessage;
     QScopedPointer<QTdChatPhoto> m_chatPhoto;
-    bool m_avatarColorSet;
-    QColor m_avatarColor;
     QTdInt64 m_order;
     bool m_isPinned;
     bool m_canBeReported;
