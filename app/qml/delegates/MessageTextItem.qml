@@ -25,7 +25,7 @@ MessageItemBase {
             color: message.isOutgoing ? "white" : Suru.foregroundColor
             horizontalAlignment: message.isOutgoing ? TextEdit.AlignRight : TextEdit.AlignLeft
             selectedTextColor: Suru.highlightColor
-            wrapMode: TextEdit.Wrap
+            wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {
                 console.log("Link activated: ", link)
                 Qt.openUrlExternally(link)

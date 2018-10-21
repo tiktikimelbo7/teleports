@@ -94,6 +94,7 @@ ItemDelegate {
                         anchors.fill: parent
                         Label {
                             text: message.formatDate(message.date)
+                            color: message.isOutgoing ? "white" : Suru.foregroundColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
