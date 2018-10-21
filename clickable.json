@@ -3,8 +3,10 @@
   "kill": "telegram-plus",
   "dependencies": [
     "gperf",
-    "libssl-dev"
+    "libssl-dev",
+    "ccache"
   ],
+  "specificDependencies": true,
   "dir": "build/telegram-plus",
   "make_jobs": "1"
 }
