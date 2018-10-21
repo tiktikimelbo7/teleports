@@ -23,6 +23,10 @@ Then you can build and run the app using clickable as usual:
 
     clickable desktop
 
+If you get a `telegram-plus: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
+remove the `.clickable` directory and try again. This usually happens when
+switching between phone and desktop build.
+
 ## Cleaning the tdlib
 
 You can clean the tdlib build by:
