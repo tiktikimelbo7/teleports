@@ -40,6 +40,7 @@ public slots:
     void sendCode(const QString &code, const QString &firstname = "", const QString &lastname = "");
     void sendPassword(const QString &password);
     void logOut();
+    void deleteAccount(const QString &reason);
 
 signals:
     void stateChanged(State state);

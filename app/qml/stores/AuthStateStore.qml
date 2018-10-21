@@ -112,4 +112,13 @@ Store {
             authState.logOut()
         }
     }
+
+    Filter {
+        type: AuthKey.deleteAccount
+
+        onDispatched: {
+            // TODO: Ask for reason - optional
+            authState.deleteAccount("");
+        }
+    }
 }
