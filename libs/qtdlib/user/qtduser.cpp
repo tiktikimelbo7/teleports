@@ -1,18 +1,17 @@
 #include "qtduser.h"
 #include "qtduserstatusfactory.h"
 #include "qtdlinkstatefactory.h"
+#include "common/qtdhelpers.h"
 
 QTdUser::QTdUser(QObject *parent) : QAbstractInt32Id(parent),
   m_status(Q_NULLPTR),
   m_profilePhoto(new QTdProfilePhoto),
   m_outgoingLink(Q_NULLPTR),
   m_incomingLink(Q_NULLPTR),
-  m_avatarColorSet(false),
   m_isVerified(false),
   m_userType(Q_NULLPTR)
 {
     setType(USER);
-    m_avatarColor = QColor(0, 0, 0, 0);
 }
 
 void QTdUser::unmarshalJson(const QJsonObject &json)
@@ -193,14 +192,7 @@ QString QTdUser::initials() const
     return "N/A";
 }
 
-QString QTdUser::avatarColor()
+QString QTdUser::avatarColor(unsigned int userId)
 {
-    if(!m_avatarColorSet) {
-        int r = rand() % 201;
-        int g = rand() % 201;
-        int b = rand() % 201;
-        m_avatarColor.setRgb(r, g, b, 0);
-        m_avatarColorSet = true;
-    }
-    return m_avatarColor.name();
+    return QTdHelpers::avatarColor(userId);
 }

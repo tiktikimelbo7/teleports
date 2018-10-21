@@ -8,7 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-10-21 10:55+0000\n"
+=======
 "POT-Creation-Date: 2018-10-21 09:31+0000\n"
+>>>>>>> 96f20c72a68584ca372afe5244e634c90aa270a2
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
