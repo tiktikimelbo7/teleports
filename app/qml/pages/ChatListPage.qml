@@ -68,7 +68,7 @@ Page {
                 //            onClicked: chat.isPinned ? chat.unpinChat() : chat.pinChat()
                 UITK.ListItemLayout {
                     id: layout
-                    title.text: chat.isPinned ? chat.title + " (pinned)" : chat.title
+                    title.text: chat.title
                     title.color: Suru.foregroundColor
                     subtitle.text: chat.summary
                     subtitle.color: Suru.foregroundColor
@@ -93,6 +93,13 @@ Page {
                         anchors.topMargin: Suru.units.gu(1)
                     }
 
+                    Image {
+                        height: Suru.units.gu(2)
+                        width: Suru.units.gu(2)
+                        visible: chat.isPinned
+                        source: Qt.resolvedUrl("file://attach.svg")
+                    }
+
                     UITK.UbuntuShape {
                         height: Suru.units.gu(2)
                         width: Suru.units.gu(2)
@@ -112,11 +119,10 @@ Page {
                         visible: chat.hasUnreadMentions
                         UITK.Label {
                             anchors.centerIn: parent
-                            text: "@" + chat.unreadMentionCount
+                            text: "@"
                             color: "white"
                             textSize: UITK.Label.Small
                         }
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Last
                     }
                 }
             }
