@@ -20,7 +20,6 @@ public:
         WaitEncryptionKey,
         WaitPhoneNumber,
         WaitCode,
-        WaitUserProfile,
         WaitPassword,
         Ready,
         LoggingOut,
@@ -47,8 +46,7 @@ signals:
     void waitingForTdParams();
     void waitingForEncryptionKey();
     void waitingForPhoneNumber();
-    void waitingForCode();
-    void waitingForUserProfile();
+    void waitingForCode(bool isRegistered);
     void waitingForPassword(QString passwordHint, bool hasRecoveryEmailAddress, QString recoveryEmailAddressPattern);
     void ready();
     void loggingOut();

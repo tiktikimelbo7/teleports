@@ -12,8 +12,5 @@ KeyTable {
     property string setPassword
     property string authPasswordAccepted
     property string authPasswordError
-    property string setUserProfile
-    property string authUserProfileAccepted
-    property string authUserProfileError
     property string logOut
 }

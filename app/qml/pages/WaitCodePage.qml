@@ -7,42 +7,93 @@ import "../actions"
 Page {
     id: waitCodePage
 
+    property bool registered
+
     header: PageHeader {
         title: i18n.tr("Enter Code")
     }
 
-    TextField {
-        id: codeField
+    Item {
         anchors.centerIn: parent
 
-    }
-    Button {
-        id: nextButton
-        text: i18n.tr("Next...")
-        anchors {
-            top: codeField.bottom
-            topMargin: units.gu(1)
-            horizontalCenter: parent.horizontalCenter
-        }
-        onClicked: sendCode.run({code: codeField.text})
-    }
+        Item {
+            id: firstNameFieldContainer
 
-    Label {
-        anchors {
-            top: nextButton.bottom
-            topMargin: units.gu(1)
-            horizontalCenter: parent.horizontalCenter
+            width: (!registered) ? firstNameField.implicitWidth : 0
+            height: (!registered) ? firstNameField.implicitHeight : 0
+
+            anchors {
+                centerIn: parent
+                horizontalCenter: parent.horizontalCenter
+            }
+
+            TextField {
+                id: firstNameField
+                visible: !registered
+//                 visible: false
+                placeholderText: i18n.tr("First Name")
+            }
         }
-        id: errorLabel
-        visible: text != ""
-        color: "red"
+
+        Item {
+            id: lastNameFieldContainer
+
+            width: (!registered) ? lastNameField.implicitWidth : 0
+            height: (!registered) ? lastNameField.implicitHeight : 0
+
+            anchors {
+                top: firstNameFieldContainer.bottom
+                topMargin: units.gu(1)
+                horizontalCenter: parent.horizontalCenter
+            }
+
+            TextField {
+                id: lastNameField
+                visible: !registered
+//                 visible: false
+                placeholderText: i18n.tr("Last Name")
+            }
+        }
+
+        TextField {
+            id: codeField
+            anchors {
+                top: lastNameFieldContainer.bottom
+                topMargin: units.gu(1)
+                horizontalCenter: parent.horizontalCenter
+            }
+            placeholderText: i18n.tr("Code")
+        }
+
+        Button {
+            id: nextButton
+            text: i18n.tr("Next...")
+            anchors {
+                top: codeField.bottom
+                topMargin: units.gu(1)
+                horizontalCenter: parent.horizontalCenter
+            }
+            onClicked: sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: codeField.text })
+        }
+
+        Label {
+            id: errorLabel
+            anchors {
+                top: nextButton.bottom
+                topMargin: units.gu(1)
+                horizontalCenter: parent.horizontalCenter
+            }
+            visible: text != ""
+            color: "red"
+        }
+
     }
 
     AppScript {
        id: sendCode
        script: {
            // Enter number including dial code
-           AppActions.auth.setCode(message.code, "", "");
+           AppActions.auth.setCode(message.code, message.firstname, message.lastname);
 
            once(AuthKey.authCodeError, function(message) {
                errorLabel.text = message.error;
