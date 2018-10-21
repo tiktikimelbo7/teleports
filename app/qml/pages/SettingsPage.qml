@@ -55,6 +55,25 @@ Page {
                 onClicked: AppActions.auth.logOut()
             }
 
+            Button {
+                id: deleteAccountButton
+                anchors.left: parent.left
+                anchors.right: parent.right
+                background: Rectangle {
+                    implicitHeight: 40
+                    color: deleteAccountButton.down ? "#d6d6d6" : "#f6f6f6"
+                    border.color: hf
+                    border.width: 0
+                    radius: 0
+                }
+                text: i18n.tr('Delete account') + " (disabled for safety)"
+                anchors {
+                    top: logOutButton.bottom
+                }
+                onClicked: AppActions.auth.deleteAccount()
+                enabled: false
+            }
+
         }
 
     }

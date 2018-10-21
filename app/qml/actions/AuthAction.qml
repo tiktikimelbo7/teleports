@@ -77,4 +77,5 @@ ActionCreator {
     signal authPasswordError(string error)
 
     signal logOut()
+    signal deleteAccount()
 }
