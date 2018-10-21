@@ -4,6 +4,11 @@ import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
 
+/*
+ * Not used, candidate for removal.
+ * GenericPhoto used instead, combining both chat and message profile photos.
+ */
+
 Item {
     property QTdProfilePhoto photo: null
     property string initials: ""
@@ -23,7 +28,7 @@ Item {
         id: initialsLabel
         anchors.centerIn: parent
         textSize: UITK.Label.Large
-        color: "#fff"
+        color: photo.small.local.path ? "transparent" : "#fff"
         text: initials
     }
 
