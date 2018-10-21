@@ -1,3 +1,6 @@
 [submodule "libs/vendor/tdlib"]
 	path = libs/vendor/tdlib
 	url = https://github.com/tdlib/td.git
+[submodule "libs/quickflux"]
+	path = libs/quickflux
+	url = https://github.com/benlau/quickflux
