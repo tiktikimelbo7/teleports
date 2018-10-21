@@ -82,8 +82,8 @@ Page {
                         GenericPhoto {
                             anchors.fill: parent
                             photoPath: chat && chat.chatPhoto.small.local.path ? chat.chatPhoto.small.local.path : ""
-                            initials: chat && chat.initials ? chat.initials : "N/A"
-                            avatarColor: chat && chat.avatarColor
+                            initials: chat ? chat.initials : "N/A"
+                            avatarColor: chat.avatarColor(chat ? chat.rawId : 0)
                         }
                     }
 

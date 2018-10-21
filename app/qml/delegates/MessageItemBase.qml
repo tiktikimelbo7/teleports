@@ -33,7 +33,7 @@ ItemDelegate {
                 anchors.fill: parent
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
-                avatarColor: message.sender ? message.sender.avatarColor : "#000"
+                avatarColor: message.sender ? message.sender.avatarColor(message.sender.id) : ""
             }
         }
 

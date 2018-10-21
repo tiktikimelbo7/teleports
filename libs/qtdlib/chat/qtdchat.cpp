@@ -20,7 +20,6 @@ QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
     emit messagesChanged();
-    m_avatarColor = QColor(0, 0, 0, 0);
 }
 
 void QTdChat::unmarshalJson(const QJsonObject &json)
@@ -89,16 +88,9 @@ QString QTdChat::initials() const
     return "N/A";
 }
 
-QString QTdChat::avatarColor()
+QString QTdChat::avatarColor(unsigned int userId)
 {
-    if(!m_avatarColorSet) {
-        int r = rand() % 201;
-        int g = rand() % 201;
-        int b = rand() % 201;
-        m_avatarColor.setRgb(r, g, b, 0);
-        m_avatarColorSet = true;
-    }
-    return m_avatarColor.name();
+    return QTdHelpers::avatarColor(userId);
 }
 
 QString QTdChat::qmlOrder() const
