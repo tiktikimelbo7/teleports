@@ -10,10 +10,6 @@ Item {
     property string avatarColor: "#000"
     property bool photoExists: photoPath != "" ? true : false
     
-    onAvatarColorChanged: {
-        console.log("avatarColor", avatarColor);
-    }
-    
     // Placed under shape, so it's hidden
     ShaderEffectSource {
         id: source
