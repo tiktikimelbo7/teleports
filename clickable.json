@@ -1,6 +1,6 @@
 {
   "template": "cmake",
-  "kill": "qmlscene",
+  "kill": "telegram-plus",
   "dependencies": [
     "gperf",
     "libssl-dev"

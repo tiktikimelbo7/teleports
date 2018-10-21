@@ -7,6 +7,7 @@
 #include "chat/requests/qtdclosechatrequest.h"
 #include "chat/requests/qtdsetchattitlerequest.h"
 #include "user/qtdusers.h"
+#include "common/qtdhelpers.h"
 
 QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_chatType(0), m_chatPhoto(new QTdChatPhoto), m_lastMessage(new QTdMessage),
@@ -333,4 +334,9 @@ QTdChatType *QTdChat::chatType() const
 QTdChatPhoto::QTdChatPhoto(QObject *parent) : QTdPhoto(parent)
 {
     setType(CHAT_PHOTO);
+}
+
+QString QTdChat::formatDate(const QDateTime &dt)
+{
+    return QTdHelpers::formatDate(dt);
 }

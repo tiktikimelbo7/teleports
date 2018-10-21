@@ -188,6 +188,8 @@ public:
         return m_lastMsgJson;
     }
 
+    Q_INVOKABLE QString formatDate(const QDateTime &dt);
+
 signals:
     void chatTypeChanged(QTdChatType *chatType);
     void titleChanged(QString title);
