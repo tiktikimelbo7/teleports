@@ -28,6 +28,5 @@
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
-        <file>pages/WaitUserProfilePage.qml</file>
     </qresource>
 </RCC>

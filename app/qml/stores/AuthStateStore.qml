@@ -45,12 +45,8 @@ Store {
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPasswordPage.qml", properties: {"hint": passwordHint}})
         }
 
-        onWaitingForUserProfile: {
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitUserProfilePage.qml"})
-        }
-
         onWaitingForCode: {
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitCodePage.qml"})
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitCodePage.qml", properties: {"registered": isRegistered}})
         }
 
         onReady: {

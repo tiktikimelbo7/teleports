@@ -140,14 +140,7 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE:
     {
         auto currentState = (QTdAuthStateWaitCode*) state;
-        if (currentState->isRegistered())
-        {
-            emit waitingForCode();
-        }
-        else
-        {
-            emit waitingForUserProfile();
-        }
+        emit waitingForCode(currentState->isRegistered());
         m_state = WaitCode;
         break;
     }
