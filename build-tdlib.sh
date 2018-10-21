@@ -3,6 +3,7 @@
 set -ex
 
 TGPLUS_SOURCE_DIR=$PWD
+TGPLUS_SOURCE_DIR_DOCKER=/home/root/tgplus
 TDLIB_SOURCE_DIR=libs/vendor/tdlib
 
 DO_CLEAN=0
@@ -46,7 +47,7 @@ function build
     $SUDO apt-get -y install libssl-dev gperf
     mkdir -p $BUILD_DIR
     cd $BUILD_DIR
-    cmake -DTHREADS_PTHREAD_ARG=0 -DCMAKE_CROSSCOMPILING=ON -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR/$TDLIB_SOURCE_DIR
+    cmake -DTHREADS_PTHREAD_ARG=0 -DCMAKE_CROSSCOMPILING=ON -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR_DOCKER/$TDLIB_SOURCE_DIR
     cmake --build .
 EOF
 }
@@ -91,7 +92,7 @@ function parse
         SUDO="sudo"
     fi
 
-    DOCKER_COMMAND="docker run -i -v $TGPLUS_SOURCE_DIR:/home/root/tgplus -w /home/root/tgplus clickable/ubuntu-sdk:16.04-$ARCH"
+    DOCKER_COMMAND="docker run -i -v $TGPLUS_SOURCE_DIR:$TGPLUS_SOURCE_DIR_DOCKER -w $TGPLUS_SOURCE_DIR_DOCKER clickable/ubuntu-sdk:16.04-$ARCH"
 
     return 0
 }
