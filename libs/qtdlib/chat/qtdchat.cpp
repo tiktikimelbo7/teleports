@@ -8,6 +8,7 @@
 #include "chat/requests/qtdsetchattitlerequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
+#include <QJsonDocument>
 
 QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_chatType(0), m_chatPhoto(new QTdChatPhoto), m_lastMessage(new QTdMessage),
@@ -312,6 +313,16 @@ void QTdChat::updateChatUnreadMentionCount(const QJsonObject &json)
     emit unreadMentionCountChanged();
 }
 
+void QTdChat::updateChatNotificationSettings(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+    m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
+    emit notificationSettingsChanged();
+}
+
+
 void QTdChat::updateLastMessage(const QJsonObject &json)
 {
     if (json.isEmpty()) {
@@ -393,4 +404,9 @@ QTdChatPhoto::QTdChatPhoto(QObject *parent) : QTdPhoto(parent)
 QString QTdChat::formatDate(const QDateTime &dt)
 {
     return QTdHelpers::formatDate(dt);
+}
+
+void QTdChat::setAllMessagesRead()
+{
+
 }

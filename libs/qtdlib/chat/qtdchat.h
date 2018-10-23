@@ -37,11 +37,11 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QTdMessage* lastMessage READ lastMessage NOTIFY lastMessageChanged)
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
     Q_PROPERTY(bool isPinned READ isPinned NOTIFY isPinnedChanged)
-    Q_PROPERTY(bool isMuted READ isMuted NOTIFY isMutedChanged)
-    Q_PROPERTY(bool isSecret READ isSecret)
-    Q_PROPERTY(bool isGroup READ isGroup)
-    Q_PROPERTY(bool isChannel READ isChannel)
-    Q_PROPERTY(bool isPrivate READ isPrivate)
+    Q_PROPERTY(bool isMuted READ isMuted NOTIFY notificationSettingsChanged)
+    Q_PROPERTY(bool isSecret READ isSecret NOTIFY isSecretChanged)
+    Q_PROPERTY(bool isGroup READ isGroup NOTIFY isGroupChanged)
+    Q_PROPERTY(bool isChannel READ isChannel NOTIFY isChannelChanged)
+    Q_PROPERTY(bool isPrivate READ isPrivate NOTIFY isPrivateChanged)
     Q_PROPERTY(bool canBeReported READ canBeReported NOTIFY canBeReportedChanged)
     Q_PROPERTY(bool hasUnreadMessages READ hasUnreadMessages NOTIFY unreadCountChanged)
     Q_PROPERTY(QString unreadCount READ qmlUnreadCount NOTIFY unreadCountChanged)
@@ -224,6 +224,8 @@ public:
 
     Q_INVOKABLE QString formatDate(const QDateTime &dt);
 
+    void setAllMessagesRead();
+
 signals:
     void chatTypeChanged(QTdChatType *chatType);
     void titleChanged(QString title);
@@ -232,6 +234,10 @@ signals:
     void initialsChanged(QString initials);
     void orderChanged();
     void isPinnedChanged();
+    void isSecretChanged();
+    void isGroupChanged();
+    void isChannelChanged();
+    void isPrivateChanged();
     void isMutedChanged();
     void canBeReportedChanged();
     void unreadCountChanged();
@@ -254,6 +260,7 @@ public slots:
     void updateChatReplyMarkup(const QJsonObject &json);
     void updateChatTitle(const QJsonObject &json);
     void updateChatUnreadMentionCount(const QJsonObject &json);
+    void updateChatNotificationSettings(const QJsonObject &json);
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
 

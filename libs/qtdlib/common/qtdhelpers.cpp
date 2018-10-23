@@ -4,10 +4,14 @@ QString QTdHelpers::formatDate(const QDateTime &dt)
 {
     const QDateTime now = QDateTime::currentDateTimeUtc().toLocalTime();
     const QDateTime localdt = dt.toLocalTime();
-    if (now.daysTo(localdt) == 0) {
+    auto daysDiff = now.daysTo(localdt);
+    if ( daysDiff == 0) {
         return localdt.toString("hh:mm");
     }
-    return localdt.toString("ddd hh:mm");
+    if (now.daysTo(localdt) < 7) {
+        return localdt.toString("ddd");
+    }
+    return localdt.toString("dd.MM.yy");
 }
 
 QString QTdHelpers::avatarColor(unsigned int userId)

@@ -18,11 +18,19 @@ bool QTdNotificationSettings::showPreview() const
 
 void QTdNotificationSettings::unmarshalJson(const QJsonObject &json)
 {
-    m_muteFor = qint32(json["mute_for"].toInt());
-    emit muteForChanged(m_muteFor);
+    auto muteFor = json["mute_for"].toInt();
+    if(m_muteFor != muteFor)
+    {
+        m_muteFor = muteFor;
+        emit muteForChanged(m_muteFor);
+    }
 
-    m_showPreview = json["show_preview"].toBool();
-    emit showPreviewChanged(m_showPreview);
+    auto showPreview = json["show_preview"].toBool();
+    if(m_showPreview != showPreview)
+    {
+        m_showPreview = showPreview;
+        emit showPreviewChanged(m_showPreview);
+    }
 
     QTdObject::unmarshalJson(json);
 }

@@ -4,6 +4,7 @@
 #include "user/qtdusers.h"
 #include "qtdmessagecontentfactory.h"
 #include "common/qtdhelpers.h"
+//#include "i18n.h"
 
 QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_date(0), m_sender_user_id(0), m_chatId(0),
@@ -133,14 +134,6 @@ QTdMessageContent *QTdMessage::content() const
 
 QString QTdMessage::summary() const
 {
-    if (!m_sender) {
-        return QString();
-    }
-    QString name = m_sender->firstName();
-    if (name.isEmpty()) {
-        name = m_sender->username();
-    }
-
     QString content;
 
     switch (m_content->type()) {
@@ -161,7 +154,20 @@ QString QTdMessage::summary() const
         break;
     }
 
-    return QString("%1: %2").arg(name, content);
+    QString name;
+    if (!m_sender) {
+        name = m_sender->firstName();
+        if (name.isEmpty()) {
+            name = m_sender->username();
+        }
+    }
+    if(isOutgoing())
+        return QString("%1: %2").arg("Me", content);
+//    auto *chats = QTdChats::instance()->model();
+//    auto chat = chats->getByUid(QString::number(m_chatId));
+//    if (chat && chat->isGroup())
+//        return QString("%1: %2").arg(name, content);
+    return content;
 }
 
 QString QTdMessage::formatDate(const QDateTime &dt)

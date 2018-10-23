@@ -37,6 +37,7 @@ void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
         return;
 
     m_currentChat = currentChat;
+    currentChat->setAllMessagesRead();
     emit currentChatChanged(m_currentChat);
 }
 
@@ -194,7 +195,6 @@ void QTdChatListModel::handleUpdateChatUnreadMentionCount(const QJsonObject &cha
     const qint64 id = qint64(chat["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat unread mention count";
         tdchat->updateChatUnreadMentionCount(chat);
         emit contentsChanged();
     }
@@ -205,9 +205,8 @@ void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &c
     const qint64 id = qint64(chat["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-        qWarning() << "Updating chat unread mention count";
-        //tdchat->updateChatUnreadMentionCount(chat);
-        //emit contentsChanged();
+        tdchat->updateChatNotificationSettings(chat);
+        emit contentsChanged();
     }
 
 }

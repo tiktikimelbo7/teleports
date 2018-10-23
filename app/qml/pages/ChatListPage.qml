@@ -224,14 +224,21 @@ Page {
                         width: parent.width - (secret_chat_icon.visible? secret_chat_icon.width : 0.0)
                                - (contact_group_icon.visible? contact_group_icon.width : 0.0)
                                - (audio_volume_muted_icon.visible? audio_volume_muted_icon.width : 0.0)
+                               - (pinned_icon.visible? pinned_icon.width : 0.0)
                         color: theme.palette.normal.backgroundText
                     }
 
                     UITK.Icon {
-                        height: Suru.units.gu(2)
-                        width: Suru.units.gu(2)
+                        id: pinned_icon
                         visible: chat.isPinned
                         source: "qrc:/qml/icons/attach.svg"
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            topMargin: units.dp(4)
+                            bottomMargin: units.dp(4)
+                        }
+                        width: height
                     }
                 }
 
