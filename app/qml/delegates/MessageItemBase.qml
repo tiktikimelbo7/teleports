@@ -12,6 +12,7 @@ ItemDelegate {
     height: contentCol.height + Suru.units.gu(2)
 
     property QTdMessage message: null
+    property bool transparentBackground: false
 
     default property alias content: mainContent.data
 
@@ -40,6 +41,9 @@ ItemDelegate {
         Rectangle {
             id: contentCol
             color: {
+                if (transparentBackground) {
+                    return "transparent";
+                }
                 if (message.isOutgoing) {
                     if (message.sendingState) {
                         return "lightblue"
@@ -94,7 +98,7 @@ ItemDelegate {
                         anchors.fill: parent
                         Label {
                             text: message.formatDate(message.date)
-                            color: message.isOutgoing ? "white" : Suru.foregroundColor
+                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText

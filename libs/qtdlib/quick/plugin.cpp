@@ -113,6 +113,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessage>(uri, 1, 0, "QTdMessage", "C++ class");
     qmlRegisterUncreatableType<QTdMessageContent>(uri, 1, 0, "QTdMessageContent", "C++ class");
     qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");
     qmlRegisterUncreatableType<QTdFormattedText>(uri, 1, 0, "QTdFormattedText", "C++ class");
     qmlRegisterUncreatableType<QTdWebPage>(uri, 1, 0, "QTdWebPage", "C++ class");
 }

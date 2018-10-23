@@ -6,6 +6,7 @@
 #include "common/qabstracttdobject.h"
 #include "qtdformattedtext.h"
 #include "qtdwebpage.h"
+#include "files/qtdsticker.h"
 
 class QTdMessageContent : public QTdObject
 {
@@ -44,6 +45,25 @@ public:
 
 private:
     Q_DISABLE_COPY(QTdMessageAction)
+};
+
+class QTdMessageSticker: public QTdMessageContent
+{
+    Q_OBJECT
+    Q_PROPERTY(QTdSticker* sticker READ sticker NOTIFY dataChanged)
+public:
+    explicit QTdMessageSticker(QObject *parent = nullptr);
+
+    QTdSticker *sticker() const;
+
+    void unmarshalJson(const QJsonObject &json);
+
+signals:
+    void dataChanged();
+
+private:
+    Q_DISABLE_COPY(QTdMessageSticker)
+    QScopedPointer<QTdSticker> m_sticker;
 };
 
 #endif // QTDMESSAGECONTENT_H
