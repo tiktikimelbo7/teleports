@@ -6,7 +6,7 @@ import QuickFlux 1.1
 import QTelegram 1.0
 import "./stores"
 
-ApplicationWindow {
+Window {
     Suru.theme: Suru
     /**
      * Only show the window once we have reached a state

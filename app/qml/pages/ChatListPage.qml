@@ -50,7 +50,7 @@ Page {
 
     ScrollView {
         anchors.fill: parent
-
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
         ListView {
             anchors{
                 fill: parent
@@ -237,6 +237,7 @@ Page {
                             bottom: parent.bottom
                             topMargin: units.dp(4)
                             bottomMargin: units.dp(4)
+                            rightMargin: units.dp(1)
                         }
                         width: height
                     }
