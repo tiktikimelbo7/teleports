@@ -150,6 +150,12 @@ QString QTdMessage::summary() const
         content = c->text()->text();
         break;
     }
+    case QTdMessageText::MESSAGE_STICKER:
+    {
+        auto *c = qobject_cast<QTdMessageSticker*>(m_content);
+        content = c->sticker()->emoji();
+        break;
+    }
     default:
         content = QStringLiteral("Sent a message");
         break;
