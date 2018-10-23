@@ -18,6 +18,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent) : QObject(parent),
     connect(QTdClient::instance(), &QTdClient::updateChatReplyMarkup, this, &QTdChatListModel::handleUpdateChatReplyMarkup);
     connect(QTdClient::instance(), &QTdClient::updateChatTitle, this, &QTdChatListModel::handleUpdateChatTitle);
     connect(QTdClient::instance(), &QTdClient::updateChatUnreadMentionCount, this, &QTdChatListModel::handleUpdateChatUnreadMentionCount);
+    connect(QTdClient::instance(), &QTdClient::updateChatNotificationSettings, this, &QTdChatListModel::handleUpdateChatNotificationSettings);
 }
 
 QObject *QTdChatListModel::model() const
@@ -197,6 +198,18 @@ void QTdChatListModel::handleUpdateChatUnreadMentionCount(const QJsonObject &cha
         tdchat->updateChatUnreadMentionCount(chat);
         emit contentsChanged();
     }
+}
+
+void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &chat)
+{
+    const qint64 id = qint64(chat["chat_id"].toDouble());
+    QTdChat *tdchat = m_model->getByUid(QString::number(id));
+    if (tdchat) {
+        qWarning() << "Updating chat unread mention count";
+        //tdchat->updateChatUnreadMentionCount(chat);
+        //emit contentsChanged();
+    }
+
 }
 
 void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pinned)

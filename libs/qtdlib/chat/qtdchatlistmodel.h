@@ -44,6 +44,7 @@ private slots:
     void handleUpdateChatReplyMarkup(const QJsonObject &chat);
     void handleUpdateChatTitle(const QJsonObject &chat);
     void handleUpdateChatUnreadMentionCount(const QJsonObject &chat);
+    void handleUpdateChatNotificationSettings(const QJsonObject &chat);
     /**
      * @brief Set the pinned chats for the user
      *

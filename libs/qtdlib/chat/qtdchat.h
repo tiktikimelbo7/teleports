@@ -37,6 +37,7 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QTdMessage* lastMessage READ lastMessage NOTIFY lastMessageChanged)
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
     Q_PROPERTY(bool isPinned READ isPinned NOTIFY isPinnedChanged)
+    Q_PROPERTY(bool isMuted READ isMuted NOTIFY isMutedChanged)
     Q_PROPERTY(bool canBeReported READ canBeReported NOTIFY canBeReportedChanged)
     Q_PROPERTY(bool hasUnreadMessages READ hasUnreadMessages NOTIFY unreadCountChanged)
     Q_PROPERTY(QString unreadCount READ qmlUnreadCount NOTIFY unreadCountChanged)
@@ -96,6 +97,11 @@ public:
      * @brief True if chat is pinned
      */
     bool isPinned() const;
+    /**
+     * @brief True if chat is muted
+     */
+    bool isMuted() const;
+
     /**
      * @brief True if the chat can be reported to Telegram mods
      *
@@ -207,6 +213,7 @@ signals:
     void initialsChanged(QString initials);
     void orderChanged();
     void isPinnedChanged();
+    void isMutedChanged();
     void canBeReportedChanged();
     void unreadCountChanged();
     void lastReadInboxMessageIdChanged();

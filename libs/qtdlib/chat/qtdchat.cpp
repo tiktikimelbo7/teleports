@@ -108,6 +108,11 @@ bool QTdChat::isPinned() const
     return m_isPinned;
 }
 
+bool QTdChat::isMuted() const
+{
+    return m_notifySettings->muteFor() > 0;
+}
+
 bool QTdChat::canBeReported() const
 {
     return m_canBeReported;

@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/qml/icons">
         <file>send.png</file>
+        <file>attach.svg</file>
+        <file>broadcast.svg</file>
+        <file>clock_green.svg</file>
+        <file>clock_white.svg</file>
+        <file>clock.svg</file>
+        <file>eye.svg</file>
+        <file>eyeWhite.svg</file>
+        <file>send_disabled.png</file>
     </qresource>
 </RCC>

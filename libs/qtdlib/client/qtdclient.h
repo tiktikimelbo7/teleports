@@ -97,6 +97,7 @@ signals:
     void updateChatTitle(const QJsonObject &chat);
     void updateChatUnreadMentionCount(const QJsonObject &chat);
     void updateUserChatAction(const QJsonObject &chat);
+    void updateChatNotificationSettings(const QJsonObject &chat);
     void messages(const QJsonObject &messages);
     void updateDeleteMessages(const QJsonObject &messages);
 
