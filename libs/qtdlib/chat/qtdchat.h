@@ -38,6 +38,10 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
     Q_PROPERTY(bool isPinned READ isPinned NOTIFY isPinnedChanged)
     Q_PROPERTY(bool isMuted READ isMuted NOTIFY isMutedChanged)
+    Q_PROPERTY(bool isSecret READ isSecret)
+    Q_PROPERTY(bool isGroup READ isGroup)
+    Q_PROPERTY(bool isChannel READ isChannel)
+    Q_PROPERTY(bool isPrivate READ isPrivate)
     Q_PROPERTY(bool canBeReported READ canBeReported NOTIFY canBeReportedChanged)
     Q_PROPERTY(bool hasUnreadMessages READ hasUnreadMessages NOTIFY unreadCountChanged)
     Q_PROPERTY(QString unreadCount READ qmlUnreadCount NOTIFY unreadCountChanged)
@@ -101,7 +105,22 @@ public:
      * @brief True if chat is muted
      */
     bool isMuted() const;
-
+    /**
+     * @brief True if chat is a secret chat
+     */
+    bool isSecret() const;
+    /**
+     * @brief True if chat is a group chat (normal or supergroup)
+     */
+    bool isGroup() const;
+    /**
+     * @brief True if chat is a channel
+     */
+    bool isChannel() const;
+    /**
+     * @brief True if chat is a private conversation
+     */
+    bool isPrivate() const;
     /**
      * @brief True if the chat can be reported to Telegram mods
      *

@@ -113,6 +113,30 @@ bool QTdChat::isMuted() const
     return m_notifySettings->muteFor() > 0;
 }
 
+bool QTdChat::isPrivate() const
+{
+    return qobject_cast<QTdChatTypePrivate*>(m_chatType) != NULL;
+}
+
+bool QTdChat::isSecret() const
+{
+    return qobject_cast<QTdChatTypeSecret*>(m_chatType) != NULL;
+}
+
+bool QTdChat::isGroup() const
+{
+    if (qobject_cast<QTdChatTypeBasicGroup*>(m_chatType) != NULL)
+        return true;
+    auto result = qobject_cast<QTdChatTypeSuperGroup*>(m_chatType);
+    return result != NULL && !result->isChannel();
+}
+
+bool QTdChat::isChannel() const
+{
+    auto result = qobject_cast<QTdChatTypeSuperGroup*>(m_chatType);
+    return result != NULL && result->isChannel();
+}
+
 bool QTdChat::canBeReported() const
 {
     return m_canBeReported;

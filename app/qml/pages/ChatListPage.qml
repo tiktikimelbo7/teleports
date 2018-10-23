@@ -161,7 +161,7 @@ Page {
 
                     UITK.Icon {
                         id: secret_chat_icon
-                        visible: true //if chat is encrypted
+                        visible: chat.isSecret //if chat is encrypted
                         name: "network-secure"
                         anchors {
                             top: parent.top
@@ -174,7 +174,7 @@ Page {
 
                     UITK.Icon {
                         id: contact_group_icon
-                        visible: true //if chat is a real chat or a supergroup, but not channel
+                        visible: chat.isGroup //if chat is a real chat or a supergroup, but not channel
                         name: "contact-group"
                         anchors {
                             top: parent.top
@@ -187,7 +187,7 @@ Page {
 
                     UITK.Icon {
                         id: contact_channel_icon
-                        visible: true //if chat is channel but not supergroup
+                        visible: chat.isChannel //if chat is channel but not supergroup
                         source: "qrc:/qml/icons/broadcast.svg"
                         anchors {
                             top: parent.top
@@ -221,7 +221,9 @@ Page {
                         font.weight: Font.DemiBold
                         font.pixelSize: units.dp(17)
                         text: chat.title
-                        width: parent.width - (secret_chat_icon.visible? secret_chat_icon.width : 0.0) - (contact_group_icon.visible? contact_group_icon.width : 0.0) - (audio_volume_muted_icon.visible? audio_volume_muted_icon.width : 0.0)
+                        width: parent.width - (secret_chat_icon.visible? secret_chat_icon.width : 0.0)
+                               - (contact_group_icon.visible? contact_group_icon.width : 0.0)
+                               - (audio_volume_muted_icon.visible? audio_volume_muted_icon.width : 0.0)
                         color: theme.palette.normal.backgroundText
                     }
 
