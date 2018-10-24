@@ -13,6 +13,8 @@ ItemDelegate {
 
     property QTdMessage message: null
     property bool transparentBackground: false
+    property real maximumAvailableContentWidth: Suru.units.gu(45)
+                                                - (mc.anchors.leftMargin + mc.anchors.rightMargin)
 
     default property alias content: mainContent.data
 
@@ -28,7 +30,7 @@ ItemDelegate {
             width: Suru.units.gu(4.5)
             height: Suru.units.gu(4.5)
             Layout.alignment: Qt.AlignTop | Qt.AlignLeft
-            
+
             GenericPhoto {
                 visible: !message.isOutgoing
                 anchors.fill: parent
@@ -36,6 +38,11 @@ ItemDelegate {
                 initials: message.sender ? message.sender.initials : "N/A"
                 avatarColor: message.sender ? message.sender.avatarColor(message.sender.id) : ""
             }
+        }
+
+        Item {
+            Layout.fillWidth: message.isOutgoing
+            width: Suru.units.gu(1)
         }
 
         Rectangle {
@@ -52,31 +59,45 @@ ItemDelegate {
                 }
                 return "lightgrey"
             }
+
             radius: 4
             Layout.fillWidth: true
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
-            Layout.maximumWidth: Suru.units.gu(45)
+            Layout.minimumWidth: Math.min(Suru.units.gu(45), mc.width + mc.horizontalMargins)
+            Layout.maximumWidth: Layout.minimumWidth
             Layout.preferredHeight: message.isOutgoing ? mc.height + Suru.units.dp(5) : mc.height
 
             Column {
                 id: mc
+
                 anchors {
-                    left: parent.left
-                    leftMargin: Suru.units.dp(5)
                     top: parent.top
                     topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
-                    right: parent.right
+                    left: !message.isOutgoing ? parent.left : undefined
+                    leftMargin: Suru.units.dp(5)
+                    right: message.isOutgoing ? parent.right: undefined
                     rightMargin: Suru.units.dp(5)
                 }
+
+                property real horizontalMargins: mc.anchors.leftMargin + mc.anchors.rightMargin
+
+                width: Math.min(Suru.units.gu(45) - mc.horizontalMargins,
+                                Math.max(mainContent.width,
+                                         senderLabel.contentWidth,
+                                         dateLabel.implicitWidth))
+                height: childrenRect.height
 
                 Item {
                     visible: !message.isOutgoing
                     width: parent.width
                     height: Suru.units.gu(3)
+
                     RowLayout {
                         id: topBar
                         anchors.fill: parent
+
                         Label {
+                            id: senderLabel
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
                             font.bold: true
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
@@ -86,17 +107,20 @@ ItemDelegate {
 
                 Item {
                     id: mainContent
-                    width: parent.width
                     height: children ? childrenRect.height : 0
+                    width: childrenRect.width
                 }
 
                 Item {
-                    width: parent.width
                     height: Suru.units.gu(3)
+                    width: parent.width
+
                     RowLayout {
                         id: bottomBar
                         anchors.fill: parent
+
                         Label {
+                            id: dateLabel
                             text: message.formatDate(message.date)
                             color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -107,8 +131,9 @@ ItemDelegate {
                 }
             }
         }
+
         Item {
-            width: Suru.units.gu(1)
+            Layout.fillWidth: !message.isOutgoing
         }
     }
 }
