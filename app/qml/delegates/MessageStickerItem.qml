@@ -15,43 +15,28 @@ MessageItemBase {
 
     transparentBackground: true
 
-    Item {
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
+    Image {
+        id: image
+
+        property url localFileSource: localFile.path !== ""
+                                      ? Qt.resolvedUrl("file://" + localFile.path)
+                                      : Qt.resolvedUrl("")
+
+        function reload() {
+            image.source = Qt.resolvedUrl();
+            image.source = localFileSource;
         }
 
-        height: childrenRect.height
+        width: Math.min(d.maxStickerSize, maximumAvailableContentWidth)
+        height: width
+        source: localFileSource
 
-        Image {
-            id: image
+        // TODO: Handle Image.Error
 
-            anchors {
-                left: !message.isOutgoing ? parent.left: null
-                right: message.isOutgoing ? parent.right: null
-            }
-
-            property url localFileSource: localFile.path !== ""
-                                          ? Qt.resolvedUrl("file://" + localFile.path)
-                                          : Qt.resolvedUrl("")
-
-            function reload() {
-                image.source = Qt.resolvedUrl();
-                image.source = localFileSource;
-            }
-
-            width: Math.min(d.maxStickerSize, parent.width)
-            height: width
-            source: localFileSource
-
-            // TODO: Handle Image.Error
-
-            BusyIndicator {
-                anchors.centerIn: parent
-                running: image.status === Image.Loading
-                         || image.status === Image.Null
-            }
+        BusyIndicator {
+            anchors.centerIn: parent
+            running: image.status === Image.Loading
+                     || image.status === Image.Null
         }
     }
 

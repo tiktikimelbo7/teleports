@@ -6,30 +6,39 @@ import QTelegram 1.0
 import "../components"
 
 MessageItemBase {
+    id: item
 
     property QTdMessageText textContent: message.content
 
     Column {
         anchors {
             top: parent.top
-            left: parent.left
-            right: parent.right
         }
         spacing: Suru.units.gu(2)
+
+        width: textEdit.width
+
         TextEdit {
             id: textEdit
-            width: parent.width
+
             height: contentHeight
+            width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
             text: textContent.text.text
             color: message.isOutgoing ? "white" : Suru.foregroundColor
-            horizontalAlignment: message.isOutgoing ? TextEdit.AlignRight : TextEdit.AlignLeft
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {
                 console.log("Link activated: ", link)
                 Qt.openUrlExternally(link)
             }
+        }
+
+        TextEdit {
+            id: dummyTextEdit
+            visible: false
+            height: contentHeight
+            text: textContent.text.text
         }
 
         Loader {
@@ -53,11 +62,20 @@ MessageItemBase {
         active: textContent.text.entities.count > 0
         asynchronous: true
         sourceComponent: Component {
-            TextFormatter {
-                codeColor: Suru.color(Suru.LightBlue, 0.8)
-                linkColor: Suru.color(Suru.LightBlue)
-                textDocument: textEdit.textDocument
-                content: textContent.text
+            Item {
+                TextFormatter {
+                    id: textFormatter
+                    codeColor: Suru.color(Suru.LightBlue, 0.8)
+                    linkColor: Suru.color(Suru.LightBlue)
+                    textDocument: textEdit.textDocument
+                    content: textContent.text
+                }
+
+                TextFormatter {
+                    id: dummyTextFormatter
+                    textDocument: dummyTextEdit.textDocument
+                    content: textContent.text
+                }
             }
         }
     }
