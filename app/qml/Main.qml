@@ -24,7 +24,7 @@ Window {
         id: pageStack
         anchors {
             fill: parent
-            bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height : 0
+            bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : 0
             Behavior on bottomMargin {
                 NumberAnimation {
                     duration: 175
