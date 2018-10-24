@@ -155,7 +155,7 @@ QString QTdMessage::summary() const
     }
 
     QString name;
-    if (!m_sender) {
+    if (m_sender) {
         name = m_sender->firstName();
         if (name.isEmpty()) {
             name = m_sender->username();
@@ -163,10 +163,6 @@ QString QTdMessage::summary() const
     }
     if(isOutgoing())
         return QString("%1: %2").arg("Me", content);
-//    auto *chats = QTdChats::instance()->model();
-//    auto chat = chats->getByUid(QString::number(m_chatId));
-//    if (chat && chat->isGroup())
-//        return QString("%1: %2").arg(name, content);
     return content;
 }
 

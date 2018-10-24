@@ -8,7 +8,6 @@
 #include "chat/requests/qtdsetchattitlerequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
-#include <QJsonDocument>
 
 QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_chatType(0), m_chatPhoto(new QTdChatPhoto), m_lastMessage(new QTdMessage),
