@@ -100,16 +100,20 @@ signals:
     void updateChatNotificationSettings(const QJsonObject &chat);
     void messages(const QJsonObject &messages);
     void updateDeleteMessages(const QJsonObject &messages);
+    void updateOption(const QJsonObject &option);
 
 private slots:
     void handleRecv(const QJsonObject &data);
 private:
     Q_DISABLE_COPY(QTdClient)
     void init();
+    void handleUpdateOption(const QJsonObject &json);
     QScopedPointer<QThread> m_worker;
     QPointer<QTdAuthState> m_authState;
     QPointer<QTdConnectionState> m_connectionState;
     QHash<QString, ReceiveCallback> m_events;
+    QHash<QString, QObject> m_options;
+
 };
 
 #endif // QTDCLIENT_H

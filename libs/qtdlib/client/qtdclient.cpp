@@ -35,6 +35,8 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     w->moveToThread(m_worker.data());
     connect(m_worker.data(), &QThread::started, w, &QTdWorker::run);
     connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
+    connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
+
     m_worker->start();
 }
 
@@ -92,7 +94,7 @@ QFuture<QJsonObject> QTdClient::exec(const QJsonObject &json)
 
 void QTdClient::handleRecv(const QJsonObject &data)
 {
-    static bool DEBUG_TDLIB = true;
+    static bool DEBUG_TDLIB = false;
     if (!DEBUG_TDLIB) {
         DEBUG_TDLIB = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
@@ -202,4 +204,9 @@ void QTdClient::init()
 
 }
 
+void QTdClient::handleUpdateOption(const QJsonObject &json)
+{
+    qWarning() << "received option" << json["name"] << ", value" << json["value"];
+
+}
 
