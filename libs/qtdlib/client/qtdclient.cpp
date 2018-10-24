@@ -7,6 +7,7 @@
 #include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
+#include <QJsonDocument>
 
 QJsonObject execTd(const QJsonObject &json) {
     qDebug() << "[EXEC]" << json;
@@ -206,7 +207,34 @@ void QTdClient::init()
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
 {
-    qWarning() << "received option" << json["name"] << ", value" << json["value"];
 
+    QJsonDocument doc(json);
+    QString strJson(doc.toJson(QJsonDocument::Compact));
+
+    QString option_name = json["name"].toString();
+    auto option_value = QVariant();
+    auto value_obj = json["value"].toObject();
+    auto type = value_obj["@type"].toString();
+    if (type == "optionValueString") {
+        option_value = value_obj["value"].toString();
+    } else if (type == "optionValueInteger") {
+        option_value = value_obj["value"].toInt();
+    } else if (type == "optionValueBoolean") {
+        option_value = value_obj["value"].toBool();
+    } else {
+        qWarning() << "Unknown option type: " << type;
+    }
+    m_options[option_name] = option_value;
+    qWarning() << "received option" << option_name << ", value" << option_value;
+}
+
+QVariant QTdClient::getOption(const QString name)
+{
+    if (m_options.contains(name))
+    {
+        return m_options[name];
+    }
+    else
+        return QVariant();
 }
 

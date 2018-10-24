@@ -7,7 +7,7 @@ QString QTdHelpers::formatDate(const QDateTime &dt)
     auto daysDiff = now.daysTo(localdt);
     if ( daysDiff == 0) {
         return localdt.toString("hh:mm");
-    } else if (daysDiff < 7) {
+    } else if (daysDiff > -7) {
         return localdt.toString("ddd");
     } else
         return localdt.toString("dd.MM.yy");

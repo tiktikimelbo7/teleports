@@ -72,6 +72,15 @@ public:
     QFuture<QJsonObject> exec(QTdRequest *obj);
     QFuture<QJsonObject> exec(const QJsonObject &json);
 
+    /**
+     * @brief Retrieve a Telegram server option by name
+     *
+     * Retrieves an option that has been received from the Telegram server upon login or after an update
+     * Clients should subscribe for the updateOption signal and then call this method with the appropriate name
+     * Returns an empty QVariant if the option is not found.
+     */
+    QVariant getOption(const QString name);
+
 signals:
     void authStateChanged(QTdAuthState *state);
     void connectionStateChanged(QTdConnectionState *state);
@@ -112,7 +121,7 @@ private:
     QPointer<QTdAuthState> m_authState;
     QPointer<QTdConnectionState> m_connectionState;
     QHash<QString, ReceiveCallback> m_events;
-    QHash<QString, QObject> m_options;
+    QHash<QString, QVariant> m_options;
 
 };
 
