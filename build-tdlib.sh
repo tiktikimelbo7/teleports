@@ -10,6 +10,8 @@ DO_CLEAN=0
 ARCH="armhf"
 ARCH_TRIPLET="arm-linux-gnueabihf"
 
+
+DOCKER_AMD64_COMMAND="docker run -i -v $TGPLUS_SOURCE_DIR:$TGPLUS_SOURCE_DIR_DOCKER -w $TGPLUS_SOURCE_DIR_DOCKER clickable/ubuntu-sdk:16.04-amd64"
 DOCKER_COMMAND=""
 JOBS="1"
 SUDO=""
@@ -30,21 +32,24 @@ EOF
 
 function build
 {
-    # apt-get -y install zlib1g-dev libssl-dev gperf
+    $DOCKER_AMD64_COMMAND bash <<-EOF
+    #!/bin/bash
+    $SUDO apt-get -y install zlib1g-dev libssl-dev gperf
     git submodule update --init --recursive
     mkdir -p $GENERATE_BUILD_DIR
     cd $GENERATE_BUILD_DIR
-    cmake -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR/$TDLIB_SOURCE_DIR
+    cmake -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR_DOCKER/$TDLIB_SOURCE_DIR
     cmake --build . --target tl_generate_common
     cmake --build . --target tl_generate_json
     cmake --build . --target tl_generate_c
     cmake --build . --target tdmime_auto
-    cd $TGPLUS_SOURCE_DIR
+EOF
+    #cd $TGPLUS_SOURCE_DIR
     $DOCKER_COMMAND bash <<-EOF
     #!/bin/bash
     export MAKEFLAGS=-j$JOBS
     $SUDO apt-get update
-    $SUDO apt-get -y install libssl-dev gperf
+    $SUDO apt-get -y install zlib1g-dev libssl-dev gperf
     mkdir -p $BUILD_DIR
     cd $BUILD_DIR
     cmake -DTHREADS_PTHREAD_ARG=0 -DCMAKE_CROSSCOMPILING=ON -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR_DOCKER/$TDLIB_SOURCE_DIR
@@ -86,13 +91,14 @@ function parse
         esac
     done
 
+    DOCKER_COMMAND="docker run -i -v $TGPLUS_SOURCE_DIR:$TGPLUS_SOURCE_DIR_DOCKER -w $TGPLUS_SOURCE_DIR_DOCKER clickable/ubuntu-sdk:16.04-$ARCH"
+
     if [ "$ARCH" == "host" ]; then
+        DOCKER_COMMAND_AMD64=""
         DOCKER_COMMAND=""
         JOBS="4"
         SUDO="sudo"
     fi
-
-    DOCKER_COMMAND="docker run -i -v $TGPLUS_SOURCE_DIR:$TGPLUS_SOURCE_DIR_DOCKER -w $TGPLUS_SOURCE_DIR_DOCKER clickable/ubuntu-sdk:16.04-$ARCH"
 
     return 0
 }
