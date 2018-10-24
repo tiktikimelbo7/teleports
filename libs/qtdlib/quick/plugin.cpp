@@ -20,8 +20,18 @@
 #include "messages/qtdmessage.h"
 #include "messages/qtdmessagelistmodel.h"
 #include "messages/qtdmessagecontent.h"
+#include "user/qtdmemyself.h"
 
 #include "utils/qtdtextformatter.h"
+
+static QObject *meMyselfProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(engine)
+    Q_UNUSED(scriptEngine)
+
+    QTdUser *me = QTdMeMyself::instance();
+    return me;
+}
 
 void QTdLib::registerQmlTypes()
 {
@@ -95,6 +105,8 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdUserTypeDeleted>(uri, 1, 0, "QTdUserTypeDeleted", "c++ class");
     qmlRegisterUncreatableType<QTdUserTypeRegular>(uri, 1, 0, "QTdUserTypeRegular", "c++ class");
     qmlRegisterUncreatableType<QTdUserTypeUnknown>(uri, 1, 0, "QTdUserTypeUnknown", "c++ class");
+
+    qmlRegisterSingletonType<QTdMeMyself>("QTdMeMyself", 1, 0, "MeMyself", meMyselfProvider);
 
     // qtdlib files
     qmlRegisterUncreatableType<QTdFile>(uri, 1, 0, "QTdFile", "c++ class");

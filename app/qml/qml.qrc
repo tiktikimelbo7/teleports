@@ -30,5 +30,6 @@
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
         <file>delegates/MessageStickerItem.qml</file>
+        <file>pages/AccountPage.qml</file>
     </qresource>
 </RCC>
