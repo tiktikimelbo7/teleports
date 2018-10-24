@@ -92,7 +92,7 @@ QFuture<QJsonObject> QTdClient::exec(const QJsonObject &json)
 
 void QTdClient::handleRecv(const QJsonObject &data)
 {
-    static bool DEBUG_TDLIB = false;
+    static bool DEBUG_TDLIB = true;
     if (!DEBUG_TDLIB) {
         DEBUG_TDLIB = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
@@ -176,7 +176,6 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateBasicGroupFullInfo"), [=](const QJsonObject &data){
         emit updateBasicGroupFullInfo(data);
     });
-
     m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &data){ emit updateBasicGroup(data); });
     m_events.insert(QStringLiteral("secretChat"), [=](const QJsonObject &data){ emit secretChat(data); });
     m_events.insert(QStringLiteral("updateSecretChat"), [=](const QJsonObject &data){ emit updateSecretChat(data["secret_chat"].toObject()); });
@@ -197,6 +196,10 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data){ emit updateChatNotificationSettings(data); });
 
     m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data){ emit messages(data); });
+
+    //Option handling - more or less global constants, still could change during execution
+    m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data){ emit updateOption(data); });
+
 }
 
 

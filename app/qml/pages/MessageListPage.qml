@@ -117,7 +117,6 @@ Page {
             Image {
                 visible: entry.text !== ""
                 sourceSize.height: parent.height * 0.75
-                sourceSize.width: sourceSize.height
                 source: "qrc:/qml/icons/send.png"
 
                 MouseArea {

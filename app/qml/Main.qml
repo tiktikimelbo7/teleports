@@ -2,12 +2,13 @@ import QtQuick 2.9
 import QtQuick.Window 2.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
+import Ubuntu.Components 1.3 as UITK
 import QuickFlux 1.1
 import QTelegram 1.0
 import "./stores"
 
 Window {
-    Suru.theme: Suru
+
     /**
      * Only show the window once we have reached a state
      * that has something to display.
