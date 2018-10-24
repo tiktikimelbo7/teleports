@@ -19,12 +19,12 @@ Window {
     visible: Telegram.auth.state > AuthState.WaitEncryptionKey
     width: Suru.units.gu(45)
     height: Suru.units.gu(75)
-
+    
     StackView {
         id: pageStack
         anchors {
             fill: parent
-            bottomMargin: Qt.inputMethod.visible ? (Qt.inputMethod.keyboardRectangle.height - mainView.anchors.bottomMargin) : 0
+            bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height : 0
             Behavior on bottomMargin {
                 NumberAnimation {
                     duration: 175
