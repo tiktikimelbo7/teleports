@@ -1,0 +1,32 @@
+stages:
+    - deps
+    - build
+
+tdlib:
+    stage: deps
+    services:
+        - docker:dind
+    image: hummlbach/dind-clickable
+    script:
+        - ./build-tdlib.sh
+    cache:
+        key: deps-cache
+        paths:
+            - build/tdlib/arm-linux-gnueabihf
+            - libs/vendor/tdlib
+
+tg-plus:
+    stage: build
+    image: clickable/ci-16.04-armhf
+    script:
+        - git submodule update --init libs/quickflux
+        - clickable clean build click-build
+    cache:
+        key: deps-cache
+        paths:
+            - build/tdlib/arm-linux-gnueabihf
+            - libs/vendor/tdlib
+    artifacts:
+        paths:
+            - build/telegram-plus/*.click
+        expire_in: 1 week
