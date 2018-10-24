@@ -110,6 +110,7 @@ signals:
     void messages(const QJsonObject &messages);
     void updateDeleteMessages(const QJsonObject &messages);
     void updateOption(const QJsonObject &option);
+    void updateNewMessage(const QJsonObject &message);
 
 private slots:
     void handleRecv(const QJsonObject &data);

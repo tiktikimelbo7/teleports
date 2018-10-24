@@ -263,6 +263,7 @@ public slots:
     void updateChatNotificationSettings(const QJsonObject &json);
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
+    void handleUpdateNewMessage(const QJsonObject &json);
 
 protected:
     virtual void onChatOpened();

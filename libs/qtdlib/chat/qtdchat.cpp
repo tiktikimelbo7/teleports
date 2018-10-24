@@ -343,6 +343,15 @@ void QTdChat::handleUpdateChatAction(const QJsonObject &json)
     updateChatAction(json);
 }
 
+void QTdChat::handleUpdateNewMessage(const QJsonObject &json)
+{
+    auto m_newMsgJson = json["message"].toObject();
+    QTdMessage *newMessage = new QTdMessage();
+    newMessage->unmarshalJson(m_newMsgJson);
+    m_messages->append(newMessage);
+    emit messagesChanged();
+}
+
 void QTdChat::onChatOpened()
 {
     // Do nothing here;

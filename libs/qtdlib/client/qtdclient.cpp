@@ -203,6 +203,9 @@ void QTdClient::init()
     //Option handling - more or less global constants, still could change during execution
     m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data){ emit updateOption(data); });
 
+    //Message updates to add to existing chats or channel views
+    m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data){ emit updateNewMessage(data); });
+
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
