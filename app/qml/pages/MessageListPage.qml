@@ -77,6 +77,7 @@ Page {
         }
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
+
         Rectangle {
             anchors {
                 top: parent.top
