@@ -85,6 +85,7 @@ set(
     messages/qtdmessagesendingstate.cpp
     messages/qtdmessagelistmodel.cpp
     messages/requests/qtdsendmessagerequest.cpp
+    messages/requests/qtdviewmessagesrequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
     notifications/qtdnotificationsettings.cpp

@@ -35,8 +35,4 @@ QJsonObject QTdSendMessageRequest::marshalJson()
             {"clear_draft", false}
         }}
     };
-  return QJsonObject{
-      {"@type", "closeChat"},
-      {"chat_id", m_chatId}
-  };
 }

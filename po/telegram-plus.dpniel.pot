@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-24 20:09+0000\n"
+"POT-Creation-Date: 2018-10-25 17:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,72 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:40
+#: ../app/qml/pages/WaitCodePage.qml:13
+msgid "Enter Code"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:34
+msgid "First Name"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:54
+msgid "Last Name"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:65
+msgid "Code"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:70
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
+#: ../app/qml/pages/WaitPasswordPage.qml:33
+msgid "Next..."
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:17 ../app/qml/pages/AboutPage.qml:59
+#: telegram-plus.desktop.in.h:1
+msgid "Telegram Plus"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:31 ../app/qml/pages/SettingsPage.qml:14
+msgid "Settings"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:24
-msgid "Back"
+#: ../app/qml/pages/ChatListPage.qml:54 ../app/qml/pages/AccountPage.qml:17
+msgid "Account"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:59 ../app/qml/pages/ChatListPage.qml:17
-#: telegram-plus.desktop.in.h:1
-msgid "Telegram Plus"
+#: ../app/qml/pages/ChatListPage.qml:83
+msgid "Leave chat"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:88
+msgid "Are you sure you want to leave this chat?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:99
+msgid "Clear history"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:104
+msgid "Are you sure you want to clear the history?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:119
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:10
+msgid "Enter Phone Number"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:24
+#: ../app/qml/pages/AccountPage.qml:28
+msgid "Back"
 msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:66
@@ -46,60 +101,18 @@ msgstr ""
 msgid "Help translate"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:31 ../app/qml/pages/SettingsPage.qml:14
-msgid "Settings"
+#: ../app/qml/pages/AccountPage.qml:75
+msgid "+"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:71
-msgid "Leave chat"
+#: ../app/qml/pages/AccountPage.qml:85
+msgid "Account Actions"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:76
-msgid "Are you sure you want to leave this chat?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:87
-msgid "Clear history"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:92
-msgid "Are you sure you want to clear the history?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:107
-msgid "Info"
-msgstr ""
-
-#: ../app/qml/pages/WaitPasswordPage.qml:33
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
-#: ../app/qml/pages/WaitCodePage.qml:70
-msgid "Next..."
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:10
-msgid "Enter Phone Number"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:51
+#: ../app/qml/pages/AccountPage.qml:95
 msgid "Logout"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:69
+#: ../app/qml/pages/AccountPage.qml:108
 msgid "Delete account"
-msgstr ""
-
-#: ../app/qml/pages/WaitCodePage.qml:13
-msgid "Enter Code"
-msgstr ""
-
-#: ../app/qml/pages/WaitCodePage.qml:34
-msgid "First Name"
-msgstr ""
-
-#: ../app/qml/pages/WaitCodePage.qml:54
-msgid "Last Name"
-msgstr ""
-
-#: ../app/qml/pages/WaitCodePage.qml:65
-msgid "Code"
 msgstr ""
