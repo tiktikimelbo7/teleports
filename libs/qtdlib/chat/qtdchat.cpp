@@ -17,6 +17,7 @@ QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_messages(0)
 {
     setType(CHAT);
+    m_my_id = QTdClient::instance()->getOption("my_id").toInt();
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
     emit messagesChanged();
@@ -55,7 +56,10 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
 
 QString QTdChat::title() const
 {
-    return m_title;
+    if (id() == m_my_id)
+        return tr("Saved Messages");
+    else
+        return m_title;
 }
 
 QTdMessage *QTdChat::lastMessage() const

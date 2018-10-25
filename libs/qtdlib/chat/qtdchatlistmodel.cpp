@@ -86,15 +86,6 @@ void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject chat)
         tdchat->updateLastMessage(chat);
         tdchat->updateChatOrder(chat);
         emit contentsChanged();
-//        QTdClient::instance()->send(QJsonObject{
-//                                        {"@type", "getChatHistory"},
-//                                        {"chat_id", QString::number(tdchat->id())},
-//                                        {"from_message_id", tdchat->lastMessage()->id()},
-//                                        {"offset", 0},
-//                                        {"limit", 100},
-//                                        {"only_local", false},
-//                                        {"@extra", tdchat->title()},
-//                                    });
     }
 }
 

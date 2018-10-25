@@ -275,6 +275,7 @@ private:
     Q_DISABLE_COPY(QTdChat)
     QPointer<QTdChatType> m_chatType;
     QString m_title;
+    qint64 m_my_id;
     QScopedPointer<QTdMessage> m_lastMessage;
     QScopedPointer<QTdChatPhoto> m_chatPhoto;
     QTdInt64 m_order;
