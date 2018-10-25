@@ -99,7 +99,8 @@ ItemDelegate {
                         Label {
                             id: senderLabel
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
-                            font.bold: true
+                            font.bold: false
+                            color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                         }
                     }
