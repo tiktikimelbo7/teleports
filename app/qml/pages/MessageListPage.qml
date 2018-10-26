@@ -25,7 +25,6 @@ Page {
                 text: "Back"
                 onTriggered: {
                     AppActions.chat.closeCurrentChat()
-                    pageStack.pop()
                 }
             }
         ]
