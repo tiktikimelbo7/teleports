@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
 
-    engine.load("qrc:/Main.qml");
+    engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 
     return app.exec();
 }

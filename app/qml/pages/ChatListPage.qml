@@ -73,8 +73,6 @@ Page {
                 readonly property QTdChat chat: modelData
                 onClicked: {
                     AppActions.chat.setCurrentChat(chat)
-                    pageStack.push("qrc:///pages/MessageListPage.qml")
-
                 }
                 leadingActions: UITK.ListItemActions {
                     actions: [
