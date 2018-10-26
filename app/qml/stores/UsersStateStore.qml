@@ -5,6 +5,7 @@ import "../actions"
 
 Store {
 
+    property alias me: usersStore.me
     property alias model: usersStore.model
     Users {
         id: usersStore

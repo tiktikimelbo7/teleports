@@ -101,7 +101,6 @@ set(
     utils/qtdtextformatter.cpp
     quick/plugin.cpp
     quick/users.cpp
-    user/qtdmemyself.cpp
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

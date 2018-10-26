@@ -11,3 +11,8 @@ QObject *Users::model() const
 {
     return QTdUsers::instance()->model();
 }
+
+QTdUser *Users::meMyself() const
+{
+    return QTdUsers::instance()->meMyself();
+}

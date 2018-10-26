@@ -10,6 +10,7 @@ class QTdUsers : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QObject* model READ qmlModel NOTIFY modelChanged)
+    Q_PROPERTY(QTdUser* me READ meMyself)
 public:
     explicit QTdUsers(QObject *parent = nullptr);
     ~QTdUsers();
@@ -17,6 +18,7 @@ public:
     static QTdUsers  *instance();
 
     QObject* qmlModel() const;
+    QTdUser* meMyself() const;
     QQmlObjectListModel<QTdUser> *model() const;
 
 signals:
@@ -30,6 +32,7 @@ private slots:
 private:
     Q_DISABLE_COPY(QTdUsers)
     QQmlObjectListModel<QTdUser> *m_model;
+    QTdUser *m_meMyself;
 };
 
 #endif // QTDUSERS_H

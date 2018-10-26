@@ -4,9 +4,10 @@ import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.ListItems 1.3 as UITK_ListItem
 import QtQuick.Controls.Suru 2.2
 import QtQuick.Layouts 1.1
-import QTdMeMyself 1.0
+import QTelegram 1.0
 import "../actions"
 import "../components"
+import "../stores"
 
 Page {
     id: accountPage
@@ -54,9 +55,9 @@ Page {
                     id: profilePhoto
                     width: units.gu(13)
                     height: units.gu(13)
-                    photo: MeMyself.profilePhoto
-                    initials: MeMyself.initials
-                    avatarColor: MeMyself.avatarColor
+                    photo: Telegram.users.me.profilePhoto
+                    initials: Telegram.users.me.initials
+                    avatarColor: Telegram.users.me.avatarColor
                 }
 
                 Column {
@@ -64,15 +65,15 @@ Page {
                     Layout.fillHeight: true
 
                     Label {
-                        text: MeMyself.firstName + " " + MeMyself.lastName
-                    }
- 
-                    Label {
-                        text: MeMyself.username
+                        text: Telegram.users.me.firstName + " " + Telegram.users.me.lastName
                     }
 
                     Label {
-                        text: i18n.tr("+") + MeMyself.phoneNumber
+                        text: Telegram.users.me.username
+                    }
+
+                    Label {
+                        text: i18n.tr("+") + Telegram.users.me.phoneNumber
                     }
                 }
             }
