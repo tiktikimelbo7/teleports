@@ -55,9 +55,9 @@ Page {
                     id: profilePhoto
                     width: units.gu(13)
                     height: units.gu(13)
-                    photo: Telegram.users.me.profilePhoto
-                    initials: Telegram.users.me.initials
-                    avatarColor: Telegram.users.me.avatarColor
+                    photo: Telegram.users.currentUser.profilePhoto
+                    initials: Telegram.users.currentUser.initials
+                    avatarColor: Telegram.users.currentUser.avatarColor
                 }
 
                 Column {
@@ -65,15 +65,15 @@ Page {
                     Layout.fillHeight: true
 
                     Label {
-                        text: Telegram.users.me.firstName + " " + Telegram.users.me.lastName
+                        text: Telegram.users.currentUser.firstName + " " + Telegram.users.currentUser.lastName
                     }
 
                     Label {
-                        text: Telegram.users.me.username
+                        text: Telegram.users.currentUser.username
                     }
 
                     Label {
-                        text: i18n.tr("+") + Telegram.users.me.phoneNumber
+                        text: i18n.tr("+") + Telegram.users.currentUser.phoneNumber
                     }
                 }
             }
@@ -84,6 +84,7 @@ Page {
 
             UITK_ListItem.Header {
                 text: i18n.tr("Account Actions")
+                visible: Telegram.users.currentUser == Telegram.users.me
             }
 
             UITK.ListItem {
@@ -95,6 +96,7 @@ Page {
                     }
                     title.text : i18n.tr('Logout')
                 }
+                visible: Telegram.users.currentUser == Telegram.users.me
 
                 onClicked: AppActions.auth.logOut()
             }
@@ -108,7 +110,8 @@ Page {
                     }
                     title.text : i18n.tr('Delete account') + " (TODO: add confirmation dialog)"
                 }
-
+                visible: Telegram.users.currentUser == Telegram.users.me
+                
                 //onClicked: AppActions.auth.deleteAccount()
             }
         }

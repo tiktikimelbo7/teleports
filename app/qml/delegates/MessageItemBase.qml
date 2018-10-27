@@ -5,6 +5,7 @@ import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import "../components"
 import "../actions"
+import "../stores"
 
 ItemDelegate {
     id: base
@@ -37,6 +38,14 @@ ItemDelegate {
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
                 avatarColor: message.sender ? message.sender.avatarColor(message.sender.id) : ""
+            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                  console.log("account clicked", Telegram.users.me)
+
+                  AppActions.user.setCurrentUser(message.sender)
+                 }
             }
         }
 

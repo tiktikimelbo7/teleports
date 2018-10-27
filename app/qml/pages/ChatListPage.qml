@@ -54,7 +54,6 @@ Page {
                 text: i18n.tr("Account")
                 iconName: "account"
                 onTriggered: {
-                  console.log("account clicked", Telegram.users.me)
                   AppActions.user.setCurrentUser(Telegram.users.me)
 
                 }
