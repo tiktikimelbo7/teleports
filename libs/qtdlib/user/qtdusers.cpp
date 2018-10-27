@@ -6,9 +6,10 @@
 #include "user/qtduserstatusfactory.h"
 
 QTdUsers::QTdUsers(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR)
+    m_model(Q_NULLPTR), m_meMyself(Q_NULLPTR), m_currentUser(Q_NULLPTR)
 {
     m_model = new QQmlObjectListModel<QTdUser>(this, "", "id");
+    m_meMyself = new QTdUser();
     connect(QTdClient::instance(), &QTdClient::updateUser, this, &QTdUsers::handleUpdateUser);
     connect(QTdClient::instance(), &QTdClient::updateUserStatus, this, &QTdUsers::handleUpdateUserStatus);
 }
@@ -37,6 +38,12 @@ QTdUsers *QTdUsers::instance()
     return s_users;
 }
 
+QTdUser *QTdUsers::meMyself() const
+{
+    return m_meMyself;
+}
+
+
 void QTdUsers::handleUpdateUser(const QJsonObject &user)
 {
 //    qDebug() << "[UPDATING USER]" << user;
@@ -53,6 +60,11 @@ void QTdUsers::handleUpdateUser(const QJsonObject &user)
     } else {
         tduser->unmarshalJson(user);
     }
+
+    const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    if (uid == myId) {
+        m_meMyself->unmarshalJson(user);
+    }
 }
 
 void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &status)
@@ -63,4 +75,31 @@ void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &
 //        qDebug() << "Updating existing user status: " << tduser->id();
         tduser->setStatus(QTdUserStatusFactory::create(status, tduser));
     }
+
+    const qint32 uid = qint32(userId.toInt());
+    const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    if (uid == myId) {
+        m_meMyself->setStatus(QTdUserStatusFactory::create(status, m_meMyself));
+    }
+
+}
+
+void QTdUsers::setCurrentUser(QTdUser *currentUser)
+{
+    if (m_currentUser == currentUser)
+        return;
+
+    m_currentUser = currentUser;
+    emit currentUserChanged(m_currentUser);
+}
+
+void QTdUsers::clearCurrentUser()
+{
+    m_currentUser = Q_NULLPTR;
+    emit currentUserChanged(m_currentUser);
+}
+
+QTdUser *QTdUsers::currentUser() const
+{
+    return m_currentUser;
 }

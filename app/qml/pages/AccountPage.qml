@@ -4,9 +4,10 @@ import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.ListItems 1.3 as UITK_ListItem
 import QtQuick.Controls.Suru 2.2
 import QtQuick.Layouts 1.1
-import QTdMeMyself 1.0
+import QTelegram 1.0
 import "../actions"
 import "../components"
+import "../stores"
 
 Page {
     id: accountPage
@@ -27,7 +28,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                    pageStack.pop()
+                  AppActions.user.clearCurrentUser()
                 }
             }
         ]
@@ -54,9 +55,9 @@ Page {
                     id: profilePhoto
                     width: units.gu(13)
                     height: units.gu(13)
-                    photo: MeMyself.profilePhoto
-                    initials: MeMyself.initials
-                    avatarColor: MeMyself.avatarColor
+                    photo: Telegram.users.currentUser.profilePhoto
+                    initials: Telegram.users.currentUser.initials
+                    avatarColor: Telegram.users.currentUser.avatarColor
                 }
 
                 Column {
@@ -64,15 +65,15 @@ Page {
                     Layout.fillHeight: true
 
                     Label {
-                        text: MeMyself.firstName + " " + MeMyself.lastName
-                    }
- 
-                    Label {
-                        text: MeMyself.username
+                        text: Telegram.users.currentUser.firstName + " " + Telegram.users.currentUser.lastName
                     }
 
                     Label {
-                        text: i18n.tr("+") + MeMyself.phoneNumber
+                        text: Telegram.users.currentUser.username
+                    }
+
+                    Label {
+                        text: i18n.tr("+") + Telegram.users.currentUser.phoneNumber
                     }
                 }
             }
@@ -83,6 +84,7 @@ Page {
 
             UITK_ListItem.Header {
                 text: i18n.tr("Account Actions")
+                visible: Telegram.users.currentUser == Telegram.users.me
             }
 
             UITK.ListItem {
@@ -94,6 +96,7 @@ Page {
                     }
                     title.text : i18n.tr('Logout')
                 }
+                visible: Telegram.users.currentUser == Telegram.users.me
 
                 onClicked: AppActions.auth.logOut()
             }
@@ -107,7 +110,8 @@ Page {
                     }
                     title.text : i18n.tr('Delete account') + " (TODO: add confirmation dialog)"
                 }
-
+                visible: Telegram.users.currentUser == Telegram.users.me
+                
                 //onClicked: AppActions.auth.deleteAccount()
             }
         }

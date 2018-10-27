@@ -12,4 +12,8 @@ Item {
     ChatActions {
         id: chat
     }
+    property alias user: user
+    UserStateActions {
+        id: user
+    }
 }
