@@ -14,7 +14,7 @@ ItemDelegate {
 
     property QTdMessage message: null
     property bool transparentBackground: false
-    property real maximumAvailableContentWidth: Suru.units.gu(45)
+    property real maximumAvailableContentWidth: Math.min(Suru.units.gu(45), width * (3/4))
                                                 - (mc.anchors.leftMargin + mc.anchors.rightMargin)
 
     default property alias content: mainContent.data
@@ -72,7 +72,7 @@ ItemDelegate {
             radius: 4
             Layout.fillWidth: true
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
-            Layout.minimumWidth: Math.min(Suru.units.gu(45), mc.width + mc.horizontalMargins)
+            Layout.minimumWidth: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)), mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
             Layout.preferredHeight: message.isOutgoing ? mc.height + Suru.units.dp(5) : mc.height
 
