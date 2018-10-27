@@ -30,15 +30,14 @@ Store {
                     return
                 }
                 usersStore.currentUser = message.user
+                AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/AccountPage.qml"})
             }
         }
     }
     Filter {
         type: UserStateKey.clearCurrentUser
         onDispatched: {
-            usersStore.clearCurrentUser
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
-            
+            usersStore.clearCurrentUser();
         }
     }
 }
