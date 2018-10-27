@@ -16,3 +16,18 @@ QTdUser *Users::meMyself() const
 {
     return QTdUsers::instance()->meMyself();
 }
+QTdUser *Users::currentUser() const
+{
+    return QTdUsers::instance()->currentUser();
+}
+void Users::setCurrentUser(QTdUser *currentUser)
+{
+    QTdUsers::instance()->setCurrentUser(currentUser);
+    emit currentUserChanged(currentUser);
+}
+void Users::clearCurrentUser()
+{
+    qDebug()<<"clear";
+    QTdUsers::instance()->clearCurrentUser();
+    emit currentUserChanged(Q_NULLPTR);
+}

@@ -20,6 +20,8 @@
         <file>actions/AppActions.qml</file>
         <file>actions/ChatActions.qml</file>
         <file>actions/ChatKey.qml</file>
+        <file>actions/UserStateActions.qml</file>
+        <file>actions/UserStateKey.qml</file>
         <file>delegates/MessageItemBase.qml</file>
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>

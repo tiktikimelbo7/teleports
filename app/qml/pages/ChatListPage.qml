@@ -54,7 +54,9 @@ Page {
                 text: i18n.tr("Account")
                 iconName: "account"
                 onTriggered: {
-                    pageStack.push("qrc:///pages/AccountPage.qml")
+                  console.log("account clicked", Telegram.users.me)
+                  AppActions.user.setCurrentUser(Telegram.users.me)
+
                 }
             }
         ]

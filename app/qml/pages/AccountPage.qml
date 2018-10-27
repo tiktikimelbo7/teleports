@@ -28,7 +28,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                    pageStack.pop()
+                  AppActions.user.clearCurrentUser()
                 }
             }
         ]
