@@ -92,16 +92,21 @@ Page {
             anchors.margins: Suru.units.gu(1)
             spacing: Suru.units.gu(1)
 
-            TextArea {
+            UITK.TextArea {
                 id: entry
-
-                placeholderText: "Send a message"
+                activeFocusOnPress: true
+                autoSize: true
+                selectByMouse: true
+                mouseSelectionMode: TextEdit.SelectWords
+                wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+                placeholderText: i18n.tr("Send a message")
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
                 function send() {
-                    AppActions.chat.sendMessage(entry.text);
+                    Qt.inputMethod.commit();
+                    AppActions.chat.sendMessage(entry.text.trim());
                     entry.text = "";
                 }
 
@@ -115,9 +120,16 @@ Page {
             }
 
             Image {
-                visible: entry.text !== ""
-                sourceSize.height: parent.height * 0.75
+                visible: entry.displayText.trim() !== ""
+                sourceSize.height: height
                 source: "qrc:/qml/icons/send.png"
+                
+                Layout.fillHeight: false
+                Layout.fillWidth: false
+                
+                Component.onCompleted: {
+                    height = parent.height * 0.75;
+                }
 
                 MouseArea {
                     anchors.fill: parent
