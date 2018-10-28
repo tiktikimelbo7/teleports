@@ -89,6 +89,7 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 {
+  qDebug() << "handle messages" << json;
     if (!m_chat || json.isEmpty()) {
         return;
     }
