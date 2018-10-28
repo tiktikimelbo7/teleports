@@ -72,6 +72,7 @@ void QTdMessageListModel::cleanUp()
 
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
+
     QJsonArray messages = json["messages"].toArray();
     for (const QJsonValue &msgData : messages) {
         const QJsonObject data = msgData.toObject();
@@ -87,6 +88,7 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 {
+  qDebug() << "handle messages" << json;
     if (!m_chat || json.isEmpty()) {
         return;
     }
