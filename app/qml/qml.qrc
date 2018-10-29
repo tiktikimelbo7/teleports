@@ -32,6 +32,8 @@
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>
         <file>delegates/MessageStickerItem.qml</file>
+        <file>delegates/MessagePhotoItem.qml</file>
+        <file>delegates/MessageHiddenItem.qml</file>
         <file>pages/AccountPage.qml</file>
     </qresource>
 </RCC>
