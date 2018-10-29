@@ -7,6 +7,7 @@
 #include "qtdformattedtext.h"
 #include "qtdwebpage.h"
 #include "files/qtdsticker.h"
+#include "files/qtdphoto.h"
 
 class QTdMessageContent : public QTdObject
 {
@@ -47,6 +48,16 @@ private:
     Q_DISABLE_COPY(QTdMessageAction)
 };
 
+class QTdMessageHidden : public QTdMessageContent
+{
+    Q_OBJECT
+public:
+    explicit QTdMessageHidden(QObject *parent = nullptr);
+
+private:
+    Q_DISABLE_COPY(QTdMessageHidden)
+};
+
 class QTdMessageSticker: public QTdMessageContent
 {
     Q_OBJECT
@@ -65,5 +76,26 @@ private:
     Q_DISABLE_COPY(QTdMessageSticker)
     QScopedPointer<QTdSticker> m_sticker;
 };
+class QTdMessagePhoto: public QTdMessageContent
+{
+    Q_OBJECT
+    Q_PROPERTY(QTdPhoto* photo READ photo NOTIFY dataChanged)
+public:
+    explicit QTdMessagePhoto(QObject *parent = nullptr);
 
+    QTdPhoto *photo() const;
+    QTdFormattedText *caption() const;
+
+
+    void unmarshalJson(const QJsonObject &json);
+
+signals:
+    void dataChanged();
+
+private:
+    Q_DISABLE_COPY(QTdMessagePhoto)
+    QScopedPointer<QTdPhoto> m_photo;
+    QScopedPointer<QTdFormattedText> m_caption;
+
+};
 #endif // QTDMESSAGECONTENT_H
