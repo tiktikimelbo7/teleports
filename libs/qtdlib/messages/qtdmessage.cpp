@@ -208,24 +208,13 @@ void QTdMessage::updateSendingState(const QJsonObject &json)
     if (json.isEmpty() || !json.contains("sending_state")) {
         return;
     }
-
     const QJsonObject jsonSendingState = json["sending_state"].toObject();
     const QString type = jsonSendingState["@type"].toString();
     QTdMessageSendingState *obj = Q_NULLPTR;
-
     if (type == "messageSendingStatePending"){
       obj = new QTdMessageSendingStatePending(this);
     } else {
         qWarning() << "Unknown user status type: " << type;
     }
     m_sendingState = obj;
-    // auto *sendingState = new QTdMessageSendingState(this);
-    // sendingState->QTdMessageSendingStatePending();
-    qDebug() << "TODO: Message sending state" << json <<type << obj;
-
-    // QTdMessageSendingState
-    // m_sendingState = QTdMessageSendingState::QTdMessageSendingState(sendingState);
-    // m_content->unmarshalJson(content);
-
-    // m_sendingState = json.sendingState
 }
