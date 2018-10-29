@@ -31,6 +31,7 @@ private slots:
     void cleanUp();
     void handleMessages(const QJsonObject &json);
     void handleUpdateChatLastMessage(const QJsonObject &json);
+    void handleUpdateMessageSendSucceeded(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId);
 
 private:
