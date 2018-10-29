@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
+import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
 import "../components"
 import "../actions"
@@ -14,7 +15,7 @@ ItemDelegate {
 
     property QTdMessage message: null
     property bool transparentBackground: false
-    property real maximumAvailableContentWidth: Suru.units.gu(45)
+    property real maximumAvailableContentWidth: Math.min(Suru.units.gu(45), width * (3/4))
                                                 - (mc.anchors.leftMargin + mc.anchors.rightMargin)
 
     default property alias content: mainContent.data
@@ -72,7 +73,7 @@ ItemDelegate {
             radius: 4
             Layout.fillWidth: true
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
-            Layout.minimumWidth: Math.min(Suru.units.gu(45), mc.width + mc.horizontalMargins)
+            Layout.minimumWidth: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)), mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
             Layout.preferredHeight: message.isOutgoing ? mc.height + Suru.units.dp(5) : mc.height
 
@@ -107,6 +108,7 @@ ItemDelegate {
 
                         Label {
                             id: senderLabel
+                            visible: !(chat.isPrivate || chat.isSecret)
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
                             font.bold: false
                             color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
@@ -136,6 +138,28 @@ ItemDelegate {
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
+                        }
+                        Row {
+                            id: channel_views
+                            visible: message.isChannelPost
+                            anchors.verticalCenter: parent.verticalCenter
+                            UITK.Icon {
+                                anchors.verticalCenter: parent.verticalCenter
+                                width: units.gu(2)
+                                height: width
+                                source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
+                                color: message.isOutgoing ? "white" : Suru.foregroundColor
+                                opacity: message.isOutgoing ? 1 : 0.6
+                            }
+
+                            Label {
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: message.views
+                                Suru.textLevel: Suru.Small
+                                Suru.textStyle: Suru.TertiaryText
+                                color: message.isOutgoing ? "white" : Suru.foregroundColor
+                            }
+                            opacity: message.isOutgoing ? 1 : 0.6
                         }
                     }
                 }

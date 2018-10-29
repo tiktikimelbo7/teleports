@@ -73,6 +73,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_canBeDeletedOnlyForSelf = json["can_be_deleted_only_for_self"].toBool();
     m_canBeDeletedForAllUsers = json["can_be_deleted_for_all_users"].toBool();
     m_isChannelPost = json["is_channel_post"].toBool();
+    m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
 
     if (m_content) {
@@ -120,6 +121,17 @@ bool QTdMessage::canBeDeletedForAllUsers() const
 bool QTdMessage::isChannelPost() const
 {
     return m_isChannelPost;
+}
+
+QString QTdMessage::views() const
+{
+
+    if (m_views > 9999 && m_views <= 999999)
+        return  QString("%1K").arg(((double)(m_views/ 100)) / 10, 0, 'd', 1);
+    else if (m_views > 999999)
+        return QString("%1M").arg(((double)(m_views / 100000)) / 10, 0, 'd', 1);
+    else
+        return QString("%1").arg(m_views);
 }
 
 bool QTdMessage::containsUnreadMention() const

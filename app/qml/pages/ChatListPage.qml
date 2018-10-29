@@ -133,30 +133,25 @@ Page {
                         margins: units.dp(4)
                     }
                     color: "lightgreen"
-                    visible: false
+                    visible: chat.isSecret
                 }
 
-                Item {
+                GenericPhoto {
                     id: avatar
-                    width: Suru.units.gu(5)
-                    height: width
 
-                    GenericPhoto {
-
-                        anchors {
-                            top: parent.top
-                            topMargin: units.dp(4)
-                            left: parent.left
-                            leftMargin: units.gu(1)
-                            bottom: parent.bottom
-                            bottomMargin: units.dp(4)
-                            rightMargin: units.gu(2)
-                        }
-                        width: height
-                        photoPath: chat && chat.chatPhoto.small.local.path ? chat.chatPhoto.small.local.path : ""
-                        initials: chat ? chat.initials : "N/A"
-                        avatarColor: chat.avatarColor(chat ? chat.rawId : 0)
+                    anchors {
+                        top: parent.top
+                        topMargin: units.dp(4)
+                        left: parent.left
+                        leftMargin: units.gu(1)
+                        bottom: parent.bottom
+                        bottomMargin: units.dp(4)
+                        rightMargin: units.gu(2)
                     }
+                    width: height
+                    photoPath: chat && chat.chatPhoto.small.local.path ? chat.chatPhoto.small.local.path : ""
+                    initials: chat ? chat.initials : "N/A"
+                    avatarColor: chat.avatarColor(chat ? chat.rawId : 0)
                 }
 
                 Row {

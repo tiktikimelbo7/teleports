@@ -23,6 +23,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool canBeDeletedOnlyForSelf READ canBeDeletedOnlyForSelf NOTIFY messageChanged)
     Q_PROPERTY(bool canBeDeletedForAllUsers READ canBeDeletedForAllUsers NOTIFY messageChanged)
     Q_PROPERTY(bool isChannelPost READ isChannelPost NOTIFY messageChanged)
+    Q_PROPERTY(QString views READ views NOTIFY messageChanged)
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent* content READ content NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
@@ -59,6 +60,8 @@ public:
 
     bool isChannelPost() const;
 
+    QString views() const;
+
     bool containsUnreadMention() const;
 
     QTdMessageContent *content() const;
@@ -91,6 +94,7 @@ private:
     bool m_canBeDeletedOnlyForSelf;
     bool m_canBeDeletedForAllUsers;
     bool m_isChannelPost;
+    qint32 m_views;
     bool m_containsUnreadMention;
     QPointer<QTdMessageContent> m_content;
     bool m_isValid;
