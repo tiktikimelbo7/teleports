@@ -61,12 +61,12 @@ void QTdMessageSticker::unmarshalJson(const QJsonObject &json)
 }
 
 QTdMessagePhoto::QTdMessagePhoto(QObject *parent) : QTdMessageContent(parent),
-    m_photo(new QTdPhoto), m_caption(new QTdFormattedText)
+    m_photo(new QTdPhotos), m_caption(new QTdFormattedText)
 {
     setType(MESSAGE_PHOTO);
 }
 
-QTdPhoto *QTdMessagePhoto::photo() const
+QTdPhotos *QTdMessagePhoto::photo() const
 {
     return m_photo.data();
 }
@@ -76,8 +76,9 @@ QTdFormattedText *QTdMessagePhoto::caption() const
 }
 void QTdMessagePhoto::unmarshalJson(const QJsonObject &json)
 {
+
     m_photo->unmarshalJson(json["photo"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
-    emit dataChanged();
+    // emit dataChanged();
 
 }

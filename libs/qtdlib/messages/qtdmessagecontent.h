@@ -79,13 +79,13 @@ private:
 class QTdMessagePhoto: public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdPhoto* photo READ photo NOTIFY dataChanged)
+    Q_PROPERTY(QTdPhotos* photo READ photo NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText* caption READ caption NOTIFY dataChanged)
 public:
     explicit QTdMessagePhoto(QObject *parent = nullptr);
 
-    QTdPhoto *photo() const;
+    QTdPhotos *photo() const;
     QTdFormattedText *caption() const;
-
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -94,7 +94,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(QTdMessagePhoto)
-    QScopedPointer<QTdPhoto> m_photo;
+    QScopedPointer<QTdPhotos> m_photo;
     QScopedPointer<QTdFormattedText> m_caption;
 
 };

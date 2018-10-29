@@ -2,72 +2,94 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
+import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
 import QuickFlux 1.1
 import "../components"
 
 MessageItemBase {
     property QTdMessagePhoto photoContent: message.content
-    property QTdFile file: photoContent.photo.small
+    property QTdPhotoSize size: photoContent.photo.sizes.get(1)
+    property QTdFile photo: size.photo
+    property QTdLocalFile photoLocal: photo.local
+    Column {
+      id: imageCol
+      Image {
+          id: image
 
-    // TODO: Consider thumbnail
-    // property QTdFile thumbnail: photoContent.photo.thumbnail
-    property QTdLocalFile localFile: file.local
+          property url localFileSource: photo && photoLocal.path ? Qt.resolvedUrl("file://" + photo.local.path) : ""
+          function reload() {
+              image.source = Qt.resolvedUrl();
+              image.source = localFileSource;
+          }
 
-    transparentBackground: true
+          // TODO: Handle scaling
+          width: size.width
+          height:size.height
+          source: localFileSource
 
-    Image {
-        id: image
+          BusyIndicator {
+              anchors.centerIn: parent
+              running: image.status === Image.Loading
+                       || image.status === Image.Null
+          }
+      }
 
-        property url localFileSource: localFile.path !== ""
-                                      ? Qt.resolvedUrl("file://" + localFile.path)
-                                      : Qt.resolvedUrl("")
+      Connections {
+          target: photo
+          onFileChanged: {
+              image.reload();
+          }
+      }
 
-        function reload() {
-            image.source = Qt.resolvedUrl();
-            image.source = localFileSource;
-        }
+      QtObject {
+          id: d
 
-        width: Math.min(d.maxPhotoSize, maximumAvailableContentWidth)
-        height: width
-        source: localFileSource
-
-        // TODO: Handle Image.Error
-
-        BusyIndicator {
-            anchors.centerIn: parent
-            running: image.status === Image.Loading
-                     || image.status === Image.Null
-        }
+          // TODO: dynamically adjust
+          readonly property int maxPhotoSize: Suru.units.gu(20)
+      }
+      Component.onCompleted: {
+          if (photo.canBeDownloaded && !photo.isDownloadingCompleted) {
+              photo.downloadFile();
+          }
+      }
     }
-
-    Connections {
-        target: file
-        onFileChanged: {
-            image.reload();
+    Column {
+        anchors {
+            top: imageCol.bottom
         }
-    }
+        spacing: Suru.units.gu(2)
 
-    QtObject {
-        id: d
+        width: textEdit.width
 
-        // TODO: dynamically adjust
-        readonly property int maxPhotoSize: Suru.units.gu(20)
-    }
+        TextEdit {
+            id: textEdit
 
-    Component.onCompleted: {
-        if (localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
-            file.downloadFile();
+            height: contentHeight
+            width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
+            readOnly: true
+            text: photoContent.caption.text
+            color: message.isOutgoing ? "white" : Suru.foregroundColor
+            selectedTextColor: Suru.highlightColor
+            wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+            onLinkActivated: {
+                console.log("Link activated: ", link)
+                Qt.openUrlExternally(link)
+            }
         }
+
+        TextEdit {
+            id: dummyTextEdit
+            visible: false
+            height: contentHeight
+            text: photoContent.caption.text
+        }
+
     }
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("photo clicked", Telegram.users.me)
-          onCompleted: {
-            console.log("photo",photoContent.photo)
-
-          }
+          console.log("photo clicked")
          }
     }
 }
