@@ -11,7 +11,6 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageSticker") {
         return new QTdMessageSticker(parent);
     } else if (type == "messagePhoto") {
-        // qDebug() << "Message delegate type: " << type << json;
           return new QTdMessagePhoto(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
