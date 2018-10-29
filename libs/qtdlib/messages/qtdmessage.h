@@ -18,6 +18,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QString chatId READ qmlChatId NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageSendingState *sendingState READ sendingState NOTIFY sendingStateChanged)
     Q_PROPERTY(bool isOutgoing READ isOutgoing NOTIFY messageChanged)
+    Q_PROPERTY(bool isEdited READ isEdited NOTIFY messageChanged)
     Q_PROPERTY(bool canBeEdited READ canBeEdited NOTIFY messageChanged)
     Q_PROPERTY(bool canBeForwarded READ canBeForwarded NOTIFY messageChanged)
     Q_PROPERTY(bool canBeDeletedOnlyForSelf READ canBeDeletedOnlyForSelf NOTIFY messageChanged)
@@ -49,6 +50,8 @@ public:
     QTdMessageSendingState *sendingState() const;
 
     bool isOutgoing() const;
+
+    bool isEdited() const;
 
     bool canBeEdited() const;
 
@@ -89,6 +92,7 @@ private:
     bool m_waitingForSender;
     QPointer<QTdMessageSendingState> m_sendingState;
     bool m_isOutgoing;
+    bool m_isEdited;
     bool m_canBeEdited;
     bool m_canBeForwarded;
     bool m_canBeDeletedOnlyForSelf;

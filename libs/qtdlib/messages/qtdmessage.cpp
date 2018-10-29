@@ -68,6 +68,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     updateSendingState(json);
 
     m_isOutgoing = json["is_outgoing"].toBool();
+    m_isEdited = qint32(json["edit_date"].toInt()) > 0;
     m_canBeEdited = json["can_be_edited"].toBool();
     m_canBeForwarded = json["can_be_forwarded"].toBool();
     m_canBeDeletedOnlyForSelf = json["can_be_deleted_only_for_self"].toBool();
@@ -96,6 +97,11 @@ QTdMessageSendingState *QTdMessage::sendingState() const
 bool QTdMessage::isOutgoing() const
 {
     return m_isOutgoing;
+}
+
+bool QTdMessage::isEdited() const
+{
+    return m_isEdited;
 }
 
 bool QTdMessage::canBeEdited() const

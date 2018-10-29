@@ -67,7 +67,7 @@ ItemDelegate {
                     }
                     return Suru.darkPositive
                 }
-                return "lightgrey"
+                return "white"
             }
 
             radius: 4
@@ -131,25 +131,17 @@ ItemDelegate {
                         id: bottomBar
                         anchors.fill: parent
 
-                        Label {
-                            id: dateLabel
-                            text: message.formatDate(message.date)
-                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                            Suru.textLevel: Suru.Small
-                            Suru.textStyle: Suru.TertiaryText
-                        }
                         Row {
                             id: channel_views
                             visible: message.isChannelPost
                             anchors.verticalCenter: parent.verticalCenter
+                            opacity: message.isOutgoing ? 1 : 0.6
                             UITK.Icon {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: units.gu(2)
                                 height: width
                                 source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
                                 color: message.isOutgoing ? "white" : Suru.foregroundColor
-                                opacity: message.isOutgoing ? 1 : 0.6
                             }
 
                             Label {
@@ -159,7 +151,26 @@ ItemDelegate {
                                 Suru.textStyle: Suru.TertiaryText
                                 color: message.isOutgoing ? "white" : Suru.foregroundColor
                             }
+                        }
+
+                        Label {
+                            id: editedLabel
+                            text: i18n.tr("Edited");
+                            visible: message.isEdited;
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            Suru.textLevel: Suru.Small
+                            Suru.textStyle: Suru.TertiaryText
+                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
                             opacity: message.isOutgoing ? 1 : 0.6
+                        }
+
+                        Label {
+                            id: dateLabel
+                            text: message.formatDate(message.date)
+                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            Suru.textLevel: Suru.Small
+                            Suru.textStyle: Suru.TertiaryText
                         }
                     }
                 }

@@ -30,6 +30,20 @@ Page {
         ]
     }
 
+    Image {
+        id: background_img
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        horizontalAlignment: Image.AlignLeft
+        verticalAlignment: Image.AlignTop
+        sourceSize: Qt.size(width,height)
+        source: {
+            //return Theme.name == "Ubuntu.Components.Themes.SuruDark" ? "qrc:/qml/files/telegram_background_dark.png" : "qrc:/qml/files/telegram_background.png"
+            return "qrc:/qml/icons/telegram_background.png"
+        }
+        opacity: 0.7
+    }
+
     ScrollView {
         anchors {
             left: parent.left

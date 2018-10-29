@@ -9,5 +9,7 @@
         <file>eye.svg</file>
         <file>eyeWhite.svg</file>
         <file>send_disabled.png</file>
+        <file>telegram_background_dark.png</file>
+        <file>telegram_background.png</file>
     </qresource>
 </RCC>
