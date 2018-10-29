@@ -89,7 +89,6 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 {
-  // qDebug() << "handle messages" << json;
     if (!m_chat || json.isEmpty()) {
         return;
     }
@@ -100,7 +99,6 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
     const QJsonObject message = json["last_message"].toObject();
     const qint64 mid = qint64(message["id"].toDouble());
     auto *msg = m_model->getByUid(QString::number(mid));
-    // qDebug() << "handle messages" << json;
     if (msg) {
         msg->unmarshalJson(message);
         return;
@@ -117,10 +115,6 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
   const qint64 oldMid = qint64(json["old_message_id"].toDouble());
   auto *msgSent = m_model->getByUid(QString::number(oldMid));
   const QJsonObject message = json["message"].toObject();
-<<<<<<< HEAD
-=======
-
->>>>>>> Add MessageSentSucced handler
   if (msgSent) {
       m_model->remove(msgSent);
       return;
