@@ -90,6 +90,7 @@ signals:
     void updateNewChat(const QJsonObject &chat);
     void updateChatOrder(const QJsonObject &chat);
     void updateChatLastMessage(const QJsonObject &chat);
+    void updateMessageSendSucceeded(const QJsonObject &chat);
     void updateBasicGroup(const QJsonObject &group);
     void updateBasicGroupFullInfo(const QJsonObject &group);
     void secretChat(const QJsonObject &chat);
