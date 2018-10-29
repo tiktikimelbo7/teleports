@@ -5,7 +5,7 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
 {
     const QString type = json["@type"].toString();
 
-    qDebug() << "Message delegate type: " << type;
+    // qDebug() << "Message delegate type: " << type << json;
 
     if (type == "messageText") {
         return new QTdMessageText(parent);
