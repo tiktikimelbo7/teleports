@@ -5,14 +5,18 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
 {
     const QString type = json["@type"].toString();
 
-    // qDebug() << "Message delegate type: " << type << json;
 
     if (type == "messageText") {
         return new QTdMessageText(parent);
     } else if (type == "messageSticker") {
         return new QTdMessageSticker(parent);
+    } else if (type == "messagePhoto") {
+          return new QTdMessagePhoto(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
+    }
+    else if (type =="messageChatJoinByLink"){
+      return new QTdMessageHidden(parent);
     }
     return new QTdMessageContent(parent);
 }
