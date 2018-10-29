@@ -188,6 +188,7 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data){ emit updateSuperGroup(data["supergroup"].toObject()); });
     m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data){ emit updateChatOrder(data); });
     m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data){ emit updateChatLastMessage(data); });
+    m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data){ emit updateMessageSendSucceeded(data); });
     m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data){ emit updateChatReadInbox(data); });
     m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data){ emit updateChatIsPinned(data); });
     m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data){ emit updateChatPhoto(data); });
@@ -240,4 +241,3 @@ QVariant QTdClient::getOption(const QString name)
     else
         return QVariant();
 }
-

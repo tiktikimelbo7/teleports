@@ -10,6 +10,7 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::messages, this, &QTdMessageListModel::handleMessages);
     connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
+    connect(QTdClient::instance(), &QTdClient::updateMessageSendSucceeded, this, &QTdMessageListModel::handleUpdateMessageSendSucceeded);
 }
 
 QTdChat *QTdMessageListModel::chat() const
@@ -72,6 +73,7 @@ void QTdMessageListModel::cleanUp()
 
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
+
     QJsonArray messages = json["messages"].toArray();
     for (const QJsonValue &msgData : messages) {
         const QJsonObject data = msgData.toObject();
@@ -94,7 +96,6 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
     if (id != m_chat->id()) {
         return;
     }
-
     const QJsonObject message = json["last_message"].toObject();
     const qint64 mid = qint64(message["id"].toDouble());
     auto *msg = m_model->getByUid(QString::number(mid));
@@ -102,12 +103,23 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
         msg->unmarshalJson(message);
         return;
     }
-
     auto *m = new QTdMessage();
     m->unmarshalJson(message);
     m_model->prepend(m);
 }
-
+void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &json)
+{
+  if (json.isEmpty()) {
+      return;
+  }
+  const qint64 oldMid = qint64(json["old_message_id"].toDouble());
+  auto *msgSent = m_model->getByUid(QString::number(oldMid));
+  const QJsonObject message = json["message"].toObject();
+  if (msgSent) {
+      m_model->remove(msgSent);
+      return;
+  }
+}
 void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId)
 {
     QTdClient::instance()->send(QJsonObject{
