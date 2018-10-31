@@ -112,6 +112,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdNotificationSettings>(uri, 1, 0, "QTdNotificationSettings", "C++ class");
 
     qmlRegisterUncreatableType<QTdMessage>(uri, 1, 0, "QTdMessage", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageAnimation>(uri, 1, 0, "QTdMessageAnimation", "C++ class");
     qmlRegisterUncreatableType<QTdMessageContent>(uri, 1, 0, "QTdMessageContent", "C++ class");
     qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
     qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");

@@ -108,7 +108,7 @@ ItemDelegate {
 
                         Label {
                             id: senderLabel
-                            visible: !(chat.isPrivate || chat.isSecret)
+                            // visible: !(chat.isPrivate || chat.isSecret)
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
                             font.bold: false
                             color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
