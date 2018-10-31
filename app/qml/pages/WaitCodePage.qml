@@ -1,5 +1,7 @@
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import QtQuick.Controls 2.2
+import Ubuntu.Components 1.3 as UITK
+import QtQuick.Controls.Suru 2.2
 import QuickFlux 1.1
 import "../actions"
 
@@ -8,85 +10,99 @@ Page {
     id: waitCodePage
 
     property bool registered
+    property color hf: Suru.foregroundColor
+    property color hb: Suru.backgroundColor
+    property color hd: Suru.neutralColor
+    header: UITK.PageHeader {
+        title: i18n.tr('Enter Code')
 
-    header: PageHeader {
-        title: i18n.tr("Enter Code")
+        UITK.StyleHints {
+            foregroundColor: hf
+            backgroundColor: hb
+            dividerColor: hd
+        }
+
     }
-
-    Item {
-        anchors.centerIn: parent
-
+    Flickable {
+        id: waitCodeFlickable
+        anchors.fill: parent
+        anchors.margins: units.gu(2)
         Item {
-            id: firstNameFieldContainer
+          anchors.centerIn: parent
+          width: parent.width
 
-            width: (!registered) ? firstNameField.implicitWidth : 0
-            height: (!registered) ? firstNameField.implicitHeight : 0
+          Item {
+              id: firstNameFieldContainer
 
-            anchors {
-                centerIn: parent
-                horizontalCenter: parent.horizontalCenter
-            }
+              width: (!registered) ? firstNameField.implicitWidth : 0
+              height: (!registered) ? firstNameField.implicitHeight : 0
 
-            TextField {
-                id: firstNameField
-                visible: !registered
-//                 visible: false
-                placeholderText: i18n.tr("First Name")
-            }
-        }
+              anchors {
+                  centerIn: parent
+                  horizontalCenter: parent.horizontalCenter
+              }
 
-        Item {
-            id: lastNameFieldContainer
+              TextField {
+                  id: firstNameField
+                  visible: !registered
+  //                 visible: false
+                  placeholderText: i18n.tr("First Name")
+              }
+          }
 
-            width: (!registered) ? lastNameField.implicitWidth : 0
-            height: (!registered) ? lastNameField.implicitHeight : 0
+          Item {
+              id: lastNameFieldContainer
 
-            anchors {
-                top: firstNameFieldContainer.bottom
-                topMargin: units.gu(1)
-                horizontalCenter: parent.horizontalCenter
-            }
+              width: (!registered) ? lastNameField.implicitWidth : 0
+              height: (!registered) ? lastNameField.implicitHeight : 0
 
-            TextField {
-                id: lastNameField
-                visible: !registered
-//                 visible: false
-                placeholderText: i18n.tr("Last Name")
-            }
-        }
+              anchors {
+                  top: firstNameFieldContainer.bottom
+                  topMargin: units.gu(1)
+                  horizontalCenter: parent.horizontalCenter
+              }
 
-        TextField {
-            id: codeField
-            anchors {
-                top: lastNameFieldContainer.bottom
-                topMargin: units.gu(1)
-                horizontalCenter: parent.horizontalCenter
-            }
-            placeholderText: i18n.tr("Code")
-        }
+              TextField {
+                  id: lastNameField
+                  visible: !registered
+  //                 visible: false
+                  placeholderText: i18n.tr("Last Name")
+              }
+          }
 
-        Button {
-            id: nextButton
-            text: i18n.tr("Next...")
-            anchors {
-                top: codeField.bottom
-                topMargin: units.gu(1)
-                horizontalCenter: parent.horizontalCenter
-            }
-            onClicked: sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: codeField.text })
-        }
+          TextField {
+              id: codeField
+              anchors {
+                  top: lastNameFieldContainer.bottom
+                  topMargin: units.gu(1)
+                  horizontalCenter: parent.horizontalCenter
+              }
+              placeholderText: i18n.tr("Code")
+          }
 
-        Label {
-            id: errorLabel
-            anchors {
-                top: nextButton.bottom
-                topMargin: units.gu(1)
-                horizontalCenter: parent.horizontalCenter
-            }
-            visible: text != ""
-            color: "red"
-        }
+          Button {
+              id: nextButton
+              text: i18n.tr("Next...")
+              anchors {
+                  top: codeField.bottom
+                  topMargin: units.gu(1)
+                  horizontalCenter: parent.horizontalCenter
+              }
+              onClicked: sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: codeField.text })
+          }
 
+          Label {
+              id: errorLabel
+              anchors {
+                  top: nextButton.bottom
+                  topMargin: units.gu(1)
+                  horizontalCenter: parent.horizontalCenter
+              }
+              visible: text != ""
+              color: "red"
+          }
+
+      }
     }
 
     AppScript {
