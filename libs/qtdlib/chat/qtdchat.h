@@ -42,6 +42,7 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(bool isGroup READ isGroup NOTIFY isGroupChanged)
     Q_PROPERTY(bool isChannel READ isChannel NOTIFY isChannelChanged)
     Q_PROPERTY(bool isPrivate READ isPrivate NOTIFY isPrivateChanged)
+    Q_PROPERTY(bool isMyself READ isMyself NOTIFY isMyselfChanged)
     Q_PROPERTY(bool canBeReported READ canBeReported NOTIFY canBeReportedChanged)
     Q_PROPERTY(bool hasUnreadMessages READ hasUnreadMessages NOTIFY unreadCountChanged)
     Q_PROPERTY(QString unreadCount READ qmlUnreadCount NOTIFY unreadCountChanged)
@@ -121,6 +122,10 @@ public:
      * @brief True if chat is a private conversation
      */
     bool isPrivate() const;
+    /**
+     * @brief True if chat is a conversation with myself (Saved messages)
+     */
+    bool isMyself() const;
     /**
      * @brief True if the chat can be reported to Telegram mods
      *
@@ -238,6 +243,7 @@ signals:
     void isGroupChanged();
     void isChannelChanged();
     void isPrivateChanged();
+    void isMyselfChanged();
     void isMutedChanged();
     void canBeReportedChanged();
     void unreadCountChanged();

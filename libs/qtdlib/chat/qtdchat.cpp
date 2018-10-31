@@ -56,7 +56,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
 
 QString QTdChat::title() const
 {
-    if (id() == m_my_id)
+    if (isMyself())
         return tr("Saved Messages");
     else
         return m_title;
@@ -94,7 +94,7 @@ QString QTdChat::initials() const
 
 QString QTdChat::avatarColor(unsigned int userId)
 {
-    return QTdHelpers::avatarColor(userId);
+    return isMyself() ? QTdHelpers::selfColor() : QTdHelpers::avatarColor(userId);
 }
 
 QString QTdChat::qmlOrder() const
@@ -139,6 +139,11 @@ bool QTdChat::isChannel() const
 {
     auto result = qobject_cast<QTdChatTypeSuperGroup*>(m_chatType);
     return result != NULL && result->isChannel();
+}
+
+bool QTdChat::isMyself() const
+{
+    return id() == m_my_id;
 }
 
 bool QTdChat::canBeReported() const

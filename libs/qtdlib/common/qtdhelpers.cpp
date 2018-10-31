@@ -27,3 +27,8 @@ QString QTdHelpers::avatarColor(unsigned int userId)
     };
     return colorPallete.at(userId % colorPallete.size());
 }
+
+QString QTdHelpers::selfColor()
+{
+    return "#65aadd";
+}

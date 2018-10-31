@@ -8,39 +8,43 @@ Item {
     property string photoPath: ""
     property string initials: ""
     property string avatarColor: "#000"
+    property bool myself: false
     property bool photoExists: photoPath != "" ? true : false
     
-    // Placed under shape, so it's hidden
     ShaderEffectSource {
-        id: source
+        id: effectSource
         anchors.centerIn: parent
-        width: 1
-        height: 1
-        sourceItem: photoExists ? itemPicture : bgColorFill
-    }
-
-    Rectangle {
-        id: bgColorFill
-        anchors.fill: parent
-        color: photoExists ? "transparent" : avatarColor
-        visible: false
+        width: 0
+        height: 0
+        sourceItem: imageContent
     }
     
-    Image {
-        id: itemPicture
-        anchors.centerIn: parent
-        width: parent.width
-        height: parent.height
-        source: photoExists ? Qt.resolvedUrl("file://" + photoPath) : ""
-        sourceSize: Qt.size(width, height)
-        antialiasing: true
-        asynchronous: true
+    Item {
+        id: imageContent
+        anchors.fill: parent
         visible: false
+        
+        Rectangle {
+            id: bgColorFill
+            anchors.fill: parent
+            color: myself ? "#65aadd" : (photoExists ? "transparent" : avatarColor)
+        }
+        
+        Image {
+            id: itemPicture
+            anchors.centerIn: parent
+            width: parent.width
+            height: parent.height
+            source: myself ? "qrc:/qml/icons/bookmark.svg" : (photoExists ? Qt.resolvedUrl("file://" + photoPath) : "")
+            sourceSize: Qt.size(width, height)
+            antialiasing: true
+            asynchronous: true
+        }
     }
     
     UITK.Shape {
-        id: shape
-        image: source
+        id: imgShape
+        image: effectSource
         anchors.fill: parent
         aspect: UITK.UbuntuShape.DropShadow
     }
@@ -51,5 +55,6 @@ Item {
         textSize: UITK.Label.Large
         color: photoExists ? "transparent" : "#fff"
         text: initials
+        visible: !myself && !photoExists
     }
 }
