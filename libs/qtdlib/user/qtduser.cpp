@@ -2,16 +2,18 @@
 #include "qtduserstatusfactory.h"
 #include "qtdlinkstatefactory.h"
 #include "common/qtdhelpers.h"
+#include "client/qtdclient.h"
 
 QTdUser::QTdUser(QObject *parent) : QAbstractInt32Id(parent),
-  m_status(Q_NULLPTR),
-  m_profilePhoto(new QTdProfilePhoto),
-  m_outgoingLink(Q_NULLPTR),
-  m_incomingLink(Q_NULLPTR),
-  m_isVerified(false),
-  m_userType(Q_NULLPTR)
+    m_status(Q_NULLPTR),
+    m_profilePhoto(new QTdProfilePhoto),
+    m_outgoingLink(Q_NULLPTR),
+    m_incomingLink(Q_NULLPTR),
+    m_isVerified(false),
+    m_userType(Q_NULLPTR)
 {
     setType(USER);
+    m_my_id = QTdClient::instance()->getOption("my_id").toInt();
 }
 
 void QTdUser::unmarshalJson(const QJsonObject &json)
@@ -88,6 +90,11 @@ QString QTdUser::languageCode() const
 bool QTdUser::isVerified() const
 {
     return m_isVerified;
+}
+
+bool QTdUser::isMyself() const
+{
+    return id() == m_my_id;
 }
 
 QTdLinkState *QTdUser::outgoingLink() const

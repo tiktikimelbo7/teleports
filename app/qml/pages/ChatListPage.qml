@@ -152,6 +152,7 @@ Page {
                     photoPath: chat && chat.chatPhoto.small.local.path ? chat.chatPhoto.small.local.path : ""
                     initials: chat ? chat.initials : "N/A"
                     avatarColor: chat.avatarColor(chat ? chat.rawId : 0)
+                    myself: chat ? chat.isMyself : false
                 }
 
                 Row {

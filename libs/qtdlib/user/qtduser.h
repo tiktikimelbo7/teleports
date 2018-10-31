@@ -30,6 +30,7 @@ class QTdUser : public QAbstractInt32Id
     Q_PROPERTY(QTdLinkState* outgoingLink READ outgoingLink NOTIFY outgoingLinkChanged)
     Q_PROPERTY(QTdLinkState* incomingLink READ incomingLink NOTIFY incomingLinkChanged)
     Q_PROPERTY(bool isVerified READ isVerified NOTIFY isVerifiedChanged)
+    Q_PROPERTY(bool isMyself READ isMyself NOTIFY isMyselfChanged)
     Q_PROPERTY(QString restrictionReason READ restrictionReason NOTIFY restrictionReasonChanged)
     Q_PROPERTY(QTdUserType* userType READ userType NOTIFY userTypeChanged)
     Q_PROPERTY(QString languageCode READ languageCode NOTIFY languageCodeChanged)
@@ -47,6 +48,7 @@ public:
     QTdLinkState* outgoingLink() const;
     QTdLinkState* incomingLink() const;
     bool isVerified() const;
+    bool isMyself() const;
     QString restrictionReason() const;
     QString languageCode() const;
     QTdUserType *userType() const;
@@ -64,6 +66,7 @@ signals:
     void outgoingLinkChanged(QTdLinkState* outgoingLink);
     void incomingLinkChanged(QTdLinkState* incomingLink);
     void isVerifiedChanged(bool isVerified);
+    void isMyselfChanged(bool isMyself);
     void restrictionReasonChanged(QString restrictionReason);
     void languageCodeChanged(QString languageCode);
 
@@ -82,6 +85,7 @@ private:
     QString m_lastName;
     QString m_username;
     QString m_phoneNumber;
+    qint64 m_my_id;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
     QPointer<QTdLinkState> m_outgoingLink;

@@ -13,7 +13,7 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: Telegram.chats.currentChat.title
+        title: Telegram.chats && Telegram.chats.currentChat ? Telegram.chats.currentChat.title : ""
         UITK.StyleHints {
             foregroundColor: hf
             backgroundColor: hb
