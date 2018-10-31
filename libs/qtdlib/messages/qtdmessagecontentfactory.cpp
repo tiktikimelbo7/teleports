@@ -12,11 +12,14 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageSticker(parent);
     } else if (type == "messagePhoto") {
           return new QTdMessagePhoto(parent);
+    } else if (type == "messageAnimation") {
+          return new QTdMessageAnimation(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
     }
     else if (type =="messageChatJoinByLink"){
       return new QTdMessageHidden(parent);
     }
+    qDebug()<< "Message type "<< type << json;
     return new QTdMessageContent(parent);
 }
