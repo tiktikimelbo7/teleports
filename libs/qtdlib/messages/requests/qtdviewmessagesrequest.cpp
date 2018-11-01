@@ -11,7 +11,7 @@ void QTdViewMessagesRequest::setChatId(const qint64 &id)
   m_chatId = id;
 }
 
-void QTdViewMessagesRequest::setMessageIds(const QList<qint32> &messageIds)
+void QTdViewMessagesRequest::setMessageIds(const QList<qint64> &messageIds)
 {
   m_messageIds = messageIds;
 }

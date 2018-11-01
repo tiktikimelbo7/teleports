@@ -405,7 +405,7 @@ Page {
                     width: Math.min(height, units.gu(4))
                     height: units.gu(2.8)
                     radius: width*0.5
-                    color: chat.isMuted ? "lightgrey" : "#5ec245"
+                    color: chat.isMuted ? "grey" : "#5ec245"
                     visible: chat.hasUnreadMessages
 
                     Text {

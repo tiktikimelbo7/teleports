@@ -229,8 +229,6 @@ public:
 
     Q_INVOKABLE QString formatDate(const QDateTime &dt);
 
-    void setAllMessagesRead();
-
 signals:
     void chatTypeChanged(QTdChatType *chatType);
     void titleChanged(QString title);

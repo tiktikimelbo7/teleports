@@ -171,6 +171,7 @@ qint64 QTdSuperGroupChat::upgradedFromMaxMessageId() const
 void QTdSuperGroupChat::onChatOpened()
 {
     getSuperGroupData();
+    QTdChat::onChatOpened();
 }
 
 void QTdSuperGroupChat::getSuperGroupData()

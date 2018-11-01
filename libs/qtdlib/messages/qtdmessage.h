@@ -32,6 +32,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
     // Provide a summary text for display in the chatlist
     Q_PROPERTY(QString summary READ summary NOTIFY senderChanged)
+
 public:
     explicit QTdMessage(QObject *parent = nullptr);
 

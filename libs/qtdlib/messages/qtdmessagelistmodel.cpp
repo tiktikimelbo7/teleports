@@ -3,6 +3,7 @@
 #include <QJsonArray>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
+#include "messages/requests/qtdviewmessagesrequest.h"
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     m_model(Q_NULLPTR), m_chat(Q_NULLPTR)
@@ -42,9 +43,9 @@ void QTdMessageListModel::setChat(QTdChat *chat)
     }
 
     if (m_chat) {
-        auto *m = new QTdMessage();
-        m->unmarshalJson(m_chat->lastMessageJson());
-        m_model->append(m);
+        auto *lastMessage = new QTdMessage();
+        lastMessage->unmarshalJson(m_chat->lastMessageJson());
+        m_model->append(lastMessage);
         connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
         loadMessages(m_model->first()->jsonId());
     }
@@ -62,29 +63,55 @@ void QTdMessageListModel::loadMore()
 
 void QTdMessageListModel::cleanUp()
 {
-    qDebug() << "Cleaning up msglistmodel";
     if (m_model->isEmpty()) {
-        qDebug() << "Already empty";
         return;
     }
     m_model->clear();
-    qDebug() << "Messagelistmodel now at count: " << m_model->count();
 }
 
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
 
+    QList<qint64> unreadMessages;
+    auto oldestMessage = m_chat->lastReadInboxMessageId();
+    auto newestMessage = m_chat->lastMessage()->id();
     QJsonArray messages = json["messages"].toArray();
-    for (const QJsonValue &msgData : messages) {
+    for (const QJsonValue &msgData : messages)
+    {
         const QJsonObject data = msgData.toObject();
         const qint64 mid = qint64(data["id"].toDouble());
         auto *msg = m_model->getByUid(QString::number(mid));
-        if (!msg) {
+        if (!msg)
+        {
             auto *message = new QTdMessage;
             message->unmarshalJson(data);
             m_model->append(message);
+            if (mid > oldestMessage && mid <= newestMessage)
+                unreadMessages << mid;
         }
     }
+    unreadMessages << newestMessage;
+    setAllMessagesRead(unreadMessages);
+    emit modelChanged();
+
+}
+
+void QTdMessageListModel::handleUpdateNewMessage(const QJsonObject &json)
+{
+    if (!m_chat || json.isEmpty())
+    {
+        return;
+    }
+    const qint64 id = qint64(json["chat_id"].toDouble());
+    if (id != m_chat->id())
+    {
+        return;
+    }
+    QList<qint64> unreadMessages;
+    const QJsonObject data = json["message"].toObject();
+    const qint64 mid = qint64(data["id"].toDouble());
+    unreadMessages << mid;
+    setAllMessagesRead(unreadMessages);
 }
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
@@ -141,4 +168,15 @@ void QTdMessageListModel::sendMessage(const QString &message)
     request->setChatId(m_chat->id());
     request->setText(message);
     QTdClient::instance()->send(request);
+}
+
+void QTdMessageListModel::setAllMessagesRead( QList<qint64> messages)
+{
+        //TODO: Determine how to detect which messages are in the visible part of the window
+        QTdViewMessagesRequest *req = new QTdViewMessagesRequest;
+        req->setChatId(m_chat->id());
+        req->setMessageIds(messages);
+        QTdClient::instance()->send(req);
+        req->deleteLater();
+
 }
