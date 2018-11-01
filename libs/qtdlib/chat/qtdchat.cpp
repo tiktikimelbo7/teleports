@@ -1,5 +1,6 @@
 #include "qtdchat.h"
 #include <QDebug>
+#include <QJsonArray>
 #include "qtdchattypefactory.h"
 #include "qtdchatactionfactory.h"
 #include "client/qtdclient.h"
@@ -363,12 +364,10 @@ void QTdChat::handleUpdateNewMessage(const QJsonObject &json)
 
 void QTdChat::onChatOpened()
 {
-    // Do nothing here;
 }
 
 void QTdChat::onChatClosed()
 {
-    // Do nothing here;
 }
 
 void QTdChat::updateChatAction(const QJsonObject &json)
@@ -423,7 +422,3 @@ QString QTdChat::formatDate(const QDateTime &dt)
     return QTdHelpers::formatDate(dt);
 }
 
-void QTdChat::setAllMessagesRead()
-{
-
-}

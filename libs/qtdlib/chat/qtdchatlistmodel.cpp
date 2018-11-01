@@ -2,6 +2,7 @@
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
+
 #include "chat/qtdchattypefactory.h"
 
 QTdChatListModel::QTdChatListModel(QObject *parent) : QObject(parent),
@@ -35,9 +36,7 @@ void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
 {
     if (m_currentChat == currentChat)
         return;
-
     m_currentChat = currentChat;
-    currentChat->setAllMessagesRead();
     emit currentChatChanged(m_currentChat);
 }
 
@@ -97,6 +96,7 @@ void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
         QTdGetChatsRequest *req = new QTdGetChatsRequest;
         QTdClient::instance()->send(QJsonObject{{"@type", "clearRecentlyFoundChats"}});
         QTdClient::instance()->send(req);
+        req->deleteLater();
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED:
@@ -114,7 +114,6 @@ void QTdChatListModel::updateChatReadInbox(const QJsonObject &json)
     const qint64 id = qint64(json["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat read inbox";
         tdchat->updateChatReadInbox(json);
         emit contentsChanged();
     }
@@ -125,7 +124,6 @@ void QTdChatListModel::updateChatReadOutbox(const QJsonObject &json)
     const qint64 id = qint64(json["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat read outbox";
         tdchat->updateChatReadOutbox(json);
         emit contentsChanged();
     }
@@ -136,7 +134,6 @@ void QTdChatListModel::handleUpdateChatIsPinned(const QJsonObject &json)
     const qint64 id = qint64(json["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat isPinned";
         tdchat->updateChatIsPinned(json);
         emit contentsChanged();
         // Update our internal PinnedChats list
@@ -216,4 +213,5 @@ void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pin
     auto *req = new QTdSetPinnedChatsRequest;
     req->setPinnedChats(chats);
     QTdClient::instance()->send(req);
+    req->deleteLater();
 }

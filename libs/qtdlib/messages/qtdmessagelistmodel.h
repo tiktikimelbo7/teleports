@@ -31,6 +31,7 @@ private slots:
     void cleanUp();
     void handleMessages(const QJsonObject &json);
     void handleUpdateChatLastMessage(const QJsonObject &json);
+    void handleUpdateNewMessage(const QJsonObject &json);
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId);
 
@@ -38,6 +39,8 @@ private:
     Q_DISABLE_COPY(QTdMessageListModel)
     QPointer<QQmlObjectListModel<QTdMessage>> m_model;
     QPointer<QTdChat> m_chat;
+
+    void setAllMessagesRead(QList<qint64> messages);
 };
 
 #endif // QTDMESSAGELISTMODEL_H

@@ -62,6 +62,7 @@ Store {
      *
      */
     property alias messageList: messageList.model
+    property alias chat: chatList.currentChat
     MessageList {
         id: messageList
         chat: chatList.currentChat

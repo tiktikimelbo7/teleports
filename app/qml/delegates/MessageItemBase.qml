@@ -14,6 +14,7 @@ ItemDelegate {
     height: contentCol.height + Suru.units.gu(2)
 
     property QTdMessage message: null
+    property QTdChat chat: null
     property bool transparentBackground: false
     property real maximumAvailableContentWidth: Math.min(Suru.units.gu(45), width * (3/4))
                                                 - (mc.anchors.leftMargin + mc.anchors.rightMargin)
@@ -34,7 +35,7 @@ ItemDelegate {
             Layout.alignment: Qt.AlignTop | Qt.AlignLeft
 
             GenericPhoto {
-                visible: !message.isOutgoing
+                visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret)
                 anchors.fill: parent
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
@@ -51,7 +52,7 @@ ItemDelegate {
         }
 
         Item {
-            Layout.fillWidth: message.isOutgoing
+            Layout.fillWidth: message.isOutgoing || chat.isPrivate || chat.isSecret
             width: Suru.units.gu(1)
         }
 
@@ -98,9 +99,9 @@ ItemDelegate {
                 height: childrenRect.height
 
                 Item {
-                    visible: !message.isOutgoing
+                    visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret)
                     width: parent.width
-                    height: Suru.units.gu(3)
+                    height: Suru.units.gu(2.5)
 
                     RowLayout {
                         id: topBar
@@ -108,7 +109,6 @@ ItemDelegate {
 
                         Label {
                             id: senderLabel
-                            // visible: !(chat.isPrivate || chat.isSecret)
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
                             font.bold: false
                             color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
@@ -124,7 +124,7 @@ ItemDelegate {
                 }
 
                 Item {
-                    height: Suru.units.gu(3)
+                    height: Suru.units.gu(2.5)
                     width: parent.width
 
                     RowLayout {

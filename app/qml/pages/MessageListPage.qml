@@ -62,7 +62,7 @@ Page {
                     id: loader
                     width: parent.width
                     height: childrenRect.height
-                    Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {message: modelData})
+                    Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {message: modelData, chat: Telegram.chats.chat })
                 }
             }
 

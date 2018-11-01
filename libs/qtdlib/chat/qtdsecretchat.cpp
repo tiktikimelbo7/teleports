@@ -58,6 +58,7 @@ QTdSecretChatState *QTdSecretChat::state() const
 void QTdSecretChat::onChatOpened()
 {
     getSecretChatData();
+    QTdChat::onChatOpened();
 }
 
 void QTdSecretChat::getSecretChatData()
