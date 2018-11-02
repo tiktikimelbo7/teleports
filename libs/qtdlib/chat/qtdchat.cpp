@@ -7,6 +7,7 @@
 #include "chat/requests/qtdopenchatrequest.h"
 #include "chat/requests/qtdclosechatrequest.h"
 #include "chat/requests/qtdsetchattitlerequest.h"
+#include "chat/requests/qtdsendchatactionrequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
 
@@ -96,6 +97,15 @@ QString QTdChat::initials() const
 QString QTdChat::avatarColor(unsigned int userId)
 {
     return isMyself() ? QTdHelpers::selfColor() : QTdHelpers::avatarColor(userId);
+}
+
+void QTdChat::sendChatAction(bool isTyping)
+{
+    //TODO: Make more actions available
+    auto *req = new QTdSendChatActionRequest();
+    req->setChatId(id());
+    QTdClient::instance()->send(req);
+    req->deleteLater();
 }
 
 QString QTdChat::qmlOrder() const

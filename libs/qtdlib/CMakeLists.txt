@@ -44,6 +44,7 @@ set(
     chat/qtdchatlistsortfiltermodel.cpp
     chat/requests/qtdgetbasicgrouprequest.cpp
     chat/requests/qtdgetchatsrequest.cpp
+    chat/requests/qtdsendchatactionrequest.cpp
     chat/requests/qtdreportchatrequest.cpp
     chat/requests/qtdgetsecretchatrequest.cpp
     chat/requests/qtdgetsupergrouprequest.cpp

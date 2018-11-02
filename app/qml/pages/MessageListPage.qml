@@ -113,23 +113,35 @@ Page {
                 selectByMouse: true
                 mouseSelectionMode: TextEdit.SelectWords
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
-                placeholderText: i18n.tr("Send a message")
+                placeholderText: i18n.tr("Type a message...")
 
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
                 function send() {
                     Qt.inputMethod.commit();
-                    AppActions.chat.sendMessage(entry.text.trim());
-                    entry.text = "";
+                    AppActions.chat.sendMessage(text.trim());
+                    text = "";
                 }
 
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
-                        entry.send();
+                        send();
                         return;
                     }
                     event.accepted = false;
+                }
+
+                onLengthChanged: {
+                    if (!typing_timer.running) {
+                        typing_timer.start()
+                        AppActions.chat.sendChatAction();
+                    }
+                }
+
+                Timer {
+                    id: typing_timer
+                    interval: 5000
                 }
             }
 
@@ -152,8 +164,6 @@ Page {
                     }
                 }
             }
-
         }
-
     }
 }

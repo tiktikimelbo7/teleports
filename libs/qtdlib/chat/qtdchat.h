@@ -87,6 +87,12 @@ public:
      * @brief Chat title background color
      */
     Q_INVOKABLE QString avatarColor(unsigned int userId);
+
+    /**
+     * @brief Send various actions a user can do in a chat to all peers
+     */
+    Q_INVOKABLE void sendChatAction(bool isTyping);
+
     /**
      * @brief QML representation of the position in the chat list
      * \see order()
