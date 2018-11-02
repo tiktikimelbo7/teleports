@@ -8,4 +8,5 @@ ActionCreator {
 
     signal loadMoreMessages();
     signal sendMessage(string text);
+    signal sendChatAction();
 }

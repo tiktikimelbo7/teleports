@@ -109,6 +109,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.sendChatAction
+        onDispatched: {
+            chatList.currentChat.sendChatAction(true);
+        }
+    }
+
     Timer {
         id: enableLoadTimer
         interval: 1000
