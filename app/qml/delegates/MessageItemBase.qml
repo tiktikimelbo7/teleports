@@ -64,9 +64,11 @@ ItemDelegate {
                 }
                 if (message.isOutgoing) {
                     if (message.sendingState) {
-                        return "lightblue"
-                    }
-                    return Suru.darkPositive
+                        return theme.palette.normal.backgroundTertiaryText
+                    } else if (message.id > chat.lastReadOutboxMessageId)
+                        return theme.palette.normal.activity
+                    else
+                        return UITK.UbuntuColors.green
                 }
                 return "white"
             }
