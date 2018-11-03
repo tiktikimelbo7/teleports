@@ -21,7 +21,9 @@ Store {
         id: chatList
         onCurrentChatChanged:{
           console.log("CURRENT CHAT CHANGED")
-          if (chatList.currentChat) {
+          if (chatList.currentChat)
+          {
+            messageList.loadMore()
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/MessageListPage.qml"})
           }
           else
