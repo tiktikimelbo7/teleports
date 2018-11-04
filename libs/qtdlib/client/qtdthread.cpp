@@ -6,20 +6,20 @@
 #include <QCoreApplication>
 
 QTdWorker::QTdWorker(QObject *parent) : QObject(parent),
-    m_tdlib(QTdHandle::instance())
+    m_tdlibProxy(QTdProxyProvider::instance("direct"))
 {
 }
 
 QTdWorker::~QTdWorker()
 {
-    m_tdlib.clear();
+    m_tdlibProxy.clear();
 }
 
 void QTdWorker::run()
 {
     // enter the tdlib event loop
     forever {
-        const QByteArray rcv = QByteArray(td_json_client_receive(m_tdlib->handle(), 1));
+        const QByteArray rcv = QByteArray(m_tdlibProxy->receive(1));
         if (!rcv.isEmpty()) {
             const QJsonObject json = QJsonDocument::fromJson(rcv).object();
             if (!json.isEmpty()) {

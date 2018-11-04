@@ -4,7 +4,8 @@
 #include <QObject>
 #include <QDebug>
 #include <QJsonObject>
-#include "qtdhandle.h"
+#include "qtdproxy.h"
+//#include "qtdhandle.h"
 
 /**
  * @brief The QTdWorker class
@@ -27,7 +28,7 @@ public slots:
 
 private:
     Q_DISABLE_COPY(QTdWorker)
-    QSharedPointer<Handle> m_tdlib;
+    QSharedPointer<QTdProxy> m_tdlibProxy;
 };
 
 #endif // QTDTHREAD_H

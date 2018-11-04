@@ -4,7 +4,6 @@
 #include <QJsonDocument>
 #include <QtConcurrent>
 #include "qtdthread.h"
-#include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
 #include <QJsonDocument>
@@ -12,8 +11,8 @@
 QJsonObject execTd(const QJsonObject &json) {
     qDebug() << "[EXEC]" << json;
     const QByteArray  tmp = (QJsonDocument(json).toJson(QJsonDocument::Compact) % '\0');
-    QSharedPointer<Handle> tdlib = QTdHandle::instance();
-    const QByteArray  str = QByteArray(td_json_client_execute(tdlib->handle(), tmp.constData()));
+    QSharedPointer<QTdProxy> tdlibProxy = QTdProxyProvider::instance("direct");
+    const QByteArray  str = QByteArray(tdlibProxy->execute(tmp.constData()));
     const QJsonObject ret = QJsonDocument::fromJson(str).object();
     qDebug() << "[EXEC RESULT]" << ret;
     return ret;
@@ -22,8 +21,8 @@ QJsonObject execTd(const QJsonObject &json) {
 void sendTd(const QJsonObject &json) {
     qDebug() << "[SEND] :" << json;
     const QByteArray msg = QJsonDocument(json).toJson(QJsonDocument::Compact).append('\0');
-    QSharedPointer<Handle> tdlib = QTdHandle::instance();
-    td_json_client_send(tdlib->handle(), msg.constData());
+    QSharedPointer<QTdProxy> tdlibProxy = QTdProxyProvider::instance("direct");
+    tdlibProxy->send(msg.constData());
 }
 
 QTdClient::QTdClient(QObject *parent) : QObject(parent),

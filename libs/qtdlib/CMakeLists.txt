@@ -60,7 +60,8 @@ set(
     common/qtdint.cpp
     common/qtdrequest.cpp
     common/qtdhelpers.cpp
-    client/qtdhandle.cpp
+    client/qtdproxy.cpp
+    client/qtdproxydirect.cpp
     client/qtdclient.cpp
     client/qtdthread.cpp
     connections/qtdconnectionstate.cpp
