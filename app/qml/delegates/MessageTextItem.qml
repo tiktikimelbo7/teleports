@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
+import QTelegramStyles 1.0
 import "../components"
 
 MessageItemBase {
@@ -25,7 +26,7 @@ MessageItemBase {
             width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
             text: textContent.text.text
-            color: message.isOutgoing ? "white" : Suru.foregroundColor
+            color: ColorsBright.textColor
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {
@@ -65,8 +66,8 @@ MessageItemBase {
             Item {
                 TextFormatter {
                     id: textFormatter
-                    codeColor: Suru.color(Suru.LightBlue, 0.8)
-                    linkColor: Suru.color(Suru.LightBlue)
+                    codeColor: ColorsBright.codeColor
+                    linkColor: ColorsBright.linkPreviewColor
                     textDocument: textEdit.textDocument
                     content: textContent.text
                 }
