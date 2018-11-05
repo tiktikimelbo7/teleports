@@ -4,6 +4,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
+import QTelegramStyles 1.0
+
 import "../components"
 import "../actions"
 import "../stores"
@@ -64,13 +66,13 @@ ItemDelegate {
                 }
                 if (message.isOutgoing) {
                     if (message.sendingState) {
-                        return theme.palette.normal.backgroundTertiaryText
-                    } else if (message.id > chat.lastReadOutboxMessageId)
-                        return theme.palette.normal.activity
-                    else
-                        return UITK.UbuntuColors.green
+                        return ColorsBright.unsentMessageColor
+                    } else if (message.id > chat.lastReadOutboxMessageId) {
+                        return ColorsBright.sentMessageColor
+                    }
+                    return ColorsBright.readMessageColor
                 }
-                return "white"
+                return ColorsBright.incomingMessageColor
             }
 
             radius: 4
@@ -151,7 +153,7 @@ ItemDelegate {
                                 text: message.views
                                 Suru.textLevel: Suru.Small
                                 Suru.textStyle: Suru.TertiaryText
-                                color: message.isOutgoing ? "white" : Suru.foregroundColor
+                                color: ColorsBright.textColor
                             }
                         }
 
@@ -162,14 +164,14 @@ ItemDelegate {
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
-                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
+                            color: ColorsBright.textColor
                             opacity: message.isOutgoing ? 1 : 0.6
                         }
 
                         Label {
                             id: dateLabel
                             text: message.formatDate(message.date)
-                            color: message.isOutgoing && !transparentBackground ? "white" : Suru.foregroundColor
+                            color: ColorsBright.textColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText

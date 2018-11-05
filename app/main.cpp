@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    engine.addImportPath(QStringLiteral("qrc:/imports"));
+    engine.addImportPath(QStringLiteral("qrc:/plugins"));
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
 

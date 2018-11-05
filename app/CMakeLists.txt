@@ -8,3 +8,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/libs
     ${CMAKE_SOURCE_DIR}/libs/qtdlib
 )
+list(APPEND QML_DIRS "plugins")
+set(QML_IMPORT_PATH "${QML_DIRS}")
+

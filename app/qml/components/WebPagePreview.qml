@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
+import QTelegramStyles 1.0
 
 Item {
     property QTdWebPage preview: null
@@ -19,7 +20,7 @@ Item {
             bottom: parent.bottom
         }
         width: Suru.units.dp(3)
-        color: Suru.neutralColor
+        color: ColorsBright.codeColor
     }
 
     RowLayout {

@@ -36,5 +36,8 @@
         <file>delegates/MessagePhotoItem.qml</file>
         <file>delegates/MessageHiddenItem.qml</file>
         <file>pages/AccountPage.qml</file>
+        <file>plugins/QTelegramStyles/ColorsBright.qml</file>
+        <file>plugins/QTelegramStyles/ColorsDark.qml</file>
+        <file>plugins/QTelegramStyles/qmldir</file>
     </qresource>
 </RCC>

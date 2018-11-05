@@ -4,20 +4,18 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
+import QTelegramStyles 1.0
 import "../actions"
 import "../delegates"
 import "../stores"
 
 Page {
-    property color hf: Suru.foregroundColor
-    property color hb: Suru.backgroundColor
-    property color hd: Suru.neutralColor
     header: UITK.PageHeader {
         title: Telegram.chats && Telegram.chats.currentChat ? Telegram.chats.currentChat.title : ""
         UITK.StyleHints {
-            foregroundColor: hf
-            backgroundColor: hb
-            dividerColor: hd
+            foregroundColor: ColorsBright.textColor
+            backgroundColor: ColorsBright.backgroundColor
+            dividerColor: ColorsBright.separatorColor
         }
         leadingActionBar.actions: [
             UITK.Action {
@@ -28,20 +26,6 @@ Page {
                 }
             }
         ]
-    }
-
-    Image {
-        id: background_img
-        anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
-        horizontalAlignment: Image.AlignLeft
-        verticalAlignment: Image.AlignTop
-        sourceSize: Qt.size(width,height)
-        source: {
-            //return Theme.name == "Ubuntu.Components.Themes.SuruDark" ? "qrc:/qml/files/telegram_background_dark.png" : "qrc:/qml/files/telegram_background.png"
-            return "qrc:/qml/icons/telegram_background.png"
-        }
-        opacity: 0.7
     }
 
     ScrollView {
