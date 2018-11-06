@@ -4,6 +4,7 @@
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
+#include "common/qtdhelpers.h"
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     m_model(Q_NULLPTR), m_chat(Q_NULLPTR)
@@ -164,9 +165,23 @@ void QTdMessageListModel::sendMessage(const QString &message)
     if (!m_chat) {
         return;
     }
+
+    //First call tdlib to markup all complex entities
+    auto parseRequest = QJsonObject{
+        {"@type", "getTextEntities"}, {"text", message}};
+    auto result = QTdClient::instance()->exec(parseRequest);
+    result.waitForFinished();
+    auto entities = result.result()["entities"].toArray();
+
+    //Then do the text formatting
+    QString plainText;
+    QJsonArray formatEntities;
+    QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
     auto request = new QTdSendMessageRequest();
     request->setChatId(m_chat->id());
-    request->setText(message);
+    request->setText(plainText);
+    formatEntities << entities;
+    request->setEntities(entities);
     QTdClient::instance()->send(request);
 }
 

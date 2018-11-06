@@ -16,6 +16,8 @@ QTdTextFormatter::QTdTextFormatter(QObject *parent) : QObject(parent),
 
     connect(this, &QTdTextFormatter::textDocumentChanged, this, &QTdTextFormatter::doFormat);
     connect(this, &QTdTextFormatter::contentChanged, this, &QTdTextFormatter::doFormat);
+    m_codeColor = QColor("#798eaf");
+    m_linkColor = QColor("#5d84c1");
 }
 
 QQuickTextDocument *QTdTextFormatter::textDocument() const

@@ -1,4 +1,5 @@
 #include "qtdhelpers.h"
+#include <QJsonArray>
 
 QString QTdHelpers::formatDate(const QDateTime &dt)
 {
@@ -28,7 +29,56 @@ QString QTdHelpers::avatarColor(unsigned int userId)
     return colorPallete.at(userId % colorPallete.size());
 }
 
-QString QTdHelpers::selfColor()
+QString QTdHelpers::selfColor() { return "#65aadd"; }
+
+QRegExp QTdHelpers::rxEntity;
+QRegExp QTdHelpers::rxLinebreaks;
+
+void QTdHelpers::getEntitiesFromMessage(const QString &messageText, QString &plainText, QJsonArray &entities)
 {
-    return "#65aadd";
+    if (rxEntity.isEmpty())
+    {
+        rxEntity = QRegExp("\\*\\*.+\\*\\*|__.+__|```.+```|`.+`");
+        rxEntity.setMinimal(true);
+        rxLinebreaks = QRegExp("\\n|\\r");
+    }
+    int offsetCorrection = 0;
+    int pos = 0;
+    plainText = "";
+    while ((pos = rxEntity.indexIn(messageText, pos)) != -1)
+    {
+        auto match = rxEntity.cap(0);
+        QJsonObject entity;
+        entity["@type"] = "textEntity";
+        entity["offset"] = (pos - offsetCorrection);
+        QJsonObject entityType;
+        if (match.startsWith("*"))
+        {
+          entityType["@type"] = "textEntityTypeBold";
+          entity["length"] = (rxEntity.matchedLength() - 4);
+          offsetCorrection += 4;
+        } else if(match.startsWith("_"))
+        {
+            entityType["@type"] = "textEntityTypeItalic";
+            entity["length"] = (rxEntity.matchedLength() - 4);
+            offsetCorrection += 4;
+        } else if(match.startsWith("`") && !match.startsWith("``"))
+        {
+            entityType["@type"] = "textEntityTypeCode";
+            entity["length"] = (rxEntity.matchedLength() - 2);
+            offsetCorrection += 2;
+        } else if(match.startsWith("```"))
+        {
+            entityType["@type"] = "textEntityTypePre";
+            entity["length"] = (rxEntity.matchedLength() - 6);
+            offsetCorrection += 6;
+        }
+        entity["type"] = entityType;
+        entities << entity;
+        pos += rxEntity.matchedLength();
+    }
+
+    plainText = messageText;
+    plainText = plainText.replace("**", "").replace("__", "").replace("`", "");
 }
+
