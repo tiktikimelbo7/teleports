@@ -6,10 +6,11 @@
     "hooks": {
         "telegram-plus": {
             "apparmor": "telegram-plus.apparmor",
-            "desktop":  "telegram-plus.desktop"
+            "desktop":  "telegram-plus.desktop",
+            "content-hub": "telegram-plus.content-hub"
         }
     },
-    "version": "0.1.1",
+    "version": "0.1.2",
     "maintainer": "Dan Chapman <dan@ubports.com>",
     "framework" : "ubuntu-sdk-16.04"
 }

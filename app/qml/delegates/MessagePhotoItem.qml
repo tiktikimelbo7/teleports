@@ -93,11 +93,26 @@ MessageItemBase {
         }
 
     }
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("photo clicked",photoContent.photo.small.local.canBeDownloaded
-                                      )
+          console.log("photo clicked")
+          var properties;
+          var largeSize = photoContent.photo.sizes.get(2);
+          if( largeSize == null)largeSize = photoContent.photo.sizes.get(1);
+          var largePhoto = largeSize.photo;
+
+          if (largePhoto.canBeDownloaded && !largePhoto.isDownloadingCompleted) {
+              largePhoto.downloadFile();
+          }
+
+          properties = {
+              "senderName": message.sender.username,
+              "photoPreviewSource": Qt.resolvedUrl("file://" + largePhoto.local.path)
+          };
+          pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+
          }
     }
 }
