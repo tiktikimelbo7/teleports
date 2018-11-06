@@ -14,6 +14,8 @@
         <file>pages/ChatListPage.qml</file>
         <file>pages/SettingsPage.qml</file>
         <file>pages/AboutPage.qml</file>
+        <file>pages/PreviewPage.qml</file>
+        <file>pages/PickerPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
@@ -26,6 +28,7 @@
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
         <file>components/ProfilePhoto.qml</file>
+        <file>components/MediaViewer.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
         <file>delegates/MessageAnimationItem.qml</file>

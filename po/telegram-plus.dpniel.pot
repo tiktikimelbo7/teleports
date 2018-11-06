@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-01 13:24+0000\n"
+"POT-Creation-Date: 2018-11-05 22:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,43 +17,74 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/qml/pages/WaitCodePage.qml:13
-msgid "Enter Code"
+#: ../app/qml/delegates/MessageItemBase.qml:160
+msgid "Edited"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:34
-msgid "First Name"
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:40
+msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:54
-msgid "Last Name"
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/AccountPage.qml:29
+#: ../app/qml/pages/SettingsPage.qml:24
+msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:65
-msgid "Code"
-msgstr ""
-
-#: ../app/qml/pages/WaitCodePage.qml:70
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
-#: ../app/qml/pages/WaitPasswordPage.qml:33
-msgid "Next..."
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:17 ../app/qml/pages/AboutPage.qml:59
+#: ../app/qml/pages/AboutPage.qml:59 ../app/qml/pages/ChatListPage.qml:17
 #: telegram-plus.desktop.in.h:1
 msgid "Telegram Plus"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:31 ../app/qml/pages/SettingsPage.qml:14
-msgid "Settings"
+#: ../app/qml/pages/AboutPage.qml:66
+msgid "Version %1"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/AboutPage.qml:13
-msgid "About"
+#: ../app/qml/pages/AboutPage.qml:84
+msgid "Get the source"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:54 ../app/qml/pages/AccountPage.qml:18
+#: ../app/qml/pages/AboutPage.qml:85
+msgid "Report issues"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:86
+msgid "Help translate"
+msgstr ""
+
+#: ../app/qml/pages/PickerPage.qml:16
+msgid "Content Picker"
+msgstr ""
+
+#: ../app/qml/pages/PreviewPage.qml:33
+msgid "From: "
+msgstr ""
+
+#: ../app/qml/pages/PreviewPage.qml:47
+msgid "Save"
+msgstr ""
+
+#: ../app/qml/pages/AccountPage.qml:18 ../app/qml/pages/ChatListPage.qml:54
 msgid "Account"
+msgstr ""
+
+#: ../app/qml/pages/AccountPage.qml:76
+msgid "+"
+msgstr ""
+
+#: ../app/qml/pages/AccountPage.qml:86
+msgid "Account Actions"
+msgstr ""
+
+#: ../app/qml/pages/AccountPage.qml:97
+msgid "Logout"
+msgstr ""
+
+#: ../app/qml/pages/AccountPage.qml:111
+msgid "Delete account"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:14 ../app/qml/pages/ChatListPage.qml:31
+msgid "Settings"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:82
@@ -80,47 +111,36 @@ msgstr ""
 msgid "Enter Phone Number"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:24
-#: ../app/qml/pages/AccountPage.qml:29
-msgid "Back"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:23
+#: ../app/qml/pages/WaitCodePage.qml:85
+#: ../app/qml/pages/WaitPasswordPage.qml:48
+msgid "Next..."
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:66
-msgid "Version %1"
+#: ../app/qml/pages/WaitCodePage.qml:17
+msgid "Enter Code"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:84
-msgid "Get the source"
+#: ../app/qml/pages/WaitCodePage.qml:49
+msgid "First Name"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:85
-msgid "Report issues"
+#: ../app/qml/pages/WaitCodePage.qml:69
+msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:86
-msgid "Help translate"
+#: ../app/qml/pages/WaitCodePage.qml:80
+msgid "Code"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+msgid "Enter Password"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
 msgstr ""
 
 #: ../app/qml/pages/MessageListPage.qml:116
-msgid "Send a message"
-msgstr ""
-
-#: ../app/qml/pages/AccountPage.qml:76
-msgid "+"
-msgstr ""
-
-#: ../app/qml/pages/AccountPage.qml:86
-msgid "Account Actions"
-msgstr ""
-
-#: ../app/qml/pages/AccountPage.qml:97
-msgid "Logout"
-msgstr ""
-
-#: ../app/qml/pages/AccountPage.qml:111
-msgid "Delete account"
-msgstr ""
-
-#: ../app/qml/delegates/MessageItemBase.qml:158
-msgid "Edited"
+msgid "Type a message..."
 msgstr ""
