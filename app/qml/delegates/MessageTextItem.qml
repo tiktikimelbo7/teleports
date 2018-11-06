@@ -67,7 +67,7 @@ MessageItemBase {
                 TextFormatter {
                     id: textFormatter
                     codeColor: ColorsBright.codeColor
-                    linkColor: ColorsBright.linkPreviewColor
+                    linkColor: ColorsBright.linkColor
                     textDocument: textEdit.textDocument
                     content: textContent.text
                 }

@@ -16,5 +16,7 @@ QtObject {
     readonly property color linkPreviewColor: "#666666"
     readonly property color linkActionColor: "#ffffff"
     readonly property color separatorColor: "#d5d5d5"
+    readonly property color linkColor: "#006a97"
+    readonly property color tertiaryTextColor: "#666666"
 
 }

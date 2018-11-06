@@ -164,14 +164,14 @@ ItemDelegate {
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
-                            color: ColorsBright.textColor
+                            color: ColorsBright.tertiaryTextColor
                             opacity: message.isOutgoing ? 1 : 0.6
                         }
 
                         Label {
                             id: dateLabel
                             text: message.formatDate(message.date)
-                            color: ColorsBright.textColor
+                            color: ColorsBright.tertiaryTextColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
