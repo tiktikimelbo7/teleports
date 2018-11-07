@@ -2,7 +2,6 @@ import QtQuick 2.4
 import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3 as UITK
 import QtQuick.Controls.Suru 2.2
-import "../actions"
 
 Page {
     id: aboutPage
@@ -34,7 +33,6 @@ Page {
         id: aboutFlickable
         anchors.fill: parent
         anchors.margins: units.gu(2)
-        contentHeight: columnLayout.height
 
         Column {
             id: aboutCloumn

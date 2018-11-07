@@ -16,7 +16,7 @@ Store {
         onCurrentUserChanged:{
           console.log("CURRENT USER CHANGED")
           if (usersStore.currentUser) {
-              AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/AccountPage.qml"})
+              AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/UserProfilePage.qml"})
           }
           else
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
@@ -26,11 +26,16 @@ Store {
         type: UserStateKey.setCurrentUser
         onDispatched: {
             if (message.user) {
-                if (usersStore.currentUser  && message.user.id !== usersStore.currentUser.id) {
+                if (usersStore.currentUser && message.user.id !== usersStore.currentUser.id) {
                     return
                 }
                 usersStore.currentUser = message.user
-                AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/AccountPage.qml"})
+                if (message.user == me) {
+                    AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/SettingsPage.qml"})
+                }
+                else {
+                    AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/UserProfilePage.qml"})
+                }
             }
         }
     }

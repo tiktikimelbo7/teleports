@@ -12,9 +12,11 @@
 class QTdUserStatus : public QTdObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString string READ toString)
     Q_DISABLE_COPY(QTdUserStatus)
 public:
     explicit QTdUserStatus(QObject *parent = Q_NULLPTR);
+    virtual QString toString() const = 0;
 };
 
 /**
@@ -28,6 +30,7 @@ class QTdUserStatusEmpty : public QTdUserStatus
     Q_DISABLE_COPY(QTdUserStatusEmpty)
 public:
     explicit QTdUserStatusEmpty(QObject *parent = Q_NULLPTR);
+    QString toString() const override;
 };
 
 /**
@@ -41,6 +44,7 @@ class QTdUserStateLastMonth : public QTdUserStatus
     Q_DISABLE_COPY(QTdUserStateLastMonth)
 public:
     explicit QTdUserStateLastMonth(QObject *parent = Q_NULLPTR);
+    QString toString() const override;
 };
 
 /**
@@ -54,6 +58,7 @@ class QTdUserStatusLastWeek : public QTdUserStatus
     Q_DISABLE_COPY(QTdUserStatusLastWeek)
 public:
     explicit QTdUserStatusLastWeek(QObject *parent = Q_NULLPTR);
+    QString toString() const override;
 };
 
 /**
@@ -70,6 +75,7 @@ public:
     explicit QTdUserStatusOffline(QObject *parent = Q_NULLPTR);
     QDateTime wasOnline() const;
     void unmarshalJson(const QJsonObject &json);
+    QString toString() const override;
 signals:
     void wasOnlineChanged(QDateTime wasOnline);
 private:
@@ -90,6 +96,7 @@ public:
     explicit QTdUserStatusOnline(QObject *parent = Q_NULLPTR);
     QDateTime expires() const;
     void unmarshalJson(const QJsonObject &json);
+    QString toString() const override;
 signals:
     void expiresChanged();
 private:
@@ -107,6 +114,7 @@ class QTdUserStatusRecently : public QTdUserStatus
     Q_DISABLE_COPY(QTdUserStatusRecently)
 public:
     explicit QTdUserStatusRecently(QObject *parent = Q_NULLPTR);
+    QString toString() const override;
 };
 
 #endif // QTDUSERSTATUS_H
