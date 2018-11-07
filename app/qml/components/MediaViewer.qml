@@ -81,17 +81,23 @@ Item {
 
         onPinchStarted: {
             if (viewer.isVideo || viewer.isAudio) return;
-
             active = true;
             initialZoom = flickable.sizeScale;
             center = zoomPinchArea.mapToItem(media, pinch.startCenter.x, pinch.startCenter.y);
             zoomIn(center.x, center.y, initialZoom);
         }
+        function clamp(x, min, max){
+          if (x < min)x = min;
+          else if (x > max)x = max;
+          return x;
+        }
+
         onPinchUpdated: {
             if (viewer.isVideo || viewer.isAudio) return;
-
-            var zoomFactor = MathUtils.clamp(initialZoom * pinch.scale, minimumZoom, maximumZoom);
-            flickable.sizeScale = zoomFactor;
+            var zoomFactor = clamp(initialZoom * pinch.scale, minimumZoom, maximumZoom);
+            if(zoomFactor>flickable.sizeScale+0.2 ||zoomFactor<flickable.sizeScale-0.2){
+              flickable.sizeScale = zoomFactor;
+            }
         }
         onPinchFinished: {
             active = false;
