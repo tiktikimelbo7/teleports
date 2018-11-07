@@ -9,14 +9,29 @@ QTdUserStatusEmpty::QTdUserStatusEmpty(QObject *parent) : QTdUserStatus(parent)
     setType(USER_STATUS_EMPTY);
 }
 
+QString QTdUserStatusEmpty::toString() const
+{
+    return "n/a";
+}
+
 QTdUserStateLastMonth::QTdUserStateLastMonth(QObject *parent) : QTdUserStatus(parent)
 {
     setType(USER_STATUS_LAST_MONTH);
 }
 
+QString QTdUserStateLastMonth::toString() const
+{
+    return "last seen one month ago";
+}
+
 QTdUserStatusLastWeek::QTdUserStatusLastWeek(QObject *parent) : QTdUserStatus(parent)
 {
     setType(USER_STATUS_LAST_WEEK);
+}
+
+QString QTdUserStatusLastWeek::toString() const
+{
+    return "last seen one week ago";
 }
 
 QTdUserStatusOffline::QTdUserStatusOffline(QObject *parent) : QTdUserStatus(parent)
@@ -27,6 +42,11 @@ QTdUserStatusOffline::QTdUserStatusOffline(QObject *parent) : QTdUserStatus(pare
 QDateTime QTdUserStatusOffline::wasOnline() const
 {
     return m_wasOnline;
+}
+
+QString QTdUserStatusOffline::toString() const
+{
+    return QString("last seen ") + m_wasOnline.toString();
 }
 
 void QTdUserStatusOffline::unmarshalJson(const QJsonObject &json)
@@ -46,6 +66,11 @@ QDateTime QTdUserStatusOnline::expires() const
     return m_expires;
 }
 
+QString QTdUserStatusOnline::toString() const
+{
+    return "online";
+}
+
 void QTdUserStatusOnline::unmarshalJson(const QJsonObject &json)
 {
     m_expires.setTime_t(qint32(json["expires"].toInt()));
@@ -57,3 +82,10 @@ QTdUserStatusRecently::QTdUserStatusRecently(QObject *parent) : QTdUserStatus(pa
 {
     setType(USER_STATUS_RECENTLY);
 }
+
+QString QTdUserStatusRecently::toString() const
+{
+    return "seen recently";
+}
+
+

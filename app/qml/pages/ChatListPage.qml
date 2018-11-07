@@ -22,40 +22,14 @@ Page {
             dividerColor: hd
         }
 
-        leadingActionBar {
-            id: menu
-            actions : [
-                UITK.Action {
-                    id: settingsIcon
-                    objectName: "settingsIcon"
-                    text: i18n.tr("Settings")
-                    iconName: "settings"
-                    onTriggered: {
-                        pageStack.push("qrc:///pages/SettingsPage.qml")
-                    }
-                },
-                UITK.Action {
-                    id: infoIcon
-                    objectName: "infoIcon"
-                    text: i18n.tr("About")
-                    iconName: "info"
-                    onTriggered: {
-                        pageStack.push("qrc:///pages/AboutPage.qml")
-                    }
-                }
-            ]
-            numberOfSlots: 1
-        }
-
         trailingActionBar.actions: [
             UITK.Action {
-                id: accountIcon
-                objectName: "accountIcon"
-                text: i18n.tr("Account")
-                iconName: "account"
+                id: settingsIcon
+                objectName: "settingsIcon"
+                text: i18n.tr("Settings")
+                iconName: "settings"
                 onTriggered: {
-                  AppActions.user.setCurrentUser(Telegram.users.me)
-
+                    AppActions.user.setCurrentUser(Telegram.users.me)
                 }
             }
         ]
