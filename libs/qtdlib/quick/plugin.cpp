@@ -15,6 +15,7 @@
 #include "files/qtdanimation.h"
 #include "files/qtdphotosize.h"
 #include "files/qtdaudio.h"
+#include "files/qtdvideo.h"
 #include "files/qtddocument.h"
 #include "files/qtdsticker.h"
 #include "messages/qtdmessage.h"
@@ -105,6 +106,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdPhoto>(uri, 1, 0, "QTdPhoto", "c++ class");
     qmlRegisterUncreatableType<QTdPhotoSize>(uri, 1, 0, "QTdPhotoSize", "c++ class");
     qmlRegisterUncreatableType<QTdAudio>(uri, 1, 0, "QTdAudio", "c++ class");
+    qmlRegisterUncreatableType<QTdVideo>(uri, 1, 0, "QTdVideo", "c++ class");
     qmlRegisterUncreatableType<QTdDocument>(uri, 1, 0, "QTdDocument", "c++ class");
     qmlRegisterUncreatableType<QTdSticker>(uri, 1, 0, "QTdSticker", "c++ class");
 
@@ -113,11 +115,14 @@ void QTdLib::registerQmlTypes()
 
     qmlRegisterUncreatableType<QTdMessage>(uri, 1, 0, "QTdMessage", "C++ class");
     qmlRegisterUncreatableType<QTdMessageAnimation>(uri, 1, 0, "QTdMessageAnimation", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageAudio>(uri, 1, 0, "QTdMessageAudio", "C++ class");
     qmlRegisterUncreatableType<QTdMessageContent>(uri, 1, 0, "QTdMessageContent", "C++ class");
-    qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
-    qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");
-    qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageDocument>(uri, 1, 0, "QTdMessageDocument", "C++ class");
     qmlRegisterUncreatableType<QTdMessageHidden>(uri, 1, 0, "QTdMessageHidden", "C++ class");
+    qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageVideo>(uri, 1, 0, "QTdMessageVideo", "C++ class");
     qmlRegisterUncreatableType<QTdFormattedText>(uri, 1, 0, "QTdFormattedText", "C++ class");
     qmlRegisterUncreatableType<QTdWebPage>(uri, 1, 0, "QTdWebPage", "C++ class");
 }

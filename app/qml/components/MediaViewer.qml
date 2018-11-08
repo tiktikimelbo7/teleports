@@ -204,7 +204,7 @@ Item {
                 name: "media-playback-start"
                 color: "black"
                 opacity: 0.8
-                visible: (viewer.isAudio || viewer.isVideo) && !activityIndicator.visible
+                visible: (viewer.isAudio || viewer.isVideo) && !activity.visible
             }
 
             UITK.Label {
@@ -242,7 +242,17 @@ Item {
                 onClicked: {
                     clickTimer.start();
                 }
-
+                Timer {
+                    id: videoSinkTimer
+                    interval: 1000
+                    onTriggered: {
+                      console.log("mediaviewer timer")
+                      videoPreview.stop();
+                      videoPreview.play();
+                      playIcon.name = "media-playback-pause"
+                      // videoSinkTimer.stop();
+                    }
+                  }
                 Timer {
                     id: clickTimer
                     interval: 150
@@ -251,7 +261,11 @@ Item {
                             audioOutput.isPlaying ? audioOutput.pause() : audioOutput.play();
                         }
                         if (viewer.isVideo) {
-                            videoPreview.isPlaying ? videoPreview.pause() : videoPreview.play();
+                            if(videoPreview.isPlaying)videoPreview.pause()
+                            else {
+                              videoPreview.play();
+                              videoSinkTimer.start();
+                            }
                         }
                         if (videoPreview.isPlaying || audioOutput.isPlaying) {
                                 playIcon.name = "media-playback-pause"

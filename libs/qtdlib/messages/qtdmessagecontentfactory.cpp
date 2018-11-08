@@ -14,6 +14,12 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
           return new QTdMessagePhoto(parent);
     } else if (type == "messageAnimation") {
           return new QTdMessageAnimation(parent);
+    } else if (type == "messageAudio") {
+          return new QTdMessageAudio(parent);
+    } else if (type == "messageDocument") {
+          return new QTdMessageDocument(parent);    
+    } else if (type == "messageVideo") {
+          return new QTdMessageVideo(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
     }
