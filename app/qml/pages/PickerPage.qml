@@ -12,7 +12,6 @@ Page {
         ContentItem {}
     }
     header:UITK.PageHeader{
-          id:pageHeader
           title: i18n.tr("Content Picker")
           leadingActionBar.actions:[
             UITK.Action {
@@ -34,7 +33,7 @@ Page {
     function __exportItems(url) {
         if (picker.curTransfer.state === ContentTransfer.InProgress)
         {
-            picker.curTransfer.items = [ resultComponent.createObject(root, {"url": url}) ];
+            picker.curTransfer.items = [ resultComponent.createObject(parent, {"url": url}) ];
             picker.curTransfer.state = ContentTransfer.Charged;
         }
     }

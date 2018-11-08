@@ -98,3 +98,60 @@ void QTdMessageAnimation::unmarshalJson(const QJsonObject &json)
     m_animation->unmarshalJson(json["animation"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
 }
+QTdMessageVideo::QTdMessageVideo(QObject *parent) : QTdMessageContent(parent),
+    m_video(new QTdVideo), m_caption(new QTdFormattedText)
+{
+    setType(MESSAGE_VIDEO);
+}
+
+QTdVideo *QTdMessageVideo::video() const
+{
+    return m_video.data();
+}
+QTdFormattedText *QTdMessageVideo::caption() const
+{
+  return m_caption.data();
+}
+void QTdMessageVideo::unmarshalJson(const QJsonObject &json)
+{
+    m_video->unmarshalJson(json["video"].toObject());
+    m_caption->unmarshalJson(json["caption"].toObject());
+}
+QTdMessageAudio::QTdMessageAudio(QObject *parent) : QTdMessageContent(parent),
+    m_audio(new QTdAudio), m_caption(new QTdFormattedText)
+{
+    setType(MESSAGE_AUDIO);
+}
+
+QTdAudio *QTdMessageAudio::audio() const
+{
+    return m_audio.data();
+}
+QTdFormattedText *QTdMessageAudio::caption() const
+{
+  return m_caption.data();
+}
+void QTdMessageAudio::unmarshalJson(const QJsonObject &json)
+{
+    m_audio->unmarshalJson(json["audio"].toObject());
+    m_caption->unmarshalJson(json["caption"].toObject());
+}
+QTdMessageDocument::QTdMessageDocument(QObject *parent) : QTdMessageContent(parent),
+    m_document(new QTdDocument), m_caption(new QTdFormattedText)
+{
+    setType(MESSAGE_DOCUMENT);
+}
+
+QTdDocument *QTdMessageDocument::document() const
+{
+    return m_document.data();
+}
+QTdFormattedText *QTdMessageDocument::caption() const
+{
+  return m_caption.data();
+}
+void QTdMessageDocument::unmarshalJson(const QJsonObject &json)
+{
+    m_document->unmarshalJson(json["document"].toObject());
+    m_caption->unmarshalJson(json["caption"].toObject());
+}

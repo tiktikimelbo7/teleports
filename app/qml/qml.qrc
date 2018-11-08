@@ -32,6 +32,9 @@
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
         <file>delegates/MessageAnimationItem.qml</file>
+        <file>delegates/MessageAudioItem.qml</file>
+        <file>delegates/MessageDocumentItem.qml</file>
+        <file>delegates/MessageVideoItem.qml</file>
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>

@@ -76,6 +76,7 @@ set(
     files/qtdphotosize.cpp
     files/qtdanimation.cpp
     files/qtdsticker.cpp
+    files/qtdvideo.cpp
     messages/qtdtextentity.cpp
     messages/qtdtextentitytype.cpp
     messages/qtdmessage.cpp

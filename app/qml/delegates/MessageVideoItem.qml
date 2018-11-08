@@ -9,59 +9,32 @@ import QuickFlux 1.1
 import "../components"
 
 MessageItemBase {
-    property QTdMessageAnimation animation: message.content
-    property QTdLocalFile animationLocal: animation.animation.animation.local
-    property QTdPhotoSize thumbnail: animation.animation.thumbnail
+    property QTdMessageVideo video: message.content
+    property QTdLocalFile videoLocal: video.video.video.local
+    property QTdPhotoSize thumbnail: video.video.thumbnail
     property QTdLocalFile thumbnailLocal: thumbnail.photo.local
     property real uniqeId: Math.floor(Math.random() * Math.floor(10000));
     property real maximumMediaHeight: Suru.units.gu(24)
     property real minimumMediaHeight: Suru.units.gu(16)
     property real maximumMediaWidth: Suru.units.gu(30)
     property real maximumMediaRatio: maximumMediaWidth / maximumMediaHeight
-    property real mediaWidth:animation.animation.width
-    property real mediaHeight:animation.animation.height
-    property url localFileSource: animation && animationLocal.path ? Qt.resolvedUrl("file://" + animationLocal.path) : ""
+    property real mediaWidth:video.video.width
+    property real mediaHeight:video.video.height
+    property url localFileSource: video && videoLocal.path ? Qt.resolvedUrl("file://" + videoLocal.path) : ""
     Item {
-      id: animationContainer
+      id: videoContainer
       width: mediaWidth > mediaHeight?
                         Math.min(mediaWidth, maximumMediaWidth):
                         mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
       height: mediaHeight >= mediaWidth?
                         Math.min(mediaHeight, maximumMediaHeight):
                         Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
-      // VideoOutput {
-      //     visible:media_video.isPlaying
-      //     source: media_video
-      //     anchors.fill: parent
-      //     smooth: true
-      // }
-      // MediaPlayer {
-      //     id: media_video
-      //     loops: 1
-      //     autoPlay: false
-      //     autoLoad: false
-      //     property bool isPlaying: playbackState === MediaPlayer.PlayingState
-      //
-      //     // fillMode: Video.PreserveAspectFit
-      //     function reload() {
-      //         console.log("reload triggerd")
-      //         media_video.stop()
-      //         // media_video.source = Qt.resolvedUrl();
-      //         // media_video.source = localFileSource;
-      //     }
-      //     onError: {
-      //         console.error("MediaPlayer: " + error + ":" + errorString)
-      //     }
-      //
-      //     source: localFileSource
-      //
-      // }
 
       Image {
         id: thumbnailImg
         // visible:!media_video.isPlaying
         anchors.fill: parent
-        source:animation && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
+        source:video && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
       }
       UITK.Icon {
           source: "qrc:/qml/icons/playMedia.svg"
@@ -76,15 +49,15 @@ MessageItemBase {
       //              || media_video.status === VideoOutput.Null
       // }
       Connections {
-          target: animation.animation.animation
-          onFileChanged: {
-              // media_video.reload();
-          }
+          target: video.video.video
+          // onFileChanged: {
+          //     media_video.reload();
+          // }
       }
       Component.onCompleted: {
           // console.log("c_reg",this,"\n")
-          if (animationLocal.canBeDownloaded && !animationLocal.isDownloadingCompleted) {
-              animation.animation.animation.downloadFile();
+          if (videoLocal.canBeDownloaded && !videoLocal.isDownloadingCompleted) {
+              video.video.video.downloadFile();
           }
           if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
               thumbnail.downloadFile();
@@ -93,7 +66,7 @@ MessageItemBase {
     }
     Column {
         anchors {
-            top: animationContainer.bottom
+            top: videoContainer.bottom
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
         }
         spacing: Suru.units.gu(2)
@@ -106,7 +79,7 @@ MessageItemBase {
             height: contentHeight
             width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
-            text: animation.caption.text
+            text: video.caption.text
             color: message.isOutgoing ? "white" : Suru.foregroundColor
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
@@ -120,7 +93,7 @@ MessageItemBase {
             id: dummyTextEdit
             visible: false
             height: contentHeight
-            text: animation.caption.text
+            text: video.caption.text
         }
 
     }

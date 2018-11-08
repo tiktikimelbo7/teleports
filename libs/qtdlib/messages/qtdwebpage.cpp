@@ -2,7 +2,7 @@
 
 QTdWebPage::QTdWebPage(QObject *parent) : QTdObject(parent),
     m_photo(new QTdPhotos), m_embedWidth(0), m_embedheight(0),
-    m_duration(0), m_animation(new QTdAnimation), m_audio(new QTdAudio),
+    m_duration(0), m_animation(new QTdAnimation), m_audio(new QTdAudio), m_video(new QTdVideo),
     m_document(new QTdDocument), m_sticker(new QTdSticker), m_hasInstantView(false)
 {
     setType(WEB_PAGE);
@@ -82,7 +82,10 @@ QTdAudio *QTdWebPage::audio() const
 {
     return m_audio.data();
 }
-
+QTdVideo *QTdWebPage::video() const
+{
+    return m_video.data();
+}
 QTdDocument *QTdWebPage::document() const
 {
     return m_document.data();
@@ -122,6 +125,9 @@ void QTdWebPage::unmarshalJson(const QJsonObject &json)
 
     if (json.contains("audio")) {
         m_audio->unmarshalJson(json["audio"].toObject());
+    }
+    if (json.contains("video")) {
+        m_video->unmarshalJson(json["video"].toObject());
     }
 
     if (json.contains("document")) {
