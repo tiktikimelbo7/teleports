@@ -78,6 +78,7 @@ Page {
                   horizontalCenter: parent.horizontalCenter
               }
               placeholderText: i18n.tr("Code")
+              inputMethodHints: Qt.ImhFormattedNumbersOnly
           }
 
           Button {

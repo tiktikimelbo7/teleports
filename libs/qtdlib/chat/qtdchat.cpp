@@ -217,16 +217,47 @@ QTdNotificationSettings *QTdChat::notificationSettings() const
     return m_notifySettings.data();
 }
 
-QString QTdChat::summary() const
-{
-    if (!m_chatActions.isEmpty()) {
-        auto *users = QTdUsers::instance()->model();
-        auto *user = users->getByUid(QString::number(m_chatActions.first().userId.value()));
-        if (user) {
-            return QString("%1 %2").arg(user->firstName(), m_chatActions.first().description);
+QString QTdChat::action() const {
+    auto *users = QTdUsers::instance()->model();
+    QString actionMessage;
+    switch(m_chatActions.count())
+    {
+        case 0:
+            return "";
+        case 1:
+        {
+          auto *user =
+              users->getByUid(QString::number(m_chatActions.first().userId.value()));
+          if (user)
+              actionMessage = QString("%1 %2 ").arg(
+                  user->firstName(), m_chatActions.first().singular_description);
         }
-        // TODO: get user
-        return QStringLiteral("User not available");
+        break;
+        case 2:
+        {
+          auto *user1 = users->getByUid(
+              QString::number(m_chatActions.first().userId.value()));
+          if (user1)
+            actionMessage = QString("%1, ").arg(
+                user1->firstName());
+          auto *user2 = users->getByUid(
+              QString::number(m_chatActions.first().userId.value()));
+          if (user2)
+            actionMessage += QString("%1 %2").arg(
+                user2->firstName(), m_chatActions.last().plural_description);
+        }
+        break;
+        default: {
+            actionMessage = QString("%1 %2").arg(
+                m_chatActions.count()).arg(m_chatActions.first().plural_description);
+        }
+    }
+    return actionMessage;
+}
+
+QString QTdChat::summary() const {
+    if (action() != "") {
+        return action();
     }
     return m_lastMessage->isValid() ? m_lastMessage->summary() : QString();
 }
@@ -388,30 +419,37 @@ void QTdChat::updateChatAction(const QJsonObject &json)
     if (action->type() == QTdChatAction::Type::CHAT_ACTION_CANCEL && m_chatActions.contains(user_id)) {
         m_chatActions.remove(user_id);
     } else if (action->type() != QTdChatAction::Type::CHAT_ACTION_CANCEL && !m_chatActions.contains(user_id)) {
-        QString description;
+        QString singular_description;
+        QString plural_description;
         // TODO: i18n these strings
         switch (action->type()) {
         case QTdChatAction::Type::CHAT_ACTION_CANCEL:
             return;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_CONTACT:
-            description = QStringLiteral("is choosing contact...");
-            break;
+          singular_description = QStringLiteral("is choosing contact...");
+          plural_description = QStringLiteral("are choosing contact...");
+          break;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_LOCATION:
-            description = QStringLiteral("is choosing location...");
-            break;
+          singular_description = QStringLiteral("is choosing location...");
+          plural_description = QStringLiteral("are choosing location...");
+          break;
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO_NOTE:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VOICE_NOTE:
-            description = QStringLiteral("is recording...");
-            break;
+          singular_description = QStringLiteral("is recording...");
+          plural_description = QStringLiteral("are recording...");
+          break;
         case QTdChatAction::Type::CHAT_ACTION_TYPING:
-            description = QStringLiteral("is typing...");
-            break;
+          singular_description = QStringLiteral("is typing...");
+          plural_description = QStringLiteral("are typing...");
+          break;
         default:
-            description = QStringLiteral("Is doing something");
-            break;
+          singular_description = QStringLiteral("is doing something");
+          plural_description = QStringLiteral("are doing something");
+          break;
         }
-        m_chatActions.insert(user_id, useraction(user_id, description));
+        m_chatActions.insert(user_id, useraction(user_id, singular_description,
+                                                 plural_description));
     }
     action->deleteLater();
     emit summaryChanged();

@@ -18,26 +18,30 @@ Item {
         console.log("avatarColor", avatarColor);
     }
     
-    Rectangle {
-        id: rectImage
-        anchors.fill: parent
-        color: photo.small.local.path ? "transparent" : avatarColor
-    }
-
-    UITK.Label {
-        id: initialsLabel
-        anchors.centerIn: parent
-        textSize: UITK.Label.Large
-        color: photo.small.local.path ? "transparent" : "#fff"
-        text: initials
-    }
-
+    anchors.verticalCenter: parent.verticalCenter
+    
     UITK.UbuntuShape {
         anchors.fill: parent
         aspect: UITK.UbuntuShape.Flat
+        backgroundColor: avatarColor
         source: Image {
+            id: avatarImg
             asynchronous: true
-            source: photo && photo.small.local.path ? Qt.resolvedUrl("file://" + photo.small.local.path) : ""
+            source: Qt.resolvedUrl("file://" + photo.small.local.path)
+
+            onStatusChanged: { 
+                console.log("Status is " + avatarImg.status);
+                avatarImg.status == avatarImg.Error ? initialsLabel.visible = true : initialsLabel.visible = false;
+            }
         }
+    }
+    
+    UITK.Label {
+        id: initialsLabel
+        anchors.centerIn: parent
+        visible: !photo.small.local.path
+        textSize: UITK.Label.Large
+        color: "#fff"
+        text: initials
     }
 }
