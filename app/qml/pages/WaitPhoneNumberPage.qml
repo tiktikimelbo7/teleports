@@ -1,12 +1,14 @@
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import QtQuick.Controls 2.2
+import Ubuntu.Components 1.3 as UITK
+import QtQuick.Controls.Suru 2.2
 import QuickFlux 1.1
 import "../actions"
 
 Page {
     id: waitPhoneNumberPage
 
-    header: PageHeader {
+    header: UITK.PageHeader {
         title: i18n.tr("Enter Phone Number")
     }
 

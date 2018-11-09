@@ -32,7 +32,7 @@ class QTdChat : public QAbstractInt64Id
     Q_OBJECT
     Q_PROPERTY(QTdChatType* chatType READ chatType NOTIFY chatTypeChanged)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
-    Q_PROPERTY(QTdChatPhoto* chatPhoto READ chatPhoto NOTIFY chatPhotoChanged)
+    Q_PROPERTY(QTdChatPhoto *chatPhoto READ chatPhoto NOTIFY chatPhotoChanged)
     Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
     Q_PROPERTY(QTdMessage* lastMessage READ lastMessage NOTIFY lastMessageChanged)
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
@@ -52,6 +52,8 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString unreadMentionCount READ qmlUnreadMentionCount NOTIFY unreadMentionCountChanged)
     Q_PROPERTY(QTdNotificationSettings* notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
     Q_PROPERTY(QString summary READ summary NOTIFY summaryChanged)
+    Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
+
     // TODO:
     // int64:reply_markup_message_id
     // draftMessage:draf_message && updateChatDraftMessage
@@ -192,6 +194,8 @@ public:
      */
     virtual QString summary() const;
 
+    virtual QString action() const;
+
     /**
      * @brief Message model
      */
@@ -299,9 +303,12 @@ private:
 
     struct useraction {
         QTdInt32 userId;
-        QString description;
-        useraction(){}
-        useraction(const qint32 id, const QString desc) : userId(id), description(desc) {}
+        QString singular_description;
+        QString plural_description;
+        useraction() {}
+        useraction(const qint32 id, const QString singular_desc, const QString plural_desc)
+            : userId(id), singular_description(singular_desc),
+              plural_description(plural_desc) {}
     };
 
     QMap<qint32, useraction> m_chatActions;
