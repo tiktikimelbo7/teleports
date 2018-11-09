@@ -12,11 +12,13 @@
 class QTdUserStatus : public QTdObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString string READ toString)
+    Q_PROPERTY(QString string READ toString NOTIFY statusStringChanged)
     Q_DISABLE_COPY(QTdUserStatus)
 public:
     explicit QTdUserStatus(QObject *parent = Q_NULLPTR);
     virtual QString toString() const = 0;
+signals:
+    void statusStringChanged(QString status);
 };
 
 /**
