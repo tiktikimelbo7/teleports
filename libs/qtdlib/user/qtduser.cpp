@@ -155,11 +155,20 @@ void QTdUser::setPhoneNumber(QString phoneNumber)
 
 void QTdUser::setStatus(QTdUserStatus *status)
 {
+    QString oldStatusString = "";
+
     if (m_status) {
         m_status->deleteLater();
+        oldStatusString = m_status->toString();
     }
+
     m_status = status;
     emit statusChanged(m_status);
+
+    if (m_status->toString() != oldStatusString)
+    {
+        emit m_status->statusStringChanged(m_status->toString());
+    }
 }
 
 QString QTdUser::firstName() const

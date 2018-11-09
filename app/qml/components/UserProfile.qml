@@ -11,7 +11,7 @@ import "../stores"
 RowLayout {
     anchors.fill: parent
     id: profile
-    spacing: units.gu(2)
+    spacing: units.gu(1)
 
     ProfilePhoto {
         id: profilePhoto
@@ -24,7 +24,7 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                // popup to change profile picture
+                // popup to change profile picture?
             }
         }
     }
@@ -34,59 +34,69 @@ RowLayout {
         Layout.fillHeight: true
         Layout.maximumHeight: units.gu(13)
 
-        UITK.Captions {
-            title.text: Telegram.users.currentUser.firstName + " " + Telegram.users.currentUser.lastName
-            title.font.pixelSize: units.gu(2.5)
+        Item {
+            height: nameAndStatusLayout.height
+            width: nameAndStatusLayout.width
+            UITK.ListItemLayout {
+                id: nameAndStatusLayout
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    // popup to enter the real name
+                padding {
+                    top: units.gu(0.25)
+                    bottom: units.gu(2)
                 }
-            }
-
-            Label {
-                text: Telegram.users.currentUser.status.string
-                font.pixelSize: units.gu(1.5)
-            }
-
-            Item { Layout.fillHeight: true }
-        }
-
-        Row {
-            UITK.Icon {
-                width: units.gu(2)
-                name: "contact"
-                UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-            }
-
-            Label {
-                id: usernameLabel
-                text: Telegram.users.currentUser.username ? " @" + Telegram.users.currentUser.username
-                                                          : " " + i18n.tr("not available")
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        // popup to enter the username
-                    }
-                }
+                title.text: Telegram.users.currentUser.firstName + " " + Telegram.users.currentUser.lastName
+                title.font.pixelSize: units.gu(2.5)
+                subtitle.text: Telegram.users.currentUser.status.string 
+                subtitle.font.pixelSize: units.gu(1.5)
             }
         }
 
-        Row {
-            UITK.Icon {
-                width: units.gu(2)
-                name: "call-start"
-                UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-            }
+        Item {
+            height: usernameLayout.height
+            width: usernameLayout.width
 
-            Label {
-                text: Telegram.users.currentUser.phoneNumber ? " " + i18n.tr("+") + Telegram.users.currentUser.phoneNumber
-                                                             : " " + i18n.tr("not available")
+            UITK.ListItemLayout {
+                id: usernameLayout
+
+                padding {
+                    top: 0
+                    bottom: units.gu(1)
+                }
+
+                UITK.Icon {
+                    height: parent.title.height
+                    width: parent.title.height
+                    name: "contact"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                }
+
+                title.text: Telegram.users.currentUser.username ? "@" + Telegram.users.currentUser.username
+                                                                : i18n.tr("not available")
+            }
+        }
+
+        Item {
+            height: phoneNumberLayout.height
+            width: phoneNumberLayout.width
+
+            UITK.ListItemLayout {
+                id: phoneNumberLayout
+
+                padding {
+                    top: 0
+                    bottom: 0
+                }
+ 
+                UITK.Icon {
+                    height: parent.title.height
+                    width: parent.title.height
+                    name: "call-start"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                }
+
+                title.text: Telegram.users.currentUser.phoneNumber ? i18n.tr("+") + Telegram.users.currentUser.phoneNumber
+                                                                   : i18n.tr("not available")
             }
         }
     }
-
-    Item { Layout.fillWidth: true }
 }
