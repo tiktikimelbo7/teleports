@@ -40,6 +40,7 @@ Page {
                 }
             }
         ]
+
         contents: Item {
             anchors.fill: parent
 
@@ -198,6 +199,23 @@ Page {
             }
 
         }
+
+        trailingActionBar.actions: [
+            UITK.Action {
+                iconName: "lock-broken"
+                visible: Telegram.chats && Telegram.chats.currentChat && Telegram.chats.currentChat.isPrivate
+                onTriggered: {
+                    AppActions.chat.toggleSecretChat()
+                }
+            },
+            UITK.Action {
+                iconName: "lock"
+                visible: Telegram.chats && Telegram.chats.currentChat && Telegram.chats.currentChat.isSecret
+                onTriggered: {
+                    AppActions.chat.toggleSecretChat()
+                }
+            }
+        ]
     }
 
     ScrollView {

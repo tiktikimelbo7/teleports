@@ -8,4 +8,4 @@ KeyTable {
     property string loadMoreMessages
     property string sendMessage
     property string sendChatAction
-}
+    property string toggleSecretChat}

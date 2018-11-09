@@ -19,6 +19,7 @@ class QTdChatListSortFilterModel : public QSortFilterProxyModel
     Q_OBJECT
     Q_PROPERTY(QTdChatListModel* model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int chatFilters READ chatFilters WRITE setChatFilters NOTIFY chatFiltersChanged)
+
 public:
     explicit QTdChatListSortFilterModel(QObject *parent = nullptr);
 
@@ -36,6 +37,10 @@ public:
     QTdChatListModel *model() const;
     void setModel(QTdChatListModel *model);
     int chatFilters() const;
+
+    // TODO: could we use QmlObjectListModel.getByUid instead?
+    Q_INVOKABLE QTdChat * privateChatByUid(qint32 userId);
+    Q_INVOKABLE QTdChat * secretChatByUid(qint32 userId);
 
 public slots:
     void setChatFilters(int chatFilters);

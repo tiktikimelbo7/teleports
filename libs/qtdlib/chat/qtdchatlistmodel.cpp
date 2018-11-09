@@ -2,11 +2,12 @@
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
+#include "chat/requests/qtdcreatesecretchatrequest.h"
 
 #include "chat/qtdchattypefactory.h"
 
 QTdChatListModel::QTdChatListModel(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_currentChat(Q_NULLPTR)
+    m_model(Q_NULLPTR), m_currentChat(Q_NULLPTR), m_willNewChatBeCurrent(false)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateNewChat, this, &QTdChatListModel::handleUpdateNewChat);
@@ -28,9 +29,32 @@ QObject *QTdChatListModel::model() const
     return m_model;
 }
 
+QPointer<QQmlObjectListModel<QTdChat>> QTdChatListModel::cModel() const
+{
+    return m_model;
+}
+
 QTdChat *QTdChatListModel::currentChat() const
 {
     return m_currentChat;
+}
+
+bool QTdChatListModel::getWillNewChatBeCurrent()
+{
+    return m_willNewChatBeCurrent;
+}
+
+void QTdChatListModel::setWillNewChatBeCurrent(bool toBeOrNotToBe)
+{
+    m_willNewChatBeCurrent = toBeOrNotToBe;
+}
+
+void QTdChatListModel::createSecretChat(qint32 userId) const
+{
+    QTdCreateSecretChatRequest * req = new QTdCreateSecretChatRequest();
+    req->setUserId(userId);
+    QTdClient::instance()->send(req);
+    req->deleteLater();
 }
 
 void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
@@ -63,6 +87,10 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
         if (tdchat->isPinned()) {
             m_pinnedChats << tdchat->id();
         }
+        if (m_willNewChatBeCurrent) {
+            setCurrentChat(tdchat);
+            m_willNewChatBeCurrent = false;
+        }   
     }
     tdchat->unmarshalJson(chat);
     emit contentsChanged();

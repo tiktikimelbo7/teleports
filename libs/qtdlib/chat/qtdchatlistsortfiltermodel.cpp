@@ -4,6 +4,7 @@
 #include "models/QmlObjectListModel.h"
 #include "qtdbasicgroupchat.h"
 #include "qtdsupergroupchat.h"
+#include "qtdsecretchat.h"
 
 QTdChatListSortFilterModel::QTdChatListSortFilterModel(QObject *parent) : QSortFilterProxyModel(parent),
     m_chatList(0), m_chatFilters(CurrentChats)
@@ -41,6 +42,35 @@ void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
     emit chatFiltersChanged(m_chatFilters);
     invalidateFilter();
 }
+
+QTdChat * QTdChatListSortFilterModel::secretChatByUid(qint32 userId)
+{
+    QList<QTdChat*> chatList = m_chatList->cModel()->toList();
+    for (int i = 0; i < chatList.size(); ++i)
+    {
+        QTdSecretChat * secretChat = static_cast<QTdSecretChat *>(chatList.at(i));
+        if (secretChat->userId() == userId)
+        {
+            return secretChat;
+        }
+    }
+    return nullptr;
+}
+
+QTdChat * QTdChatListSortFilterModel::privateChatByUid(qint32 userId)
+{
+    QList<QTdChat*> chatList = m_chatList->cModel()->toList();
+    for (int i = 0; i < chatList.size(); ++i)
+    {
+        QTdChatTypePrivate * type = static_cast<QTdChatTypePrivate *>(chatList.at(i)->chatType());
+        if (type->userId() == userId)
+        {
+            return chatList.at(i);
+        }
+    }
+    return nullptr;
+}
+
 
 bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {

@@ -12,14 +12,20 @@ typedef QList<qint64> PinnedChats;
 class QTdChatListModel : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* model READ model NOTIFY modelChanged)
+    Q_PROPERTY(bool willNewChatBeCurrent READ getWillNewChatBeCurrent WRITE setWillNewChatBeCurrent)
+    Q_PROPERTY(bool model READ model NOTIFY modelChanged)
     Q_PROPERTY(QTdChat* currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
 public:
     explicit QTdChatListModel(QObject *parent = nullptr);
 
     QObject* model() const;
+    QPointer<QQmlObjectListModel<QTdChat>> cModel() const;
+    void setWillNewChatBeCurrent(bool toBeOrNotToBe);
+    bool getWillNewChatBeCurrent();
 
     QTdChat *currentChat() const;
+    // TODO: move to QTdChatFactory and create an action to trigger it
+    Q_INVOKABLE void createSecretChat(qint32 userId) const;
 
 public slots:
     void setCurrentChat(QTdChat* currentChat);
@@ -57,6 +63,7 @@ private:
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
+    bool m_willNewChatBeCurrent;
 };
 
 #endif // QTDCHATLISTMODEL_H

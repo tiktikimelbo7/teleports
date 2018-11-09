@@ -56,8 +56,29 @@ Store {
     property alias sortedList: sortedChatList
     SortedChatList {
         id: sortedChatList
+        model: sortedCurrentChats.model
+        /* lets hide the secret chats */
+        chatFilters: SortedChatList.PrivateChats | SortedChatList.BasicGroups | SortedChatList.SuperGroups
+    }
+
+    SortedChatList {
+        id: sortedCurrentChats
         model: chatList
         chatFilters: SortedChatList.CurrentChats
+    }
+
+    property alias privateChats: privateChatList
+    SortedChatList {
+        id: privateChatList
+        model: chatList
+        chatFilters: SortedChatList.PrivateChats
+    }
+
+    property alias secretChats: secretChatList
+    SortedChatList {
+        id: secretChatList
+        model: chatList
+        chatFilters: SortedChatList.SecretChats
     }
 
     /**
@@ -89,6 +110,31 @@ Store {
                 chatList.currentChat.closeChat()
                 chatList.clearCurrentChat()
 
+            }
+        }
+    }
+
+    Filter {
+        type: ChatKey.toggleSecretChat
+        onDispatched: {
+            if (chatList.currentChat.isSecret) {
+                var correspondingPrivateChat = privateChats.privateChatByUid(chatList.currentChat.userIdInt)
+                if (correspondingPrivateChat) {
+                    chatList.currentChat = correspondingPrivateChat //? correspondingPrivateChat
+                                                                    //: chatList.createSecretChat(chatList.currentChat.userIdInt)
+                }
+            }
+            if (chatList.currentChat.isPrivate) {
+                var correspondingSecretChat = secretChats.secretChatByUid(chatList.currentChat.chatType.userId)
+                if (correspondingSecretChat) {
+                    chatList.currentChat = correspondingSecretChat // ? correspondingSecretChat
+                                                                   // : chatList.createSecretChat(chatList.currentChat.userIdInt)
+                }
+                else
+                {
+                    chatList.willNewChatBeCurrent = true
+                    chatList.createSecretChat(chatList.currentChat.userId)
+                }
             }
         }
     }

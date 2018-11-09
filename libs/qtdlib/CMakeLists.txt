@@ -53,6 +53,7 @@ set(
     chat/requests/qtdclosechatrequest.cpp
     chat/requests/qtdsetpinnedchatsrequest.cpp
     chat/requests/qtdsetchattitlerequest.cpp
+    chat/requests/qtdcreatesecretchatrequest.cpp
     common/qabstracttdobject.cpp
     common/qabstractint53id.cpp
     common/qabstractint32id.cpp
