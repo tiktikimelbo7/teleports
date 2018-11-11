@@ -7,6 +7,8 @@
 #include <qtdlib/quick/plugin.h>
 #include <QtQuickControls2/QQuickStyle>
 #include "messagedelegatemap.h"
+#include <libintl.h>
+#include <locale.h>
 #define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
 
 int main(int argc, char *argv[])
@@ -21,6 +23,10 @@ int main(int argc, char *argv[])
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
+
+    bindtextdomain ("telegram-plus.dpniel", "/opt/click.ubuntu.com/telegram-plus.dpniel/current/share/locale");
+    bind_textdomain_codeset ("telegram-plus.dpniel", "UTF-8");
+    textdomain ("telegram-plus.dpniel");
 
     MessageDelegateMap delegateMap;
 
