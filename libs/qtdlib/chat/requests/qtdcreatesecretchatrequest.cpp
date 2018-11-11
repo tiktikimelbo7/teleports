@@ -13,7 +13,7 @@ void QTdCreateSecretChatRequest::setUserId(const qint32 &id)
 QJsonObject QTdCreateSecretChatRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "createSecretChat"},
+        {"@type", "createNewSecretChat"},
         {"user_id", m_userId},
     };
 }

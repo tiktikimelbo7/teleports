@@ -43,25 +43,26 @@ void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
     invalidateFilter();
 }
 
-QTdChat * QTdChatListSortFilterModel::secretChatByUid(qint32 userId)
+QTdChat * QTdChatListSortFilterModel::privateChatByUid(qint32 userId) const
 {
-    QList<QTdChat*> chatList = m_chatList->cModel()->toList();
-    for (int i = 0; i < chatList.size(); ++i)
-    {
-        QTdSecretChat * secretChat = static_cast<QTdSecretChat *>(chatList.at(i));
-        if (secretChat->userId() == userId)
-        {
-            return secretChat;
-        }
-    }
-    return nullptr;
+    return chatByUid(userId, false);
 }
 
-QTdChat * QTdChatListSortFilterModel::privateChatByUid(qint32 userId)
+QTdChat * QTdChatListSortFilterModel::secretChatByUid(qint32 userId) const
+{
+    return chatByUid(userId, true);
+}
+
+QTdChat * QTdChatListSortFilterModel::chatByUid(qint32 userId, bool shallBeSecret) const
 {
     QList<QTdChat*> chatList = m_chatList->cModel()->toList();
     for (int i = 0; i < chatList.size(); ++i)
     {
+        if (chatList.at(i)->isSecret() != shallBeSecret)
+        {
+            continue;
+        }
+
         QTdChatTypePrivate * type = static_cast<QTdChatTypePrivate *>(chatList.at(i)->chatType());
         if (type->userId() == userId)
         {
@@ -70,7 +71,6 @@ QTdChat * QTdChatListSortFilterModel::privateChatByUid(qint32 userId)
     }
     return nullptr;
 }
-
 
 bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {

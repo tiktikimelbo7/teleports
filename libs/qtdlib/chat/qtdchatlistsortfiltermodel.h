@@ -39,8 +39,8 @@ public:
     int chatFilters() const;
 
     // TODO: could we use QmlObjectListModel.getByUid instead?
-    Q_INVOKABLE QTdChat * privateChatByUid(qint32 userId);
-    Q_INVOKABLE QTdChat * secretChatByUid(qint32 userId);
+    Q_INVOKABLE QTdChat * secretChatByUid(qint32 userId) const;
+    Q_INVOKABLE QTdChat * privateChatByUid(qint32 userId) const;
 
 public slots:
     void setChatFilters(int chatFilters);
@@ -55,6 +55,7 @@ protected:
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
 
 private:
+    QTdChat * chatByUid(qint32 userId, bool isSecret) const;
     Q_DISABLE_COPY(QTdChatListSortFilterModel)
     QPointer<QTdChatListModel> m_chatList;
     int m_chatFilters;

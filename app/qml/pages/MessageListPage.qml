@@ -202,15 +202,17 @@ Page {
 
         trailingActionBar.actions: [
             UITK.Action {
-                iconName: "lock-broken"
-                visible: Telegram.chats && Telegram.chats.currentChat && Telegram.chats.currentChat.isPrivate
+                iconSource: "qrc:/qml/icons/lock_open.svg"
+                visible: Telegram.chats && Telegram.chats.currentChat && Telegram.chats.currentChat.isPrivate && !Telegram.chats.currentChat.isSecret
+                enabled: visible
                 onTriggered: {
                     AppActions.chat.toggleSecretChat()
                 }
             },
             UITK.Action {
-                iconName: "lock"
+                iconSource: "qrc:/qml/icons/lock_closed.svg"
                 visible: Telegram.chats && Telegram.chats.currentChat && Telegram.chats.currentChat.isSecret
+                enabled: visible
                 onTriggered: {
                     AppActions.chat.toggleSecretChat()
                 }

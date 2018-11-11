@@ -56,16 +56,16 @@ Store {
     property alias sortedList: sortedChatList
     SortedChatList {
         id: sortedChatList
-        model: sortedCurrentChats.model
-        /* lets hide the secret chats */
+        //lets hide the secret chats!?
+        //model: sortedCurrentChats.model
+        model: chatList
         chatFilters: SortedChatList.PrivateChats | SortedChatList.BasicGroups | SortedChatList.SuperGroups
     }
 
-    SortedChatList {
+/*    SortedChatList {
         id: sortedCurrentChats
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-    }
 
     property alias privateChats: privateChatList
     SortedChatList {
@@ -80,6 +80,7 @@ Store {
         model: chatList
         chatFilters: SortedChatList.SecretChats
     }
+}*/
 
     /**
      *
@@ -117,23 +118,29 @@ Store {
     Filter {
         type: ChatKey.toggleSecretChat
         onDispatched: {
+            // Be aware note: isSecret => isPrivate, Therefor we need an else if here
             if (chatList.currentChat.isSecret) {
-                var correspondingPrivateChat = privateChats.privateChatByUid(chatList.currentChat.userIdInt)
+                var correspondingPrivateChat = sortedChatList.privateChatByUid(chatList.currentChat.chatType.userId)
                 if (correspondingPrivateChat) {
-                    chatList.currentChat = correspondingPrivateChat //? correspondingPrivateChat
-                                                                    //: chatList.createSecretChat(chatList.currentChat.userIdInt)
+                    //AppActions.chat.closeCurrentChat()
+                    chatList.currentChat.closeChat()
+                    chatList.clearCurrentChat()
+                    chatList.setCurrentChat(correspondingPrivateChat)
                 }
             }
-            if (chatList.currentChat.isPrivate) {
-                var correspondingSecretChat = secretChats.secretChatByUid(chatList.currentChat.chatType.userId)
+            else if (chatList.currentChat.isPrivate) {
+                var correspondingSecretChat = sortedChatList.secretChatByUid(chatList.currentChat.chatType.userId)
                 if (correspondingSecretChat) {
-                    chatList.currentChat = correspondingSecretChat // ? correspondingSecretChat
-                                                                   // : chatList.createSecretChat(chatList.currentChat.userIdInt)
+                    //AppActions.chat.closeCurrentChat()
+                    chatList.currentChat.closeChat()
+                    chatList.clearCurrentChat()
+                    chatList.setCurrentChat(correspondingSecretChat)
                 }
                 else
                 {
+                    // TODO: replace by handling secret chat state s.a. qtdchatlistmodel.cpp
                     chatList.willNewChatBeCurrent = true
-                    chatList.createSecretChat(chatList.currentChat.userId)
+                    chatList.createSecretChat(chatList.currentChat.chatType.userId)
                 }
             }
         }

@@ -87,7 +87,11 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
         if (tdchat->isPinned()) {
             m_pinnedChats << tdchat->id();
         }
+        // TODO: handle some secretChatStatus message instead and switch to the secret chat
+        // if we're still in the corresponding private non-secret chat
         if (m_willNewChatBeCurrent) {
+            m_currentChat->closeChat();
+            clearCurrentChat();
             setCurrentChat(tdchat);
             m_willNewChatBeCurrent = false;
         }   
