@@ -58,8 +58,9 @@ Store {
         id: sortedChatList
         //lets hide the secret chats!?
         //model: sortedCurrentChats.model
+        //chatFilters: SortedChatList.PrivateChats | SortedChatList.BasicGroups | SortedChatList.SuperGroups TODO: this does not only hide secret chats, but also group chats disappear from the list once they have been entered... ?:-)
         model: chatList
-        chatFilters: SortedChatList.PrivateChats | SortedChatList.BasicGroups | SortedChatList.SuperGroups
+        chatFilters: SortedChatList.CurrentChats
     }
 
 /*    SortedChatList {
