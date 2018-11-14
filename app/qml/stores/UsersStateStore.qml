@@ -15,11 +15,9 @@ Store {
         id: usersStore
         onCurrentUserChanged:{
           console.log("CURRENT USER CHANGED")
-          if (usersStore.currentUser) {
-              AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/UserProfilePage.qml"})
-          }
-          else
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
+            if (!usersStore.currentUser) {
+                AppDispatcher.dispatch("popFromStack")
+            }
         }
     }
     Filter {
@@ -31,10 +29,10 @@ Store {
                 }
                 usersStore.currentUser = message.user
                 if (message.user == me) {
-                    AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/SettingsPage.qml"})
+                    AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/SettingsPage.qml"})
                 }
                 else {
-                    AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/UserProfilePage.qml"})
+                    AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/UserProfilePage.qml"})
                 }
             }
         }

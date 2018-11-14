@@ -19,15 +19,15 @@ Store {
     property alias currentChat: chatList.currentChat
     ChatList {
         id: chatList
-        onCurrentChatChanged:{
-          console.log("CURRENT CHAT CHANGED")
-          if (chatList.currentChat)
-          {
-            messageList.loadMore()
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/MessageListPage.qml"})
-          }
-          else
-          AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
+        onCurrentChatChanged: {
+            console.log("CURRENT CHAT CHANGED")
+            if (chatList.currentChat) {
+                messageList.loadMore()
+                AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/MessageListPage.qml"})
+            }
+            else {
+                AppDispatcher.dispatch("popFromStack")
+            }
         }
     }
 
