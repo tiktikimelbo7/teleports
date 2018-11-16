@@ -52,5 +52,13 @@ Window {
                 pageStack.push(message.view, message.properties)
             }
         }
+
+
+        Filter {
+            type: "popFromStack"
+            onDispatched: {
+                pageStack.pop()
+            }
+        }
     }
 }
