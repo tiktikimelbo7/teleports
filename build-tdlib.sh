@@ -32,11 +32,11 @@ EOF
 
 function build
 {
+    mkdir -p $GENERATE_BUILD_DIR
     $DOCKER_AMD64_COMMAND bash <<-EOF
     #!/bin/bash
     $SUDO apt-get -y install zlib1g-dev libssl-dev gperf
     git submodule update --init --recursive
-    mkdir -p $GENERATE_BUILD_DIR
     cd $GENERATE_BUILD_DIR
     cmake -DCMAKE_BUILD_TYPE=Release $TGPLUS_SOURCE_DIR_DOCKER/$TDLIB_SOURCE_DIR
     cmake --build . --target tl_generate_common
