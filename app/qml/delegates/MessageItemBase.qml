@@ -46,8 +46,6 @@ ItemDelegate {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                  console.log("account clicked", Telegram.users.me)
-
                   AppActions.user.setCurrentUser(message.sender)
                  }
             }
