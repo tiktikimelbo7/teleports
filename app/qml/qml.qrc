@@ -47,5 +47,6 @@
         <file>plugins/QTelegramStyles/qmldir</file>
         <file>components/PopupDialog.qml</file>
         <file>components/UserProfile.qml</file>
+        <file>pages/GroupDetailsPage.qml</file>
     </qresource>
 </RCC>

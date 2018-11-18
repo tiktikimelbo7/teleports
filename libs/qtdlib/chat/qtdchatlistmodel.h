@@ -14,23 +14,28 @@ class QTdChatListModel : public QObject
     Q_OBJECT
     Q_PROPERTY(QObject* model READ model NOTIFY modelChanged)
     Q_PROPERTY(QTdChat* currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
+    Q_PROPERTY(QTdChat* viewedInDetailGroup READ viewedInDetailGroup WRITE setViewedInDetailGroup NOTIFY viewedInDetailGroupChanged)
+
 public:
     explicit QTdChatListModel(QObject *parent = nullptr);
 
     QObject* model() const;
-
     QTdChat *currentChat() const;
+    QTdChat *viewedInDetailGroup() const;
 
 public slots:
     void setCurrentChat(QTdChat* currentChat);
     void clearCurrentChat();
+    void leaveChat(qint64 chatId);
+    void deleteChatHistory(qint64 chatId);
+    void setViewedInDetailGroup(QTdChat* group);
 
 signals:
     void modelChanged(QObject* model);
     void contentsChanged();
     void chatStatusChanged();
-
     void currentChatChanged(QTdChat* currentChat);
+    void viewedInDetailGroupChanged(QTdChat* chat);
 
 private slots:
     void handleUpdateNewChat(const QJsonObject &chat);
@@ -57,6 +62,7 @@ private:
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
+    QPointer<QTdChat> m_viewedInDetailGroup;
 };
 
 #endif // QTDCHATLISTMODEL_H

@@ -17,6 +17,7 @@ Store {
      */
     property alias list: chatList.model
     property alias currentChat: chatList.currentChat
+    property alias viewedInDetailGroup: chatList.viewedInDetailGroup
     ChatList {
         id: chatList
         onCurrentChatChanged: {
@@ -117,6 +118,36 @@ Store {
             chatList.currentChat.sendChatAction(true);
         }
     }
+
+    Filter {
+        type: ChatKey.leaveChat
+        onDispatched: {
+            chatList.leaveChat(message.chatId);
+        }
+    }
+
+    Filter {
+        type: ChatKey.deleteChatHistory
+        onDispatched: {
+            chatList.deleteChatHistory(message.chatId);
+        }
+    }
+
+    Filter {
+        type: ChatKey.viewInDetail
+        onDispatched: {
+            chatList.viewedInDetailGroup = message.chat;
+            AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/GroupDetailsPage.qml"});
+        }
+    }
+
+    Filter {
+        type: ChatKey.leaveGroupDetails
+        onDispatched: {
+            AppDispatcher.dispatch("popFromStack");
+        }
+    }
+
 
     Timer {
         id: enableLoadTimer

@@ -15,9 +15,6 @@ Store {
         id: usersStore
         onCurrentUserChanged:{
           console.log("CURRENT USER CHANGED")
-            if (!usersStore.currentUser) {
-                AppDispatcher.dispatch("popFromStack")
-            }
         }
     }
     Filter {
@@ -40,7 +37,19 @@ Store {
     Filter {
         type: UserStateKey.clearCurrentUser
         onDispatched: {
+            AppDispatcher.dispatch("popFromStack")
             usersStore.clearCurrentUser();
         }
     }
+    Filter {
+        type: UserStateKey.setCurrentUserById
+        onDispatched: {
+            if (!message.userId) {
+                return
+            }
+            usersStore.currentUser = usersStore.model.get(message.userId)
+            AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/UserProfilePage.qml"})
+        }
+    }
+ 
 }
