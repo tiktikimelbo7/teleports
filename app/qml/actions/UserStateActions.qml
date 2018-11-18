@@ -5,4 +5,5 @@ import "./"
 ActionCreator {
   signal setCurrentUser(var user)
   signal clearCurrentUser()
+  signal setCurrentUserById(var userId)
 }

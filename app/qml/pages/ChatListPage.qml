@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3 as UITK
-import Ubuntu.Components.Popups 1.3
+import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import "../components"
@@ -54,35 +54,37 @@ Page {
                         UITK.Action {
                             iconName: "system-log-out"
                             text: i18n.tr("Leave chat")
-
-                            onTriggered: {
-                                PopupUtils.open(Qt.resolvedUrl("qrc:/qml/ui/dialogs/ConfirmationDialog.qml"),
-                                                null, {
-                                                    text: i18n.tr("Are you sure you want to leave this chat?"),
-                                                    onAccept: function() {
-                                                        pageStack.clear()
-                                                        //telegram.messagesDeleteHistory(dialogId, true)
-                                                    }
-                                                }
-                                                );
-                            }
+                            onTriggered: UITK_Popups.PopupUtils.open(leaveChatConfirmationDialog)
                         },
                         UITK.Action {
                             iconName: "edit-clear"
                             text: i18n.tr("Clear history")
-
-                            onTriggered: {
-                                PopupUtils.open(Qt.resolvedUrl("qrc:/qml/ui/dialogs/ConfirmationDialog.qml"),
-                                                null, {
-                                                    text: i18n.tr("Are you sure you want to clear the history?"),
-                                                    onAccept: function() {
-                                                        //telegram.messagesDeleteHistory(dialogId, false)
-                                                    }
-                                                }
-                                                );
-                            }
+                            visible: chat.isPrivate
+                            onTriggered: UITK_Popups.PopupUtils.open(clearHistoryConfirmationDialog)
                         }
                     ]
+                }
+
+                Component {
+                    id: leaveChatConfirmationDialog
+                    PopupDialog {
+                        text: i18n.tr("Are you sure you want to leave this chat?")
+                        confirmButtonColor: UITK.UbuntuColors.red
+                        confirmButtonText: i18n.tr("Leave")
+                        cancelButtonColor: UITK.UbuntuColors.green
+                        onConfirmed: AppActions.chat.leaveChat(chat.rawId)
+                    }
+                }
+
+                Component {
+                    id: clearHistoryConfirmationDialog
+                    PopupDialog {
+                        text: i18n.tr("Are you sure you want to clear the history?")
+                        confirmButtonColor: UITK.UbuntuColors.red
+                        confirmButtonText: i18n.tr("Clear history")
+                        cancelButtonColor: UITK.UbuntuColors.green
+                        onConfirmed: AppActions.chat.deleteChatHistory(chat.rawId)
+                    }
                 }
 
                 trailingActions: UITK.ListItemActions {
@@ -90,12 +92,7 @@ Page {
                         UITK.Action {
                             iconName: "info"
                             text: i18n.tr("Info")
-                            onTriggered: {
-                                //                                    pageStack.addPageToNextColumn(account_page, profile_page_component, {
-                                //                                            telegram: list_item.telegram,
-                                //                                            dialog: list_item.dialog
-                                //                                    });
-                            }
+                            onTriggered: chat.isPrivate ? AppActions.user.setCurrentUserById(chat.chatType.userId) : AppActions.chat.viewInDetail(chat)
                         }
                     ]
                 }
@@ -308,4 +305,5 @@ Page {
             }
         }
     }
+
 }

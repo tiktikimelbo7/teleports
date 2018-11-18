@@ -8,4 +8,8 @@ KeyTable {
     property string loadMoreMessages
     property string sendMessage
     property string sendChatAction
+    property string leaveChat
+    property string deleteChatHistory
+    property string viewInDetail
+    property string leaveGroupDetails
 }

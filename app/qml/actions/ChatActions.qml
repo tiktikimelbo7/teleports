@@ -9,4 +9,10 @@ ActionCreator {
     signal loadMoreMessages();
     signal sendMessage(string text);
     signal sendChatAction();
+
+    signal leaveChat(var chatId);
+    signal deleteChatHistory(var chatId);
+
+    signal viewInDetail(var chat)
+    signal leaveGroupDetails();
 }

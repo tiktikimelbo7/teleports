@@ -103,6 +103,8 @@ set(
     utils/qtdtextformatter.cpp
     quick/plugin.cpp
     quick/users.cpp
+    chat/requests/qtdleavechatrequest.cpp
+    chat/requests/qtddeletechathistoryrequest.cpp
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
