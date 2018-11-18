@@ -5,7 +5,8 @@ import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
 
 /*
- * Not used, candidate for removal.
+ * Has to be replaced in UserProfile before it can be removed.
+ * Candidate for removal.
  * GenericPhoto used instead, combining both chat and message profile photos.
  */
 
@@ -17,8 +18,6 @@ Item {
     onAvatarColorChanged: {
         console.log("avatarColor", avatarColor);
     }
-    
-    anchors.verticalCenter: parent.verticalCenter
     
     UITK.UbuntuShape {
         anchors.fill: parent
