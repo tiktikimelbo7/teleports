@@ -80,6 +80,7 @@ link_directories(${CURRENT_TDLIB_BUILD_DIR})
 add_subdirectory(po)
 add_subdirectory(libs)
 add_subdirectory(app)
+add_subdirectory(push)
 
 # Make source files visible in qtcreator
 # We don't need to add plugin sources here as they get exposed

@@ -6,6 +6,7 @@ import Ubuntu.Components 1.3 as UITK
 import QuickFlux 1.1
 import QTelegram 1.0
 import "./stores"
+import "./components"
 
 Window {
 
@@ -61,4 +62,7 @@ Window {
             }
         }
     }
+
+    TGPushClient { id: pushClient }
+
 }

@@ -6,6 +6,7 @@
         <file>stores/qmldir</file>
         <file>stores/MainStore.qml</file>
         <file>stores/RootStore.qml</file>
+        <file>stores/NotificationsStateStore.qml</file>
         <file>actions/AuthAction.qml</file>
         <file>actions/AuthKey.qml</file>
         <file>actions/qmldir</file>
@@ -21,6 +22,7 @@
         <file>pages/MessageListPage.qml</file>
         <file>actions/AppActions.qml</file>
         <file>actions/ChatActions.qml</file>
+        <file>actions/NotificationsAction.qml</file>
         <file>actions/ChatKey.qml</file>
         <file>actions/UserStateActions.qml</file>
         <file>actions/UserStateKey.qml</file>
@@ -28,6 +30,7 @@
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
         <file>components/ProfilePhoto.qml</file>
+        <file>components/TGPushClient.qml</file>
         <file>components/MediaViewer.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>

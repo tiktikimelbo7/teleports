@@ -16,4 +16,9 @@ Item {
     UserStateActions {
         id: user
     }
+
+    property alias notifications: notifications
+    NotificationsAction {
+        id: notifications
+    }
 }
