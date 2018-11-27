@@ -91,6 +91,7 @@ set(
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
     notifications/qtdnotificationsettings.cpp
+    notifications/qtdenablenotifications.cpp
     user/qtduser.cpp
     user/qtdusers.cpp
     user/qtdlinkstate.cpp

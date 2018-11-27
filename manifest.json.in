@@ -8,6 +8,10 @@
             "apparmor": "telegram-plus.apparmor",
             "desktop":  "telegram-plus.desktop",
             "content-hub": "telegram-plus.content-hub"
+        },
+        "push": {
+            "apparmor": "push/push-apparmor.json",
+            "push-helper": "push/push-helper.json"
         }
     },
     "version": "0.1.2",
