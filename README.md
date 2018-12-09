@@ -7,7 +7,7 @@ Install [clickable](clickable.bhdouglass.com/en/latest/) and the following packa
 
 Then run once:
 
-    ./build-tdlib-in-ubuntu-sdk-docker.sh
+    ./build-tdlib.sh
 
 From now on you can build the app with:
 
@@ -17,7 +17,7 @@ From now on you can build the app with:
 
 To run the app on desktop, clean the tdlib if you've built it for armhf before and build it for amd64 once:
 
-    ./build-tdlib-in-ubuntu-sdk-docker.sh amd64
+    ./build-tdlib.sh amd64
 
 Then you can build and run the app using clickable as usual:
 
@@ -31,7 +31,7 @@ switching between phone and desktop build.
 
 You can clean the tdlib build by:
 
-    ./build-tdlib-in-ubuntu-sdk-docker.sh clean
+    ./build-tdlib.sh clean
 
 ## Known issues
 
