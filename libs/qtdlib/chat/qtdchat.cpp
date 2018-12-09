@@ -105,7 +105,6 @@ void QTdChat::sendChatAction(bool isTyping)
     auto *req = new QTdSendChatActionRequest();
     req->setChatId(id());
     QTdClient::instance()->send(req);
-    req->deleteLater();
 }
 
 QString QTdChat::qmlOrder() const
