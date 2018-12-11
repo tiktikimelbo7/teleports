@@ -31,7 +31,8 @@ void QTdUser::unmarshalJson(const QJsonObject &json)
     emit languageCodeChanged(m_languageCode);
 
     if (m_userType) {
-        m_userType->deleteLater();
+        delete m_userType;
+        m_userType = nullptr;
     }
     const QJsonObject typeObj = json["type"].toObject();
     const QString type = typeObj["@type"].toString();
@@ -58,13 +59,15 @@ void QTdUser::unmarshalJson(const QJsonObject &json)
     }
 
     if (m_outgoingLink) {
-        m_outgoingLink->deleteLater();
+        delete m_outgoingLink;
+        m_outgoingLink = nullptr;
     }
     m_outgoingLink = QTdLinkStateFactory::create(json["outgoing_link"].toObject(), this);
     emit outgoingLinkChanged(m_outgoingLink);
 
     if (m_incomingLink) {
-        m_incomingLink->deleteLater();
+        delete m_incomingLink;
+        m_incomingLink = nullptr;
     }
     m_incomingLink = QTdLinkStateFactory::create(json["incoming_link"].toObject(), this);
     emit incomingLinkChanged(m_incomingLink);
@@ -158,15 +161,15 @@ void QTdUser::setStatus(QTdUserStatus *status)
     QString oldStatusString = "";
 
     if (m_status) {
-        m_status->deleteLater();
         oldStatusString = m_status->toString();
+        delete m_status;
+        m_status = nullptr;
     }
 
     m_status = status;
     emit statusChanged(m_status);
 
-    if (m_status->toString() != oldStatusString)
-    {
+    if (m_status->toString() != oldStatusString) {
         emit m_status->statusStringChanged(m_status->toString());
     }
 }

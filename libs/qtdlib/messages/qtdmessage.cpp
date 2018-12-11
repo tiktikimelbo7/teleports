@@ -78,7 +78,8 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
 
     if (m_content) {
-        m_content->deleteLater();
+        delete m_content;
+        m_content = nullptr;
     }
     const QJsonObject content = json["content"].toObject();
     m_content = QTdMessageContentFactory::create(content, this);

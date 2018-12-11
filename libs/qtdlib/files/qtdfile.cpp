@@ -1,5 +1,6 @@
 #include "qtdfile.h"
 #include <QDebug>
+#include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "files/qtddownloadfilerequest.h"
 
@@ -56,10 +57,10 @@ void QTdFile::downloadFile()
         qDebug() << "Cannot download file";
         return;
     }
-    QTdDownloadFileRequest *req = new QTdDownloadFileRequest();
+    QScopedPointer<QTdDownloadFileRequest> req(new QTdDownloadFileRequest);
     req->setFileId(this->id());
     req->setPriority(QTdDownloadFileRequest::Priority::Medium);
-    QTdClient::instance()->send(req);
+    QTdClient::instance()->send(req.data());
 }
 
 void QTdFile::handleUpdateFile(const QJsonObject &json)
