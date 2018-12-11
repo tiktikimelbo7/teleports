@@ -54,11 +54,11 @@ msgstr "Code"
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:23
 #: ../app/qml/pages/WaitPasswordPage.qml:33
 msgid "Next..."
-msgstr "Weider..."
+msgstr "Next..."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:10
 msgid "Enter Phone Number"
-msgstr "Klappt das hier?.."
+msgstr "Enter Phone Number"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:40
 msgid "About"
