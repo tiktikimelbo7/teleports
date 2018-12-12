@@ -210,7 +210,10 @@ Page {
 
         ListView {
             id: msgList
-            anchors.fill: parent
+            anchors {
+                fill: parent
+                bottomMargin: Suru.units.gu(1)
+            }
             model: Telegram.chats.messageList
             verticalLayoutDirection: ListView.BottomToTop
             delegate: Component {

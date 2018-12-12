@@ -13,7 +13,7 @@ import "../stores"
 ItemDelegate {
     id: base
     width: parent.width
-    height: contentCol.height + Suru.units.gu(2)
+    height: contentCol.height + (message.sameUserAsPreviousMessage && !message.isLatest ? Suru.units.gu(0.5) : Suru.units.gu(1))
 
     property QTdMessage message: null
     property QTdChat chat: null
@@ -34,10 +34,10 @@ ItemDelegate {
         Item {
             width: Suru.units.gu(4.5)
             height: Suru.units.gu(4.5)
-            Layout.alignment: Qt.AlignTop | Qt.AlignLeft
+            Layout.alignment: Qt.AlignBottom | Qt.AlignLeft
 
             GenericPhoto {
-                visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret)
+                visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameUserAsPreviousMessage
                 anchors.fill: parent
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
@@ -46,8 +46,8 @@ ItemDelegate {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                  AppActions.user.setCurrentUser(message.sender)
-                 }
+                    AppActions.user.setCurrentUser(message.sender)
+                }
             }
         }
 
@@ -101,7 +101,7 @@ ItemDelegate {
                 height: childrenRect.height
 
                 Item {
-                    visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret)
+                    visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameUserAsNextMessage
                     width: parent.width
                     height: Suru.units.gu(2.5)
 

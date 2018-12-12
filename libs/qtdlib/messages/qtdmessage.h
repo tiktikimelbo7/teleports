@@ -32,6 +32,12 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
     // Provide a summary text for display in the chatlist
     Q_PROPERTY(QString summary READ summary NOTIFY senderChanged)
+    // Shows if the sender of the previous message is the same as this one.
+    Q_PROPERTY(bool sameUserAsPreviousMessage READ sameUserAsPreviousMessage NOTIFY previousSenderChanged)
+    // Shows if the sender of the next message is the same as this one.
+    Q_PROPERTY(bool sameUserAsNextMessage READ sameUserAsNextMessage NOTIFY nextSenderChanged)
+    // Indicates if this message is the first/latest message in the model
+    Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -43,7 +49,7 @@ public:
     QString qmlChatId() const;
     qint64 chatId() const;
     QString getSenderInitials() const;
-    
+
     QTdUser *sender() const;
 
     void unmarshalJson(const QJsonObject &json);
@@ -76,10 +82,21 @@ public:
 
     bool isValid() const;
 
+    bool sameUserAsPreviousMessage() const;
+
+    void setPreviousSenderId(const qint32 &id);
+
+    bool sameUserAsNextMessage() const;
+
+    void setNextSenderId(const qint32 &id);
+
+    bool isLatest() const;
 signals:
     void messageChanged();
     void senderChanged();
     void sendingStateChanged();
+    void previousSenderChanged();
+    void nextSenderChanged();
 
 private slots:
     void updateSender(const qint32 &senderId);
@@ -103,6 +120,7 @@ private:
     bool m_containsUnreadMention;
     QPointer<QTdMessageContent> m_content;
     bool m_isValid;
+    QTdInt32 m_previousSender, m_nextSender;
 };
 
 #endif // QTDMESSAGE_H
