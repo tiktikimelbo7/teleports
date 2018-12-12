@@ -12,7 +12,7 @@ QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_isOutgoing(false), m_canBeEdited(false), m_canBeForwarded(false),
     m_canBeDeletedOnlyForSelf(false), m_canBeDeletedForAllUsers(false),
     m_isChannelPost(false), m_containsUnreadMention(false), m_content(Q_NULLPTR),
-    m_isValid(false)
+    m_isValid(false), m_previousSender(0), m_nextSender(0)
 {
     setType(MESSAGE);
 }
@@ -195,6 +195,35 @@ bool QTdMessage::isValid() const
     return m_isValid;
 }
 
+bool QTdMessage::sameUserAsPreviousMessage() const
+{
+    return m_sender_user_id.value() == m_previousSender.value();
+}
+
+void QTdMessage::setPreviousSenderId(const qint32 &id)
+{
+    m_previousSender = id;
+    emit previousSenderChanged();
+
+}
+
+bool QTdMessage::sameUserAsNextMessage() const
+{
+    return m_sender_user_id.value() == m_nextSender.value();
+}
+
+void QTdMessage::setNextSenderId(const qint32 &id)
+{
+    m_nextSender = id;
+    emit nextSenderChanged();
+}
+
+bool QTdMessage::isLatest() const
+{
+    // Only the latest message should not have a nextSenderId
+    return !m_nextSender.isValid();
+}
+
 void QTdMessage::updateSender(const qint32 &senderId)
 {
     if (senderId != m_sender_user_id.value()) {
@@ -231,7 +260,7 @@ void QTdMessage::updateSendingState(const QJsonObject &json)
     const QString type = jsonSendingState["@type"].toString();
     QTdMessageSendingState *obj = Q_NULLPTR;
     if (type == "messageSendingStatePending"){
-      obj = new QTdMessageSendingStatePending(this);
+        obj = new QTdMessageSendingStatePending(this);
     } else {
         qWarning() << "Unknown user status type: " << type;
     }

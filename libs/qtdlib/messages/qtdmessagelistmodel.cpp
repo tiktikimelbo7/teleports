@@ -78,15 +78,18 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
     auto oldestMessage = m_chat->lastReadInboxMessageId();
     auto newestMessage = m_chat->lastMessage()->id();
     QJsonArray messages = json["messages"].toArray();
-    for (const QJsonValue &msgData : messages)
-    {
+    for (const QJsonValue &msgData : messages) {
         const QJsonObject data = msgData.toObject();
         const qint64 mid = qint64(data["id"].toDouble());
         auto *msg = m_model->getByUid(QString::number(mid));
-        if (!msg)
-        {
+        if (!msg) {
             auto *message = new QTdMessage;
             message->unmarshalJson(data);
+            if (!m_model->isEmpty()) {
+                auto *last = m_model->last();
+                message->setPreviousSenderId(last->senderUserId());
+                last->setNextSenderId(message->senderUserId());
+            }
             m_model->append(message);
             if (mid > oldestMessage && mid <= newestMessage)
                 unreadMessages << mid;
@@ -133,21 +136,27 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
         return;
     }
     auto *m = new QTdMessage();
+
+    if (!m_model->isEmpty()) {
+        auto *first = m_model->first();
+        m->setPreviousSenderId(first->senderUserId());
+        first->setNextSenderId(m->senderUserId());
+    }
     m->unmarshalJson(message);
     m_model->prepend(m);
 }
 void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &json)
 {
-  if (json.isEmpty()) {
-      return;
-  }
-  const qint64 oldMid = qint64(json["old_message_id"].toDouble());
-  auto *msgSent = m_model->getByUid(QString::number(oldMid));
-  const QJsonObject message = json["message"].toObject();
-  if (msgSent) {
-      m_model->remove(msgSent);
-      return;
-  }
+    if (json.isEmpty()) {
+        return;
+    }
+    const qint64 oldMid = qint64(json["old_message_id"].toDouble());
+    auto *msgSent = m_model->getByUid(QString::number(oldMid));
+    const QJsonObject message = json["message"].toObject();
+    if (msgSent) {
+        m_model->remove(msgSent);
+        return;
+    }
 }
 void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId)
 {
@@ -168,8 +177,10 @@ void QTdMessageListModel::sendMessage(const QString &message)
     }
 
     //First call tdlib to markup all complex entities
-    auto parseRequest = QJsonObject{
-        {"@type", "getTextEntities"}, {"text", message}};
+    auto parseRequest = QJsonObject {
+        {"@type", "getTextEntities"},
+        {"text", message}
+    };
     auto result = QTdClient::instance()->exec(parseRequest);
     result.waitForFinished();
     auto entities = result.result()["entities"].toArray();
