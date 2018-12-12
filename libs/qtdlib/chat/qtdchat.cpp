@@ -30,7 +30,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatTitle(json);
 
     if (m_chatType) {
-        m_chatType->deleteLater();
+        delete m_chatType;
+        m_chatType = nullptr;
     }
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
@@ -102,9 +103,9 @@ QString QTdChat::avatarColor(unsigned int userId)
 void QTdChat::sendChatAction(bool isTyping)
 {
     //TODO: Make more actions available
-    auto *req = new QTdSendChatActionRequest();
+    QScopedPointer<QTdSendChatActionRequest> req(new QTdSendChatActionRequest);
     req->setChatId(id());
-    QTdClient::instance()->send(req);
+    QTdClient::instance()->send(req.data());
 }
 
 QString QTdChat::qmlOrder() const
@@ -268,17 +269,17 @@ QObject *QTdChat::messages() const
 
 void QTdChat::openChat()
 {
-    auto *req = new QTdOpenChatRequest;
+    QScopedPointer<QTdOpenChatRequest> req(new QTdOpenChatRequest);
     req->setChatId(id());
-    QTdClient::instance()->send(req);
+    QTdClient::instance()->send(req.data());
     onChatOpened();
 }
 
 void QTdChat::closeChat()
 {
-    auto *req = new QTdCloseChatRequest;
+    QScopedPointer<QTdCloseChatRequest> req(new QTdCloseChatRequest);
     req->setChatId(id());
-    QTdClient::instance()->send(req);
+    QTdClient::instance()->send(req.data());
     emit closed();
 }
 
@@ -299,9 +300,9 @@ void QTdChat::unpinChat()
 void QTdChat::setTitle(const QString &title)
 {
     if (m_title != title) {
-        auto *req = new QTdSetChatTitleRequest;
+        QScopedPointer<QTdSetChatTitleRequest> req(new QTdSetChatTitleRequest);
         req->setTitle(id(), title);
-        QTdClient::instance()->send(req);
+        QTdClient::instance()->send(req.data());
     }
 }
 

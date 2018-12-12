@@ -1,6 +1,7 @@
 #include "qtdbasicgroupchat.h"
 #include <QDebug>
 #include <QJsonArray>
+#include <QScopedPointer>
 #include "chat/requests/qtdgetbasicgrouprequest.h"
 #include "client/qtdclient.h"
 
@@ -93,9 +94,9 @@ void QTdBasicGroupChat::requestGroupData()
 {
     QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup*>(chatType());
     if (group->basicGroupId() > 0) {
-        auto *req = new QTdGetBasicGroupRequest;
+        QScopedPointer<QTdGetBasicGroupRequest> req(new QTdGetBasicGroupRequest);
         req->setGroupId(group->basicGroupId());
-        QTdClient::instance()->send(req);
+        QTdClient::instance()->send(req.data());
     }
 }
 
@@ -110,7 +111,8 @@ void QTdBasicGroupChat::updateGroupData(const QJsonObject &json)
     m_memberCount = json["member_count"];
 
     if (m_status) {
-        m_status->deleteLater();
+        delete m_status;
+        m_status = nullptr;
     }
     const QJsonObject status = json["status"].toObject();
     const QString type = status["@type"].toString();

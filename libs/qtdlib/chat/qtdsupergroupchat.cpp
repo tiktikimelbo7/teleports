@@ -178,9 +178,9 @@ void QTdSuperGroupChat::getSuperGroupData()
 {
     QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup*>(chatType());
     if (group->superGroupId() > 0) {
-        auto *req = new QTdGetSuperGroupRequest;
+        QScopedPointer<QTdGetSuperGroupRequest> req(new QTdGetSuperGroupRequest);
         req->setSuperGroupId(group->superGroupId());
-        QTdClient::instance()->send(req);
+        QTdClient::instance()->send(req.data());
     }
 }
 
@@ -194,7 +194,8 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
     m_sgId = gid;
 
     if (m_status) {
-        m_status->deleteLater();
+        delete m_status;
+        m_status = nullptr;
     }
     const QJsonObject status = json["status"].toObject();
     const QString type = status["@type"].toString();
@@ -224,9 +225,9 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
     emit chatStatusChanged();
 
     // TODO: call getSuperGroupFullInfo request
-    auto *req = new QTdGetSuperGroupFullInfoRequest;
+    QScopedPointer<QTdGetSuperGroupFullInfoRequest> req(new QTdGetSuperGroupFullInfoRequest);
     req->setSupergroupId(superGroupId());
-    QTdClient::instance()->send(req);
+    QTdClient::instance()->send(req.data());
 }
 
 void QTdSuperGroupChat::updateSuperGroupFullInfo(const QJsonObject &json)

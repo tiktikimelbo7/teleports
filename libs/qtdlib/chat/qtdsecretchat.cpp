@@ -1,4 +1,5 @@
 #include "qtdsecretchat.h"
+#include <QScopedPointer>
 #include "chat/requests/qtdgetsecretchatrequest.h"
 #include "client/qtdclient.h"
 
@@ -65,9 +66,9 @@ void QTdSecretChat::getSecretChatData()
 {
     QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret*>(chatType());
     if (secret->secretChatId() > 0) {
-        auto *req = new QTdGetSecretChatRequest;
+        QScopedPointer<QTdGetSecretChatRequest> req(new QTdGetSecretChatRequest);
         req->setSecretChatId(secret->secretChatId());
-        QTdClient::instance()->send(req);
+        QTdClient::instance()->send(req.data());
     }
 }
 
@@ -82,7 +83,8 @@ void QTdSecretChat::updateSecretChat(const QJsonObject &data)
     m_secretChatId = sid;
     m_userId = data["user_id"];
     if (m_state) {
-        m_state->deleteLater();
+        delete m_state;
+        m_state = nullptr;
     }
     const QJsonObject state = data["state"].toObject();
     const QString type = state["@type"].toString();

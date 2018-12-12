@@ -48,9 +48,6 @@ public:
      * @brief send
      *
      * Send a request in another thread.
-     *
-     * QTdClient will take ownership of obj and schedule deletion once
-     * it is done with it,
      */
     void send(QTdRequest *obj);
     void send(const QJsonObject &json);
@@ -60,9 +57,6 @@ public:
      * This is a synchronous action in another
      * thread and will return the result via the
      * returned QFuture
-     *
-     * QTdClient will take ownership of obj and schedule deletion once
-     * it is done with it,
      *
      * Note: there is only a limited set of actions that can be sent
      * through exec. Still need to figure out what they are. Once

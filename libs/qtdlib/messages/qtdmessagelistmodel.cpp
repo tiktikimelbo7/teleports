@@ -1,6 +1,7 @@
 #include "qtdmessagelistmodel.h"
 #include <QDebug>
 #include <QJsonArray>
+#include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -177,21 +178,19 @@ void QTdMessageListModel::sendMessage(const QString &message)
     QString plainText;
     QJsonArray formatEntities;
     QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
-    auto request = new QTdSendMessageRequest();
+    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     request->setText(plainText);
     formatEntities << entities;
     request->setEntities(entities);
-    QTdClient::instance()->send(request);
+    QTdClient::instance()->send(request.data());
 }
 
 void QTdMessageListModel::setAllMessagesRead( QList<qint64> messages)
 {
-        //TODO: Determine how to detect which messages are in the visible part of the window
-        QTdViewMessagesRequest *req = new QTdViewMessagesRequest;
-        req->setChatId(m_chat->id());
-        req->setMessageIds(messages);
-        QTdClient::instance()->send(req);
-        req->deleteLater();
-
+    //TODO: Determine how to detect which messages are in the visible part of the window
+    QScopedPointer<QTdViewMessagesRequest> req(new QTdViewMessagesRequest);
+    req->setChatId(m_chat->id());
+    req->setMessageIds(messages);
+    QTdClient::instance()->send(req.data());
 }

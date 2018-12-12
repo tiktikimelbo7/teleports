@@ -1,4 +1,5 @@
 #include "qtdchatlistmodel.h"
+#include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
@@ -66,30 +67,24 @@ void QTdChatListModel::clearCurrentChat()
 void QTdChatListModel::leaveChat(qint64 chatId)
 {
     QTdChat *tdchat = m_model->getByUid(QString::number(chatId));
-    if (tdchat->isPrivate())
-    {
-        QTdDeleteChatHistoryRequest *req = new QTdDeleteChatHistoryRequest;
+    if (tdchat->isPrivate()) {
+        QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
         req->setChatId(chatId);
         req->setRemoveFromChatList();
-        QTdClient::instance()->send(req);
-        req->deleteLater();
+        QTdClient::instance()->send(req.data());
         emit contentsChanged();
-    }
-    else
-    {
-        QTdLeaveChatRequest *req = new QTdLeaveChatRequest;
+    } else {
+        QScopedPointer<QTdLeaveChatRequest> req(new QTdLeaveChatRequest);
         req->setChatId(chatId);
-        QTdClient::instance()->send(req);
-        req->deleteLater();
+        QTdClient::instance()->send(req.data());
     }
 }
 
 void QTdChatListModel::deleteChatHistory(qint64 chatId)
 {
-    QTdDeleteChatHistoryRequest *req = new QTdDeleteChatHistoryRequest;
+    QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
     req->setChatId(chatId);
-    QTdClient::instance()->send(req);
-    req->deleteLater();
+    QTdClient::instance()->send(req.data());
     emit contentsChanged();
 }
 
@@ -140,10 +135,9 @@ void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
     switch (state->type()) {
     case QTdAuthState::Type::AUTHORIZATION_STATE_READY:
     {
-        QTdGetChatsRequest *req = new QTdGetChatsRequest;
+        QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
         QTdClient::instance()->send(QJsonObject{{"@type", "clearRecentlyFoundChats"}});
-        QTdClient::instance()->send(req);
-        req->deleteLater();
+        QTdClient::instance()->send(req.data());
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED:
@@ -243,7 +237,6 @@ void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &c
         tdchat->updateChatNotificationSettings(chat);
         emit contentsChanged();
     }
-
 }
 
 void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pinned)
@@ -257,8 +250,7 @@ void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pin
     } else if (!pinned && m_pinnedChats.contains(chatId)) {
         chats.removeAll(chatId);
     }
-    auto *req = new QTdSetPinnedChatsRequest;
+    QScopedPointer<QTdSetPinnedChatsRequest> req(new QTdSetPinnedChatsRequest);
     req->setPinnedChats(chats);
-    QTdClient::instance()->send(req);
-    req->deleteLater();
+    QTdClient::instance()->send(req.data());
 }

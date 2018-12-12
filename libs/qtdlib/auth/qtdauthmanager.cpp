@@ -1,5 +1,6 @@
 #include "qtdauthmanager.h"
 #include <QDebug>
+#include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "requests/qtdauthencryptionkeyresponse.h"
 #include "requests/qtdauthparametersresponse.h"
@@ -60,9 +61,9 @@ void QTdAuthManager::sendParams()
         qWarning() << "TDLib isn't waiting for this so not sending!";
         return;
     }
-    auto *resp = new QTdAuthParametersResponse;
+    QScopedPointer<QTdAuthParametersResponse> resp(new QTdAuthParametersResponse);
     resp->setParameters(m_params);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::setEncryptionKey(const QString &key)
@@ -71,9 +72,9 @@ void QTdAuthManager::setEncryptionKey(const QString &key)
         qWarning() << "TDLib isn't waiting for the encryption key";
         return;
     }
-    auto *resp = new QTdAuthEncryptionKeyResponse;
+    QScopedPointer<QTdAuthEncryptionKeyResponse> resp(new QTdAuthEncryptionKeyResponse);
     resp->setKey(key);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::sendPhoneNumber(const QString &number)
@@ -82,22 +83,22 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
         qWarning() << "TDLib isn't waiting for the phone number";
         return;
     }
-    auto *resp = new QTdAuthPhoneNumberResponse;
+    QScopedPointer<QTdAuthPhoneNumberResponse> resp(new QTdAuthPhoneNumberResponse);
     resp->setPhoneNumber(number);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::logOut()
 {
-    auto *resp = new QTdAuthLogOutResponse;
-    QTdClient::instance()->send(resp);
+    QScopedPointer<QTdAuthLogOutResponse> resp(new QTdAuthLogOutResponse);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::deleteAccount(const QString &reason)
 {
-    auto *resp = new QTdAuthDeleteAccountResponse;
+    QScopedPointer<QTdAuthDeleteAccountResponse> resp(new QTdAuthDeleteAccountResponse);
     resp->setReason(reason);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::sendCode(const QString &code, const QString &firstname, const QString &lastname)
@@ -106,11 +107,11 @@ void QTdAuthManager::sendCode(const QString &code, const QString &firstname, con
         qWarning() << "TDLib isn't waiting for a code";
         return;
     }
-    auto *resp = new QTdAuthCodeResponse;
+    QScopedPointer<QTdAuthCodeResponse> resp(new QTdAuthCodeResponse);
     resp->setCode(code);
     resp->setFirstName(firstname);
     resp->setLastName(lastname);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::sendPassword(const QString &password)
@@ -119,9 +120,9 @@ void QTdAuthManager::sendPassword(const QString &password)
         qWarning() << "TDLib isn't waiting for a password";
         return;
     }
-    auto *resp = new QTdAuthPasswordResponse;
+    QScopedPointer<QTdAuthPasswordResponse> resp(new QTdAuthPasswordResponse);
     resp->setPassword(password);
-    QTdClient::instance()->send(resp);
+    QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)

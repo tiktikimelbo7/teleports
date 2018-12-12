@@ -14,14 +14,14 @@
  *
  * Usage:
  *
- *   auto *req = new QTdBlockUserRequest;
+ *   QScopedPointer<QTdBlockUserRequest> req(new QTdBlockUserRequest);
  *   req->setUserId(1);
  *   // or
  *   req->setUserId("1");
  *   // or
  *   QTdUser *user;
  *   req->setUser(user);
- *   QTdClient::instance()->send(req);
+ *   QTdClient::instance()->send(req.data());
  */
 class QTdBlockUserRequest : public QTdRequest
 {

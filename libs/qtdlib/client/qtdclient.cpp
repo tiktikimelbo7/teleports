@@ -62,11 +62,7 @@ QTdConnectionState *QTdClient::connectionState() const
 
 void QTdClient::send(QTdRequest *obj)
 {
-    // Take ownership of the object and schedule
-    // it's deletion when done;
-    obj->setParent(this);
     send(obj->marshalJson());
-    obj->deleteLater();
 }
 
 void QTdClient::send(const QJsonObject &json)
@@ -80,12 +76,7 @@ void QTdClient::send(const QJsonObject &json)
 
 QFuture<QJsonObject> QTdClient::exec(QTdRequest *obj)
 {
-    // Take ownership of the object and schedule
-    // it's deletion when done;
-    obj->setParent(this);
-    const QJsonObject json = obj->marshalJson();
-    obj->deleteLater();
-    return exec(json);
+    return exec(obj->marshalJson());
 }
 
 QFuture<QJsonObject> QTdClient::exec(const QJsonObject &json)
