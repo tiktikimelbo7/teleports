@@ -35,9 +35,10 @@ ItemDelegate {
             width: Suru.units.gu(4.5)
             height: Suru.units.gu(4.5)
             Layout.alignment: Qt.AlignBottom | Qt.AlignLeft
+            visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret || chat.isChannel)
 
             GenericPhoto {
-                visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameUserAsPreviousMessage
+                visible: !message.sameUserAsPreviousMessage
                 anchors.fill: parent
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
@@ -49,11 +50,6 @@ ItemDelegate {
                     AppActions.user.setCurrentUser(message.sender)
                 }
             }
-        }
-
-        Item {
-            Layout.fillWidth: message.isOutgoing || chat.isPrivate || chat.isSecret
-            width: Suru.units.gu(1)
         }
 
         Rectangle {
@@ -74,7 +70,6 @@ ItemDelegate {
             }
 
             radius: 4
-            Layout.fillWidth: true
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
             Layout.minimumWidth: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)), mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
