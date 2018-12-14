@@ -19,7 +19,9 @@ void QTdChatListSortFilterModel::setModel(QTdChatListModel *model)
 {
     m_chatList = model;
     setSourceModel(static_cast<QAbstractItemModel*>(m_chatList->model()));
-    connect(model, &QTdChatListModel::chatStatusChanged, [=](){invalidateFilter();});
+    connect(model, &QTdChatListModel::chatStatusChanged, [=](){
+        invalidateFilter();
+    });
     emit modelChanged();
     setSortRole(static_cast<QQmlObjectListModel<QTdChat>*>(m_chatList->model())->roleForName("lastMessage"));
     setFilterRole(static_cast<QQmlObjectListModel<QTdChat>*>(m_chatList->model())->roleForName("chatType"));
@@ -63,12 +65,14 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     {
         QTdBasicGroupChat *gc = static_cast<QTdBasicGroupChat*>(chat);
         if (!gc->status()) {
-            return true;
+            return false;
         }
         switch(gc->status()->type()) {
         case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_LEFT:
         case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_BANNED:
+        {
             return false;
+        }
         default:
             break;
         }
@@ -78,12 +82,14 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     {
         QTdSuperGroupChat *gc = static_cast<QTdSuperGroupChat*>(chat);
         if (!gc->status()) {
-            return true;
+            return false;
         }
         switch(gc->status()->type()) {
         case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_LEFT:
         case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_BANNED:
+        {
             return false;
+        }
         default:
             break;
         }
@@ -92,6 +98,7 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     default:
         break;
     }
+
     // If current chats is defined we are just going to show all the remaining chats
     // after the filtering above has been applied. Otherwise filter on a per chat
     // basis filtering on the remaining filters.
@@ -120,11 +127,10 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
 bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
     /**
-     * TDlib suggests to user QTdChat::order() for ordering of the chat list but this seems to be
-     * broken right now as evverything apart from supergroups/channels all have an order of 0 which
-     * is means undetermined :-/
+     * TDlib suggests to use QTdChat::order() for ordering of the chat list
      *
-     * So instead we do the following
+     * Note this requires calling getBasicGroupData and getSuperGroupData to get the QTdChat::order
+     * to even update so we have to wait longer for them to arrive compared to a basic chat or channel.
      */
     QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat>*>(sourceModel());
     QTdChat *left = model->at(source_left.row());
@@ -137,19 +143,5 @@ bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const 
         return sortOrder() == Qt::AscendingOrder;
     }
 
-    /**
-     * If it's a pinned chat we always want this at the top
-     * but also retain the original order for multiple pinned chats
-     */
-    if (left->isPinned()) {
-        return false;
-    }
-
-    if (right->isPinned()) {
-        return true;
-    }
-    /**
-     * And finally just order by the last message date
-     */
-    return left->lastMessage()->date() < right->lastMessage()->date();
+    return left->order() < right->order();
 }

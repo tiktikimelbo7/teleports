@@ -93,7 +93,9 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
     const qint64 id = qint64(chat["id"].toDouble());
     // Need to remember the model actually indexes on the qmlId variant which is a QString
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
-    if (!tdchat) {
+    if (tdchat) {
+        tdchat->unmarshalJson(chat);
+    } else {
         tdchat = QTdChatFactory::createChat(chat["type"].toObject());
         tdchat->unmarshalJson(chat);
         m_model->append(tdchat);
@@ -105,7 +107,6 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
             m_pinnedChats << tdchat->id();
         }
     }
-    tdchat->unmarshalJson(chat);
     emit contentsChanged();
 }
 
