@@ -9,7 +9,7 @@ QTdUsers::QTdUsers(QObject *parent) : QObject(parent),
     m_model(Q_NULLPTR), m_meMyself(Q_NULLPTR), m_currentUser(Q_NULLPTR)
 {
     m_model = new QQmlObjectListModel<QTdUser>(this, "", "id");
-    m_meMyself = new QTdUser();
+    m_meMyself = new QTdUser(this);
     connect(QTdClient::instance(), &QTdClient::updateUser, this, &QTdUsers::handleUpdateUser);
     connect(QTdClient::instance(), &QTdClient::updateUserStatus, this, &QTdUsers::handleUpdateUserStatus);
 }
@@ -46,17 +46,17 @@ QTdUser *QTdUsers::meMyself() const
 
 void QTdUsers::handleUpdateUser(const QJsonObject &user)
 {
-//    qDebug() << "[UPDATING USER]" << user;
+    //    qDebug() << "[UPDATING USER]" << user;
     const qint32 uid = qint32(user["id"].toInt());
     // Need to remember the model actually indexes on the qmlId variant which is a QString
     QTdUser *tduser = m_model->getByUid(QString::number(uid));
     if (!tduser) {
-//        qDebug() << "Adding new user to model";
+        //        qDebug() << "Adding new user to model";
         tduser = new QTdUser();
         tduser->unmarshalJson(user);
         m_model->append(tduser);
         emit userCreated(uid);
-//        qDebug() << "USERCOUNT: " << m_model->count();
+        //        qDebug() << "USERCOUNT: " << m_model->count();
     } else {
         tduser->unmarshalJson(user);
     }
@@ -64,15 +64,16 @@ void QTdUsers::handleUpdateUser(const QJsonObject &user)
     const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
     if (uid == myId) {
         m_meMyself->unmarshalJson(user);
+        emit meMyselfChanged(m_meMyself);
     }
 }
 
 void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &status)
 {
-//    qDebug() << "[UPDATING USER STATUS]" << userId;
+    //    qDebug() << "[UPDATING USER STATUS]" << userId;
     QTdUser *tduser = m_model->getByUid(userId);
     if (tduser) {
-//        qDebug() << "Updating existing user status: " << tduser->id();
+        //        qDebug() << "Updating existing user status: " << tduser->id();
         tduser->setStatus(QTdUserStatusFactory::create(status, tduser));
     }
 
