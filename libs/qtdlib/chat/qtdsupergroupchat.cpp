@@ -168,9 +168,20 @@ qint64 QTdSuperGroupChat::upgradedFromMaxMessageId() const
     return m_upgradeMaxMsgId.value();
 }
 
+void QTdSuperGroupChat::unmarshalJson(const QJsonObject &json)
+{
+    QTdChat::unmarshalJson(json);
+    if (m_status.isNull()) {
+        getSuperGroupData();
+    }
+}
+
 void QTdSuperGroupChat::onChatOpened()
 {
-    getSuperGroupData();
+    QScopedPointer<QTdGetSuperGroupFullInfoRequest> req(new QTdGetSuperGroupFullInfoRequest);
+    req->setSupergroupId(superGroupId());
+    QTdClient::instance()->send(req.data());
+
     QTdChat::onChatOpened();
 }
 
@@ -223,11 +234,6 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
     m_restrictionReason = json["restriction_reason"].toString();
     emit superGroupChanged();
     emit chatStatusChanged();
-
-    // TODO: call getSuperGroupFullInfo request
-    QScopedPointer<QTdGetSuperGroupFullInfoRequest> req(new QTdGetSuperGroupFullInfoRequest);
-    req->setSupergroupId(superGroupId());
-    QTdClient::instance()->send(req.data());
 }
 
 void QTdSuperGroupChat::updateSuperGroupFullInfo(const QJsonObject &json)

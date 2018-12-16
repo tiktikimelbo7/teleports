@@ -264,6 +264,7 @@ signals:
     void pinChatAction(qint64 chatId, bool pinned);
     void summaryChanged();
     void closed();
+    void chatUpdated();
 
 public slots:
     void updateChatOrder(const QJsonObject &json);

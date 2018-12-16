@@ -40,6 +40,8 @@ public:
     QQmlObjectListModel<QTdChatMember> *members() const;
     QString inviteLink() const;
 
+    void unmarshalJson(const QJsonObject &json);
+
 signals:
     void groupChanged();
     void groupInfoChanged();

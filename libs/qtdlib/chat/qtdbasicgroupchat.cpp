@@ -85,6 +85,14 @@ QString QTdBasicGroupChat::inviteLink() const
     return m_inviteLink;
 }
 
+void QTdBasicGroupChat::unmarshalJson(const QJsonObject &json)
+{
+    QTdChat::unmarshalJson(json);
+    if (m_status.isNull()) {
+        requestGroupData();
+    }
+}
+
 void QTdBasicGroupChat::onChatOpened()
 {
     requestGroupData();

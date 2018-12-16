@@ -64,6 +64,8 @@ public:
     qint32 upgradedFromBasicGroupId() const;
     QString qmlUpgradedFromMaxMessageId() const;
     qint64 upgradedFromMaxMessageId() const;
+
+    void unmarshalJson(const QJsonObject &json);
 signals:
     void superGroupChanged();
     void superGroupInfoChanged();
