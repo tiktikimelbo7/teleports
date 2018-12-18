@@ -238,10 +238,9 @@ QString QTdChat::action() const {
           auto *user1 = users->getByUid(
               QString::number(m_chatActions.first().userId.value()));
           if (user1)
-            actionMessage = QString("%1, ").arg(
-                user1->firstName());
+            actionMessage = QString("%1, ").arg(user1->firstName());
           auto *user2 = users->getByUid(
-              QString::number(m_chatActions.first().userId.value()));
+              QString::number(m_chatActions.last().userId.value()));
           if (user2)
             actionMessage += QString("%1 %2").arg(
                 user2->firstName(), m_chatActions.last().plural_description);
