@@ -182,7 +182,8 @@ QString QTdMessage::summary() const
     }
     if(isOutgoing())
         return QString("%1: %2").arg("Me", content);
-    return content;
+
+    return name.isEmpty() ? content : QString("%1: %2").arg(name, content);
 }
 
 QString QTdMessage::formatDate(const QDateTime &dt)

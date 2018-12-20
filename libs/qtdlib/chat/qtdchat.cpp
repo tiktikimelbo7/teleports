@@ -22,6 +22,7 @@ QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
+    connect(m_lastMessage.data(), &QTdMessage::senderChanged, this, &QTdChat::summaryChanged);
     emit messagesChanged();
 }
 
