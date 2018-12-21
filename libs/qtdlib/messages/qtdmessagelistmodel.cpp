@@ -74,31 +74,38 @@ void QTdMessageListModel::cleanUp()
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
 
-    QList<qint64> unreadMessages;
-    auto oldestMessage = m_chat->lastReadInboxMessageId();
-    auto newestMessage = m_chat->lastMessage()->id();
-    QJsonArray messages = json["messages"].toArray();
-    for (const QJsonValue &msgData : messages) {
-        const QJsonObject data = msgData.toObject();
-        const qint64 mid = qint64(data["id"].toDouble());
-        auto *msg = m_model->getByUid(QString::number(mid));
-        if (!msg) {
-            auto *message = new QTdMessage;
-            message->unmarshalJson(data);
-            if (!m_model->isEmpty()) {
-                auto *last = m_model->last();
-                message->setPreviousSenderId(last->senderUserId());
-                last->setNextSenderId(message->senderUserId());
-            }
-            m_model->append(message);
-            if (mid > oldestMessage && mid <= newestMessage)
-                unreadMessages << mid;
-        }
+  QJsonArray messages = json["messages"].toArray();
+  if (messages.count() == 0) {
+      messagesToLoad = -1;
+      return;
+  }
+  QList<qint64> unreadMessages;
+  auto oldestMessage = m_chat->lastReadInboxMessageId();
+  auto newestMessage = m_chat->lastMessage()->id();
+  for (const QJsonValue &msgData : messages)
+  {
+      const QJsonObject data = msgData.toObject();
+      const qint64 mid = qint64(data["id"].toDouble());
+      auto *msg = m_model->getByUid(QString::number(mid));
+      if (!msg)
+      {
+          auto *message = new QTdMessage;
+          message->unmarshalJson(data);
+          if (!m_model->isEmpty())
+          {
+              auto *last = m_model->last();
+              message->setPreviousSenderId(last->senderUserId());
+              last->setNextSenderId(message->senderUserId());
+          }
+          m_model->append(message);
+          if (mid > oldestMessage && mid <= newestMessage)
+              unreadMessages << mid;
+      }
     }
     unreadMessages << newestMessage;
     setAllMessagesRead(unreadMessages);
     emit modelChanged();
-
+    loadMessages(m_model->last()->jsonId(), messages.count());
 }
 
 void QTdMessageListModel::handleUpdateNewMessage(const QJsonObject &json)
@@ -158,16 +165,27 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
         return;
     }
 }
-void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId)
+void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, int amount)
 {
+  if (messagesToLoad > -1) {
+      messagesToLoad -= amount;
+      if (messagesToLoad <= 0) {
+        messagesToLoad = -1;
+        return;
+        }
+    } else {
+        messagesToLoad = amount;
+        qWarning() << "Trying to load " << messagesToLoad << "messages";
+    }
+
     QTdClient::instance()->send(QJsonObject{
-                                    {"@type", "getChatHistory"},
-                                    {"chat_id", m_chat->jsonId()},
-                                    {"from_message_id", fromMsgId},
-                                    {"offset", 0},
-                                    {"limit", 100},
-                                    {"only_local", false},
-                                });
+        {"@type", "getChatHistory"},
+        {"chat_id", m_chat->jsonId()},
+        {"from_message_id", fromMsgId},
+        {"offset", 0},
+        {"limit", messagesToLoad},
+        {"only_local", false},
+    });
 }
 
 void QTdMessageListModel::sendMessage(const QString &message)

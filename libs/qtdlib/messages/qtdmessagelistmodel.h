@@ -7,6 +7,8 @@
 #include "models/QmlObjectListModel.h"
 #include "qtdmessage.h"
 
+#define MESSAGE_LOAD_WINDOW 100
+
 class QTdMessageListModel : public QObject
 {
     Q_OBJECT
@@ -33,14 +35,17 @@ private slots:
     void handleUpdateChatLastMessage(const QJsonObject &json);
     void handleUpdateNewMessage(const QJsonObject &json);
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
-    void loadMessages(const QJsonValue &fromMsgId);
+    void loadMessages(const QJsonValue &fromMsgId,
+                      int amount = MESSAGE_LOAD_WINDOW);
 
-private:
+  private:
     Q_DISABLE_COPY(QTdMessageListModel)
     QPointer<QQmlObjectListModel<QTdMessage>> m_model;
     QPointer<QTdChat> m_chat;
 
     void setAllMessagesRead(QList<qint64> messages);
+
+    int messagesToLoad = -1;
 };
 
 #endif // QTDMESSAGELISTMODEL_H
