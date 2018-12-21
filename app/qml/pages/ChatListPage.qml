@@ -101,7 +101,6 @@ Page {
                         spacing: units.gu(0.5)
 
                         RowLayout {
-                            height: childrenRect.height
                             width: parent.width
 
                             UITK.Icon {
