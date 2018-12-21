@@ -39,7 +39,7 @@ BraceWrapping:
     IndentBraces: false
 
 # When constructor initializers do not fit on one line, put them each on a new line.
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
 # Indent initializers by 4 spaces
 ConstructorInitializerIndentWidth: 4
 
