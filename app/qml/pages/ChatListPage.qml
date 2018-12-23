@@ -1,9 +1,9 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.Popups 1.3 as UITK_Popups
-import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import "../components"
 import "../actions"
@@ -49,7 +49,7 @@ Page {
                 readonly property QTdChat chat: modelData
 
                 width: parent.width
-                height: layout.implicitHeight
+                height: layout.height
                 color: chat.isSecret ? "lightgreen" : "transparent"
 
                 onClicked: {
@@ -97,73 +97,90 @@ Page {
                         UITK.SlotsLayout.padding.trailing: 0
                     }
 
-                    mainSlot: Column {
-                        spacing: units.gu(0.5)
+                    mainSlot: Item {
+                        height: col.height
 
-                        RowLayout {
-                            width: parent.width
+                        Column {
+                            id: col
+                            spacing: units.gu(0.5)
+                            anchors {
+                                left: parent.left
+                                right: parent.right
+                                top: parent.top
+                            }
 
-                            UITK.Icon {
-                                id: secret_chat_icon
-                                visible: chat.isSecret //if chat is encrypted
-                                name: "network-secure"
+                            RowLayout {
+                                height: title.height
+                                width: parent.width
+                                spacing: units.dp(2)
+
+                                Row {
+                                    spacing: units.dp(2)
+
+                                    UITK.Icon {
+                                        id: secret_chat_icon
+                                        visible: chat.isSecret //if chat is encrypted
+                                        name: "network-secure"
+                                        height: units.gu(2)
+                                        width: height
+                                    }
+
+                                    UITK.Icon {
+                                        id: contact_group_icon
+                                        visible: chat.isGroup //if chat is a real chat or a supergroup, but not channel
+                                        name: "contact-group"
+                                        height: units.gu(2)
+                                        width: height
+                                    }
+
+                                    UITK.Icon {
+                                        id: contact_channel_icon
+                                        visible: chat.isChannel //if chat is channel but not supergroup
+                                        source: "qrc:/qml/icons/broadcast.svg"
+                                        height: units.gu(2)
+                                        width: height
+                                    }
+
+                                    UITK.Icon {
+                                        id: audio_volume_muted_icon
+                                        visible: chat.isMuted
+                                        name: "audio-volume-muted"
+                                        height: units.gu(2)
+                                        width: height
+                                    }
+                                }
+
+                                Text {
+                                    id: title
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.WrapAnywhere
+                                    maximumLineCount: 1
+                                    font.weight: Font.DemiBold
+                                    font.pixelSize: units.dp(17)
+                                    text: chat.title
+                                    Layout.fillWidth: true
+                                }
+                            }
+
+                            RowLayout {
                                 height: units.gu(2)
-                                width: height
-                            }
-
-                            UITK.Icon {
-                                id: contact_group_icon
-                                visible: chat.isGroup //if chat is a real chat or a supergroup, but not channel
-                                name: "contact-group"
-                                height: units.gu(2)
-                                width: height
-                            }
-
-                            UITK.Icon {
-                                id: contact_channel_icon
-                                visible: chat.isChannel //if chat is channel but not supergroup
-                                source: "qrc:/qml/icons/broadcast.svg"
-                                height: units.gu(2)
-                                width: height
-                            }
-
-                            UITK.Icon {
-                                id: audio_volume_muted_icon
-                                visible: chat.isMuted
-                                name: "audio-volume-muted"
-                                height: units.gu(2)
-                                width: height
-                            }
-
-                            Text {
-                                elide: Text.ElideRight
-                                wrapMode: Text.WrapAnywhere
-                                maximumLineCount: 1
-                                font.weight: Font.DemiBold
-                                font.pixelSize: units.dp(17)
-                                text: chat.title
-                                Layout.fillWidth: true
-                            }
-                        }
-
-                        RowLayout {
-                            height: units.gu(2)
-                            width: parent.width
-                            Text {
-                                elide: Text.ElideRight
-                                wrapMode: Text.WrapAnywhere
-                                maximumLineCount: 1
-                                font.pixelSize: units.dp(15)
-                                color: theme.palette.normal.backgroundTertiaryText
-                                text: chat.summary
-                                Layout.fillWidth: true
+                                width: parent.width
+                                Text {
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.WrapAnywhere
+                                    maximumLineCount: 1
+                                    font.pixelSize: units.dp(15)
+                                    color: theme.palette.normal.backgroundTertiaryText
+                                    text: chat.summary
+                                    Layout.fillWidth: true
+                                }
                             }
                         }
                     }
 
                     Item {
-                        width: Math.max(time_text.width, icon_col.width)
-                        height: time_text.height + icon_col.height
+                        width: Math.max(time_text.width, icons.width)
+                        height: time_text.height + icons.height
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
                         UITK.SlotsLayout.overrideVerticalPositioning: true
                         UITK.SlotsLayout.padding.leading: 0
@@ -172,7 +189,7 @@ Page {
                             id: time_text
                             anchors {
                                 top: parent.top
-                                topMargin: units.gu(1)
+                                topMargin: units.gu(1.5)
                                 right: parent.right
                             }
 
@@ -182,52 +199,51 @@ Page {
                             text: chat.lastMessage ? chat.formatDate(chat.lastMessage.date) : ""
                         }
 
-                        ColumnLayout {
-                            id: icon_col
-                            height: icons.height
-                            width: icons.width
+                        Row {
+                            id: icons
+                            height: unread_rect.implicitHeight
                             anchors {
                                 top: time_text.bottom
-                                topMargin: units.gu(1)
+                                topMargin: units.gu(0.5)
                                 right: parent.right
                             }
+                            layoutDirection: Qt.RightToLeft
+                            spacing: units.dp(2)
 
-                            RowLayout {
-                                id: icons
-                                height: childrenRect.height
-                                layoutDirection: Qt.RightToLeft
-                                Layout.alignment: Qt.AlignRight
+                            Rectangle {
+                                id: unread_rect
+                                width: Math.min(height, units.gu(4))
+                                height: units.gu(2.8)
+                                radius: width*0.5
+                                color: chat.isMuted ? "grey" : "#5ec245"
+                                visible: chat.hasUnreadMessages
 
-                                Rectangle {
-                                    id: unread_rect
-                                    width: Math.min(height, units.gu(4))
-                                    height: units.gu(2.8)
-                                    radius: width*0.5
-                                    color: chat.isMuted ? "grey" : "#5ec245"
-                                    visible: chat.hasUnreadMessages
-
-                                    Text {
-                                        id: unread_text
-                                        anchors {
-                                            centerIn: parent
-                                            margins: 0
-                                        }
-                                        horizontalAlignment: Text.AlignHCenter
-                                        verticalAlignment: Text.AlignVCenter
-                                        font.weight: Font.DemiBold
-                                        font.pixelSize: FontUtils.sizeToPixels("small")
-                                        color: "white"
-                                        text: chat.unreadCount < 999 ? chat.unreadCount : ":D"; // no-i18n
+                                Text {
+                                    id: unread_text
+                                    anchors {
+                                        centerIn: parent
+                                        margins: 0
                                     }
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    font.weight: Font.DemiBold
+                                    font.pixelSize: FontUtils.sizeToPixels("small")
+                                    color: "white"
+                                    text: chat.unreadCount < 999 ? chat.unreadCount : ":D"; // no-i18n
+                                }
+                            }
+
+                            UITK.Icon {
+                                id: pinned_icon
+                                anchors {
+                                    top: parent.top
+                                    topMargin: units.gu(0.5)
                                 }
 
-                                UITK.Icon {
-                                    id: pinned_icon
-                                    visible: chat.isPinned
-                                    source: "qrc:/qml/icons/attach.svg"
-                                    height: units.gu(2)
-                                    width: height
-                                }
+                                visible: chat.isPinned
+                                source: "qrc:/qml/icons/attach.svg"
+                                height: units.gu(2)
+                                width: height
                             }
                         }
                     }
