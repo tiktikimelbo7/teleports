@@ -1,7 +1,7 @@
 # Telegram Plus
 
 ## Building
-Install [clickable](clickable.bhdouglass.com/en/latest/) and the following packages:
+Install [clickable](https://clickable.bhdouglass.com/en/latest/) and the following packages:
 
     sudo apt-get install gperf libssl-dev zlib1g-dev
 
