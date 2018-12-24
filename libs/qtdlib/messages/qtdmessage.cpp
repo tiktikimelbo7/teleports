@@ -57,6 +57,21 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
+    if (m_content) {
+        delete m_content;
+        m_content = nullptr;
+    }
+
+    // This is a special case to insert a dateLabel into the model
+    // so messages can be grouped by day. It has no data beyond
+    // holding the date so we just return early.
+    if (json.keys().contains("dateLabel")) {
+        auto *md = new QTdMessageDate(this);
+        md->setDate(json["dateLabel"].toInt());
+        m_content = md;
+        return;
+    }
+
     m_isValid = false;
     m_date = qint32(json["date"].toInt());
     m_sender_user_id = json["sender_user_id"];
@@ -77,10 +92,6 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
 
-    if (m_content) {
-        delete m_content;
-        m_content = nullptr;
-    }
     const QJsonObject content = json["content"].toObject();
     m_content = QTdMessageContentFactory::create(content, this);
     m_content->unmarshalJson(content);

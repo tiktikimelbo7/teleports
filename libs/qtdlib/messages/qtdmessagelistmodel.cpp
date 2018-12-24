@@ -96,6 +96,22 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
               auto *last = m_model->last();
               message->setPreviousSenderId(last->senderUserId());
               last->setNextSenderId(message->senderUserId());
+              /**
+               * If there is a date change between the new and last message
+               * then we insert a date message to group messages from the same
+               * day
+               */
+              const QDate lastDate = last->qmlDate().date();
+              const QDate newDate = message->qmlDate().date();
+              if (lastDate.year() > newDate.year()
+                    || lastDate.month() > newDate.month()
+                    || lastDate.day() > newDate.day()) {
+                  auto *dateMessage = new QTdMessage;
+                  dateMessage->unmarshalJson(QJsonObject{
+                                                 {"dateLabel", last->date()}
+                                             });
+                  m_model->append(dateMessage);
+              }
           }
           m_model->append(message);
           if (mid > oldestMessage && mid <= newestMessage)
@@ -148,6 +164,18 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
         auto *first = m_model->first();
         m->setPreviousSenderId(first->senderUserId());
         first->setNextSenderId(m->senderUserId());
+
+        const QDate firstDate = first->qmlDate().date();
+        const QDate newDate = m->qmlDate().date();
+        if (firstDate.year() < newDate.year()
+              || firstDate.month() < newDate.month()
+              || firstDate.day() < newDate.day()) {
+            auto *dateMessage = new QTdMessage;
+            dateMessage->unmarshalJson(QJsonObject{
+                                           {"dateLabel", m->date()}
+                                       });
+            m_model->append(dateMessage);
+        }
     }
     m->unmarshalJson(message);
     m_model->prepend(m);

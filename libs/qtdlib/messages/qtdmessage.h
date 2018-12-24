@@ -1,14 +1,13 @@
 #ifndef QTDMESSAGE_H
 #define QTDMESSAGE_H
 
+#include "common/qabstractint64id.h"
+#include "qtdmessagecontent.h"
+#include "qtdmessagesendingstate.h"
+#include "user/qtduser.h"
+#include <QDateTime>
 #include <QObject>
 #include <QPointer>
-#include <QDateTime>
-#include "common/qabstractint64id.h"
-#include "user/qtduser.h"
-#include "qtdmessagesendingstate.h"
-#include "qtdmessagecontent.h"
-
 
 class QTdMessage : public QAbstractInt64Id
 {
@@ -26,7 +25,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool isChannelPost READ isChannelPost NOTIFY messageChanged)
     Q_PROPERTY(QString views READ views NOTIFY messageChanged)
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
-    Q_PROPERTY(QTdMessageContent* content READ content NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
