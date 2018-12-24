@@ -2,6 +2,7 @@
 #define QTDMESSAGECONTENT_H
 
 #include <QObject>
+#include <QDateTime>
 #include <QScopedPointer>
 #include "common/qabstracttdobject.h"
 #include "qtdformattedtext.h"
@@ -18,6 +19,25 @@ class QTdMessageContent : public QTdObject
     Q_DISABLE_COPY(QTdMessageContent)
 public:
     explicit QTdMessageContent(QObject *parent = nullptr);
+};
+
+class QTdMessageDate : public QTdMessageContent
+{
+    Q_OBJECT
+    Q_PROPERTY(QDateTime date READ date NOTIFY dataChanged)
+    Q_PROPERTY(QString dateString READ dateString NOTIFY dataChanged)
+public:
+    explicit QTdMessageDate(QObject *parent = nullptr);
+
+    QDateTime date() const;
+    QString dateString() const;
+
+    void setDate(const qint32 &date);
+
+signals:
+    void dataChanged();
+private:
+    qint32 m_date;
 };
 
 class QTdMessageText : public QTdMessageContent

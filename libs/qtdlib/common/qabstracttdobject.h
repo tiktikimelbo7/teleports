@@ -83,6 +83,7 @@ public:
         MESSAGE_ACTION,
         MESSAGE_ANIMATION,
         MESSAGE_AUDIO,
+        MESSAGE_DATE,
         MESSAGE_DOCUMENT,
         MESSAGE_HIDDEN,
         MESSAGE_TEXT,

@@ -51,5 +51,6 @@
         <file>components/PopupDialog.qml</file>
         <file>components/UserProfile.qml</file>
         <file>pages/GroupDetailsPage.qml</file>
+        <file>delegates/MessageDateItem.qml</file>
     </qresource>
 </RCC>
