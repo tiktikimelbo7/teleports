@@ -1,4 +1,4 @@
-# Telegram Plus
+# TELEports - An Ubuntu Touch Telegram client
 
 ## Building
 Install [clickable](https://clickable.bhdouglass.com/en/latest/) and the following packages:
