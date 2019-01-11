@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 19:25+0000\n"
-"PO-Revision-Date: 2019-01-08 20:27+0100\n"
-"Last-Translator: Stefan Weng <stefan.weng@gmx.net>\n"
-"Language-Team: GERMAN <stefan.weng@gmx.net>\n"
-"Language: de\n"
+"PO-Revision-Date: 2019-01-08 20:21+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,31 +21,31 @@ msgstr ""
 #: ../app/qml/components/UserProfile.qml:74
 #: ../app/qml/components/UserProfile.qml:98
 msgid "not available"
-msgstr "nicht verfügbar"
+msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:97
 msgid "+"
-msgstr "+"
+msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:13
 msgid "Okay"
-msgstr "OK"
+msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:17
 msgid "Enter Code"
-msgstr "Code eingeben"
+msgstr "Enter Code"
 
 #: ../app/qml/pages/WaitCodePage.qml:49
 msgid "First Name"
-msgstr "Vorname"
+msgstr "First Name"
 
 #: ../app/qml/pages/WaitCodePage.qml:69
 msgid "Last Name"
-msgstr "Nachname"
+msgstr "Last Name"
 
 #: ../app/qml/pages/WaitCodePage.qml:80
 msgid "Code"
@@ -55,7 +55,7 @@ msgstr "Code"
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:25
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 msgid "Next..."
-msgstr "Weiter..."
+msgstr "Next..."
 
 #: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:57
 #: telegram-plus.desktop.in.h:1
@@ -64,15 +64,15 @@ msgstr "Telegram Plus"
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:19
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Settings"
 
 #: ../app/qml/pages/ChatListPage.qml:63
 msgid "Leave chat"
-msgstr "Chat verlassen"
+msgstr "Leave chat"
 
 #: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
 msgid "Clear history"
-msgstr "Verlauf löschen"
+msgstr "Clear history"
 
 #: ../app/qml/pages/ChatListPage.qml:79
 msgid "Info"
@@ -80,32 +80,34 @@ msgstr "Info"
 
 #: ../app/qml/pages/ChatListPage.qml:255
 msgid "Are you sure you want to leave this chat?"
-msgstr "Sind Sie sicher das sie den Chat verlassen wollen"
+msgstr "Are you sure you want to leave this chat?"
 
 #: ../app/qml/pages/ChatListPage.qml:257
+#, fuzzy
 msgid "Leave"
-msgstr "Chat verlassen"
+msgstr "Leave chat"
 
 #: ../app/qml/pages/ChatListPage.qml:266
 msgid "Are you sure you want to clear the history?"
-msgstr "Sind Sie sicher das sie den Verlauf löschen wollen"
+msgstr "Are you sure you want to clear the history?"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:12
 msgid "Enter Phone Number"
-msgstr "Telefonnummer eingeben"
+msgstr "Enter Phone Number"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:18
+#, fuzzy
 msgid "Group Details"
-msgstr "Gruppendetails"
+msgstr "Details"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
 #: ../app/qml/pages/SettingsPage.qml:30 ../app/qml/pages/UserProfilePage.qml:28
 msgid "Back"
-msgstr "Zurück"
+msgstr "Back"
 
 #: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:41
 msgid "About"
-msgstr "Über"
+msgstr "About"
 
 #: ../app/qml/pages/AboutPage.qml:64
 msgid "Version %1"
@@ -113,31 +115,29 @@ msgstr "Version %1"
 
 #: ../app/qml/pages/AboutPage.qml:82
 msgid "Get the source"
-msgstr "Quellcode"
+msgstr "Get the source"
 
 #: ../app/qml/pages/AboutPage.qml:83
 msgid "Report issues"
-msgstr "Fehler melden"
+msgstr "Report issues"
 
 #: ../app/qml/pages/AboutPage.qml:84
 msgid "Help translate"
-msgstr "Übersetzung"
+msgstr "Help translate"
 
 #: ../app/qml/pages/SettingsPage.qml:76 ../app/qml/pages/SettingsPage.qml:106
 msgid "Logout"
-msgstr "Abmelden"
+msgstr "Logout"
 
 #: ../app/qml/pages/SettingsPage.qml:89
 msgid "Delete account"
-msgstr "Account löschen"
+msgstr "Delete account"
 
 #: ../app/qml/pages/SettingsPage.qml:104
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
-"Achtung: Ausloggen wird alle lokalen Daten von diesem Gerät löschen, auch "
-"alle geheimen Chats. Bist Du wirklich sicher dass Du Dich abmelden möchtest?"
 
 #: ../app/qml/pages/SettingsPage.qml:115
 msgid ""
@@ -146,62 +146,60 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"Achtung: Das Löschen des Accounts wird alle Daten löschen die Du jemals "
-"erhalten oder verschickt hast, ausgenommen Daten die Du explizit außerhalb "
-"der Telegram-Cloud gesichert hast. Bist Du wirklich sicher dass Du Deinen "
-"Telegram-Account löschen möchtest?"
 
 #: ../app/qml/pages/SettingsPage.qml:117
+#, fuzzy
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Delete account"
 
 #: ../app/qml/pages/PickerPage.qml:15
 msgid "Content Picker"
-msgstr "Content Picker"
+msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:33
 msgid "From: "
-msgstr "Von:"
+msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:47
 msgid "Save"
-msgstr "Speichern"
+msgstr ""
 
 #: ../app/qml/pages/MessageListPage.qml:24
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 Mitglied"
-msgstr[1] "%1 Mitglieder"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/qml/pages/MessageListPage.qml:114
+#, fuzzy
 msgid "Telegram"
 msgstr "Telegram Plus"
 
 #: ../app/qml/pages/MessageListPage.qml:275
 msgid "Type a message..."
-msgstr "Tippe eine Nachricht..."
+msgstr ""
 
 #: ../app/qml/pages/UserProfilePage.qml:17
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
 #, fuzzy
 msgid "Enter Password"
-msgstr "Code eingeben"
+msgstr "Enter Code"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr "Code"
+msgstr ""
 
 #: ../app/qml/delegates/MessageItemBase.qml:155
 msgid "Edited"
-msgstr "Bearbeitet"
+msgstr ""
 
 #. TRANSLATORS: A short date format, consisting only of the day (1 digit allowed) and the month spelled out
 #: ../app/qml/delegates/MessageDateItem.qml:40
 msgid "dd MMM"
-msgstr "d. MMM"
+msgstr "dd MMM"
 
 #~ msgid "Notifications"
-#~ msgstr "Benachrichtigungen"
+#~ msgstr "Notifications"
