@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-18 19:06+0000\n"
+"POT-Creation-Date: 2019-01-08 19:25+0000\n"
 "PO-Revision-Date: 2018-12-20 22:30+0100\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: UBports Spanish Team\n"
@@ -57,38 +57,38 @@ msgstr "Código"
 msgid "Next..."
 msgstr "Siguiente..."
 
-#: ../app/qml/pages/ChatListPage.qml:17 ../app/qml/pages/AboutPage.qml:57
+#: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:57
 #: telegram-plus.desktop.in.h:1
 msgid "Telegram Plus"
 msgstr "Telegram Plus"
 
-#: ../app/qml/pages/ChatListPage.qml:29 ../app/qml/pages/SettingsPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:19
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../app/qml/pages/ChatListPage.qml:56
+#: ../app/qml/pages/ChatListPage.qml:63
 msgid "Leave chat"
 msgstr "Abandonar chat"
 
-#: ../app/qml/pages/ChatListPage.qml:61 ../app/qml/pages/ChatListPage.qml:84
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
 msgid "Clear history"
 msgstr "Borrar historial"
 
-#: ../app/qml/pages/ChatListPage.qml:71
+#: ../app/qml/pages/ChatListPage.qml:79
+msgid "Info"
+msgstr "Información"
+
+#: ../app/qml/pages/ChatListPage.qml:255
 msgid "Are you sure you want to leave this chat?"
 msgstr "¿Seguro que desea abandonar este chat?"
 
-#: ../app/qml/pages/ChatListPage.qml:73
+#: ../app/qml/pages/ChatListPage.qml:257
 msgid "Leave"
 msgstr "Abandonar"
 
-#: ../app/qml/pages/ChatListPage.qml:82
+#: ../app/qml/pages/ChatListPage.qml:266
 msgid "Are you sure you want to clear the history?"
 msgstr "¿Seguro que desea borrar el historial?"
-
-#: ../app/qml/pages/ChatListPage.qml:94
-msgid "Info"
-msgstr "Información"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:12
 msgid "Enter Phone Number"
@@ -146,13 +146,12 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"Advertencia: eliminar la cuenta, eliminará todos los datos que haya recibido o "
-"enviado usando telegram excepto los datos que haya guardado fuera de los "
+"Advertencia: eliminar la cuenta, eliminará todos los datos que haya recibido "
+"o enviado usando telegram excepto los datos que haya guardado fuera de los "
 "servidores de telegram. ¿Está realmente seguro de que quiere eliminar su "
 "cuenta de telegram?"
 
 #: ../app/qml/pages/SettingsPage.qml:117
-#: ../app/qml/pages/MessageListPage.qml:226
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -168,33 +167,17 @@ msgstr "Desde: "
 msgid "Save"
 msgstr "Guardar"
 
-#: ../app/qml/pages/MessageListPage.qml:25
+#: ../app/qml/pages/MessageListPage.qml:24
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 miembro"
 msgstr[1] "%1 miembros"
 
-#: ../app/qml/pages/MessageListPage.qml:115
+#: ../app/qml/pages/MessageListPage.qml:114
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:238
-msgid "Copy"
-msgstr "Copiar"
-
-#: ../app/qml/pages/MessageListPage.qml:244
-msgid "Reply"
-msgstr "Contestar"
-
-#: ../app/qml/pages/MessageListPage.qml:252
-msgid "Sticker Pack info"
-msgstr "Información del paquete de pegatinas"
-
-#: ../app/qml/pages/MessageListPage.qml:260
-msgid "Forward"
-msgstr "Reenviar"
-
-#: ../app/qml/pages/MessageListPage.qml:326
+#: ../app/qml/pages/MessageListPage.qml:275
 msgid "Type a message..."
 msgstr "Escriba un mensaje..."
 
@@ -213,3 +196,20 @@ msgstr "Contraseña"
 #: ../app/qml/delegates/MessageItemBase.qml:155
 msgid "Edited"
 msgstr "Editado"
+
+#. TRANSLATORS: A short date format, consisting only of the day (1 digit allowed) and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:40
+msgid "dd MMM"
+msgstr ""
+
+#~ msgid "Copy"
+#~ msgstr "Copiar"
+
+#~ msgid "Reply"
+#~ msgstr "Contestar"
+
+#~ msgid "Sticker Pack info"
+#~ msgstr "Información del paquete de pegatinas"
+
+#~ msgid "Forward"
+#~ msgstr "Reenviar"

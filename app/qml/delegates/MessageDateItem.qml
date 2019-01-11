@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
-
+import QTelegramStyles 1.0
 
 Item {
 
@@ -19,7 +19,7 @@ Item {
             fill: parent
         }
         Rectangle {
-            color: Suru.neutralColor
+            color: ColorsBright.messageActionBackground
             radius: 4
             width: dl.contentWidth + Suru.units.gu(2)
             height: units.gu(3)
@@ -34,8 +34,10 @@ Item {
                         top: parent.top
                         topMargin: Suru.units.dp(4)
                     }
-
-                    text: message ? message.content.dateString : "Some date missing"
+                    opacity: 1
+                    color: "white"
+                    // TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
+                    text: message ? message.content.date.toLocaleDateString(Qt.locale(), i18n.tr("dd MMM")) : "Some date missing"
                 }
             }
             Layout.alignment: Qt.AlignCenter
