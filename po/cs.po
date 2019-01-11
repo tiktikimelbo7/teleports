@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the telegram-plus.dpniel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: telegram-plus.dpniel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-08 19:25+0000\n"
+"PO-Revision-Date: 2019-01-08 20:21+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: ../app/qml/components/UserProfile.qml:74
+#: ../app/qml/components/UserProfile.qml:98
+msgid "not available"
+msgstr "není dostupné"
+
+#: ../app/qml/components/UserProfile.qml:97
+msgid "+"
+msgstr "+"
+
+#: ../app/qml/components/PopupDialog.qml:13
+msgid "Okay"
+msgstr "Budiž"
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../app/qml/pages/WaitCodePage.qml:17
+msgid "Enter Code"
+msgstr "Zadejte kód"
+
+#: ../app/qml/pages/WaitCodePage.qml:49
+msgid "First Name"
+msgstr "Jméno"
+
+#: ../app/qml/pages/WaitCodePage.qml:69
+msgid "Last Name"
+msgstr "Příjmení"
+
+#: ../app/qml/pages/WaitCodePage.qml:80
+msgid "Code"
+msgstr "Kód"
+
+#: ../app/qml/pages/WaitCodePage.qml:86
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:25
+#: ../app/qml/pages/WaitPasswordPage.qml:48
+msgid "Next..."
+msgstr "Další..."
+
+#: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:57
+#: telegram-plus.desktop.in.h:1
+msgid "Telegram Plus"
+msgstr "Telegram Plus"
+
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:19
+msgid "Settings"
+msgstr "Nastavení"
+
+#: ../app/qml/pages/ChatListPage.qml:63
+msgid "Leave chat"
+msgstr "Opustit chat"
+
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
+msgid "Clear history"
+msgstr "Vymazat historii"
+
+#: ../app/qml/pages/ChatListPage.qml:79
+msgid "Info"
+msgstr "Informace"
+
+#: ../app/qml/pages/ChatListPage.qml:255
+msgid "Are you sure you want to leave this chat?"
+msgstr "Skutečně chcete opustit tento chat?"
+
+#: ../app/qml/pages/ChatListPage.qml:257
+#, fuzzy
+msgid "Leave"
+msgstr "Opustit chat"
+
+#: ../app/qml/pages/ChatListPage.qml:266
+msgid "Are you sure you want to clear the history?"
+msgstr "Skutečně chcete smazat historii?"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:12
+msgid "Enter Phone Number"
+msgstr "Zadat telefonní čáslo"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:18
+#, fuzzy
+msgid "Group Details"
+msgstr "Detaily skupiny"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
+#: ../app/qml/pages/SettingsPage.qml:30 ../app/qml/pages/UserProfilePage.qml:28
+msgid "Back"
+msgstr "Zpět"
+
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:41
+msgid "About"
+msgstr "O aplikaci"
+
+#: ../app/qml/pages/AboutPage.qml:64
+msgid "Version %1"
+msgstr "Verze %1"
+
+#: ../app/qml/pages/AboutPage.qml:82
+msgid "Get the source"
+msgstr "Získat zdrojové kódy"
+
+#: ../app/qml/pages/AboutPage.qml:83
+msgid "Report issues"
+msgstr "Nahlásit problém"
+
+#: ../app/qml/pages/AboutPage.qml:84
+msgid "Help translate"
+msgstr "Pomoc s překlady"
+
+#: ../app/qml/pages/SettingsPage.qml:76 ../app/qml/pages/SettingsPage.qml:106
+msgid "Logout"
+msgstr "Odhlásit"
+
+#: ../app/qml/pages/SettingsPage.qml:89
+msgid "Delete account"
+msgstr "Smazat účet"
+
+#: ../app/qml/pages/SettingsPage.qml:104
+msgid ""
+"Warning: Logging out will delete all local data from this device, including "
+"secret chats. Are you still sure you want to log out?"
+msgstr "Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
+"soukormých chatů. Skutečně se chcete odhlásit?"
+
+#: ../app/qml/pages/SettingsPage.qml:115
+msgid ""
+"Warning: Deleting the account will delete all the data you ever received or "
+"send using telegram except for data you have explicitly saved outside the "
+"telegram cloud. Are you really really sure you want to delete your telegram "
+"account?"
+msgstr "Varování: Současně se smazáním účtu budou odstraněna také veškerá data,"
+"která jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat,"
+"jež jsou specificky uložena mimo cloud Telegram. Skutečně chcete váš účet smazat?"
+
+#: ../app/qml/pages/SettingsPage.qml:117
+#, fuzzy
+msgid "Delete"
+msgstr "Smazat účet"
+
+#: ../app/qml/pages/PickerPage.qml:15
+msgid "Content Picker"
+msgstr "Výběr obsahu"
+
+#: ../app/qml/pages/PreviewPage.qml:33
+msgid "From: "
+msgstr "Od: "
+
+#: ../app/qml/pages/PreviewPage.qml:47
+msgid "Save"
+msgstr "Uložit"
+
+#: ../app/qml/pages/MessageListPage.qml:24
+msgid "%1 member"
+msgid_plural "%1 členů"
+msgstr[0] "%1 člen"
+msgstr[1] "%1 členové"
+msgstr[2] "%1 členů"
+msgstr[3] "%1 členů"
+
+#: ../app/qml/pages/MessageListPage.qml:114
+#, fuzzy
+msgid "Telegram"
+msgstr "Telegram Plus"
+
+#: ../app/qml/pages/MessageListPage.qml:275
+msgid "Type a message..."
+msgstr "Napište zprávu..."
+
+#: ../app/qml/pages/UserProfilePage.qml:17
+msgid "Profile"
+msgstr "Profil"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+#, fuzzy
+msgid "Enter Password"
+msgstr "Zadat heslo"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
+msgstr "Heslo"
+
+#: ../app/qml/delegates/MessageItemBase.qml:155
+msgid "Edited"
+msgstr "Upraveno"
+
+#. TRANSLATORS: A short date format, consisting only of the day (1 digit allowed) and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:40
+msgid "dd MMM"
+msgstr "dd MMM"
+
+#~ msgid "Notifications"
+#~ msgstr "Notifications"
