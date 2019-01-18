@@ -1,13 +1,13 @@
 {
-    "name": "telegram-plus.dpniel",
-    "description": "ALterna",
+    "name": "teleports.ubports",
+    "description": "An Ubuntu Touch Telegram client",
     "architecture": "@CLICK_ARCH@",
-    "title": "Telegram Plus",
+    "title": "TELEports",
     "hooks": {
-        "telegram-plus": {
-            "apparmor": "telegram-plus.apparmor",
-            "desktop":  "telegram-plus.desktop",
-            "content-hub": "telegram-plus.content-hub"
+        "teleports": {
+            "apparmor": "teleports.apparmor",
+            "desktop":  "teleports.desktop",
+            "content-hub": "teleports.content-hub"
         },
         "push": {
             "apparmor": "push/push-apparmor.json",
@@ -15,6 +15,6 @@
         }
     },
     "version": "0.1.2",
-    "maintainer": "Dan Chapman <dan@ubports.com>",
+    "maintainer": "UBports <dev@ubports.com>",
     "framework" : "ubuntu-sdk-16.04"
 }

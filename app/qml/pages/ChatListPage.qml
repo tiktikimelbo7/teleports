@@ -15,7 +15,7 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: i18n.tr("Telegram Plus")
+        title: i18n.tr("TELEports")
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -150,7 +150,7 @@ Page {
                                     }
                                 }
 
-                                Text {
+                                Label {
                                     id: title
                                     elide: Text.ElideRight
                                     wrapMode: Text.WrapAnywhere
@@ -165,12 +165,12 @@ Page {
                             RowLayout {
                                 height: units.gu(2)
                                 width: parent.width
-                                Text {
+                                Label {
                                     elide: Text.ElideRight
                                     wrapMode: Text.WrapAnywhere
                                     maximumLineCount: 1
                                     font.pixelSize: units.dp(15)
-                                    color: theme.palette.normal.backgroundTertiaryText
+                                    Suru.textStyle: Suru.TertiaryText
                                     text: chat.summary
                                     Layout.fillWidth: true
                                 }
@@ -215,10 +215,10 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: chat.isMuted ? "grey" : "#5ec245"
+                                color: chat.isMuted ? Suru.neutralColor : Suru.highlightColor
                                 visible: chat.hasUnreadMessages
 
-                                Text {
+                                Label {
                                     id: unread_text
                                     anchors {
                                         centerIn: parent

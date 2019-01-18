@@ -23,7 +23,7 @@ Then you can build and run the app using clickable as usual:
 
     clickable desktop
 
-If you get a `telegram-plus: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
+If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
 remove the `.clickable` directory and try again. This usually happens when
 switching between phone and desktop build.
 
@@ -43,5 +43,3 @@ You can clean the tdlib build by:
 
 ## Logging out
 **Note:** At the current stage it is adviseable to log out again from the App, especially if you are working on the Telegram test server. You can do this in the Account page.
-
-

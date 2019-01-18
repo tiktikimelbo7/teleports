@@ -1,4 +1,4 @@
-project(telegram-plus C CXX)
+project(teleports C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 # Use CCache speed up build process
@@ -30,8 +30,8 @@ execute_process(
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-set(PROJECT_NAME "telegram-plus")
-set(FULL_PROJECT_NAME "telegram-plus.dpniel")
+set(PROJECT_NAME "teleports")
+set(FULL_PROJECT_NAME "teleports.ubports")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)

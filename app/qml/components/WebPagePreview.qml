@@ -20,7 +20,8 @@ Item {
             bottom: parent.bottom
         }
         width: Suru.units.dp(3)
-        color: ColorsBright.codeColor
+        color: Suru.foregroundColor
+        opacity: 0.8
     }
 
     RowLayout {

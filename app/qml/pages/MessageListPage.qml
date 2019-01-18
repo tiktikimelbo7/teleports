@@ -26,11 +26,6 @@ Page {
             }
             return "";
         }
-        UITK.StyleHints {
-            foregroundColor: ColorsBright.textColor
-            backgroundColor: ColorsBright.backgroundColor
-            dividerColor: ColorsBright.separatorColor
-        }
         leadingActionBar.actions: [
             UITK.Action {
                 iconName: "back"
@@ -308,10 +303,10 @@ Page {
                 visible: entry.displayText.trim() !== ""
                 sourceSize.height: height
                 source: "qrc:/qml/icons/send.png"
-                
+
                 Layout.fillHeight: false
                 Layout.fillWidth: false
-                
+
                 Component.onCompleted: {
                     height = parent.height * 0.75;
                 }

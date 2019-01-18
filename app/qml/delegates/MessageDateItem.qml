@@ -19,7 +19,8 @@ Item {
             fill: parent
         }
         Rectangle {
-            color: ColorsBright.messageActionBackground
+            color: Suru.overlayColor
+            opacity: 0.8
             radius: 4
             width: dl.contentWidth + Suru.units.gu(2)
             height: units.gu(3)

@@ -28,5 +28,5 @@ tg-plus:
             - libs/vendor/tdlib
     artifacts:
         paths:
-            - build/telegram-plus/*.click
+            - build/teleports/*.click
         expire_in: 1 week

@@ -1,12 +1,12 @@
 {
   "template": "cmake",
-  "kill": "telegram-plus",
+  "kill": "teleports",
   "dependencies": [
     "gperf",
     "libssl-dev",
     "ccache"
   ],
   "specificDependencies": true,
-  "dir": "build/telegram-plus",
+  "dir": "build/teleports",
   "make_jobs": "1"
 }

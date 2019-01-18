@@ -1,5 +1,4 @@
 import QtQuick 2.9
-import QtQuick.Window 2.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
@@ -8,8 +7,8 @@ import QTelegram 1.0
 import "./stores"
 import "./components"
 
-Window {
-
+ApplicationWindow {
+    id: root
     /**
      * Only show the window once we have reached a state
      * that has something to display.
@@ -20,19 +19,25 @@ Window {
     visible: Telegram.auth.state > AuthState.WaitEncryptionKey
     width: Suru.units.gu(45)
     height: Suru.units.gu(75)
-    
-    StackView {
-        id: pageStack
-        anchors {
-            fill: parent
-            bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height / Screen.devicePixelRatio : 0
-            Behavior on bottomMargin {
-                NumberAnimation {
-                    duration: 175
-                    easing.type: Easing.OutQuad
+    Suru.theme: Telegram.settings.theme
+
+    UITK.StyledItem {
+        theme.name: Telegram.settings.uitkTheme
+        anchors.fill: parent
+
+        StackView {
+            id: pageStack
+            anchors {
+                fill: parent
+                bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height/(units.gridUnit / 8) : 0
+                Behavior on bottomMargin {
+                    NumberAnimation {
+                        duration: 175
+                        easing.type: Easing.OutQuad
+                    }
                 }
+                onBottomMarginChanged: console.debug("TODO: implement scrool to correct position")
             }
-            onBottomMarginChanged: console.debug("TODO: implement scrool to correct position")
         }
     }
 

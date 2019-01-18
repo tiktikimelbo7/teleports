@@ -21,4 +21,9 @@ Item {
     NotificationsAction {
         id: notifications
     }
+
+    property alias settings: settings
+    SettingsActions {
+        id: settings
+    }
 }

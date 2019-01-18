@@ -2,3 +2,4 @@ singleton AppActions 0.1 AppActions.qml
 singleton AuthKey 0.1 AuthKey.qml
 singleton ChatKey 0.1 ChatKey.qml
 singleton UserStateKey 0.1 UserStateKey.qml
+singleton SettingsKey 0.1 SettingsKey.qml
