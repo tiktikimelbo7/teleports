@@ -7,6 +7,7 @@
         <file>stores/MainStore.qml</file>
         <file>stores/RootStore.qml</file>
         <file>stores/NotificationsStateStore.qml</file>
+        <file>stores/SettingsStore.qml</file>
         <file>actions/AuthAction.qml</file>
         <file>actions/AuthKey.qml</file>
         <file>actions/qmldir</file>
@@ -26,6 +27,8 @@
         <file>actions/ChatKey.qml</file>
         <file>actions/UserStateActions.qml</file>
         <file>actions/UserStateKey.qml</file>
+        <file>actions/SettingsActions.qml</file>
+        <file>actions/SettingsKey.qml</file>
         <file>delegates/MessageItemBase.qml</file>
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
@@ -47,6 +50,7 @@
         <file>pages/UserProfilePage.qml</file>
         <file>plugins/QTelegramStyles/ColorsBright.qml</file>
         <file>plugins/QTelegramStyles/ColorsDark.qml</file>
+        <file>plugins/QTelegramStyles/TColors.qml</file>
         <file>plugins/QTelegramStyles/qmldir</file>
         <file>components/PopupDialog.qml</file>
         <file>components/UserProfile.qml</file>

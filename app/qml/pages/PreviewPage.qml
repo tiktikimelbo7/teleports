@@ -17,6 +17,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Content 1.1
 import "../components"
@@ -84,7 +85,7 @@ Page {
 
         Rectangle {
             anchors.fill: parent
-            color: "white"
+            color: Suru.backgroundColor
         }
 
         MediaViewer {

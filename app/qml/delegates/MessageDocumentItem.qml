@@ -39,7 +39,7 @@ MessageItemBase {
         }
         width: height
     }
-    TextEdit {
+    Label {
         id: fileNameLabel
         height: contentHeight
         anchors{

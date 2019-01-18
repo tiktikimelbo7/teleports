@@ -26,7 +26,8 @@ MessageItemBase {
             width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
             text: textContent.text.text
-            color: ColorsBright.textColor
+            color: Suru.foregroundColor
+            Suru.textStyle: Suru.PrimaryText
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {
@@ -66,10 +67,12 @@ MessageItemBase {
             Item {
                 TextFormatter {
                     id: textFormatter
-                    codeColor: ColorsBright.codeColor
-                    linkColor: ColorsBright.linkColor
+                    codeColor: Suru.foregroundColor
+                    linkColor: Suru.highlightColor
                     textDocument: textEdit.textDocument
                     content: textContent.text
+                    Suru.theme: root.Suru.theme
+                    Suru.textStyle: Suru.TertiaryText
                 }
 
                 TextFormatter {

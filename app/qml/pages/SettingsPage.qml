@@ -6,6 +6,7 @@ import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import QtQuick.Controls.Suru 2.2
 import QtQuick.Layouts 1.1
 import QTelegram 1.0
+import QTelegramStyles 1.0
 import "../actions"
 import "../components"
 import "../stores"
@@ -65,6 +66,25 @@ Page {
             //}
 
             UserProfile {}
+
+            UITK.ListItem {
+               UITK.ListItemLayout {
+                  UITK.Icon {
+                     width: units.gu(2)
+                     name: "night-mode"
+                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                  }
+                  title.text : i18n.tr('Night mode')
+                  Switch {
+                     id: theme_switch
+                     checked: Telegram.settings.theme === Suru.Dark
+                     UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                     onCheckedChanged: AppActions.settings.setTheme(checked?Suru.Dark:Suru.Light)
+                  }
+               }
+
+               onClicked: theme_switch.checked = !theme_switch.checked
+            }
 
             UITK.ListItem {
                 UITK.ListItemLayout {

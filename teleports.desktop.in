@@ -1,6 +1,6 @@
 [Desktop Entry]
-_Name=Telegram Plus
-Exec=telegram-plus
+_Name=TELEports
+Exec=teleports
 Icon=assets/icon.png
 Terminal=false
 Type=Application

@@ -18,15 +18,17 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("Suru");
 
-    QCoreApplication::setApplicationName(QStringLiteral("telegram-plus.dpniel"));
+    QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
+    QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
+    QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
     QCoreApplication::setApplicationVersion(QStringLiteral("0.0.1"));
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
 
-    bindtextdomain ("telegram-plus.dpniel", "/opt/click.ubuntu.com/telegram-plus.dpniel/current/share/locale");
-    bind_textdomain_codeset ("telegram-plus.dpniel", "UTF-8");
-    textdomain ("telegram-plus.dpniel");
+    bindtextdomain ("teleports.ubports", "/opt/click.ubuntu.com/teleports.ubports/current/share/locale");
+    bind_textdomain_codeset ("teleports.ubports", "UTF-8");
+    textdomain ("teleports.ubports");
 
     MessageDelegateMap delegateMap;
 

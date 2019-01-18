@@ -6,8 +6,8 @@
 
 const bool DEBUG = false;
 
-const QString CONFIG_PATH       = "/home/phablet/.config/telegram-plus.dpniel";
-const QString CACHE_PATH        = "/home/phablet/.cache/telegram-plus.dpniel";
+const QString CONFIG_PATH       = "/home/phablet/.config/teleports.ubports";
+const QString CACHE_PATH        = "/home/phablet/.cache/teleports.ubports";
 const QString PROFILES_PATH     = CONFIG_PATH + "/profiles.sqlite";
 const QString DATABASE_PATH_FMT = CONFIG_PATH + "/%1/database.db";
 

@@ -45,5 +45,5 @@ PushClient {
 }
 }*/
 
-appId: "telegram-plus.dpniel_telegram-plus"
+appId: "teleports.ubports_teleports"
 }

@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
     QStringList args = app.arguments();
 
-    PushHelper pushHelper("telegram-plus.dpniel_telegram-plus", // no-i18n
+    PushHelper pushHelper("teleports.ubports_teleports", // no-i18n
                           QString(args.at(1)), QString(args.at(2)), &app);
 
     QObject::connect(&pushHelper, SIGNAL(done()), &app, SLOT(quit()));

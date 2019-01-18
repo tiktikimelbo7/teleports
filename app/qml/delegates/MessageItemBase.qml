@@ -59,14 +59,16 @@ ItemDelegate {
                     return "transparent";
                 }
                 if (message.isOutgoing) {
-                    if (message.sendingState) {
-                        return ColorsBright.unsentMessageColor
-                    } else if (message.id > chat.lastReadOutboxMessageId) {
-                        return ColorsBright.sentMessageColor
-                    }
-                    return ColorsBright.readMessageColor
-                }
-                return ColorsBright.incomingMessageColor
+                    if (message.sendingState) { // unsent
+                        return Suru.neutralColor
+                    } else if (message.id > chat.lastReadOutboxMessageId) { //sent
+                        var sentcolor = Suru.theme == Suru.Dark ? Suru.lightInformation : Suru.darkInformation
+                        return Qt.tint(Suru.backgroundColor, Qt.rgba(sentcolor.r, sentcolor.g, sentcolor.b, 0.5))
+                    } // read
+                    var readcolor = Suru.theme == Suru.Dark ? Suru.lightPositive : Suru.darkPositive
+                    return Qt.tint(Suru.backgroundColor, Qt.rgba(readcolor.r, readcolor.g, readcolor.b, 0.5))
+                } //incoming
+                return Suru.secondaryBackgroundColor
             }
 
             radius: 4
@@ -75,6 +77,15 @@ ItemDelegate {
             Layout.maximumWidth: Layout.minimumWidth
             Layout.preferredHeight: message.isOutgoing ? mc.height + Suru.units.dp(5) : mc.height
 
+            Rectangle {
+               width: contentCol.width
+               height: contentCol.height
+               radius: contentCol.radius
+               y: units.dp(1)
+               z: -5
+               visible: !transparentBackground
+               color: Suru.neutralColor    // (i.e. Silk, #CDCDCD) (#e6e6e6) with opacity: 0.5
+            }
             Column {
                 id: mc
 
@@ -146,7 +157,6 @@ ItemDelegate {
                                 text: message.views
                                 Suru.textLevel: Suru.Small
                                 Suru.textStyle: Suru.TertiaryText
-                                color: ColorsBright.textColor
                             }
                         }
 
@@ -157,14 +167,12 @@ ItemDelegate {
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
-                            color: ColorsBright.tertiaryTextColor
                             opacity: message.isOutgoing ? 1 : 0.6
                         }
 
                         Label {
                             id: dateLabel
                             text: message.formatDate(message.date)
-                            color: ColorsBright.tertiaryTextColor
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText

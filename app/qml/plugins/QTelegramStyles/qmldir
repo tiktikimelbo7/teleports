@@ -1,3 +1,4 @@
 module QTelegramStyles
 singleton ColorsBright 1.0 ColorsBright.qml
 singleton ColorsDark 1.0 ColorsDark.qml
+singleton TColors 1.0 TColors.qml
