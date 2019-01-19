@@ -102,20 +102,22 @@ Page {
 
                         Column {
                             id: col
-                            spacing: units.gu(0.5)
                             anchors {
                                 left: parent.left
                                 right: parent.right
                                 top: parent.top
                             }
+                            spacing: units.gu(1)
 
                             RowLayout {
-                                height: title.height
+                                height: units.dp(17)
                                 width: parent.width
                                 spacing: units.dp(2)
 
                                 Row {
                                     spacing: units.dp(2)
+                                    Layout.alignment: Qt.AlignTop
+                                    Layout.topMargin: units.dp(3)
 
                                     UITK.Icon {
                                         id: secret_chat_icon
@@ -159,6 +161,7 @@ Page {
                                     font.pixelSize: units.dp(17)
                                     text: chat.title
                                     Layout.fillWidth: true
+                                    Layout.alignment: Qt.AlignBottom
                                 }
                             }
 
