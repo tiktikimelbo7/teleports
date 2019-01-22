@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-17 16:01+0000\n"
+"POT-Creation-Date: 2019-01-20 17:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,50 +18,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: ../app/qml/delegates/MessageItemBase.qml:165
+msgid "Edited"
+msgstr ""
+
+#. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:41
+msgid "dd MMM"
+msgstr ""
+
+#: ../app/qml/pages/PreviewPage.qml:34
+msgid "From: "
+msgstr ""
+
+#: ../app/qml/pages/PreviewPage.qml:48
+msgid "Save"
+msgstr ""
+
 #: ../app/qml/pages/PickerPage.qml:15
 msgid "Content Picker"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:42
-msgid "About"
+#: ../app/qml/pages/MessageListPage.qml:24
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/qml/pages/MessageListPage.qml:109
+msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:31
-#: ../app/qml/pages/GroupDetailsPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:28
+#: ../app/qml/pages/MessageListPage.qml:270
+msgid "Type a message..."
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:18 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:20
+msgid "Settings"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:63
+msgid "Leave chat"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
+msgid "Clear history"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:79
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:255
+msgid "Are you sure you want to leave this chat?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:257
+msgid "Leave"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:266
+msgid "Are you sure you want to clear the history?"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+msgid "Enter Password"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:48
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
+#: ../app/qml/pages/WaitCodePage.qml:86
+msgid "Next..."
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:31 ../app/qml/pages/UserProfilePage.qml:28
+#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/GroupDetailsPage.qml:29
 msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:57
-msgid "Telegram Plus"
-msgstr ""
-
-#: ../app/qml/pages/AboutPage.qml:64
-msgid "Version %1"
-msgstr ""
-
-#: ../app/qml/pages/AboutPage.qml:82
-msgid "Get the source"
-msgstr ""
-
-#: ../app/qml/pages/AboutPage.qml:83
-msgid "Report issues"
-msgstr ""
-
-#: ../app/qml/pages/AboutPage.qml:84
-msgid "Help translate"
-msgstr ""
-
-#: ../app/qml/pages/PreviewPage.qml:33
-msgid "From: "
-msgstr ""
-
-#: ../app/qml/pages/PreviewPage.qml:47
-msgid "Save"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:20 ../app/qml/pages/ChatListPage.qml:29
-msgid "Settings"
+#: ../app/qml/pages/SettingsPage.qml:42 ../app/qml/pages/AboutPage.qml:12
+msgid "About"
 msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:77
@@ -94,72 +138,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:17 teleports.desktop.in.h:1
-msgid "TELEports"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:56
-msgid "Leave chat"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:61 ../app/qml/pages/ChatListPage.qml:84
-msgid "Clear history"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:71
-msgid "Are you sure you want to leave this chat?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:73
-msgid "Leave"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:82
-msgid "Are you sure you want to clear the history?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:94
-msgid "Info"
-msgstr ""
-
-#: ../app/qml/pages/WaitPasswordPage.qml:13
-msgid "Enter Password"
-msgstr ""
-
-#: ../app/qml/pages/WaitPasswordPage.qml:32
-msgid "Password"
-msgstr ""
-
-#: ../app/qml/pages/WaitPasswordPage.qml:48
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:25
-#: ../app/qml/pages/WaitCodePage.qml:86
-msgid "Next..."
-msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:24
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../app/qml/pages/MessageListPage.qml:109
-msgid "Telegram"
-msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:267
-msgid "Type a message..."
-msgstr ""
-
-#: ../app/qml/pages/GroupDetailsPage.qml:18
-msgid "Group Details"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:12
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
 msgstr ""
 
-#: ../app/qml/pages/UserProfilePage.qml:17
-msgid "Profile"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+#: ../app/qml/components/CountryPicker.qml:21
+msgid "Choose a country"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:17
@@ -178,16 +172,32 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: ../app/qml/delegates/MessageItemBase.qml:170
-msgid "Edited"
+#: ../app/qml/pages/UserProfilePage.qml:17
+msgid "Profile"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:13
-msgid "Okay"
+#: ../app/qml/pages/AboutPage.qml:57
+msgid "Telegram Plus"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Cancel"
+#: ../app/qml/pages/AboutPage.qml:64
+msgid "Version %1"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:82
+msgid "Get the source"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:83
+msgid "Report issues"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:84
+msgid "Help translate"
+msgstr ""
+
+#: ../app/qml/pages/GroupDetailsPage.qml:18
+msgid "Group Details"
 msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:74
@@ -197,4 +207,16 @@ msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:97
 msgid "+"
+msgstr ""
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr ""
+
+#: ../app/qml/components/PopupDialog.qml:13
+msgid "Okay"
+msgstr ""
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Cancel"
 msgstr ""
