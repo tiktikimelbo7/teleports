@@ -33,6 +33,38 @@ You can clean the tdlib build by:
 
     ./build-tdlib.sh clean
 
+## C++ Code Style/Formatting
+
+Clang-format is used to keep the code style consistent and should be run before committing any changes to C++ code.
+
+Install clang-format
+
+```bash
+$ sudo apt install clang-format
+```
+
+Then you can either run clang-format as a git pre commit hook (preffered) or run the apply-format script to format any staged
+changes.
+
+### Git pre commit hook
+
+After checking out the repository run `./tools/git-pre-commit-format install`
+
+Then during any commits where c++ code has changed you will be prompted to accept any code formatting changes that will be applied.
+
+### Run manually
+
+To apply the format manually you could do something similar to:
+
+```bash
+$ # Make some changes.
+$ # Stage changes you want to commit.
+$ git add -p
+$ # Reformat the staged changes you made.
+$ ./tools/apply-format -i --staged
+$ # Commit the result.
+$ git commit
+
 ## Known issues
 
 * No media attachments or photos are supported right now
