@@ -96,7 +96,11 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
         break;
     }
     default:
-        break;
+        // Secret and Private groups get their order set to 0 after leaving
+        // a chat
+        if (!chat->order()) {
+            return false;
+        }
     }
 
     // If current chats is defined we are just going to show all the remaining chats

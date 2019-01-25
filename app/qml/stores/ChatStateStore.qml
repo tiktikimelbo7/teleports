@@ -122,14 +122,20 @@ Store {
     Filter {
         type: ChatKey.leaveChat
         onDispatched: {
-            chatList.leaveChat(message.chatId);
+            var chat = chatList.model.get(message.chatId)
+            if (chat) {
+                chat.leaveChat()
+            }
         }
     }
 
     Filter {
         type: ChatKey.deleteChatHistory
         onDispatched: {
-            chatList.deleteChatHistory(message.chatId);
+            var chat = chatList.model.get(message.chatId)
+            if (chat) {
+                chat.deleteChatHistory()
+            }
         }
     }
 

@@ -233,6 +233,16 @@ public:
      */
     Q_INVOKABLE void setTitle(const QString &title);
 
+    /**
+     * @brief Delete own messages in the chat
+     */
+    Q_INVOKABLE void deleteChatHistory(const bool &removeFromChatlist = false);
+
+    /**
+     * @brief Leave chat and clear any history if possible
+     */
+    Q_INVOKABLE void leaveChat();
+
     QJsonObject lastMessageJson() const {
         return m_lastMsgJson;
     }

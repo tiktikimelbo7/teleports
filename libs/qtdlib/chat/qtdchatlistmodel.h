@@ -26,8 +26,6 @@ public:
 public slots:
     void setCurrentChat(QTdChat* currentChat);
     void clearCurrentChat();
-    void leaveChat(qint64 chatId);
-    void deleteChatHistory(qint64 chatId);
     void setViewedInDetailGroup(QTdChat* group);
 
 signals:

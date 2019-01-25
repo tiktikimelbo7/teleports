@@ -4,6 +4,8 @@ BasedOnStyle: WebKit
 
 Standard: Cpp11
 
+IndentWidth: 4
+
 # Leave the line breaks up to the user.
 # Note that this may be changed at some point in the future.
 ColumnLimit: 0

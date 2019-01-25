@@ -8,6 +8,8 @@
 #include "chat/requests/qtdclosechatrequest.h"
 #include "chat/requests/qtdsetchattitlerequest.h"
 #include "chat/requests/qtdsendchatactionrequest.h"
+#include "chat/requests/qtddeletechathistoryrequest.h"
+#include "chat/requests/qtdleavechatrequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
 
@@ -304,6 +306,49 @@ void QTdChat::setTitle(const QString &title)
         req->setTitle(id(), title);
         QTdClient::instance()->send(req.data());
     }
+}
+
+void QTdChat::deleteChatHistory(const bool &removeFromChatlist)
+{
+    if (m_chatType->type() == QTdChat::CHAT_TYPE_SUPERGROUP || isChannel()) {
+        qWarning() << "Cannot delete chat history for supergroups or channels";
+        return;
+    }
+    QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
+    req->setChatId(id());
+    req->setRemoveFromChatList(removeFromChatlist);
+    QTdClient::instance()->send(req.data());
+}
+
+void QTdChat::leaveChat()
+{
+    /**
+     * Because telegram likes to have all different types of
+     * groups and it is probably going to change again. SO let's
+     * for the sake of simplicity use a switch and handle each type
+     * appropriately.
+     *
+     * Currently private & secret chats can only delete history and be removed
+     * from chatlist.
+     *
+     * Supergroups and basicgroups can be left using the id()
+     * Strangely it takes the id and not superGroupId and basicGroupId
+     */
+    QScopedPointer<QTdLeaveChatRequest> req(new QTdLeaveChatRequest);
+    switch(m_chatType->type()) {
+    case QTdChat::CHAT_TYPE_PRIVATE:
+    case QTdChat::CHAT_TYPE_SECRET:
+        return deleteChatHistory(true);
+    case QTdChat::CHAT_TYPE_SUPERGROUP:
+    case QTdChat::CHAT_TYPE_BASIC_GROUP:
+    {
+        req->setChatId(id());
+        break;
+    }
+    default:
+        break;
+    }
+    QTdClient::instance()->send(req.data());
 }
 
 void QTdChat::updateChatOrder(const QJsonObject &json)

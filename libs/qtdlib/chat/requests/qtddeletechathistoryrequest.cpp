@@ -10,9 +10,9 @@ void QTdDeleteChatHistoryRequest::setChatId(const qint64 &id)
     m_chatId = id;
 }
 
-void QTdDeleteChatHistoryRequest::setRemoveFromChatList()
+void QTdDeleteChatHistoryRequest::setRemoveFromChatList(const bool &remove)
 {
-    m_removeFromChatList = true;
+    m_removeFromChatList = remove;
 }
 
 QJsonObject QTdDeleteChatHistoryRequest::marshalJson()
