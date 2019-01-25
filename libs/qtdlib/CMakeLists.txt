@@ -90,6 +90,8 @@ set(
     messages/requests/qtdviewmessagesrequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
+    network/qtdnetworktype.cpp
+    network/requests/qtdsetnetworktype.cpp
     notifications/qtdnotificationsettings.cpp
     notifications/qtdenablenotifications.cpp
     user/qtduser.cpp
