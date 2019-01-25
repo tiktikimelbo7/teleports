@@ -38,7 +38,7 @@ Item {
                     opacity: 1
                     color: "white"
                     // TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
-                    text: message ? message.content.date.toLocaleDateString(Qt.locale(), i18n.tr("dd MMM")) : "Some date missing"
+                    text: message ? message.content.date.toLocaleDateString(Qt.locale(), i18n.tr("dd MMMM")) : "Some date missing"
                 }
             }
             Layout.alignment: Qt.AlignCenter

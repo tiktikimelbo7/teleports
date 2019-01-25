@@ -1,3 +1,4 @@
+#include "utils/i18n.h" 
 #include "qtdchat.h"
 #include <QDebug>
 #include <QJsonArray>

@@ -4,6 +4,7 @@
 #include <QObject>
 #include "common/qabstracttdobject.h"
 #include "common/qtdint.h"
+#include "user/qtduser.h"
 
 /**
  * @brief The QTdChatType class
@@ -50,18 +51,26 @@ class QTdChatTypePrivate : public QTdChatType
 {
     Q_OBJECT
     Q_PROPERTY(QString userId READ qmlUserId NOTIFY userIdChanged)
+    Q_PROPERTY(QTdUser* user READ user NOTIFY userChanged)
 public:
     explicit QTdChatTypePrivate(QObject *parent = Q_NULLPTR);
 
     QString qmlUserId() const;
     qint32 userId() const;
+    QTdUser *user() const;
 
     void unmarshalJson(const QJsonObject &json);
 signals:
     void userIdChanged();
+    void userChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatTypePrivate)
     QTdInt32 m_userId;
+    QTdUser* m_user;
+    bool m_waitingForUser;
+
+    void updateUser(const qint32 &userId);
 };
 
 /**

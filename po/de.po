@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:25+0000\n"
-"PO-Revision-Date: 2019-01-08 20:27+0100\n"
+"POT-Creation-Date: 2019-01-23 23:21+0000\n"
+"PO-Revision-Date: 2019-01-24 00:24+0100\n"
 "Last-Translator: Stefan Weng <stefan.weng@gmx.net>\n"
 "Language-Team: GERMAN <stefan.weng@gmx.net>\n"
 "Language: de\n"
@@ -18,6 +18,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
+#: ../libs/qtdlib/user/qtduserstatus.cpp:49
+msgid "Last seen "
+msgstr "Zuletzt gesehen "
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:49
+msgid "dd.MM.yy hh:mm"
+msgstr "dd.MM.yy hh:mm"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:71
+msgid "Online"
+msgstr "Online"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:88
+msgid "Seen recently"
+msgstr "Unlängst gesehen"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:64
+msgid "Saved Messages"
+msgstr "Gespeichertes"
+
 #: ../app/qml/components/UserProfile.qml:74
 #: ../app/qml/components/UserProfile.qml:98
 msgid "not available"
@@ -26,6 +46,15 @@ msgstr "nicht verfügbar"
 #: ../app/qml/components/UserProfile.qml:97
 msgid "+"
 msgstr "+"
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr "Wähle ein Land aus"
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "Ländernamen suchen..."
 
 #: ../app/qml/components/PopupDialog.qml:13
 msgid "Okay"
@@ -52,17 +81,16 @@ msgid "Code"
 msgstr "Code"
 
 #: ../app/qml/pages/WaitCodePage.qml:86
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:25
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 msgid "Next..."
 msgstr "Weiter..."
 
-#: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:57
-#: telegram-plus.desktop.in.h:1
-msgid "Telegram Plus"
-msgstr "Telegram Plus"
+#: ../app/qml/pages/ChatListPage.qml:18 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr "TELEports"
 
-#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:20
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -70,7 +98,7 @@ msgstr "Einstellungen"
 msgid "Leave chat"
 msgstr "Chat verlassen"
 
-#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
 msgid "Clear history"
 msgstr "Verlauf löschen"
 
@@ -78,34 +106,47 @@ msgstr "Verlauf löschen"
 msgid "Info"
 msgstr "Info"
 
-#: ../app/qml/pages/ChatListPage.qml:255
+#: ../app/qml/pages/ChatListPage.qml:258
 msgid "Are you sure you want to leave this chat?"
 msgstr "Sind Sie sicher das sie den Chat verlassen wollen"
 
-#: ../app/qml/pages/ChatListPage.qml:257
+#: ../app/qml/pages/ChatListPage.qml:260
 msgid "Leave"
 msgstr "Chat verlassen"
 
-#: ../app/qml/pages/ChatListPage.qml:266
+#: ../app/qml/pages/ChatListPage.qml:269
 msgid "Are you sure you want to clear the history?"
 msgstr "Sind Sie sicher das sie den Verlauf löschen wollen"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:12
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
 msgstr "Telefonnummer eingeben"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr "Telefonnummer"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr "Bitte bestätige Deinen Ländercode und gib Deine Telefonnummer ein."
 
 #: ../app/qml/pages/GroupDetailsPage.qml:18
 msgid "Group Details"
 msgstr "Gruppendetails"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
-#: ../app/qml/pages/SettingsPage.qml:30 ../app/qml/pages/UserProfilePage.qml:28
+#: ../app/qml/pages/SettingsPage.qml:31 ../app/qml/pages/UserProfilePage.qml:28
 msgid "Back"
 msgstr "Zurück"
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:41
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:42
 msgid "About"
 msgstr "Über"
+
+#: ../app/qml/pages/AboutPage.qml:57
+msgid "Telegram Plus"
+msgstr "Telegram Plus"
 
 #: ../app/qml/pages/AboutPage.qml:64
 msgid "Version %1"
@@ -123,15 +164,19 @@ msgstr "Fehler melden"
 msgid "Help translate"
 msgstr "Übersetzung"
 
-#: ../app/qml/pages/SettingsPage.qml:76 ../app/qml/pages/SettingsPage.qml:106
+#: ../app/qml/pages/SettingsPage.qml:77
+msgid "Night mode"
+msgstr "Nachtmodus"
+
+#: ../app/qml/pages/SettingsPage.qml:96 ../app/qml/pages/SettingsPage.qml:126
 msgid "Logout"
 msgstr "Abmelden"
 
-#: ../app/qml/pages/SettingsPage.qml:89
+#: ../app/qml/pages/SettingsPage.qml:109
 msgid "Delete account"
 msgstr "Account löschen"
 
-#: ../app/qml/pages/SettingsPage.qml:104
+#: ../app/qml/pages/SettingsPage.qml:124
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -139,7 +184,7 @@ msgstr ""
 "Achtung: Ausloggen wird alle lokalen Daten von diesem Gerät löschen, auch "
 "alle geheimen Chats. Bist Du wirklich sicher dass Du Dich abmelden möchtest?"
 
-#: ../app/qml/pages/SettingsPage.qml:115
+#: ../app/qml/pages/SettingsPage.qml:135
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -151,7 +196,7 @@ msgstr ""
 "der Telegram-Cloud gesichert hast. Bist Du wirklich sicher dass Du Deinen "
 "Telegram-Account löschen möchtest?"
 
-#: ../app/qml/pages/SettingsPage.qml:117
+#: ../app/qml/pages/SettingsPage.qml:137
 msgid "Delete"
 msgstr "Löschen"
 
@@ -159,11 +204,11 @@ msgstr "Löschen"
 msgid "Content Picker"
 msgstr "Content Picker"
 
-#: ../app/qml/pages/PreviewPage.qml:33
+#: ../app/qml/pages/PreviewPage.qml:34
 msgid "From: "
 msgstr "Von:"
 
-#: ../app/qml/pages/PreviewPage.qml:47
+#: ../app/qml/pages/PreviewPage.qml:48
 msgid "Save"
 msgstr "Speichern"
 
@@ -173,11 +218,11 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: ../app/qml/pages/MessageListPage.qml:114
+#: ../app/qml/pages/MessageListPage.qml:110
 msgid "Telegram"
 msgstr "Telegram Plus"
 
-#: ../app/qml/pages/MessageListPage.qml:275
+#: ../app/qml/pages/MessageListPage.qml:271
 msgid "Type a message..."
 msgstr "Tippe eine Nachricht..."
 
@@ -194,14 +239,14 @@ msgstr "Code eingeben"
 msgid "Password"
 msgstr "Code"
 
-#: ../app/qml/delegates/MessageItemBase.qml:155
+#: ../app/qml/delegates/MessageItemBase.qml:165
 msgid "Edited"
 msgstr "Bearbeitet"
 
-#. TRANSLATORS: A short date format, consisting only of the day (1 digit allowed) and the month spelled out
-#: ../app/qml/delegates/MessageDateItem.qml:40
-msgid "dd MMM"
-msgstr "d. MMM"
+#. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:41
+msgid "dd MMMM"
+msgstr "d. MMMM"
 
 #~ msgid "Notifications"
 #~ msgstr "Benachrichtigungen"

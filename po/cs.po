@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 19:25+0000\n"
+"POT-Creation-Date: 2019-01-23 23:21+0000\n"
 "PO-Revision-Date: 2019-01-08 20:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,6 +18,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
+#: ../libs/qtdlib/user/qtduserstatus.cpp:49
+#, fuzzy
+msgid "Last seen "
+msgstr "Příjmení"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:49
+msgid "dd.MM.yy hh:mm"
+msgstr ""
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:71
+msgid "Online"
+msgstr ""
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:88
+msgid "Seen recently"
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:64
+msgid "Saved Messages"
+msgstr ""
+
 #: ../app/qml/components/UserProfile.qml:74
 #: ../app/qml/components/UserProfile.qml:98
 msgid "not available"
@@ -26,6 +47,15 @@ msgstr "není dostupné"
 #: ../app/qml/components/UserProfile.qml:97
 msgid "+"
 msgstr "+"
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr ""
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:13
 msgid "Okay"
@@ -52,17 +82,16 @@ msgid "Code"
 msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:86
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:25
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 msgid "Next..."
 msgstr "Další..."
 
-#: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:57
-#: telegram-plus.desktop.in.h:1
-msgid "Telegram Plus"
-msgstr "Telegram Plus"
+#: ../app/qml/pages/ChatListPage.qml:18 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:20
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -70,7 +99,7 @@ msgstr "Nastavení"
 msgid "Leave chat"
 msgstr "Opustit chat"
 
-#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:268
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
 msgid "Clear history"
 msgstr "Vymazat historii"
 
@@ -78,22 +107,32 @@ msgstr "Vymazat historii"
 msgid "Info"
 msgstr "Informace"
 
-#: ../app/qml/pages/ChatListPage.qml:255
+#: ../app/qml/pages/ChatListPage.qml:258
 msgid "Are you sure you want to leave this chat?"
 msgstr "Skutečně chcete opustit tento chat?"
 
-#: ../app/qml/pages/ChatListPage.qml:257
+#: ../app/qml/pages/ChatListPage.qml:260
 #, fuzzy
 msgid "Leave"
 msgstr "Opustit chat"
 
-#: ../app/qml/pages/ChatListPage.qml:266
+#: ../app/qml/pages/ChatListPage.qml:269
 msgid "Are you sure you want to clear the history?"
 msgstr "Skutečně chcete smazat historii?"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:12
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
 msgstr "Zadat telefonní čáslo"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+#, fuzzy
+msgid "Phone number"
+msgstr "Zadat telefonní čáslo"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr ""
 
 #: ../app/qml/pages/GroupDetailsPage.qml:18
 #, fuzzy
@@ -101,13 +140,17 @@ msgid "Group Details"
 msgstr "Detaily skupiny"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
-#: ../app/qml/pages/SettingsPage.qml:30 ../app/qml/pages/UserProfilePage.qml:28
+#: ../app/qml/pages/SettingsPage.qml:31 ../app/qml/pages/UserProfilePage.qml:28
 msgid "Back"
 msgstr "Zpět"
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:41
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:42
 msgid "About"
 msgstr "O aplikaci"
+
+#: ../app/qml/pages/AboutPage.qml:57
+msgid "Telegram Plus"
+msgstr "Telegram Plus"
 
 #: ../app/qml/pages/AboutPage.qml:64
 msgid "Version %1"
@@ -125,32 +168,38 @@ msgstr "Nahlásit problém"
 msgid "Help translate"
 msgstr "Pomoc s překlady"
 
-#: ../app/qml/pages/SettingsPage.qml:76 ../app/qml/pages/SettingsPage.qml:106
+#: ../app/qml/pages/SettingsPage.qml:77
+msgid "Night mode"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:96 ../app/qml/pages/SettingsPage.qml:126
 msgid "Logout"
 msgstr "Odhlásit"
 
-#: ../app/qml/pages/SettingsPage.qml:89
+#: ../app/qml/pages/SettingsPage.qml:109
 msgid "Delete account"
 msgstr "Smazat účet"
 
-#: ../app/qml/pages/SettingsPage.qml:104
+#: ../app/qml/pages/SettingsPage.qml:124
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
-msgstr "Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
+msgstr ""
+"Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
 "soukormých chatů. Skutečně se chcete odhlásit?"
 
-#: ../app/qml/pages/SettingsPage.qml:115
+#: ../app/qml/pages/SettingsPage.qml:135
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
-msgstr "Varování: Současně se smazáním účtu budou odstraněna také veškerá data,"
-"která jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat,"
-"jež jsou specificky uložena mimo cloud Telegram. Skutečně chcete váš účet smazat?"
+msgstr ""
+"Varování: Současně se smazáním účtu budou odstraněna také veškerá data,která "
+"jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat,jež jsou "
+"specificky uložena mimo cloud Telegram. Skutečně chcete váš účet smazat?"
 
-#: ../app/qml/pages/SettingsPage.qml:117
+#: ../app/qml/pages/SettingsPage.qml:137
 #, fuzzy
 msgid "Delete"
 msgstr "Smazat účet"
@@ -159,28 +208,29 @@ msgstr "Smazat účet"
 msgid "Content Picker"
 msgstr "Výběr obsahu"
 
-#: ../app/qml/pages/PreviewPage.qml:33
+#: ../app/qml/pages/PreviewPage.qml:34
 msgid "From: "
 msgstr "Od: "
 
-#: ../app/qml/pages/PreviewPage.qml:47
+#: ../app/qml/pages/PreviewPage.qml:48
 msgid "Save"
 msgstr "Uložit"
 
 #: ../app/qml/pages/MessageListPage.qml:24
+#, fuzzy
 msgid "%1 member"
-msgid_plural "%1 členů"
+msgid_plural "%1 members"
 msgstr[0] "%1 člen"
 msgstr[1] "%1 členové"
 msgstr[2] "%1 členů"
 msgstr[3] "%1 členů"
 
-#: ../app/qml/pages/MessageListPage.qml:114
+#: ../app/qml/pages/MessageListPage.qml:110
 #, fuzzy
 msgid "Telegram"
 msgstr "Telegram Plus"
 
-#: ../app/qml/pages/MessageListPage.qml:275
+#: ../app/qml/pages/MessageListPage.qml:271
 msgid "Type a message..."
 msgstr "Napište zprávu..."
 
@@ -197,14 +247,14 @@ msgstr "Zadat heslo"
 msgid "Password"
 msgstr "Heslo"
 
-#: ../app/qml/delegates/MessageItemBase.qml:155
+#: ../app/qml/delegates/MessageItemBase.qml:165
 msgid "Edited"
 msgstr "Upraveno"
 
-#. TRANSLATORS: A short date format, consisting only of the day (1 digit allowed) and the month spelled out
-#: ../app/qml/delegates/MessageDateItem.qml:40
-msgid "dd MMM"
-msgstr "dd MMM"
+#. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:41
+msgid "dd MMMM"
+msgstr "dd MMMM"
 
 #~ msgid "Notifications"
 #~ msgstr "Notifications"

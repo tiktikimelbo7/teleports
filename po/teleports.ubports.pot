@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-25 07:00+0000\n"
+"POT-Creation-Date: 2019-01-25 17:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:42
-msgid "About"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:25
+msgid "Last seen one month ago"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:31
-#: ../app/qml/pages/GroupDetailsPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:28
-msgid "Back"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:35
+msgid "Last seen one week ago"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:57
-msgid "Telegram Plus"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+msgid "Last seen "
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:64
-msgid "Version %1"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+msgid "dd.MM.yy hh:mm"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:82
-msgid "Get the source"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:72
+msgid "Online"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:83
-msgid "Report issues"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:89
+msgid "Seen recently"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:84
-msgid "Help translate"
+#: ../libs/qtdlib/chat/qtdchat.cpp:67
+msgid "Saved Messages"
+msgstr ""
+
+#: ../app/qml/components/UserProfile.qml:74
+#: ../app/qml/components/UserProfile.qml:98
+msgid "not available"
+msgstr ""
+
+#: ../app/qml/components/UserProfile.qml:97
+msgid "+"
+msgstr ""
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr ""
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr ""
+
+#: ../app/qml/components/PopupDialog.qml:13
+msgid "Okay"
+msgstr ""
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Cancel"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:17
@@ -70,8 +94,82 @@ msgstr ""
 msgid "Next..."
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:20 ../app/qml/pages/ChatListPage.qml:30
+#: ../app/qml/pages/ChatListPage.qml:18 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:20
 msgid "Settings"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:63
+msgid "Leave chat"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
+msgid "Clear history"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:79
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:258
+msgid "Are you sure you want to leave this chat?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:260
+msgid "Leave"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:269
+msgid "Are you sure you want to clear the history?"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr ""
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr ""
+
+#: ../app/qml/pages/GroupDetailsPage.qml:18
+msgid "Group Details"
+msgstr ""
+
+#: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
+#: ../app/qml/pages/SettingsPage.qml:31 ../app/qml/pages/UserProfilePage.qml:28
+msgid "Back"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:42
+msgid "About"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:57
+msgid "Telegram Plus"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:64
+msgid "Version %1"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:82
+msgid "Get the source"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:83
+msgid "Report issues"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:84
+msgid "Help translate"
 msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:77
@@ -105,6 +203,10 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#: ../app/qml/pages/PickerPage.qml:15
+msgid "Content Picker"
+msgstr ""
+
 #: ../app/qml/pages/PreviewPage.qml:34
 msgid "From: "
 msgstr ""
@@ -113,76 +215,22 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:18 teleports.desktop.in.h:1
-msgid "TELEports"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:63
-msgid "Leave chat"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
-msgid "Clear history"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:79
-msgid "Info"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:258
-msgid "Are you sure you want to leave this chat?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:260
-msgid "Leave"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:269
-msgid "Are you sure you want to clear the history?"
-msgstr ""
-
-#: ../app/qml/pages/GroupDetailsPage.qml:18
-msgid "Group Details"
-msgstr ""
-
-#: ../app/qml/pages/PickerPage.qml:15
-msgid "Content Picker"
-msgstr ""
-
 #: ../app/qml/pages/MessageListPage.qml:24
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:109
+#: ../app/qml/pages/MessageListPage.qml:110
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:270
+#: ../app/qml/pages/MessageListPage.qml:271
 msgid "Type a message..."
 msgstr ""
 
 #: ../app/qml/pages/UserProfilePage.qml:17
 msgid "Profile"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
-msgid "Enter Phone Number"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
-#: ../app/qml/components/CountryPicker.qml:21
-msgid "Choose a country"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-msgid "Phone number"
-msgstr ""
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
-msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
@@ -191,27 +239,6 @@ msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr ""
-
-#: ../app/qml/components/PopupDialog.qml:13
-msgid "Okay"
-msgstr ""
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Cancel"
-msgstr ""
-
-#: ../app/qml/components/UserProfile.qml:74
-#: ../app/qml/components/UserProfile.qml:98
-msgid "not available"
-msgstr ""
-
-#: ../app/qml/components/UserProfile.qml:97
-msgid "+"
-msgstr ""
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
 msgstr ""
 
 #: ../app/qml/delegates/MessageItemBase.qml:41
@@ -236,5 +263,5 @@ msgstr ""
 
 #. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
 #: ../app/qml/delegates/MessageDateItem.qml:41
-msgid "dd MMM"
+msgid "dd MMMM"
 msgstr ""
