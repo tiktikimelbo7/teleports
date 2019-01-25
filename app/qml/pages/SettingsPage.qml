@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.2
+import Ubuntu.Connectivity 1.0
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.ListItems 1.3 as UITK_ListItem
 import Ubuntu.Components.Popups 1.3 as UITK_Popups
@@ -16,6 +17,9 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
+
+    property var statusMap: [i18n.tr("Offline"), i18n.tr("Connecting"), i18n.tr("Online")]
+
     header: UITK.PageHeader {
         title: i18n.tr('Settings')
 
@@ -110,6 +114,25 @@ Page {
                 }
 
                 onClicked: UITK_Popups.PopupUtils.open(deleteAccountConfirmationDialog)
+            }
+            Label {
+                text: "Connectivity Debug:"
+                font.pixelSize: units.gu(1)
+            }
+            Label {
+                // use the online property
+                text: Connectivity.online ? i18n.tr("Online") : i18n.tr("Not online")
+                font.pixelSize: units.gu(1)
+            }
+            Label {
+                // use the status property
+                text: i18n.tr("Status:") + " " + statusMap[Connectivity.status]
+                font.pixelSize: units.gu(1)
+            }
+            Label {
+                // use the limitedBandwith property
+                text: Connectivity.limitedBandwith ? i18n.tr("Bandwith limited") : i18n.tr("Bandwith not limited")
+                font.pixelSize: units.gu(1)
             }
 
 //            UITK_ListItem.Header {

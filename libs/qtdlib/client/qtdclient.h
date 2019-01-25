@@ -109,6 +109,8 @@ signals:
 
 private slots:
     void handleRecv(const QJsonObject &data);
+    void handleApplicationStateChanged(Qt::ApplicationState state);
+
 private:
     Q_DISABLE_COPY(QTdClient)
     void init();
