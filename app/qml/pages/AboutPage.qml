@@ -54,7 +54,7 @@ Page {
                 font.bold: true
                 color: theme.palette.normal.backgroundText
                 horizontalAlignment: Text.AlignHCenter
-                text: i18n.tr("Telegram Plus")
+                text: i18n.tr("TELEports")
             }
 
             Label {
