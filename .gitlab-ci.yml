@@ -8,7 +8,7 @@ tdlib:
         - docker:dind
     image: hummlbach/dind-clickable
     script:
-        - ./build-tdlib.sh
+        - ./prepare-tdlib.sh
     cache:
         key: deps-cache
         paths:
