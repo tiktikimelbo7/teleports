@@ -1,4 +1,6 @@
-#include "qtdchattype.h"
+#include "chat/qtdchattype.h"
+#include "client/qtdclient.h"
+#include "user/qtdusers.h"
 
 QTdChatType::QTdChatType(QObject *parent) : QTdObject(parent)
 {
@@ -27,8 +29,10 @@ void QTdChatTypeBasicGroup::unmarshalJson(const QJsonObject &json)
     QTdChatType::unmarshalJson(json);
 }
 
-QTdChatTypePrivate::QTdChatTypePrivate(QObject *parent) : QTdChatType(parent),
-    m_userId(0)
+QTdChatTypePrivate::QTdChatTypePrivate(QObject *parent)
+    : QTdChatType(parent)
+    , m_userId(0)
+    , m_waitingForUser(false)
 {
     setType(CHAT_TYPE_PRIVATE);
 }
@@ -43,11 +47,43 @@ qint32 QTdChatTypePrivate::userId() const
     return m_userId.value();
 }
 
+QTdUser* QTdChatTypePrivate::user() const
+{
+    return m_user;
+}
+
 void QTdChatTypePrivate::unmarshalJson(const QJsonObject &json)
 {
     m_userId = json["user_id"];
     emit userIdChanged();
+    updateUser(m_userId.value());
     QTdChatType::unmarshalJson(json);
+}
+
+void QTdChatTypePrivate::updateUser(const qint32 &userId)
+{
+    if (userId != m_userId.value()) {
+        return;
+    }
+    if (m_user) {
+        m_user = Q_NULLPTR;
+    }
+
+    auto *users = QTdUsers::instance()->model();
+    m_user = users->getByUid(QString::number(userId));
+    if (m_user) {
+        emit userChanged();
+        if (m_waitingForUser) {
+            disconnect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdChatTypePrivate::updateUser);
+            m_waitingForUser = false;
+        }
+        return;
+    }
+    connect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdChatTypePrivate::updateUser);
+    QTdClient::instance()->send(QJsonObject{
+            { "@type", "getUser" },
+            { "user_id", m_userId.value() } });
+    m_waitingForUser = true;
 }
 
 QTdChatTypeSecret::QTdChatTypeSecret(QObject *parent) : QTdChatTypePrivate(parent),

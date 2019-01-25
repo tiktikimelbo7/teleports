@@ -13,7 +13,7 @@ import "../stores"
 Page {
     header: UITK.PageHeader {
         property QTdChat currentChat: Telegram.chats.currentChat
-        title: Telegram.chats && Telegram.chats.currentChat ? Telegram.chats.currentChat.title : ""
+        title: Telegram.chats && currentChat ? currentChat.title : ""
         subtitle: {
             if (Telegram.chats && currentChat)
             {
@@ -23,6 +23,7 @@ Page {
                 {
                     return i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
                 }
+                return currentChat.chatType.user.status.string
             }
             return "";
         }

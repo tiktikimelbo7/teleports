@@ -1,3 +1,4 @@
+#include "utils/i18n.h"
 #include "qtduserstatus.h"
 
 QTdUserStatus::QTdUserStatus(QObject *parent) : QTdObject(parent)
@@ -21,7 +22,7 @@ QTdUserStateLastMonth::QTdUserStateLastMonth(QObject *parent) : QTdUserStatus(pa
 
 QString QTdUserStateLastMonth::toString() const
 {
-    return "last seen one month ago";
+    return tr("Last seen one month ago");
 }
 
 QTdUserStatusLastWeek::QTdUserStatusLastWeek(QObject *parent) : QTdUserStatus(parent)
@@ -31,7 +32,7 @@ QTdUserStatusLastWeek::QTdUserStatusLastWeek(QObject *parent) : QTdUserStatus(pa
 
 QString QTdUserStatusLastWeek::toString() const
 {
-    return "last seen one week ago";
+    return tr("Last seen one week ago");
 }
 
 QTdUserStatusOffline::QTdUserStatusOffline(QObject *parent) : QTdUserStatus(parent)
@@ -46,7 +47,7 @@ QDateTime QTdUserStatusOffline::wasOnline() const
 
 QString QTdUserStatusOffline::toString() const
 {
-    return QString("last seen ") + m_wasOnline.toString();
+    return QString(tr("Last seen ")) + m_wasOnline.toString(tr("dd.MM.yy hh:mm"));
 }
 
 void QTdUserStatusOffline::unmarshalJson(const QJsonObject &json)
@@ -68,7 +69,7 @@ QDateTime QTdUserStatusOnline::expires() const
 
 QString QTdUserStatusOnline::toString() const
 {
-    return "online";
+    return tr("Online");
 }
 
 void QTdUserStatusOnline::unmarshalJson(const QJsonObject &json)
@@ -85,7 +86,7 @@ QTdUserStatusRecently::QTdUserStatusRecently(QObject *parent) : QTdUserStatus(pa
 
 QString QTdUserStatusRecently::toString() const
 {
-    return "seen recently";
+    return tr("Seen recently");
 }
 
 
