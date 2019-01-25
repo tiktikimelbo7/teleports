@@ -10,8 +10,8 @@ ActionCreator {
     signal sendMessage(string text);
     signal sendChatAction();
 
-    signal leaveChat(var chatId);
-    signal deleteChatHistory(var chatId);
+    signal leaveChat(string chatId);
+    signal deleteChatHistory(string chatId);
 
     signal viewInDetail(var chat)
     signal leaveGroupDetails();

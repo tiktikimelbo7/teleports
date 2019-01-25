@@ -12,7 +12,7 @@ class QTdDeleteChatHistoryRequest : public QTdRequest
 public:
     explicit QTdDeleteChatHistoryRequest(QObject *parent = nullptr);
     void setChatId(const qint64 &id);
-    void setRemoveFromChatList();
+    void setRemoveFromChatList(const bool &remove);
     QJsonObject marshalJson() Q_DECL_FINAL;
 };
 

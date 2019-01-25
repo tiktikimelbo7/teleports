@@ -3,7 +3,6 @@
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
-#include "chat/requests/qtddeletechathistoryrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
 
 #include "chat/qtdchattypefactory.h"
@@ -62,30 +61,6 @@ void QTdChatListModel::clearCurrentChat()
 {
     m_currentChat = Q_NULLPTR;
     emit currentChatChanged(m_currentChat);
-}
-
-void QTdChatListModel::leaveChat(qint64 chatId)
-{
-    QTdChat *tdchat = m_model->getByUid(QString::number(chatId));
-    if (tdchat->isPrivate()) {
-        QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
-        req->setChatId(chatId);
-        req->setRemoveFromChatList();
-        QTdClient::instance()->send(req.data());
-        emit contentsChanged();
-    } else {
-        QScopedPointer<QTdLeaveChatRequest> req(new QTdLeaveChatRequest);
-        req->setChatId(chatId);
-        QTdClient::instance()->send(req.data());
-    }
-}
-
-void QTdChatListModel::deleteChatHistory(qint64 chatId)
-{
-    QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
-    req->setChatId(chatId);
-    QTdClient::instance()->send(req.data());
-    emit contentsChanged();
 }
 
 void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)

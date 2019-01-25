@@ -259,7 +259,7 @@ Page {
                         confirmButtonColor: UITK.UbuntuColors.red
                         confirmButtonText: i18n.tr("Leave")
                         cancelButtonColor: UITK.UbuntuColors.green
-                        onConfirmed: AppActions.chat.leaveChat(chat.rawId)
+                        onConfirmed: AppActions.chat.leaveChat(chat.id)
                     }
                 }
 
@@ -270,7 +270,7 @@ Page {
                         confirmButtonColor: UITK.UbuntuColors.red
                         confirmButtonText: i18n.tr("Clear history")
                         cancelButtonColor: UITK.UbuntuColors.green
-                        onConfirmed: AppActions.chat.deleteChatHistory(chat.rawId)
+                        onConfirmed: AppActions.chat.deleteChatHistory(chat.id)
                     }
                 }
             }
