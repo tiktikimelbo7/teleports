@@ -12,4 +12,9 @@ KeyTable {
     property string deleteChatHistory
     property string viewInDetail
     property string leaveGroupDetails
+    property string deleteMessage
+    property string replyToMessage
+    property string editMessage
+    property string showStickerPack
+    property string forwardMessage
 }
