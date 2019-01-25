@@ -8,5 +8,36 @@
   ],
   "specificDependencies": true,
   "dir": "build/teleports",
-  "make_jobs": "1"
+  "make_jobs": "4",
+  "libraries": [
+    {
+      "template": "custom",
+      "name": "tdlib",
+      "build": "../../../prepare-tdlib.sh",
+      "architectures": [
+        "amd64"
+      ],
+      "specificDependencies": "True",
+      "dependencies": [
+        "gperf"
+      ],
+     "prebuild": "git submodule update --init --recursive"
+    },
+    {
+      "template": "cmake",
+      "name": "tdlib",
+      "src_dir": "libs/vendor/tdlib",
+      "make_jobs": "1",
+      "architectures": [
+        "armhf", 
+        "amd64"
+      ],
+      "dependencies": [
+        "zlib1g-dev",
+        "libssl-dev",
+        "gperf"
+      ],
+      "build_args": "-DTHREADS_PTHREAD_ARG=0 -DCMAKE_CROSSCOMPILING=ON -DCMAKE_BUILD_TYPE=Release"
+    }
+  ]
 }
