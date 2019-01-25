@@ -10,10 +10,11 @@ import "../components"
 import "../actions"
 import "../stores"
 
-ItemDelegate {
+UITK.ListItem {
     id: base
     width: parent.width
     height: contentCol.height + (message.sameUserAsPreviousMessage && !message.isLatest ? Suru.units.gu(0.5) : Suru.units.gu(1))
+    divider.visible: false
 
     property QTdMessage message: null
     property QTdChat chat: null
@@ -23,7 +24,45 @@ ItemDelegate {
 
     default property alias content: mainContent.data
 
-    background: Item {}
+    leadingActions: UITK.ListItemActions {
+        actions: [
+            UITK.Action {
+                iconName: "delete"
+                text: i18n.tr("Delete")
+                onTriggered: AppActions.chat.deleteMessage(message.id)
+            }
+        ]
+    }
+
+    trailingActions: UITK.ListItemActions {
+        actions: [
+            UITK.Action {
+                iconName: "edit-copy"
+                text: i18n.tr("Copy")
+                visible: message.canBeEdited
+                onTriggered: AppActions.chat.editMessage(message.id)
+            },
+            UITK.Action {
+                iconName: "mail-reply"
+                text: i18n.tr("Reply")
+                visible: !message.isChannelPost
+                onTriggered: AppActions.chat.replyToMessage(message.id)
+            },
+            UITK.Action {
+                iconName: "info"
+                text: i18n.tr("Sticker Pack info")
+                visible: message.content.type === QTdObject.MESSAGE_STICKER
+                onTriggered: AppActions.chat.showStickerPack(message.content.sticker.setId)
+            },
+            UITK.Action {
+                iconName: "next"
+                text: i18n.tr("Forward")
+                visible: message.canBeForwarded
+                onTriggered: AppActions.chat.forwardMessage(message.id)
+            }
+        ]
+    }
+
 
     RowLayout {
         anchors {

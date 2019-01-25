@@ -15,4 +15,10 @@ ActionCreator {
 
     signal viewInDetail(var chat)
     signal leaveGroupDetails();
+
+    signal deleteMessage(string id)
+    signal forwardMessage(string id)
+    signal editMessage(string id)
+    signal replyToMessage(string id)
+    signal showStickerPack(string stickerId)
 }
