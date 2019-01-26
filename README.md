@@ -1,37 +1,34 @@
 # TELEports - An Ubuntu Touch Telegram client
 
 ## Building
-Install [clickable](https://clickable.bhdouglass.com/en/latest/) and the following packages:
+Teleports and its libraries are built using [clickable](https://clickable.bhdouglass.com/en/latest/). 
 
-    sudo apt-get install gperf libssl-dev zlib1g-dev
+You need to build the dependencies (tdlib) once:
 
-Then run once:
+    clickable build-libs
 
-    ./build-tdlib.sh
+This will build tdlib for amd64 and armhf. If you need just one of them, you
+can edit the [clickable.json](clickable.json) accordingly (see [clickable docs](http://clickable.bhdouglass.com/en/latest/clickable-json.html#architectures)).
 
-From now on you can build the app with:
+From now on building the app is as simple as:
 
     clickable
 
 ## Running on desktop
 
-To run the app on desktop, clean the tdlib if you've built it for armhf before and build it for amd64 once:
-
-    ./build-tdlib.sh amd64
-
-Then you can build and run the app using clickable as usual:
+You can build and run the app using clickable as usual:
 
     clickable desktop
 
 If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
-remove the `.clickable` directory and try again. This usually happens when
+remove the `.clickable` directory and try again. This may happen when
 switching between phone and desktop build.
 
 ## Cleaning the tdlib
 
 You can clean the tdlib build by:
 
-    ./build-tdlib.sh clean
+    clickable clean-libs
 
 ## C++ Code Style/Formatting
 
