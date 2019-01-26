@@ -7,7 +7,6 @@ import QTelegram 1.0
 import "../actions"
 import "../components"
 
-
 Page {
     id: userProfilePage
     property color hf: Suru.foregroundColor
@@ -47,5 +46,5 @@ Page {
 
             UserProfile {}
         }
-    }   
+    }
 }
