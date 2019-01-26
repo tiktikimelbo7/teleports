@@ -94,8 +94,11 @@ RowLayout {
                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                 }
 
-                title.text: Telegram.users.currentUser.phoneNumber ? i18n.tr("+") + Telegram.users.currentUser.phoneNumber
+                title.text: Telegram.users.currentUser.phoneNumber ? "<a href='#'>+" + Telegram.users.currentUser.phoneNumber + "</a>"
                                                                    : i18n.tr("not available")
+                title.onLinkActivated: {
+                    onClicked: Qt.openUrlExternally("tel:///+" + Telegram.users.currentUser.phoneNumber)
+                }
             }
         }
     }
