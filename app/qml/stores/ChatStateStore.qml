@@ -106,6 +106,13 @@ Store {
     }
 
     Filter {
+        type: ChatKey.sendEditMessage
+        onDispatched: {
+            messageList.editMessage(message.id, message.text);
+        }
+    }
+
+    Filter {
         type: ChatKey.sendMessage
         onDispatched: {
             messageList.sendMessage(message.text);

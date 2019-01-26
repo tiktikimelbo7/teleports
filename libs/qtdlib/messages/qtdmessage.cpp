@@ -101,6 +101,24 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_isValid = true;
 }
 
+void QTdMessage::unmarshalUpdateContent(const QJsonObject &content)
+{
+    if (content.isEmpty()) {
+        return;
+    }
+    if (m_content) {
+        delete m_content;
+        m_content = nullptr;
+    }
+
+    m_isValid = false;
+    m_content = QTdMessageContentFactory::create(content, this);
+    m_content->unmarshalJson(content);
+
+    emit messageChanged();
+    m_isValid = true;
+}
+
 QTdMessageSendingState *QTdMessage::sendingState() const
 {
     return m_sendingState;

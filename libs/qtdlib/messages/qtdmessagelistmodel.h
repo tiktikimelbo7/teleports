@@ -5,6 +5,7 @@
 #include <QPointer>
 #include "chat/qtdchat.h"
 #include "models/QmlObjectListModel.h"
+#include "qtdchatstate.h"
 #include "qtdmessage.h"
 
 #define MESSAGE_LOAD_WINDOW 100
@@ -28,12 +29,14 @@ public slots:
     void setChat(QTdChat *chat);
     void loadMore();
     void sendMessage(const QString &message);
+    void editMessage(qint64 messageId, const QString &message);
 
 private slots:
     void cleanUp();
     void handleMessages(const QJsonObject &json);
     void handleUpdateChatLastMessage(const QJsonObject &json);
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
+    void handleUpdateMessageContent(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId,
                       int amount = MESSAGE_LOAD_WINDOW);
 

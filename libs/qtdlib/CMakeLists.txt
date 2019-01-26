@@ -86,7 +86,9 @@ set(
     messages/qtdmessagecontentfactory.cpp
     messages/qtdmessagesendingstate.cpp
     messages/qtdmessagelistmodel.cpp
+    messages/qtdchatstate.cpp
     messages/requests/qtdsendmessagerequest.cpp
+    messages/requests/qtdeditmessagerequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp

@@ -39,8 +39,16 @@ UITK.ListItem {
             UITK.Action {
                 iconName: "edit-copy"
                 text: i18n.tr("Copy")
+                visible: false
+                onTriggered: { /* TODO: Implement copy */ }
+            },
+            UITK.Action {
+                iconName: "edit"
+                text: i18n.tr("Edit")
                 visible: message.canBeEdited
-                onTriggered: AppActions.chat.editMessage(message.id)
+                onTriggered: {
+                    AppActions.chat.requestEditMessage(message.id, message.content.text.text)
+                }
             },
             UITK.Action {
                 iconName: "mail-reply"
@@ -62,7 +70,6 @@ UITK.ListItem {
             }
         ]
     }
-
 
     RowLayout {
         anchors {
