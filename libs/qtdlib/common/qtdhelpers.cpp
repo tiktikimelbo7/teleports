@@ -1,4 +1,5 @@
 #include "qtdhelpers.h"
+#include "client/qtdclient.h"
 #include <QJsonArray>
 
 QString QTdHelpers::formatDate(const QDateTime &dt)
@@ -82,3 +83,20 @@ void QTdHelpers::getEntitiesFromMessage(const QString &messageText, QString &pla
     plainText = plainText.replace("**", "").replace("__", "").replace("`", "");
 }
 
+QJsonArray QTdHelpers::formatPlainTextMessage(const QString &message, QString &plainText)
+{
+    //First call tdlib to markup all complex entities
+    auto parseRequest = QJsonObject {
+        {"@type", "getTextEntities"},
+        {"text", message}
+    };
+    auto result = QTdClient::instance()->exec(parseRequest);
+    result.waitForFinished();
+
+    QJsonArray entities = result.result()["entities"].toArray();
+
+    //Then do the text formatting
+    QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
+
+    return entities;
+}

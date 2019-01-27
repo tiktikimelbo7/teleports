@@ -229,24 +229,13 @@ void QTdMessageListModel::sendMessage(const QString &message)
         return;
     }
 
-    //First call tdlib to markup all complex entities
-    auto parseRequest = QJsonObject {
-        {"@type", "getTextEntities"},
-        {"text", message}
-    };
-    auto result = QTdClient::instance()->exec(parseRequest);
-    result.waitForFinished();
-    auto entities = result.result()["entities"].toArray();
-
-    //Then do the text formatting
     QString plainText;
-    QJsonArray formatEntities;
-    QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
+
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     request->setText(plainText);
-    formatEntities << entities;
-    request->setEntities(entities);
+    request->setEntities(formatEntities);
     QTdClient::instance()->send(request.data());
 }
 
@@ -256,26 +245,14 @@ void QTdMessageListModel::editMessage(qint64 messageId, const QString &message)
         return;
     }
 
-    //First call tdlib to markup all complex entities
-    auto parseRequest = QJsonObject {
-        {"@type", "getTextEntities"},
-        {"text", message}
-    };
-    auto result = QTdClient::instance()->exec(parseRequest);
-    result.waitForFinished();
-    auto entities = result.result()["entities"].toArray();
-
-    //Then do the text formatting
     QString plainText;
-    QJsonArray formatEntities;
-    QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
 
     QScopedPointer<QTdEditMessageRequest> request(new QTdEditMessageRequest);
     request->setChatId(m_chat->id());
     request->setMessageId(messageId);
     request->setText(plainText);
-    formatEntities << entities;
-    request->setEntities(entities);
+    request->setEntities(formatEntities);
     QTdClient::instance()->send(request.data());
 }
 

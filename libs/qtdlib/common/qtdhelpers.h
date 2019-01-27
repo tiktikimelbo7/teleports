@@ -14,5 +14,6 @@ public:
     static void getEntitiesFromMessage(const QString &messageText,
                                        QString &plainText,
                                        QJsonArray &entities);
+    static QJsonArray formatPlainTextMessage(const QString &messageText,
+                                             QString &plainText);
 };
-
