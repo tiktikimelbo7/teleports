@@ -59,6 +59,7 @@ set(
     common/qabstractint64id.cpp
     common/qtdint.cpp
     common/qtdrequest.cpp
+    common/qtdresponse.cpp
     common/qtdhelpers.cpp
     client/qtdhandle.cpp
     client/qtdclient.cpp

@@ -1,7 +1,7 @@
 #include "qtdsetnetworktype.h"
 
 QTdSetNetworkTypeRequest::QTdSetNetworkTypeRequest(QObject *parent)
-    : QTdRequest(parent), m_networkType(Q_NULLPTR) {}
+    : QTdOkRequest(parent), m_networkType(Q_NULLPTR) {}
 
 void QTdSetNetworkTypeRequest::setNetworkType(QTdNetworkType *networkType) {
     m_networkType = networkType;

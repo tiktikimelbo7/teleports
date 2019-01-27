@@ -1,6 +1,6 @@
 #include "qtdopenchatrequest.h"
 
-QTdOpenChatRequest::QTdOpenChatRequest(QObject *parent) : QTdRequest(parent),
+QTdOpenChatRequest::QTdOpenChatRequest(QObject *parent) : QTdOkRequest(parent),
     m_chatId(0)
 {
 }

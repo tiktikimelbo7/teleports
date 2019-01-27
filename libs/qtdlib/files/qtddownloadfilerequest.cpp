@@ -1,4 +1,5 @@
 #include "qtddownloadfilerequest.h"
+#include "client/qtdclient.h"
 
 QTdDownloadFileRequest::QTdDownloadFileRequest(QObject *parent) : QTdRequest(parent),
     m_priority(Low), m_fileId(0)
@@ -22,4 +23,9 @@ QJsonObject QTdDownloadFileRequest::marshalJson()
         {"file_id", m_fileId},
         {"priority", (qint32)m_priority},
     };
+}
+
+QFuture<QTdResponse> QTdDownloadFileRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::file);
 }

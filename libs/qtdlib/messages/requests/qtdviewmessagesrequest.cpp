@@ -1,7 +1,7 @@
 #include "qtdviewmessagesrequest.h"
 #include <QJsonArray>
 
-QTdViewMessagesRequest::QTdViewMessagesRequest(QObject *parent) : QTdRequest(parent),
+QTdViewMessagesRequest::QTdViewMessagesRequest(QObject *parent) : QTdOkRequest(parent),
     m_chatId(0)
 {
 }

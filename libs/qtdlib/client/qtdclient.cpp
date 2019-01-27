@@ -1,6 +1,8 @@
 #include "qtdclient.h"
 #include <QDebug>
 #include <QPointer>
+#include <QEventLoop>
+#include <QMetaObject>
 #include <QJsonDocument>
 #include <QtConcurrent>
 #include <QtGui/QGuiApplication>
@@ -9,6 +11,7 @@
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
 #include <QJsonDocument>
+
 
 QJsonObject execTd(const QJsonObject &json) {
     qDebug() << "[EXEC]" << json;
@@ -30,7 +33,8 @@ void sendTd(const QJsonObject &json) {
 QTdClient::QTdClient(QObject *parent) : QObject(parent),
     m_worker(new QThread),
     m_authState(Q_NULLPTR),
-    m_connectionState(Q_NULLPTR)
+    m_connectionState(Q_NULLPTR),
+    m_tagcounter(0)
 {
     init();
     QTdWorker *w = new QTdWorker;
@@ -74,6 +78,36 @@ void QTdClient::send(const QJsonObject &json)
         return;
     }
     QtConcurrent::run(sendTd, json);
+}
+
+QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*s)(QJsonObject)) {
+    QJsonObject data = obj->marshalJson();
+    const QString tag = getTag();
+    data["@extra"] = tag;
+    QFuture<QTdResponse> f = QtConcurrent::run([=]()->QTdResponse{
+        // TODO: Should we wrap this up in a QRunnable instead of using an event loop
+        QEventLoop loop;
+
+        QTdResponse result;
+        auto respSlot = [&](QJsonObject resp){
+            if (resp.contains("@extra")) {
+                QString extra = resp.value("@extra").toString();
+                if (extra == tag) {
+                    result.setJson(resp);
+                    loop.quit();
+                }
+            }
+        };
+
+        QMetaObject::Connection con1 = QObject::connect(QTdClient::instance(), s, respSlot);
+        QMetaObject::Connection con2 = QObject::connect(QTdClient::instance(), &QTdClient::error, respSlot);
+        loop.exec();
+        disconnect(con1);
+        disconnect(con2);
+        return result;
+    });
+    QTdClient::instance()->send(data);
+    return f;
 }
 
 QFuture<QJsonObject> QTdClient::exec(QTdRequest *obj)
@@ -193,13 +227,18 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data){ emit updateChatNotificationSettings(data); });
 
     m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data){ emit messages(data); });
+    m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data){ emit message(data); });
 
     //Option handling - more or less global constants, still could change during execution
     m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data){ emit updateOption(data); });
 
     //Message updates to add to existing chats or channel views
     m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data){ emit updateNewMessage(data); });
-
+    m_events.insert(QStringLiteral("chats"), [=](const QJsonObject &data){ emit chats(data); });
+    m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data){ emit error(data); });
+    m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
+    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group){ emit basicGroup(group); });
+    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){ emit file(data); });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
@@ -223,6 +262,12 @@ void QTdClient::handleUpdateOption(const QJsonObject &json)
     }
     m_options[option_name] = option_value;
     qWarning() << "received option" << option_name << ", value" << option_value;
+}
+
+QString QTdClient::getTag()
+{
+    m_tagcounter++;
+    return QString("req-%1").arg(QString::number(m_tagcounter));
 }
 
 QVariant QTdClient::getOption(const QString name)

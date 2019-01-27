@@ -1,4 +1,5 @@
 #include "qtdgetsupergrouprequest.h"
+#include "client/qtdclient.h"
 
 QTdGetSuperGroupRequest::QTdGetSuperGroupRequest(QObject *parent) : QTdRequest(parent),
     m_sgId(0)
@@ -16,4 +17,9 @@ QJsonObject QTdGetSuperGroupRequest::marshalJson()
         {"@type", "getSupergroup"},
         {"supergroup_id", m_sgId},
     };
+}
+
+QFuture<QTdResponse> QTdGetSuperGroupRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::superGroup);
 }

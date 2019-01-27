@@ -1,8 +1,7 @@
 #include "qtdauthpasswordresponse.h"
 
-QTdAuthPasswordResponse::QTdAuthPasswordResponse(QObject *parent) : QTdRequest(parent)
+QTdAuthPasswordResponse::QTdAuthPasswordResponse(QObject *parent) : QTdOkRequest(parent)
 {
-
 }
 
 void QTdAuthPasswordResponse::setPassword(const QString &password)

@@ -1,6 +1,6 @@
 #include "qtdclosechatrequest.h"
 
-QTdCloseChatRequest::QTdCloseChatRequest(QObject *parent) : QTdRequest(parent),
+QTdCloseChatRequest::QTdCloseChatRequest(QObject *parent) : QTdOkRequest(parent),
   m_chatId(0)
 {
 }

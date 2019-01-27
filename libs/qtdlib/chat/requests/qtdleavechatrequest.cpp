@@ -1,6 +1,6 @@
 #include "qtdleavechatrequest.h"
 
-QTdLeaveChatRequest::QTdLeaveChatRequest(QObject *parent) : QTdRequest(parent),
+QTdLeaveChatRequest::QTdLeaveChatRequest(QObject *parent) : QTdOkRequest(parent),
   m_chatId(0)
 {
 }

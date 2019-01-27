@@ -1,4 +1,5 @@
 #include "qtdgetsecretchatrequest.h"
+#include "client/qtdclient.h"
 
 QTdGetSecretChatRequest::QTdGetSecretChatRequest(QObject *parent) : QTdRequest(parent),
     m_chatId(0)
@@ -16,4 +17,9 @@ QJsonObject QTdGetSecretChatRequest::marshalJson()
         {"@type", "getSecretChat"},
         {"secret_chat_id", m_chatId},
     };
+}
+
+QFuture<QTdResponse> QTdGetSecretChatRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::secretChat);
 }

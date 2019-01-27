@@ -5,7 +5,12 @@
 #include "chat/qtdchatactionfactory.h"
 #include <QObject>
 
-class QTdSendChatActionRequest : public QTdRequest
+/**
+ * @brief The QTdSendChatActionRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_chat_action.html
+ */
+class QTdSendChatActionRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;

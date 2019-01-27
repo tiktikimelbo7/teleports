@@ -21,9 +21,13 @@
  *   // or
  *   QTdUser *user;
  *   req->setUser(user);
- *   QTdClient::instance()->send(req.data());
+ *   req->send();
+ *   // or
+ *   QFuture<QTdResponse> resp = req->sendAsync()
+ *   await(resp)
+ *   if (resp.result().isOk()) {}
  */
-class QTdBlockUserRequest : public QTdRequest
+class QTdBlockUserRequest : public QTdOkRequest
 {
     Q_OBJECT
 public:

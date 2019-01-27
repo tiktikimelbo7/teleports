@@ -1,4 +1,5 @@
 #include "qtdgetchatsrequest.h"
+#include "client/qtdclient.h"
 
 QTdGetChatsRequest::QTdGetChatsRequest(QObject *parent) : QTdRequest(parent)
 {
@@ -13,4 +14,9 @@ QJsonObject QTdGetChatsRequest::marshalJson()
         { "offset_chat_id", 0 },
         { "limit",          20 },
     };
+}
+
+QFuture<QTdResponse> QTdGetChatsRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::chats);
 }
