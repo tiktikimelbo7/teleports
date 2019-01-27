@@ -4,7 +4,7 @@
 #include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
-#include "requests/qtdeditmessagerequest.h"
+#include "requests/qtdeditmessagetextrequest.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -248,7 +248,7 @@ void QTdMessageListModel::editMessage(qint64 messageId, const QString &message)
     QString plainText;
     QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
 
-    QScopedPointer<QTdEditMessageRequest> request(new QTdEditMessageRequest);
+    QScopedPointer<QTdEditMessageTextRequest> request(new QTdEditMessageTextRequest);
     request->setChatId(m_chat->id());
     request->setMessageId(messageId);
     request->setText(plainText);

@@ -1,32 +1,32 @@
-#include "qtdeditmessagerequest.h"
+#include "qtdeditmessagetextrequest.h"
 #include <QJsonArray>
 
-QTdEditMessageRequest::QTdEditMessageRequest(QObject *parent) : QTdRequest(parent),
+QTdEditMessageTextRequest::QTdEditMessageTextRequest(QObject *parent) : QTdRequest(parent),
   m_chatId(0), m_messageId(0), m_text(QString()), m_entities(QJsonArray())
 {
 }
 
-void QTdEditMessageRequest::setText(const QString &text)
+void QTdEditMessageTextRequest::setText(const QString &text)
 {
     m_text = text;
 }
 
-void QTdEditMessageRequest::setChatId(const qint64 &id)
+void QTdEditMessageTextRequest::setChatId(const qint64 &id)
 {
     m_chatId = id;
 }
 
-void QTdEditMessageRequest::setMessageId(const qint64 &id)
+void QTdEditMessageTextRequest::setMessageId(const qint64 &id)
 {
     m_messageId = id;
 }
 
-void QTdEditMessageRequest::setEntities(const QJsonArray &entities)
+void QTdEditMessageTextRequest::setEntities(const QJsonArray &entities)
 {
     m_entities = entities;
 }
 
-QJsonObject QTdEditMessageRequest::marshalJson()
+QJsonObject QTdEditMessageTextRequest::marshalJson()
 {
     return QJsonObject{
         {"@type", "editMessageText"},
