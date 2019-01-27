@@ -237,70 +237,18 @@ Page {
         }
     }
 
-    Rectangle {
-        id: editBox
-
-        property bool enabled: d.chatState == ChatState.EditingMessage
-
+    InputInfoBox {
         anchors {
             left: parent.left
             right: parent.right
             bottom: input.top
         }
-
-        visible: enabled
-        height: units.gu(7)
-
-        Rectangle {
-            anchors {
-                top: parent.top
-                right: parent.right
-                left: parent.left
-            }
-            height: Suru.units.dp(1)
-            color: Suru.neutralColor
-        }
-
-        RowLayout {
-            anchors.fill: parent
-            anchors.margins: Suru.units.gu(1)
-
-            Column {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                Label {
-                    text: i18n.tr("Edit message")
-                    font.bold: true
-                    color: Suru.color(Suru.Blue)
-                }
-
-                Label {
-                    Layout.fillWidth: true
-                    text: d.editText
-                    wrapMode: Text.NoWrap
-                    elide: Text.ElideRight
-                    maximumLineCount: 1
-                }
-            }
-
-            Item {
-                Layout.fillHeight: true
-                implicitWidth: Suru.units.gu(2)
-
-                UITK.Icon {
-                    anchors.fill: parent
-                    name: "close"
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        d.chatState = ChatState.Default
-                        entry.text = ""
-                    }
-                }
-            }
+        enabled: d.chatState === ChatState.EditingMessage
+        title: i18n.tr("Edit message")
+        text: d.editText
+        onCloseRequested: {
+            d.chatState = ChatState.Default
+            entry.text = ""
         }
     }
 
