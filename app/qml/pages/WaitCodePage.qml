@@ -13,6 +13,7 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
+    
     header: UITK.PageHeader {
         id: header
         title: i18n.tr('Enter Code')
@@ -22,16 +23,6 @@ Page {
             backgroundColor: hb
             dividerColor: hd
         }
-        
-        leadingActionBar.actions: [
-            UITK.Action {
-                iconName: "back"
-                text: i18n.tr('Back')
-                onTriggered: {
-                  AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitPhoneNumberPage.qml"})
-                }
-            }
-        ]
     }
     
     Column {
