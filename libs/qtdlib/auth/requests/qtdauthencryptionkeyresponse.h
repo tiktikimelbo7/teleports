@@ -4,15 +4,29 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdAuthEncryptionKeyResponse : public QTdRequest
+/**
+ * @brief The QTdAuthEncryptionKeyResponse class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_database_encryption_key.html
+ */
+class QTdAuthEncryptionKeyResponse : public QTdOkRequest
 {
     Q_OBJECT
+    Q_DISABLE_COPY(QTdAuthEncryptionKeyResponse)
 public:
     explicit QTdAuthEncryptionKeyResponse(QObject *parent = nullptr);
 
+    /**
+     * @brief setKey
+     * @param key - New encryption key
+     */
     void setKey(const QString &key);
 
-    QJsonObject marshalJson();
+    /**
+     * @brief marshalJson
+     * @return QJsonObject of the request suitable for sending to tdlib
+     */
+    QJsonObject marshalJson() Q_DECL_FINAL;
 
 private:
     QString m_key;

@@ -1,6 +1,6 @@
 #include "qtdblockuserrequest.h"
 
-QTdBlockUserRequest::QTdBlockUserRequest(QObject *parent) : QTdRequest(parent)
+QTdBlockUserRequest::QTdBlockUserRequest(QObject *parent) : QTdOkRequest(parent)
 {
 }
 

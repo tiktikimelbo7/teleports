@@ -1,7 +1,7 @@
 #include "qtdsetpinnedchatsrequest.h"
 #include <QJsonArray>
 
-QTdSetPinnedChatsRequest::QTdSetPinnedChatsRequest(QObject *parent) : QTdRequest(parent)
+QTdSetPinnedChatsRequest::QTdSetPinnedChatsRequest(QObject *parent) : QTdOkRequest(parent)
 {
 }
 

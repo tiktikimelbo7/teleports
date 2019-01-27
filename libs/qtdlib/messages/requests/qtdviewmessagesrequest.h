@@ -4,12 +4,16 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdViewMessagesRequest : public QTdRequest
+/**
+ * @brief The QTdViewMessagesRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1view_messages.html
+ */
+class QTdViewMessagesRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;
     QList<qint64> m_messageIds;
-
 public:
     explicit QTdViewMessagesRequest(QObject *parent = nullptr);
     void setMessageIds(const QList<qint64> &messageIds);

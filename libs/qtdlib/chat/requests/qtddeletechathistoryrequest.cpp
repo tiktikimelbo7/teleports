@@ -1,6 +1,6 @@
 #include "qtddeletechathistoryrequest.h"
 
-QTdDeleteChatHistoryRequest::QTdDeleteChatHistoryRequest(QObject *parent) : QTdRequest(parent),
+QTdDeleteChatHistoryRequest::QTdDeleteChatHistoryRequest(QObject *parent) : QTdOkRequest(parent),
     m_chatId(0), m_removeFromChatList(false)
 {
 }

@@ -4,6 +4,11 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
+/**
+ * @brief The QTdDownloadFileRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1download_file.html
+ */
 class QTdDownloadFileRequest : public QTdRequest
 {
     Q_OBJECT
@@ -20,7 +25,9 @@ public:
     void setPriority(const Priority &priority);
     void setFileId(const qint32 &fileId);
 
-    QJsonObject marshalJson();
+    QJsonObject marshalJson() Q_DECL_FINAL;
+
+    QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 
 private:
     Q_DISABLE_COPY(QTdDownloadFileRequest)

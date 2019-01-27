@@ -1,6 +1,6 @@
 #include "qtdauthlogoutresponse.h"
 
-QTdAuthLogOutResponse::QTdAuthLogOutResponse(QObject *parent) : QTdRequest(parent)
+QTdAuthLogOutResponse::QTdAuthLogOutResponse(QObject *parent) : QTdOkRequest(parent)
 {
 }
 

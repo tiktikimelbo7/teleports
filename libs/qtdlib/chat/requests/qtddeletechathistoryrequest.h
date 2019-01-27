@@ -4,7 +4,12 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdDeleteChatHistoryRequest : public QTdRequest
+/**
+ * @brief The QTdDeleteChatHistoryRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_chat_history.html
+ */
+class QTdDeleteChatHistoryRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;

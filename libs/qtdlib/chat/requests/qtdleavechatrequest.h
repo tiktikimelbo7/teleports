@@ -4,7 +4,12 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdLeaveChatRequest : public QTdRequest
+/**
+ * @brief The QTdLeaveChatRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1leave_chat.html
+ */
+class QTdLeaveChatRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;

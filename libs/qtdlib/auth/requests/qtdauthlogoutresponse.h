@@ -4,13 +4,23 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdAuthLogOutResponse : public QTdRequest
+/**
+ * @brief The QTdAuthLogOutResponse class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1log_out.html
+ */
+class QTdAuthLogOutResponse : public QTdOkRequest
 {
     Q_OBJECT
+    Q_DISABLE_COPY(QTdAuthLogOutResponse)
 public:
     explicit QTdAuthLogOutResponse(QObject *parent = nullptr);
 
-    QJsonObject marshalJson();
+    /**
+     * @brief marshalJson
+     * @return QJsonObject of the request suitable for sending to tdlib
+     */
+    QJsonObject marshalJson() Q_DECL_FINAL;
 };
 
 #endif // QTDAUTHLOGOUTRESPONSE_H

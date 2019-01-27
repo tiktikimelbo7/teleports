@@ -4,7 +4,12 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdSetChatTitleRequest : public QTdRequest
+/**
+ * @brief The QTdSetChatTitleRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_title.html
+ */
+class QTdSetChatTitleRequest : public QTdOkRequest
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdSetChatTitleRequest)

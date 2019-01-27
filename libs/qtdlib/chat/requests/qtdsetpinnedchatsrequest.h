@@ -4,7 +4,12 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
-class QTdSetPinnedChatsRequest : public QTdRequest
+/**
+ * @brief The QTdSetPinnedChatsRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_pinned_chats.html
+ */
+class QTdSetPinnedChatsRequest : public QTdOkRequest
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdSetPinnedChatsRequest)

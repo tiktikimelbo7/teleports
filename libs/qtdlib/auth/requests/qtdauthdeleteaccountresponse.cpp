@@ -1,6 +1,6 @@
 #include "qtdauthdeleteaccountresponse.h"
 
-QTdAuthDeleteAccountResponse::QTdAuthDeleteAccountResponse(QObject *parent) : QTdRequest(parent)
+QTdAuthDeleteAccountResponse::QTdAuthDeleteAccountResponse(QObject *parent) : QTdOkRequest(parent)
 {
 }
 

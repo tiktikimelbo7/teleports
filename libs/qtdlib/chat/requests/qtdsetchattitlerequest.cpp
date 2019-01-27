@@ -1,6 +1,6 @@
 #include "qtdsetchattitlerequest.h"
 
-QTdSetChatTitleRequest::QTdSetChatTitleRequest(QObject *parent) : QTdRequest(parent),
+QTdSetChatTitleRequest::QTdSetChatTitleRequest(QObject *parent) : QTdOkRequest(parent),
     m_chatId(0)
 {
 

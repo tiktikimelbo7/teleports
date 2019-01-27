@@ -4,6 +4,11 @@
 #include <QObject>
 #include "common/qtdrequest.h"
 
+/**
+ * @brief The QTdGetSuperGroupFullInfoRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_supergroup_full_info.html
+ */
 class QTdGetSuperGroupFullInfoRequest : public QTdRequest
 {
     Q_OBJECT
@@ -12,7 +17,8 @@ public:
     explicit QTdGetSuperGroupFullInfoRequest(QObject *parent = nullptr);
 
     void setSupergroupId(const qint32 &id);
-    QJsonObject marshalJson();
+    QJsonObject marshalJson() Q_DECL_FINAL;
+    QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 };
 
 #endif // QTDGETSUPERGROUPFULLINFOREQUEST_H

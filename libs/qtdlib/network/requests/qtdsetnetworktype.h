@@ -5,7 +5,12 @@
 #include "common/qtdrequest.h"
 #include "network/qtdnetworktype.h"
 
-class QTdSetNetworkTypeRequest : public QTdRequest
+/**
+ * @brief The QTdSetNetworkTypeRequest class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_network_type.html
+ */
+class QTdSetNetworkTypeRequest : public QTdOkRequest
 {
     Q_OBJECT
 public:

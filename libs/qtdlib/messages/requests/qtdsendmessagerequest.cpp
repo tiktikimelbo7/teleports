@@ -1,5 +1,6 @@
 #include "qtdsendmessagerequest.h"
 #include <QJsonArray>
+#include "client/qtdclient.h"
 
 QTdSendMessageRequest::QTdSendMessageRequest(QObject *parent) : QTdRequest(parent),
   m_chatId(0), m_entities(QJsonArray())
@@ -40,4 +41,9 @@ QJsonObject QTdSendMessageRequest::marshalJson()
             {"clear_draft", true}
         }}
     };
+}
+
+QFuture<QTdResponse> QTdSendMessageRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::message);
 }

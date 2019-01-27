@@ -1,6 +1,6 @@
 #include "qtdauthphonenumberresponse.h"
 
-QTdAuthPhoneNumberResponse::QTdAuthPhoneNumberResponse(QObject *parent) : QTdRequest(parent)
+QTdAuthPhoneNumberResponse::QTdAuthPhoneNumberResponse(QObject *parent) : QTdOkRequest(parent)
 {
 }
 
