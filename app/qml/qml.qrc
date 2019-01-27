@@ -58,5 +58,6 @@
         <file>components/UserProfile.qml</file>
         <file>pages/GroupDetailsPage.qml</file>
         <file>delegates/MessageDateItem.qml</file>
+        <file>components/InputInfoBox.qml</file>
     </qresource>
 </RCC>

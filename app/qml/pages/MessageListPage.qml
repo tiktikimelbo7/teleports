@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
+import QuickFlux 1.1
 import QTelegram 1.0
 import QTelegramStyles 1.0
 import "../components"
@@ -236,6 +237,21 @@ Page {
         }
     }
 
+    InputInfoBox {
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: input.top
+        }
+        enabled: d.chatState === ChatState.EditingMessage
+        title: i18n.tr("Edit message")
+        text: d.editText
+        onCloseRequested: {
+            d.chatState = ChatState.Default
+            entry.text = ""
+        }
+    }
+
     Rectangle {
         id: input
         anchors {
@@ -275,8 +291,15 @@ Page {
 
                 function send() {
                     Qt.inputMethod.commit();
-                    AppActions.chat.sendMessage(text.trim());
+
+                    if (d.chatState === ChatState.EditingMessage) {
+                        AppActions.chat.sendEditMessage(d.editMessageId, text.trim())
+                    } else {
+                        AppActions.chat.sendMessage(text.trim());
+                    }
+
                     text = "";
+                    d.chatState = ChatState.Default;
                 }
 
                 Keys.onReturnPressed: {
@@ -320,5 +343,25 @@ Page {
                 }
             }
         }
+    }
+
+    QtObject {
+        id: d
+
+        property int chatState: ChatState.Default
+        property string editText: ""
+        property string editMessageId: ""
+    }
+
+    AppListener {
+       Filter {
+           type: ChatKey.requestEditMessage
+           onDispatched: {
+               d.chatState = ChatState.EditingMessage
+               d.editText = message.text
+               d.editMessageId = message.id
+               entry.text = d.editText
+           }
+       }
     }
 }

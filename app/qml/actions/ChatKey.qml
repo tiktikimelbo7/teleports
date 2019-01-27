@@ -14,7 +14,8 @@ KeyTable {
     property string leaveGroupDetails
     property string deleteMessage
     property string replyToMessage
-    property string editMessage
+    property string requestEditMessage
+    property string sendEditMessage
     property string showStickerPack
     property string forwardMessage
 }

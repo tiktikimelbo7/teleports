@@ -21,6 +21,7 @@
 #include "messages/qtdmessage.h"
 #include "messages/qtdmessagelistmodel.h"
 #include "messages/qtdmessagecontent.h"
+#include "messages/qtdchatstate.h"
 
 #include "utils/qtdtextformatter.h"
 
@@ -41,6 +42,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterType<QTdChatListModel>(uri, 1, 0, "ChatList");
     qmlRegisterType<QTdChatListSortFilterModel>(uri, 1, 0, "SortedChatList");
     qmlRegisterType<QTdMessageListModel>(uri, 1, 0, "MessageList");
+    qmlRegisterUncreatableType<QTdChatState>(uri, 1, 0, "ChatState", "Enum type is uncreatable");
 
     qmlRegisterType<QTdTextFormatter>(uri, 1, 0, "TextFormatter");
 

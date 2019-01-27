@@ -85,6 +85,7 @@ signals:
     void updateChatOrder(const QJsonObject &chat);
     void updateChatLastMessage(const QJsonObject &chat);
     void updateMessageSendSucceeded(const QJsonObject &chat);
+    void updateMessageContent(const QJsonObject &chat);
     void updateBasicGroup(const QJsonObject &group);
     void updateBasicGroupFullInfo(const QJsonObject &group);
     void secretChat(const QJsonObject &chat);
