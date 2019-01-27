@@ -52,6 +52,7 @@ public:
     QTdUser *sender() const;
 
     void unmarshalJson(const QJsonObject &json);
+    void unmarshalUpdateContent(const QJsonObject &content);
 
     QTdMessageSendingState *sendingState() const;
 

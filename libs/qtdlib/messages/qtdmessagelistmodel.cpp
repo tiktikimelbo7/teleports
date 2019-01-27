@@ -4,6 +4,9 @@
 #include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
+#include "requests/qtdeditmessagetextrequest.h"
+#include "qtdmessagecontentfactory.h"
+#include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
 #include "common/qtdhelpers.h"
 
@@ -14,6 +17,8 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     connect(QTdClient::instance(), &QTdClient::messages, this, &QTdMessageListModel::handleMessages);
     connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
     connect(QTdClient::instance(), &QTdClient::updateMessageSendSucceeded, this, &QTdMessageListModel::handleUpdateMessageSendSucceeded);
+    connect(QTdClient::instance(), &QTdClient::updateMessageContent, this, &QTdMessageListModel::handleUpdateMessageContent);
+
 }
 
 QTdChat *QTdMessageListModel::chat() const
@@ -179,6 +184,22 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
         return;
     }
 }
+
+void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+
+    const qint64 messageId = qint64(json["message_id"].toDouble());
+    const QJsonObject newContent = json["new_content"].toObject();
+    QTdMessage* message = m_model->getByUid(QString::number(messageId));
+    if (message == nullptr) {
+        return;
+    }
+    message->unmarshalUpdateContent(newContent);
+}
+
 void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, int amount)
 {
   if (messagesToLoad > -1) {
@@ -208,24 +229,30 @@ void QTdMessageListModel::sendMessage(const QString &message)
         return;
     }
 
-    //First call tdlib to markup all complex entities
-    auto parseRequest = QJsonObject {
-        {"@type", "getTextEntities"},
-        {"text", message}
-    };
-    auto result = QTdClient::instance()->exec(parseRequest);
-    result.waitForFinished();
-    auto entities = result.result()["entities"].toArray();
-
-    //Then do the text formatting
     QString plainText;
-    QJsonArray formatEntities;
-    QTdHelpers::getEntitiesFromMessage(message, plainText, entities);
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
+
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     request->setText(plainText);
-    formatEntities << entities;
-    request->setEntities(entities);
+    request->setEntities(formatEntities);
+    QTdClient::instance()->send(request.data());
+}
+
+void QTdMessageListModel::editMessage(qint64 messageId, const QString &message)
+{
+    if (!m_chat) {
+        return;
+    }
+
+    QString plainText;
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
+
+    QScopedPointer<QTdEditMessageTextRequest> request(new QTdEditMessageTextRequest);
+    request->setChatId(m_chat->id());
+    request->setMessageId(messageId);
+    request->setText(plainText);
+    request->setEntities(formatEntities);
     QTdClient::instance()->send(request.data());
 }
 
