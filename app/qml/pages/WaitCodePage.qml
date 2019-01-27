@@ -13,7 +13,9 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
+    
     header: UITK.PageHeader {
+        id: header
         title: i18n.tr('Enter Code')
 
         UITK.StyleHints {
@@ -21,88 +23,73 @@ Page {
             backgroundColor: hb
             dividerColor: hd
         }
-
     }
-    Flickable {
-        id: waitCodeFlickable
-        anchors.fill: parent
-        anchors.margins: units.gu(2)
-        Item {
-          anchors.centerIn: parent
-          width: parent.width
+    
+    Column {
+        width: Math.min( Suru.units.gu(45), parent.width - units.gu(4) )
+        spacing: Suru.units.gu(2)
+        
+        anchors.top: header.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
 
-          Item {
-              id: firstNameFieldContainer
+        Rectangle {
+            width: parent.width
+            height: 1
+        }
+        
+        TextField {
+            id: firstNameField
+            width: parent.width
+            
+            visible: !registered
+            placeholderText: i18n.tr('First Name')
+        }
 
-              width: (!registered) ? firstNameField.implicitWidth : 0
-              height: (!registered) ? firstNameField.implicitHeight : 0
+        TextField {
+            id: lastNameField
+            width: parent.width
+            
+            visible: !registered
+            placeholderText: i18n.tr('Last Name')
+        }
 
-              anchors {
-                  centerIn: parent
-                  horizontalCenter: parent.horizontalCenter
+        TextField {
+            id: codeField
+            width: parent.width
+
+            placeholderText: i18n.tr('Code')
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            maximumLength: 5
+              
+            onDisplayTextChanged: {
+              if( length === maximumLength ) {
+                sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: text })
               }
+            }
+        }
 
-              TextField {
-                  id: firstNameField
-                  visible: !registered
-  //                 visible: false
-                  placeholderText: i18n.tr("First Name")
-              }
-          }
+        Label {
+            width: parent.width
+            wrapMode: Text.Wrap
+            text: i18n.tr("We've send a code via telegram to your device. Please enter it here.")
+        }
+        
+        Label {
+            id: errorLabel
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+              
+            visible: text != ''
+            color: "red"
+        }
+    }
 
-          Item {
-              id: lastNameFieldContainer
-
-              width: (!registered) ? lastNameField.implicitWidth : 0
-              height: (!registered) ? lastNameField.implicitHeight : 0
-
-              anchors {
-                  top: firstNameFieldContainer.bottom
-                  topMargin: units.gu(1)
-                  horizontalCenter: parent.horizontalCenter
-              }
-
-              TextField {
-                  id: lastNameField
-                  visible: !registered
-  //                 visible: false
-                  placeholderText: i18n.tr("Last Name")
-              }
-          }
-
-          TextField {
-              id: codeField
-              anchors {
-                  top: lastNameFieldContainer.bottom
-                  topMargin: units.gu(1)
-                  horizontalCenter: parent.horizontalCenter
-              }
-              placeholderText: i18n.tr("Code")
-              inputMethodHints: Qt.ImhFormattedNumbersOnly
-          }
-
-          Button {
-              id: nextButton
-              text: i18n.tr("Next...")
-              anchors {
-                  top: codeField.bottom
-                  topMargin: units.gu(1)
-                  horizontalCenter: parent.horizontalCenter
-              }
-              onClicked: sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: codeField.text })
-          }
-
-          Label {
-              id: errorLabel
-              anchors {
-                  top: nextButton.bottom
-                  topMargin: units.gu(1)
-                  horizontalCenter: parent.horizontalCenter
-              }
-              visible: text != ""
-              color: "red"
-          }
-
+    AppListener {
+      Filter {
+        type: AuthKey.authCodeError
+          onDispatched: {
+            errorLabel.text = message.error
+        }
       }
     }
 
@@ -111,12 +98,6 @@ Page {
        script: {
            // Enter number including dial code
            AppActions.auth.setCode(message.code, message.firstname, message.lastname);
-
-           once(AuthKey.authCodeError, function(message) {
-               errorLabel.text = message.error;
-               exit(1);
-           })
-
            once(AuthKey.authCodeAccepted, exit.bind(this,0))
        }
     }
