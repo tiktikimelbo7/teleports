@@ -11,6 +11,7 @@ QTdBasicGroupChat::QTdBasicGroupChat(QObject *parent) : QTdChat(parent),
     m_creatorId(0), m_members(Q_NULLPTR)
 {
     m_members = new QQmlObjectListModel<QTdChatMember>(this, "", "userId");
+    connect(QTdClient::instance(), &QTdClient::basicGroup, this, &QTdBasicGroupChat::updateGroupData);
     connect(QTdClient::instance(), &QTdClient::updateBasicGroup, this, &QTdBasicGroupChat::updateGroupData);
     connect(QTdClient::instance(), &QTdClient::updateBasicGroupFullInfo, this, &QTdBasicGroupChat::updateGroupInfo);
 }
