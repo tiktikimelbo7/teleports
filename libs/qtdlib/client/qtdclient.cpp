@@ -80,11 +80,11 @@ void QTdClient::send(const QJsonObject &json)
     QtConcurrent::run(sendTd, json);
 }
 
-QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*s)(QJsonObject)) {
+QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*signal)(QJsonObject)) {
     QJsonObject data = obj->marshalJson();
     const QString tag = getTag();
     data["@extra"] = tag;
-    QFuture<QTdResponse> f = QtConcurrent::run([=]()->QTdResponse{
+    QFuture<QTdResponse> f = QtConcurrent::run([](void(QTdClient::*s)(QJsonObject), const QJsonObject &data, const QString &tag)->QTdResponse{
         // TODO: Should we wrap this up in a QRunnable instead of using an event loop
         QEventLoop loop;
 
@@ -101,12 +101,23 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*s)(
 
         QMetaObject::Connection con1 = QObject::connect(QTdClient::instance(), s, respSlot);
         QMetaObject::Connection con2 = QObject::connect(QTdClient::instance(), &QTdClient::error, respSlot);
+
+        /**
+         * We send the data from within the thread due to how QtConcurrent allocates
+         * one thread per cpu core. Which we don't want to start up the response loop and it
+         * take up the last remaining thread and then no request is actually sent.
+         *
+         * This ensures that if we are either in the last available thread or waiting
+         * for the next available thread the request is always sent "after" setting up the response
+         * slots.
+         */
+        sendTd(data);
+
         loop.exec();
         disconnect(con1);
         disconnect(con2);
         return result;
-    });
-    QTdClient::instance()->send(data);
+    }, signal, data, tag);
     return f;
 }
 

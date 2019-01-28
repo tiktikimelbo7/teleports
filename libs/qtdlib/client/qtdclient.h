@@ -81,7 +81,7 @@ public:
      * qDebug() << resp.result().json()
      *
      */
-    QFuture<QTdResponse> sendAsync(QTdRequest *obj, void(QTdClient::*s)(QJsonObject));
+    QFuture<QTdResponse> sendAsync(QTdRequest *obj, void(QTdClient::*signal)(QJsonObject));
 
     /**
      * @brief Execute synchronous request in another Thread
