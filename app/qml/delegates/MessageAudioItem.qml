@@ -63,6 +63,7 @@ MessageItemBase {
           left: audioIcon.right
         }
         text: audio.audio.fileName
+        color: Suru.foregroundColor
     }
     Column {
         anchors {
@@ -80,7 +81,7 @@ MessageItemBase {
             width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
             text: audio.caption.text
-            color: message.isOutgoing ? "white" : Suru.foregroundColor
+            color: Suru.foregroundColor
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {

@@ -76,7 +76,7 @@ MessageItemBase {
             width: Math.min(maximumAvailableContentWidth, dummyTextEdit.contentWidth)
             readOnly: true
             text: photoContent.caption.text
-            color: message.isOutgoing ? "white" : Suru.foregroundColor
+            color: Suru.foregroundColor
             selectedTextColor: Suru.highlightColor
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             onLinkActivated: {

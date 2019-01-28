@@ -17,6 +17,8 @@
 import QtQuick 2.4
 import QtMultimedia 5.0
 import Ubuntu.Components 1.3 as UITK
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Suru 2.2
 
 Item {
     id: viewer
@@ -185,7 +187,17 @@ Item {
                     id: background
                     visible: isAudio
                     width: parent.width
+                    height: width
+                    anchors.centerIn: parent
                     name: "audio-speakers-symbolic"
+                }
+                ProgressBar {
+                    id: progressBar
+                    anchors.bottom: background.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    value: audioOutput.position/audioOutput.duration
+                    visible: audioOutput.isPlaying
+                    onValueChanged: console.log(value)
                 }
 
                 Audio {
@@ -202,18 +214,9 @@ Item {
                 height: units.gu(5)
                 anchors.centerIn: parent
                 name: "media-playback-start"
-                color: "black"
+                color: Suru.foregroundColor
                 opacity: 0.8
                 visible: (viewer.isAudio || viewer.isVideo) && !activity.visible
-            }
-
-            UITK.Label {
-                anchors.top: playIcon.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: "black"
-                font.pixelSize: 30
-                text: Math.floor(audioOutput.position/audioOutput.duration * 100)+" %"
-                visible: audioOutput.isPlaying
             }
 
             MouseArea {

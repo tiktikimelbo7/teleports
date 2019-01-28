@@ -82,6 +82,7 @@ Page {
                   Switch {
                      id: theme_switch
                      checked: Telegram.settings.theme === Suru.Dark
+                     Suru.highlightType: Suru.PositiveHighlight
                      UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
                      onCheckedChanged: AppActions.settings.setTheme(checked?Suru.Dark:Suru.Light)
                   }
