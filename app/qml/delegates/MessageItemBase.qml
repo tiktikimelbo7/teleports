@@ -195,7 +195,7 @@ UITK.ListItem {
                                 width: units.gu(2)
                                 height: width
                                 source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
-                                color: message.isOutgoing ? "white" : Suru.foregroundColor
+                                color: Suru.foregroundColor
                             }
 
                             Label {
