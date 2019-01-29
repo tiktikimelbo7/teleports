@@ -1,12 +1,12 @@
-#ifndef QTDEDITMESSAGETEXTREQUEST_H
-#define QTDEDITMESSAGETEXTREQUEST_H
+#ifndef QTDEDITMESSAGECAPTIONREQUEST_H
+#define QTDEDITMESSAGECAPTIONREQUEST_H
 
 #include <QObject>
 #include <QJsonArray>
 
 #include "common/qtdrequest.h"
 
-class QTdEditMessageTextRequest : public QTdRequest
+class QTdEditMessageCaptionRequest : public QTdRequest
 {
     Q_OBJECT
     qint64 m_chatId;
@@ -15,7 +15,7 @@ class QTdEditMessageTextRequest : public QTdRequest
     QJsonArray m_entities;
 
   public:
-    explicit QTdEditMessageTextRequest(QObject *parent = nullptr);
+    explicit QTdEditMessageCaptionRequest(QObject *parent = nullptr);
     void setText(const QString &text);
     void setChatId(const qint64 &id);
     void setMessageId(const qint64 &id);
@@ -24,4 +24,4 @@ class QTdEditMessageTextRequest : public QTdRequest
     virtual QFuture<QTdResponse> sendAsync();
 };
 
-#endif // QTDEDITMESSAGETEXTREQUEST_H
+#endif // QTDEDITMESSAGECAPTIONREQUEST_H

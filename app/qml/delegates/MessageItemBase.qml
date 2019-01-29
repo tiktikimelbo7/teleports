@@ -47,14 +47,14 @@ UITK.ListItem {
                 text: i18n.tr("Edit")
                 visible: message.canBeEdited
                 onTriggered: {
-                    AppActions.chat.requestEditMessage(message.id, message.content.text.text)
+                    AppActions.chat.requestEditMessage(message)
                 }
             },
             UITK.Action {
                 iconName: "mail-reply"
                 text: i18n.tr("Reply")
                 visible: !message.isChannelPost
-                onTriggered: AppActions.chat.replyToMessage(message.id)
+                onTriggered: AppActions.chat.requestReplyToMessage(message)
             },
             UITK.Action {
                 iconName: "info"

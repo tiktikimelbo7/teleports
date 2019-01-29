@@ -24,12 +24,18 @@ public:
 signals:
     void chatChanged(QTdChat *chat);
     void modelChanged();
+    void error(const QString &errorMessage);
 
 public slots:
     void setChat(QTdChat *chat);
     void loadMore();
-    void sendMessage(const QString &message);
-    void editMessage(qint64 messageId, const QString &message);
+    void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
+    void editMessageText(qint64 messageId, const QString &message);
+    void editMessageText(const QString &messageId, const QString &message);
+    void editMessageCaption(qint64 messageId, const QString &message);
+    void editMessageCaption(const QString &messageId, const QString &message);
+    void sendReplyToMessage(const qint64 &replyToMessageId, const QString &message);
+    void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
 
 private slots:
     void cleanUp();

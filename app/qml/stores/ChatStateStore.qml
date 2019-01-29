@@ -69,6 +69,8 @@ Store {
     MessageList {
         id: messageList
         chat: chatList.currentChat
+        // TODO: Implement UI for error handling
+        onError: console.error(errorMessage)
     }
 
     Filter {
@@ -106,9 +108,16 @@ Store {
     }
 
     Filter {
-        type: ChatKey.sendEditMessage
+        type: ChatKey.sendEditMessageText
         onDispatched: {
-            messageList.editMessage(message.id, message.text);
+            messageList.editMessageText(message.id, message.text);
+        }
+    }
+
+    Filter {
+        type: ChatKey.sendEditMessageCaption
+        onDispatched: {
+            messageList.editMessageCaption(message.id, message.text);
         }
     }
 
@@ -116,6 +125,13 @@ Store {
         type: ChatKey.sendMessage
         onDispatched: {
             messageList.sendMessage(message.text);
+        }
+    }
+
+    Filter {
+        type: ChatKey.sendReplyToMessage
+        onDispatched: {
+            messageList.sendReplyToMessage(message.id, message.text)
         }
     }
 

@@ -1,7 +1,20 @@
 #include "qtdmessagecontent.h"
+#include <libintl.h>
 
 QTdMessageContent::QTdMessageContent(QObject *parent) : QTdObject(parent)
 {
+    m_infoText = gettext("Message");
+    m_infoImageUrl = QUrl();
+}
+
+QString QTdMessageContent::infoText() const
+{
+    return m_infoText;
+}
+
+QUrl QTdMessageContent::infoImageUrl() const
+{
+    return m_infoImageUrl;
 }
 
 QTdMessageText::QTdMessageText(QObject *parent) : QTdMessageContent(parent),
@@ -31,17 +44,18 @@ void QTdMessageText::unmarshalJson(const QJsonObject &json)
         m_webPage->unmarshalJson(json["web_page"].toObject());
         m_hasWebPage = true;
     }
+    m_infoText = m_text.data()->text();
     emit dataChanged();
 }
 
 QTdMessageAction::QTdMessageAction(QObject *parent) : QTdMessageContent(parent)
 {
-  setType(MESSAGE_ACTION);
+    setType(MESSAGE_ACTION);
 }
 
 QTdMessageHidden::QTdMessageHidden(QObject *parent) : QTdMessageContent(parent)
 {
-  setType(MESSAGE_HIDDEN);
+    setType(MESSAGE_HIDDEN);
 }
 
 QTdMessageSticker::QTdMessageSticker(QObject *parent) : QTdMessageContent(parent),
@@ -58,11 +72,14 @@ QTdSticker *QTdMessageSticker::sticker() const
 void QTdMessageSticker::unmarshalJson(const QJsonObject &json)
 {
     m_sticker->unmarshalJson(json["sticker"].toObject());
+    m_infoText = m_sticker.data()->emoji();
+    emit dataChanged();
 }
 
 QTdMessagePhoto::QTdMessagePhoto(QObject *parent) : QTdMessageContent(parent),
     m_photo(new QTdPhotos), m_caption(new QTdFormattedText)
 {
+    m_infoText = gettext("Photo");
     setType(MESSAGE_PHOTO);
 }
 
@@ -72,16 +89,22 @@ QTdPhotos *QTdMessagePhoto::photo() const
 }
 QTdFormattedText *QTdMessagePhoto::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
+
 void QTdMessagePhoto::unmarshalJson(const QJsonObject &json)
 {
     m_photo->unmarshalJson(json["photo"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
+    QString imageFilepath = m_photo.data()->sizes()->at(0)->photo()->local()->path();
+    m_infoImageUrl = QUrl(QLatin1Literal("file://") + imageFilepath);
+    emit dataChanged();
 }
+
 QTdMessageAnimation::QTdMessageAnimation(QObject *parent) : QTdMessageContent(parent),
     m_animation(new QTdAnimation), m_caption(new QTdFormattedText)
 {
+    m_infoText = gettext("Animation");
     setType(MESSAGE_ANIMATION);
 }
 
@@ -101,6 +124,7 @@ void QTdMessageAnimation::unmarshalJson(const QJsonObject &json)
 QTdMessageVideo::QTdMessageVideo(QObject *parent) : QTdMessageContent(parent),
     m_video(new QTdVideo), m_caption(new QTdFormattedText)
 {
+    m_infoText = gettext("Video");
     setType(MESSAGE_VIDEO);
 }
 
@@ -120,6 +144,7 @@ void QTdMessageVideo::unmarshalJson(const QJsonObject &json)
 QTdMessageAudio::QTdMessageAudio(QObject *parent) : QTdMessageContent(parent),
     m_audio(new QTdAudio), m_caption(new QTdFormattedText)
 {
+    m_infoText = gettext("Audio");
     setType(MESSAGE_AUDIO);
 }
 
@@ -133,6 +158,7 @@ QTdFormattedText *QTdMessageAudio::caption() const
 }
 void QTdMessageAudio::unmarshalJson(const QJsonObject &json)
 {
+    m_infoText = gettext("Document");
     m_audio->unmarshalJson(json["audio"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
 }
@@ -178,5 +204,6 @@ void QTdMessageDate::setDate(const qint32 &date)
         return;
     }
     m_date = date;
+    m_infoText = date;
     emit dataChanged();
 }

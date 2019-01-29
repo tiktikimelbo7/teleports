@@ -3,7 +3,7 @@
 #include "client/qtdclient.h"
 
 QTdSendMessageRequest::QTdSendMessageRequest(QObject *parent) : QTdRequest(parent),
-  m_chatId(0), m_entities(QJsonArray())
+  m_chatId(0), m_entities(QJsonArray()), m_replyMessageId(0)
 {
 }
 
@@ -22,12 +22,17 @@ void QTdSendMessageRequest::setEntities(const QJsonArray &entities)
     m_entities = entities;
 }
 
+void QTdSendMessageRequest::setReplyToMessageId(const qint64 &id)
+{
+    m_replyMessageId = id;
+}
+
 QJsonObject QTdSendMessageRequest::marshalJson()
 {
     return QJsonObject{
         {"@type", "sendMessage"},
         {"chat_id", m_chatId},
-        {"reply_to_message_id", 0}, // TODO: Implement replys
+        {"reply_to_message_id", m_replyMessageId},
         {"disable_notification", false},
         {"from_background", false},
         {"input_message_content", QJsonObject{

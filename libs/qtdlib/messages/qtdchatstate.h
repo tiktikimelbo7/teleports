@@ -10,6 +10,7 @@ public:
     enum ChatState {
         Default,
         EditingMessage,
+        ReplyingToMessage,
     };
 
     Q_ENUMS(ChatState)

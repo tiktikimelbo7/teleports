@@ -5,10 +5,12 @@
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
+#include "requests/qtdeditmessagecaptionrequest.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
 #include "common/qtdhelpers.h"
+#include "utils/await.h"
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
     m_model(Q_NULLPTR), m_chat(Q_NULLPTR)
@@ -223,7 +225,7 @@ void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, int amount)
     });
 }
 
-void QTdMessageListModel::sendMessage(const QString &message)
+void QTdMessageListModel::sendMessage(const QString &message, const qint64 &replyToMessageId)
 {
     if (!m_chat) {
         return;
@@ -236,10 +238,11 @@ void QTdMessageListModel::sendMessage(const QString &message)
     request->setChatId(m_chat->id());
     request->setText(plainText);
     request->setEntities(formatEntities);
+    request->setReplyToMessageId(replyToMessageId);
     QTdClient::instance()->send(request.data());
 }
 
-void QTdMessageListModel::editMessage(qint64 messageId, const QString &message)
+void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
     if (!m_chat) {
         return;
@@ -253,7 +256,54 @@ void QTdMessageListModel::editMessage(qint64 messageId, const QString &message)
     request->setMessageId(messageId);
     request->setText(plainText);
     request->setEntities(formatEntities);
-    QTdClient::instance()->send(request.data());
+
+    QFuture<QTdResponse> response = request->sendAsync();
+    await(response);
+    if (response.result().isError()) {
+        emit error(response.result().errorString());
+    }
+}
+
+void QTdMessageListModel::editMessageText(const QString &messageId, const QString &message)
+{
+    editMessageText(messageId.toLongLong(), message);
+}
+
+void QTdMessageListModel::editMessageCaption(qint64 messageId, const QString &message)
+{
+    if (!m_chat) {
+        return;
+    }
+
+    QString plainText;
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
+
+    QScopedPointer<QTdEditMessageCaptionRequest> request(new QTdEditMessageCaptionRequest);
+    request->setChatId(m_chat->id());
+    request->setMessageId(messageId);
+    request->setText(plainText);
+    request->setEntities(formatEntities);
+
+    QFuture<QTdResponse> response = request->sendAsync();
+    await(response);
+    if (response.result().isError()) {
+        emit error(response.result().errorString());
+    }
+}
+
+void QTdMessageListModel::editMessageCaption(const QString &messageId, const QString &message)
+{
+    editMessageCaption(messageId.toLongLong(), message);
+}
+
+void QTdMessageListModel::sendReplyToMessage(const qint64 &replyToMessageId, const QString &message)
+{
+    sendMessage(message, replyToMessageId);
+}
+
+void QTdMessageListModel::sendReplyToMessage(const QString &replyToMessageId, const QString &message)
+{
+    sendMessage(message, replyToMessageId.toLongLong());
 }
 
 void QTdMessageListModel::setMessagesRead( QList<qint64> messages)
