@@ -37,6 +37,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool sameUserAsNextMessage READ sameUserAsNextMessage NOTIFY nextSenderChanged)
     // Indicates if this message is the first/latest message in the model
     Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
+    Q_PROPERTY(QString replyToMessageId READ qmlReplyToMessageId NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -91,6 +92,10 @@ public:
     void setNextSenderId(const qint32 &id);
 
     bool isLatest() const;
+
+    qint64 replyToMessageId() const;
+    QString qmlReplyToMessageId() const;
+
 signals:
     void messageChanged();
     void senderChanged();
@@ -106,6 +111,7 @@ private:
     qint32 m_date;
     QTdInt32 m_sender_user_id;
     QTdInt64 m_chatId;
+    QTdInt64 m_replyToMessageId;
     QPointer<QTdUser> m_sender;
     bool m_waitingForSender;
     QPointer<QTdMessageSendingState> m_sendingState;

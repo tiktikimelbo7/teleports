@@ -18,8 +18,10 @@ ActionCreator {
 
     signal deleteMessage(string id)
     signal forwardMessage(string id)
-    signal requestEditMessage(string id, string text)
-    signal sendEditMessage(string id, string text)
-    signal replyToMessage(string id)
+    signal requestEditMessage(var message)
+    signal sendEditMessageText(string id, string text)
+    signal sendEditMessageCaption(string id, string text)
+    signal requestReplyToMessage(var message)
+    signal sendReplyToMessage(string id, string text)
     signal showStickerPack(string stickerId)
 }

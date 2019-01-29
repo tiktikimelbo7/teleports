@@ -1,5 +1,6 @@
 #include "qtdeditmessagetextrequest.h"
 #include <QJsonArray>
+#include "client/qtdclient.h"
 
 QTdEditMessageTextRequest::QTdEditMessageTextRequest(QObject *parent) : QTdRequest(parent),
   m_chatId(0), m_messageId(0), m_text(QString()), m_entities(QJsonArray())
@@ -43,4 +44,9 @@ QJsonObject QTdEditMessageTextRequest::marshalJson()
             {"clear_draft", true}
         }}
     };
+}
+
+QFuture<QTdResponse> QTdEditMessageTextRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::message);
 }

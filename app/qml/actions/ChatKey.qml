@@ -15,7 +15,10 @@ KeyTable {
     property string deleteMessage
     property string replyToMessage
     property string requestEditMessage
-    property string sendEditMessage
+    property string sendEditMessageText
+    property string sendEditMessageCaption
+    property string requestReplyToMessage
+    property string sendReplyToMessage
     property string showStickerPack
     property string forwardMessage
 }

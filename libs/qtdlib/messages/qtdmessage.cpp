@@ -91,6 +91,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_isChannelPost = json["is_channel_post"].toBool();
     m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
+    m_replyToMessageId = json["replay_to_message_id"];
 
     const QJsonObject content = json["content"].toObject();
     m_content = QTdMessageContentFactory::create(content, this);
@@ -252,6 +253,16 @@ bool QTdMessage::isLatest() const
 {
     // Only the latest message should not have a nextSenderId
     return !m_nextSender.isValid();
+}
+
+qint64 QTdMessage::replyToMessageId() const
+{
+    return m_replyToMessageId.value();
+}
+
+QString QTdMessage::qmlReplyToMessageId() const
+{
+    return m_replyToMessageId.toQmlValue();
 }
 
 void QTdMessage::updateSender(const qint32 &senderId)

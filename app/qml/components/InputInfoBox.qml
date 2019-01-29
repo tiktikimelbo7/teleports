@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Suru 2.2
+import QTelegram 1.0
 import Ubuntu.Components 1.3 as UITK
 
 Item {
@@ -9,12 +10,19 @@ Item {
 
     property bool enabled
     property string title
-    property string text
+    property var message
+    readonly property string text: message.content.infoText
 
     signal closeRequested()
 
     height: units.gu(7)
     clip: true
+
+    MouseArea {
+        // only for blocking mouse and touch events
+        anchors.fill: parent
+        enabled: editBox.enabled
+    }
 
     Rectangle {
         anchors {
@@ -42,6 +50,20 @@ Item {
             anchors.fill: parent
             anchors.rightMargin: Suru.units.gu(2)
             anchors.margins: Suru.units.gu(1)
+
+            spacing: units.gu(1)
+
+            UITK.UbuntuShape {
+                Layout.maximumWidth: units.gu(5)
+                Layout.maximumHeight: units.gu(5)
+                visible: message.content.infoImageUrl != ""
+                aspect: UITK.UbuntuShape.Flat
+                backgroundColor: avatarColor
+                source: Image {
+                    asynchronous: true
+                    source: message.content.infoImageUrl != "" ? message.content.infoImageUrl: ""
+                }
+            }
 
             Column {
                 Layout.fillWidth: true

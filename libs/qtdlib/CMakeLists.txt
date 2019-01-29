@@ -90,6 +90,7 @@ set(
     messages/qtdchatstate.cpp
     messages/requests/qtdsendmessagerequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
+    messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp

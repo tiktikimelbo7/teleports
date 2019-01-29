@@ -238,17 +238,23 @@ Page {
     }
 
     InputInfoBox {
+        // Convenience properties
+        readonly property bool editingMessage: d.chatState === ChatState.EditingMessage
+        readonly property bool replyingToMessage: d.chatState === ChatState.ReplyingToMessage
+
         anchors {
             left: parent.left
             right: parent.right
             bottom: input.top
         }
-        enabled: d.chatState === ChatState.EditingMessage
-        title: i18n.tr("Edit message")
-        text: d.editText
+        enabled: editingMessage || replyingToMessage
+        title: editingMessage ? i18n.tr("Edit") : i18n.tr("Reply")
+        message: d.messageOfInterest
         onCloseRequested: {
+            if (editingMessage) {
+                entry.text = "";
+            }
             d.chatState = ChatState.Default
-            entry.text = ""
         }
     }
 
@@ -293,7 +299,18 @@ Page {
                     Qt.inputMethod.commit();
 
                     if (d.chatState === ChatState.EditingMessage) {
-                        AppActions.chat.sendEditMessage(d.editMessageId, text.trim())
+                        switch (d.messageOfInterest.content.type) {
+                        case QTdObject.MESSAGE_TEXT:
+                            AppActions.chat.sendEditMessageText(d.messageOfInterest.id, text.trim())
+                            break;
+                        case QTdObject.MESSAGE_PHOTO:
+                            AppActions.chat.sendEditMessageCaption(d.messageOfInterest.id, text.trim())
+                            break;
+                        default:
+                            console.warn("Unsupported edit message type");
+                        }
+                    } else if (d.chatState === ChatState.ReplyingToMessage) {
+                        AppActions.chat.sendReplyToMessage(d.messageOfInterest.id, text.trim());
                     } else {
                         AppActions.chat.sendMessage(text.trim());
                     }
@@ -349,18 +366,33 @@ Page {
         id: d
 
         property int chatState: ChatState.Default
-        property string editText: ""
-        property string editMessageId: ""
+        property var messageOfInterest: null
     }
 
     AppListener {
        Filter {
            type: ChatKey.requestEditMessage
            onDispatched: {
-               d.chatState = ChatState.EditingMessage
-               d.editText = message.text
-               d.editMessageId = message.id
-               entry.text = d.editText
+               switch (message.message.content.type) {
+               case QTdObject.MESSAGE_TEXT:
+                    d.chatState = ChatState.EditingMessage
+                    d.messageOfInterest = message.message;
+                    entry.text = message.message.content.text.text;
+                    break;
+               case QTdObject.MESSAGE_PHOTO:
+                    d.chatState = ChatState.EditingMessage;
+                    d.messageOfInterest = message.message;
+                    entry.text = message.message.content.caption.text;
+                    break;
+               }
+           }
+       }
+
+       Filter {
+           type: ChatKey.requestReplyToMessage
+           onDispatched: {
+               d.chatState = ChatState.ReplyingToMessage
+               d.messageOfInterest = message.message;
            }
        }
     }
