@@ -1,14 +1,26 @@
 stages:
+    - deps-prepare
     - deps
     - build
 
+variables:
+    GIT_SUBMODULE_STRATEGY: "recursive"
+    
+tdlib-prepare:
+    stage: deps-prepare
+    image: clickable/ci-16.04-amd64
+    script:
+        - clickable build-libs tdlib-prepare --arch amd64
+    cache:
+        key: deps-cache
+        paths:
+            - libs/vendor/tdlib
+
 tdlib:
     stage: deps
-    services:
-        - docker:dind
-    image: hummlbach/dind-clickable
+    image: clickable/ci-16.04-armhf
     script:
-        - clickable build-libs
+        - clickable build-libs tdlib --arch armhf
     cache:
         key: deps-cache
         paths:
@@ -19,13 +31,13 @@ tg-plus:
     stage: build
     image: clickable/ci-16.04-armhf
     script:
-        - git submodule update --init libs/quickflux
         - clickable clean build click-build
     cache:
         key: deps-cache
         paths:
             - build/tdlib/arm-linux-gnueabihf
             - libs/vendor/tdlib
+            - libs/quickflux
     artifacts:
         paths:
             - build/teleports/*.click

@@ -12,26 +12,17 @@
   "libraries": [
     {
       "template": "custom",
-      "name": "tdlib",
-      "build": "../../../prepare-tdlib.sh",
-      "architectures": [
-        "amd64"
-      ],
-      "specificDependencies": "True",
+      "name": "tdlib-prepare",
       "dependencies": [
         "gperf"
       ],
-     "prebuild": "git submodule update --init --recursive"
+     "build": "cmake ../../../libs/vendor/tdlib && cmake --build . --target prepare_cross_compiling"
     },
     {
       "template": "cmake",
       "name": "tdlib",
       "src_dir": "libs/vendor/tdlib",
       "make_jobs": "1",
-      "architectures": [
-        "armhf", 
-        "amd64"
-      ],
       "dependencies": [
         "zlib1g-dev",
         "libssl-dev",

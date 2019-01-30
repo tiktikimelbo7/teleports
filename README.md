@@ -5,30 +5,19 @@ Teleports and its libraries are built using [clickable](https://clickable.bhdoug
 
 You need to build the dependencies (tdlib) once:
 
-    clickable build-libs
-
-This will build tdlib for amd64 and armhf. If you need just one of them, you
-can edit the [clickable.json](clickable.json) accordingly (see [clickable docs](http://clickable.bhdouglass.com/en/latest/clickable-json.html#architectures)).
+    git submodule update --init
+    clickable build-libs tdlib-prepare --arch amd64
+    clickable build-libs tdlib --arch armhf #if you want to build teleports for the device
+    clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
 
 From now on building the app is as simple as:
 
-    clickable
-
-## Running on desktop
-
-You can build and run the app using clickable as usual:
-
-    clickable desktop
+    clickable #for the phone
+    clickable desktop #for desktop
 
 If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
 remove the `.clickable` directory and try again. This may happen when
 switching between phone and desktop build.
-
-## Cleaning the tdlib
-
-You can clean the tdlib build by:
-
-    clickable clean-libs
 
 ## C++ Code Style/Formatting
 
