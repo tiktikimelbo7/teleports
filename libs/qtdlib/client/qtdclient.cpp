@@ -6,6 +6,7 @@
 #include <QJsonDocument>
 #include <QtConcurrent>
 #include <QtGui/QGuiApplication>
+#include <QNetworkInterface>
 #include "qtdthread.h"
 #include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
@@ -30,11 +31,12 @@ void sendTd(const QJsonObject &json) {
     td_json_client_send(tdlib->handle(), msg.constData());
 }
 
-QTdClient::QTdClient(QObject *parent) : QObject(parent),
-    m_worker(new QThread),
-    m_authState(Q_NULLPTR),
-    m_connectionState(Q_NULLPTR),
-    m_tagcounter(0)
+QTdClient::QTdClient(QObject *parent)
+    : QObject(parent)
+    , m_worker(new QThread)
+    , m_authState(Q_NULLPTR)
+    , m_connectionState(Q_NULLPTR)
+    , m_tagcounter(0)
 {
     init();
     QTdWorker *w = new QTdWorker;
@@ -302,10 +304,28 @@ void QTdClient::handleApplicationStateChanged(Qt::ApplicationState state)
                 {"type", QJsonObject{{"@type", "networkTypeNone"}}}});
             break;
         case Qt::ApplicationState::ApplicationActive:
-            qWarning() << "Application has been activated!";
+            QList<QNetworkInterface> interfaces = QNetworkInterface::allInterfaces();
+            QString networkType = "networkTypeNone";
+            bool isWifiUsed = false;
+            bool isRadioUsed = false;
+            Q_FOREACH (auto interface, interfaces) {
+                if(interface.name() == "wlan0") {
+                    isWifiUsed = interface.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning);
+                } else if (interface.name() == "rmnet0" || interface.name() == "rmnet1") {
+                    if(!isRadioUsed) {
+                        isRadioUsed = interface.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning);
+                    }
+                }
+            }
+            if(isWifiUsed) {
+                networkType = "networkTypeWiFi";
+            } else if (isRadioUsed) {
+                networkType = "networkTypeMobile";
+            }
+            qWarning() << "Application has been activated, network type:" << networkType;
             send(QJsonObject{
-                {"@type", "setNetworkType"},
-                {"type", QJsonObject{{"@type", "networkTypeMobile"}}}});
+                    { "@type", "setNetworkType" },
+                    { "type", QJsonObject{ { "@type", networkType } } } });
             break;
     }
 
