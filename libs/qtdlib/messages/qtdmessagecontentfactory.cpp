@@ -1,11 +1,27 @@
 #include "qtdmessagecontentfactory.h"
 #include <QDebug> // TEMP
+#include "content/qtdmessageanimation.h"
+#include "content/qtdmessageaudio.h"
+#include "content/qtdmessagebasicgroupchatcreate.h"
+#include "content/qtdmessagecall.h"
+#include "content/qtdmessagechataddmembers.h"
+#include "content/qtdmessagechatchangephoto.h"
+#include "content/qtdmessagechangechattitle.h"
+#include "content/qtdmessagechatdeletemember.h"
+#include "content/qtdmessagechatdeletephoto.h"
+#include "content/qtdmessagedocument.h"
+#include "content/qtdmessagephoto.h"
+#include "content/qtdmessagesticker.h"
+#include "content/qtdmessagetext.h"
+#include "content/qtdmessagevideo.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();
 
-
+    // TODO: create a map of QMap<@type, QTdObject::Type> so we can do fast lookups and
+    // switch on the type. Otherwise this is/elseif is going to get huge supporting all content
+    // types
     if (type == "messageText") {
         return new QTdMessageText(parent);
     } else if (type == "messageSticker") {
@@ -22,9 +38,22 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
           return new QTdMessageVideo(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
-    }
-    else if (type =="messageChatJoinByLink"){
-      return new QTdMessageHidden(parent);
+    } else if (type =="messageChatJoinByLink"){
+        return new QTdMessageHidden(parent);
+    } else if (type == "messageBasicGroupChatCreate") {
+        return new QTdMessageBasicGroupChatCreate(parent);
+    } else if (type == "messageCall") {
+        return new QTdMessageCall(parent);
+    } else if (type == "messageChatAddMembers") {
+        return new QTdMessageChatAddMembers(parent);
+    } else if (type == "messageChatChangePhoto") {
+        return new QTdMessageChatChangePhoto(parent);
+    } else if (type == "messageChatChangeTitle") {
+        return new QTdMessageChatChangeTitle(parent);
+    } else if (type == "messageChatDeleteMember") {
+        return new QTdMessageChatDeleteMember(parent);
+    } else if (type == "messageChatDeletePhoto") {
+        return new QTdMessageChatDeletePhoto(parent);
     }
     qDebug()<< "Message type "<< type << json;
     return new QTdMessageContent(parent);

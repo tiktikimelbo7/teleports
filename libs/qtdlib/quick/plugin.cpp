@@ -6,6 +6,7 @@
 #include "users.h"
 
 #include "auth/qtdauthstate.h"
+#include "call/qtdcalldiscardreason.h"
 #include "chat/qtdchat.h"
 #include "chat/qtdchatlistmodel.h"
 #include "chat/qtdchatlistsortfiltermodel.h"
@@ -22,6 +23,20 @@
 #include "messages/qtdmessagelistmodel.h"
 #include "messages/qtdmessagecontent.h"
 #include "messages/qtdchatstate.h"
+#include "messages/content/qtdmessageanimation.h"
+#include "messages/content/qtdmessageaudio.h"
+#include "messages/content/qtdmessagebasicgroupchatcreate.h"
+#include "messages/content/qtdmessagecall.h"
+#include "messages/content/qtdmessagechataddmembers.h"
+#include "messages/content/qtdmessagechatchangephoto.h"
+#include "messages/content/qtdmessagechangechattitle.h"
+#include "messages/content/qtdmessagechatdeletemember.h"
+#include "messages/content/qtdmessagechatdeletephoto.h"
+#include "messages/content/qtdmessagedocument.h"
+#include "messages/content/qtdmessagephoto.h"
+#include "messages/content/qtdmessagesticker.h"
+#include "messages/content/qtdmessagetext.h"
+#include "messages/content/qtdmessagevideo.h"
 
 #include "utils/qtdtextformatter.h"
 
@@ -45,6 +60,14 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdChatState>(uri, 1, 0, "ChatState", "Enum type is uncreatable");
 
     qmlRegisterType<QTdTextFormatter>(uri, 1, 0, "TextFormatter");
+
+    // qtdlib call
+    qmlRegisterUncreatableType<QTdCallDiscardReason>(uri, 1, 0, "QTdCallDiscardReason", "c++ class");
+    qmlRegisterUncreatableType<QTdCallDiscardReasonDeclined>(uri, 1, 0, "QTdCallDiscardReasonDeclined", "c++ class");
+    qmlRegisterUncreatableType<QTdCallDiscardReasonDisconnected>(uri, 1, 0, "QTdCallDiscardReasonDisconnected", "c++ class");
+    qmlRegisterUncreatableType<QTdCallDiscardReasonEmpty>(uri, 1, 0, "QTdCallDiscardReasonEmpty", "c++ class");
+    qmlRegisterUncreatableType<QTdCallDiscardReasonHungUp>(uri, 1, 0, "QTdCallDiscardReasonHungUp", "c++ class");
+    qmlRegisterUncreatableType<QTdCallDiscardReasonMissed>(uri, 1, 0, "QTdCallDiscardReasonMissed", "c++ class");
 
     // qtdlib common
     qmlRegisterUncreatableType<QTdObject>(uri, 1, 0, "QTdObject", "Base TD c++ class");
@@ -115,10 +138,19 @@ void QTdLib::registerQmlTypes()
     // qtdlib notifications
     qmlRegisterUncreatableType<QTdNotificationSettings>(uri, 1, 0, "QTdNotificationSettings", "C++ class");
 
+    // qtdlib messages
     qmlRegisterUncreatableType<QTdMessage>(uri, 1, 0, "QTdMessage", "C++ class");
+    // message content types
+    qmlRegisterUncreatableType<QTdMessageContent>(uri, 1, 0, "QTdMessageContent", "C++ class");
     qmlRegisterUncreatableType<QTdMessageAnimation>(uri, 1, 0, "QTdMessageAnimation", "C++ class");
     qmlRegisterUncreatableType<QTdMessageAudio>(uri, 1, 0, "QTdMessageAudio", "C++ class");
-    qmlRegisterUncreatableType<QTdMessageContent>(uri, 1, 0, "QTdMessageContent", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageBasicGroupChatCreate>(uri, 1, 0, "QTdMessageBasicGroupChatCreate", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageCall>(uri, 1, 0, "QTdMessageCall", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatAddMembers>(uri, 1, 0, "QTdMessageChatAddMembers", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatChangePhoto>(uri, 1, 0, "QTdMessageChatChangePhoto", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatChangeTitle>(uri, 1, 0, "QTdMessageChatChangeTitle", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatDeleteMember>(uri, 1, 0, "QTdMessageChatDeleteMember", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatDeletePhoto>(uri, 1, 0, "QTdMessageChatDeletePhoto", "C++ class");
     qmlRegisterUncreatableType<QTdMessageDocument>(uri, 1, 0, "QTdMessageDocument", "C++ class");
     qmlRegisterUncreatableType<QTdMessageHidden>(uri, 1, 0, "QTdMessageHidden", "C++ class");
     qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");

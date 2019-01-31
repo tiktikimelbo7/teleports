@@ -251,6 +251,7 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
     m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group){ emit basicGroup(group); });
     m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){ emit file(data); });
+    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data){ emit user(data); });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
