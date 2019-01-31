@@ -147,6 +147,7 @@ signals:
     void messages(QJsonObject messages);
     void message(QJsonObject message);
     void file(QJsonObject file);
+    void user(QJsonObject user);
 
 private slots:
     void handleRecv(const QJsonObject &data);

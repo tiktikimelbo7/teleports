@@ -1,6 +1,6 @@
 #include <QDateTime>
 #include <QDebug> 
-#include "messages/qtdtextentity.h"
+#include "messages/content/qtdtextentity.h"
 
 class QTdHelpers {
 

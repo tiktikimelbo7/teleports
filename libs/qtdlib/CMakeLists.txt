@@ -29,6 +29,7 @@ set(
     auth/requests/qtdauthpasswordresponse.cpp
     auth/requests/qtdauthlogoutresponse.cpp
     auth/requests/qtdauthdeleteaccountresponse.cpp
+    call/qtdcalldiscardreason.cpp
     chat/qtdchat.cpp
     chat/qtdchataction.cpp
     chat/qtdchatactionfactory.cpp
@@ -78,12 +79,54 @@ set(
     files/qtdanimation.cpp
     files/qtdsticker.cpp
     files/qtdvideo.cpp
-    messages/qtdtextentity.cpp
-    messages/qtdtextentitytype.cpp
-    messages/qtdmessage.cpp
+    messages/content/qtdtextentity.cpp
+    messages/content/qtdtextentitytype.cpp
+    messages/content/qtdmessagedate.cpp
+    messages/content/qtdmessagetext.cpp
+    messages/content/qtdmessagesticker.cpp
+    messages/content/qtdmessagephoto.cpp
+    messages/content/qtdmessageanimation.cpp
+    messages/content/qtdmessagevideo.cpp
+    messages/content/qtdmessageaudio.cpp
+    messages/content/qtdmessagedocument.cpp
+    messages/content/qtdmessagebasicgroupchatcreate.cpp
+    messages/content/qtdmessagecall.cpp
+    messages/content/qtdmessagechataddmembers.cpp
+    messages/content/qtdmessagechatchangephoto.cpp
+    messages/content/qtdmessagechangechattitle.cpp
+    messages/content/qtdmessagechatdeletemember.cpp
+    messages/content/qtdmessagechatdeletephoto.cpp
+    # todo -----
+#    messages/content/qtdmessagechatjoinbylink.cpp
+#    messages/content/qtdmessagechatsetttl.cpp
+#    messages/content/qtdmessagechatupgradefrom.cpp
+#    messages/content/qtdmessagechatupgradeto.cpp
+#    messages/content/qtdmessagecontact.cpp
+#    messages/content/qtdmessagecontactregistered.cpp
+#    messages/content/qtdmessagecustomserviceaction.cpp
+#    messages/content/qtdmessageexpiredphoto.cpp
+#    messages/content/qtdmessageexpiredvideo.cpp
+#    messages/content/qtdmessagegame.cpp
+#    messages/content/qtdmessagegamescore.cpp
+#    messages/content/qtdmessageinvoice.cpp
+#    messages/content/qtdmessagelocation.cpp
+#    messages/content/qtdmessagepassportdatareceived.cpp
+#    messages/content/qtdmessagepassportdatasent.cpp
+#    messages/content/qtdmessagepaymentsuccessful.cpp
+#    messages/content/qtdmessagepaymentsuccessfulbot.cpp
+#    messages/content/qtdmessagepinmessage.cpp
+#    messages/content/qtdmessagescreenshottaken.cpp
+#    messages/content/qtdmessagesupergroupchatcreate.cpp
+#    messages/content/qtdmessageunsupported.cpp
+#    messages/content/qtdmessagevenue.cpp
+#    messages/content/qtdmessagevideonote.cpp
+#    messages/content/qtdmessagevoicenote.cpp
+#    messages/content/qtdmessagewebsiteconnected.cpp
+    # end todo ----
+    messages/content/qtdformattedtext.cpp
+    messages/content/qtdwebpage.cpp
     messages/qtdmessagecontent.cpp
-    messages/qtdformattedtext.cpp
-    messages/qtdwebpage.cpp
+    messages/qtdmessage.cpp
     messages/qtdmessagecontentfactory.cpp
     messages/qtdmessagesendingstate.cpp
     messages/qtdmessagelistmodel.cpp
@@ -107,6 +150,7 @@ set(
     user/qtduserstatusfactory.cpp
     user/qtdprofilephoto.cpp
     user/requests/qtdblockuserrequest.cpp
+    user/requests/qtdgetuserrequest.cpp
     utils/qtdtextformatter.cpp
     quick/plugin.cpp
     quick/users.cpp

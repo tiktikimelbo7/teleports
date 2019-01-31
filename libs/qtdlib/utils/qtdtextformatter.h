@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QQuickTextDocument>
 #include "messages/qtdmessagecontent.h"
+#include "messages/content/qtdmessagetext.h"
 
 class QTdTextFormatter : public QObject
 {

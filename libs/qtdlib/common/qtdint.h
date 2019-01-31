@@ -79,7 +79,7 @@ public:
         bool ok = false;
         _value = res.toLongLong(&ok);
         if (!ok) {
-            qWarning() << "Failed parsing qint64 from json value";
+            qWarning() << "Failed parsing qint64 from json value: [Json]: " << v;
         }
     }
 

@@ -3,6 +3,9 @@
 #include "client/qtdclient.h"
 #include "user/qtdusers.h"
 #include "qtdmessagecontentfactory.h"
+#include "content/qtdmessagetext.h"
+#include "content/qtdmessagedate.h"
+#include "content/qtdmessagesticker.h"
 #include "common/qtdhelpers.h"
 //#include "i18n.h"
 
@@ -91,7 +94,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_isChannelPost = json["is_channel_post"].toBool();
     m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
-    m_replyToMessageId = json["replay_to_message_id"];
+    m_replyToMessageId = json["reply_to_message_id"];
 
     const QJsonObject content = json["content"].toObject();
     m_content = QTdMessageContentFactory::create(content, this);
@@ -186,13 +189,13 @@ QString QTdMessage::summary() const
     QString content;
 
     switch (m_content->type()) {
-    case QTdMessageContent::MESSAGE_TEXT:
+    case QTdObject::MESSAGE_TEXT:
     {
         auto *c = qobject_cast<QTdMessageText*>(m_content);
         content = c->text()->text();
         break;
     }
-    case QTdMessageText::MESSAGE_STICKER:
+    case QTdObject::MESSAGE_STICKER:
     {
         auto *c = qobject_cast<QTdMessageSticker*>(m_content);
         content = c->sticker()->emoji();
