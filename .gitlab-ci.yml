@@ -47,7 +47,6 @@ tg-plus:
 release:
     stage: release
     script:
-        - '[ -z "$CI_COMMIT_TAG" ] && exit 1'
         - release.sh
     only:
         - release-dev
