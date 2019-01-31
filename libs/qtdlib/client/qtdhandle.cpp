@@ -21,7 +21,7 @@ QSharedPointer<Handle> QTdHandle::instance()
 
 Handle::Handle(): m_handle(Q_NULLPTR) {
     m_handle = td_json_client_create();
-    td_set_log_verbosity_level(2);
+    td_set_log_verbosity_level(5);
 }
 
 void *Handle::handle() { return m_handle; }
