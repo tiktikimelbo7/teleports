@@ -12,6 +12,8 @@
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
 #include <QJsonDocument>
+#include <QRegExp>
+#include <set>
 
 
 QJsonObject execTd(const QJsonObject &json) {
@@ -308,13 +310,21 @@ void QTdClient::handleApplicationStateChanged(Qt::ApplicationState state)
             QString networkType = "networkTypeNone";
             bool isWifiUsed = false;
             bool isRadioUsed = false;
+            
+            std::set<QString> staticInterfaces = {"wlan"};
+            std::set<QString> mobileInterfaces = {"rmnet", "ccmni"};
+            
             Q_FOREACH (auto interface, interfaces) {
-                if(interface.name() == "wlan0") {
+                QString interfaceNameWithoutNumber = interface.name().remove(QRegExp("[0-9]"));
+                if(staticInterfaces.find(interfaceNameWithoutNumber) != staticInterfaces.end()) {
+                    // We are on a staticInterface
+                    qDebug() << "Static interface name without number: " << interfaceNameWithoutNumber;
                     isWifiUsed = interface.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning);
-                } else if (interface.name() == "rmnet0" || interface.name() == "rmnet1") {
-                    if(!isRadioUsed) {
-                        isRadioUsed = interface.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning);
-                    }
+                }
+                else if(mobileInterfaces.find(interfaceNameWithoutNumber) != mobileInterfaces.end()) {
+                    // We are on a mobileInterface
+                    qDebug() << "Mobile interface name without number: " << interfaceNameWithoutNumber;
+                    isRadioUsed = !isRadioUsed ? interface.flags() & (QNetworkInterface::IsUp | QNetworkInterface::IsRunning) : true;
                 }
             }
             if(isWifiUsed) {
