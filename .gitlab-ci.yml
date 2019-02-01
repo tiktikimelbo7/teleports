@@ -47,7 +47,7 @@ tg-plus:
 release:
     stage: release
     script:
-        - release.sh
+        - /builds/Flohack74/teleports/release.sh
     only:
         - release-dev
         - release
