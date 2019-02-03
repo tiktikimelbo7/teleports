@@ -100,13 +100,13 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("animated gif clicked")
+          console.log("video clicked")
           //TODO crashes the app sometimes or dbus ;)
           // if(media_video.isPlaying)media_video.pause()
           // else media_video.play()
           var properties;
           properties = {
-              "senderName": message.sender.username,
+              "fileName": video.video.fileName,
               "videoPreviewSource": localFileSource
           };
           pageStack.push("qrc:///pages/PreviewPage.qml", properties);

@@ -133,7 +133,7 @@ MessageItemBase {
           // else media_video.play()
           var properties;
           properties = {
-              "senderName": message.sender.username,
+              "fileName": animation.animation.fileName,
               "videoPreviewSource": localFileSource
           };
           pageStack.push("qrc:///pages/PreviewPage.qml", properties);
