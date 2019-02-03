@@ -14,7 +14,10 @@ tdlib-prepare:
     cache:
         key: deps-cache
         paths:
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
+            - libs/quickflux
 
 tdlib:
     stage: deps
@@ -24,8 +27,10 @@ tdlib:
     cache:
         key: deps-cache
         paths:
-            - build/tdlib/arm-linux-gnueabihf
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
+            - libs/quickflux
 
 tg-plus:
     stage: build
@@ -35,7 +40,8 @@ tg-plus:
     cache:
         key: deps-cache
         paths:
-            - build/tdlib/arm-linux-gnueabihf
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
             - libs/quickflux
     artifacts:
