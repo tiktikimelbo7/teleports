@@ -16,13 +16,13 @@
       "dependencies": [
         "gperf"
       ],
-     "build": "cmake ../../../libs/vendor/tdlib && cmake --build . --target prepare_cross_compiling"
+      "build": "cmake ../../../libs/vendor/tdlib && cmake --build . --target prepare_cross_compiling"
     },
     {
       "template": "cmake",
       "name": "tdlib",
       "src_dir": "libs/vendor/tdlib",
-      "make_jobs": "1",
+      "make_jobs": "1 tdjson",
       "dependencies": [
         "zlib1g-dev",
         "libssl-dev",
