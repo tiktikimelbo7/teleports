@@ -13,44 +13,53 @@ MessageItemBase {
     property QTdMessageDocument document: message.content
     property QTdLocalFile documentLocal: document.document.document.local
     property QTdPhotoSize thumbnail: document.document.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.local
+    property QTdLocalFile thumbnailLocal: thumbnail.local ? thumbnail.local : null
     property url localFileSource: document && documentLocal.path ? Qt.resolvedUrl("file://" + documentLocal.path) : ""
+
     Item {
       id: documentContainer
+      width: maximumAvailableContentWidth
+      // width:  documentIcon.width+fileNameLabel.width+Suru.units.gu(2))
+      height:Math.max(fileNameLabel.height,documentIcon.height)
+
       Component.onCompleted: {
           // console.log("c_reg",this,"\n")
           if (documentLocal.canBeDownloaded && !documentLocal.isDownloadingCompleted) {
               document.document.document.downloadFile();
           }
-          if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
+          if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
               thumbnail.downloadFile();
           }
       }
-    }
-    UITK.Icon {
-        id: documentIcon
-        source: "qrc:/qml/icons/download.svg"
-        anchors {
-          top: parent.top
-          left: parent.left
-          topMargin: units.dp(4)
-          bottomMargin: units.dp(4)
-          rightMargin: units.dp(4)
-        }
-        width: height
-    }
-    Label {
-        id: fileNameLabel
-        height: contentHeight
-        anchors{
-          left: documentIcon.right
-        }
-        text: document.document.fileName
+      UITK.Icon {
+          id: documentIcon
+          source: "qrc:/qml/icons/download.svg"
+          anchors {
+            top: parent.top
+            left: parent.left
+            bottomMargin: Suru.units.gu(0.5)
+          }
+          width: height
+      }
+      Label {
+          id: fileNameLabel
+          height: contentHeight
+          wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+          anchors{
+            left: documentIcon.right
+            right: parent.right
+            top: parent.top
+            leftMargin: Suru.units.gu(2)
+          }
+          text: document.document.fileName
+          color: Suru.foregroundColor
+
+      }
     }
     Column {
         anchors {
             top: documentContainer.bottom
-            topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
+            topMargin: textEdit.text ? Suru.units.dp(5) : Suru.units.dp(0)
         }
         spacing: Suru.units.gu(2)
 
