@@ -20,7 +20,7 @@ MessageItemBase {
       id: documentContainer
       width: maximumAvailableContentWidth
       // width:  documentIcon.width+fileNameLabel.width+Suru.units.gu(2))
-      height:Math.max(fileNameLabel.height,documentIcon.height)
+      height:Math.max(fileNameLabel.height,fileIcon.height)
 
       Component.onCompleted: {
           // console.log("c_reg",this,"\n")
@@ -31,22 +31,34 @@ MessageItemBase {
               thumbnail.downloadFile();
           }
       }
-      UITK.Icon {
-          id: documentIcon
-          source: "qrc:/qml/icons/download.svg"
-          anchors {
-            top: parent.top
-            left: parent.left
-            bottomMargin: Suru.units.gu(0.5)
-          }
-          width: height
+      Item {
+        id: fileIcon
+        height: documentIcon.height
+        width: height
+        anchors.rightMargin: Suru.units.gu(2)
+        UITK.Icon {
+            id: documentIcon
+            visible: documentLocal.isDownloadingCompleted
+            source: "qrc:/qml/icons/download.svg"
+            anchors {
+              top: parent.top
+              left: parent.left
+              bottomMargin: Suru.units.gu(0.5)
+            }
+            width: height
+        }
+        BusyIndicator {
+          visible: !documentLocal.isDownloadingCompleted
+          anchors.fill: parent
+          running: !documentLocal.isDownloadingCompleted
+        }
       }
       Label {
           id: fileNameLabel
           height: contentHeight
           wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
           anchors{
-            left: documentIcon.right
+            left: fileIcon.right
             right: parent.right
             top: parent.top
             leftMargin: Suru.units.gu(2)
@@ -92,13 +104,15 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("document clicked")
-          var properties;
-          pageStack.push("qrc:///pages/PickerPage.qml", {
-              "url": localFileSource,
-              "handler": ContentHandler.Destination,
-              "contentType": ContentType.Links
-          });
+          if(documentLocal.isDownloadingCompleted){
+            console.log("document clicked")
+            var properties;
+            pageStack.push("qrc:///pages/PickerPage.qml", {
+                "url": localFileSource,
+                "handler": ContentHandler.Destination,
+                "contentType": ContentType.Links
+            });
+          }
         }
     }
 }

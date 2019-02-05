@@ -63,11 +63,21 @@ MessageItemBase {
         anchors.fill: parent
         source:animation && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
       }
-      UITK.Icon {
-          source: "qrc:/qml/icons/playMedia.svg"
-          width: units.gu(7)
-          height: units.gu(7)
-          anchors.centerIn: parent
+      Item {
+        id: fileIcon
+        width: units.gu(7)
+        height: units.gu(7)
+        anchors.centerIn: parent
+        UITK.Icon {
+            visible: animationLocal.isDownloadingCompleted
+            source: "qrc:/qml/icons/playMedia.svg"
+            anchors.fill: parent
+        }
+        BusyIndicator {
+            anchors.centerIn: parent
+            visible: !animationLocal.isDownloadingCompleted
+            running: !animationLocal.isDownloadingCompleted
+        }
       }
 
       // BusyIndicator {
@@ -127,18 +137,18 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("animated gif clicked")
-          //TODO crashes the app sometimes or dbus ;)
-          // if(media_video.isPlaying)media_video.pause()
-          // else media_video.play()
-          var properties;
-          properties = {
-              "fileName": animation.animation.fileName,
-              "videoPreviewSource": localFileSource
-          };
-          pageStack.push("qrc:///pages/PreviewPage.qml", properties);
-
-
+          if(animationLocal.isDownloadingCompleted){
+            console.log("animated gif clicked")
+            //TODO crashes the app sometimes or dbus ;)
+            // if(media_video.isPlaying)media_video.pause()
+            // else media_video.play()
+            var properties;
+            properties = {
+                "fileName": animation.animation.fileName,
+                "videoPreviewSource": localFileSource
+            };
+            pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          }
          }
     }
 }

@@ -31,7 +31,7 @@ MessageItemBase {
       // }
       // width: Math.min(maximumAvailableContentWidth,audioIcon.width+fileNameLabel.contentWidth+Suru.units.gu(2))
       width: maximumAvailableContentWidth
-      height:Math.max(fileNameLabel.height,audioIcon.height)
+      height:Math.max(fileNameLabel.height,fileIcon.height)
       Connections {
           target: audio.audio.audio
           onFileChanged: {
@@ -46,8 +46,14 @@ MessageItemBase {
               thumbnail.downloadFile();
           }
       }
-      UITK.Icon {
+      Item {
+        id: fileIcon
+        height:audioIcon.height
+        width: height
+        anchors.rightMargin: Suru.units.gu(2)
+        UITK.Icon {
           id: audioIcon
+          visible: audioLocal.isDownloadingCompleted
           source: audioLocal.isDownloadingCompleted ? "qrc:/qml/icons/playMedia.svg" : ""
           anchors {
             top: parent.top
@@ -55,14 +61,21 @@ MessageItemBase {
             bottomMargin: Suru.units.gu(0.5)
           }
           width: height
+        }
+        BusyIndicator {
+          visible: !audioLocal.isDownloadingCompleted
+          anchors.fill: parent
+          running: !audioLocal.isDownloadingCompleted
+        }
       }
+
       TextEdit {
           id: fileNameLabel
           height: contentHeight
           width: parent.width - audioIcon.width
           wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
           anchors{
-            left: audioIcon.right
+            left: fileIcon.right
             right: parent.right
             top: parent.top
             leftMargin: Suru.units.gu(2)
@@ -109,13 +122,16 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("audio clicked "+ audioLocal.path)
-          var properties;
-          properties = {
-              "fileName": audio.audio.fileName,
-              "audioPreviewSource": localFileSource
-          };
-          pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          if(audioLocal.isDownloadingCompleted){
+            console.log("audio clicked "+ audioLocal.path)
+            var properties;
+            properties = {
+                "fileName": audio.audio.fileName,
+                "audioPreviewSource": localFileSource
+            };
+            pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          }
+
 
 
          }
