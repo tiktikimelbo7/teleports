@@ -9,6 +9,10 @@
 #include "content/qtdmessagechangechattitle.h"
 #include "content/qtdmessagechatdeletemember.h"
 #include "content/qtdmessagechatdeletephoto.h"
+#include "content/qtdmessagechatjoinbylink.h"
+#include "content/qtdmessagechatsetttl.h"
+#include "content/qtdmessagechatupgradefrom.h"
+#include "content/qtdmessagechatupgradeto.h"
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
@@ -39,7 +43,7 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
     } else if (type =="messageChatJoinByLink"){
-        return new QTdMessageHidden(parent);
+        return new QTdMessageChatJoinByLink(parent);
     } else if (type == "messageBasicGroupChatCreate") {
         return new QTdMessageBasicGroupChatCreate(parent);
     } else if (type == "messageCall") {
@@ -54,6 +58,12 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatDeleteMember(parent);
     } else if (type == "messageChatDeletePhoto") {
         return new QTdMessageChatDeletePhoto(parent);
+    } else if (type == "messageChatSetTtl") {
+        return new QTdMessageChatSetTTL(parent);
+    } else if (type == "messageChatUgradeFrom") {
+        return new QTdMessageChatUpgradeFrom(parent);
+    } else if (type == "messageChatUgradeTo") {
+        return new QTdMessageChatUpgradeTo(parent);
     }
     qDebug()<< "Message type "<< type << json;
     return new QTdMessageContent(parent);

@@ -32,6 +32,10 @@
 #include "messages/content/qtdmessagechangechattitle.h"
 #include "messages/content/qtdmessagechatdeletemember.h"
 #include "messages/content/qtdmessagechatdeletephoto.h"
+#include "messages/content/qtdmessagechatjoinbylink.h"
+#include "messages/content/qtdmessagechatsetttl.h"
+#include "messages/content/qtdmessagechatupgradefrom.h"
+#include "messages/content/qtdmessagechatupgradeto.h"
 #include "messages/content/qtdmessagedocument.h"
 #include "messages/content/qtdmessagephoto.h"
 #include "messages/content/qtdmessagesticker.h"
@@ -151,6 +155,10 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessageChatChangeTitle>(uri, 1, 0, "QTdMessageChatChangeTitle", "C++ class");
     qmlRegisterUncreatableType<QTdMessageChatDeleteMember>(uri, 1, 0, "QTdMessageChatDeleteMember", "C++ class");
     qmlRegisterUncreatableType<QTdMessageChatDeletePhoto>(uri, 1, 0, "QTdMessageChatDeletePhoto", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatJoinByLink>(uri, 1, 0, "QTdMessageChatJoinByLink", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatSetTTL>(uri, 1, 0, "QTdMessageChatSetTTL", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatUpgradeFrom>(uri, 1, 0, "QTdMessageChatUpgradeFrom", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageChatUpgradeTo>(uri, 1, 0, "QTdMessageChatUpgradeTo", "C++ class");
     qmlRegisterUncreatableType<QTdMessageDocument>(uri, 1, 0, "QTdMessageDocument", "C++ class");
     qmlRegisterUncreatableType<QTdMessageHidden>(uri, 1, 0, "QTdMessageHidden", "C++ class");
     qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");

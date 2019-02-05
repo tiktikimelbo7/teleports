@@ -189,10 +189,6 @@ void QTdClient::init()
         emit updateUser(data["user"].toObject());
     });
 
-    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data){
-        emit updateUser(data);
-    });
-
     m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data){
         const QString userId = QString::number(qint32(data["user_id"].toInt()));
         emit updateUserStatus(userId, data["status"].toObject());
@@ -200,10 +196,6 @@ void QTdClient::init()
 
     m_events.insert(QStringLiteral("updateFile"), [=](const QJsonObject &data){
         emit updateFile(data["file"].toObject());
-    });
-
-    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){
-        emit updateFile(data);
     });
 
     m_events.insert(QStringLiteral("updateNewChat"), [=](const QJsonObject &data){
@@ -250,8 +242,14 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data){ emit error(data); });
     m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
     m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group){ emit basicGroup(group); });
-    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){ emit file(data); });
-    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data){ emit user(data); });
+    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){
+        emit updateFile(data);
+        emit file(data);
+    });
+    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data){
+        emit updateUser(data);
+        emit user(data);
+    });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
