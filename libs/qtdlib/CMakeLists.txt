@@ -96,11 +96,11 @@ set(
     messages/content/qtdmessagechangechattitle.cpp
     messages/content/qtdmessagechatdeletemember.cpp
     messages/content/qtdmessagechatdeletephoto.cpp
+    messages/content/qtdmessagechatjoinbylink.cpp
+    messages/content/qtdmessagechatsetttl.cpp
+    messages/content/qtdmessagechatupgradefrom.cpp
+    messages/content/qtdmessagechatupgradeto.cpp
     # todo -----
-#    messages/content/qtdmessagechatjoinbylink.cpp
-#    messages/content/qtdmessagechatsetttl.cpp
-#    messages/content/qtdmessagechatupgradefrom.cpp
-#    messages/content/qtdmessagechatupgradeto.cpp
 #    messages/content/qtdmessagecontact.cpp
 #    messages/content/qtdmessagecontactregistered.cpp
 #    messages/content/qtdmessagecustomserviceaction.cpp
