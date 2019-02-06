@@ -36,18 +36,23 @@ MessageItemBase {
         anchors.fill: parent
         source:video && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
       }
-      UITK.Icon {
-          source: "qrc:/qml/icons/playMedia.svg"
-          width: units.gu(7)
-          height: units.gu(7)
-          anchors.centerIn: parent
-      }
+      Item {
+        id: fileIcon
+        width: units.gu(7)
+        height: units.gu(7)
+        anchors.centerIn: parent
+        UITK.Icon {
+            visible: videoLocal.isDownloadingCompleted
+            source: "qrc:/qml/icons/playMedia.svg"
+            anchors.fill: parent
+        }
 
-      // BusyIndicator {
-      //     anchors.centerIn: parent
-      //     running: media_video.status === VideoOutput.Loading
-      //              || media_video.status === VideoOutput.Null
-      // }
+        BusyIndicator {
+            visibele: !videoLocal.isDownloadingCompleted
+            anchors.centerIn: parent
+            running: !videoLocal.isDownloadingCompleted
+        }
+      }
       Connections {
           target: video.video.video
           // onFileChanged: {
@@ -100,16 +105,18 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("animated gif clicked")
-          //TODO crashes the app sometimes or dbus ;)
-          // if(media_video.isPlaying)media_video.pause()
-          // else media_video.play()
-          var properties;
-          properties = {
-              "senderName": message.sender.username,
-              "videoPreviewSource": localFileSource
-          };
-          pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          if(videoLocal.isDownloadingCompleted){
+            console.log("video clicked")
+            //TODO crashes the app sometimes or dbus ;)
+            // if(media_video.isPlaying)media_video.pause()
+            // else media_video.play()
+            var properties;
+            properties = {
+                "fileName": video.video.fileName,
+                "videoPreviewSource": localFileSource
+            };
+            pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          }
 
 
          }

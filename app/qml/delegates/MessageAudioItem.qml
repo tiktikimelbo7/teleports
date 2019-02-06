@@ -12,7 +12,7 @@ MessageItemBase {
     property QTdMessageAudio audio: message.content
     property QTdLocalFile audioLocal: audio.audio.audio.local
     property QTdPhotoSize thumbnail: audio.audio.albumCoverThumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.local
+    property QTdLocalFile thumbnailLocal: thumbnail.local ? thumbnail.local : null
     property url localFileSource: audio && audioLocal.path ? Qt.resolvedUrl("file://" + audioLocal.path) : ""
     Item {
       id: audioContainer
@@ -29,42 +29,63 @@ MessageItemBase {
       //     running: media_video.status === VideoOutput.Loading
       //              || media_video.status === VideoOutput.Null
       // }
+      // width: Math.min(maximumAvailableContentWidth,audioIcon.width+fileNameLabel.contentWidth+Suru.units.gu(2))
+      width: maximumAvailableContentWidth
+      height:Math.max(fileNameLabel.height,fileIcon.height)
       Connections {
           target: audio.audio.audio
           onFileChanged: {
-              media_video.reload();
+              // do something when media is loaded/changed
           }
       }
       Component.onCompleted: {
-          // console.log("c_reg",this,"\n")
           if (audioLocal.canBeDownloaded && !audioLocal.isDownloadingCompleted) {
               audio.audio.audio.downloadFile();
           }
-          if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
+          if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
               thumbnail.downloadFile();
           }
       }
-    }
-    UITK.Icon {
-        id: audioIcon
-        source: "qrc:/qml/icons/playMedia.svg"
-        anchors {
-            left: parent.left
-            topMargin: units.dp(4)
-            bottomMargin: units.dp(4)
-            rightMargin: units.dp(1)
-        }
+      Item {
+        id: fileIcon
+        height:audioIcon.height
         width: height
-    }
-    TextEdit {
-        id: fileNameLabel
-        height: contentHeight
-        anchors{
-          left: audioIcon.right
+        anchors.rightMargin: Suru.units.gu(2)
+        UITK.Icon {
+          id: audioIcon
+          visible: audioLocal.isDownloadingCompleted
+          source: audioLocal.isDownloadingCompleted ? "qrc:/qml/icons/playMedia.svg" : ""
+          anchors {
+            top: parent.top
+            left: parent.left
+            bottomMargin: Suru.units.gu(0.5)
+          }
+          width: height
         }
-        text: audio.audio.fileName
-        color: Suru.foregroundColor
+        BusyIndicator {
+          visible: !audioLocal.isDownloadingCompleted
+          anchors.fill: parent
+          running: !audioLocal.isDownloadingCompleted
+        }
+      }
+
+      TextEdit {
+          id: fileNameLabel
+          height: contentHeight
+          width: parent.width - audioIcon.width
+          wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+          anchors{
+            left: fileIcon.right
+            right: parent.right
+            top: parent.top
+            leftMargin: Suru.units.gu(2)
+          }
+          text: audio.audio.fileName
+          color: Suru.foregroundColor
+      }
     }
+
+
     Column {
         anchors {
             top: audioContainer.bottom
@@ -101,16 +122,16 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log("audio clicked")
-          //TODO crashes the app sometimes or dbus ;)
-          // if(media_video.isPlaying)media_video.pause()
-          // else media_video.play()
-          var properties;
-          properties = {
-              "senderName": message.sender.username,
-              "audioPreviewSource": localFileSource
-          };
-          pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          if(audioLocal.isDownloadingCompleted){
+            console.log("audio clicked "+ audioLocal.path)
+            var properties;
+            properties = {
+                "fileName": audio.audio.fileName,
+                "audioPreviewSource": localFileSource
+            };
+            pageStack.push("qrc:///pages/PreviewPage.qml", properties);
+          }
+
 
 
          }

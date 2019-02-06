@@ -5,10 +5,14 @@ import "../actions"
 
 Store {
 
+    EnableNotifications {
+        id: enableNotifications
+    }
+
     Filter {
         type: NotificationsKey.enableNotifications
         onDispatched: {
-            // TODO: Notifications enabled, get over it!
+            enableNotifications.enable ( message.token )
         }
     }
 

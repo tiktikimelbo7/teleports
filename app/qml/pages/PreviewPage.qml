@@ -24,14 +24,14 @@ import "../components"
 
 
 Page {
-    property string senderName: ""
+    property string fileName: ""
     property string photoPreviewSource: ""
     property string audioPreviewSource: ""
     property string videoPreviewSource: ""
 
     id: previewPage
     header:UITK.PageHeader{
-      title: i18n.tr("From: ") + senderName
+      title: i18n.tr("File: ") + fileName
       leadingActionBar.actions:[
         UITK.Action {
           id: backAction
