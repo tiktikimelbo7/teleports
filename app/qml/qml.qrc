@@ -24,6 +24,7 @@
         <file>actions/AppActions.qml</file>
         <file>actions/ChatActions.qml</file>
         <file>actions/NotificationsAction.qml</file>
+        <file>actions/NotificationsKey.qml</file>
         <file>actions/ChatKey.qml</file>
         <file>actions/UserStateActions.qml</file>
         <file>actions/UserStateKey.qml</file>

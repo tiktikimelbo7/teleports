@@ -15,6 +15,8 @@ tdlib-prepare:
     cache:
         key: deps-cache
         paths:
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
 
 tdlib:
@@ -25,20 +27,22 @@ tdlib:
     cache:
         key: deps-cache
         paths:
-            - build/tdlib/arm-linux-gnueabihf
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
 
-tg-plus:
+teleports:
     stage: build
     image: clickable/ci-16.04-armhf
     script:
-        - clickable clean build click-build
+        - clickable build click-build
     cache:
         key: deps-cache
+        policy: pull
         paths:
-            - build/tdlib/arm-linux-gnueabihf
+            - build/tdlib
+            - build/tdlib-prepare
             - libs/vendor/tdlib
-            - libs/quickflux
     artifacts:
         paths:
             - build/teleports/*.click

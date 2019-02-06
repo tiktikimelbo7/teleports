@@ -50,6 +50,7 @@ $ # Reformat the staged changes you made.
 $ ./tools/apply-format -i --staged
 $ # Commit the result.
 $ git commit
+```
 
 ## Known issues
 

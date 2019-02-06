@@ -68,6 +68,4 @@ ApplicationWindow {
         }
     }
 
-    TGPushClient { id: pushClient }
-
 }

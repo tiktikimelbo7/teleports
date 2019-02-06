@@ -17,6 +17,11 @@ Store {
         id: chatsStore
     }
 
+    property alias notificationsStateStore: notificationsStateStore
+    NotificationsStateStore {
+        id: notificationsStateStore
+    }
+
     property alias settings: settingsStore
     SettingsStore {
         id: settingsStore
