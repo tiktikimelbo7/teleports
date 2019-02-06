@@ -17,7 +17,6 @@ tdlib-prepare:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-            - libs/quickflux
 
 tdlib:
     stage: deps
@@ -30,20 +29,19 @@ tdlib:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-            - libs/quickflux
 
-tg-plus:
+teleports:
     stage: build
     image: clickable/ci-16.04-armhf
     script:
-        - clickable clean build click-build
+        - clickable build click-build
     cache:
         key: deps-cache
+        policy: pull
         paths:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-            - libs/quickflux
     artifacts:
         paths:
             - build/teleports/*.click
