@@ -41,6 +41,7 @@
 #include "messages/content/qtdmessagesticker.h"
 #include "messages/content/qtdmessagetext.h"
 #include "messages/content/qtdmessagevideo.h"
+#include "notifications/qtdenablenotifications.h"
 
 #include "utils/qtdtextformatter.h"
 
@@ -64,6 +65,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdChatState>(uri, 1, 0, "ChatState", "Enum type is uncreatable");
 
     qmlRegisterType<QTdTextFormatter>(uri, 1, 0, "TextFormatter");
+    qmlRegisterType<QTdEnableNotifications>(uri, 1, 0, "EnableNotifications");
 
     // qtdlib call
     qmlRegisterUncreatableType<QTdCallDiscardReason>(uri, 1, 0, "QTdCallDiscardReason", "c++ class");

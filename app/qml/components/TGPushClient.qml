@@ -9,41 +9,72 @@ import "../actions"
 import "../stores"
 
 
-PushClient {
-    id: pushClient
+Item {
 
-    property var errorReport: null
-    onTokenChanged: console.log("👍 Registered new token=======================================================: '", token, "'")
-    Component.onCompleted: {
-        console.log("PUSHCOMPLETE=======================================================", token)
-        onTokenChanged: console.log("👍 Registered new token (2)=======================================================: '", token, "'")
-        error.connect(pusherror)
-    }
+    property alias token: pushClient.token
 
-    function pusherror ( reason ) {
-        console.warn("👹 Error with pushclient=======================================================:",reason)
-        if ( reason === "bad auth" ) {
-            //PopupUtils.open( noUbuntuOneDialog )
+    Component {
+        id: dialog
+
+        Dialog {
+            id: dialogue
+            title: i18n.tr("No Ubuntu One")
+            Rectangle {
+                height: units.gu(0.2)
+                width: parent.width
+                color: settings.mainColor
+            }
+            Label {
+                text: i18n.tr("Please connect to Ubuntu One to receive push notifications.")
+                width: parent.width
+                wrapMode: Text.Wrap
+            }
+            Button {
+                width: parent.width
+                text: i18n.tr("Close")
+                onClicked: {
+                    saveSettings.onceDialog = true
+                    PopupUtils.close(dialogue)
+                }
+            }
         }
-        else errorReport = reason
     }
 
-    function enable () {
-        if (errorReport === null) return
-        console.log("👷 Try to enable push notifications with token: '%1'".arg(token))
-        AppActions.notificiations.enableNotifications ( token )
-        // TODO: Send request to the telegram server
+    Settings {
+        id: saveSettings
+        property var onceDialog: false
     }
 
-    // TODO: Why is this not working? (AppListener is not a type)
-    // TODO: When the user is logged in -> Enable push notifications
-    // TODO: When the user starts the app AND is logged in AND push notifications are not enabled -> Enable push notifications
-    /*AppListener {
-    Filter {
-    type: AuthKey.authPasswordAccepted
-    onDispatched: pushClient.enable ()
-}
-}*/
+    PushClient {
+        id: pushClient
 
-appId: "teleports.ubports_teleports"
+        property var errorReport: null
+
+        onTokenChanged: {
+            console.log("👍 Registered new token: '", token, "'")
+        if ( token !== "" ) {
+                AppActions.notifications.enableNotifications(token);
+            }
+        }
+
+        Component.onCompleted: {
+            error.connect(pusherror)
+            //notificationsChanged.connect(newNotification)
+        }
+
+        /* Use for debugging:
+        function newNotification ( message ) {
+            console.log("NEW NOTIFICATION:", JSON.stringify(message))
+        }*/
+
+        function pusherror ( reason ) {
+            if ( reason === "bad auth" && !saveSettings.onceDialog ) {
+                PopupUtils.open(dialog)
+            }
+            else console.warn("👹 Error with pushclient:",reason)
+        }
+
+        appId: "teleports.ubports_teleports"
+    }
+
 }
