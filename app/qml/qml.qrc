@@ -23,8 +23,6 @@
         <file>pages/MessageListPage.qml</file>
         <file>actions/AppActions.qml</file>
         <file>actions/ChatActions.qml</file>
-        <file>actions/NotificationsAction.qml</file>
-        <file>actions/NotificationsKey.qml</file>
         <file>actions/ChatKey.qml</file>
         <file>actions/UserStateActions.qml</file>
         <file>actions/UserStateKey.qml</file>
@@ -36,7 +34,6 @@
         <file>components/CountryCodes.js</file>
         <file>components/CountryPicker.qml</file>
         <file>components/ProfilePhoto.qml</file>
-        <file>components/TGPushClient.qml</file>
         <file>components/MediaViewer.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
@@ -60,5 +57,8 @@
         <file>pages/GroupDetailsPage.qml</file>
         <file>delegates/MessageDateItem.qml</file>
         <file>components/InputInfoBox.qml</file>
+        <file>actions/ViewActions.qml</file>
+        <file>actions/ViewKeys.qml</file>
+        <file>middleware/ErrorsMiddleware.qml</file>
     </qresource>
 </RCC>

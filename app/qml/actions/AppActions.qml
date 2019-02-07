@@ -17,13 +17,13 @@ Item {
         id: user
     }
 
-    property alias notifications: notifications
-    NotificationsAction {
-        id: notifications
-    }
-
     property alias settings: settings
     SettingsActions {
         id: settings
+    }
+
+    property alias view: view
+    ViewActions {
+        id: view
     }
 }

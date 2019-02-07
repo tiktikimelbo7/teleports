@@ -1,19 +1,31 @@
 import QtQuick 2.4
 import QuickFlux 1.1
 import QTelegram 1.0
+import Ubuntu.PushNotifications 0.1
 import "../actions"
 
 Store {
 
     EnableNotifications {
         id: enableNotifications
+        token: pushClient.token
+        onError: AppActions.view.showError(i18n.tr("Push Registration Failed"), error)
     }
 
-    Filter {
-        type: NotificationsKey.enableNotifications
-        onDispatched: {
-            enableNotifications.enable ( message.token )
+
+    PushClient {
+        id: pushClient
+        appId: "teleports.ubports_teleports"
+        onTokenChanged: console.log("Got push token: ", token)
+        onError: {
+            if ( error === "bad auth" && !settings.u1DialogShown ) {
+                AppActions.view.showError(
+                            i18n.tr("No Ubuntu One"),
+                            i18n.tr("Please connect to Ubuntu One to receive push notifications."),
+                            SettingsKey.u1dialogShown
+                            )
+            }
+            else console.warn("👹 Error with pushclient:", error)
         }
     }
-
 }

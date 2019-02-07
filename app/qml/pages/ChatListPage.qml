@@ -36,8 +36,6 @@ Page {
         ]
     }
 
-    TGPushClient { id: pushClient }
-
     ScrollView {
         anchors.fill: parent
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff

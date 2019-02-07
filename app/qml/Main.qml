@@ -4,8 +4,10 @@ import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QuickFlux 1.1
 import QTelegram 1.0
-import "./stores"
+import "./actions"
 import "./components"
+import "./middleware"
+import "./stores"
 
 ApplicationWindow {
     id: root
@@ -22,6 +24,7 @@ ApplicationWindow {
     Suru.theme: Telegram.settings.theme
 
     UITK.StyledItem {
+        id: rootItem
         theme.name: Telegram.settings.uitkTheme
         anchors.fill: parent
 
@@ -38,6 +41,16 @@ ApplicationWindow {
                 }
                 onBottomMarginChanged: console.debug("TODO: implement scrool to correct position")
             }
+        }
+
+        /**
+         * View Middleware
+         *
+         * Used for showing dialogs etc
+         */
+        MiddlewareList {
+            applyTarget: AppActions.view
+            ErrorsMiddleware {}
         }
     }
 
@@ -67,5 +80,7 @@ ApplicationWindow {
             }
         }
     }
+
+
 
 }
