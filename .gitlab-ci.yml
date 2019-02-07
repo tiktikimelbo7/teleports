@@ -18,8 +18,8 @@ tdlib-prepare:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-    except:
-        - tags
+    only:
+        - branches
         
 tdlib:
     stage: deps
@@ -32,8 +32,8 @@ tdlib:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-    except:
-        - tags
+    only:
+        - branches
         
 teleports:
     stage: build
@@ -51,8 +51,8 @@ teleports:
         paths:
             - build/teleports/*.click
         expire_in: 1 week
-    except:
-        - tags
+    only:
+        - branches
         
 release:
     stage: release
