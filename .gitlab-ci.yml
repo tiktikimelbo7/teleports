@@ -18,7 +18,9 @@ tdlib-prepare:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-
+    except:
+        - tags
+        
 tdlib:
     stage: deps
     image: clickable/ci-16.04-armhf
@@ -30,7 +32,9 @@ tdlib:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-
+    except:
+        - tags
+        
 teleports:
     stage: build
     image: clickable/ci-16.04-armhf
@@ -47,6 +51,8 @@ teleports:
         paths:
             - build/teleports/*.click
         expire_in: 1 week
+    except:
+        - tags
         
 release:
     stage: release
