@@ -53,7 +53,7 @@ release:
     script:
         - /builds/Flohack74/teleports/release.sh
     only:
-        - /^(release-)(\d+\.)?(\d+\.)?(\*|\d+)$/
+        - /^(release-|devrel-)(\d+\.)?(\d+\.)?(\*|\d+)$/
     except:
         - branches
         
