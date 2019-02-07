@@ -141,6 +141,7 @@ set(
     network/requests/qtdsetnetworktype.cpp
     notifications/qtdnotificationsettings.cpp
     notifications/qtdenablenotifications.cpp
+    notifications/qtdregisterdevicerequest.cpp
     user/qtduser.cpp
     user/qtdusers.cpp
     user/qtdlinkstate.cpp

@@ -6,11 +6,14 @@ import "../actions"
 Store {
     readonly property alias theme: s.theme
     readonly property alias uitkTheme: s.uitkTheme
+    readonly property alias u1DialogShown: s.onceDialog
 
     Settings {
         id: s
         property int theme: 0 // 0 = Suru.Light, 1 = Suru.Dark, 2 = Suru.System
         property var uitkTheme: "Ubuntu.Components.Themes.Ambiance"
+        // Dialog shown for U1 account needed for push notifications
+        property bool onceDialog: false
     }
 
     Filter {
@@ -20,6 +23,15 @@ Store {
             switch(theme) {
                 case 0: s.uitkTheme = "Ubuntu.Components.Themes.Ambiance"; break;
                 case 1: s.uitkTheme = "Ubuntu.Components.Themes.SuruDark"; break;
+            }
+        }
+    }
+
+    Filter {
+        type: SettingsKey.u1dialogShown
+        onDispatched: {
+            if (!s.onceDialog) {
+                s.onceDialog = true
             }
         }
     }
