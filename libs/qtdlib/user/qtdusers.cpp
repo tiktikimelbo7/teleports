@@ -104,3 +104,42 @@ QTdUser *QTdUsers::currentUser() const
 {
     return m_currentUser;
 }
+
+QTdUsersSortFilterModel::QTdUsersSortFilterModel(QObject *parent) : QSortFilterProxyModel(parent)
+{
+    setDynamicSortFilter(true);
+    connect(this, &QTdUsersSortFilterModel::countChanged, this, &QTdUsersSortFilterModel::rowCountChanged);
+}
+
+QTdUser *QTdUsersSortFilterModel::get(const int &row)
+{
+    QModelIndex idx = index(row, 0);
+    if (idx.isValid()) {
+        QModelIndex srcIdx = mapToSource(idx);
+        if (srcIdx.isValid()) {
+            QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser>*>(sourceModel());
+            return model->at(srcIdx.row());
+        }
+    }
+    return nullptr;
+}
+
+void QTdUsersSortFilterModel::setAllowedUsers(QList<qint32> user_ids)
+{
+    if (user_ids == m_uids) {
+        return;
+    }
+    m_uids = user_ids;
+    emit allowedUsersChanged();
+    invalidateFilter();
+}
+
+bool QTdUsersSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser>*>(sourceModel());
+    QTdUser *user = model->at(source_row);
+    if (!user) {
+        return false;
+    }
+    return m_uids.contains(user->id());
+}
