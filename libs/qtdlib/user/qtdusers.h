@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QJsonObject>
+#include <QSortFilterProxyModel>
 #include "user/qtduser.h"
 #include "models/QmlObjectListModel.h"
 
@@ -46,6 +47,38 @@ private:
     QPointer<QTdUser> m_meMyself;
     QPointer<QTdUser> m_currentUser;
 
+};
+
+/**
+ * @brief The QTdUsersSortFilterModel class
+ *
+ * Filters users to only show the allowed user ids
+ *
+ * This makes it easier to reuse the global user instance
+ * to just show a subset of user.
+ */
+class QTdUsersSortFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdUsersSortFilterModel)
+    Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
+public:
+    explicit QTdUsersSortFilterModel(QObject *parent = nullptr);
+    Q_INVOKABLE QTdUser *get(const int &row);
+
+public slots:
+    void setAllowedUsers(QList<qint32> user_ids);
+
+signals:
+    void countChanged();
+    void allowedUsersChanged();
+    void rowCountChanged();
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+
+private:
+    QList<qint32> m_uids;
 };
 
 #endif // QTDUSERS_H

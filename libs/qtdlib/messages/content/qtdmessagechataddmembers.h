@@ -22,7 +22,7 @@ public:
 
     QObject *members() const;
 
-    QList<QTdInt32> memberUserIds() const;
+    QList<qint32> memberUserIds() const;
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -30,8 +30,8 @@ signals:
     void membersChanged();
 
 private:
-    QPointer<QQmlObjectListModel<QTdUser>> m_model;
-    QList<QTdInt32> m_member_user_ids;
+    QScopedPointer<QTdUsersSortFilterModel> m_model;
+    QList<qint32> m_member_user_ids;
 };
 
 #endif // QTDMESSAGECHATADDMEMBERS_H
