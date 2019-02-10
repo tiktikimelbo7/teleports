@@ -6,12 +6,6 @@ QTdRequest::QTdRequest(QObject *parent) : QTdObject(parent)
 {
 }
 
-QFuture<QTdResponse> QTdRequest::sendAsync()
-{
-    qWarning() << "sendAsync not implemented in base class";
-    return {};
-}
-
 void QTdRequest::send()
 {
     return QTdClient::instance()->send(this);

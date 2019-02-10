@@ -18,7 +18,7 @@ class QTdRequest : public QTdObject
 public:
     explicit QTdRequest(QObject *parent = nullptr);
 
-    virtual QFuture<QTdResponse> sendAsync();
+    virtual QFuture<QTdResponse> sendAsync() = 0;
     virtual void send();
     virtual QFuture<QJsonObject> exec();
 };
