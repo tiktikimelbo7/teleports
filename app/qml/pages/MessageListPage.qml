@@ -12,8 +12,8 @@ import "../delegates"
 import "../stores"
 
 Page {
+    property QTdChat currentChat: Telegram.chats.currentChat
     header: UITK.PageHeader {
-        property QTdChat currentChat: Telegram.chats.currentChat
         title: Telegram.chats && currentChat ? currentChat.title : ""
         subtitle: {
             if (Telegram.chats && currentChat)
@@ -190,10 +190,9 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     mouse.accepted = true;
-                    header.clicked();
+                    currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user) : AppActions.chat.viewGroupInfo(currentChat)
                 }
             }
-
         }
     }
 
