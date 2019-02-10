@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-04 20:45+0000\n"
+"POT-Creation-Date: 2019-02-09 17:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,17 +51,59 @@ msgstr ""
 msgid "Saved Messages"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
-msgid "Enter Password"
+#: ../app/qml/stores/NotificationsStateStore.qml:12
+msgid "Push Registration Failed"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
-msgid "Password"
+#: ../app/qml/stores/NotificationsStateStore.qml:23
+msgid "No Ubuntu One"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:48
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-msgid "Next..."
+#: ../app/qml/stores/NotificationsStateStore.qml:24
+msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:77
+msgid "Auth code not expected right now"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:83
+msgid "Oops! Internal error."
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:89
+msgid "Incorrect auth code length."
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:46
+msgid "About"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:35
+#: ../app/qml/pages/GroupDetailsPage.qml:29
+#: ../app/qml/pages/UserProfilePage.qml:27
+msgid "Back"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:57 ../app/qml/pages/ChatListPage.qml:18
+#: teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:64
+msgid "Version %1"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:82
+msgid "Get the source"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:83
+msgid "Report issues"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:84
+msgid "Help translate"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:19
@@ -84,14 +126,6 @@ msgstr ""
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:34
-msgid "File: "
-msgstr ""
-
-#: ../app/qml/pages/PreviewPage.qml:48
-msgid "Save"
-msgstr ""
-
 #: ../app/qml/pages/SettingsPage.qml:21
 msgid "Offline"
 msgstr ""
@@ -102,15 +136,6 @@ msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:24 ../app/qml/pages/ChatListPage.qml:30
 msgid "Settings"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:35 ../app/qml/pages/UserProfilePage.qml:27
-#: ../app/qml/pages/GroupDetailsPage.qml:29 ../app/qml/pages/AboutPage.qml:23
-msgid "Back"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:46 ../app/qml/pages/AboutPage.qml:12
-msgid "About"
 msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:81
@@ -160,26 +185,36 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
-msgid "Enter Phone Number"
+#: ../app/qml/pages/PreviewPage.qml:34
+msgid "File: "
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
-#: ../app/qml/components/CountryPicker.qml:21
-msgid "Choose a country"
+#: ../app/qml/pages/PreviewPage.qml:48
+msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-msgid "Phone number"
+#: ../app/qml/pages/ChatListPage.qml:63
+msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
-msgid "Please confirm your country code and enter your phone number."
+#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
+msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/pages/UserProfilePage.qml:16
-msgid "Profile"
+#: ../app/qml/pages/ChatListPage.qml:79
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:258
+msgid "Are you sure you want to leave this chat?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:260
+msgid "Leave"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:269
+msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/pages/GroupDetailsPage.qml:18
@@ -214,53 +249,43 @@ msgstr ""
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:57 ../app/qml/pages/ChatListPage.qml:18
-#: teleports.desktop.in.h:1
-msgid "TELEports"
+#: ../app/qml/pages/UserProfilePage.qml:16
+msgid "Profile"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:64
-msgid "Version %1"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:82
-msgid "Get the source"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+#: ../app/qml/components/CountryPicker.qml:21
+msgid "Choose a country"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:83
-msgid "Report issues"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:84
-msgid "Help translate"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:63
-msgid "Leave chat"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
+#: ../app/qml/pages/WaitPasswordPage.qml:48
+msgid "Next..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
-msgid "Clear history"
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+msgid "Enter Password"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:79
-msgid "Info"
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:258
-msgid "Are you sure you want to leave this chat?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:260
-msgid "Leave"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:269
-msgid "Are you sure you want to clear the history?"
-msgstr ""
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
 msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:13
@@ -276,9 +301,8 @@ msgstr ""
 msgid "not available"
 msgstr ""
 
-#. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
-#: ../app/qml/delegates/MessageDateItem.qml:41
-msgid "dd MMMM"
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
 msgstr ""
 
 #: ../app/qml/delegates/MessageItemBase.qml:41
@@ -297,14 +321,18 @@ msgstr ""
 msgid "Edited"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:77
-msgid "Auth code not expected right now"
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "dd MMMM"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:83
-msgid "Oops! Internal error."
+#: ../app/qml/delegates/MessageJoinByLink.qml:4
+msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:89
-msgid "Incorrect auth code length."
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:8
+msgid "%1 joined the group"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:15
+msgid "%1 users"
 msgstr ""

@@ -60,5 +60,7 @@
         <file>actions/ViewActions.qml</file>
         <file>actions/ViewKeys.qml</file>
         <file>middleware/ErrorsMiddleware.qml</file>
+        <file>delegates/MessageJoinByLink.qml</file>
+        <file>delegates/MessageChatAddMembersItem.qml</file>
     </qresource>
 </RCC>
