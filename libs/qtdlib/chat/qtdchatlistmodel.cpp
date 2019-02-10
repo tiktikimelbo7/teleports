@@ -8,7 +8,7 @@
 #include "chat/qtdchattypefactory.h"
 
 QTdChatListModel::QTdChatListModel(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_currentChat(Q_NULLPTR), m_viewedInDetailGroup(Q_NULLPTR)
+    m_model(Q_NULLPTR), m_currentChat(Q_NULLPTR)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateNewChat, this, &QTdChatListModel::handleUpdateNewChat);
@@ -35,11 +35,6 @@ QTdChat *QTdChatListModel::currentChat() const
     return m_currentChat;
 }
 
-QTdChat *QTdChatListModel::viewedInDetailGroup() const
-{
-    return m_viewedInDetailGroup;
-}
-
 void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
 {
     if (m_currentChat == currentChat)
@@ -47,15 +42,6 @@ void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
     m_currentChat = currentChat;
     emit currentChatChanged(m_currentChat);
 }
-
-void QTdChatListModel::setViewedInDetailGroup(QTdChat *group)
-{
-    if (m_viewedInDetailGroup == group)
-        return;
-    m_viewedInDetailGroup = group;
-    emit viewedInDetailGroupChanged(m_viewedInDetailGroup);
-}
-
 
 void QTdChatListModel::clearCurrentChat()
 {

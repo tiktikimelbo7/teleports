@@ -11,6 +11,9 @@ import "../stores"
 
 Page {
     id: groupDetailsPage
+
+    property QTdChat chat: null
+
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
@@ -28,7 +31,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                    AppActions.chat.leaveGroupDetails()
+                    AppActions.view.popFromStack()
                 }
             }
         ]
@@ -66,10 +69,10 @@ Page {
 
                     height: units.gu(13)
                     width: height
-                    photoPath: Telegram.chats.viewedInDetailGroup.chatPhoto.small.local.path ?
-                                    Telegram.chats.viewedInDetailGroup.chatPhoto.small.local.path : ""
-                    initials: Telegram.chats.viewedInDetailGroup.initials ? Telegram.chats.viewedInDetailGroup.initials : "N/A"
-                    avatarColor: Telegram.chats.viewedInDetailGroup.avatarColor(Telegram.chats.viewedInDetailGroup.rawId)
+                    photoPath: chat.chatPhoto.small.local.path ?
+                                    chat.chatPhoto.small.local.path : ""
+                    initials: chat.initials ? chat.initials : "N/A"
+                    avatarColor: chat.avatarColor(chat.rawId)
                     myself: false
                 }
 
@@ -88,9 +91,9 @@ Page {
                                 top: units.gu(0.25)
                                 bottom: units.gu(2)
                             }
-                            title.text: Telegram.chats.viewedInDetailGroup.title
+                            title.text: chat.title
                             title.font.pixelSize: units.gu(2.5)
-                            subtitle.text: Telegram.chats.viewedInDetailGroup.memberCount
+                            subtitle.text: i18n.tr("Members: %1").arg(parseInt(chat.memberCount))
                             subtitle.font.pixelSize: units.gu(1.5)
                         }
                     }
@@ -98,7 +101,7 @@ Page {
                     Item {
                         height: chatInviteLinkLayout.height
                         width: chatInviteLinkLayout.width
-                        visible: Telegram.chats.viewedInDetailGroup.inviteLink
+                        visible: chat.inviteLink
 
                         UITK.ListItemLayout {
                             id: chatInviteLinkLayout
@@ -115,7 +118,7 @@ Page {
                                 UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                             }
 
-                            title.text: Telegram.chats.viewedInDetailGroup.inviteLink
+                            title.text: chat.inviteLink
                         }
                     }
 
@@ -139,7 +142,7 @@ Page {
                             }*/
 
                             //title.text.wrapMode: Text.WordWrap
-                            title.text: Telegram.chats.viewedInDetailGroup.description
+                            title.text: chat.description
                         }
                     }
                 }

@@ -17,17 +17,14 @@ Store {
      */
     property alias list: chatList.model
     property alias currentChat: chatList.currentChat
-    property alias viewedInDetailGroup: chatList.viewedInDetailGroup
     ChatList {
         id: chatList
         onCurrentChatChanged: {
-            console.log("CURRENT CHAT CHANGED")
             if (chatList.currentChat) {
                 messageList.loadMore()
-                AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/MessageListPage.qml"})
-            }
-            else {
-                AppDispatcher.dispatch("popFromStack")
+                AppActions.view.pushToStack("qrc:/pages/MessageListPage.qml", {})
+            } else {
+                AppActions.view.popFromStack()
             }
         }
     }
@@ -159,21 +156,6 @@ Store {
             if (chat) {
                 chat.deleteChatHistory()
             }
-        }
-    }
-
-    Filter {
-        type: ChatKey.viewInDetail
-        onDispatched: {
-            chatList.viewedInDetailGroup = message.chat;
-            AppDispatcher.dispatch("pushToStack", {view: "qrc:/pages/GroupDetailsPage.qml"});
-        }
-    }
-
-    Filter {
-        type: ChatKey.leaveGroupDetails
-        onDispatched: {
-            AppDispatcher.dispatch("popFromStack");
         }
     }
 

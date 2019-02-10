@@ -3,7 +3,9 @@ import QuickFlux 1.1
 import "./"
 
 ActionCreator {
-  signal setCurrentUser(var user)
-  signal clearCurrentUser()
-  signal setCurrentUserById(var userId)
+
+
+    function showUserInfo(user) {
+        view.pushToStack("qrc:/pages/UserProfilePage.qml", {user: user})
+    }
 }

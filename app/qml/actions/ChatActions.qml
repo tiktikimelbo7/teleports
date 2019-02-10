@@ -13,9 +13,6 @@ ActionCreator {
     signal leaveChat(string chatId);
     signal deleteChatHistory(string chatId);
 
-    signal viewInDetail(var chat)
-    signal leaveGroupDetails();
-
     signal deleteMessage(string id)
     signal forwardMessage(string id)
     signal requestEditMessage(var message)
@@ -24,4 +21,11 @@ ActionCreator {
     signal requestReplyToMessage(var message)
     signal sendReplyToMessage(string id, string text)
     signal showStickerPack(string stickerId)
+
+
+    function viewGroupInfo(chat) {
+        view.pushToStack("qrc:/pages/GroupDetailsPage.qml", {
+                             chat: chat
+                         })
+    }
 }
