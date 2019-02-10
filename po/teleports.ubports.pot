@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 15:57+0000\n"
+"POT-Creation-Date: 2019-02-10 19:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,12 +322,37 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/delegates/MessageItemBase.qml:209
+#: ../app/qml/delegates/MessageItemBase.qml:213
 msgid "Edited"
 msgstr ""
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:52
+msgid "Call Declined"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:54
+msgid "Call Disconnected"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:57
+msgid "Call Ended"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:59
+msgid "Cancelled Call"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:59
+msgid "Missed Call"
+msgstr ""
+
+#: ../app/qml/delegates/MessageCallItem.qml:72
+#, javascript-format
+msgid "Duration: %1.%2"
 msgstr ""
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:4

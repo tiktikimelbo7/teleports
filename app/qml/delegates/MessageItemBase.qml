@@ -103,6 +103,10 @@ UITK.ListItem {
                     return "transparent";
                 }
                 if (message.isOutgoing) {
+                    if (message.content.type === QTdObject.MESSAGE_CALL) {
+                        return Suru.secondaryBackgroundColor
+                    }
+
                     if (message.sendingState) { // unsent
                         return Suru.neutralColor
                     } else if (message.id > chat.lastReadOutboxMessageId) { //sent
