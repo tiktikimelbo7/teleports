@@ -3,6 +3,10 @@ import QuickFlux 1.1
 import "./"
 
 ActionCreator {
+
+    signal pushToStack(string view, var properties)
+    signal replaceOnStack(string view, var properties)
+    signal popFromStack()
     /**
      * Show error in popup dialog
      *

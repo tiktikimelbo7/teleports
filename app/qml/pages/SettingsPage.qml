@@ -14,6 +14,8 @@ import "../stores"
 
 Page {
     id: settingsPage
+    property QTdUser me: Telegram.users.me
+
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
@@ -34,7 +36,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                  AppActions.user.clearCurrentUser()
+                  AppActions.view.popFromStack()
                 }
             }
         ]
@@ -46,7 +48,7 @@ Page {
                 text: i18n.tr("About")
                 iconName: "info"
                 onTriggered: {
-                    pageStack.push("qrc:///pages/AboutPage.qml")
+                    AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
                 }
             }
         ]
@@ -69,7 +71,9 @@ Page {
             //    visible: Telegram.users.currentUser == Telegram.users.me
             //}
 
-            UserProfile {}
+            UserProfile {
+                user: me
+            }
 
             UITK.ListItem {
                UITK.ListItemLayout {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-09 17:46+0000\n"
+"POT-Creation-Date: 2019-02-10 14:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "dd.MM.yy hh:mm"
 msgstr ""
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
-#: ../app/qml/pages/SettingsPage.qml:21 ../app/qml/pages/SettingsPage.qml:125
+#: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
 msgid "Online"
 msgstr ""
 
@@ -75,13 +75,13 @@ msgstr ""
 msgid "Incorrect auth code length."
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:46
+#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:35
-#: ../app/qml/pages/GroupDetailsPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:27
+#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:37
+#: ../app/qml/pages/GroupDetailsPage.qml:32
+#: ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr ""
 
@@ -126,53 +126,53 @@ msgstr ""
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:21
+#: ../app/qml/pages/SettingsPage.qml:23
 msgid "Offline"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:21
+#: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:24 ../app/qml/pages/ChatListPage.qml:30
+#: ../app/qml/pages/SettingsPage.qml:26 ../app/qml/pages/ChatListPage.qml:30
 msgid "Settings"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:81
+#: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:101 ../app/qml/pages/SettingsPage.qml:150
+#: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
 msgid "Logout"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:114
+#: ../app/qml/pages/SettingsPage.qml:118
 msgid "Delete account"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:125
+#: ../app/qml/pages/SettingsPage.qml:129
 msgid "Not online"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:130
+#: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:135
+#: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:135
+#: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith not limited"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:148
+#: ../app/qml/pages/SettingsPage.qml:152
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:159
+#: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -180,7 +180,7 @@ msgid ""
 "account?"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:161
+#: ../app/qml/pages/SettingsPage.qml:165
 #: ../app/qml/delegates/MessageItemBase.qml:31
 msgid "Delete"
 msgstr ""
@@ -193,32 +193,25 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:63
+#: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:68 ../app/qml/pages/ChatListPage.qml:271
+#: ../app/qml/pages/ChatListPage.qml:64
+#: ../app/qml/middleware/ChatMiddleware.qml:23
 msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:79
+#: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:258
-msgid "Are you sure you want to leave this chat?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:260
-msgid "Leave"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:269
-msgid "Are you sure you want to clear the history?"
-msgstr ""
-
-#: ../app/qml/pages/GroupDetailsPage.qml:18
+#: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
+msgstr ""
+
+#: ../app/qml/pages/GroupDetailsPage.qml:96
+msgid "Members: %1"
 msgstr ""
 
 #: ../app/qml/pages/PickerPage.qml:15
@@ -249,7 +242,7 @@ msgstr ""
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/UserProfilePage.qml:16
+#: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
 msgstr ""
 
@@ -284,6 +277,18 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+msgid "Are you sure you want to clear the history?"
+msgstr ""
+
+#: ../app/qml/middleware/ChatMiddleware.qml:32
+msgid "Are you sure you want to leave this chat?"
+msgstr ""
+
+#: ../app/qml/middleware/ChatMiddleware.qml:33
+msgid "Leave"
+msgstr ""
+
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
 msgstr ""
@@ -296,8 +301,8 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/qml/components/UserProfile.qml:74
-#: ../app/qml/components/UserProfile.qml:98
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
 msgstr ""
 
@@ -317,7 +322,7 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/delegates/MessageItemBase.qml:211
+#: ../app/qml/delegates/MessageItemBase.qml:209
 msgid "Edited"
 msgstr ""
 

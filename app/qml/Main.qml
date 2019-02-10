@@ -43,44 +43,22 @@ ApplicationWindow {
             }
         }
 
-        /**
-         * View Middleware
-         *
-         * Used for showing dialogs etc
-         */
         MiddlewareList {
-            applyTarget: AppActions.view
+            applyTarget: AppDispatcher
+            /**
+             * View Middleware
+             *
+             * Used for showing errors, conrolling the stack etc
+             */
+            StackMiddleware {
+                stack: pageStack
+            }
             ErrorsMiddleware {}
+
+            /**
+             * Chat Middleware
+             */
+            ChatMiddleware{}
         }
     }
-
-    AppListener {
-        Filter {
-            type: "pushToStack"
-            onDispatched: {
-                pageStack.push(message.view, message.properties)
-            }
-        }
-
-        Filter {
-            type: "replaceOnStack"
-            onDispatched: {
-                if (pageStack.depth) {
-                    pageStack.clear()
-                }
-                pageStack.push(message.view, message.properties)
-            }
-        }
-
-
-        Filter {
-            type: "popFromStack"
-            onDispatched: {
-                pageStack.pop()
-            }
-        }
-    }
-
-
-
 }

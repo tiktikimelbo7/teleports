@@ -10,8 +10,6 @@ KeyTable {
     property string sendChatAction
     property string leaveChat
     property string deleteChatHistory
-    property string viewInDetail
-    property string leaveGroupDetails
     property string deleteMessage
     property string replyToMessage
     property string requestEditMessage
@@ -21,4 +19,6 @@ KeyTable {
     property string sendReplyToMessage
     property string showStickerPack
     property string forwardMessage
+
+    property string viewGroupInfo
 }

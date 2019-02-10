@@ -29,9 +29,7 @@ Page {
                 objectName: "settingsIcon"
                 text: i18n.tr("Settings")
                 iconName: "settings"
-                onTriggered: {
-                    AppActions.user.setCurrentUser(Telegram.users.me)
-                }
+                onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
             }
         ]
     }
@@ -52,22 +50,20 @@ Page {
                 height: layout.height
                 color: chat.isSecret ? "lightgreen" : "transparent"
 
-                onClicked: {
-                    AppActions.chat.setCurrentChat(chat)
-                }
+                onClicked: AppActions.chat.setCurrentChat(chat)
 
                 leadingActions: UITK.ListItemActions {
                     actions: [
                         UITK.Action {
                             iconName: "system-log-out"
                             text: i18n.tr("Leave chat")
-                            onTriggered: UITK_Popups.PopupUtils.open(leaveChatConfirmationDialog)
+                            onTriggered: AppActions.chat.leaveChat(chat.id)
                         },
                         UITK.Action {
                             iconName: "edit-clear"
                             text: i18n.tr("Clear history")
                             visible: chat.isPrivate
-                            onTriggered: UITK_Popups.PopupUtils.open(clearHistoryConfirmationDialog)
+                            onTriggered: AppActions.chat.deleteChatHistory(chat.id)
                         }
                     ]
                 }
@@ -77,7 +73,7 @@ Page {
                         UITK.Action {
                             iconName: "info"
                             text: i18n.tr("Info")
-                            onTriggered: chat.isPrivate ? AppActions.user.setCurrentUserById(chat.chatType.userId) : AppActions.chat.viewInDetail(chat)
+                            onTriggered: chat.isPrivate ? AppActions.user.showUserInfo(chat.chatType.user) : AppActions.chat.viewGroupInfo(chat)
                         }
                     ]
                 }
@@ -249,28 +245,6 @@ Page {
                                 width: height
                             }
                         }
-                    }
-                }
-
-                Component {
-                    id: leaveChatConfirmationDialog
-                    PopupDialog {
-                        text: i18n.tr("Are you sure you want to leave this chat?")
-                        confirmButtonColor: UITK.UbuntuColors.red
-                        confirmButtonText: i18n.tr("Leave")
-                        cancelButtonColor: UITK.UbuntuColors.green
-                        onConfirmed: AppActions.chat.leaveChat(chat.id)
-                    }
-                }
-
-                Component {
-                    id: clearHistoryConfirmationDialog
-                    PopupDialog {
-                        text: i18n.tr("Are you sure you want to clear the history?")
-                        confirmButtonColor: UITK.UbuntuColors.red
-                        confirmButtonText: i18n.tr("Clear history")
-                        cancelButtonColor: UITK.UbuntuColors.green
-                        onConfirmed: AppActions.chat.deleteChatHistory(chat.id)
                     }
                 }
             }

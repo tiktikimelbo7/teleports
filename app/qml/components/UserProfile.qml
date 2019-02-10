@@ -9,17 +9,20 @@ import "../components"
 import "../stores"
 
 RowLayout {
-    anchors.fill: parent
     id: profile
+
+    property QTdUser user: null
+
+    anchors.fill: parent
     spacing: units.gu(1)
 
     ProfilePhoto {
         id: profilePhoto
         height: units.gu(13)
         width: height
-        photo: Telegram.users.currentUser.profilePhoto
-        initials: Telegram.users.currentUser.initials
-        avatarColor: Telegram.users.currentUser.avatarColor
+        photo: user.profilePhoto
+        initials: user.initials
+        avatarColor: user.avatarColor
 
         MouseArea {
             anchors.fill: parent
@@ -44,9 +47,9 @@ RowLayout {
                     top: units.gu(0.25)
                     bottom: units.gu(2)
                 }
-                title.text: Telegram.users.currentUser.firstName + " " + Telegram.users.currentUser.lastName
+                title.text: user.firstName + " " + user.lastName
                 title.font.pixelSize: units.gu(2.5)
-                subtitle.text: Telegram.users.currentUser.status.string 
+                subtitle.text: user.status.string
                 subtitle.font.pixelSize: units.gu(1.5)
             }
         }
@@ -70,8 +73,8 @@ RowLayout {
                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                 }
 
-                title.text: Telegram.users.currentUser.username ? "@" + Telegram.users.currentUser.username
-                                                                : i18n.tr("not available")
+                title.text: user.username ? "@" + user.username
+                                          : i18n.tr("not available")
             }
         }
 
@@ -86,7 +89,7 @@ RowLayout {
                     top: 0
                     bottom: 0
                 }
- 
+
                 UITK.Icon {
                     height: parent.title.height
                     width: parent.title.height
@@ -94,10 +97,10 @@ RowLayout {
                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                 }
 
-                title.text: Telegram.users.currentUser.phoneNumber ? "<a href='#'>+" + Telegram.users.currentUser.phoneNumber + "</a>"
-                                                                   : i18n.tr("not available")
+                title.text: user.phoneNumber ? "<a href='#'>+" + user.phoneNumber + "</a>"
+                                             : i18n.tr("not available")
                 title.onLinkActivated: {
-                    onClicked: Qt.openUrlExternally("tel:///+" + Telegram.users.currentUser.phoneNumber)
+                    onClicked: Qt.openUrlExternally("tel:///+" + user.phoneNumber)
                 }
             }
         }

@@ -6,7 +6,7 @@
 #include "user/qtduserstatusfactory.h"
 
 QTdUsers::QTdUsers(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_meMyself(Q_NULLPTR), m_currentUser(Q_NULLPTR)
+    m_model(Q_NULLPTR), m_meMyself(Q_NULLPTR)
 {
     m_model = new QQmlObjectListModel<QTdUser>(this, "", "id");
     m_meMyself = new QTdUser(this);
@@ -85,26 +85,6 @@ void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &
 
 }
 
-void QTdUsers::setCurrentUser(QTdUser *currentUser)
-{
-    if (m_currentUser == currentUser)
-        return;
-
-    m_currentUser = currentUser;
-    emit currentUserChanged(m_currentUser);
-}
-
-void QTdUsers::clearCurrentUser()
-{
-    m_currentUser = Q_NULLPTR;
-    emit currentUserChanged(m_currentUser);
-}
-
-QTdUser *QTdUsers::currentUser() const
-{
-    return m_currentUser;
-}
-
 QTdUsersSortFilterModel::QTdUsersSortFilterModel(QObject *parent) : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
@@ -143,3 +123,4 @@ bool QTdUsersSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex
     }
     return m_uids.contains(user->id());
 }
+

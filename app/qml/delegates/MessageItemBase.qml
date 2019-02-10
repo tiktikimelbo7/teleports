@@ -92,9 +92,7 @@ UITK.ListItem {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    AppActions.user.setCurrentUser(message.sender)
-                }
+                onClicked: AppActions.user.showUserInfo(message.sender)
             }
         }
 

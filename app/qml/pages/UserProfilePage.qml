@@ -9,6 +9,9 @@ import "../components"
 
 Page {
     id: userProfilePage
+
+    property QTdUser user: null
+
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
@@ -26,7 +29,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                  AppActions.user.clearCurrentUser()
+                    AppActions.view.popFromStack()
                 }
             }
         ]
@@ -44,7 +47,9 @@ Page {
                 fill: parent
             }
 
-            UserProfile {}
+            UserProfile {
+                user: userProfilePage.user
+            }
         }
     }
 }
