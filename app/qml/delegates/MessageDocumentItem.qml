@@ -7,6 +7,7 @@ import QtMultimedia 5.8
 import QTelegram 1.0
 import QuickFlux 1.1
 import Ubuntu.Content 1.1
+import "../actions"
 import "../components"
 
 MessageItemBase {
@@ -17,56 +18,56 @@ MessageItemBase {
     property url localFileSource: document && documentLocal.path ? Qt.resolvedUrl("file://" + documentLocal.path) : ""
 
     Item {
-      id: documentContainer
-      width: maximumAvailableContentWidth
-      // width:  documentIcon.width+fileNameLabel.width+Suru.units.gu(2))
-      height:Math.max(fileNameLabel.height,fileIcon.height)
+        id: documentContainer
+        width: maximumAvailableContentWidth
+        // width:  documentIcon.width+fileNameLabel.width+Suru.units.gu(2))
+        height:Math.max(fileNameLabel.height,fileIcon.height)
 
-      Component.onCompleted: {
-          // console.log("c_reg",this,"\n")
-          if (documentLocal.canBeDownloaded && !documentLocal.isDownloadingCompleted) {
-              document.document.document.downloadFile();
-          }
-          if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
-              thumbnail.downloadFile();
-          }
-      }
-      Item {
-        id: fileIcon
-        height: documentIcon.height
-        width: height
-        anchors.rightMargin: Suru.units.gu(2)
-        UITK.Icon {
-            id: documentIcon
-            visible: documentLocal.isDownloadingCompleted
-            source: "qrc:/qml/icons/download.svg"
-            anchors {
-              top: parent.top
-              left: parent.left
-              bottomMargin: Suru.units.gu(0.5)
+        Component.onCompleted: {
+            // console.log("c_reg",this,"\n")
+            if (documentLocal.canBeDownloaded && !documentLocal.isDownloadingCompleted) {
+                document.document.document.downloadFile();
             }
+            if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
+                thumbnail.downloadFile();
+            }
+        }
+        Item {
+            id: fileIcon
+            height: documentIcon.height
             width: height
+            anchors.rightMargin: Suru.units.gu(2)
+            UITK.Icon {
+                id: documentIcon
+                visible: documentLocal.isDownloadingCompleted
+                source: "qrc:/qml/icons/download.svg"
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    bottomMargin: Suru.units.gu(0.5)
+                }
+                width: height
+            }
+            BusyIndicator {
+                visible: !documentLocal.isDownloadingCompleted
+                anchors.fill: parent
+                running: !documentLocal.isDownloadingCompleted
+            }
         }
-        BusyIndicator {
-          visible: !documentLocal.isDownloadingCompleted
-          anchors.fill: parent
-          running: !documentLocal.isDownloadingCompleted
-        }
-      }
-      Label {
-          id: fileNameLabel
-          height: contentHeight
-          wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
-          anchors{
-            left: fileIcon.right
-            right: parent.right
-            top: parent.top
-            leftMargin: Suru.units.gu(2)
-          }
-          text: document.document.fileName
-          color: Suru.foregroundColor
+        Label {
+            id: fileNameLabel
+            height: contentHeight
+            wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
+            anchors{
+                left: fileIcon.right
+                right: parent.right
+                top: parent.top
+                leftMargin: Suru.units.gu(2)
+            }
+            text: document.document.fileName
+            color: Suru.foregroundColor
 
-      }
+        }
     }
     Column {
         anchors {
@@ -104,15 +105,14 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          if(documentLocal.isDownloadingCompleted){
-            console.log("document clicked")
-            var properties;
-            pageStack.push("qrc:///pages/PickerPage.qml", {
-                "url": localFileSource,
-                "handler": ContentHandler.Destination,
-                "contentType": ContentType.Links
-            });
-          }
+            if(documentLocal.isDownloadingCompleted){
+                console.log("document clicked")
+                AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
+                                                "url": localFileSource,
+                                                "handler": ContentHandler.Destination,
+                                                "contentType": ContentType.Links
+                                            });
+            }
         }
     }
 }

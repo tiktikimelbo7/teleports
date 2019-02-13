@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3 as UITK
 import QtQuick.Controls.Suru 2.2
+import "../actions"
 
 Page {
     id: aboutPage
@@ -22,7 +23,7 @@ Page {
                 iconName: "back"
                 text: i18n.tr('Back')
                 onTriggered: {
-                    pageStack.pop()
+                    AppActions.view.popFromStack()
                 }
             }
         ]
@@ -79,9 +80,9 @@ Page {
             interactive: false
 
             model: [
-                        { name: i18n.tr("Get the source"), url: "https://gitlab.com/Flohack74/tg-plus" },
-                        { name: i18n.tr("Report issues"),  url: "https://gitlab.com/Flohack74/tg-plus/issues" },
-                        { name: i18n.tr("Help translate"), url: "https://translate.ubports.com/projects/ubports/telegram-app" }
+                { name: i18n.tr("Get the source"), url: "https://gitlab.com/Flohack74/tg-plus" },
+                { name: i18n.tr("Report issues"),  url: "https://gitlab.com/Flohack74/tg-plus/issues" },
+                { name: i18n.tr("Help translate"), url: "https://translate.ubports.com/projects/ubports/telegram-app" }
             ]
 
             delegate: UITK.ListItem {

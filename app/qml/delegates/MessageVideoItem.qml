@@ -6,6 +6,7 @@ import Ubuntu.Components 1.3 as UITK
 import QtMultimedia 5.8
 import QTelegram 1.0
 import QuickFlux 1.1
+import "../actions"
 import "../components"
 
 MessageItemBase {
@@ -22,52 +23,52 @@ MessageItemBase {
     property real mediaHeight:video.video.height
     property url localFileSource: video && videoLocal.path ? Qt.resolvedUrl("file://" + videoLocal.path) : ""
     Item {
-      id: videoContainer
-      width: mediaWidth > mediaHeight?
-                        Math.min(mediaWidth, maximumMediaWidth):
-                        mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
-      height: mediaHeight >= mediaWidth?
-                        Math.min(mediaHeight, maximumMediaHeight):
-                        Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
+        id: videoContainer
+        width: mediaWidth > mediaHeight?
+                   Math.min(mediaWidth, maximumMediaWidth):
+                   mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
+        height: mediaHeight >= mediaWidth?
+                    Math.min(mediaHeight, maximumMediaHeight):
+                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
 
-      Image {
-        id: thumbnailImg
-        // visible:!media_video.isPlaying
-        anchors.fill: parent
-        source:video && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
-      }
-      Item {
-        id: fileIcon
-        width: units.gu(7)
-        height: units.gu(7)
-        anchors.centerIn: parent
-        UITK.Icon {
-            visible: videoLocal.isDownloadingCompleted
-            source: "qrc:/qml/icons/playMedia.svg"
+        Image {
+            id: thumbnailImg
+            // visible:!media_video.isPlaying
             anchors.fill: parent
+            source:video && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
         }
-
-        BusyIndicator {
-            visibele: !videoLocal.isDownloadingCompleted
+        Item {
+            id: fileIcon
+            width: units.gu(7)
+            height: units.gu(7)
             anchors.centerIn: parent
-            running: !videoLocal.isDownloadingCompleted
+            UITK.Icon {
+                visible: videoLocal.isDownloadingCompleted
+                source: "qrc:/qml/icons/playMedia.svg"
+                anchors.fill: parent
+            }
+
+            BusyIndicator {
+                visibele: !videoLocal.isDownloadingCompleted
+                anchors.centerIn: parent
+                running: !videoLocal.isDownloadingCompleted
+            }
         }
-      }
-      Connections {
-          target: video.video.video
-          // onFileChanged: {
-          //     media_video.reload();
-          // }
-      }
-      Component.onCompleted: {
-          // console.log("c_reg",this,"\n")
-          if (videoLocal.canBeDownloaded && !videoLocal.isDownloadingCompleted) {
-              video.video.video.downloadFile();
-          }
-          if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
-              thumbnail.downloadFile();
-          }
-      }
+        Connections {
+            target: video.video.video
+            // onFileChanged: {
+            //     media_video.reload();
+            // }
+        }
+        Component.onCompleted: {
+            // console.log("c_reg",this,"\n")
+            if (videoLocal.canBeDownloaded && !videoLocal.isDownloadingCompleted) {
+                video.video.video.downloadFile();
+            }
+            if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
+                thumbnail.downloadFile();
+            }
+        }
     }
     Column {
         anchors {
@@ -105,20 +106,16 @@ MessageItemBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          if(videoLocal.isDownloadingCompleted){
-            console.log("video clicked")
-            //TODO crashes the app sometimes or dbus ;)
-            // if(media_video.isPlaying)media_video.pause()
-            // else media_video.play()
-            var properties;
-            properties = {
-                "fileName": video.video.fileName,
-                "videoPreviewSource": localFileSource
-            };
-            pageStack.push("qrc:///pages/PreviewPage.qml", properties);
-          }
-
-
-         }
+            if(videoLocal.isDownloadingCompleted){
+                console.log("video clicked")
+                //TODO crashes the app sometimes or dbus ;)
+                // if(media_video.isPlaying)media_video.pause()
+                // else media_video.play()
+                AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
+                                                "fileName": video.video.fileName,
+                                                "videoPreviewSource": localFileSource
+                                            });
+            }
+        }
     }
 }

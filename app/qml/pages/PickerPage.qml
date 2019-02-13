@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Content 1.1
+import "../actions"
 
 Page {
 
@@ -12,16 +13,16 @@ Page {
         ContentItem {}
     }
     header:UITK.PageHeader{
-          title: i18n.tr("Content Picker")
-          leadingActionBar.actions:[
+        title: i18n.tr("Content Picker")
+        leadingActionBar.actions:[
             UITK.Action {
-              id: backAction
-              iconName: "back"
-              onTriggered:{
-                pageStack.pop();
-              }
+                id: backAction
+                iconName: "back"
+                onTriggered:{
+                    AppActions.view.popFromStack()
+                }
             }
-          ]
+        ]
     }
 
     visible: false
@@ -45,12 +46,12 @@ Page {
         showTitle: false
         onPeerSelected: {
             picker.curTransfer = peer.request();
-            pageStack.pop();
             if (picker.curTransfer.state === ContentTransfer.InProgress)
-            picker.__exportItems(picker.url);
+                picker.__exportItems(picker.url);
+            AppActions.view.popFromStack()
         }
         onCancelPressed: {
-            pageStack.pop();
+            AppActions.view.popFromStack()
         }
     }
 

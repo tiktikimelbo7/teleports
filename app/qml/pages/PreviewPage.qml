@@ -20,6 +20,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Content 1.1
+import "../actions"
 import "../components"
 
 
@@ -31,25 +32,25 @@ Page {
 
     id: previewPage
     header:UITK.PageHeader{
-      title: i18n.tr("File: ") + fileName
-      leadingActionBar.actions:[
-        UITK.Action {
-          id: backAction
-          iconName: "back"
-          onTriggered:{
-            back();
-          }
-        }
-      ]
-      trailingActionBar.actions: [
+        title: i18n.tr("File: ") + fileName
+        leadingActionBar.actions:[
+            UITK.Action {
+                id: backAction
+                iconName: "back"
+                onTriggered:{
+                    AppActions.view.popFromStack()
+                }
+            }
+        ]
+        trailingActionBar.actions: [
 
-          UITK.Action {
-              iconName: "save"
-              text: i18n.tr("Save")
-              onTriggered: save()
-              visible: saveAndShareVisible()
-          }
-      ]
+            UITK.Action {
+                iconName: "save"
+                text: i18n.tr("Save")
+                onTriggered: save()
+                visible: saveAndShareVisible()
+            }
+        ]
     }
 
     function saveAndShareVisible() {
@@ -60,22 +61,20 @@ Page {
         mediaViewer.reset();
 
         if (photoPreviewSource !== "") {
-            pageStack.push("qrc:///pages/PickerPage.qml", {
-                "url": photoPreviewSource,
-                "handler": ContentHandler.Destination,
-                "contentType": ContentType.Pictures
-            });
+            AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
+                                            "url": photoPreviewSource,
+                                            "handler": ContentHandler.Destination,
+                                            "contentType": ContentType.Pictures
+                                        });
         } else if (videoPreviewSource !== "") {
-            pageStack.push("qrc:///pages/PickerPage.qml", {
-                "url": videoPreviewSource,
-                "handler": ContentHandler.Destination,
-                "contentType": ContentType.Videos
-            });
+            AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
+                                            "url": videoPreviewSource,
+                                            "handler": ContentHandler.Destination,
+                                            "contentType": ContentType.Videos
+                                        });
         }
     }
-    function back() {
-        pageStack.pop();
-    }
+
 
     Item {
 
