@@ -12,9 +12,11 @@ Middleware {
 
         Dialog {
             id: dlg
+            objectName: "errorDialog"
             property string callback
 
             Button {
+                objectName: "errorDialogClose"
                 width: parent.width
                 text: i18n.tr("Close")
                 onClicked: {

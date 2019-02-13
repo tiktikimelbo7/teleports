@@ -56,6 +56,11 @@ QTdClient *QTdClient::instance()
     return s_tdclient;
 }
 
+void QTdClient::setInstance(QTdClient *instance)
+{
+    s_tdclient = instance;
+}
+
 QTdAuthState *QTdClient::authState() const
 {
     return m_authState;

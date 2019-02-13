@@ -38,21 +38,30 @@ public:
     static QTdClient *instance();
 
     /**
+     * @brief setInstance
+     * @param instance to set as the global instance
+     * 
+     * Only really useful for testing when you don't want
+     * the default instance.
+     */
+    static void setInstance(QTdClient *instance);
+
+    /**
      * @brief The current authentication state
      */
-    QTdAuthState *authState() const;
+    virtual QTdAuthState *authState() const;
     /**
      * @brief The current connection state
      */
-    QTdConnectionState *connectionState() const;
+    virtual QTdConnectionState *connectionState() const;
 
     /**
      * @brief send
      *
      * Send a request in another thread.
      */
-    void send(QTdRequest *obj);
-    void send(const QJsonObject &json);
+    virtual void send(QTdRequest *obj);
+    virtual void send(const QJsonObject &json);
 
     /**
      * @brief sendAsync
@@ -81,7 +90,7 @@ public:
      * qDebug() << resp.result().json()
      *
      */
-    QFuture<QTdResponse> sendAsync(QTdRequest *obj, void(QTdClient::*signal)(QJsonObject));
+    virtual QFuture<QTdResponse> sendAsync(QTdRequest *obj, void(QTdClient::*signal)(QJsonObject));
 
     /**
      * @brief Execute synchronous request in another Thread
@@ -95,8 +104,8 @@ public:
      * found it will be indicated in each QTdRequest derived class
      * documentation
      */
-    QFuture<QJsonObject> exec(QTdRequest *obj);
-    QFuture<QJsonObject> exec(const QJsonObject &json);
+    virtual QFuture<QJsonObject> exec(QTdRequest *obj);
+    virtual QFuture<QJsonObject> exec(const QJsonObject &json);
 
     /**
      * @brief Retrieve a Telegram server option by name

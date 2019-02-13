@@ -65,5 +65,6 @@
         <file>delegates/MessageChatAddMembersItem.qml</file>
         <file>middleware/ChatMiddleware.qml</file>
         <file>middleware/StackMiddleware.qml</file>
+        <file>middleware/qmldir</file>
     </qresource>
 </RCC>
