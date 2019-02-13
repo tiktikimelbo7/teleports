@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 19:12+0000\n"
+"POT-Creation-Date: 2019-02-12 06:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,34 +75,34 @@ msgstr ""
 msgid "Incorrect auth code length."
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:48
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:37
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:37
 #: ../app/qml/pages/GroupDetailsPage.qml:32
 #: ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:57 ../app/qml/pages/ChatListPage.qml:18
+#: ../app/qml/pages/AboutPage.qml:58 ../app/qml/pages/ChatListPage.qml:18
 #: teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:64
+#: ../app/qml/pages/AboutPage.qml:65
 msgid "Version %1"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:82
+#: ../app/qml/pages/AboutPage.qml:83
 msgid "Get the source"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:83
+#: ../app/qml/pages/AboutPage.qml:84
 msgid "Report issues"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:84
+#: ../app/qml/pages/AboutPage.qml:85
 msgid "Help translate"
 msgstr ""
 
@@ -185,11 +185,11 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:34
+#: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:48
+#: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Members: %1"
 msgstr ""
 
-#: ../app/qml/pages/PickerPage.qml:15
+#: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
 msgstr ""
 
