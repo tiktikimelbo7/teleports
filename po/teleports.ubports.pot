@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-14 18:51+0000\n"
+"POT-Creation-Date: 2019-02-14 20:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,34 +75,34 @@ msgstr ""
 msgid "Incorrect auth code length."
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:12 ../app/qml/pages/SettingsPage.qml:48
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:23 ../app/qml/pages/SettingsPage.qml:37
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/SettingsPage.qml:37
 #: ../app/qml/pages/GroupDetailsPage.qml:32
 #: ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:57 ../app/qml/pages/ChatListPage.qml:18
+#: ../app/qml/pages/AboutPage.qml:58 ../app/qml/pages/ChatListPage.qml:18
 #: teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:64
+#: ../app/qml/pages/AboutPage.qml:65
 msgid "Version %1"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:82
+#: ../app/qml/pages/AboutPage.qml:83
 msgid "Get the source"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:83
+#: ../app/qml/pages/AboutPage.qml:84
 msgid "Report issues"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:84
+#: ../app/qml/pages/AboutPage.qml:85
 msgid "Help translate"
 msgstr ""
 
@@ -185,11 +185,11 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:34
+#: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:48
+#: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgid "Leave chat"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:64
-#: ../app/qml/middleware/ChatMiddleware.qml:24
+#: ../app/qml/middleware/ChatMiddleware.qml:23
 msgid "Clear history"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Members: %1"
 msgstr ""
 
-#: ../app/qml/pages/PickerPage.qml:15
+#: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
 msgstr ""
 
@@ -277,15 +277,15 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:23
+#: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:33
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:34
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 msgid "Leave"
 msgstr ""
 
@@ -355,14 +355,14 @@ msgstr ""
 msgid "Duration: %1.%2"
 msgstr ""
 
-#: ../app/qml/delegates/MessageJoinByLink.qml:4
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:8
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 joined the group"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:15
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:27
 msgid "%1 users"
 msgstr ""
