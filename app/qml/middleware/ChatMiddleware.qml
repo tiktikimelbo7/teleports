@@ -11,9 +11,9 @@ Middleware {
     Component {
         id: confirmationDlg
         PopupDialog {
+            objectName: "chatConfirmationDialog"
             confirmButtonColor: UbuntuColors.red
             cancelButtonColor: UbuntuColors.green
-            onConfirmed: next(action, message)
         }
     }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-13 08:08+0000\n"
+"POT-Creation-Date: 2019-02-14 18:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,7 +198,7 @@ msgid "Leave chat"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:64
-#: ../app/qml/middleware/ChatMiddleware.qml:23
+#: ../app/qml/middleware/ChatMiddleware.qml:24
 msgid "Clear history"
 msgstr ""
 
@@ -277,15 +277,15 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/middleware/ChatMiddleware.qml:23
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:32
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:33
+#: ../app/qml/middleware/ChatMiddleware.qml:34
 msgid "Leave"
 msgstr ""
 
@@ -293,11 +293,11 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:13
+#: ../app/qml/components/PopupDialog.qml:12
 msgid "Okay"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:14
+#: ../app/qml/components/PopupDialog.qml:13
 msgid "Cancel"
 msgstr ""
 

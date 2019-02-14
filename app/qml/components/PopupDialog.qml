@@ -7,7 +7,6 @@ import Ubuntu.Components.Popups 1.3 as UITK_Popups
 
 UITK_Popups.Dialog {
     id: dialogue
-    objectName: "dialogPopup"
 
     property var question: ""
     property var confirmButtonText: i18n.tr("Okay")
@@ -21,6 +20,7 @@ UITK_Popups.Dialog {
     text: dialogue.text
 
     UITK.Button {
+        objectName: "confirmBtn"
         text: dialogue.confirmButtonText
         color: dialogue.confirmButtonColor
         onClicked: {
@@ -30,6 +30,7 @@ UITK_Popups.Dialog {
     }
 
     UITK.Button {
+        objectName: "cancelBtn"
         text: dialogue.cancelButtonText
         color: dialogue.cancelButtonColor
         onClicked: {

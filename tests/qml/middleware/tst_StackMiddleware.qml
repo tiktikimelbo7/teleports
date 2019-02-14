@@ -15,11 +15,13 @@ Item {
         anchors.fill: parent
         Item {
             id: pstack
+            property string page: ""
             property bool pushCalled: false
             property bool popCalled: false
             property bool clearCalled: false
             property int depth: 0
             function push(c, p) {
+                page = c
                 depth = depth + 1
                 pushCalled = true
             }
@@ -30,6 +32,7 @@ Item {
             }
 
             function clear(c, p) {
+                page = ""
                 depth = 0
                 clearCalled = true
             }
@@ -53,6 +56,7 @@ Item {
         }
 
         function cleanup() {
+            pstack.page = ""
             pstack.pushCalled = false
             pstack.popCalled = false
             pstack.clearCalled = false
@@ -65,12 +69,36 @@ Item {
             compare(pstack.depth, 1)
         }
 
-        function test_doesnt_propogate_push_event_after_handling() {
+        function test_replace_on_stack() {
+            compare(pstack.depth, 0)
+            AppActions.view.pushToStack("x", {})
+            compare(pstack.depth, 1)
+            compare(pstack.page, "x")
+            AppActions.view.replaceOnStack("y", {})
+            compare(pstack.depth, 1)
+            compare(pstack.page, "y")
+        }
+
+        function test_pop_from_stack() {
+            compare(pstack.depth, 0)
+            AppActions.view.pushToStack("x", {})
+            compare(pstack.depth, 1)
+            AppActions.view.popFromStack()
+            compare(pstack.depth, 0)
+        }
+
+        function test_doesnt_propogate_stack_event_after_handling() {
             var msg = "no change"
             listener.on(ViewKey.pushToStack, function(message) {
-                msg = message;
+                msg = message
+            }).on(ViewKey.popFromStack, function (message) {
+                msg = message
+            }).on(ViewKey.replaceOnStack, function (message) {
+                msg = message
             })
             AppActions.view.pushToStack("x", {})
+            AppActions.view.replaceOnStack("y", {})
+            AppActions.view.popFromStack()
             compare(msg, "no change")
         }
     }
