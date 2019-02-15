@@ -1,4 +1,5 @@
 {
+  "clickable_minimum_required": "5.5.1",
   "template": "cmake",
   "kill": "teleports",
   "dependencies": [
@@ -11,18 +12,20 @@
   "make_jobs": "4",
   "libraries": [
     {
-      "template": "custom",
+      "template": "cmake",
       "name": "tdlib-prepare",
+      "src_dir": "libs/vendor/tdlib",
+      "make_args": "prepare_cross_compiling",
       "dependencies": [
         "gperf"
-      ],
-      "build": "cmake ../../../libs/vendor/tdlib && cmake --build . --target prepare_cross_compiling"
+      ]
     },
     {
       "template": "cmake",
       "name": "tdlib",
       "src_dir": "libs/vendor/tdlib",
-      "make_jobs": "1 tdjson",
+      "make_jobs": "1",
+      "make_args": "tdjson",
       "dependencies": [
         "zlib1g-dev",
         "libssl-dev",
