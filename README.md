@@ -6,7 +6,7 @@ Teleports and its libraries are built using [clickable](https://clickable.bhdoug
 You need to build the dependencies (tdlib) once:
 
     git submodule update --init
-    clickable build-libs tdlib-prepare --arch amd64
+    clickable build-libs tdlib-prepare --arch amd64 # your host architecture (probably amd64)
     clickable build-libs tdlib --arch armhf #if you want to build teleports for the device
     clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
 
