@@ -163,8 +163,9 @@ signals:
 protected:
     virtual void initSignalMap();
     virtual void initWorker();
+    QString getTag();
 
-private slots:
+protected slots:
     void handleRecv(const QJsonObject &data);
     void handleApplicationStateChanged(Qt::ApplicationState state);
 
@@ -177,9 +178,7 @@ private:
     QHash<QString, ReceiveCallback> m_events;
     QHash<QString, QVariant> m_options;
 
-    QString getTag();
     int m_tagcounter;
-
 };
 
 #endif // QTDCLIENT_H

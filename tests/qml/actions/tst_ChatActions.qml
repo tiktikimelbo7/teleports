@@ -101,27 +101,65 @@ Item {
         }
 
         function test_request_edit_message() {
-
+            var msg = testutils.getMessage()
+            verify(msg.id > 0)
+            var msgid = ""
+            listener.on(ChatKey.requestEditMessage, function (message) {
+                msgid = message.message.id
+            })
+            AppActions.chat.requestEditMessage(msg)
+            compare(msgid, msg.id)
         }
 
         function test_send_edit_message_text() {
-
+            var msgid = ""
+            var text = ""
+            listener.on(ChatKey.sendEditMessageText, function (message) {
+                msgid = message.id
+                text = message.text
+            })
+            AppActions.chat.sendEditMessageText("123456", "abcdefg")
+            compare(msgid, "123456")
+            compare(text, "abcdefg")
         }
 
         function test_send_edit_message_caption() {
-
+            var msgid = ""
+            var text = ""
+            listener.on(ChatKey.sendEditMessageCaption, function (message) {
+                msgid = message.id
+                text = message.text
+            })
+            AppActions.chat.sendEditMessageCaption("123456", "abcdefg")
+            compare(msgid, "123456")
+            compare(text, "abcdefg")
         }
 
         function test_request_reply_to_message() {
-
+            var msg = testutils.getMessage()
+            verify(msg.id > 0)
+            var msgid = ""
+            listener.on(ChatKey.requestReplyToMessage, function (message) {
+                msgid = message.message.id
+            })
+            AppActions.chat.requestReplyToMessage(msg)
+            compare(msgid, msg.id)
         }
 
         function test_send_reply_to_message() {
-
+            var msgid = ""
+            var text = ""
+            listener.on(ChatKey.sendReplyToMessage, function (message) {
+                msgid = message.id
+                text = message.text
+            })
+            AppActions.chat.sendReplyToMessage("123456", "abcdefg")
+            compare(msgid, "123456")
+            compare(text, "abcdefg")
         }
 
         function test_show_stickerpack() {
-
+            skip("Not implemented yet")
         }
 
         function test_view_group_info() {

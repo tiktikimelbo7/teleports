@@ -1,0 +1,1 @@
+{"@type": "updateBasicGroup", "basic_group": {"member_count": 0, "@type": "basicGroup", "status": {"@type": "chatMemberStatusBanned", "banned_until_date": 0}, "id": 303506550, "upgraded_to_supergroup_id": 1314919919, "everyone_is_administrator": true, "is_active": false}}

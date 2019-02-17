@@ -1,0 +1,1 @@
+{"@type": "updateScopeNotificationSettings", "notification_settings": {"sound": "default", "@type": "scopeNotificationSettings", "mute_for": 0, "show_preview": true}, "scope": {"@type": "notificationSettingsScopeGroupChats"}}

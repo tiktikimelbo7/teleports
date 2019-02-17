@@ -89,7 +89,7 @@ file(GLOB_RECURSE PROJECT_SRC_FILES
     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     qml/*.qml
     qml/*.js
-    *.json
+    clickable.json
     *.json.in
     *.apparmor
     *.desktop.in

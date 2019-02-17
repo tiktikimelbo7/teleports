@@ -1,5 +1,6 @@
 #include "qtdclient.h"
 #include <QDebug>
+#include <QFile>
 #include <QPointer>
 #include <QEventLoop>
 #include <QMetaObject>
@@ -135,7 +136,22 @@ void QTdClient::handleRecv(const QJsonObject &data)
     if (!DEBUG_TDLIB) {
         DEBUG_TDLIB = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
+
+    static bool DUMP_TDLIB_JSON = false;
+    if (!DUMP_TDLIB_JSON) {
+        DUMP_TDLIB_JSON = qgetenv("DUMP_TDLIB_JSON") == QByteArrayLiteral("1");
+    }
+
     const QString type = data["@type"].toString();
+
+    if (DUMP_TDLIB_JSON) {
+        QFile f("tdlib.dump");
+        if (!f.open(QIODevice::WriteOnly | QIODevice::Append)) {
+            qWarning() << "Failed to open dump file";
+        }
+        QJsonDocument doc(data);
+        f.write(doc.toJson());
+    }
 
     if (DEBUG_TDLIB) {
         qDebug() << "-------------[ RCV ]-----------------------";
