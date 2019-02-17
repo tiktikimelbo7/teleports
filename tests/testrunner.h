@@ -42,7 +42,7 @@ protected:
 private:
     void add(QVariant testSuite);
 
-    bool run(QObject *test, const QStringList &args);
+    bool run(QObject *test, const QStringList &arguments);
 
     bool run(const QString &testPath, const QStringList &arguments);
 

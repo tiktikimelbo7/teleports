@@ -1,0 +1,35 @@
+{
+    "@type":"updateChatLastMessage",
+    "chat_id":-209613759,
+    "last_message":{
+        "@type":"message",
+        "author_signature":"",
+        "can_be_deleted_for_all_users":false,
+        "can_be_deleted_only_for_self":true,
+        "can_be_edited":false,
+        "can_be_forwarded":true,
+        "chat_id":-209613759,
+        "contains_unread_mention":false,
+        "content":{
+            "@type":"messageText",
+            "text":{
+                "@type":"formattedText",
+                "entities":[],
+                "text":"Oh, thanks"
+            }
+        },
+        "date":1550171254,
+        "edit_date":0,
+        "id":232322498560,
+        "is_channel_post":false,
+        "is_outgoing":false,
+        "media_album_id":"0",
+        "reply_to_message_id":232320401408,
+        "sender_user_id":157743619,
+        "ttl":0,
+        "ttl_expires_in":0,
+        "via_bot_user_id":0,
+        "views":0
+    },
+    "order":"0"
+}

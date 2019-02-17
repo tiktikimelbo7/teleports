@@ -72,8 +72,49 @@ void TestRunner::add(QVariant testSuite) {
     m_tests << testSuite;
 }
 
-bool TestRunner::run(QObject *test, const QStringList &args) {
-    return true;
+bool TestRunner::run(QObject *test, const QStringList &arguments) {
+    const QMetaObject *meta = test->metaObject();
+    QStringList args = arguments;
+    QString executable = args.takeAt(0);
+    bool execute; // Should it execute this test object?
+    QStringList params; // params for qTest
+    params << executable;
+
+    QStringList tmp;
+
+    // Always add "-*" to params.
+    for(QString arg : args) {
+        if (arg.indexOf("-") == 0) {
+            params << arg;
+        } else {
+            tmp << arg;
+        }
+    }
+
+    args = tmp;
+
+    execute = args.size() > 0 ? false : true; // If no argument passed , it should always execute a test object
+
+    for(QString arg : args) {
+
+        if (arg == meta->className()) {
+            execute = true;
+            break;
+        }
+
+        for (int i = 0 ; i < meta->methodCount();i++){
+            if (meta->method(i).name() == arg) {
+                params << arg;
+                execute = true;
+            }
+        }
+    }
+
+    if (!execute) {
+        return false;
+    }
+
+    return QTest::qExec(test,params);
 }
 
 bool TestRunner::run(const QString &testPath, const QStringList &arguments) {

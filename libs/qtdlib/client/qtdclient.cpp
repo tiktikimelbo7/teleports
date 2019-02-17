@@ -31,27 +31,20 @@ void sendTd(const QJsonObject &json) {
 }
 
 QTdClient::QTdClient(QObject *parent) : QObject(parent),
-    m_worker(new QThread),
+    m_worker(Q_NULLPTR),
     m_authState(Q_NULLPTR),
     m_connectionState(Q_NULLPTR),
     m_tagcounter(0)
 {
-    init();
-    QTdWorker *w = new QTdWorker;
-    w->moveToThread(m_worker.data());
-    connect(m_worker.data(), &QThread::started, w, &QTdWorker::run);
-    connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
-    connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
-    connect(qGuiApp, &QGuiApplication::applicationStateChanged, this,
-            &QTdClient::handleApplicationStateChanged);
-    m_worker->start();
 }
 
 static QPointer<QTdClient> s_tdclient;
 QTdClient *QTdClient::instance()
 {
     if (s_tdclient.isNull()) {
+        qDebug() << "Creating new tdclient instance";
         s_tdclient = new QTdClient();
+        s_tdclient->init();
     }
     return s_tdclient;
 }
@@ -138,7 +131,7 @@ QFuture<QJsonObject> QTdClient::exec(const QJsonObject &json)
 
 void QTdClient::handleRecv(const QJsonObject &data)
 {
-    static bool DEBUG_TDLIB = false;
+    static bool DEBUG_TDLIB = true;
     if (!DEBUG_TDLIB) {
         DEBUG_TDLIB = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
@@ -162,7 +155,7 @@ void QTdClient::handleRecv(const QJsonObject &data)
     }
 }
 
-void QTdClient::init()
+void QTdClient::initSignalMap()
 {
     m_events.insert(QStringLiteral("updateAuthorizationState"), [=](const QJsonObject &data) {
         QTdAuthState *state = QTdAuthStateFactory::create(data, this);
@@ -257,6 +250,20 @@ void QTdClient::init()
     });
 }
 
+void QTdClient::initWorker()
+{
+    qDebug() << "Initializing tdlib worker";
+    m_worker = new QThread();
+    QTdWorker *w = new QTdWorker;
+    w->moveToThread(m_worker);
+    connect(m_worker, &QThread::started, w, &QTdWorker::run);
+    connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
+    connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
+    connect(qGuiApp, &QGuiApplication::applicationStateChanged, this,
+            &QTdClient::handleApplicationStateChanged);
+    m_worker->start();
+}
+
 void QTdClient::handleUpdateOption(const QJsonObject &json)
 {
 
@@ -294,6 +301,12 @@ QVariant QTdClient::getOption(const QString name)
     }
     else
         return QVariant();
+}
+
+void QTdClient::init()
+{
+    initSignalMap();
+    initWorker();
 }
 
 void QTdClient::handleApplicationStateChanged(Qt::ApplicationState state)

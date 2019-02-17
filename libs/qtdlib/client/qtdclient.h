@@ -116,6 +116,8 @@ public:
      */
     QVariant getOption(const QString name);
 
+    virtual void init();
+
 signals:
     void authStateChanged(QTdAuthState *state);
     void connectionStateChanged(QTdConnectionState *state);
@@ -158,15 +160,18 @@ signals:
     void file(QJsonObject file);
     void user(QJsonObject user);
 
+protected:
+    virtual void initSignalMap();
+    virtual void initWorker();
+
 private slots:
     void handleRecv(const QJsonObject &data);
     void handleApplicationStateChanged(Qt::ApplicationState state);
 
 private:
     Q_DISABLE_COPY(QTdClient)
-    void init();
     void handleUpdateOption(const QJsonObject &json);
-    QScopedPointer<QThread> m_worker;
+    QPointer<QThread> m_worker;
     QPointer<QTdAuthState> m_authState;
     QPointer<QTdConnectionState> m_connectionState;
     QHash<QString, ReceiveCallback> m_events;

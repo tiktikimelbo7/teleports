@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/lastmessage/m1.json</file>
+        <file>assets/messages/m1.json</file>
+        <file>assets/updateChatLastMessage/m1.json</file>
+        <file>assets/updateChatOrder/c1.json</file>
+        <file>assets/chats/chats.json</file>
+        <file>assets/chat/c1.json</file>
+    </qresource>
+</RCC>
