@@ -5,7 +5,8 @@
   "dependencies": [
     "gperf",
     "libssl-dev",
-    "ccache"
+    "ccache",
+    "xvfb"
   ],
   "specificDependencies": true,
   "dir": "build/teleports",
