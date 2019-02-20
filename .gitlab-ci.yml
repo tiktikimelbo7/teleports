@@ -2,6 +2,8 @@ stages:
     - deps-prepare
     - deps
     - build
+    - test
+    - click
 
 variables:
     GIT_SUBMODULE_STRATEGY: "recursive"
@@ -12,20 +14,42 @@ tdlib-prepare:
     image: clickable/ci-16.04-amd64
     script:
         - clickable build-libs tdlib-prepare --arch amd64
-    cache:
-        key: deps-cache
+    artifacts:
         paths:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
+        expire_in: 1 week
 
-tdlib:
+tdlib:armhf:
     stage: deps
     image: clickable/ci-16.04-armhf
     script:
         - clickable build-libs tdlib --arch armhf
+    dependencies:
+        - tdlib-prepare
     cache:
-        key: deps-cache
+        key: deps-cache-armhf
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+    artifacts:
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+        expire_in: 1 week
+        
+tdlib:amd64:
+    stage: deps
+    image: clickable/ci-16.04-amd64
+    script:
+        - clickable build-libs tdlib --arch amd64
+    dependencies:
+        - tdlib-prepare
+    cache:
+        key: deps-cache-amd64
         paths:
             - build/tdlib
             - build/tdlib-prepare
@@ -37,19 +61,66 @@ tdlib:
             - libs/vendor/tdlib
         expire_in: 1 week
 
-teleports:
+build:armhf:
     stage: build
     image: clickable/ci-16.04-armhf
     script:
-        - clickable build click-build
-        - cd build/teleports
+        - clickable build
+    dependencies:
+        - tdlib:armhf
+    cache:
+        key: "${CI_COMMIT_REF_SLUG}-armhf"
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+            - build/teleports
+    artifacts:
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+            - build/teleports
+        expire_in: 1 week
         
+build:amd64:
+    stage: build
+    image: clickable/ci-16.04-amd64
+    script:
+        - clickable build
+    dependencies:
+        - tdlib:amd64
+    cache:
+        key: "${CI_COMMIT_REF_SLUG}-amd64"
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+            - build/teleports
+    artifacts:
+        paths:
+            - build/tdlib
+            - build/tdlib-prepare
+            - libs/vendor/tdlib
+            - build/teleports
+        expire_in: 1 week
+        
+test:amd64:
+    stage: test
+    image: clickable/ci-16.04-amd64
+    script:
+        - cd build/teleports
         - xvfb-run -a -s "-screen 0 1024x768x24" ctest -V
     dependencies:
-        - tdlib
-    cache:
-        key: "$CI_COMMIT_REF_SLUG"
-        untracked: true
+        - build:amd64
+        
+click:armhf:
+    stage: click
+    image: clickable/ci-16.04-armhf
+    script:
+        - clickable click-build
+    dependencies:
+        - build:armhf
     artifacts:
         paths:
             - build/teleports/*.click
