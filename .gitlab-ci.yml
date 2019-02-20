@@ -110,6 +110,7 @@ test:amd64:
     image: clickable/ci-16.04-amd64
     script:
         - cd build/teleports
+        - apt update && apt install xvfb
         - xvfb-run -a -s "-screen 0 1024x768x24" ctest -V
     dependencies:
         - build:amd64
