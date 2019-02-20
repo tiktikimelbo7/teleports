@@ -40,8 +40,29 @@ tdlib:
 teleports:
     stage: build
     image: clickable/ci-16.04-armhf
+    except:
+        - tags
+        - master
     script:
         - clickable build click-build
+    dependencies:
+        - tdlib
+    cache:
+        key: "$CI_COMMIT_REF_SLUG"
+        untracked: true
+    artifacts:
+        paths:
+            - build/teleports/*.click
+        expire_in: 1 week
+
+publish:
+    stage: build
+    image: clickable/ci-16.04-armhf
+    only:
+        - tags
+        - master
+    script:
+        - clickable build click-build publish
     dependencies:
         - tdlib
     cache:
