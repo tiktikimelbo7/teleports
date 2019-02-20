@@ -5,9 +5,7 @@
   "dependencies": [
     "gperf",
     "libssl-dev",
-    "ccache",
-    "xvfb",
-    "qemu-user-static"
+    "ccache"
   ],
   "specificDependencies": true,
   "dir": "build/teleports",
