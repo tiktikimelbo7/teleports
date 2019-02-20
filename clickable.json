@@ -1,13 +1,14 @@
 {
-  "clickable_minimum_required": "5.5.1",
+  "clickable_minimum_required": "5.7",
   "template": "cmake",
   "kill": "teleports",
-  "dependencies": [
+  "dependencies_target": [
     "gperf",
-    "libssl-dev",
+    "libssl-dev"
+  ],
+  "dependencies_build": [
     "ccache"
   ],
-  "specificDependencies": true,
   "dir": "build/teleports",
   "make_jobs": "4",
   "libraries": [
@@ -16,7 +17,7 @@
       "name": "tdlib-prepare",
       "src_dir": "libs/vendor/tdlib",
       "make_args": "prepare_cross_compiling",
-      "dependencies": [
+      "dependencies_target": [
         "gperf"
       ]
     },
@@ -26,7 +27,7 @@
       "src_dir": "libs/vendor/tdlib",
       "make_jobs": "1",
       "make_args": "tdjson",
-      "dependencies": [
+      "dependencies_target": [
         "zlib1g-dev",
         "libssl-dev",
         "gperf"
