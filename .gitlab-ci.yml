@@ -14,42 +14,20 @@ tdlib-prepare:
     image: clickable/ci-16.04-amd64
     script:
         - clickable build-libs tdlib-prepare --arch amd64
-    artifacts:
+    cache:
+        key: deps-cache
         paths:
             - build/tdlib
             - build/tdlib-prepare
             - libs/vendor/tdlib
-        expire_in: 1 week
 
-tdlib:armhf:
+tdlib:
     stage: deps
     image: clickable/ci-16.04-armhf
     script:
         - clickable build-libs tdlib --arch armhf
-    dependencies:
-        - tdlib-prepare
     cache:
-        key: deps-cache-armhf
-        paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
-    artifacts:
-        paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
-        expire_in: 1 week
-        
-tdlib:amd64:
-    stage: deps
-    image: clickable/ci-16.04-amd64
-    script:
-        - clickable build-libs tdlib --arch amd64
-    dependencies:
-        - tdlib-prepare
-    cache:
-        key: deps-cache-amd64
+        key: deps-cache
         paths:
             - build/tdlib
             - build/tdlib-prepare
@@ -61,67 +39,68 @@ tdlib:amd64:
             - libs/vendor/tdlib
         expire_in: 1 week
 
-build:armhf:
+build:
     stage: build
     image: clickable/ci-16.04-armhf
     script:
-        - clickable build
+        - clickable build click-build
     dependencies:
-        - tdlib:armhf
+        - tdlib
     cache:
-        key: "${CI_COMMIT_REF_SLUG}-armhf"
-        paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
-            - build/teleports
+        key: "$CI_COMMIT_REF_SLUG"
+        untracked: true
     artifacts:
         paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
             - build/teleports
         expire_in: 1 week
-        
-build:amd64:
-    stage: build
-    image: clickable/ci-16.04-amd64
-    script:
-        - clickable build
-    dependencies:
-        - tdlib:amd64
-    cache:
-        key: "${CI_COMMIT_REF_SLUG}-amd64"
-        paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
-            - build/teleports
-    artifacts:
-        paths:
-            - build/tdlib
-            - build/tdlib-prepare
-            - libs/vendor/tdlib
-            - build/teleports
-        expire_in: 1 week
-        
-test:amd64:
+test:
     stage: test
-    image: clickable/ci-16.04-amd64
-    script:
-        - cd build/teleports
-        - apt update && apt install xvfb
-        - xvfb-run -a -s "-screen 0 1024x768x24" ctest -V
+    image: multiarch/ubuntu-debootstrap:armhf-xenial
     dependencies:
-        - build:amd64
-        
-click:armhf:
+        - build
+    script:
+        - echo "deb http://ports.ubuntu.com/ubuntu-ports xenial main resticted multiverse universe" >> /etc/apt/sources.list && \
+            echo "deb http://ports.ubuntu.com/ubuntu-ports xenial-updates main resticted multiverse universe" >> /etc/apt/sources.list && \
+            echo "deb http://ports.ubuntu.com/ubuntu-ports xenial-security main restricted multiverse universe" >> /etc/apt/sources.list && \
+            echo "deb http://repo.ubports.com xenial main" >> /etc/apt/sources.list && \
+            wget -qO - http://repo.ubports.com/keyring.gpg | apt-key add - && \
+            apt-get update && \
+            apt-get -y -f --no-install-recommends install gnupg ubuntu-keyring software-properties-common wget
+        - apt-get -y --no-install-recommends install \
+            build-essential \
+            cmake \
+            git \
+            libc-dev \
+            libicu-dev \
+            qtbase5-dev \
+            qtbase5-private-dev \
+            qtdeclarative5-private-dev \
+            qtfeedback5-dev \
+            qtpositioning5-dev \
+            qtquickcontrols2-5-dev \
+            qtsystems5-dev \
+            qtwebengine5-dev \
+            libqt5opengl5-dev \
+            ubuntu-sdk-libs-dev \
+            ubuntu-sdk-libs-tools \
+            ubuntu-sdk-libs \
+            libconnectivity-qt1-dev \
+            libnotify-dev \
+            xvfb
+        - cd build/teleports
+        - export QT_SELECT=qt5
+        - xvfb-run -a -s "-screen 0 1024x768x24" ctest -V
+
+click:
     stage: click
     image: clickable/ci-16.04-armhf
     script:
         - clickable click-build
     dependencies:
-        - build:armhf
+        - build
+    cache:
+        key: "$CI_COMMIT_REF_SLUG"
+        untracked: true
     artifacts:
         paths:
             - build/teleports/*.click
