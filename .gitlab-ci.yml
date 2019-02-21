@@ -42,6 +42,7 @@ teleports:
     image: clickable/ci-16.04-armhf
     except:
         - tags
+    except:
         - master
     script:
         - clickable build click-build
@@ -60,6 +61,7 @@ publish:
     image: clickable/ci-16.04-armhf
     only:
         - tags
+    only:
         - master
     script:
         - clickable build click-build publish
