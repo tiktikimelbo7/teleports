@@ -49,7 +49,7 @@ MessageItemBase {
             }
 
             BusyIndicator {
-                visibele: !videoLocal.isDownloadingCompleted
+                visible: !videoLocal.isDownloadingCompleted
                 anchors.centerIn: parent
                 running: !videoLocal.isDownloadingCompleted
             }
