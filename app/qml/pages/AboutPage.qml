@@ -80,8 +80,8 @@ Page {
             interactive: false
 
             model: [
-                { name: i18n.tr("Get the source"), url: "https://gitlab.com/Flohack74/tg-plus" },
-                { name: i18n.tr("Report issues"),  url: "https://gitlab.com/Flohack74/tg-plus/issues" },
+                { name: i18n.tr("Get the source"), url: "https://gitlab.com/ubports/apps/teleports" },
+                { name: i18n.tr("Report issues"),  url: "https://gitlab.com/ubports/apps/teleports/issues" },
                 { name: i18n.tr("Help translate"), url: "https://translate.ubports.com/projects/ubports/telegram-app" }
             ]
 
