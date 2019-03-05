@@ -10,29 +10,31 @@
     "ccache"
   ],
   "dir": "build/teleports",
-  "make_jobs": "4",
-  "libraries": [
-    {
+  "make_jobs": 4,
+  "libraries": {
+    "tdlib-prepare": {
       "template": "cmake",
-      "name": "tdlib-prepare",
       "src_dir": "libs/vendor/tdlib",
       "make_args": "prepare_cross_compiling",
       "dependencies_target": [
         "gperf"
       ]
     },
-    {
+    "tdlib": {
       "template": "cmake",
-      "name": "tdlib",
       "src_dir": "libs/vendor/tdlib",
-      "make_jobs": "1",
+      "make_jobs": 1,
       "make_args": "tdjson",
       "dependencies_target": [
         "zlib1g-dev",
         "libssl-dev",
         "gperf"
       ],
-      "build_args": "-DTHREADS_PTHREAD_ARG=0 -DCMAKE_CROSSCOMPILING=ON -DCMAKE_BUILD_TYPE=Release"
+      "build_args": [
+        "-DTHREADS_PTHREAD_ARG=0",
+        "-DCMAKE_CROSSCOMPILING=ON",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ]
     }
-  ]
+  }
 }
