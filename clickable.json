@@ -1,5 +1,5 @@
 {
-  "clickable_minimum_required": "5.7",
+  "clickable_minimum_required": "5.8.1",
   "template": "cmake",
   "kill": "teleports",
   "dependencies_target": [
