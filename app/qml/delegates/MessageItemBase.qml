@@ -13,7 +13,7 @@ import "../stores"
 UITK.ListItem {
     id: base
     width: parent.width
-    height: contentCol.height + (message.sameUserAsPreviousMessage && !message.isLatest ? Suru.units.gu(0.5) : Suru.units.gu(1))
+    height: contentCol.height + row.anchors.topMargin + row.anchors.bottomMargin
     divider.visible: false
 
     property QTdMessage message: null
@@ -23,6 +23,7 @@ UITK.ListItem {
                                                 - (mc.anchors.leftMargin + mc.anchors.rightMargin)
 
     default property alias content: mainContent.data
+    highlightColor: Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)
 
     leadingActions: UITK.ListItemActions {
         actions: [
@@ -72,9 +73,12 @@ UITK.ListItem {
     }
 
     RowLayout {
+        id: row
         anchors {
             fill: parent
             margins: Suru.units.gu(1)
+            topMargin: message.sameUserAsNextMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
+            bottomMargin: message.sameUserAsPreviousMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
         }
 
         Item {
