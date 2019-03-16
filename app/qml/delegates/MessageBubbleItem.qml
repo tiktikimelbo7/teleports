@@ -33,6 +33,13 @@ UITK.ListItem {
                 text: i18n.tr("Delete")
                 onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
                 visible: message.canBeDeletedOnlyForSelf || message.canBeDeletedForAllUsers
+            },
+            UITK.Action {
+                iconName: "location-active"
+                //iconSource: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
+                text: i18n.tr("Pin")
+                visible: chat.isChannel || chat.isGroup // ToDo
+                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message)
             }
         ]
     }

@@ -21,6 +21,7 @@
 #include "messages/requests/qtdviewmessagesrequest.h"
 #include "messages/requests/qtddeletemessagesrequest.h"
 #include "utils/i18n.h"
+#include "messages/requests/qtdpinmessagerequest.h"
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
 #include "requests/content/imessageattachmentcontent.h"
@@ -608,5 +609,18 @@ void QTdMessageListModel::jumpToMessage(const QString &messageId)
     m_jumpToMessageId = messageId;
     m_messageHandler = &jumpToWindowMessageHandler;
     loadMessages(messageId, MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
+
+void QTdMessageListModel::pinMessage(const QString &superGroupId, const QString &messageId)
+{
+    pinMessage(superGroupId.toInt(), messageId.toLongLong());
+}
+
+void QTdMessageListModel::pinMessage(const qint32 &superGroupId, const qint64 &messageId)
+{
+    QScopedPointer<QTdPinMessageRequest> req(new QTdPinMessageRequest);
+    qDebug() << "pinning message with id: " << messageId << " in group with id: " << superGroupId;
+    req->setSuperGroupId(superGroupId);
+    req->setMessageId(messageId);
+    QTdClient::instance()->send(req.data());
 }
 

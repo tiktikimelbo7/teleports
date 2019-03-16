@@ -36,6 +36,8 @@ KeyTable {
     property string sendImportData
     property string sendForwardMessage
     property string cancelForwardMessage
+    property string pinMessage
+
     property string viewGroupInfo
     property string setCurrentChatById
     property string jumpToMessage

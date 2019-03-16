@@ -28,6 +28,8 @@ ActionCreator {
     signal leaveChat(string chatId);
     signal deleteChatHistory(string chatId);
 
+    signal pinMessage(var superGroupId, var messageId);
+
     signal deleteMessage(string id)
     signal forwardMessage(string id)
     signal sendForwardMessage(var chat,

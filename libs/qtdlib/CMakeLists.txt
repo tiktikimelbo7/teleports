@@ -180,6 +180,7 @@ set(
     messages/requests/qtdinputmessagecontentfactory.cpp
     messages/requests/qtdsendmessagerequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
+    messages/requests/qtdpinmessagerequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
     network/qtdnetworktype.cpp
