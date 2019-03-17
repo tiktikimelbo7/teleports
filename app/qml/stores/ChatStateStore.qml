@@ -382,7 +382,6 @@ Store {
     Filter {
         type: ChatKey.pinMessage
         onDispatched: {
-            console.log("pin message " + message.messageId + " in group " + message.superGroupId);
             messageList.pinMessage(message.superGroupId, message.messageId);
         }
     }

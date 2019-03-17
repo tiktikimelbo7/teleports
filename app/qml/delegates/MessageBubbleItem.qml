@@ -38,8 +38,8 @@ UITK.ListItem {
                 iconName: "location-active"
                 //iconSource: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
                 text: i18n.tr("Pin")
-                visible: chat.isChannel || chat.isGroup // ToDo
-                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message)
+                visible: chat.isChannel || chat.chatType.superGroupId // TODO: only show the icon if user is allowed to pin messaged
+                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message.id)
             }
         ]
     }
