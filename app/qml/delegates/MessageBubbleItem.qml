@@ -35,10 +35,9 @@ UITK.ListItem {
                 visible: message.canBeDeletedOnlyForSelf || message.canBeDeletedForAllUsers
             },
             UITK.Action {
-                iconName: "location-active"
-                //iconSource: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
+                iconSource: "qrc:/qml/icons/attach.svg"
                 text: i18n.tr("Pin")
-                visible: chat.isChannel || chat.chatType.superGroupId // TODO: only show the icon if user is allowed to pin messaged
+                visible: (chat.status && chat.status.canPinMessages) ? chat.status.canPinMessages : false
                 onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message.id)
             }
         ]
