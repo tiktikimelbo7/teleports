@@ -135,6 +135,25 @@ set(
     messages/requests/qtdeditmessagetextrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
+    messages/requests/qtdinputmessagecontent.cpp
+    messages/requests/qtdinputmessagecontentfactory.cpp
+    # todo
+    # messages/requests/content/qtdinputmessageanimation.cpp
+    # messages/requests/content/qtdinputmessageaudio.cpp
+    # messages/requests/content/qtdinputmessagecontact.cpp
+    # messages/requests/content/qtdinputmessagedocument.cpp
+    # messages/requests/content/qtdinputmessageforwarded.cpp
+    # messages/requests/content/qtdinputmessagegame.cpp
+    # messages/requests/content/qtdinputmessageinvoice.cpp
+    # messages/requests/content/qtdinputmessagelocation.cpp
+    messages/requests/content/qtdinputmessagephoto.cpp
+    # messages/requests/content/qtdinputmessagesticker.cpp
+    messages/requests/content/qtdinputmessagetext.cpp
+    # messages/requests/content/qtdinputmessagevenue.cpp
+    # messages/requests/content/qtdinputmessagevideo.cpp
+    # messages/requests/content/qtdinputmessagevideoNote.cpp
+    # messages/requests/content/qtdinputmessagevoiceNote.cpp
+    # end todo ----
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
     network/qtdnetworktype.cpp

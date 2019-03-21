@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/qml/icons">
+        <file>attach_audio.png</file>
+        <file>attach_contact.png</file>
+        <file>attach_gallery.png</file>
+        <file>attach_hide1.png</file>
+        <file>attach_hide2.png</file>
+        <file>attach_video.png</file>
+        <file>attach.png</file>
         <file>attach.svg</file>
         <file>broadcast.svg</file>
         <file>bookmark.svg</file>

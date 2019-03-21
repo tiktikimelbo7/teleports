@@ -82,6 +82,7 @@ public:
         DOCUMENT,
         FILE,
         FORMATTED_TEXT,
+        INPUT_MESSAGE,
         LINK_STATE_IS_CONTACT,
         LINK_STATE_KNOWS_PHONE_NUMBER,
         LINK_STATE_NONE,

@@ -5,6 +5,7 @@
 #include <QJsonArray>
 
 #include "common/qtdrequest.h"
+#include "qtdinputmessagecontent.h"
 
 /**
  * @brief The QTdSendMessageRequest class
@@ -17,14 +18,12 @@ class QTdSendMessageRequest : public QTdRequest
     Q_DISABLE_COPY(QTdSendMessageRequest)
     qint64 m_chatId;
     qint64 m_replyMessageId;
-    QString m_text;
-    QJsonArray m_entities;
-  
+    QTdInputMessageContent *m_content;
+
   public:
     explicit QTdSendMessageRequest(QObject *parent = nullptr);
-    void setText(const QString &text);
+    void setContent(QTdInputMessageContent *content);
     void setChatId(const qint64 &id);
-    void setEntities(const QJsonArray &entities);
     void setReplyToMessageId(const qint64 &id);
     QJsonObject marshalJson() Q_DECL_FINAL;
     QFuture<QTdResponse> sendAsync();

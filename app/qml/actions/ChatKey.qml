@@ -19,6 +19,7 @@ KeyTable {
     property string sendReplyToMessage
     property string showStickerPack
     property string forwardMessage
-
+    property string sendPhoto
     property string viewGroupInfo
+
 }

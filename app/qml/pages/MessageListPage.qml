@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Content 1.1 as ContentHub
 import QuickFlux 1.1
 import QTelegram 1.0
 import QTelegramStyles 1.0
@@ -10,6 +11,7 @@ import "../components"
 import "../actions"
 import "../delegates"
 import "../stores"
+
 
 Page {
     property QTdChat currentChat: Telegram.chats.currentChat
@@ -277,6 +279,27 @@ Page {
             color: Suru.neutralColor
         }
 
+        AttachPanel {
+            id: attach_panel_object
+            function requestMedia(mediaType) {
+                Qt.inputMethod.hide();
+                mediaImporter.contentType = mediaType;
+                mediaImporter.requestMedia();
+            }
+            onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
+            onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
+            onAudioRequested: requestMedia(ContentHub.ContentType.Music)
+            onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
+        }
+
+        MediaImport {
+            id: mediaImporter
+
+            onMediaReceived: {
+                var filePath = String(mediaUrl).replace('file://', '');
+                AppActions.chat.sendPhoto(filePath,"");
+            }
+        }
         RowLayout {
             anchors.fill: parent
             anchors.margins: Suru.units.gu(1)
@@ -338,7 +361,27 @@ Page {
                     interval: 5000
                 }
             }
+            Image {
+                visible: true
+                // sourceSize.height: height
+                source: "qrc:/qml/icons/attach.png"
+                height: units.gu(5)
+                width: height
+                Layout.fillHeight: false
+                Layout.fillWidth: false
 
+                Component.onCompleted: {
+                    height = parent.height * 0.75;
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                      // attach_panel_object.attachmentItem = attach_panel_component.createObject(dialogPage)
+                      attach_panel_object.isShown = !attach_panel_object.isShown;
+                    }
+                }
+            }
             Image {
                 visible: entry.displayText.trim() !== ""
                 sourceSize.height: height
@@ -358,6 +401,7 @@ Page {
                     }
                 }
             }
+
         }
     }
 
