@@ -7,7 +7,9 @@ ActionCreator {
     signal closeCurrentChat()
 
     signal loadMoreMessages();
+
     signal sendMessage(string text);
+    signal sendPhoto(string photoUrl, string text);
     signal sendChatAction();
 
     signal leaveChat(string chatId);

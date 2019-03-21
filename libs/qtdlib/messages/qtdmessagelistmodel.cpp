@@ -6,6 +6,8 @@
 #include "requests/qtdsendmessagerequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
 #include "requests/qtdeditmessagecaptionrequest.h"
+#include "requests/content/qtdinputmessagetext.h"
+#include "requests/content/qtdinputmessagephoto.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -236,12 +238,33 @@ void QTdMessageListModel::sendMessage(const QString &message, const qint64 &repl
 
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
-    request->setText(plainText);
-    request->setEntities(formatEntities);
+    QTdInputMessageText *messageText = new QTdInputMessageText();
+    messageText->setText(plainText);
+    messageText->setEntities(formatEntities);
+    request->setContent(messageText);
     request->setReplyToMessageId(replyToMessageId);
     QTdClient::instance()->send(request.data());
 }
+void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+    qDebug() << "send Photo";
+    if (!m_chat) {
+        return;
+    }
 
+    QString plainText;
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
+
+    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
+    request->setChatId(m_chat->id());
+    QTdInputMessagePhoto *messageContent = new QTdInputMessagePhoto();
+    messageContent->setPhoto(url);
+    messageContent->setCaption(caption);
+    messageContent->setCaptionEntities(formatEntities);
+    request->setContent(messageContent);
+    request->setReplyToMessageId(replyToMessageId);
+    QTdClient::instance()->send(request.data());
+}
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
     if (!m_chat) {

@@ -68,6 +68,6 @@ void QTdFile::handleUpdateFile(const QJsonObject &json)
     if (qint32(json["id"].toInt()) != this->id()) {
         return;
     }
-    qDebug() << "UPDATING FILE:" << this->id();
+    // qDebug() << "UPDATING FILE:" << this->id();
     this->unmarshalJson(json);
 }

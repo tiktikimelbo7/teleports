@@ -12,6 +12,7 @@
         <file>actions/AuthKey.qml</file>
         <file>actions/qmldir</file>
         <file>pages/WaitCodePage.qml</file>
+        <file>pages/MediaImport.qml</file>
         <file>pages/WaitPasswordPage.qml</file>
         <file>pages/ChatListPage.qml</file>
         <file>pages/SettingsPage.qml</file>
@@ -29,12 +30,15 @@
         <file>actions/SettingsActions.qml</file>
         <file>actions/SettingsKey.qml</file>
         <file>delegates/MessageItemBase.qml</file>
+        <file>components/AttachPanel.qml</file>
+        <file>components/AttachPanelItem.qml</file>
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
         <file>components/CountryCodes.js</file>
         <file>components/CountryPicker.qml</file>
         <file>components/ProfilePhoto.qml</file>
         <file>components/MediaViewer.qml</file>
+        <file>components/MediaImport.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
         <file>delegates/MessageAnimationItem.qml</file>

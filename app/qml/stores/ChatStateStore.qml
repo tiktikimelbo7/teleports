@@ -124,11 +124,16 @@ Store {
             messageList.sendMessage(message.text);
         }
     }
-
+    Filter {
+        type: ChatKey.sendPhoto
+        onDispatched: {
+            messageList.sendPhoto(message.photoUrl, message.text, 0);
+        }
+    }
     Filter {
         type: ChatKey.sendReplyToMessage
         onDispatched: {
-            messageList.sendReplyToMessage(message.id, message.text)
+            messageList.sendReplyToMessage(message.id, message.text);
         }
     }
 
