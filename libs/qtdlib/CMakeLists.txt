@@ -131,10 +131,14 @@ set(
     messages/qtdmessagesendingstate.cpp
     messages/qtdmessagelistmodel.cpp
     messages/qtdchatstate.cpp
+    messages/replymarkup/qtdreplymarkup.cpp
+    messages/replymarkup/qtdkeyboardbutton.cpp
+    messages/replymarkup/qtdkeyboardbuttontype.cpp
     messages/requests/qtdsendmessagerequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
+    messages/requests/qtdgetmessagerequest.cpp
     messages/requests/qtdinputmessagecontent.cpp
     messages/requests/qtdinputmessagecontentfactory.cpp
     # todo

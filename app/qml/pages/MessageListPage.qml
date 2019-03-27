@@ -1,4 +1,4 @@
-import QtQuick 2.8
+
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
@@ -84,17 +84,143 @@ Page {
             }
 
             UITK.Icon {
-            id: secret_chat_icon
-            visible: Telegram.chats.currentChat.isSecret
-            name: "network-secure"
-            anchors {
-                top: parent.top
-                left: avatar.right
-                topMargin: units.dp(5)
-                bottomMargin: units.dp(5)
-                bottom: titleText.bottom
+                id: secret_chat_icon
+                visible: Telegram.chats.currentChat.isSecret
+                name: "network-secure"
+                anchors {
+                    top: parent.top
+                    left: avatar.right
+                    topMargin: units.dp(5)
+                    bottomMargin: units.dp(5)
+                    bottom: titleText.bottom
+                }
+                width: height
             }
-            width: height
+            Label {
+                id: titleText
+                anchors {
+                    top: parent.top
+                    left: secret_chat_icon.visible? secret_chat_icon.right : avatar.right
+                    leftMargin: units.gu(1)
+                    right: parent.right
+                }
+                verticalAlignment: Text.AlignVCenter
+
+                font.pixelSize: FontUtils.sizeToPixels("large")
+                elide: Text.ElideRight
+                wrapMode: Text.WrapAnywhere
+                maximumLineCount: 1
+                text: header.title.length === 0 ? i18n.tr("Telegram") : header.title
+
+                state: header.subtitle.length > 0 ? "subtitle" : "default"
+                states: [
+                    State {
+                        name: "default"
+                        AnchorChanges {
+                            target: titleText
+                            anchors.verticalCenter: titleText.parent.verticalCenter
+                        }
+                        PropertyChanges {
+                            target: titleText
+                            height: titleText.implicitHeight
+                            anchors.topMargin: units.gu(0.7)
+                        }
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Suru 2.2
+import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Content 1.1 as ContentHub
+import QuickFlux 1.1
+import QTelegram 1.0
+import QTelegramStyles 1.0
+import "../components"
+import "../actions"
+import "../delegates"
+import "../stores"
+
+
+Page {
+    property QTdChat currentChat: Telegram.chats.currentChat
+    header: UITK.PageHeader {
+        title: Telegram.chats && currentChat ? currentChat.title : ""
+        subtitle: {
+            if (Telegram.chats && currentChat)
+            {
+                if (currentChat.action != "")
+                    return currentChat.action;
+                if (currentChat.isGroup || currentChat.isChannel)
+                {
+                    return i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
+                }
+                return currentChat.chatType.user.status.string
+            }
+            return "";
+        }
+        leadingActionBar.actions: [
+            UITK.Action {
+                iconName: "back"
+                text: "Back"
+                onTriggered: {
+                    AppActions.chat.closeCurrentChat()
+                }
+            }
+        ]
+        contents: Item {
+            anchors.fill: parent
+
+            GenericPhoto {
+                    id: avatar
+
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: units.dp(4)
+                    }
+                    height: units.gu(5)
+                    width: height
+                    property QTdLocalFile localFile : Telegram.chats.currentChat.chatPhoto.small.local
+                    photoPath: {
+                        if (localFile && localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
+                            Telegram.chats.currentChat.chatPhoto.small.downloadFile();
+                        }
+                        return Telegram.chats.currentChat && localFile.path ? localFile.path : ""
+                    }
+                    initials: Telegram.chats.currentChat ? Telegram.chats.currentChat.initials : "N/A"
+                    avatarColor: Telegram.chats.currentChat.avatarColor(Telegram.chats.currentChat ? Telegram.chats.currentChat.rawId : 0)
+                    myself: Telegram.chats.currentChat ? Telegram.chats.currentChat.isMyself : false
+                }
+
+            Rectangle {
+                id: connectingIndicator
+                anchors.fill: avatar
+                visible: false
+                color: theme.palette.normal.background
+                UITK.Icon {
+                    name: "sync-updating"// telegram.busy? "sync-updating" : isConnecting? "sync-error" : "sync-paused"
+                    anchors.fill: parent
+                    color: Theme.palette.normal.backgroundSecondaryText
+                }
+                SequentialAnimation {
+                    running: visible
+                    loops: Animation.Infinite
+                    PropertyAnimation { target: connectingIndicator; property: "opacity"; to: 1; duration: 500 }
+                    PropertyAnimation { duration: 300 }
+                    PropertyAnimation { target: connectingIndicator; property: "opacity"; to: 0.0; duration: 800 }
+                    PropertyAnimation { duration: 300 }
+                }
+            }
+
+            UITK.Icon {
+                id: secret_chat_icon
+                visible: Telegram.chats.currentChat.isSecret
+                name: "network-secure"
+                anchors {
+                    top: parent.top
+                    left: avatar.right
+                    topMargin: units.dp(5)
+                    bottomMargin: units.dp(5)
+                    bottom: titleText.bottom
+                }
+                width: height
             }
             Label {
                 id: titleText
@@ -204,6 +330,7 @@ Page {
             top: parent.top
             right: parent.right
             bottom: input.top
+            // bottom: infoBox.top
         }
 
         ListView {
@@ -239,6 +366,7 @@ Page {
     }
 
     InputInfoBox {
+        id: infoBox
         // Convenience properties
         readonly property bool editingMessage: d.chatState === ChatState.EditingMessage
         readonly property bool replyingToMessage: d.chatState === ChatState.ReplyingToMessage
@@ -264,7 +392,7 @@ Page {
         anchors {
             left: parent.left
             right: parent.right
-            bottom: parent.bottom
+            bottom: showKeyboardLoader.top
         }
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
@@ -382,6 +510,31 @@ Page {
                     }
                 }
             }
+            UITK.StyledItem {
+                visible: showKeyboardLoader.active
+                height: entry.height
+                width: height
+                UITK.Icon {
+                    anchors.fill: parent
+                    name: showKeyboardLoader.item.anchors.bottomMargin < 0 ? "input-dialpad-symbolic" : "down"
+                    color: Suru.foregroundColor
+                    opacity: 0.8
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        hoverEnabled: false
+                        onClicked: {
+                            if (UbuntuApplication.inputMethod.visible) {
+                                UbuntuApplication.inputMethod.hide()
+                                showKeyboardLoader.item.hidden = false
+                            }
+                            else {
+                                showKeyboardLoader.item.hidden = !showKeyboardLoader.item.hidden
+                            }
+                        }
+                    }
+                }
+            }
             Image {
                 visible: entry.displayText.trim() !== ""
                 sourceSize.height: height
@@ -402,6 +555,21 @@ Page {
                 }
             }
 
+        }
+    }
+
+    Loader {
+        id: showKeyboardLoader
+        active: Telegram.chats.currentChat.replyMarkupMessageId != 0 && Telegram.chats.currentChat.replyMarkupMessage.replyMarkup.type == QTdObject.REPLY_MARKUP_SHOW_KEYBOARD
+        anchors.bottomMargin: active ? item.anchors.bottomMargin : 0
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+        sourceComponent: ReplyMarkupShowKeyboard {
+            replyMarkup: Telegram.chats.currentChat.replyMarkupMessage.replyMarkup
         }
     }
 

@@ -155,6 +155,10 @@ public:
         VIDEO_NOTE,
         VOICE_NOTE,
         WEB_PAGE,
+        REPLY_MARKUP_FORCE_REPLY,
+        REPLY_MARKUP_INLINE_KEYBOARD,
+        REPLY_MARKUP_REMOVE_KEYBOARD,
+        REPLY_MARKUP_SHOW_KEYBOARD,
     };
     Q_ENUM(Type)
 

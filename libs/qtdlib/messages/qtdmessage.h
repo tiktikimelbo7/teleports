@@ -4,6 +4,7 @@
 #include "common/qabstractint64id.h"
 #include "qtdmessagecontent.h"
 #include "qtdmessagesendingstate.h"
+#include "replymarkup/qtdreplymarkup.h"
 #include "user/qtduser.h"
 #include <QDateTime>
 #include <QObject>
@@ -26,6 +27,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QString views READ views NOTIFY messageChanged)
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
+    Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
@@ -77,6 +79,8 @@ public:
 
     QTdMessageContent *content() const;
 
+    QTdReplyMarkup *replyMarkup() const;
+
     QString summary() const;
 
     Q_INVOKABLE QString formatDate(const QDateTime &dt);
@@ -127,6 +131,7 @@ private:
     QPointer<QTdMessageContent> m_content;
     bool m_isValid;
     QTdInt32 m_previousSender, m_nextSender;
+    QPointer<QTdReplyMarkup> m_replyMarkup;
 };
 
 #endif // QTDMESSAGE_H
