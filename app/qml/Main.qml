@@ -21,6 +21,8 @@ ApplicationWindow {
     visible: Telegram.auth.state > AuthState.WaitEncryptionKey
     width: Suru.units.gu(45)
     height: Suru.units.gu(75)
+    property bool landscape: width > height
+    readonly property bool tablet: landscape ? width >= units.gu(90) : height >= units.gu(90)
     Suru.theme: Telegram.settings.theme
 
     UITK.StyledItem {

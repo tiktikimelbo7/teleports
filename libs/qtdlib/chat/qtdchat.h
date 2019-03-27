@@ -50,12 +50,13 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString lastReadOutboxMessageId READ qmlLastReadOutboxMessageId NOTIFY lastReadOutboxMessageIdChanged)
     Q_PROPERTY(bool hasUnreadMentions READ hasUnreadMentions NOTIFY unreadMentionCountChanged)
     Q_PROPERTY(QString unreadMentionCount READ qmlUnreadMentionCount NOTIFY unreadMentionCountChanged)
+    Q_PROPERTY(QString replyMarkupMessageId READ qmlReplyMarkupMessageId NOTIFY replyMarkupMessageChanged)
+    Q_PROPERTY(QTdMessage *replyMarkupMessage READ replyMarkupMessage NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdNotificationSettings* notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
     Q_PROPERTY(QString summary READ summary NOTIFY summaryChanged)
     Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
 
     // TODO:
-    // int64:reply_markup_message_id
     // draftMessage:draf_message && updateChatDraftMessage
     // string:client_data
     Q_PROPERTY(QObject* messages READ messages NOTIFY messagesChanged)
@@ -182,6 +183,21 @@ public:
      */
     qint32 unreadMentionCount() const;
     /**
+     * @brief Id of the message from which reply markup needs to be used for qml
+     */
+    QString qmlReplyMarkupMessageId() const;
+    /**
+     * @brief Id of the message from which reply markup needs to be used
+     * 0 if there is no default custom reply markup in the chat.
+     */
+    qint64 replyMarkupMessageId() const;
+    /**
+     * @brief message replyMarkupMessageId is pointing to
+     */
+    QTdMessage *replyMarkupMessage() const;
+    bool hasReplyMarkup() const;
+    void loadReplyMarkupMessage();
+    /**
      * @brief Notification settings for this chat
      */
     QTdNotificationSettings *notificationSettings() const;
@@ -268,6 +284,7 @@ signals:
     void lastReadInboxMessageIdChanged();
     void lastReadOutboxMessageIdChanged();
     void unreadMentionCountChanged();
+    void replyMarkupMessageChanged();
     void notificationSettingsChanged();
     void messagesChanged();
     void chatStatusChanged();
@@ -310,7 +327,10 @@ private:
     QTdInt64 m_lastReadInboxMsg;
     QTdInt64 m_lastReadOutboxMsg;
     QTdInt32 m_unreadMentionCount;
+    QTdInt64 m_replyMarkupMessageId;
+    QPointer<QTdMessage> m_replyMarkupMessage;
     QScopedPointer<QTdNotificationSettings> m_notifySettings;
+    bool m_chatOpen;
 
     struct useraction {
         QTdInt32 userId;

@@ -1,4 +1,4 @@
-#include "utils/i18n.h" 
+#include "utils/i18n.h"
 #include "qtdchat.h"
 #include <QDebug>
 #include <QJsonArray>
@@ -13,13 +13,15 @@
 #include "chat/requests/qtdleavechatrequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
+#include "messages/requests/qtdgetmessagerequest.h"
+#include "utils/await.h"
 
 QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
     m_chatType(0), m_chatPhoto(new QTdChatPhoto), m_lastMessage(new QTdMessage),
     m_order(0), m_isPinned(false), m_canBeReported(false),
     m_unreadCount(0), m_lastReadInboxMsg(0), m_lastReadOutboxMsg(0),
     m_unreadMentionCount(0), m_notifySettings(new QTdNotificationSettings),
-    m_messages(0)
+    m_messages(0), m_chatOpen(false)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -54,6 +56,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatReadOutbox(json);
 
     updateChatUnreadMentionCount(json);
+
+    updateChatReplyMarkup(json);
 
     m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
     emit notificationSettingsChanged();
@@ -216,6 +220,44 @@ qint32 QTdChat::unreadMentionCount() const
     return m_unreadMentionCount.value();
 }
 
+QString QTdChat::qmlReplyMarkupMessageId() const
+{
+    return m_replyMarkupMessageId.toQmlValue();
+}
+
+qint64 QTdChat::replyMarkupMessageId() const
+{
+    return m_replyMarkupMessageId.value();
+}
+
+QTdMessage *QTdChat::replyMarkupMessage() const
+{
+    return m_replyMarkupMessage;
+}
+
+bool QTdChat::hasReplyMarkup() const
+{
+    return m_replyMarkupMessageId.value() != 0;
+}
+
+void QTdChat::loadReplyMarkupMessage() {
+    if (!hasReplyMarkup()) {
+        return;
+    }
+    QScopedPointer<QTdGetMessageRequest> req(new QTdGetMessageRequest);
+    req->setChatId(id());
+    req->setMessageId(m_replyMarkupMessageId.value());
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Failed to get reply markup message with error: " << resp.result().errorString();
+        return;
+    }
+    m_replyMarkupMessage = new QTdMessage(this);
+    m_replyMarkupMessage->unmarshalJson(resp.result().json());
+    emit replyMarkupMessageChanged();
+}
+
 QTdNotificationSettings *QTdChat::notificationSettings() const
 {
     return m_notifySettings.data();
@@ -272,14 +314,17 @@ QObject *QTdChat::messages() const
 
 void QTdChat::openChat()
 {
+    m_chatOpen = true;
     QScopedPointer<QTdOpenChatRequest> req(new QTdOpenChatRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
     onChatOpened();
+    QTdChat::loadReplyMarkupMessage();
 }
 
 void QTdChat::closeChat()
 {
+    m_chatOpen = false;
     QScopedPointer<QTdCloseChatRequest> req(new QTdCloseChatRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
@@ -392,9 +437,10 @@ void QTdChat::updateChatPhoto(const QJsonObject &photo)
 
 void QTdChat::updateChatReplyMarkup(const QJsonObject &json)
 {
-//    https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1update_chat_reply_markup.html
-    Q_UNUSED(json);
-    qWarning() << __func__ << "NOT IMPLEMENTED";
+    m_replyMarkupMessageId = json["reply_markup_message_id"];
+    if (hasReplyMarkup() && m_chatOpen) {
+        loadReplyMarkupMessage();
+    }
 }
 
 void QTdChat::updateChatTitle(const QJsonObject &json)
@@ -515,4 +561,3 @@ QString QTdChat::formatDate(const QDateTime &dt)
 {
     return QTdHelpers::formatDate(dt);
 }
-

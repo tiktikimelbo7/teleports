@@ -297,8 +297,9 @@ msgstr ""
 msgid "Okay"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Cancel"
+#. TRANSLATORS: A short date format, consisting only of the day number and the month spelled out
+#: ../app/qml/delegates/MessageDateItem.qml:41
+msgid "dd MMMM"
 msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:77

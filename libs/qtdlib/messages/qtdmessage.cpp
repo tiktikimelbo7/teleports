@@ -15,7 +15,7 @@ QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_isOutgoing(false), m_canBeEdited(false), m_canBeForwarded(false),
     m_canBeDeletedOnlyForSelf(false), m_canBeDeletedForAllUsers(false),
     m_isChannelPost(false), m_containsUnreadMention(false), m_content(Q_NULLPTR),
-    m_isValid(false), m_previousSender(0), m_nextSender(0)
+    m_isValid(false), m_previousSender(0), m_nextSender(0), m_replyMarkup(Q_NULLPTR)
 {
     setType(MESSAGE);
 }
@@ -100,6 +100,27 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_content = QTdMessageContentFactory::create(content, this);
     m_content->unmarshalJson(content);
 
+    if (m_replyMarkup) {
+        delete m_replyMarkup;
+        m_replyMarkup = nullptr;
+    }
+    const QJsonObject replyMarkup = json["reply_markup"].toObject();
+    if (!replyMarkup.isEmpty()) {
+        const QString replyMarkupType = replyMarkup["@type"].toString();
+        if (replyMarkupType == "replyMarkupForceReply") {
+            m_replyMarkup = new QTdReplyMarkupForceReply(this);
+        } else if (replyMarkupType == "replyMarkupInlineKeyboard") {
+            m_replyMarkup = new QTdReplyMarkupInlineKeyboard(this);
+        } else if (replyMarkupType == "replyMarkupRemoveKeyboard") {
+            m_replyMarkup = new QTdReplyMarkupRemoveKeyboard(this);
+        } else if (replyMarkupType == "replyMarkupShowKeyboard") {
+            m_replyMarkup = new QTdReplyMarkupShowKeyboard(this);
+        }
+        if (m_replyMarkup) {
+            m_replyMarkup->unmarshalJson(replyMarkup);
+        }
+    }
+
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
     m_isValid = true;
@@ -182,6 +203,11 @@ bool QTdMessage::containsUnreadMention() const
 QTdMessageContent *QTdMessage::content() const
 {
     return m_content;
+}
+
+QTdReplyMarkup *QTdMessage::replyMarkup() const
+{
+    return m_replyMarkup;
 }
 
 QString QTdMessage::summary() const
