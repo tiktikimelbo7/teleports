@@ -40,6 +40,9 @@ class QTdMessage : public QAbstractInt64Id
     // Indicates if this message is the first/latest message in the model
     Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
     Q_PROPERTY(QString replyToMessageId READ qmlReplyToMessageId NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessage * messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
+    Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
+    Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -97,8 +100,14 @@ public:
 
     bool isLatest() const;
 
+    bool isCollapsed() const;
+
+    void collapse();
+
     qint64 replyToMessageId() const;
     QString qmlReplyToMessageId() const;
+    bool isReply() const;
+    QTdMessage * messageRepliedTo();
 
 signals:
     void messageChanged();
@@ -106,10 +115,12 @@ signals:
     void sendingStateChanged();
     void previousSenderChanged();
     void nextSenderChanged();
+    void messageRepliedToChanged();
 
 private slots:
     void updateSender(const qint32 &senderId);
     void updateSendingState(const QJsonObject &json);
+    void handleMessage(const QJsonObject &json);
 
 private:
     qint32 m_date;
@@ -132,6 +143,8 @@ private:
     bool m_isValid;
     QTdInt32 m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
+    QPointer<QTdMessage> m_messageRepliedTo;
+    bool m_isCollapsed;
 };
 
 #endif // QTDMESSAGE_H

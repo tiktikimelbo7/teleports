@@ -21,6 +21,10 @@ MessageActionItem {
 
     function getUsersString() {
 
+        if (message.isCollapsed && content.members.count == 1) {
+            return ""
+        }
+       
         // If more than 3 users display a string like
         // "5 users joined the group"
         if (content.members.count > 3) {

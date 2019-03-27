@@ -180,6 +180,7 @@ set(
     quick/users.cpp
     chat/requests/qtdleavechatrequest.cpp
     chat/requests/qtddeletechathistoryrequest.cpp
+    messages/requests/qtdgetmessagerequest.cpp
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

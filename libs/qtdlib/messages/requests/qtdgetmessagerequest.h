@@ -19,7 +19,7 @@ public:
 
     void setMessageId(const qint64 &msg);
 
-    QJsonObject marshalJson();
+    QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync();
 
