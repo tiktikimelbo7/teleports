@@ -8,14 +8,24 @@ Item {
     id: action
     property QTdMessage message: null
     property QTdChat chat: null
-    property alias text: dl.text
+    property alias text: label.text
 
     signal clicked()
 
-    height: Suru.units.gu(5)
-    width: parent.width
+    height: message.isCollapsed ? childrenRect.height : Suru.units.gu(5)
+    width: childrenRect.width
+
+    Label {
+        visible: message.isCollapsed
+        id: label
+        anchors {
+            top: parent.top
+        }
+        width: contentWidth
+    }
 
     RowLayout {
+        visible: !message.isCollapsed
         anchors {
             topMargin: Suru.units.gu(1)
             fill: parent
@@ -38,6 +48,7 @@ Item {
                         top: parent.top
                         topMargin: Suru.units.dp(4)
                     }
+                    text: label.text
                     opacity: 1
                     color: "white"
                 }

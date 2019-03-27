@@ -7,7 +7,9 @@
 #include "content/qtdmessagedate.h"
 #include "content/qtdmessagesticker.h"
 #include "common/qtdhelpers.h"
+#include "requests/qtdgetmessagerequest.h"
 //#include "i18n.h"
+
 
 QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_date(0), m_sender_user_id(0), m_chatId(0),
@@ -15,7 +17,8 @@ QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
     m_isOutgoing(false), m_canBeEdited(false), m_canBeForwarded(false),
     m_canBeDeletedOnlyForSelf(false), m_canBeDeletedForAllUsers(false),
     m_isChannelPost(false), m_containsUnreadMention(false), m_content(Q_NULLPTR),
-    m_isValid(false), m_previousSender(0), m_nextSender(0), m_replyMarkup(Q_NULLPTR)
+    m_isValid(false), m_previousSender(0), m_nextSender(0), m_replyMarkup(Q_NULLPTR),
+    m_messageRepliedTo(Q_NULLPTR), m_replyToMessageId(0), m_isCollapsed(false)
 {
     setType(MESSAGE);
 }
@@ -95,6 +98,15 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
     m_replyToMessageId = json["reply_to_message_id"];
+    if (isReply() && !isCollapsed()) {
+        if (m_messageRepliedTo == Q_NULLPTR) {
+            connect(QTdClient::instance(), &QTdClient::message, this, &QTdMessage::handleMessage);
+        }
+        QScopedPointer<QTdGetMessageRequest> request(new QTdGetMessageRequest);
+        request->setChatId(chatId());
+        request->setMessageId(replyToMessageId());
+        QTdClient::instance()->send(request.data());
+    }
 
     const QJsonObject content = json["content"].toObject();
     m_content = QTdMessageContentFactory::create(content, this);
@@ -336,3 +348,49 @@ void QTdMessage::updateSendingState(const QJsonObject &json)
     }
     m_sendingState = obj;
 }
+
+bool QTdMessage::isReply() const
+{
+    return (m_replyToMessageId.value() > 0);
+}
+
+QTdMessage * QTdMessage::messageRepliedTo()
+{
+    if (replyToMessageId() <= 0) {
+        return Q_NULLPTR;
+    }
+
+    if (!m_messageRepliedTo) {
+        m_messageRepliedTo = new QTdMessage();
+    }
+
+    return m_messageRepliedTo;
+}
+
+void QTdMessage::handleMessage(const QJsonObject &json)
+{
+    if (json.isEmpty() || json["id"] != replyToMessageId()) {
+        return;
+    }
+
+    auto * msgRepliedTo = messageRepliedTo();
+    msgRepliedTo->collapse();
+
+    if (!msgRepliedTo) {
+        return;
+    }
+
+    msgRepliedTo->unmarshalJson(json);
+    emit messageRepliedToChanged();
+}
+
+bool QTdMessage::isCollapsed() const
+{
+    return m_isCollapsed;
+}
+
+void QTdMessage::collapse()
+{
+    m_isCollapsed = true;
+}
+

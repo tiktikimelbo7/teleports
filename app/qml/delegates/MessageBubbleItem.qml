@@ -138,6 +138,7 @@ UITK.ListItem {
                visible: !transparentBackground
                color: Suru.neutralColor    // (i.e. Silk, #CDCDCD) (#e6e6e6) with opacity: 0.5
             }
+
             Column {
                 id: mc
 

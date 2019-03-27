@@ -7,6 +7,7 @@
 #include <qtdlib/quick/plugin.h>
 #include <QtQuickControls2/QQuickStyle>
 #include "messagedelegatemap.h"
+#include "messagecontentdelegatemap.h"
 #include <libintl.h>
 #include <locale.h>
 #define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
@@ -31,12 +32,14 @@ int main(int argc, char *argv[])
     textdomain ("teleports.ubports");
 
     MessageDelegateMap delegateMap;
+    MessageContentDelegateMap contentDelegateMap;
 
     QQmlApplicationEngine engine;
 
     engine.addImportPath(QStringLiteral("qrc:/plugins"));
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
+    engine.rootContext()->setContextProperty(QStringLiteral("contentDelegateMap"), &contentDelegateMap);
 
     engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 

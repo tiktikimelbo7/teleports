@@ -29,9 +29,9 @@
         <file>actions/UserStateKey.qml</file>
         <file>actions/SettingsActions.qml</file>
         <file>actions/SettingsKey.qml</file>
-        <file>delegates/MessageItemBase.qml</file>
         <file>components/AttachPanel.qml</file>
         <file>components/AttachPanelItem.qml</file>
+        <file>delegates/MessageBubbleItem.qml</file>
         <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
         <file>components/CountryCodes.js</file>
@@ -70,5 +70,17 @@
         <file>delegates/MessageChatAddMembersItem.qml</file>
         <file>middleware/ChatMiddleware.qml</file>
         <file>middleware/StackMiddleware.qml</file>
+        <file>delegates/MessageContentBase.qml</file>
+        <file>delegates/MessageContentText.qml</file>
+        <file>delegates/MessageContentAnimation.qml</file>
+        <file>delegates/MessageContentAudio.qml</file>
+        <file>delegates/MessageContentDocument.qml</file>
+        <file>delegates/MessageContentVideo.qml</file>
+        <file>delegates/MessageContentCall.qml</file>
+        <file>delegates/MessageContentSticker.qml</file>
+        <file>delegates/MessageContentPhoto.qml</file>
+        <file>delegates/MessageUnavailable.qml</file>
+        <file>components/Citation.qml</file>
+        <file>components/FormattedText.qml</file>
     </qresource>
 </RCC>
