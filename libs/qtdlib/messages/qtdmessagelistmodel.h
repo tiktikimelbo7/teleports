@@ -39,6 +39,7 @@ public slots:
     void editMessageCaption(const QString &messageId, const QString &message);
     void sendReplyToMessage(const qint64 &replyToMessageId, const QString &message);
     void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
+    void deleteMessage(qint64 messageId);
 
 private slots:
     void cleanUp();

@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import QTelegram 1.0
 import QTelegramStyles 1.0
 
@@ -30,9 +31,23 @@ UITK.ListItem {
             UITK.Action {
                 iconName: "delete"
                 text: i18n.tr("Delete")
-                onTriggered: AppActions.chat.deleteMessage(message.id)
+                onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
+                visible: message.canBeDeletedOnlyForSelf || message.canBeDeletedForAllUsers
             }
         ]
+    }
+
+    Component {
+        id: deleteConfirmationDialog
+        PopupDialog {
+            text: message.canBeDeletedForAllUsers ?
+                    i18n.tr("The message will be deleted for all users in the chat. Do you really want to delete it?") :
+                    i18n.tr("The message will be deleted only for you. Do you really want to delete it?")
+            confirmButtonColor: UITK.UbuntuColors.red
+            confirmButtonText: i18n.tr("Delete")
+            cancelButtonColor: UITK.UbuntuColors.green
+            onConfirmed: AppActions.chat.deleteMessage(message.id)
+        }
     }
 
     trailingActions: UITK.ListItemActions {
