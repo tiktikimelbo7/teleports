@@ -1,7 +1,7 @@
 # TELEports - An Ubuntu Touch Telegram client
 
 ## Building
-Teleports and its libraries are built using [clickable](https://clickable.bhdouglass.com/en/latest/). 
+Teleports and its libraries are built using [clickable](https://clickable.bhdouglass.com/en/latest/).
 
 You need to build the dependencies (tdlib) once:
 
@@ -15,7 +15,7 @@ From now on building the app is as simple as:
     clickable #for the phone
     clickable desktop #for desktop
 
-If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`, 
+If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`,
 remove the `.clickable` directory and try again. This may happen when
 switching between phone and desktop build.
 
@@ -51,12 +51,13 @@ $ ./tools/apply-format -i --staged
 $ # Commit the result.
 $ git commit
 ```
+## Design guidelines
+
+As a community devloped project, but somehow connected to ubports we follow the [desgin rules](https://gitlab.com/ubports/teams/ux-des/ubuntu-touch-human-interface-guidelines---hib/wikis/home) made by the ubports ux-team.
+
 
 ## Known issues
 
-* No media attachments or photos are supported right now
-* During login you need to resize the window after telephone number input or code input if you see a white box only. On the phone: *Rotate* the phone briefly to get the window resized
-* No notifications
 * Messages are not always refreshing, you have to back and forth between chat list and message window
 * Messages are not being marked as read
 
