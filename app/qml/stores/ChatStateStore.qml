@@ -144,6 +144,13 @@ Store {
     }
 
     Filter {
+        type: ChatKey.deleteMessage
+        onDispatched: {
+            messageList.deleteMessage(message.id)
+        }
+    }
+
+    Filter {
         type: ChatKey.sendChatAction
         onDispatched: {
             chatList.currentChat.sendChatAction(true);

@@ -12,6 +12,8 @@
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
+#include "messages/requests/qtddeletemessagesrequest.h"
+
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
 
@@ -348,6 +350,21 @@ void QTdMessageListModel::sendReplyToMessage(const qint64 &replyToMessageId, con
 void QTdMessageListModel::sendReplyToMessage(const QString &replyToMessageId, const QString &message)
 {
     sendMessage(message, replyToMessageId.toLongLong());
+}
+
+void QTdMessageListModel::deleteMessage(qint64 messageId)
+{
+    QScopedPointer<QTdDeleteMessagesRequest> req(new QTdDeleteMessagesRequest);
+    QList<qint64> messages;
+    messages << messageId;
+    req->setChatId(m_chat->id());
+    req->setMessageIds(messages);
+    QTdClient::instance()->send(req.data());
+    auto *msgDeleted = m_model->getByUid(QString::number(messageId));
+    if (msgDeleted) {
+        m_model->remove(msgDeleted);
+        return;
+    }
 }
 
 void QTdMessageListModel::setMessagesRead( QList<qint64> messages)
