@@ -10,6 +10,7 @@ Item {
     property bool isShown: false
 
     signal photoRequested()
+    signal documentRequested()
     signal videoRequested()
     signal audioRequested()
     signal contactRequested()
@@ -57,7 +58,15 @@ Item {
                     attach_panel.close()
                 }
             }
-
+            AttachPanelItem {
+                // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+                text: i18n.tr("File")
+                image: Qt.resolvedUrl("qrc:/qml/icons/attach_document.png")
+                onClicked: {
+                    attach_panel.documentRequested()
+                    attach_panel.close()
+                }
+            }
             // AttachPanelItem {
             //     // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
             //     text: i18n.tr("Video")

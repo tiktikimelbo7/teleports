@@ -145,7 +145,7 @@ set(
     # messages/requests/content/qtdinputmessageanimation.cpp
     # messages/requests/content/qtdinputmessageaudio.cpp
     # messages/requests/content/qtdinputmessagecontact.cpp
-    # messages/requests/content/qtdinputmessagedocument.cpp
+    messages/requests/content/qtdinputmessagedocument.cpp
     # messages/requests/content/qtdinputmessageforwarded.cpp
     # messages/requests/content/qtdinputmessagegame.cpp
     # messages/requests/content/qtdinputmessageinvoice.cpp

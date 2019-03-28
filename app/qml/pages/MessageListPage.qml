@@ -288,6 +288,7 @@ Page {
                 mediaImporter.requestMedia();
             }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
+            onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
             onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
             onAudioRequested: requestMedia(ContentHub.ContentType.Music)
             onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
@@ -298,7 +299,12 @@ Page {
 
             onMediaReceived: {
                 var filePath = String(mediaUrl).replace('file://', '');
-                AppActions.chat.sendPhoto(filePath,"");
+                if(contentType==1){
+                  AppActions.chat.sendDocument(filePath,"");
+                }
+                else if(contentType==2){
+                  AppActions.chat.sendPhoto(filePath,"");
+                }
             }
         }
         RowLayout {

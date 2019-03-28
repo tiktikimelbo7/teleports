@@ -8,6 +8,7 @@
 #include "requests/qtdeditmessagecaptionrequest.h"
 #include "requests/content/qtdinputmessagetext.h"
 #include "requests/content/qtdinputmessagephoto.h"
+#include "requests/content/qtdinputmessagedocument.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -259,6 +260,26 @@ void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, 
     request->setChatId(m_chat->id());
     QTdInputMessagePhoto *messageContent = new QTdInputMessagePhoto();
     messageContent->setPhoto(url);
+    messageContent->setCaption(caption);
+    messageContent->setCaptionEntities(formatEntities);
+    request->setContent(messageContent);
+    request->setReplyToMessageId(replyToMessageId);
+    QTdClient::instance()->send(request.data());
+}
+void QTdMessageListModel::sendDocument(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+    qDebug() << "send Document";
+    if (!m_chat) {
+        return;
+    }
+
+    QString plainText;
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
+
+    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
+    request->setChatId(m_chat->id());
+    QTdInputMessageDocument *messageContent = new QTdInputMessageDocument();
+    messageContent->setDocument(url);
     messageContent->setCaption(caption);
     messageContent->setCaptionEntities(formatEntities);
     request->setContent(messageContent);

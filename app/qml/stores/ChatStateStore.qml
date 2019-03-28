@@ -131,6 +131,12 @@ Store {
         }
     }
     Filter {
+        type: ChatKey.sendDocument
+        onDispatched: {
+            messageList.sendDocument(message.documentUrl, message.text, 0);
+        }
+    }
+    Filter {
         type: ChatKey.sendReplyToMessage
         onDispatched: {
             messageList.sendReplyToMessage(message.id, message.text);
