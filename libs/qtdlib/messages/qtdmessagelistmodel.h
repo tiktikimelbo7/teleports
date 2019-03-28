@@ -32,6 +32,7 @@ public slots:
     void loadMore();
     void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
+    void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);
     void editMessageCaption(qint64 messageId, const QString &message);

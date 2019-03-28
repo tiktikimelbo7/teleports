@@ -7,6 +7,8 @@ KeyTable {
     property string closeCurrentChat
     property string loadMoreMessages
     property string sendMessage
+    property string sendDocument
+    property string sendPhoto
     property string sendChatAction
     property string leaveChat
     property string deleteChatHistory
@@ -19,7 +21,6 @@ KeyTable {
     property string sendReplyToMessage
     property string showStickerPack
     property string forwardMessage
-    property string sendPhoto
     property string viewGroupInfo
 
 }

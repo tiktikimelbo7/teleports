@@ -2,6 +2,7 @@
     <qresource prefix="/qml/icons">
         <file>attach_audio.png</file>
         <file>attach_contact.png</file>
+        <file>attach_document.png</file>
         <file>attach_gallery.png</file>
         <file>attach_hide1.png</file>
         <file>attach_hide2.png</file>
