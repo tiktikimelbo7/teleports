@@ -9,7 +9,7 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
-    property string version: "@APP_VERSION@"
+    property string version: "0.2.0"
     header: UITK.PageHeader {
         title: i18n.tr('About')
 

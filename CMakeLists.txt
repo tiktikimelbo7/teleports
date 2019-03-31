@@ -31,6 +31,7 @@ execute_process(
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
 set(PROJECT_NAME "teleports")
+set(APP_VERSION  "0.2.0")
 set(FULL_PROJECT_NAME "teleports.ubports")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
@@ -53,6 +54,10 @@ install(DIRECTORY assets DESTINATION ${DATA_DIR})
 install(PROGRAMS ${CURRENT_LIBRARY_DIR}/qtdlib/libQTdlib.so DESTINATION ${QT_IMPORTS_DIR})
 install(PROGRAMS ${CURRENT_TDLIB_BUILD_DIR}/libtdjson.so DESTINATION ${QT_IMPORTS_DIR})
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/app/${PROJECT_NAME} DESTINATION ${DATA_DIR})
+
+
+# Set up About page with version number
+configure_file(app/pages/AboutPage.qml app/pages/AboutPage.qml)
 
 # Translations
 file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po libs/qtdlib/*.cpp app/qml/*.qml app/qml/*.js)
