@@ -60,7 +60,8 @@ publish:
     only:
         - tags
     script:
-        - clickable build click-build publish
+        - clickable build click-build
+        - clickable publish "$CI_COMMIT_MESSAGE"
     dependencies:
         - tdlib
     cache:
