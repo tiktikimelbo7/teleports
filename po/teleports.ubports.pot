@@ -327,10 +327,6 @@ msgstr ""
 msgid "Edited"
 msgstr ""
 
-#: ../app/qml/delegates/MessageDateItem.qml:4
-msgid "dd MMMM"
-msgstr ""
-
 #: ../app/qml/delegates/MessageCallItem.qml:52
 msgid "Call Declined"
 msgstr ""
