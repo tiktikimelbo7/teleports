@@ -1,8 +1,8 @@
 [Desktop Entry]
 _Name=TELEports
 Exec=teleports
-Icon=assets/icon.png
+Icon=assets/icon.svg
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-SymbolicIcon=assets/icon-large.png
+X-Ubuntu-SymbolicIcon=assets/icon.svg

@@ -27,42 +27,51 @@ Page {
                 }
             }
         ]
-
     }
 
     Flickable {
         id: aboutFlickable
         anchors.fill: parent
-        anchors.margins: units.gu(2)
+        anchors.topMargin: units.gu(2)
 
         Column {
             id: aboutCloumn
             anchors.top: header.bottom
-            spacing:units.dp(2)
-            width:parent.width
+            spacing: units.gu(2)
+            width: parent.width
 
-            Image {
-                width: 80
-                height: 80
-                mipmap: true
+            UITK.UbuntuShape {
+                width: 120
+                height: 120
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "file:///" + applicationDirPath + "/assets/icon-large.png"
+                source: Image {
+                    mipmap: true
+                    source: "file:///" + applicationDirPath + "/assets/icon.svg"
+                }
             }
 
-            Label {
-                width: parent.width
-                font.pixelSize: units.gu(4)
-                font.bold: true
-                color: theme.palette.normal.backgroundText
-                horizontalAlignment: Text.AlignHCenter
-                text: i18n.tr("TELEports")
-            }
+            Item {
+                height: nameAndVersionLayout.height
+                width: nameAndVersionLayout.width
+                anchors.horizontalCenter: parent.horizontalCenter
 
-            Label {
-                width: parent.width
-                color: UITK.UbuntuColors.ash
-                horizontalAlignment: Text.AlignHCenter
-                text: i18n.tr("Version %1").arg("0.0.1")
+                UITK.ListItemLayout {
+                    id: nameAndVersionLayout
+                    padding {
+                        top: units.gu(0)
+                        bottom: units.gu(2)
+                    }
+
+                    title.text: i18n.tr("TELEports")
+                    title.font.pixelSize: units.gu(3)
+                    title.color: theme.palette.normal.backgroundText
+                    title.horizontalAlignment: Text.AlignHCenter
+
+                    subtitle.text: i18n.tr("Version %1").arg("0.2.0")
+                    subtitle.color: UITK.UbuntuColors.ash
+                    subtitle.font.pixelSize: units.gu(1.75)
+                    subtitle.horizontalAlignment: Text.AlignHCenter
+                }
             }
         }
 
