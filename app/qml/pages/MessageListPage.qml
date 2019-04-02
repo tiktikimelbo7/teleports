@@ -368,36 +368,34 @@ Page {
                     interval: 5000
                 }
             }
-            Image {
-                visible: true
-                // sourceSize.height: height
-                source: "qrc:/qml/icons/attach.png"
-                height: units.gu(5)
+            UITK.StyledItem {
+                height: entry.implicitHeight
                 width: height
-                Layout.fillHeight: false
-                Layout.fillWidth: false
-
-                Component.onCompleted: {
-                    height = parent.height * 0.75;
-                }
-
-                MouseArea {
+                UITK.Icon {
                     anchors.fill: parent
-                    onClicked: {
-                      // attach_panel_object.attachmentItem = attach_panel_component.createObject(dialogPage)
-                      attach_panel_object.isShown = !attach_panel_object.isShown;
+                    visible: true
+                    name: "attachment"
+                    color: Suru.foregroundColor
+                    Suru.textStyle: Suru.SecondaryText
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                          // attach_panel_object.attachmentItem = attach_panel_component.createObject(dialogPage)
+                          attach_panel_object.visible = !attach_panel_object.visible;
+                        }
                     }
                 }
             }
             UITK.StyledItem {
                 visible: showKeyboardLoader.active
-                height: entry.height
+                height: entry.implicitHeight
                 width: height
                 UITK.Icon {
                     anchors.fill: parent
                     name: showKeyboardLoader.item.anchors.bottomMargin < 0 ? "input-dialpad-symbolic" : "down"
                     color: Suru.foregroundColor
-                    opacity: 0.8
+                    Suru.textStyle: Suru.SecondaryText
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
@@ -418,14 +416,7 @@ Page {
                 visible: entry.displayText.trim() !== ""
                 sourceSize.height: height
                 source: "qrc:/qml/icons/send.png"
-
-                Layout.fillHeight: false
-                Layout.fillWidth: false
-
-                Component.onCompleted: {
-                    height = parent.height * 0.75;
-                }
-
+                height: entry.implicitHeight
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {

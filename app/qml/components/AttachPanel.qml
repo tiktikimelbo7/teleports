@@ -7,7 +7,7 @@ import "../actions"
 Item {
     id: attach_panel
 
-    property bool isShown: false
+    visible: false
 
     signal photoRequested()
     signal documentRequested()
@@ -23,17 +23,17 @@ Item {
     }
     clip: false
 
-    onClose: attach_panel.isShown = false
+    onClose: attach_panel.visible = false
 
     Rectangle {
         id: attach_box
         width: parent.width
-        height: units.gu(18)+units.gu(3)
-        y: attach_panel.isShown ? -height+units.gu(3) : height
+        height: units.gu(18)
+        y: -height
 
         Rectangle {
             anchors.fill: parent
-            color: "#aaffffff"
+            color: Suru.backgroundColor
         }
         Grid {
             id: attachment_grid
