@@ -119,6 +119,8 @@ Page {
                                         id: secret_chat_icon
                                         visible: chat.isSecret //if chat is encrypted
                                         name: "network-secure"
+                                        color: Suru.foregroundColor
+                                        Suru.textStyle: Suru.TertiaryText
                                         height: units.gu(2)
                                         width: height
                                     }
@@ -127,6 +129,8 @@ Page {
                                         id: contact_group_icon
                                         visible: chat.isGroup //if chat is a real chat or a supergroup, but not channel
                                         name: "contact-group"
+                                        color: Suru.foregroundColor
+                                        Suru.textStyle: Suru.TertiaryText
                                         height: units.gu(2)
                                         width: height
                                     }
@@ -135,6 +139,8 @@ Page {
                                         id: contact_channel_icon
                                         visible: chat.isChannel //if chat is channel but not supergroup
                                         source: "qrc:/qml/icons/broadcast.svg"
+                                        color: Suru.foregroundColor
+                                        Suru.textStyle: Suru.TertiaryText
                                         height: units.gu(2)
                                         width: height
                                     }
@@ -143,6 +149,8 @@ Page {
                                         id: audio_volume_muted_icon
                                         visible: chat.isMuted
                                         name: "audio-volume-muted"
+                                        color: Suru.foregroundColor
+                                        Suru.textStyle: Suru.TertiaryText
                                         height: units.gu(2)
                                         width: height
                                     }
@@ -194,7 +202,8 @@ Page {
 
                             visible: chat.lastMessage
                             font.pixelSize: units.dp(12)
-                            color: theme.palette.normal.backgroundTertiaryText
+                            color: Suru.foregroundColor
+                            Suru.textStyle: Suru.TertiaryText
                             text: chat.lastMessage ? chat.formatDate(chat.lastMessage.date) : ""
                         }
 
@@ -241,6 +250,8 @@ Page {
 
                                 visible: chat.isPinned
                                 source: "qrc:/qml/icons/attach.svg"
+                                color: Suru.foregroundColor
+                                Suru.textStyle: Suru.TertiaryText
                                 height: units.gu(2)
                                 width: height
                             }

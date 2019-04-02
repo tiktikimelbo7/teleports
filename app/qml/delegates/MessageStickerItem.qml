@@ -7,6 +7,7 @@ import QuickFlux 1.1
 
 MessageBubbleItem {
     id: bubble
+    transparentBackground: true
     MessageContentSticker {
         message: bubble.message
     }

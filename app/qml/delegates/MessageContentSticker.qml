@@ -13,8 +13,6 @@ MessageContentBase {
     // property QTdFile thumbnail: stickerContent.sticker.thumbnail
     property QTdLocalFile localFile: file.local
 
-    //base.transparentBackground: true
-
     Image {
         id: image
 
