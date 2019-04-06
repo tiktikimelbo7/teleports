@@ -59,12 +59,3 @@ $ git commit
 ## Design guidelines
 
 As a community devloped project, but somehow connected to ubports we follow the [desgin rules](https://gitlab.com/ubports/teams/ux-des/ubuntu-touch-human-interface-guidelines---hib/wikis/home) made by the ubports ux-team.
-
-
-## Known issues
-
-* Messages are not always refreshing, you have to back and forth between chat list and message window
-* Messages are not being marked as read
-
-## Logging out
-**Note:** At the current stage it is adviseable to log out again from the App, especially if you are working on the Telegram test server. You can do this in the Account page.
