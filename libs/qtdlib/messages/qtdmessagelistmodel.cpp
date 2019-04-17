@@ -230,23 +230,33 @@ void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, int amount)
     });
 }
 
-void QTdMessageListModel::sendMessage(const QString &message, const qint64 &replyToMessageId)
+void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &replyToMessageId)
 {
     if (!m_chat) {
         return;
     }
-
     QString plainText;
-    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
-
-    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
-    request->setChatId(m_chat->id());
-    QTdInputMessageText *messageText = new QTdInputMessageText();
-    messageText->setText(plainText);
-    messageText->setEntities(formatEntities);
-    request->setContent(messageText);
-    request->setReplyToMessageId(replyToMessageId);
-    QTdClient::instance()->send(request.data());
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(fullmessage, plainText);
+    bool isFirstMessage = true;
+    qint32 currentMessagePos = 0;
+    qint32 currentMessageLength = 0;
+    qint32 maxMessageLength = QTdClient::instance()->getOption("message_text_length_max").toInt();
+    do {
+        QString message = plainText.mid(currentMessagePos, maxMessageLength);
+        QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
+        request->setChatId(m_chat->id());
+        QTdInputMessageText *messageText = new QTdInputMessageText();
+        messageText->setText(message);
+        messageText->setEntities(formatEntities);
+        request->setContent(messageText);
+        if(isFirstMessage) {
+            request->setReplyToMessageId(replyToMessageId);
+            isFirstMessage = false;
+        }
+        currentMessageLength = message.length();
+        QTdClient::instance()->send(request.data());
+        currentMessagePos += maxMessageLength;
+    } while (currentMessagePos < plainText.length());
 }
 void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
