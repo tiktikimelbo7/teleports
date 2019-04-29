@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-31 19:37+0000\n"
-"PO-Revision-Date: 2019-03-28 21:10+0100\n"
-"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
-"Language-Team: GERMAN <stefan.weng@gmx.net>\n"
+"PO-Revision-Date: 2019-04-29 20:02+0000\n"
+"Last-Translator: Rüdiger Kupper <ruediger.kupper+github@gmail.com>\n"
+"Language-Team: German <https://translate.ubports.com/projects/ubports/"
+"teleports/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6\n"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -201,7 +202,7 @@ msgstr "Mitglieder: %1"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
-msgstr "Über"
+msgstr "Info"
 
 #: ../app/qml/pages/AboutPage.qml:70
 msgid "Version %1"
