@@ -152,7 +152,7 @@ Page {
             text: i18n.tr("Warning: Logging out will delete all local data from this device, including secret chats. Are you still sure you want to log out?")
             confirmButtonColor: UITK.UbuntuColors.red
             confirmButtonText: i18n.tr("Logout")
-            cancelButtonColor: UITK.UbuntuColors.green
+            cancelButtonColor: UITK.UbuntuColors.graphite 
             onConfirmed: AppActions.auth.logOut()
         }
     }
@@ -163,7 +163,7 @@ Page {
             text: i18n.tr("Warning: Deleting the account will delete all the data you ever received or send using telegram except for data you have explicitly saved outside the telegram cloud. Are you really really sure you want to delete your telegram account?")
             confirmButtonColor: UITK.UbuntuColors.red
             confirmButtonText: i18n.tr("Delete")
-            cancelButtonColor: UITK.UbuntuColors.green
+            cancelButtonColor: UITK.UbuntuColors.graphite 
             onConfirmed: AppActions.auth.deleteAccount()
         }
     }
