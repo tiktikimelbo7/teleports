@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-31 19:37+0000\n"
-"PO-Revision-Date: 2019-05-03 15:48+0000\n"
+"PO-Revision-Date: 2019-05-06 13:02+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -18,13 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Message"
-msgstr "Zapisane wiadomości"
+msgstr "Wiadomość"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:25
 msgid "Last seen one month ago"
@@ -58,12 +56,12 @@ msgstr "Zapisane wiadomości"
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
 msgid "Image"
-msgstr ""
+msgstr "Zdjęcie"
 
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:63
 msgid "File"
-msgstr ""
+msgstr "Plik"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -106,7 +104,7 @@ msgstr "Opuść"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
@@ -122,15 +120,15 @@ msgstr "Niepoprawna długość kodu uwierzytelniającego."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Rejestracja nie powiodła się"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Brak Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Połącz się z Ubuntu One, aby otrzymywać powiadomienia."
 
 #: ../app/qml/pages/WaitCodePage.qml:19
 msgid "Enter Code"
@@ -151,6 +149,7 @@ msgstr "Kod"
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
+"Wysłaliśmy kod za pomocą telegramu do Twojego urządzenia. Wprowadź go tutaj."
 
 #: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:65
 #: teleports.desktop.in.h:1
@@ -198,7 +197,7 @@ msgstr "Wstecz"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:96
 msgid "Members: %1"
-msgstr ""
+msgstr "Członków: %1"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
@@ -241,22 +240,20 @@ msgid "Delete account"
 msgstr "Usuń konto"
 
 #: ../app/qml/pages/SettingsPage.qml:129
-#, fuzzy
-#| msgid "Online"
 msgid "Not online"
-msgstr "Online"
+msgstr "Niedostępny"
 
 #: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
-msgstr ""
+msgstr "Ograniczona przepustowość"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith not limited"
-msgstr ""
+msgstr "Przepustowość nie jest ograniczona"
 
 #: ../app/qml/pages/SettingsPage.qml:152
 msgid ""
@@ -291,7 +288,7 @@ msgstr "Selektor zawartości"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Plik: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
@@ -310,10 +307,8 @@ msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:63
-#, fuzzy
-#| msgid "Edited"
 msgid "Edit"
-msgstr "Edytowane"
+msgstr "Edytuj"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:71
@@ -338,22 +333,25 @@ msgstr "Hasło"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 dołączył do grupy"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
 msgid "%1 users"
-msgstr ""
+msgstr "%1 użytkowników"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Wiadomość zostanie usunięta dla wszystkich użytkowników na czacie. Czy na "
+"pewno chcesz ją usunąć?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Wiadomość zostanie usunięta tylko dla Ciebie. Czy na pewno chcesz ją usunąć?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
@@ -373,30 +371,28 @@ msgstr "Edytowane"
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr ""
+msgstr "Odrzucono połączenie"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Połączenie rozłączone"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
-msgstr ""
+msgstr "Rozmowa została zakończona"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
-#, fuzzy
-#| msgid "Cancel"
 msgid "Cancelled Call"
-msgstr "Anuluj"
+msgstr "Połączenie anulowane"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
-msgstr ""
+msgstr "Nieodebrane połączenie"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
 #, javascript-format
 msgid "Duration: %1.%2"
-msgstr ""
+msgstr "Czas trwania: %1.%2"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
@@ -404,7 +400,7 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 dołączył przez link zaproszenia"
 
 #, fuzzy
 #~| msgid "dd MMMM"
