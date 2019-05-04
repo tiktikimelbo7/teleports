@@ -391,8 +391,7 @@ msgstr "MMMM dd"
 msgid "%1 joined by invite link"
 msgstr "%1 已透過邀請連結加入"
 
-#: ../app/qml/delegates/MessageDateItem.qml:5
 #, fuzzy
-#| msgid "dd MMMM"
-msgid "dd MM"
-msgstr "MMMM dd"
+#~| msgid "dd MMMM"
+#~ msgid "dd MM"
+#~ msgstr "MMMM dd"
