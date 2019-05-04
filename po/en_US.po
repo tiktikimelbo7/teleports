@@ -396,6 +396,12 @@ msgstr "MMMM, d"
 msgid "%1 joined by invite link"
 msgstr ""
 
+#: ../app/qml/delegates/MessageDateItem.qml:5
+#, fuzzy
+#| msgid "dd MMMM"
+msgid "dd MM"
+msgstr "MMMM, d"
+
 #~ msgid "Telegram Plus"
 #~ msgstr "Telegram Plus"
 

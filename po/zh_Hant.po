@@ -257,7 +257,8 @@ msgstr "不限的寬頻"
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
-msgstr "警告:登出將刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出嗎？"
+msgstr ""
+"警告:登出將刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出嗎？"
 
 #: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
@@ -266,8 +267,8 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"警告: 刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確保存在 Telegram 雲端之外的資料除外。"
-"您真的確定要刪除你的 Telegram 帳戶嗎？"
+"警告: 刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確"
+"保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 Telegram 帳戶嗎？"
 
 #: ../app/qml/pages/SettingsPage.qml:165
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
@@ -389,3 +390,9 @@ msgstr "MMMM dd"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 已透過邀請連結加入"
+
+#: ../app/qml/delegates/MessageDateItem.qml:5
+#, fuzzy
+#| msgid "dd MMMM"
+msgid "dd MM"
+msgstr "MMMM dd"
