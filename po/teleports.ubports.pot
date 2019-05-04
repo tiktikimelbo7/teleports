@@ -387,3 +387,7 @@ msgstr ""
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr ""
+
+#: ../app/qml/delegates/MessageDateItem.qml:5
+msgid "dd MM"
+msgstr ""
