@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the teleports.ubports package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-31 19:37+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2019-05-06 13:02+0000\n"
+"Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
+"Language-Team: French <https://translate.ubports.com/projects/ubports/"
+"teleports/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -54,14 +55,12 @@ msgstr "Messages enregistrés"
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:63
-#, fuzzy
-#| msgid "File: "
 msgid "File"
-msgstr "Fichier : "
+msgstr "Fichier"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -347,11 +346,15 @@ msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Ce message ne sera plus visible pour tous les membres de la discussion. "
+"Voulez-vous vraiment le supprimer ?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Ce message ne sera supprimé que pour vous. Voulez-vous vraiment le supprimer "
+"?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
