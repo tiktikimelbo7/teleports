@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-03-31 22:01+0200\n"
+"PO-Revision-Date: 2019-05-07 09:58+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
-"Language-Team: UBports Spanish Team\n"
+"Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
+"teleports/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
@@ -24,165 +26,139 @@ msgid "TELEports"
 msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
-#, fuzzy
-#| msgid "Type a message..."
 msgid "sent you a message"
-msgstr "Escriba un mensaje..."
+msgstr "le envió un mensaje"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "le envió una foto"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "le envió una pegatina"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "le envió un vídeo"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "le envió un documento"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "le envió un mensaje de voz"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "compartió un contacto"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr ""
+msgstr "le envió un mapa"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a message to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió un mensaje al grupo"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 envió una foto al grupo"
 
 #: ../push/pushhelper.cpp:166
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a sticker to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió una pegatina al grupo"
 
 #: ../push/pushhelper.cpp:172
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a video to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió un vídeo al grupo"
 
 #: ../push/pushhelper.cpp:177
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a document to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió un documento al grupo"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 envió un mensaje de voz al grupo"
 
 #: ../push/pushhelper.cpp:187
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a contact to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió un contacto al grupo"
 
 #: ../push/pushhelper.cpp:192
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a map to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 envió un mapa al grupo"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 invited you to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 le invitó al grupo"
 
 #: ../push/pushhelper.cpp:202
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 changed group name"
-msgstr "%1 se unió al grupo"
+msgstr "%1 cambió el nombre del grupo"
 
 #: ../push/pushhelper.cpp:207
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 cambió la foto del grupo"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 invitó a %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 eliminó a %2"
 
 #: ../push/pushhelper.cpp:229
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 removed you from the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 le eliminó del grupo"
 
 #: ../push/pushhelper.cpp:234
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has left the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 ha dejado el grupo"
 
 #: ../push/pushhelper.cpp:239
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has returned to the group"
-msgstr "%1 se unió al grupo"
+msgstr "%1 ha vuelto al grupo"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "en %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 se ha registrado"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 joined Telegram!"
-msgstr "%1 se unió al grupo"
+msgstr "¡%1 se unió a Telegram!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Nuevo inicio de sesión desde un dispositivo no reconocido"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 en %2"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "Foto de perfil actualizada"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
 msgid "You have a new message"
-msgstr ""
+msgstr "Tiene un nuevo mensaje"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
