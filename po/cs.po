@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-06 13:02+0000\n"
+"PO-Revision-Date: 2019-05-10 21:03+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -26,165 +26,139 @@ msgid "TELEports"
 msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
-#, fuzzy
-#| msgid "Type a message..."
 msgid "sent you a message"
-msgstr "Napište zprávu..."
+msgstr "vám zaslal zprávu"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "vám zaslal fotografii"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "vám zaslal sticker"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "vám zaslal video"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "vám zaslal dokument"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "vám zaslal hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "s vámi sdílel kontakt"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr ""
+msgstr "vám zaslal mapu"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a message to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině zprávu"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 zaslal skupině fotografii"
 
 #: ../push/pushhelper.cpp:166
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a sticker to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině sticker"
 
 #: ../push/pushhelper.cpp:172
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a video to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině video"
 
 #: ../push/pushhelper.cpp:177
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a document to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině dokument"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 zaslal skupině hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:187
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a contact to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině kontakt"
 
 #: ../push/pushhelper.cpp:192
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a map to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 zaslal skupině mapu"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 invited you to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 vás pozval do skupiny"
 
 #: ../push/pushhelper.cpp:202
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 changed group name"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 změnil název skupiny"
 
 #: ../push/pushhelper.cpp:207
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 změnil fotografii skupiny"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 pozval %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 odstranil %2"
 
 #: ../push/pushhelper.cpp:229
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 removed you from the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 vás odstranil ze skupiny"
 
 #: ../push/pushhelper.cpp:234
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has left the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 opustil skupinu"
 
 #: ../push/pushhelper.cpp:239
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has returned to the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 se vrátil do skupiny"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 se registroval"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 joined Telegram!"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 se připojil k Telegramu!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Nové přihlášení z neznámého zařízení"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "profilová fotografie aktualizována"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
 msgid "You have a new message"
-msgstr ""
+msgstr "Máte novou zprávu"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
