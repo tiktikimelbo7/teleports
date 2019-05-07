@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-31 19:37+0000\n"
+"POT-Creation-Date: 2019-05-07 07:44+0000\n"
 "PO-Revision-Date: 2019-05-06 13:02+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -18,6 +18,173 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 3.6.1\n"
+
+#. TRANSLATORS: Application name.
+#: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
+#: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr "TELEports"
+
+#: ../push/pushhelper.cpp:118
+#, fuzzy
+#| msgid "Type a message..."
+msgid "sent you a message"
+msgstr "Napište zprávu..."
+
+#: ../push/pushhelper.cpp:122
+msgid "sent you a photo"
+msgstr ""
+
+#: ../push/pushhelper.cpp:126
+msgid "sent you a sticker"
+msgstr ""
+
+#: ../push/pushhelper.cpp:130
+msgid "sent you a video"
+msgstr ""
+
+#: ../push/pushhelper.cpp:134
+msgid "sent you a document"
+msgstr ""
+
+#: ../push/pushhelper.cpp:138
+msgid "sent you a voice message"
+msgstr ""
+
+#: ../push/pushhelper.cpp:142
+msgid "shared a contact with you"
+msgstr ""
+
+#: ../push/pushhelper.cpp:146
+msgid "sent you a map"
+msgstr ""
+
+#: ../push/pushhelper.cpp:151
+msgid "%1: %2"
+msgstr ""
+
+#: ../push/pushhelper.cpp:156
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a message to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:161
+msgid "%1 sent a photo to the group"
+msgstr ""
+
+#: ../push/pushhelper.cpp:166
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a sticker to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:172
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a video to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:177
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a document to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:182
+msgid "%1 sent a voice message to the group"
+msgstr ""
+
+#: ../push/pushhelper.cpp:187
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a contact to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:192
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 sent a map to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 invited you to the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:202
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 changed group name"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:207
+msgid "%1 changed group photo"
+msgstr ""
+
+#. TRANSLATORS: Notification message saying: person A invited person B (to a group)
+#: ../push/pushhelper.cpp:213
+msgid "%1 invited %2"
+msgstr ""
+
+#. TRANSLATORS: Notification message saying: person A removed person B (from a group)
+#: ../push/pushhelper.cpp:224
+msgid "%1 removed %2"
+msgstr ""
+
+#: ../push/pushhelper.cpp:229
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 removed you from the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:234
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 has left the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:239
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 has returned to the group"
+msgstr "%1 se připojil ke skupině"
+
+#. TRANSLATORS: This format string tells location, like: @ McDonals, New York
+#: ../push/pushhelper.cpp:244
+msgid "@ %1"
+msgstr ""
+
+#. TRANSLATORS: This format string tells who has checked in (in a geographical location).
+#: ../push/pushhelper.cpp:246
+msgid "%1 has checked-in"
+msgstr ""
+
+#. TRANSLATORS: This format string tells who has just joined Telegram.
+#: ../push/pushhelper.cpp:252
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "%1 joined Telegram!"
+msgstr "%1 se připojil ke skupině"
+
+#: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
+msgid "New login from unrecognized device"
+msgstr ""
+
+#. TRANSLATORS: This format string indicates new login of: (device name) at (location).
+#: ../push/pushhelper.cpp:262
+msgid "%1 @ %2"
+msgstr ""
+
+#: ../push/pushhelper.cpp:267
+msgid "updated profile photo"
+msgstr ""
+
+#: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
+#: ../push/pushhelper.cpp:282
+msgid "You have a new message"
+msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -52,59 +219,6 @@ msgstr "Viděn nedávno"
 msgid "Saved Messages"
 msgstr "Uložené zprávy"
 
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:54
-msgid "Image"
-msgstr "Obrázek"
-
-#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-#: ../app/qml/components/AttachPanel.qml:63
-msgid "File"
-msgstr "Soubor"
-
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "není dostupné"
-
-#: ../app/qml/components/CountryPicker.qml:21
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
-msgid "Choose a country"
-msgstr "Zvolte stát"
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr "Hledat název státu…"
-
-#: ../app/qml/components/PopupDialog.qml:13
-msgid "Okay"
-msgstr "Budiž"
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:22
-msgid "Are you sure you want to clear the history?"
-msgstr "Skutečně chcete smazat historii?"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:23
-#: ../app/qml/pages/ChatListPage.qml:64
-msgid "Clear history"
-msgstr "Vymazat historii"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:32
-msgid "Are you sure you want to leave this chat?"
-msgstr "Skutečně chcete opustit tento chat?"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:33
-msgid "Leave"
-msgstr "Opustit chat"
-
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
-msgstr "Zavřít"
-
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
 msgstr "Právě nyní není očekáván ověřovací kód"
@@ -129,30 +243,116 @@ msgstr "Chybí Ubuntu One účet"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Pro příjem oznámení se připojte k Ubuntu One účtu."
 
-#: ../app/qml/pages/WaitCodePage.qml:19
-msgid "Enter Code"
-msgstr "Zadejte kód"
+#: ../app/qml/delegates/MessageContentCall.qml:51
+msgid "Call Declined"
+msgstr "Hovor odmítnut"
 
-#: ../app/qml/pages/WaitCodePage.qml:45
-msgid "First Name"
-msgstr "Jméno"
+#: ../app/qml/delegates/MessageContentCall.qml:53
+msgid "Call Disconnected"
+msgstr "Hovor přerušen"
 
-#: ../app/qml/pages/WaitCodePage.qml:53
-msgid "Last Name"
-msgstr "Příjmení"
+#: ../app/qml/delegates/MessageContentCall.qml:56
+msgid "Call Ended"
+msgstr "Hovor ukončen"
 
-#: ../app/qml/pages/WaitCodePage.qml:60
-msgid "Code"
-msgstr "Kód"
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Cancelled Call"
+msgstr "Hovor zrušen"
 
-#: ../app/qml/pages/WaitCodePage.qml:74
-msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr "Na Vaše zařízení byl přes telegram odeslán kód. Zadejte ho prosím zde."
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Missed Call"
+msgstr "Zmeškaný hovor"
 
-#: ../app/qml/pages/ChatListPage.qml:18 ../app/qml/pages/AboutPage.qml:65
-#: teleports.desktop.in.h:1
-msgid "TELEports"
-msgstr "TELEports"
+#: ../app/qml/delegates/MessageContentCall.qml:71
+#, javascript-format
+msgid "Duration: %1.%2"
+msgstr "Délka hovoru: %1.%2"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:33
+#: ../app/qml/delegates/MessageBubbleItem.qml:47
+#: ../app/qml/pages/SettingsPage.qml:165
+msgid "Delete"
+msgstr "Smazat"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:44
+msgid ""
+"The message will be deleted for all users in the chat. Do you really want to "
+"delete it?"
+msgstr ""
+"Zpráva bude smazána pro všechny členy chatu. Opravdu chcete zprávu smazat?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:45
+msgid ""
+"The message will be deleted only for you. Do you really want to delete it?"
+msgstr "Zpráva bude smazána pouze pro vás. Opravdu chcete zprávu smazat?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:57
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:63
+#: ../app/qml/pages/MessageListPage.qml:253
+msgid "Edit"
+msgstr "Upravit"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:71
+#: ../app/qml/pages/MessageListPage.qml:253
+msgid "Reply"
+msgstr "Odpovědět"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:77
+msgid "Sticker Pack info"
+msgstr "Informace o balíčku Stickers"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:83
+msgid "Forward"
+msgstr "Přeposlat"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:233
+msgid "Edited"
+msgstr "Upraveno"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
+msgid "%1 joined the group"
+msgstr "%1 se připojil ke skupině"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
+msgid "%1 users"
+msgstr "%1 uživatelů"
+
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "dd MMMM"
+msgstr "dd MMMM"
+
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
+msgid "%1 joined by invite link"
+msgstr "%1 se připojil prostřednictvím zvacího odkazu"
+
+#: ../app/qml/pages/PreviewPage.qml:35
+msgid "File: "
+msgstr "Soubor: "
+
+#: ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "Uložit"
+
+#: ../app/qml/pages/PickerPage.qml:16
+msgid "Content Picker"
+msgstr "Výběr obsahu"
+
+#: ../app/qml/pages/MessageListPage.qml:26
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 člen"
+msgstr[1] "%1 členové"
+
+#: ../app/qml/pages/MessageListPage.qml:112
+msgid "Telegram"
+msgstr "Telegram"
+
+#: ../app/qml/pages/MessageListPage.qml:322
+msgid "Type a message..."
+msgstr "Napište zprávu..."
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
@@ -162,60 +362,27 @@ msgstr "Nastavení"
 msgid "Leave chat"
 msgstr "Opustit chat"
 
+#: ../app/qml/pages/ChatListPage.qml:64
+#: ../app/qml/middleware/ChatMiddleware.qml:23
+msgid "Clear history"
+msgstr "Vymazat historii"
+
 #: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
 msgstr "Informace"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
-msgid "Enter Phone Number"
-msgstr "Zadejte telefonní číslo"
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+msgid "Enter Password"
+msgstr "Zadat heslo"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-msgid "Phone number"
-msgstr "Telefonní číslo"
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
+msgstr "Heslo"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
-msgid "Please confirm your country code and enter your phone number."
-msgstr "Potvrďte kód vašeho státu a zadejte vaše telefonní číslo."
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 msgid "Next..."
 msgstr "Další..."
-
-#: ../app/qml/pages/GroupDetailsPage.qml:21
-msgid "Group Details"
-msgstr "Informace o skupině"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
-#: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
-msgid "Back"
-msgstr "Zpět"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:96
-msgid "Members: %1"
-msgstr "Členů: %1"
-
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
-msgid "About"
-msgstr "O aplikaci"
-
-#: ../app/qml/pages/AboutPage.qml:70
-msgid "Version %1"
-msgstr "Verze %1"
-
-#: ../app/qml/pages/AboutPage.qml:92
-msgid "Get the source"
-msgstr "Získat zdrojové kódy"
-
-#: ../app/qml/pages/AboutPage.qml:93
-msgid "Report issues"
-msgstr "Nahlásit problémy"
-
-#: ../app/qml/pages/AboutPage.qml:94
-msgid "Help translate"
-msgstr "Pomoc s překlady"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Offline"
@@ -224,6 +391,15 @@ msgstr "Odpojen"
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
 msgstr "Připojování"
+
+#: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/GroupDetailsPage.qml:32
+msgid "Back"
+msgstr "Zpět"
+
+#: ../app/qml/pages/SettingsPage.qml:48 ../app/qml/pages/AboutPage.qml:13
+msgid "About"
+msgstr "O aplikaci"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
@@ -272,128 +448,114 @@ msgstr ""
 "jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat,jež jsou "
 "specificky uložena mimo cloud Telegram. Skutečně chcete váš účet smazat?"
 
-#: ../app/qml/pages/SettingsPage.qml:165
-#: ../app/qml/delegates/MessageBubbleItem.qml:33
-#: ../app/qml/delegates/MessageBubbleItem.qml:47
-msgid "Delete"
-msgstr "Smazat"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
+msgstr "Zadejte telefonní číslo"
 
-#: ../app/qml/pages/PickerPage.qml:16
-msgid "Content Picker"
-msgstr "Výběr obsahu"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+#: ../app/qml/components/CountryPicker.qml:21
+msgid "Choose a country"
+msgstr "Zvolte stát"
 
-#: ../app/qml/pages/PreviewPage.qml:35
-msgid "File: "
-msgstr "Soubor: "
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr "Telefonní číslo"
 
-#: ../app/qml/pages/PreviewPage.qml:49
-msgid "Save"
-msgstr "Uložit"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr "Potvrďte kód vašeho státu a zadejte vaše telefonní číslo."
 
-#: ../app/qml/pages/MessageListPage.qml:26
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 člen"
-msgstr[1] "%1 členové"
+#: ../app/qml/pages/WaitCodePage.qml:19
+msgid "Enter Code"
+msgstr "Zadejte kód"
 
-#: ../app/qml/pages/MessageListPage.qml:112
-msgid "Telegram"
-msgstr "Telegram"
+#: ../app/qml/pages/WaitCodePage.qml:45
+msgid "First Name"
+msgstr "Jméno"
 
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:63
-msgid "Edit"
-msgstr "Upravit"
+#: ../app/qml/pages/WaitCodePage.qml:53
+msgid "Last Name"
+msgstr "Příjmení"
 
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:71
-msgid "Reply"
-msgstr "Odpovědět"
+#: ../app/qml/pages/WaitCodePage.qml:60
+msgid "Code"
+msgstr "Kód"
 
-#: ../app/qml/pages/MessageListPage.qml:322
-msgid "Type a message..."
-msgstr "Napište zprávu..."
+#: ../app/qml/pages/WaitCodePage.qml:75
+msgid "We've send a code via telegram to your device. Please enter it here."
+msgstr "Na Vaše zařízení byl přes telegram odeslán kód. Zadejte ho prosím zde."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
 msgstr "Profil"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
-msgid "Enter Password"
-msgstr "Zadat heslo"
+#: ../app/qml/pages/AboutPage.qml:70
+msgid "Version %1"
+msgstr "Verze %1"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
-msgid "Password"
-msgstr "Heslo"
+#: ../app/qml/pages/AboutPage.qml:92
+msgid "Get the source"
+msgstr "Získat zdrojové kódy"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
-msgid "%1 joined the group"
-msgstr "%1 se připojil ke skupině"
+#: ../app/qml/pages/AboutPage.qml:93
+msgid "Report issues"
+msgstr "Nahlásit problémy"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
-msgid "%1 users"
-msgstr "%1 uživatelů"
+#: ../app/qml/pages/AboutPage.qml:94
+msgid "Help translate"
+msgstr "Pomoc s překlady"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:44
-msgid ""
-"The message will be deleted for all users in the chat. Do you really want to "
-"delete it?"
-msgstr ""
-"Zpráva bude smazána pro všechny členy chatu. Opravdu chcete zprávu smazat?"
+#: ../app/qml/pages/GroupDetailsPage.qml:21
+msgid "Group Details"
+msgstr "Informace o skupině"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:45
-msgid ""
-"The message will be deleted only for you. Do you really want to delete it?"
-msgstr "Zpráva bude smazána pouze pro vás. Opravdu chcete zprávu smazat?"
+#: ../app/qml/pages/GroupDetailsPage.qml:96
+msgid "Members: %1"
+msgstr "Členů: %1"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:57
-msgid "Copy"
-msgstr "Kopírovat"
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
+msgid "not available"
+msgstr "není dostupné"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:77
-msgid "Sticker Pack info"
-msgstr "Informace o balíčku Stickers"
+#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
+#: ../app/qml/components/AttachPanel.qml:54
+msgid "Image"
+msgstr "Obrázek"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:83
-msgid "Forward"
-msgstr "Přeposlat"
+#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+#: ../app/qml/components/AttachPanel.qml:63
+msgid "File"
+msgstr "Soubor"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:233
-msgid "Edited"
-msgstr "Upraveno"
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "Hledat název státu…"
 
-#: ../app/qml/delegates/MessageContentCall.qml:51
-msgid "Call Declined"
-msgstr "Hovor odmítnut"
+#: ../app/qml/components/PopupDialog.qml:13
+msgid "Okay"
+msgstr "Budiž"
 
-#: ../app/qml/delegates/MessageContentCall.qml:53
-msgid "Call Disconnected"
-msgstr "Hovor přerušen"
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Cancel"
+msgstr "Zrušit"
 
-#: ../app/qml/delegates/MessageContentCall.qml:56
-msgid "Call Ended"
-msgstr "Hovor ukončen"
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+msgid "Are you sure you want to clear the history?"
+msgstr "Skutečně chcete smazat historii?"
 
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Cancelled Call"
-msgstr "Hovor zrušen"
+#: ../app/qml/middleware/ChatMiddleware.qml:32
+msgid "Are you sure you want to leave this chat?"
+msgstr "Skutečně chcete opustit tento chat?"
 
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Missed Call"
-msgstr "Zmeškaný hovor"
+#: ../app/qml/middleware/ChatMiddleware.qml:33
+msgid "Leave"
+msgstr "Opustit chat"
 
-#: ../app/qml/delegates/MessageContentCall.qml:71
-#, javascript-format
-msgid "Duration: %1.%2"
-msgstr "Délka hovoru: %1.%2"
-
-#: ../app/qml/delegates/MessageDateItem.qml:4
-msgid "dd MMMM"
-msgstr "dd MMMM"
-
-#: ../app/qml/delegates/MessageJoinByLink.qml:5
-msgid "%1 joined by invite link"
-msgstr "%1 se připojil prostřednictvím zvacího odkazu"
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr "Zavřít"
 
 #, fuzzy
 #~| msgid "dd MMMM"
