@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-07 09:58+0000\n"
+"PO-Revision-Date: 2019-05-07 10:14+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -178,136 +178,140 @@ msgstr "Ùrtima visualizatzione "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
 #: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
 msgid "Online"
-msgstr ""
+msgstr "in lìnia"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:89
 msgid "Seen recently"
-msgstr ""
+msgstr "Bidu de reghente"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:71
 msgid "Saved Messages"
-msgstr ""
+msgstr "Messàgios sarvados"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "Còdighe de autenticatzione no isetadu immoe"
 
 #: ../app/qml/stores/AuthStateStore.qml:83
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Cess! Faddina interna."
 
 #: ../app/qml/stores/AuthStateStore.qml:89
 msgid "Incorrect auth code length."
-msgstr ""
+msgstr "Longària de su còdighe de autenticatzione non curreta."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Faddina in in su registru Push"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Perunu Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Collega·ti a Ubuntu One pro retzire notìficas Push."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr ""
+msgstr "Mutida refudada"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Mutida disconnètida"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
-msgstr ""
+msgstr "Mutida acabbada"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Cancelled Call"
-msgstr ""
+msgstr "Mutida cantzellada"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
-msgstr ""
+msgstr "Mutida pèrdida"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
 #, javascript-format
 msgid "Duration: %1.%2"
-msgstr ""
+msgstr "Tempus: %1.%2"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 #: ../app/qml/pages/SettingsPage.qml:165
 msgid "Delete"
-msgstr ""
+msgstr "Cantzella"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Custu messàgiu at a èssere cantzelladu pro totu is usuàrios de custa "
+"tzarrada. Seguru chi ddu boles cantzellare?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Custu messàgiu at a èssere cantzelladu isceti pro tie. Seguru chi ddu boles "
+"cantzellare?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
-msgstr ""
+msgstr "Còpia"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:63
 #: ../app/qml/pages/MessageListPage.qml:253
 msgid "Edit"
-msgstr ""
+msgstr "Modìfica"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:71
 #: ../app/qml/pages/MessageListPage.qml:253
 msgid "Reply"
-msgstr ""
+msgstr "Risponde"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:77
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Informatzione de su pachete de adesivos"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:83
 msgid "Forward"
-msgstr ""
+msgstr "Torra a imbiare"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:233
 msgid "Edited"
-msgstr ""
+msgstr "Modificadu"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 at aderidu a su grupu"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
 msgid "%1 users"
-msgstr ""
+msgstr "%1 usuàrios"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr ""
+msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 at aderidu tràmite unu ligàmene de invitu"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Archìviu: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr ""
+msgstr "Sarva"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -316,50 +320,50 @@ msgstr ""
 #: ../app/qml/pages/MessageListPage.qml:26
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 membru"
+msgstr[1] "%1 membros"
 
 #: ../app/qml/pages/MessageListPage.qml:112
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:322
 msgid "Type a message..."
-msgstr ""
+msgstr "Iscrie unu messàgiu..."
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "Cunfiguratziones"
 
 #: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
-msgstr ""
+msgstr "Essi·nche dae sa tzarrada"
 
 #: ../app/qml/pages/ChatListPage.qml:64
 #: ../app/qml/middleware/ChatMiddleware.qml:23
 msgid "Clear history"
-msgstr ""
+msgstr "Isbòida sa cronologia"
 
 #: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
-msgstr ""
+msgstr "Informatziones"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
 msgid "Enter Password"
-msgstr ""
+msgstr "Inserta·nche una crae"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr ""
+msgstr "Crae"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 msgid "Next..."
-msgstr ""
+msgstr "Sighi..."
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Offline"
-msgstr ""
+msgstr "Foras de lìnia"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
