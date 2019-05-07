@@ -8,171 +8,173 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-05-07 09:58+0000\n"
+"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
+"Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
+"teleports/sc/>\n"
 "Language: sc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
 msgid "sent you a message"
-msgstr ""
+msgstr "t'at imbiadu unu messàgiu"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "t'at imbiadu una foto"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "t'at imbiadu un'adesivu"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "t'at imbiadu unu vìdeu"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "t'at imbiadu unu documentu"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "t'at imbiadu unu messàgiu vocale"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "at cumpartzidu unu cuntatu cun tegus"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr ""
+msgstr "t'at imbiadu una mapa"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 at imbiadu unu messàgiu a su grupu"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 at imbiadu una foto a su grupu"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 at imbiadu un'adesivu a su grupu"
 
 #: ../push/pushhelper.cpp:172
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 at imbiadu unu vìdeu a su grupu"
 
 #: ../push/pushhelper.cpp:177
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 at imbiadu unu documentu a su grupu"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 at imbiadu unu messàgiu vocale a su grupu"
 
 #: ../push/pushhelper.cpp:187
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 at imbiadu unu cuntatu a su grupu"
 
 #: ../push/pushhelper.cpp:192
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 at imbiadu una mapa a su grupu"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 t'at invitadu a su grupu"
 
 #: ../push/pushhelper.cpp:202
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 at mudadu su nòmine de su grupu"
 
 #: ../push/pushhelper.cpp:207
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 at mudadu sa fotografia de su grupu"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 at invitadu a %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 nch'at bogadu %2"
 
 #: ../push/pushhelper.cpp:229
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 ti nch'at bogadu de su grupu"
 
 #: ../push/pushhelper.cpp:234
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 at lassadu su grupu"
 
 #: ../push/pushhelper.cpp:239
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 est torradu a su grupu"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "in %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 est intradu"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 at aderidu a Telegram!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Atzessu nou dae unu dispositivu disconnotu"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 in %2"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "at atualizadu sa foto de su profilu"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
 msgid "You have a new message"
-msgstr ""
+msgstr "Tenes unu messàgiu nou"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
-msgstr ""
+msgstr "Messàgiu"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:25
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "Ùrtima visualizatzione unu mese a oe"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:35
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "Ùrtima visualizatzione una chida a oe"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "Last seen "
-msgstr ""
+msgstr "Ùrtima visualizatzione "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "dd.MM.yy hh:mm"
