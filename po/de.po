@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-04 11:32+0000\n"
-"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
+"PO-Revision-Date: 2019-05-07 09:58+0000\n"
+"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -26,165 +26,139 @@ msgid "TELEports"
 msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
-#, fuzzy
-#| msgid "Type a message..."
 msgid "sent you a message"
-msgstr "Tippe eine Nachricht..."
+msgstr "hat Dir eine Nachricht geschickt"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "hat Dir ein Foto geschickt"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "hat Dir einen Sticker geschickt"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "hat Dir ein Video geschickt"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "hat Dir ein Dokument geschickt"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "hat Dir eine Sprachnachricht geschickt"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "hat einen Kontakt mit Dir geteilt"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr ""
+msgstr "hat Dir eine Karte geschickt"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a message to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat eine Nachricht an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 hat ein Foto an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:166
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a sticker to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat einen Sticker an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:172
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a video to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat ein Video an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:177
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a document to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat ein Dokument an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 hat eine Sprachnachricht an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:187
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a contact to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat einen Kontakt an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:192
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 sent a map to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat eine Karte an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 invited you to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat Dich zu einer Grupe eingeladen"
 
 #: ../push/pushhelper.cpp:202
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 changed group name"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat den Gruppennamen geändert"
 
 #: ../push/pushhelper.cpp:207
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 hat das Gruppenfoto geändert"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 hat %2 eingeladen"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 hat %2 entfernt"
 
 #: ../push/pushhelper.cpp:229
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 removed you from the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat Dich aus der Gruppe entfernt"
 
 #: ../push/pushhelper.cpp:234
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has left the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 hat die Gruppe verlassen"
 
 #: ../push/pushhelper.cpp:239
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 has returned to the group"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 ist in die Gruppe zurückgekehrt"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 hat eingecheckt"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "%1 joined Telegram!"
-msgstr "%1 ist der Gruppe beigetreten"
+msgstr "%1 ist Telegram beigetreten!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Neue Anmeldung von einem unbekannten Gerät"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "Profilfoto aktualisiert"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
 msgid "You have a new message"
-msgstr ""
+msgstr "Du hast eine neue Nachricht"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -280,11 +254,14 @@ msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Die Nachricht wird für alle Benmutzer im Chat gelöscht. Willst Du sie "
+"wirklich löschen?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Die Nachricht wird nur für Dich gelöscht. Willst Du sie wirklich löschen?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
