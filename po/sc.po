@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-07 10:14+0000\n"
-"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
+"PO-Revision-Date: 2019-05-10 21:03+0000\n"
+"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
 "Language: sc\n"
@@ -367,50 +367,52 @@ msgstr "Foras de lìnia"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
-msgstr "Connetende·si..."
+msgstr "Connetende"
 
 #: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/GroupDetailsPage.qml:32
 msgid "Back"
-msgstr ""
+msgstr "In segus"
 
 #: ../app/qml/pages/SettingsPage.qml:48 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr ""
+msgstr "Informatziones"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
-msgstr ""
+msgstr "Modalidade noturna"
 
 #: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
 msgid "Logout"
-msgstr ""
+msgstr "Essi"
 
 #: ../app/qml/pages/SettingsPage.qml:118
 msgid "Delete account"
-msgstr ""
+msgstr "Cantzella custu contu"
 
 #: ../app/qml/pages/SettingsPage.qml:129
 msgid "Not online"
-msgstr ""
+msgstr "No est in lìnia"
 
 #: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
-msgstr ""
+msgstr "Istadu:"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
-msgstr ""
+msgstr "Àmpiu de banda limitadu"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith not limited"
-msgstr ""
+msgstr "Àmpiu de banda non limitadu"
 
 #: ../app/qml/pages/SettingsPage.qml:152
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"Atentzione: essende de sa sessione s'ant a cantzellare totu is datos locales "
+"de custu dispositivu, fintzas is tzarradas segretas. Seguru chi boles essire?"
 
 #: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
@@ -419,112 +421,119 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"Atentzione: cantzellende custu contu s'ant a cantzellare totu is datos chi "
+"as retzidu o imbiadu tràmite Telegram francu cussos chi apas sarvadu in "
+"foras de sa nue de Telegram. Seguru chi boles a beru cantzellare su contu de "
+"Telegram tuo?"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "Inserta·nche su nùmeru de telèfonu"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:29
 #: ../app/qml/components/CountryPicker.qml:21
 msgid "Choose a country"
-msgstr ""
+msgstr "Sèbera unu paisu"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 msgid "Phone number"
-msgstr ""
+msgstr "Nùmeru de telèfonu"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
 msgstr ""
+"Cunfirma su còdighe de paisu tuo e inserta·nche su nùmeru de telèfonu tuo."
 
 #: ../app/qml/pages/WaitCodePage.qml:19
 msgid "Enter Code"
-msgstr ""
+msgstr "Inserta·nche su còdighe"
 
 #: ../app/qml/pages/WaitCodePage.qml:45
 msgid "First Name"
-msgstr ""
+msgstr "Nòmine"
 
 #: ../app/qml/pages/WaitCodePage.qml:53
 msgid "Last Name"
-msgstr ""
+msgstr "Sangunadu"
 
 #: ../app/qml/pages/WaitCodePage.qml:60
 msgid "Code"
-msgstr ""
+msgstr "Còdighe"
 
 #: ../app/qml/pages/WaitCodePage.qml:75
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
+"T'amus imbiadu unu còdighe tràmite Telegram a su dispositivu tuo. "
+"Inserta·nche·ddu inoghe."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
-msgstr ""
+msgstr "Profilu"
 
 #: ../app/qml/pages/AboutPage.qml:70
 msgid "Version %1"
-msgstr ""
+msgstr "Versione %1"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr ""
+msgstr "Otene su còdighe de orìgine"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
-msgstr ""
+msgstr "Signala unu problema"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
-msgstr ""
+msgstr "Agiuda·si a bortare"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr ""
+msgstr "Detàllios de su grupu"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:96
 msgid "Members: %1"
-msgstr ""
+msgstr "Membros: %1"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr ""
+msgstr "no est a disponimentu"
 
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
 msgid "Image"
-msgstr ""
+msgstr "Immàgine"
 
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:63
 msgid "File"
-msgstr ""
+msgstr "Archìviu"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Chirca nòmine de su paisu..."
 
 #: ../app/qml/components/PopupDialog.qml:13
 msgid "Okay"
-msgstr ""
+msgstr "AB"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Seguru chi boles isboidare sa cronologia?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Seguru chi boles essire dae custa tzarrada?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:33
 msgid "Leave"
-msgstr ""
+msgstr "Essi·nche"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Serra"
