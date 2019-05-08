@@ -8,20 +8,22 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-05-10 21:03+0000\n"
+"Last-Translator: louies0623 <louies0623@gmail.com>\n"
+"Language-Team: Chinese (Hong Kong) <https://translate.ubports.com/projects/"
+"ubports/teleports/zh_Hant_HK/>\n"
 "Language: zh_Hant_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
 msgid "sent you a message"
@@ -244,7 +246,7 @@ msgstr ""
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 #: ../app/qml/pages/SettingsPage.qml:165
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -259,7 +261,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:63
 #: ../app/qml/pages/MessageListPage.qml:253
@@ -277,7 +279,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:83
 msgid "Forward"
-msgstr ""
+msgstr "下一頁"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:233
 msgid "Edited"
@@ -326,7 +328,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
@@ -347,7 +349,7 @@ msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
@@ -365,11 +367,11 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/GroupDetailsPage.qml:32
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: ../app/qml/pages/SettingsPage.qml:48 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
@@ -504,7 +506,7 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
