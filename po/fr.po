@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-09 20:23+0000\n"
-"Last-Translator: Mathieu H <wiiu3dsxl13127@gmail.com>\n"
+"PO-Revision-Date: 2019-05-09 20:24+0000\n"
+"Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
 "Language: fr\n"
@@ -54,7 +54,7 @@ msgstr "vous a envoyé un message vocal"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr "vous a partagé un contact"
+msgstr "a partagé un contact avec vous"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
