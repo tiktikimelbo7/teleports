@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
 "PO-Revision-Date: 2019-05-09 20:24+0000\n"
-"Last-Translator: Mathieu H <wiiu3dsxl13127@gmail.com>\n"
+"Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
 "Language: fr\n"
@@ -58,7 +58,7 @@ msgstr "a partagé un contact avec vous"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr "vous a envoyé une position"
+msgstr "vous a envoyé une carte"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
