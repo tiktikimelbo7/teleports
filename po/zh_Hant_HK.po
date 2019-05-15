@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-10 21:03+0000\n"
+"PO-Revision-Date: 2019-05-16 22:03+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant_HK/>\n"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
-msgstr ""
+msgstr "資訊"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
 msgid "Enter Password"
