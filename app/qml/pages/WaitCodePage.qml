@@ -53,12 +53,13 @@ Page {
             placeholderText: i18n.tr('Last Name')
         }
 
-        TextField {
+        UITK.TextField {
             id: codeField
             width: parent.width
 
             placeholderText: i18n.tr('Code')
             inputMethodHints: Qt.ImhFormattedNumbersOnly
+            inputMask: "99999"
             maximumLength: 5
               
             onDisplayTextChanged: {

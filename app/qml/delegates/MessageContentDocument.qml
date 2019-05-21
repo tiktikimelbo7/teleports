@@ -89,7 +89,7 @@ MessageContentBase {
                 AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
                                                 "url": localFileSource,
                                                 "handler": ContentHandler.Destination,
-                                                "contentType": ContentType.Links
+                                                "contentType": ContentType.Documents
                                             });
             }
         }
