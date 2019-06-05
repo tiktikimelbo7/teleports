@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: 2019-05-10 21:03+0000\n"
-"Last-Translator: louies0623 <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2019-06-06 10:03+0000\n"
+"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -31,7 +31,7 @@ msgstr "向您發送了一封訊息"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr "向您發送了一張圖片"
+msgstr "向您發送了一張照片"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
@@ -39,7 +39,7 @@ msgstr "向您發送了一張貼圖"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr "向您發送了一條視訊"
+msgstr "向您發送了一段影片"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
@@ -47,11 +47,11 @@ msgstr "向您發送了一個文件"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr "向您發送了一條語音訊息"
+msgstr "向您發送了一則語音訊息"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr "與您分享了聯絡方式"
+msgstr "與您分享了一位聯絡人"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
@@ -67,7 +67,7 @@ msgstr "%1 向群組發送了一封訊息"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr "%1 向群組發送了一張圖片"
+msgstr "%1 向群組發送了一張照片"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a sticker to the group"
@@ -75,7 +75,7 @@ msgstr "%1 向群組發送了一張貼圖"
 
 #: ../push/pushhelper.cpp:172
 msgid "%1 sent a video to the group"
-msgstr "%1 向群組發送了一條視訊"
+msgstr "%1 向群組發送了一段影片"
 
 #: ../push/pushhelper.cpp:177
 msgid "%1 sent a document to the group"
@@ -83,7 +83,7 @@ msgstr "%1 向群組發送了一個文件"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr "%1 向群組發送了一條語音訊息"
+msgstr "%1 向群組發送了一則語音訊息"
 
 #: ../push/pushhelper.cpp:187
 msgid "%1 sent a contact to the group"
@@ -121,7 +121,7 @@ msgstr "%1 將您從群組中移除"
 
 #: ../push/pushhelper.cpp:234
 msgid "%1 has left the group"
-msgstr "%1  經離開了群組"
+msgstr "%1 已經離開了群組"
 
 #: ../push/pushhelper.cpp:239
 msgid "%1 has returned to the group"
@@ -135,7 +135,7 @@ msgstr "@ %1"
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr "%1 已簽入了"
+msgstr "%1 已簽到了"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
@@ -144,7 +144,7 @@ msgstr "%1 加入了 Telegram！"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr "從無法識別的裝置中新的登入"
+msgstr "從無法識別的裝置中有新的登入活動"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
@@ -191,11 +191,11 @@ msgstr "最近看到"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:71
 msgid "Saved Messages"
-msgstr "已保存的訊息"
+msgstr "已儲存的訊息"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
-msgstr "身份驗證代碼現在不需要"
+msgstr "現在不需要驗證碼"
 
 #: ../app/qml/stores/AuthStateStore.qml:83
 msgid "Oops! Internal error."
@@ -203,7 +203,7 @@ msgstr "糟糕！內部網路出錯。"
 
 #: ../app/qml/stores/AuthStateStore.qml:89
 msgid "Incorrect auth code length."
-msgstr "驗證代碼長度不正確。"
+msgstr "驗證碼長度不正確。"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
@@ -215,15 +215,15 @@ msgstr "沒有 Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "請連接到 Ubuntu One 來接收發送訊息。"
+msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr "通話已被拒絕"
+msgstr "通話已拒絕"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr "通話已斷開連線"
+msgstr "通話已斷線"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
@@ -231,7 +231,7 @@ msgstr "通話結束"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Cancelled Call"
-msgstr "取消通話"
+msgstr "取消的通話"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
@@ -240,7 +240,7 @@ msgstr "未接來電"
 #: ../app/qml/delegates/MessageContentCall.qml:71
 #, javascript-format
 msgid "Duration: %1.%2"
-msgstr "持續時間: %1.%2"
+msgstr "持續時間：%1.%2"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
@@ -252,7 +252,7 @@ msgstr "刪除"
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
-msgstr "訊息中的所有使用者的郵件都將被刪除。是否確實要刪除它？"
+msgstr "將會對此聊天中所有使用者刪除這則訊息。是否確實要刪除它？"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
@@ -279,7 +279,7 @@ msgstr "貼圖資訊"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:83
 msgid "Forward"
-msgstr "發送"
+msgstr "轉寄"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:233
 msgid "Edited"
@@ -303,11 +303,11 @@ msgstr "%1 已透過邀請連結加入"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr "檔案: "
+msgstr "檔案： "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr "保存"
+msgstr "儲存"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -328,7 +328,7 @@ msgstr "輸入訊息…"
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
-msgstr "設置"
+msgstr "設定"
 
 #: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
@@ -391,7 +391,7 @@ msgstr "不在線上"
 
 #: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
-msgstr "狀態:"
+msgstr "狀態："
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
@@ -405,8 +405,7 @@ msgstr "不限的寬頻"
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
-msgstr ""
-"警告:登出將刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出嗎？"
+msgstr "警告：登出時將會刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出嗎？"
 
 #: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
@@ -415,8 +414,8 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"警告: 刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確"
-"保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 Telegram 帳戶嗎？"
+"警告：刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 "
+"Telegram 帳戶嗎？"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
@@ -454,7 +453,7 @@ msgstr "代碼"
 
 #: ../app/qml/pages/WaitCodePage.qml:75
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr "我們已經透過 Telegram 向您的裝置發送了代碼。請在這裡輸入。"
+msgstr "我們已經透過 Telegram 向您的裝置發送了驗證碼。請在這裡輸入。"
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -466,7 +465,7 @@ msgstr "版本 %1"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr "獲取資源"
+msgstr "取得原始碼"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
@@ -513,7 +512,7 @@ msgstr "取消"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
-msgstr "您確實要清除歷史記錄嗎？"
+msgstr "您確定要清除歷史記錄嗎？"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to leave this chat?"
