@@ -1,3 +1,12 @@
 build
 .clickable
+
+#Microsoft VS Code
+.vscode
+*.code-workspace
+
+#Gettext
+*.po~
+*.mo
+
 CMakeLists.txt.user
