@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the telegram-plus.dpniel package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-07 07:44+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: en\n"
+"PO-Revision-Date: 2019-06-22 15:04+0000\n"
+"Last-Translator: lxdb <dinia200719@gmail.com>\n"
+"Language-Team: English (United States) <https://translate.ubports.com/"
+"projects/ubports/teleports/en_US/>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
@@ -246,9 +248,8 @@ msgstr ""
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 #: ../app/qml/pages/SettingsPage.qml:165
-#, fuzzy
 msgid "Delete"
-msgstr "Delete account"
+msgstr "Delete"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -513,7 +514,7 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
