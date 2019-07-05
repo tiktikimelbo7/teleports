@@ -8,458 +8,463 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-04 22:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-07-07 22:07+0000\n"
+"Last-Translator: Aitzol Berasategi <aitzol@disroot.org>\n"
+"Language-Team: Basque <https://translate.ubports.com/projects/ubports/"
+"teleports/eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
 msgid "sent you a message"
-msgstr ""
+msgstr "mezu bat bidali dizu"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "argazki bat bidali dizu"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "eranskailu bat bidali dizu"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "bideo bat bidali dizu"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "dokumentu bat bidali dizu"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "ahots mezu bat bidali dizu"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "kontaktu bat partekatu du zurekin"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
-msgstr ""
+msgstr "mapa bat bidali dizu"
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 (e)k mezu bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 (e)k argazki bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 (e)k eranskailu bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:172
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 (e)k bideo bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:177
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 (e)k dokumentu bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 (e)k ahots mezu bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:187
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 (e)k kontaktu bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:192
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 (e)k mapa bat bidali du taldera"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 (e)k taldera gonbidatu zaitu"
 
 #: ../push/pushhelper.cpp:202
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 (e)k taldearen izena aldatu du"
 
 #: ../push/pushhelper.cpp:207
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 (e)k taldearen argazkia aldatu du"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 (e)k %2 gonbidatu du"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 (e)k %2 ezabatu du"
 
 #: ../push/pushhelper.cpp:229
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 (e)k taldetik ezabatu zaitu"
 
 #: ../push/pushhelper.cpp:234
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 (e)k taldea utzi du"
 
 #: ../push/pushhelper.cpp:239
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 taldera itzuli da"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "%1 (e)n"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 erregistratu egin da"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 Telegramera batu da!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Saio hasiera berria gailu ezezagun batetik"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 %2 (e)n"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "profileko argazkia eguneratua"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
 msgid "You have a new message"
-msgstr ""
+msgstr "Mezu berri bat daukazu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:240
 msgid "Sticker"
-msgstr ""
+msgstr "Eranskailua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:244
 msgid "call has been ended"
-msgstr ""
+msgstr "deia amaitu egin da"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:248
 msgid "sent an audio message"
-msgstr ""
+msgstr "audio mezu bat bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:252
 msgid "sent a photo"
-msgstr ""
+msgstr "argazki bat bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:261
 msgid "sent a video"
-msgstr ""
+msgstr "bideo bat bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:265
 msgid "sent a video note"
-msgstr ""
+msgstr "bideo ohar bat bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:269
 msgid "sent a voice note"
-msgstr ""
+msgstr "ahots ohar bat bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:273
 msgid "joined the group"
-msgstr ""
+msgstr "taldera batu da"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:277
 msgid "changed the chat photo"
-msgstr ""
+msgstr "berriketa argazkia aldatua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:281
 msgid "changed the chat title"
-msgstr ""
+msgstr "berriketa izenburua aldatua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:285
 msgid "joined by invite link"
-msgstr ""
+msgstr "gonbidapen esteka bidez batua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:289
 msgid "removed a member"
-msgstr ""
+msgstr "kide bat ezabatua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:293
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "berriketa argazkia ezabatua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:297
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "supertaldera eguneratua"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "TTL mezua aldatua izan da"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:304
 msgid "sent an unknown message"
-msgstr ""
+msgstr "mezu ezezaguna bidalia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "Me"
-msgstr ""
+msgstr "Ni"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
-msgstr ""
+msgstr "Mezua"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:25
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "Azkenekoz duela hilabete ikusia"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:35
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "Azkenekoz duela astebete ikusia"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "Last seen "
-msgstr ""
+msgstr "Azkenekoz ikusia "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
 #: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
 msgid "Online"
-msgstr ""
+msgstr "Linean"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:89
 msgid "Seen recently"
-msgstr ""
+msgstr "Duela gutxi ikusia"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:71
 msgid "Saved Messages"
-msgstr ""
+msgstr "Gordetako mezuak"
 
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
 msgid "Image"
-msgstr ""
+msgstr "Irudia"
 
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:63
 msgid "File"
-msgstr ""
+msgstr "Fitxategia"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr ""
+msgstr "ez dago eskuragarri"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:29
 msgid "Choose a country"
-msgstr ""
+msgstr "Aukeratu herrialdea"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Bilatu herrialde izena..."
 
 #: ../app/qml/components/PopupDialog.qml:13
 msgid "Okay"
-msgstr ""
+msgstr "Ados"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Ziur al zaude historia ezabatu nahi duzula?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:23
 #: ../app/qml/pages/ChatListPage.qml:64
 msgid "Clear history"
-msgstr ""
+msgstr "Historia ezabatu"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Ziur al zaude berriketa hau utzi nahi duzula?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:33
 msgid "Leave"
-msgstr ""
+msgstr "Utzi"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Itxi"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "Autentifikazio kodea ez da orain espero"
 
 #: ../app/qml/stores/AuthStateStore.qml:83
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Hara! Barne akatsa."
 
 #: ../app/qml/stores/AuthStateStore.qml:89
 msgid "Incorrect auth code length."
-msgstr ""
+msgstr "Autentifikazio kodearen okerreko luzera."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Jakinarazpenen erregistroak huts egin du"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Ez da Ubuntu One konturik"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Mesedez konektatu Ubuntu One-ra jakinarazpenak jasotzeko."
 
 #: ../app/qml/pages/WaitCodePage.qml:19
 msgid "Enter Code"
-msgstr ""
+msgstr "Sartu kodea"
 
 #: ../app/qml/pages/WaitCodePage.qml:45
 msgid "First Name"
-msgstr ""
+msgstr "Izena"
 
 #: ../app/qml/pages/WaitCodePage.qml:53
 msgid "Last Name"
-msgstr ""
+msgstr "Abizena"
 
 #: ../app/qml/pages/WaitCodePage.qml:60
 msgid "Code"
-msgstr ""
+msgstr "Kodea"
 
 #: ../app/qml/pages/WaitCodePage.qml:75
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr ""
+msgstr "Kode bat bidali dugu Telegram bidez zure gailura. Mesedez sartu hemen."
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "Ezarpenak"
 
 #: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
-msgstr ""
+msgstr "Berriketa utzi"
 
 #: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
-msgstr ""
+msgstr "Informazioa"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "Sartu telefono zenbakia"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 msgid "Phone number"
-msgstr ""
+msgstr "Telefono zenbakia"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
 msgstr ""
+"Mesedez baieztatu zure herrialde kodea eta sartu zure telefono zenbakia."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 msgid "Next..."
-msgstr ""
+msgstr "Hurrengoa..."
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr ""
+msgstr "Taldearen xehetasunak"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
-msgstr ""
+msgstr "Atzera"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:96
 msgid "Members: %1"
-msgstr ""
+msgstr "Kideak: %1"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
-msgstr ""
+msgstr "Honi buruz"
 
 #: ../app/qml/pages/AboutPage.qml:70
 msgid "Version %1"
-msgstr ""
+msgstr "%1 Bertsioa"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr ""
+msgstr "Iturburu kodea eskuratu"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
-msgstr ""
+msgstr "Arazoen berri eman"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
-msgstr ""
+msgstr "Itzultzen lagundu"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Offline"
-msgstr ""
+msgstr "Lineaz kanpo"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
-msgstr ""
+msgstr "Konektatzen"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
-msgstr ""
+msgstr "Gau modua"
 
 #: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
 msgid "Logout"
-msgstr ""
+msgstr "Saioa itxi"
 
 #: ../app/qml/pages/SettingsPage.qml:118
 msgid "Delete account"
-msgstr ""
+msgstr "Kontua ezabatu"
 
 #: ../app/qml/pages/SettingsPage.qml:129
 msgid "Not online"
-msgstr ""
+msgstr "Lineaz kanpo"
 
 #: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
-msgstr ""
+msgstr "Egoera:"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
-msgstr ""
+msgstr "Banda zabalera mugatua"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith not limited"
-msgstr ""
+msgstr "Banda zabalera mugagabea"
 
 #: ../app/qml/pages/SettingsPage.qml:152
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"Adi: Saioa ixteak gailu honetako datu guztiak ezabatuko ditu, berriketa "
+"sekretuak barne. Ziur oraindik saioa itxi nahi duzula?"
 
 #: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
@@ -468,125 +473,131 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"Adi: Kontua ezabatzeak Telegram bidez bidali edo jasotako datu guztiak "
+"ezabatuko ditu,  Telegramen zerbitzarietatik at gordetakoak izan ezik. "
+"Erabat ziur al zaude zure Telegram kontua ezabatu nahi duzula?"
 
 #: ../app/qml/pages/SettingsPage.qml:165
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
-msgstr ""
+msgstr "Ezabatu"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr ""
+msgstr "Eduki hautatzailea"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Fitxategia: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr ""
+msgstr "Gorde"
 
 #: ../app/qml/pages/MessageListPage.qml:26
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kide %1"
+msgstr[1] "%1 kide"
 
 #: ../app/qml/pages/MessageListPage.qml:112
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:63
 msgid "Edit"
-msgstr ""
+msgstr "Editatu"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:71
 msgid "Reply"
-msgstr ""
+msgstr "Erantzun"
 
 #: ../app/qml/pages/MessageListPage.qml:322
 msgid "Type a message..."
-msgstr ""
+msgstr "Mezu bat idatzi..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
-msgstr ""
+msgstr "Profila"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
 msgid "Enter Password"
-msgstr ""
+msgstr "Sartu Pasahitza"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr ""
+msgstr "Pasahitza"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 taldera batu da"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
 msgid "%1 users"
-msgstr ""
+msgstr "%1 erabiltzaile"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Mezua berriketako erabiltzaile guztientzat ezabatua izango da. Ziur al zaude "
+"ezabatu nahi duzula?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Mezua zuretzat soilik ezabatua izango da. Ziur al zaude ezabatu nahi duzula?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
-msgstr ""
+msgstr "Kopiatu"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:77
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Eranskailu sortaren informazioa"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:83
 msgid "Forward"
-msgstr ""
+msgstr "Birbidali"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:233
 msgid "Edited"
-msgstr ""
+msgstr "Editatua"
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr ""
+msgstr "Bazterturiko deia"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Deskonektaturiko deia"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
-msgstr ""
+msgstr "Amaituriko deia"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Cancelled Call"
-msgstr ""
+msgstr "Ezeztaturiko deia"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
-msgstr ""
+msgstr "Galduriko deia"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
 #, javascript-format
 msgid "Duration: %1.%2"
-msgstr ""
+msgstr "Iraupena: %1.%2"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr ""
+msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 gonbidapen esteka bidez batu da"
