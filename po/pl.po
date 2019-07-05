@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-04 22:21+0000\n"
-"PO-Revision-Date: 2019-05-10 21:03+0000\n"
+"PO-Revision-Date: 2019-07-07 22:07+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -163,89 +163,71 @@ msgstr "Masz nową wiadomość"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:240
 msgid "Sticker"
-msgstr ""
+msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:244
 msgid "call has been ended"
-msgstr ""
+msgstr "połączenie zostało zakończone"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:248
-#, fuzzy
-#| msgid "sent you a message"
 msgid "sent an audio message"
-msgstr "wysłał Tobie wiadomość"
+msgstr "wysłał wiadomość audio"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:252
-#, fuzzy
-#| msgid "sent you a photo"
 msgid "sent a photo"
-msgstr "wysłał Tobie zdjęcie"
+msgstr "wysłał zdjęcie"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:261
-#, fuzzy
-#| msgid "sent you a video"
 msgid "sent a video"
-msgstr "wysłał Tobie film"
+msgstr "wysłał wideo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:265
-#, fuzzy
-#| msgid "sent you a video"
 msgid "sent a video note"
-msgstr "wysłał Tobie film"
+msgstr "wysłał notatkę wideo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:269
-#, fuzzy
-#| msgid "sent you a voice message"
 msgid "sent a voice note"
-msgstr "wysłał Tobie wiadomość głosową"
+msgstr "wysłał notatkę głosową"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:273
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "joined the group"
-msgstr "%1 dołączył do grupy"
+msgstr "dołączył do grupy"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:277
-#, fuzzy
-#| msgid "%1 changed group photo"
 msgid "changed the chat photo"
-msgstr "%1 zmienił zdjęcie grupowe"
+msgstr "zmienił zdjęcie na czacie"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:281
 msgid "changed the chat title"
-msgstr ""
+msgstr "zmienił tytuł czatu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:285
-#, fuzzy
-#| msgid "%1 joined by invite link"
 msgid "joined by invite link"
-msgstr "%1 dołączył przez link zaproszenia"
+msgstr "dołączył przez link zaproszenia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:289
 msgid "removed a member"
-msgstr ""
+msgstr "usunięto członka"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:293
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "usunięto zdjęcie z czatu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:297
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "uaktualniony do supergrupy"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "wiadomość TTL została zmieniona"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:304
-#, fuzzy
-#| msgid "sent you a message"
 msgid "sent an unknown message"
-msgstr "wysłał Tobie wiadomość"
+msgstr "wysłał nieznaną wiadomość"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "Me"
-msgstr ""
+msgstr "Mnie"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
