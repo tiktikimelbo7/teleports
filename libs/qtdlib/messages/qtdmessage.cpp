@@ -6,6 +6,7 @@
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagedate.h"
 #include "content/qtdmessagesticker.h"
+#include "content/qtdmessagedocument.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
 //#include "i18n.h"
@@ -236,14 +237,76 @@ QString QTdMessage::summary() const
     case QTdObject::MESSAGE_STICKER:
     {
         auto *c = qobject_cast<QTdMessageSticker*>(m_content);
-        content = c->sticker()->emoji();
+        content = c->sticker()->emoji() + " " + tr("Sticker");
         break;
     }
-    default:
-        content = QStringLiteral("Sent a message");
+    case QTdObject::MESSAGE_CALL: {
+        content = tr("call has been ended");
+        break;
+    }
+    case QTdObject::MESSAGE_AUDIO: {
+        content = tr("sent an audio message");
+        break;
+    }
+    case QTdObject::MESSAGE_PHOTO: {
+        content = tr("sent a photo");
+        break;
+    }
+    case QTdObject::MESSAGE_DOCUMENT: {
+        auto *c = qobject_cast<QTdMessageDocument*>(m_content);
+        content = c->document()->fileName();
+        break;
+    }
+    case QTdObject::MESSAGE_VIDEO: {
+        content = tr("sent a video");
+        break;
+    }
+    case QTdObject::MESSAGE_VIDEO_NOTE: {
+        content = tr("sent a video note");
+        break;
+    }
+    case QTdObject::MESSAGE_VOICE_NOTE: {
+        content = tr("sent a voice note");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
+        content = tr("joined the group");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_CHANGE_PHOTO: {
+        content = tr("changed the chat photo");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_CHANGE_TITLE: {
+        content = tr("changed the chat title");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_JOIN_BY_LINK: {
+        content = tr("joined by invite link");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
+        content = tr("removed a member");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_DELETE_PHOTO: {
+        content = tr("deleted the chat photo");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM: {
+        content = tr("upgraded to supergroup");
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_SET_TTL: {
+        content = tr("message TTL has been changed");
+        break;
+    }
+    default : content = tr("sent an unknown message");
         break;
     }
 
+    if (isOutgoing())
+        return QString("%1: %2").arg(tr("Me"), content);
     QString name;
     if (m_sender) {
         name = m_sender->firstName();
@@ -251,9 +314,6 @@ QString QTdMessage::summary() const
             name = m_sender->username();
         }
     }
-    if(isOutgoing())
-        return QString("%1: %2").arg("Me", content);
-
     return name.isEmpty() ? content : QString("%1: %2").arg(name, content);
 }
 
