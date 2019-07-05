@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-04 22:21+0000\n"
-"PO-Revision-Date: 2019-06-06 10:03+0000\n"
+"PO-Revision-Date: 2019-07-07 22:07+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -162,89 +162,71 @@ msgstr "Máte novou zprávu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:240
 msgid "Sticker"
-msgstr ""
+msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:244
 msgid "call has been ended"
-msgstr ""
+msgstr "hovor ukončen"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:248
-#, fuzzy
-#| msgid "sent you a message"
 msgid "sent an audio message"
-msgstr "vám zaslal zprávu"
+msgstr "zaslána audio zpráva"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:252
-#, fuzzy
-#| msgid "sent you a photo"
 msgid "sent a photo"
-msgstr "vám zaslal fotografii"
+msgstr "zaslána fotografie"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:261
-#, fuzzy
-#| msgid "sent you a video"
 msgid "sent a video"
-msgstr "vám zaslal video"
+msgstr "zasláno video"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:265
-#, fuzzy
-#| msgid "sent you a video"
 msgid "sent a video note"
-msgstr "vám zaslal video"
+msgstr "zaslána video poznámka"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:269
-#, fuzzy
-#| msgid "sent you a voice message"
 msgid "sent a voice note"
-msgstr "vám zaslal hlasovou zprávu"
+msgstr "zaslána hlasová zpráva"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:273
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "joined the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "se připojil ke skupině"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:277
-#, fuzzy
-#| msgid "%1 changed group photo"
 msgid "changed the chat photo"
-msgstr "%1 změnil fotografii skupiny"
+msgstr "změnil fotografii skupiny"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:281
 msgid "changed the chat title"
-msgstr ""
+msgstr "změnil název skupiny"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:285
-#, fuzzy
-#| msgid "%1 joined by invite link"
 msgid "joined by invite link"
-msgstr "%1 se připojil prostřednictvím zvacího odkazu"
+msgstr "se připojil prostřednictvím zvacího odkazu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:289
 msgid "removed a member"
-msgstr ""
+msgstr "odstranil člena"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:293
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "odstranil fotografii chatu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:297
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "povýšeno na supergroup"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "TTL zpráva změněna"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:304
-#, fuzzy
-#| msgid "sent you a message"
 msgid "sent an unknown message"
-msgstr "vám zaslal zprávu"
+msgstr "zaslána neznámá zpráva"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "Me"
-msgstr ""
+msgstr "Já"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
