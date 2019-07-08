@@ -9,7 +9,7 @@
   "dependencies_build": [
     "ccache"
   ],
-  "dir": "build/teleports",
+  "build_dir": "build/teleports",
   "make_jobs": 4,
   "libraries": {
     "tdlib-prepare": {
