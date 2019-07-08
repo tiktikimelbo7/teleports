@@ -7,6 +7,7 @@ KeyTable {
     property string closeCurrentChat
     property string loadMoreMessages
     property string sendMessage
+    property string sendContact
     property string sendDocument
     property string sendPhoto
     property string sendChatAction

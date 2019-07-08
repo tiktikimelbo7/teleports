@@ -6,6 +6,7 @@
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagedate.h"
 #include "content/qtdmessagesticker.h"
+#include "content/qtdmessagecontact.h"
 #include "content/qtdmessagedocument.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
@@ -250,6 +251,10 @@ QString QTdMessage::summary() const
     }
     case QTdObject::MESSAGE_PHOTO: {
         content = tr("sent a photo");
+        break;
+    }
+    case QTdObject::MESSAGE_CONTACT: {
+        content = tr("Contact");
         break;
     }
     case QTdObject::MESSAGE_DOCUMENT: {

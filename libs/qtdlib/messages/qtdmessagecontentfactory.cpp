@@ -13,6 +13,7 @@
 #include "content/qtdmessagechatsetttl.h"
 #include "content/qtdmessagechatupgradefrom.h"
 #include "content/qtdmessagechatupgradeto.h"
+#include "content/qtdmessagecontact.h"
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
@@ -36,8 +37,10 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
           return new QTdMessageAnimation(parent);
     } else if (type == "messageAudio") {
           return new QTdMessageAudio(parent);
+    } else if (type == "messageContact") {
+        return new QTdMessageContact(parent);
     } else if (type == "messageDocument") {
-          return new QTdMessageDocument(parent);    
+        return new QTdMessageDocument(parent);    
     } else if (type == "messageVideo") {
           return new QTdMessageVideo(parent);
     } else if (type == "messageContactRegistered"){

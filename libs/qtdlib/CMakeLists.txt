@@ -18,7 +18,6 @@ set(QTDLIB "QTdlib")
 set(
     SRC
     # todo
-    # messages/content/qtdmessagecontact.cpp
     # messages/content/qtdmessagecontactregistered.cpp
     # messages/content/qtdmessagecustomserviceaction.cpp
     # messages/content/qtdmessageexpiredphoto.cpp
@@ -40,29 +39,17 @@ set(
     # messages/content/qtdmessagevoicenote.cpp
     # messages/content/qtdmessagewebsiteconnected.cpp
     # messages/requests/content/qtdinputmessageanimation.cpp
-    # messages/requests/content/qtdinputmessageanimation.cpp
     # messages/requests/content/qtdinputmessageaudio.cpp
-    # messages/requests/content/qtdinputmessageaudio.cpp
-    # messages/requests/content/qtdinputmessagecontact.cpp
     # messages/requests/content/qtdinputmessagecontact.cpp
     # messages/requests/content/qtdinputmessagedocument.cpp
     # messages/requests/content/qtdinputmessageforwarded.cpp
-    # messages/requests/content/qtdinputmessageforwarded.cpp
-    # messages/requests/content/qtdinputmessagegame.cpp
     # messages/requests/content/qtdinputmessagegame.cpp
     # messages/requests/content/qtdinputmessageinvoice.cpp
-    # messages/requests/content/qtdinputmessageinvoice.cpp
-    # messages/requests/content/qtdinputmessagelocation.cpp
     # messages/requests/content/qtdinputmessagelocation.cpp
     # messages/requests/content/qtdinputmessagesticker.cpp
-    # messages/requests/content/qtdinputmessagesticker.cpp
-    # messages/requests/content/qtdinputmessagevenue.cpp
     # messages/requests/content/qtdinputmessagevenue.cpp
     # messages/requests/content/qtdinputmessagevideo.cpp
-    # messages/requests/content/qtdinputmessagevideo.cpp
     # messages/requests/content/qtdinputmessagevideoNote.cpp
-    # messages/requests/content/qtdinputmessagevideoNote.cpp
-    # messages/requests/content/qtdinputmessagevoiceNote.cpp
     # messages/requests/content/qtdinputmessagevoiceNote.cpp
 	# end todo
     auth/qtdauthcode.cpp
@@ -129,6 +116,7 @@ set(
     files/qtdremotefile.cpp
     files/qtdsticker.cpp
     files/qtdvideo.cpp
+    messages/content/qtdcontact.cpp
     messages/content/qtdformattedtext.cpp
     messages/content/qtdmessageanimation.cpp
     messages/content/qtdmessageaudio.cpp
@@ -145,6 +133,7 @@ set(
     messages/content/qtdmessagechatupgradeto.cpp
     messages/content/qtdmessagedate.cpp
     messages/content/qtdmessagedocument.cpp
+    messages/content/qtdmessagecontact.cpp
     messages/content/qtdmessagephoto.cpp
     messages/content/qtdmessagesticker.cpp
     messages/content/qtdmessagetext.cpp

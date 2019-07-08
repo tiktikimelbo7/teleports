@@ -10,6 +10,7 @@ ActionCreator {
 
     signal sendMessage(string text);
     signal sendPhoto(string photoUrl, string text);
+    signal sendContact();
     signal sendDocument(string documentUrl, string text);
     signal sendChatAction();
 
