@@ -12,7 +12,6 @@ Middleware {
         id: confirmationDlg
         PopupDialog {
             confirmButtonColor: UbuntuColors.red
-            cancelButtonColor: UbuntuColors.green
             onConfirmed: next(action, message)
         }
     }
