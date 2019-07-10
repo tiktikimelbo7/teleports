@@ -45,7 +45,6 @@ UITK.ListItem {
                     i18n.tr("The message will be deleted only for you. Do you really want to delete it?")
             confirmButtonColor: UITK.UbuntuColors.red
             confirmButtonText: i18n.tr("Delete")
-            cancelButtonColor: UITK.UbuntuColors.green
             onConfirmed: AppActions.chat.deleteMessage(message.id)
         }
     }
