@@ -8,45 +8,47 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-04 22:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-07-14 09:10+0000\n"
+"Last-Translator: Moshe Lazar <wersewikkov@gmail.com>\n"
+"Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
+"teleports/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
 msgid "sent you a message"
-msgstr ""
+msgstr "прислал вам сообщение"
 
 #: ../push/pushhelper.cpp:122
 msgid "sent you a photo"
-msgstr ""
+msgstr "прислал вам фото"
 
 #: ../push/pushhelper.cpp:126
 msgid "sent you a sticker"
-msgstr ""
+msgstr "прислал вам стикер"
 
 #: ../push/pushhelper.cpp:130
 msgid "sent you a video"
-msgstr ""
+msgstr "прислал вам видео"
 
 #: ../push/pushhelper.cpp:134
 msgid "sent you a document"
-msgstr ""
+msgstr "прислал вам документ"
 
 #: ../push/pushhelper.cpp:138
 msgid "sent you a voice message"
-msgstr ""
+msgstr "прислал вам голосовое сообщение"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
@@ -58,7 +60,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
 msgid "%1 sent a message to the group"
@@ -66,15 +68,15 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:161
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 прислал фото в группу"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 прислал стикер в группу"
 
 #: ../push/pushhelper.cpp:172
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 прислал видео в группу"
 
 #: ../push/pushhelper.cpp:177
 msgid "%1 sent a document to the group"
@@ -93,38 +95,42 @@ msgid "%1 sent a map to the group"
 msgstr ""
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
+#, fuzzy
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 пригласил вас в группу"
 
 #: ../push/pushhelper.cpp:202
+#, fuzzy
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 изменил название группы"
 
 #: ../push/pushhelper.cpp:207
+#, fuzzy
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 изменил фото группы"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:213
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 пригласил %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
+#, fuzzy
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 исключил %2"
 
 #: ../push/pushhelper.cpp:229
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 исключил вас из группы"
 
 #: ../push/pushhelper.cpp:234
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 вышел из группы"
 
 #: ../push/pushhelper.cpp:239
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 вернулся в группу"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
@@ -139,11 +145,11 @@ msgstr ""
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 присоединился к Telegram!"
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Новый вход с неизвестного устройства"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
@@ -152,16 +158,17 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
-msgstr ""
+msgstr "обновил фото профиля"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
+#, fuzzy
 msgid "You have a new message"
-msgstr ""
+msgstr "У вас новое сообщение"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:240
 msgid "Sticker"
-msgstr ""
+msgstr "Стикер"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:244
 msgid "call has been ended"
@@ -169,7 +176,7 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:248
 msgid "sent an audio message"
-msgstr ""
+msgstr "отправлено голосовое сообщение"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:252
 msgid "sent a photo"
@@ -189,15 +196,15 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:273
 msgid "joined the group"
-msgstr ""
+msgstr "присоединился к группе"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:277
 msgid "changed the chat photo"
-msgstr ""
+msgstr "изменил фотографию беседы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:281
 msgid "changed the chat title"
-msgstr ""
+msgstr "изменил название беседы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:285
 msgid "joined by invite link"
@@ -209,7 +216,7 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:293
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "удалил фотографию беседы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:297
 msgid "upgraded to supergroup"
@@ -225,23 +232,24 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "Me"
-msgstr ""
+msgstr "Я"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:25
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "Был в сети месяц назад"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:35
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "Был в сети неделю назад"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
+#, fuzzy
 msgid "Last seen "
-msgstr ""
+msgstr "Был в сети "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "dd.MM.yy hh:mm"
@@ -250,7 +258,7 @@ msgstr ""
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
 #: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
 msgid "Online"
-msgstr ""
+msgstr "В сети"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:89
 msgid "Seen recently"
@@ -263,12 +271,12 @@ msgstr ""
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:63
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -278,7 +286,7 @@ msgstr ""
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:29
 msgid "Choose a country"
-msgstr ""
+msgstr "Выберите страну"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
@@ -290,7 +298,7 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Cancel"
-msgstr ""
+msgstr "Отменить"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 msgid "Are you sure you want to clear the history?"
@@ -299,7 +307,7 @@ msgstr ""
 #: ../app/qml/middleware/ChatMiddleware.qml:23
 #: ../app/qml/pages/ChatListPage.qml:64
 msgid "Clear history"
-msgstr ""
+msgstr "Очистить историю"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to leave this chat?"
@@ -311,7 +319,7 @@ msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
@@ -319,7 +327,7 @@ msgstr ""
 
 #: ../app/qml/stores/AuthStateStore.qml:83
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Упс! Внутренняя ошибка."
 
 #: ../app/qml/stores/AuthStateStore.qml:89
 msgid "Incorrect auth code length."
@@ -335,23 +343,23 @@ msgstr ""
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Чтобы получать уведомления, подключитесь к учетной записи Ubuntu One."
 
 #: ../app/qml/pages/WaitCodePage.qml:19
 msgid "Enter Code"
-msgstr ""
+msgstr "Введите код"
 
 #: ../app/qml/pages/WaitCodePage.qml:45
 msgid "First Name"
-msgstr ""
+msgstr "Имя"
 
 #: ../app/qml/pages/WaitCodePage.qml:53
 msgid "Last Name"
-msgstr ""
+msgstr "Фамилия"
 
 #: ../app/qml/pages/WaitCodePage.qml:60
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: ../app/qml/pages/WaitCodePage.qml:75
 msgid "We've send a code via telegram to your device. Please enter it here."
@@ -359,24 +367,24 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: ../app/qml/pages/ChatListPage.qml:59
 msgid "Leave chat"
-msgstr ""
+msgstr "Выйти из беседы"
 
 #: ../app/qml/pages/ChatListPage.qml:75
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "Введите номер телефона"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 msgid "Phone number"
-msgstr ""
+msgstr "Номер телефона"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
@@ -385,68 +393,68 @@ msgstr ""
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
 msgid "Next..."
-msgstr ""
+msgstr "Далее..."
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr ""
+msgstr "Информация о группе"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:96
 msgid "Members: %1"
-msgstr ""
+msgstr "Участники: %1"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
 msgid "About"
-msgstr ""
+msgstr "О приложении"
 
 #: ../app/qml/pages/AboutPage.qml:70
 msgid "Version %1"
-msgstr ""
+msgstr "Версия %1"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr ""
+msgstr "Получить исходный код"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
-msgstr ""
+msgstr "Сообщить о проблемах"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
-msgstr ""
+msgstr "Помочь с переводом"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Offline"
-msgstr ""
+msgstr "Не в сети"
 
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Connecting"
-msgstr ""
+msgstr "Подключение"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Night mode"
-msgstr ""
+msgstr "Ночной режим"
 
 #: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
 msgid "Logout"
-msgstr ""
+msgstr "Выйти"
 
 #: ../app/qml/pages/SettingsPage.qml:118
 msgid "Delete account"
-msgstr ""
+msgstr "Удалить аккаунт"
 
 #: ../app/qml/pages/SettingsPage.qml:129
 msgid "Not online"
-msgstr ""
+msgstr "Не в сети"
 
 #: ../app/qml/pages/SettingsPage.qml:134
 msgid "Status:"
-msgstr ""
+msgstr "Статус:"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid "Bandwith limited"
@@ -461,6 +469,8 @@ msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"Предупреждение: Выход из системы удалит все локальные данные с этого "
+"устройства, включая секретные чаты. Вы все еще уверены, что хотите выйти?"
 
 #: ../app/qml/pages/SettingsPage.qml:163
 msgid ""
@@ -469,12 +479,16 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"Предупреждение: удаление учетной записи приведет к удалению всех данных, "
+"которые вы когда-либо получали или отправляли с помощью Telegram, за "
+"исключением данных, которые вы явно сохранили за пределами облака Telegram. "
+"Вы действительно уверены, что хотите удалить вашу учетную запись Telegram?"
 
 #: ../app/qml/pages/SettingsPage.qml:165
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -486,67 +500,70 @@ msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: ../app/qml/pages/MessageListPage.qml:26
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
+msgstr[0] "Участник"
 msgstr[1] ""
-msgstr[2] ""
+msgstr[2] "Участники"
 
 #: ../app/qml/pages/MessageListPage.qml:112
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:63
 msgid "Edit"
-msgstr ""
+msgstr "Редактировать"
 
 #: ../app/qml/pages/MessageListPage.qml:253
 #: ../app/qml/delegates/MessageBubbleItem.qml:71
 msgid "Reply"
-msgstr ""
+msgstr "Ответить"
 
 #: ../app/qml/pages/MessageListPage.qml:322
 msgid "Type a message..."
-msgstr ""
+msgstr "Написать сообщение..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
-msgstr ""
+msgstr "Профиль"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:13
 msgid "Enter Password"
-msgstr ""
+msgstr "Введите пароль"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:32
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 присоединился к группе"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
 msgid "%1 users"
-msgstr ""
+msgstr "%1 пользователей"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Сообщение будет удалено для всех пользователей чата. Вы действительно хотите "
+"удалить?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
 msgstr ""
+"Сообщение будет удалено только для вас. Вы действительно хотите удалить?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:57
 msgid "Copy"
-msgstr ""
+msgstr "Копировать"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:77
 msgid "Sticker Pack info"
@@ -554,36 +571,36 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:83
 msgid "Forward"
-msgstr ""
+msgstr "Переслать"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:233
 msgid "Edited"
-msgstr ""
+msgstr "Отредактировано"
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr ""
+msgstr "Вызов отклонен"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Разговор прерван"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
-msgstr ""
+msgstr "Разговор окончен"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Cancelled Call"
-msgstr ""
+msgstr "Вызов отменён"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
-msgstr ""
+msgstr "Пропущенный вызов"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
 #, javascript-format
 msgid "Duration: %1.%2"
-msgstr ""
+msgstr "Длительность разговора: %1.%2"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
