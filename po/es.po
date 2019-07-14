@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-14 06:45+0000\n"
-"PO-Revision-Date: 2019-07-07 22:07+0000\n"
+"PO-Revision-Date: 2019-07-15 13:48+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -454,7 +454,7 @@ msgstr "Ayudar a traducir"
 
 #: ../app/qml/pages/ChatListPage.qml:19
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Seleccionar destino o cancelar..."
 
 #: ../app/qml/pages/ChatListPage.qml:30
 #: ../app/qml/components/PopupDialog.qml:16
@@ -476,7 +476,7 @@ msgstr "Información"
 
 #: ../app/qml/pages/ChatListPage.qml:275
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "¿Desea reenviar los mensajes seleccionados a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:277
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
@@ -484,10 +484,8 @@ msgid "Forward"
 msgstr "Reenviar"
 
 #: ../app/qml/pages/ChatListPage.qml:287
-#, fuzzy
-#| msgid "Type a message..."
 msgid "Enter optional message..."
-msgstr "Escriba un mensaje..."
+msgstr "Introducir mensaje opcional..."
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
@@ -596,10 +594,8 @@ msgid "Edited"
 msgstr "Editado"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
-#| msgid "Forward"
 msgid "Forwarded from "
-msgstr "Reenviar"
+msgstr "Reenviado desde "
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
