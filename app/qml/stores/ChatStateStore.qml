@@ -15,8 +15,11 @@ Store {
      *
      * If you want a sorted list use SortedChatList below.
      */
+    property alias listMode: chatList.listMode
     property alias list: chatList.model
     property alias currentChat: chatList.currentChat
+    property alias forwardChatId: chatList.forwardedFromChat
+
     ChatList {
         id: chatList
         onCurrentChatChanged: {
@@ -124,6 +127,39 @@ Store {
             messageList.sendMessage(message.text);
         }
     }
+
+    Filter {
+       type: ChatKey.forwardMessage
+       onDispatched: {
+          chatList.forwardedFromChat = chatList.currentChat
+          var messageIds = [];
+          messageIds.push(message.id)
+          chatList.forwardingMessages = messageIds;
+          chatList.listMode = ChatList.ForwardingMessages
+          chatList.currentChat.closeChat()
+          chatList.clearCurrentChat()
+       }
+   }
+
+    Filter {
+        type: ChatKey.sendForwardMessage
+        onDispatched: {
+          chatList.listMode = ChatList.Idle
+          chatList.currentChat =  message.chat;
+          chatList.sendForwardMessage(chatList.forwardingMessages,
+                                           message.chat.id,
+                                           chatList.forwardedFromChat.id,
+                                           message.text);
+        }
+    }
+    Filter {
+        type: ChatKey.cancelForwardMessage
+        onDispatched: {
+          chatList.currentChat =  chatList.forwardedFromChat
+          chatList.listMode = ChatList.Idle
+        }
+    }
+
     Filter {
         type: ChatKey.sendPhoto
         onDispatched: {

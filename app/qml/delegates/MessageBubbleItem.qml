@@ -81,7 +81,7 @@ UITK.ListItem {
                 iconName: "next"
                 text: i18n.tr("Forward")
                 visible: message.canBeForwarded
-                onTriggered: AppActions.chat.forwardMessage(message.id)
+                onTriggered: AppActions.chat.forwardMessage([message.id])
             }
         ]
     }
@@ -141,7 +141,7 @@ UITK.ListItem {
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
             Layout.minimumWidth: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)), mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
-            Layout.preferredHeight: message.isOutgoing ? mc.height + Suru.units.dp(5) : mc.height
+            Layout.preferredHeight: mc.height + Suru.units.dp(5)
 
             Rectangle {
                width: contentCol.width
@@ -158,7 +158,7 @@ UITK.ListItem {
 
                 anchors {
                     top: parent.top
-                    topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
+                    topMargin: Suru.units.dp(5)
                     left: !message.isOutgoing ? parent.left : undefined
                     leftMargin: Suru.units.dp(5)
                     right: message.isOutgoing ? parent.right: undefined

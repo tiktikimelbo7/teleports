@@ -140,6 +140,7 @@ signals:
     void error(QJsonObject error);
     void ok(QJsonObject message);
     void chats(QJsonObject chats);
+    void chat(QJsonObject chat);
     void basicGroup(QJsonObject group);
     void secretChat(QJsonObject chat);
     void superGroup(QJsonObject group);
