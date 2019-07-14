@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-14 06:45+0000\n"
-"PO-Revision-Date: 2019-07-07 22:07+0000\n"
+"PO-Revision-Date: 2019-07-15 13:48+0000\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -454,7 +454,7 @@ msgstr "Ajudeu amb la traducció"
 
 #: ../app/qml/pages/ChatListPage.qml:19
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Selecciona una destinació o cancel·la..."
 
 #: ../app/qml/pages/ChatListPage.qml:30
 #: ../app/qml/components/PopupDialog.qml:16
@@ -476,7 +476,7 @@ msgstr "Informació"
 
 #: ../app/qml/pages/ChatListPage.qml:275
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "Voleu reenviar els missatges seleccionats a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:277
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
@@ -484,10 +484,8 @@ msgid "Forward"
 msgstr "Reenvia"
 
 #: ../app/qml/pages/ChatListPage.qml:287
-#, fuzzy
-#| msgid "Type a message..."
 msgid "Enter optional message..."
-msgstr "Escriviu un missatge…"
+msgstr "Entreu un missatge opcional..."
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
@@ -596,10 +594,8 @@ msgid "Edited"
 msgstr "Editat"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
-#| msgid "Forward"
 msgid "Forwarded from "
-msgstr "Reenvia"
+msgstr "Reenviat des de "
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
