@@ -503,6 +503,11 @@ void QTdChat::onChatClosed()
 {
 }
 
+void QTdChat::forwardMessage(const QString &messageId) {
+    QStringList forwardingMessages = QStringList(messageId);
+    emit forwardingMessagesAction(forwardingMessages, this);
+}
+
 void QTdChat::updateChatAction(const QJsonObject &json)
 {
     const qint32 user_id = qint32(json["user_id"].toInt());

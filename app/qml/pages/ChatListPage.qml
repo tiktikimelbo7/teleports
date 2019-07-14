@@ -15,7 +15,9 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: i18n.tr("TELEports")
+        title: Telegram.chats.listMode != ChatList.Idle
+            ? i18n.tr("Select destination or cancel...")
+            : i18n.tr("TELEports")
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -23,6 +25,14 @@ Page {
             dividerColor: hd
         }
 
+        leadingActionBar.actions: [
+            UITK.Action {
+                text: i18n.tr("Cancel")
+                iconName: "cancel"
+                onTriggered: AppActions.chat.cancelForwardMessage()
+                visible: Telegram.chats.listMode != ChatList.Idle
+            }
+        ]
         trailingActionBar.actions: [
             UITK.Action {
                 id: settingsIcon
@@ -50,7 +60,9 @@ Page {
                 height: layout.height
                 color: chat.isSecret ? "lightgreen" : "transparent"
 
-                onClicked: AppActions.chat.setCurrentChat(chat)
+                onClicked: (Telegram.chats.listMode == ChatList.ForwardingMessages)
+                    ? UITK_Popups.PopupUtils.open(forwardConfirmationDialog)
+                    : AppActions.chat.setCurrentChat(chat)
 
                 leadingActions: UITK.ListItemActions {
                     actions: [
@@ -257,7 +269,28 @@ Page {
                             }
                         }
                     }
+                    Component {
+                        id: forwardConfirmationDialog
+                        PopupDialog {
+                            text: i18n.tr("Do you want to forward the selected messages to %1?").arg(chat.title)
+                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonText: i18n.tr("Forward")
+                            onConfirmed: {
+                                var optionalMessageText = optionalMessage.text.trim();
+                                console.log(chat, optionalMessageText)
+                                AppActions.chat.sendForwardMessage(chat, "test");
+                                 // AppActions.chat.sendForwardMessage(chat, optionalMessageText);
+                            }
+                            TextArea {
+                                height: units.gu(10)
+                                id: optionalMessage
+                                placeholderText: i18n.tr("Enter optional message...")
+                            }
+                        }
+
+                    }
                 }
+
             }
         }
     }

@@ -9,17 +9,37 @@
 #include "content/qtdmessagedocument.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
+#include "user/requests/qtdgetuserrequest.h"
+#include "chat/requests/qtdgetchatrequest.h"
+#include "chat/qtdchat.h"
+#include "utils/await.h"
+
 //#include "i18n.h"
 
-
-QTdMessage::QTdMessage(QObject *parent) : QAbstractInt64Id(parent),
-    m_date(0), m_sender_user_id(0), m_chatId(0),
-    m_sender(Q_NULLPTR), m_waitingForSender(false), m_sendingState(Q_NULLPTR),
-    m_isOutgoing(false), m_canBeEdited(false), m_canBeForwarded(false),
-    m_canBeDeletedOnlyForSelf(false), m_canBeDeletedForAllUsers(false),
-    m_isChannelPost(false), m_containsUnreadMention(false), m_content(Q_NULLPTR),
-    m_isValid(false), m_previousSender(0), m_nextSender(0), m_replyMarkup(Q_NULLPTR),
-    m_messageRepliedTo(Q_NULLPTR), m_replyToMessageId(0), m_isCollapsed(false)
+QTdMessage::QTdMessage(QObject *parent)
+    : QAbstractInt64Id(parent)
+    , m_date(0)
+    , m_sender_user_id(0)
+    , m_chatId(0)
+    , m_sender(Q_NULLPTR)
+    , m_waitingForSender(false)
+    , m_sendingState(Q_NULLPTR)
+    , m_isOutgoing(false)
+    , m_canBeEdited(false)
+    , m_canBeForwarded(false)
+    , m_canBeDeletedOnlyForSelf(false)
+    , m_canBeDeletedForAllUsers(false)
+    , m_isChannelPost(false)
+    , m_containsUnreadMention(false)
+    , m_content(Q_NULLPTR)
+    , m_isValid(false)
+    , m_previousSender(0)
+    , m_nextSender(0)
+    , m_replyMarkup(Q_NULLPTR)
+    , m_forwardedFromDetails("")
+    , m_messageRepliedTo(Q_NULLPTR)
+    , m_replyToMessageId(0)
+    , m_isCollapsed(false)
 {
     setType(MESSAGE);
 }
@@ -134,6 +154,49 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
         }
     }
 
+    if (m_forwardInfo) {
+        delete m_forwardInfo;
+        m_forwardInfo = nullptr;
+    }
+    qint64 forwardedFromId = 0;
+    const QJsonObject forwardInfo = json["forward_info"].toObject();
+    if (!forwardInfo.isEmpty()) {
+        const QString forwardInfoType = forwardInfo["@type"].toString();
+        if (forwardInfoType == "messageForwardedFromUser") {
+            auto tempForwardInfo = new QTdMessageForwardedFromUser(this);
+            tempForwardInfo->unmarshalJson(forwardInfo);
+            m_forwardInfo = tempForwardInfo;
+            forwardedFromId = tempForwardInfo->senderUserId();
+            QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
+            req->setUserId(forwardedFromId);
+            QFuture<QTdResponse> resp = req->sendAsync();
+            await(resp, 2000);
+            if (resp.result().isError()) {
+                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
+                return;
+            }
+            auto tempUser = new QTdUser(this);
+            tempUser->unmarshalJson(resp.result().json());
+            m_forwardedFromDetails = tempUser->firstName() + " " + tempUser->lastName();
+        } else if (forwardInfoType == "messageForwardedPost") {
+            auto tempForwardInfo = new QTdMessageForwardedPost(this);
+            tempForwardInfo->unmarshalJson(forwardInfo);
+            m_forwardInfo = tempForwardInfo;
+            forwardedFromId = tempForwardInfo->chatId();
+            QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
+            req->setChatId(forwardedFromId);
+            QFuture<QTdResponse> resp = req->sendAsync();
+            await(resp, 2000);
+            if (resp.result().isError()) {
+                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
+                return;
+            }
+            auto tempChat = new QTdChat(this);
+            tempChat->unmarshalJson(resp.result().json());
+            m_forwardedFromDetails = tempChat->title();
+        }
+        emit messageChanged();
+    }
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
     m_isValid = true;
@@ -221,6 +284,16 @@ QTdMessageContent *QTdMessage::content() const
 QTdReplyMarkup *QTdMessage::replyMarkup() const
 {
     return m_replyMarkup;
+}
+
+QString QTdMessage::forwardedFromDetails() const
+{
+    return m_forwardedFromDetails;
+}
+
+bool QTdMessage::isForwarded() const
+{
+    return m_forwardInfo != nullptr;
 }
 
 QString QTdMessage::summary() const
@@ -453,4 +526,3 @@ void QTdMessage::collapse()
 {
     m_isCollapsed = true;
 }
-

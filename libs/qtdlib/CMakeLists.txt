@@ -94,6 +94,7 @@ set(
     chat/requests/qtdclosechatrequest.cpp
     chat/requests/qtddeletechathistoryrequest.cpp
     chat/requests/qtdgetbasicgrouprequest.cpp
+    chat/requests/qtdgetchatrequest.cpp
     chat/requests/qtdgetchatsrequest.cpp
     chat/requests/qtdgetsecretchatrequest.cpp
     chat/requests/qtdgetsupergroupfullinforequest.cpp
@@ -104,6 +105,7 @@ set(
     chat/requests/qtdsendchatactionrequest.cpp
     chat/requests/qtdsetchattitlerequest.cpp
     chat/requests/qtdsetpinnedchatsrequest.cpp
+    chat/requests/qtdforwardmessagesrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp
@@ -161,6 +163,7 @@ set(
     messages/replymarkup/qtdkeyboardbutton.cpp
     messages/replymarkup/qtdkeyboardbuttontype.cpp
     messages/replymarkup/qtdreplymarkup.cpp
+    messages/forwardinfo/qtdmessageforwardinfo.cpp
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp
     messages/requests/content/qtdinputmessagetext.cpp

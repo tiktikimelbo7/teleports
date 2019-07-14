@@ -18,6 +18,9 @@ ActionCreator {
 
     signal deleteMessage(string id)
     signal forwardMessage(string id)
+    signal sendForwardMessage(var chat,
+                              string text)
+    signal cancelForwardMessage()
     signal requestEditMessage(var message)
     signal sendEditMessageText(string id, string text)
     signal sendEditMessageCaption(string id, string text)
