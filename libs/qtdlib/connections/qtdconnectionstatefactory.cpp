@@ -3,7 +3,8 @@
 
 QTdConnectionState *QTdConnectionStateFactory::create(const QJsonObject &json, QObject *parent)
 {
-    const QString type = json["@type"].toString();
+    const auto state = json["state"].toObject();
+    const QString type = state["@type"].toString();
     if (type == "connectionStateReady") {
         return new QTdConnectionStateReady(parent);
     } else if (type == "connectionStateUpdating") {

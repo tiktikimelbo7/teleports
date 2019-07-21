@@ -5,7 +5,6 @@
 #include <QMetaObject>
 #include <QJsonDocument>
 #include <QtConcurrent>
-#include <QtGui/QGuiApplication>
 #include "qtdthread.h"
 #include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
@@ -42,8 +41,6 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     connect(m_worker.data(), &QThread::started, w, &QTdWorker::run);
     connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
     connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
-    connect(qGuiApp, &QGuiApplication::applicationStateChanged, this,
-            &QTdClient::handleApplicationStateChanged);
     m_worker->start();
 }
 
@@ -292,21 +289,4 @@ QVariant QTdClient::getOption(const QString name)
         return QVariant();
 }
 
-void QTdClient::handleApplicationStateChanged(Qt::ApplicationState state)
-{
-    switch(state) {
-        case Qt::ApplicationState::ApplicationSuspended:
-            qWarning() << "Application has been suspended!";
-            send(QJsonObject{
-                {"@type", "setNetworkType"},
-                {"type", QJsonObject{{"@type", "networkTypeNone"}}}});
-            break;
-        case Qt::ApplicationState::ApplicationActive:
-            qWarning() << "Application has been activated!";
-            send(QJsonObject{
-                {"@type", "setNetworkType"},
-                {"type", QJsonObject{{"@type", "networkTypeMobile"}}}});
-            break;
-    }
 
-}

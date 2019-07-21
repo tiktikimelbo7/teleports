@@ -119,6 +119,7 @@ set(
     common/qtdresponse.cpp
     connections/qtdconnectionstate.cpp
     connections/qtdconnectionstatefactory.cpp
+    connections/qtdconnectionmanager.cpp
     files/qtdanimation.cpp
     files/qtdaudio.cpp
     files/qtddocument.cpp
