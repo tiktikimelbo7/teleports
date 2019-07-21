@@ -14,6 +14,7 @@ Item {
     signal videoRequested()
     signal audioRequested()
     signal contactRequested()
+    signal locationRequested()
     signal close()
 
     anchors {
@@ -59,7 +60,7 @@ Item {
                 }
             }
             AttachPanelItem {
-                // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+                // TRANSLATORS: Used in attach menu, when sending a document to the conversation.
                 text: i18n.tr("File")
                 image: Qt.resolvedUrl("qrc:/qml/icons/attach_document.png")
                 onClicked: {
@@ -78,7 +79,7 @@ Item {
             // }
             //
             // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending a file to the conversation.
+            //     // TRANSLATORS: Used in attach menu, when sending audio to the conversation.
             //     text: i18n.tr("Audio")
             //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_audio.png")
             //     onClicked: {
@@ -88,7 +89,7 @@ Item {
             // }
             //
             // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending a file to the conversation.
+            //     // TRANSLATORS: Used in attach menu, when sending a contact to the conversation.
             //     text: i18n.tr("Contact")
             //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_contact.png")
             //     onClicked: {
@@ -96,6 +97,16 @@ Item {
             //         attach_panel.close()
             //     }
             // }
+
+            AttachPanelItem {
+                // TRANSLATORS: Used in attach menu, when sending a location to the conversation.
+                text: i18n.tr("Location")
+                icon:"location-idle"
+                onClicked: {
+                    attach_panel.locationRequested()
+                    attach_panel.close()
+                }
+            }
 
             AttachPanelItem {
                 height: attach_photo_item.height

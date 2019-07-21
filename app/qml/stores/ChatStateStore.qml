@@ -173,6 +173,12 @@ Store {
         }
     }
     Filter {
+        type: ChatKey.sendLocation
+        onDispatched: {
+            messageList.sendLocation();
+        }
+    }
+    Filter {
         type: ChatKey.sendReplyToMessage
         onDispatched: {
             messageList.sendReplyToMessage(message.id, message.text);

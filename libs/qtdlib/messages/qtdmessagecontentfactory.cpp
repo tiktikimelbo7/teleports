@@ -14,6 +14,7 @@
 #include "content/qtdmessagechatupgradefrom.h"
 #include "content/qtdmessagechatupgradeto.h"
 #include "content/qtdmessagedocument.h"
+#include "content/qtdmessagelocation.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagetext.h"
@@ -37,7 +38,9 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageAudio") {
           return new QTdMessageAudio(parent);
     } else if (type == "messageDocument") {
-          return new QTdMessageDocument(parent);    
+          return new QTdMessageDocument(parent);
+    } else if (type == "messageLocation") {
+        return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
           return new QTdMessageVideo(parent);
     } else if (type == "messageContactRegistered"){

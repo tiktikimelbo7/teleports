@@ -38,6 +38,7 @@
 #include "messages/content/qtdmessagechatupgradefrom.h"
 #include "messages/content/qtdmessagechatupgradeto.h"
 #include "messages/content/qtdmessagedocument.h"
+#include "messages/content/qtdmessagelocation.h"
 #include "messages/content/qtdmessagephoto.h"
 #include "messages/content/qtdmessagesticker.h"
 #include "messages/content/qtdmessagetext.h"
@@ -170,6 +171,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessageChatUpgradeFrom>(uri, 1, 0, "QTdMessageChatUpgradeFrom", "C++ class");
     qmlRegisterUncreatableType<QTdMessageChatUpgradeTo>(uri, 1, 0, "QTdMessageChatUpgradeTo", "C++ class");
     qmlRegisterUncreatableType<QTdMessageDocument>(uri, 1, 0, "QTdMessageDocument", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageLocation>(uri, 1, 0, "QTdMessageLocation", "C++ class");
     qmlRegisterUncreatableType<QTdMessageHidden>(uri, 1, 0, "QTdMessageHidden", "C++ class");
     qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");
     qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");

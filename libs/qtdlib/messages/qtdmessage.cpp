@@ -7,6 +7,7 @@
 #include "content/qtdmessagedate.h"
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagedocument.h"
+#include "content/qtdmessagelocation.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
 #include "user/requests/qtdgetuserrequest.h"
@@ -328,6 +329,10 @@ QString QTdMessage::summary() const
     case QTdObject::MESSAGE_DOCUMENT: {
         auto *c = qobject_cast<QTdMessageDocument*>(m_content);
         content = c->document()->fileName();
+        break;
+    }
+    case QTdObject::MESSAGE_LOCATION: {
+        content = tr("Location");
         break;
     }
     case QTdObject::MESSAGE_VIDEO: {

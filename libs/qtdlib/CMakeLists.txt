@@ -9,6 +9,7 @@ find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Quick)
 find_package(Qt5Concurrent)
+find_package(Qt5Positioning)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -26,7 +27,6 @@ set(
     # messages/content/qtdmessagegame.cpp
     # messages/content/qtdmessagegamescore.cpp
     # messages/content/qtdmessageinvoice.cpp
-    # messages/content/qtdmessagelocation.cpp
     # messages/content/qtdmessagepassportdatareceived.cpp
     # messages/content/qtdmessagepassportdatasent.cpp
     # messages/content/qtdmessagepaymentsuccessful.cpp
@@ -40,29 +40,16 @@ set(
     # messages/content/qtdmessagevoicenote.cpp
     # messages/content/qtdmessagewebsiteconnected.cpp
     # messages/requests/content/qtdinputmessageanimation.cpp
-    # messages/requests/content/qtdinputmessageanimation.cpp
     # messages/requests/content/qtdinputmessageaudio.cpp
-    # messages/requests/content/qtdinputmessageaudio.cpp
-    # messages/requests/content/qtdinputmessagecontact.cpp
     # messages/requests/content/qtdinputmessagecontact.cpp
     # messages/requests/content/qtdinputmessagedocument.cpp
     # messages/requests/content/qtdinputmessageforwarded.cpp
-    # messages/requests/content/qtdinputmessageforwarded.cpp
-    # messages/requests/content/qtdinputmessagegame.cpp
     # messages/requests/content/qtdinputmessagegame.cpp
     # messages/requests/content/qtdinputmessageinvoice.cpp
-    # messages/requests/content/qtdinputmessageinvoice.cpp
-    # messages/requests/content/qtdinputmessagelocation.cpp
-    # messages/requests/content/qtdinputmessagelocation.cpp
-    # messages/requests/content/qtdinputmessagesticker.cpp
     # messages/requests/content/qtdinputmessagesticker.cpp
     # messages/requests/content/qtdinputmessagevenue.cpp
-    # messages/requests/content/qtdinputmessagevenue.cpp
-    # messages/requests/content/qtdinputmessagevideo.cpp
     # messages/requests/content/qtdinputmessagevideo.cpp
     # messages/requests/content/qtdinputmessagevideoNote.cpp
-    # messages/requests/content/qtdinputmessagevideoNote.cpp
-    # messages/requests/content/qtdinputmessagevoiceNote.cpp
     # messages/requests/content/qtdinputmessagevoiceNote.cpp
 	# end todo
     auth/qtdauthcode.cpp
@@ -148,12 +135,14 @@ set(
     messages/content/qtdmessagechatupgradeto.cpp
     messages/content/qtdmessagedate.cpp
     messages/content/qtdmessagedocument.cpp
+    messages/content/qtdmessagelocation.cpp
     messages/content/qtdmessagephoto.cpp
     messages/content/qtdmessagesticker.cpp
     messages/content/qtdmessagetext.cpp
     messages/content/qtdmessagevideo.cpp
     messages/content/qtdtextentity.cpp
     messages/content/qtdtextentitytype.cpp
+    messages/content/qtdlocation.cpp
     messages/content/qtdwebpage.cpp
     messages/qtdchatstate.cpp
     messages/qtdmessage.cpp
@@ -168,6 +157,7 @@ set(
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp
     messages/requests/content/qtdinputmessagetext.cpp
+    messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/qtddeletemessagesrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
@@ -206,7 +196,7 @@ link_directories(${CURRENT_TDLIB_BUILD_DIR}/)
 include_directories(../vendor/tdlib/)
 include_directories(${CURRENT_TDLIB_BUILD_DIR}/)
 include_directories(${CURRENT_TDLIB_BUILD_DIR}/generate)
-target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Qml Qt5::Concurrent tdjson)
+target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Qml Qt5::Concurrent Qt5::Positioning tdjson)
 target_include_directories(${QTDLIB} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 #set_property(TARGET ${QTDLIB} PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${QTDLIB_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
