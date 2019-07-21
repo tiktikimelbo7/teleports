@@ -127,6 +127,8 @@ void QTdAuthManager::sendPassword(const QString &password)
 
 void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
 {
+    if(!state)
+        return;
     switch (state->type()) {
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_TDLIB_PARAMETERS:
     {

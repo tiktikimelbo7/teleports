@@ -44,6 +44,12 @@ Page {
         ]
     }
 
+    WaitingBar {
+        id: waitingBar
+        connectionState: Telegram.connections.connectionState
+        z: 10
+    }
+
     ScrollView {
         anchors.fill: parent
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff

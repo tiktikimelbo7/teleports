@@ -3,6 +3,7 @@
         <file>Main.qml</file>
         <file>pages/WaitPhoneNumberPage.qml</file>
         <file>stores/AuthStateStore.qml</file>
+        <file>stores/ConnectionsStore.qml</file>
         <file>stores/qmldir</file>
         <file>stores/MainStore.qml</file>
         <file>stores/RootStore.qml</file>
@@ -82,5 +83,7 @@
         <file>delegates/MessageUnavailable.qml</file>
         <file>components/Citation.qml</file>
         <file>components/FormattedText.qml</file>
+        <file>components/WaitingBar.qml</file>
+        <file>pages/ConnectivityPage.qml</file>
     </qresource>
 </RCC>

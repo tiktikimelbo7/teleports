@@ -197,6 +197,12 @@ Page {
         }
     }
 
+    WaitingBar {
+        id: waitingBar
+        connectionState: Telegram.connections.connectionState
+        z: 10
+    }
+
     ScrollView {
         anchors {
             left: parent.left
