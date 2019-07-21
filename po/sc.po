@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-14 06:45+0000\n"
+"POT-Creation-Date: 2019-07-18 18:54+0000\n"
 "PO-Revision-Date: 2019-05-10 21:03+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -160,30 +160,9 @@ msgstr "at atualizadu sa foto de su profilu"
 msgid "You have a new message"
 msgstr "Tenes unu messàgiu nou"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:25
-msgid "Last seen one month ago"
-msgstr "Ùrtima visualizatzione unu mese a oe"
-
-#: ../libs/qtdlib/user/qtduserstatus.cpp:35
-msgid "Last seen one week ago"
-msgstr "Ùrtima visualizatzione una chida a oe"
-
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
-msgid "Last seen "
-msgstr "Ùrtima visualizatzione "
-
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
-msgid "dd.MM.yy hh:mm"
-msgstr "dd.MM.yy hh:mm"
-
-#: ../libs/qtdlib/user/qtduserstatus.cpp:72
-#: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
-msgid "Online"
-msgstr "in lìnia"
-
-#: ../libs/qtdlib/user/qtduserstatus.cpp:89
-msgid "Seen recently"
-msgstr "Bidu de reghente"
+#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
+msgid "Message"
+msgstr "Messàgiu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "Sticker"
@@ -271,256 +250,57 @@ msgstr "t'at imbiadu unu messàgiu"
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
-msgid "Message"
-msgstr "Messàgiu"
-
 #: ../libs/qtdlib/chat/qtdchat.cpp:71
 msgid "Saved Messages"
 msgstr "Messàgios sarvados"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
-msgid "Enter Password"
-msgstr "Inserta·nche una crae"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:25
+msgid "Last seen one month ago"
+msgstr "Ùrtima visualizatzione unu mese a oe"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
-msgid "Password"
-msgstr "Crae"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:35
+msgid "Last seen one week ago"
+msgstr "Ùrtima visualizatzione una chida a oe"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:48
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-msgid "Next..."
-msgstr "Sighi..."
+#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+msgid "Last seen "
+msgstr "Ùrtima visualizatzione "
 
-#: ../app/qml/pages/WaitCodePage.qml:19
-msgid "Enter Code"
-msgstr "Inserta·nche su còdighe"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+msgid "dd.MM.yy hh:mm"
+msgstr "dd.MM.yy hh:mm"
 
-#: ../app/qml/pages/WaitCodePage.qml:45
-msgid "First Name"
-msgstr "Nòmine"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:72
+#: ../app/qml/pages/ConnectivityPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:30
+#: ../app/qml/pages/ConnectivityPage.qml:80
+msgid "Online"
+msgstr "in lìnia"
 
-#: ../app/qml/pages/WaitCodePage.qml:53
-msgid "Last Name"
-msgstr "Sangunadu"
+#: ../libs/qtdlib/user/qtduserstatus.cpp:89
+msgid "Seen recently"
+msgstr "Bidu de reghente"
 
-#: ../app/qml/pages/WaitCodePage.qml:60
-msgid "Code"
-msgstr "Còdighe"
+#: ../app/qml/middleware/ChatMiddleware.qml:21
+msgid "Are you sure you want to clear the history?"
+msgstr "Seguru chi boles isboidare sa cronologia?"
 
-#: ../app/qml/pages/WaitCodePage.qml:75
-msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr ""
-"T'amus imbiadu unu còdighe tràmite Telegram a su dispositivu tuo. "
-"Inserta·nche·ddu inoghe."
-
-#: ../app/qml/pages/PreviewPage.qml:35
-msgid "File: "
-msgstr "Archìviu: "
-
-#: ../app/qml/pages/PreviewPage.qml:49
-msgid "Save"
-msgstr "Sarva"
-
-#: ../app/qml/pages/SettingsPage.qml:23
-msgid "Offline"
-msgstr "Foras de lìnia"
-
-#: ../app/qml/pages/SettingsPage.qml:23
-msgid "Connecting"
-msgstr "Connetende"
-
-#: ../app/qml/pages/SettingsPage.qml:26 ../app/qml/pages/ChatListPage.qml:40
-msgid "Settings"
-msgstr "Cunfiguratziones"
-
-#: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
-#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
-msgid "Back"
-msgstr "In segus"
-
-#: ../app/qml/pages/SettingsPage.qml:48 ../app/qml/pages/AboutPage.qml:13
-msgid "About"
-msgstr "Informatziones"
-
-#: ../app/qml/pages/SettingsPage.qml:85
-msgid "Night mode"
-msgstr "Modalidade noturna"
-
-#: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
-msgid "Logout"
-msgstr "Essi"
-
-#: ../app/qml/pages/SettingsPage.qml:118
-msgid "Delete account"
-msgstr "Cantzella custu contu"
-
-#: ../app/qml/pages/SettingsPage.qml:129
-msgid "Not online"
-msgstr "No est in lìnia"
-
-#: ../app/qml/pages/SettingsPage.qml:134
-msgid "Status:"
-msgstr "Istadu:"
-
-#: ../app/qml/pages/SettingsPage.qml:139
-msgid "Bandwith limited"
-msgstr "Àmpiu de banda limitadu"
-
-#: ../app/qml/pages/SettingsPage.qml:139
-msgid "Bandwith not limited"
-msgstr "Àmpiu de banda non limitadu"
-
-#: ../app/qml/pages/SettingsPage.qml:152
-msgid ""
-"Warning: Logging out will delete all local data from this device, including "
-"secret chats. Are you still sure you want to log out?"
-msgstr ""
-"Atentzione: essende de sa sessione s'ant a cantzellare totu is datos locales "
-"de custu dispositivu, fintzas is tzarradas segretas. Seguru chi boles essire?"
-
-#: ../app/qml/pages/SettingsPage.qml:162
-msgid ""
-"Warning: Deleting the account will delete all the data you ever received or "
-"send using telegram except for data you have explicitly saved outside the "
-"telegram cloud. Are you really really sure you want to delete your telegram "
-"account?"
-msgstr ""
-"Atentzione: cantzellende custu contu s'ant a cantzellare totu is datos chi "
-"as retzidu o imbiadu tràmite Telegram francu cussos chi apas sarvadu in "
-"foras de sa nue de Telegram. Seguru chi boles a beru cantzellare su contu de "
-"Telegram tuo?"
-
-#: ../app/qml/pages/SettingsPage.qml:164
-#: ../app/qml/delegates/MessageBubbleItem.qml:33
-#: ../app/qml/delegates/MessageBubbleItem.qml:47
-msgid "Delete"
-msgstr "Cantzella"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
-msgid "Enter Phone Number"
-msgstr "Inserta·nche su nùmeru de telèfonu"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
-#: ../app/qml/components/CountryPicker.qml:21
-msgid "Choose a country"
-msgstr "Sèbera unu paisu"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-msgid "Phone number"
-msgstr "Nùmeru de telèfonu"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
-msgid "Please confirm your country code and enter your phone number."
-msgstr ""
-"Cunfirma su còdighe de paisu tuo e inserta·nche su nùmeru de telèfonu tuo."
-
-#: ../app/qml/pages/UserProfilePage.qml:19
-msgid "Profile"
-msgstr "Profilu"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:21
-msgid "Group Details"
-msgstr "Detàllios de su grupu"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:96
-msgid "Members: %1"
-msgstr "Membros: %1"
-
-#: ../app/qml/pages/PickerPage.qml:16
-msgid "Content Picker"
-msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:26
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 membru"
-msgstr[1] "%1 membros"
-
-#: ../app/qml/pages/MessageListPage.qml:112
-msgid "Telegram"
-msgstr "Telegram"
-
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:62
-msgid "Edit"
-msgstr "Modìfica"
-
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:70
-msgid "Reply"
-msgstr "Risponde"
-
-#: ../app/qml/pages/MessageListPage.qml:322
-msgid "Type a message..."
-msgstr "Iscrie unu messàgiu..."
-
-#: ../app/qml/pages/AboutPage.qml:70
-msgid "Version %1"
-msgstr "Versione %1"
-
-#: ../app/qml/pages/AboutPage.qml:92
-msgid "Get the source"
-msgstr "Otene su còdighe de orìgine"
-
-#: ../app/qml/pages/AboutPage.qml:93
-msgid "Report issues"
-msgstr "Signala unu problema"
-
-#: ../app/qml/pages/AboutPage.qml:94
-msgid "Help translate"
-msgstr "Agiuda·si a bortare"
-
-#: ../app/qml/pages/ChatListPage.qml:19
-msgid "Select destination or cancel..."
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:30
-#: ../app/qml/components/PopupDialog.qml:16
-msgid "Cancel"
-msgstr "Annulla"
-
-#: ../app/qml/pages/ChatListPage.qml:71
-msgid "Leave chat"
-msgstr "Essi·nche dae sa tzarrada"
-
-#: ../app/qml/pages/ChatListPage.qml:76
 #: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/pages/ChatListPage.qml:81
 msgid "Clear history"
 msgstr "Isbòida sa cronologia"
 
-#: ../app/qml/pages/ChatListPage.qml:87
-msgid "Info"
-msgstr "Informatziones"
+#: ../app/qml/middleware/ChatMiddleware.qml:31
+msgid "Are you sure you want to leave this chat?"
+msgstr "Seguru chi boles essire dae custa tzarrada?"
 
-#: ../app/qml/pages/ChatListPage.qml:275
-msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+#: ../app/qml/middleware/ChatMiddleware.qml:32
+msgid "Leave"
+msgstr "Essi·nche"
 
-#: ../app/qml/pages/ChatListPage.qml:277
-#: ../app/qml/delegates/MessageBubbleItem.qml:82
-msgid "Forward"
-msgstr "Torra a imbiare"
-
-#: ../app/qml/pages/ChatListPage.qml:287
-#, fuzzy
-#| msgid "Type a message..."
-msgid "Enter optional message..."
-msgstr "Iscrie unu messàgiu..."
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr "Chirca nòmine de su paisu..."
-
-#: ../app/qml/components/PopupDialog.qml:15
-msgid "Okay"
-msgstr "AB"
-
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "no est a disponimentu"
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr "Serra"
 
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:54
@@ -532,21 +312,122 @@ msgstr "Immàgine"
 msgid "File"
 msgstr "Archìviu"
 
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
-msgstr "Serra"
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
+msgid "not available"
+msgstr "no est a disponimentu"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:21
-msgid "Are you sure you want to clear the history?"
-msgstr "Seguru chi boles isboidare sa cronologia?"
+#: ../app/qml/components/PopupDialog.qml:15
+msgid "Okay"
+msgstr "AB"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:31
-msgid "Are you sure you want to leave this chat?"
-msgstr "Seguru chi boles essire dae custa tzarrada?"
+#: ../app/qml/components/PopupDialog.qml:16
+#: ../app/qml/pages/ChatListPage.qml:30
+msgid "Cancel"
+msgstr "Annulla"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:32
-msgid "Leave"
-msgstr "Essi·nche"
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr "Sèbera unu paisu"
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "Chirca nòmine de su paisu..."
+
+#: ../app/qml/stores/NotificationsStateStore.qml:12
+msgid "Push Registration Failed"
+msgstr "Faddina in in su registru Push"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:23
+msgid "No Ubuntu One"
+msgstr "Perunu Ubuntu One"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:24
+msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr "Collega·ti a Ubuntu One pro retzire notìficas Push."
+
+#: ../app/qml/stores/AuthStateStore.qml:77
+msgid "Auth code not expected right now"
+msgstr "Còdighe de autenticatzione no isetadu immoe"
+
+#: ../app/qml/stores/AuthStateStore.qml:83
+msgid "Oops! Internal error."
+msgstr "Cess! Faddina interna."
+
+#: ../app/qml/stores/AuthStateStore.qml:89
+msgid "Incorrect auth code length."
+msgstr "Longària de su còdighe de autenticatzione non curreta."
+
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "dd MMMM"
+msgstr "dd MMMM"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
+msgid "%1 joined the group"
+msgstr "%1 at aderidu a su grupu"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
+msgid "%1 users"
+msgstr "%1 usuàrios"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:33
+#: ../app/qml/delegates/MessageBubbleItem.qml:47
+#: ../app/qml/pages/SettingsPage.qml:157
+msgid "Delete"
+msgstr "Cantzella"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:44
+msgid ""
+"The message will be deleted for all users in the chat. Do you really want to "
+"delete it?"
+msgstr ""
+"Custu messàgiu at a èssere cantzelladu pro totu is usuàrios de custa "
+"tzarrada. Seguru chi ddu boles cantzellare?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:45
+msgid ""
+"The message will be deleted only for you. Do you really want to delete it?"
+msgstr ""
+"Custu messàgiu at a èssere cantzelladu isceti pro tie. Seguru chi ddu boles "
+"cantzellare?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:56
+msgid "Copy"
+msgstr "Còpia"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:62
+#: ../app/qml/pages/MessageListPage.qml:258
+msgid "Edit"
+msgstr "Modìfica"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:70
+#: ../app/qml/pages/MessageListPage.qml:258
+msgid "Reply"
+msgstr "Risponde"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:76
+msgid "Sticker Pack info"
+msgstr "Informatzione de su pachete de adesivos"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:82
+#: ../app/qml/pages/ChatListPage.qml:282
+msgid "Forward"
+msgstr "Torra a imbiare"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:232
+msgid "Edited"
+msgstr "Modificadu"
+
+#: ../app/qml/delegates/MessageContentBase.qml:35
+#, fuzzy
+#| msgid "Forward"
+msgid "Forwarded from "
+msgstr "Torra a imbiare"
+
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
+msgid "%1 joined by invite link"
+msgstr "%1 at aderidu tràmite unu ligàmene de invitu"
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -573,75 +454,224 @@ msgstr "Mutida pèrdida"
 msgid "Duration: %1.%2"
 msgstr "Tempus: %1.%2"
 
-#: ../app/qml/delegates/MessageDateItem.qml:4
-msgid "dd MMMM"
-msgstr "dd MMMM"
+#: ../app/qml/pages/PreviewPage.qml:35
+msgid "File: "
+msgstr "Archìviu: "
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
-msgid "%1 joined the group"
-msgstr "%1 at aderidu a su grupu"
+#: ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "Sarva"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
-msgid "%1 users"
-msgstr "%1 usuàrios"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
+msgstr "Inserta·nche su nùmeru de telèfonu"
 
-#: ../app/qml/delegates/MessageJoinByLink.qml:5
-msgid "%1 joined by invite link"
-msgstr "%1 at aderidu tràmite unu ligàmene de invitu"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr "Nùmeru de telèfonu"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:44
-msgid ""
-"The message will be deleted for all users in the chat. Do you really want to "
-"delete it?"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
 msgstr ""
-"Custu messàgiu at a èssere cantzelladu pro totu is usuàrios de custa "
-"tzarrada. Seguru chi ddu boles cantzellare?"
+"Cunfirma su còdighe de paisu tuo e inserta·nche su nùmeru de telèfonu tuo."
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:45
-msgid ""
-"The message will be deleted only for you. Do you really want to delete it?"
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
+#: ../app/qml/pages/WaitPasswordPage.qml:48
+msgid "Next..."
+msgstr "Sighi..."
+
+#: ../app/qml/pages/PickerPage.qml:16
+msgid "Content Picker"
 msgstr ""
-"Custu messàgiu at a èssere cantzelladu isceti pro tie. Seguru chi ddu boles "
-"cantzellare?"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:56
-msgid "Copy"
-msgstr "Còpia"
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
+msgid "About"
+msgstr "Informatziones"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:76
-msgid "Sticker Pack info"
-msgstr "Informatzione de su pachete de adesivos"
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/UserProfilePage.qml:30
+#: ../app/qml/pages/GroupDetailsPage.qml:32
+#: ../app/qml/pages/SettingsPage.qml:34
+#: ../app/qml/pages/ConnectivityPage.qml:46
+msgid "Back"
+msgstr "In segus"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:232
-msgid "Edited"
-msgstr "Modificadu"
+#: ../app/qml/pages/AboutPage.qml:70
+msgid "Version %1"
+msgstr "Versione %1"
 
-#: ../app/qml/delegates/MessageContentBase.qml:35
+#: ../app/qml/pages/AboutPage.qml:92
+msgid "Get the source"
+msgstr "Otene su còdighe de orìgine"
+
+#: ../app/qml/pages/AboutPage.qml:93
+msgid "Report issues"
+msgstr "Signala unu problema"
+
+#: ../app/qml/pages/AboutPage.qml:94
+msgid "Help translate"
+msgstr "Agiuda·si a bortare"
+
+#: ../app/qml/pages/WaitCodePage.qml:19
+msgid "Enter Code"
+msgstr "Inserta·nche su còdighe"
+
+#: ../app/qml/pages/WaitCodePage.qml:45
+msgid "First Name"
+msgstr "Nòmine"
+
+#: ../app/qml/pages/WaitCodePage.qml:53
+msgid "Last Name"
+msgstr "Sangunadu"
+
+#: ../app/qml/pages/WaitCodePage.qml:60
+msgid "Code"
+msgstr "Còdighe"
+
+#: ../app/qml/pages/WaitCodePage.qml:75
+msgid "We've send a code via telegram to your device. Please enter it here."
+msgstr ""
+"T'amus imbiadu unu còdighe tràmite Telegram a su dispositivu tuo. "
+"Inserta·nche·ddu inoghe."
+
+#: ../app/qml/pages/ChatListPage.qml:19
+msgid "Select destination or cancel..."
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
+msgid "Settings"
+msgstr "Cunfiguratziones"
+
+#: ../app/qml/pages/ChatListPage.qml:76
+msgid "Leave chat"
+msgstr "Essi·nche dae sa tzarrada"
+
+#: ../app/qml/pages/ChatListPage.qml:92
+msgid "Info"
+msgstr "Informatziones"
+
+#: ../app/qml/pages/ChatListPage.qml:280
+msgid "Do you want to forward the selected messages to %1?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:292
 #, fuzzy
-#| msgid "Forward"
-msgid "Forwarded from "
-msgstr "Torra a imbiare"
+#| msgid "Type a message..."
+msgid "Enter optional message..."
+msgstr "Iscrie unu messàgiu..."
 
-#: ../app/qml/stores/NotificationsStateStore.qml:12
-msgid "Push Registration Failed"
-msgstr "Faddina in in su registru Push"
+#: ../app/qml/pages/UserProfilePage.qml:19
+msgid "Profile"
+msgstr "Profilu"
 
-#: ../app/qml/stores/NotificationsStateStore.qml:23
-msgid "No Ubuntu One"
-msgstr "Perunu Ubuntu One"
+#: ../app/qml/pages/GroupDetailsPage.qml:21
+msgid "Group Details"
+msgstr "Detàllios de su grupu"
 
-#: ../app/qml/stores/NotificationsStateStore.qml:24
-msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "Collega·ti a Ubuntu One pro retzire notìficas Push."
+#: ../app/qml/pages/GroupDetailsPage.qml:96
+msgid "Members: %1"
+msgstr "Membros: %1"
 
-#: ../app/qml/stores/AuthStateStore.qml:77
-msgid "Auth code not expected right now"
-msgstr "Còdighe de autenticatzione no isetadu immoe"
+#: ../app/qml/pages/MessageListPage.qml:26
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 membru"
+msgstr[1] "%1 membros"
 
-#: ../app/qml/stores/AuthStateStore.qml:83
-msgid "Oops! Internal error."
-msgstr "Cess! Faddina interna."
+#: ../app/qml/pages/MessageListPage.qml:112
+msgid "Telegram"
+msgstr "Telegram"
 
-#: ../app/qml/stores/AuthStateStore.qml:89
-msgid "Incorrect auth code length."
-msgstr "Longària de su còdighe de autenticatzione non curreta."
+#: ../app/qml/pages/MessageListPage.qml:327
+msgid "Type a message..."
+msgstr "Iscrie unu messàgiu..."
+
+#: ../app/qml/pages/SettingsPage.qml:82
+msgid "Night mode"
+msgstr "Modalidade noturna"
+
+#: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
+msgid "Logout"
+msgstr "Essi"
+
+#: ../app/qml/pages/SettingsPage.qml:115
+msgid "Delete account"
+msgstr "Cantzella custu contu"
+
+#: ../app/qml/pages/SettingsPage.qml:128
+msgid "Connectivity status"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:145
+msgid ""
+"Warning: Logging out will delete all local data from this device, including "
+"secret chats. Are you still sure you want to log out?"
+msgstr ""
+"Atentzione: essende de sa sessione s'ant a cantzellare totu is datos locales "
+"de custu dispositivu, fintzas is tzarradas segretas. Seguru chi boles essire?"
+
+#: ../app/qml/pages/SettingsPage.qml:155
+msgid ""
+"Warning: Deleting the account will delete all the data you ever received or "
+"send using telegram except for data you have explicitly saved outside the "
+"telegram cloud. Are you really really sure you want to delete your telegram "
+"account?"
+msgstr ""
+"Atentzione: cantzellende custu contu s'ant a cantzellare totu is datos chi "
+"as retzidu o imbiadu tràmite Telegram francu cussos chi apas sarvadu in "
+"foras de sa nue de Telegram. Seguru chi boles a beru cantzellare su contu de "
+"Telegram tuo?"
+
+#: ../app/qml/pages/ConnectivityPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:26
+msgid "Offline"
+msgstr "Foras de lìnia"
+
+#: ../app/qml/pages/ConnectivityPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:28
+msgid "Connecting"
+msgstr "Connetende"
+
+#: ../app/qml/pages/ConnectivityPage.qml:27
+#, fuzzy
+#| msgid "Connecting"
+msgid "Connecting To Proxy"
+msgstr "Connetende"
+
+#: ../app/qml/pages/ConnectivityPage.qml:29
+msgid "Updating"
+msgstr ""
+
+#: ../app/qml/pages/ConnectivityPage.qml:35
+#, fuzzy
+#| msgid "Connecting"
+msgid "Connectivity"
+msgstr "Connetende"
+
+#: ../app/qml/pages/ConnectivityPage.qml:73
+msgid "Telegram connectivity status:"
+msgstr ""
+
+#: ../app/qml/pages/ConnectivityPage.qml:80
+msgid "Not online"
+msgstr "No est in lìnia"
+
+#: ../app/qml/pages/ConnectivityPage.qml:87
+msgid "Status:"
+msgstr "Istadu:"
+
+#: ../app/qml/pages/ConnectivityPage.qml:94
+msgid "Bandwith limited"
+msgstr "Àmpiu de banda limitadu"
+
+#: ../app/qml/pages/ConnectivityPage.qml:94
+msgid "Bandwith not limited"
+msgstr "Àmpiu de banda non limitadu"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:13
+msgid "Enter Password"
+msgstr "Inserta·nche una crae"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:32
+msgid "Password"
+msgstr "Crae"
