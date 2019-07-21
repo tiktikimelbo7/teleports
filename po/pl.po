@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-18 18:54+0000\n"
-"PO-Revision-Date: 2019-07-15 13:48+0000\n"
+"PO-Revision-Date: 2019-07-22 11:22+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -577,7 +577,7 @@ msgstr "Usuń konto"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Stan łączności"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -611,24 +611,20 @@ msgid "Connecting"
 msgstr "Łączenie"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connecting To Proxy"
-msgstr "Łączenie"
+msgstr "Łączenie z serwerem proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
-msgstr ""
+msgstr "Aktualizowanie"
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connectivity"
-msgstr "Łączenie"
+msgstr "Łączność"
 
 #: ../app/qml/pages/ConnectivityPage.qml:73
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Stan łączności Telegramu:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:80
 msgid "Not online"
