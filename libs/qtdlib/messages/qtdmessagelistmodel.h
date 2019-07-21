@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QPointer>
 #include <QDebug>
+#include <QtPositioning/QGeoPositionInfoSource>
 #include "chat/qtdchat.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchatstate.h"
@@ -33,6 +34,7 @@ public slots:
     void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);
+    void sendLocation();
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);
     void editMessageCaption(qint64 messageId, const QString &message);
@@ -49,12 +51,14 @@ private slots:
     void handleUpdateMessageContent(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId,
                       int amount = MESSAGE_LOAD_WINDOW);
+    void positionUpdated(const QGeoPositionInfo &info);
 
-  private:
+private:
     Q_DISABLE_COPY(QTdMessageListModel)
     QPointer<QQmlObjectListModel<QTdMessage>> m_model;
     QPointer<QTdChat> m_chat;
-
+    QPointer<QGeoPositionInfoSource> positionInfoSource;
+   
     void setMessagesRead(QList<qint64> messages);
 
     int messagesToLoad = -1;

@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <QJsonArray>
 #include <QScopedPointer>
+#include <QtPositioning/QGeoCoordinate>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
@@ -9,6 +10,7 @@
 #include "requests/content/qtdinputmessagetext.h"
 #include "requests/content/qtdinputmessagephoto.h"
 #include "requests/content/qtdinputmessagedocument.h"
+#include "requests/content/qtdinputmessagelocation.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -298,6 +300,37 @@ void QTdMessageListModel::sendDocument(const QString &url, const QString &captio
     request->setReplyToMessageId(replyToMessageId);
     QTdClient::instance()->send(request.data());
 }
+
+void QTdMessageListModel::sendLocation() {
+    if (!m_chat) {
+        return;
+    }
+    if (!positionInfoSource) {
+        positionInfoSource = QGeoPositionInfoSource::createDefaultSource(this);
+        if (!positionInfoSource) {
+            qWarning() << "Could not initialize position info source!";
+            return;
+        }
+    }
+    connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+            this, SLOT(positionUpdated(QGeoPositionInfo)));
+    positionInfoSource->requestUpdate();
+}
+
+void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
+{
+    qDebug() << "Received positionUpdated signal!";
+    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+               this, SLOT(positionUpdated(QGeoPositionInfo)));
+    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
+    request->setChatId(m_chat->id());
+    QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
+    messageContent->setLocation(positionInfo.coordinate().latitude(), positionInfo.coordinate().longitude());
+    messageContent->setLivePeriod(0);
+    request->setContent(messageContent);
+    QTdClient::instance()->send(request.data());
+}
+
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
     if (!m_chat) {

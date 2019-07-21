@@ -160,7 +160,7 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1
                 text: header.subtitle
-                color: header.isOnline ? UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
+                color: header.isOnline ? UITK.UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
 
                 Connections {
                     target: header
@@ -293,11 +293,16 @@ Page {
                 mediaImporter.contentType = mediaType;
                 mediaImporter.requestMedia();
             }
+            function requestLocation() {
+                console.log("Location requested...")
+                AppActions.chat.sendLocation();
+            }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
             onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
             onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
             onAudioRequested: requestMedia(ContentHub.ContentType.Music)
             onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
+            onLocationRequested: requestLocation()
         }
 
         MediaImport {

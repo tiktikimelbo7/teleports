@@ -11,6 +11,7 @@ ActionCreator {
     signal sendMessage(string text);
     signal sendPhoto(string photoUrl, string text);
     signal sendDocument(string documentUrl, string text);
+    signal sendLocation();
     signal sendChatAction();
 
     signal leaveChat(string chatId);

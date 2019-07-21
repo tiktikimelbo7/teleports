@@ -105,6 +105,7 @@ public:
         MESSAGE_DATE,
         MESSAGE_DOCUMENT,
         MESSAGE_HIDDEN,
+        MESSAGE_LOCATION,
         MESSAGE_TEXT,
         MESSAGE_PHOTO,
         MESSAGE_STICKER,

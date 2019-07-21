@@ -46,6 +46,7 @@
         <file>delegates/MessageAnimationItem.qml</file>
         <file>delegates/MessageAudioItem.qml</file>
         <file>delegates/MessageDocumentItem.qml</file>
+        <file>delegates/MessageLocationItem.qml</file>
         <file>delegates/MessageVideoItem.qml</file>
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
@@ -76,6 +77,7 @@
         <file>delegates/MessageContentAnimation.qml</file>
         <file>delegates/MessageContentAudio.qml</file>
         <file>delegates/MessageContentDocument.qml</file>
+        <file>delegates/MessageContentLocation.qml</file>
         <file>delegates/MessageContentVideo.qml</file>
         <file>delegates/MessageContentCall.qml</file>
         <file>delegates/MessageContentSticker.qml</file>

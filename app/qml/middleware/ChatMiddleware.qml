@@ -1,6 +1,6 @@
 import QtQuick 2.9
 import QuickFlux 1.1
-import Ubuntu.Components 1.3
+import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.Popups 1.3
 import "../actions"
 import "../components"
@@ -11,7 +11,7 @@ Middleware {
     Component {
         id: confirmationDlg
         PopupDialog {
-            confirmButtonColor: UbuntuColors.red
+            confirmButtonColor: UITK.UbuntuColors.red
             onConfirmed: next(action, message)
         }
     }
