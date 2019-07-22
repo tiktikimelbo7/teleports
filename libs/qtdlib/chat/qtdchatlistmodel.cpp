@@ -5,6 +5,8 @@
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
+#include "messages/requests/qtdsendmessagerequest.h"
+#include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
 
 
@@ -241,16 +243,24 @@ void QTdChatListModel::sendForwardMessage(const QStringList  &forwardMessageIds,
 
   QString plainText;
   QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
-
+  QTdInputMessageText *messageText = new QTdInputMessageText();
+  messageText->setText(message);
+  messageText->setEntities(formatEntities);
   QScopedPointer<QTdForwardMessagesRequest> request(new QTdForwardMessagesRequest);
   request->setChatId(recievingChatId);
   request->setFromChatId(fromChatId);
+  QScopedPointer<QTdSendMessageRequest> additionalTextMessagerequest(new QTdSendMessageRequest);
+  additionalTextMessagerequest->setChatId(recievingChatId);
+  additionalTextMessagerequest->setContent(messageText);
   QList<qint64> forwardingMessageIntIds;
 	foreach(QString msgId, forwardMessageIds) {
 	    forwardingMessageIntIds.append(msgId.toLongLong());
 	}
   request->setMessageIds(forwardingMessageIntIds);
   QTdClient::instance()->send(request.data());
+  if(message!=""){
+    QTdClient::instance()->send(additionalTextMessagerequest.data());
+  }
 
 }
 
