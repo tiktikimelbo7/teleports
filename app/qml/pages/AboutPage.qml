@@ -67,7 +67,7 @@ Page {
                     title.color: theme.palette.normal.backgroundText
                     title.horizontalAlignment: Text.AlignHCenter
 
-                    subtitle.text: i18n.tr("Version %1").arg("0.2.0")
+                    subtitle.text: i18n.tr("Version %1").arg(Qt.application.version)
                     subtitle.color: UITK.UbuntuColors.ash
                     subtitle.font.pixelSize: units.gu(1.75)
                     subtitle.horizontalAlignment: Text.AlignHCenter
