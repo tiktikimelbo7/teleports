@@ -283,12 +283,16 @@ Page {
                             confirmButtonText: i18n.tr("Forward")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();
-                                console.log(chat, optionalMessageText)
-                                AppActions.chat.sendForwardMessage(chat, "test");
-                                 // AppActions.chat.sendForwardMessage(chat, optionalMessageText);
+                                AppActions.chat.sendForwardMessage(chat, optionalMessageText);
                             }
-                            TextArea {
+                            UITK.TextArea {
                                 height: units.gu(10)
+                                autoSize: true
+                                anchors {
+                                    left: parent.left
+                                    right: parent.right
+                                    topMargin: units.gu(0.1)
+                                }
                                 id: optionalMessage
                                 placeholderText: i18n.tr("Enter optional message...")
                             }
