@@ -19,7 +19,8 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     
-    property var tgConnectionState: Telegram.connections.connectionState
+    property var connectionManager: null
+    readonly property var tgConnectionState: connectionManager.connectionState
 
     property var connectivityStatusMap: [i18n.tr("Offline"), i18n.tr("Connecting"), i18n.tr("Online")]
     property var tgStatusMapText: [

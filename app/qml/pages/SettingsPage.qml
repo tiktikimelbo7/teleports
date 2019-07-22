@@ -129,7 +129,7 @@ Page {
                 }
 
                 onClicked: {
-                    AppActions.view.pushToStack("qrc:///pages/ConnectivityPage.qml", {})
+                    AppActions.settings.viewConnectivity(Telegram.connections)
                 }
             }
 
