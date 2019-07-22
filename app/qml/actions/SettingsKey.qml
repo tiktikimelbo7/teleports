@@ -10,4 +10,6 @@ KeyTable {
      * about No U1 account during push registration
      */
     property string u1dialogShown
+
+    property string viewConnectivity
 }
