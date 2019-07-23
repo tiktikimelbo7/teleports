@@ -52,7 +52,6 @@ Page {
 
     ScrollView {
         anchors.fill: parent
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
         ListView {
             anchors{
                 fill: parent
