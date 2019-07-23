@@ -102,6 +102,7 @@ public:
         MESSAGE_CHAT_SET_TTL,
         MESSAGE_CHAT_UPGRADE_FROM,
         MESSAGE_CHAT_UPGRADE_TO,
+        MESSAGE_CUSTOM_SERVICE_ACTION,
         MESSAGE_DATE,
         MESSAGE_DOCUMENT,
         MESSAGE_HIDDEN,
@@ -166,7 +167,8 @@ public:
     Q_ENUM(Type)
 
     Type type() const;
-
+    QString typeString() const;
+    
     virtual void unmarshalJson(const QJsonObject &json);
     virtual QJsonObject marshalJson();
 
@@ -176,6 +178,7 @@ signals:
 protected:
     void setType(const Type type);
     Type m_type;
+    QString m_typeString;
 };
 
 #endif // QABSTRACTTDOBJECT_H
