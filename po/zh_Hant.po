@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-18 18:54+0000\n"
-"PO-Revision-Date: 2019-07-15 13:48+0000\n"
+"PO-Revision-Date: 2019-07-25 18:49+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
@@ -608,7 +608,7 @@ msgstr "連線中"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
-msgstr ""
+msgstr "更新中"
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
 #, fuzzy
