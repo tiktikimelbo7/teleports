@@ -5,7 +5,7 @@ import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import QuickFlux 1.1
 
-MessageItemBase {
+MessageBubbleItem {
     id: bubble
     MessageContentVideo {
         message: bubble.message
