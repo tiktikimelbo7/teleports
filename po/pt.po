@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-18 18:54+0000\n"
-"PO-Revision-Date: 2019-07-07 22:07+0000\n"
+"PO-Revision-Date: 2019-07-30 20:49+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -400,10 +400,8 @@ msgid "Edited"
 msgstr "Editado"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
-#| msgid "Forward"
 msgid "Forwarded from "
-msgstr "Reencaminhar"
+msgstr "Encaminhado de "
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
@@ -536,10 +534,8 @@ msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:292
-#, fuzzy
-#| msgid "Type a message..."
 msgid "Enter optional message..."
-msgstr "Escrever mensagem..."
+msgstr "Escreva uma mensagem opcional..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -614,20 +610,16 @@ msgid "Connecting"
 msgstr "A ligar"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connecting To Proxy"
-msgstr "A ligar"
+msgstr "A ligar ao proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
 msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connectivity"
-msgstr "A ligar"
+msgstr "Conetividade"
 
 #: ../app/qml/pages/ConnectivityPage.qml:73
 msgid "Telegram connectivity status:"
