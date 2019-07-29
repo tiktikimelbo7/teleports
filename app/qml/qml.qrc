@@ -87,6 +87,7 @@
         <file>components/Citation.qml</file>
         <file>components/FormattedText.qml</file>
         <file>components/WaitingBar.qml</file>
+        <file>components/PopupWaitCancel.qml</file>
         <file>pages/ConnectivityPage.qml</file>
     </qresource>
 </RCC>

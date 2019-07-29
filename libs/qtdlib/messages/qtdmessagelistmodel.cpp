@@ -301,7 +301,7 @@ void QTdMessageListModel::sendDocument(const QString &url, const QString &captio
     QTdClient::instance()->send(request.data());
 }
 
-void QTdMessageListModel::sendLocation() {
+void QTdMessageListModel::requestLocation() {
     if (!m_chat) {
         return;
     }
@@ -317,18 +317,27 @@ void QTdMessageListModel::sendLocation() {
     positionInfoSource->requestUpdate();
 }
 
-void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
-{
-    qDebug() << "Received positionUpdated signal!";
-    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-               this, SLOT(positionUpdated(QGeoPositionInfo)));
+void QTdMessageListModel::sendLocation() {
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
-    messageContent->setLocation(positionInfo.coordinate().latitude(), positionInfo.coordinate().longitude());
+    messageContent->setLocation(m_positionInfo.coordinate().latitude(), m_positionInfo.coordinate().longitude());
     messageContent->setLivePeriod(0);
     request->setContent(messageContent);
     QTdClient::instance()->send(request.data());
+}
+
+void QTdMessageListModel::cancelLocation() {
+    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+               this, SLOT(positionUpdated(QGeoPositionInfo)));
+    m_positionInfo = QGeoPositionInfo();
+}
+void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
+{
+    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+               this, SLOT(positionUpdated(QGeoPositionInfo)));
+    m_positionInfo = positionInfo;
+    emit positionInfoReceived();
 }
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)

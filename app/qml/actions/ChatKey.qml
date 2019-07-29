@@ -9,7 +9,9 @@ KeyTable {
     property string sendMessage
     property string sendDocument
     property string sendPhoto
+    property string requestLocation
     property string sendLocation
+    property string cancelLocation
     property string sendChatAction
     property string leaveChat
     property string deleteChatHistory

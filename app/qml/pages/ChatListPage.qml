@@ -318,7 +318,6 @@ Page {
                                 placeholderText: i18n.tr("Enter optional message...")
                             }
                         }
-
                     }
                 }
 
