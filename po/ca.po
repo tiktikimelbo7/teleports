@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-18 18:54+0000\n"
-"PO-Revision-Date: 2019-07-15 13:48+0000\n"
+"PO-Revision-Date: 2019-07-30 20:49+0000\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -608,20 +608,16 @@ msgid "Connecting"
 msgstr "Connectant"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connecting To Proxy"
-msgstr "Connectant"
+msgstr "S'està connectant al servidor intermediari"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
 msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connectivity"
-msgstr "Connectant"
+msgstr "Connectivitat"
 
 #: ../app/qml/pages/ConnectivityPage.qml:73
 msgid "Telegram connectivity status:"
