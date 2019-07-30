@@ -98,7 +98,7 @@ Item {
             //     }
             // }
 
-            AttachPanelItem {
+/*             AttachPanelItem {
                 // TRANSLATORS: Used in attach menu, when sending a location to the conversation.
                 text: i18n.tr("Location")
                 icon:"location-idle"
@@ -106,7 +106,7 @@ Item {
                     attach_panel.locationRequested()
                     attach_panel.close()
                 }
-            }
+            } */
 
             AttachPanelItem {
                 height: attach_photo_item.height
