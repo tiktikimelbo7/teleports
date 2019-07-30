@@ -302,6 +302,7 @@ void QTdMessageListModel::sendDocument(const QString &url, const QString &captio
 }
 
 void QTdMessageListModel::requestLocation() {
+    qWarning() << "Requesting location...";
     if (!m_chat) {
         return;
     }
@@ -311,13 +312,19 @@ void QTdMessageListModel::requestLocation() {
             qWarning() << "Could not initialize position info source!";
             return;
         }
+        connect(positionInfoSource, SIGNAL(updateTimeout()),
+                this, SLOT(positionTimeout()));
+        connect(positionInfoSource, SIGNAL(error(QGeoPositionInfoSource::Error)),
+                this, SLOT(positionError()));
     }
     connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
             this, SLOT(positionUpdated(QGeoPositionInfo)));
-    positionInfoSource->requestUpdate();
+    positionInfoSource->requestUpdate(180000);
+    qWarning() << "Location has been requested.";
 }
 
 void QTdMessageListModel::sendLocation() {
+    qWarning() << "Sending location...";
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
@@ -325,19 +332,41 @@ void QTdMessageListModel::sendLocation() {
     messageContent->setLivePeriod(0);
     request->setContent(messageContent);
     QTdClient::instance()->send(request.data());
+    qWarning() << "Location has been sent.";
 }
 
 void QTdMessageListModel::cancelLocation() {
+    qWarning() << "Cancelling location...";
     disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
                this, SLOT(positionUpdated(QGeoPositionInfo)));
     m_positionInfo = QGeoPositionInfo();
+    qWarning() << "Location has been cancelled.";
 }
+
 void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
 {
+    qWarning() << "Updating location...";
     disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
                this, SLOT(positionUpdated(QGeoPositionInfo)));
     m_positionInfo = positionInfo;
-    emit positionInfoReceived();
+    emit locationReceived();
+    qWarning() << "Location has been updated.";
+}
+
+void QTdMessageListModel::positionTimeout()
+{
+    qWarning() << "Location timed out!";
+    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+               this, SLOT(positionUpdated(QGeoPositionInfo)));
+    emit locationTimeout();
+}
+
+void QTdMessageListModel::positionError()
+{
+    qWarning() << "Location had an error!";
+    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
+               this, SLOT(positionUpdated(QGeoPositionInfo)));
+    emit locationError();
 }
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)

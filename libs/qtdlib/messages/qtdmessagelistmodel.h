@@ -26,7 +26,9 @@ public:
 signals:
     void chatChanged(QTdChat *chat);
     void modelChanged();
-    void positionInfoReceived();
+    void locationReceived();
+    void locationTimeout();
+    void locationError();
     void error(const QString &errorMessage);
 
 public slots:
@@ -55,6 +57,8 @@ private slots:
     void loadMessages(const QJsonValue &fromMsgId,
                       int amount = MESSAGE_LOAD_WINDOW);
     void positionUpdated(const QGeoPositionInfo &info);
+    void positionTimeout();
+    void positionError();
 
 private:
     Q_DISABLE_COPY(QTdMessageListModel)

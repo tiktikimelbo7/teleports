@@ -89,9 +89,13 @@ Store {
         type: ChatKey.closeCurrentChat
         onDispatched: {
             if (chatList.currentChat) {
-                chatList.currentChat.closeChat()
+                console.log("popping message list")
+                AppActions.view.popFromStack()
+                var currentChat = chatList.currentChat
+                console.log("Clearing chat in middleware")
                 chatList.clearCurrentChat()
-
+                console.log("Closing chat in tdlib")
+                currentChat.closeChat()
             }
         }
     }
@@ -136,8 +140,7 @@ Store {
           messageIds.push(message.id)
           chatList.forwardingMessages = messageIds;
           chatList.listMode = ChatList.ForwardingMessages
-          chatList.currentChat.closeChat()
-          chatList.clearCurrentChat()
+          AppActions.chat.closeCurrentChat()
        }
    }
 

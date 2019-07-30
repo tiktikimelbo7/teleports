@@ -500,6 +500,5 @@ Page {
                d.messageOfInterest = message.message;
            }
        }
-
     }
 }
