@@ -8,6 +8,7 @@
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagelocation.h"
+#include "content/qtdmessagecustomserviceaction.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
 #include "user/requests/qtdgetuserrequest.h"
@@ -379,7 +380,12 @@ QString QTdMessage::summary() const
         content = tr("message TTL has been changed");
         break;
     }
-    default : content = tr("sent an unknown message");
+    case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
+        auto *c = qobject_cast<QTdMessageCustomServiceAction*>(m_content);
+        content = c->text();
+        break;
+    }
+    default : content = tr("sent an unknown message: %1").arg(m_content->typeString());
         break;
     }
 

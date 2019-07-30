@@ -52,7 +52,6 @@ Page {
 
     ScrollView {
         anchors.fill: parent
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
         ListView {
             anchors{
                 fill: parent
@@ -258,6 +257,28 @@ Page {
                                     text: chat.unreadCount < 999 ? chat.unreadCount : ":D"; // no-i18n
                                 }
                             }
+                            Rectangle {
+                                id: mention_rect
+                                width: Math.min(height, units.gu(4))
+                                height: units.gu(2.8)
+                                radius: width*0.5
+                                color: Suru.highlightColor
+                                visible: chat.hasUnreadMentions
+
+                                Label {
+                                    id: mention_text
+                                    anchors {
+                                        centerIn: parent
+                                        margins: 0
+                                    }
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    font.weight: Font.DemiBold
+                                    font.pixelSize: FontUtils.sizeToPixels("small")
+                                    color: "white"
+                                    text: "@"; // no-i18n
+                                }
+                            }
 
                             UITK.Icon {
                                 id: pinned_icon
@@ -297,7 +318,6 @@ Page {
                                 placeholderText: i18n.tr("Enter optional message...")
                             }
                         }
-
                     }
                 }
 

@@ -188,7 +188,6 @@ void QTdChatListModel::handleUpdateChatPhoto(const QJsonObject &chat)
     const qint64 id = qint64(chat["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat photo";
         tdchat->updateChatPhoto(chat["photo"].toObject());
         emit contentsChanged();
     }
@@ -199,7 +198,6 @@ void QTdChatListModel::handleUpdateChatReplyMarkup(const QJsonObject &chat)
     const qint64 id = qint64(chat["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat reply markup";
         tdchat->updateChatReplyMarkup(chat);
         emit contentsChanged();
     }
@@ -210,7 +208,6 @@ void QTdChatListModel::handleUpdateChatTitle(const QJsonObject &chat)
     const qint64 id = qint64(chat["chat_id"].toDouble());
     QTdChat *tdchat = m_model->getByUid(QString::number(id));
     if (tdchat) {
-//        qDebug() << "Updating chat title";
         tdchat->updateChatTitle(chat);
         emit contentsChanged();
     }

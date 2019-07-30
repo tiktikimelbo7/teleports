@@ -82,10 +82,12 @@
         <file>delegates/MessageContentCall.qml</file>
         <file>delegates/MessageContentSticker.qml</file>
         <file>delegates/MessageContentPhoto.qml</file>
+        <file>delegates/MessageCustomServiceAction.qml</file>
         <file>delegates/MessageUnavailable.qml</file>
         <file>components/Citation.qml</file>
         <file>components/FormattedText.qml</file>
         <file>components/WaitingBar.qml</file>
+        <file>components/PopupWaitCancel.qml</file>
         <file>pages/ConnectivityPage.qml</file>
     </qresource>
 </RCC>

@@ -173,9 +173,21 @@ Store {
         }
     }
     Filter {
+        type: ChatKey.requestLocation
+        onDispatched: {
+            messageList.requestLocation();
+        }
+    }
+    Filter {
         type: ChatKey.sendLocation
         onDispatched: {
             messageList.sendLocation();
+        }
+    }
+    Filter {
+        type: ChatKey.cancelLocation
+        onDispatched: {
+            messageList.cancelLocation();
         }
     }
     Filter {

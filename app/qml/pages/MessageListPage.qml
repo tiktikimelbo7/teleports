@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import Ubuntu.Content 1.1 as ContentHub
 import QuickFlux 1.1
 import QTelegram 1.0
@@ -294,8 +295,8 @@ Page {
                 mediaImporter.requestMedia();
             }
             function requestLocation() {
-                console.log("Location requested...")
-                AppActions.chat.sendLocation();
+                UITK_Popups.PopupUtils.open(locationWaitDialog)
+                AppActions.chat.requestLocation();
             }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
             onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
@@ -437,6 +438,19 @@ Page {
             }
         }
     }
+
+                    Component {
+                        id: locationWaitDialog
+                        PopupWaitCancel {
+                            text: i18n.tr("Requesting location from OS...")
+                            onFinished: {
+                                AppActions.chat.sendLocation();
+                            }
+                            onCancelled: {
+                                AppActions.chat.cancelLocation();
+                            }
+                        }
+                    }
 
     Loader {
         id: showKeyboardLoader

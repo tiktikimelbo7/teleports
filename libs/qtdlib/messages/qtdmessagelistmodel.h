@@ -26,6 +26,7 @@ public:
 signals:
     void chatChanged(QTdChat *chat);
     void modelChanged();
+    void positionInfoReceived();
     void error(const QString &errorMessage);
 
 public slots:
@@ -34,7 +35,9 @@ public slots:
     void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);
+    void requestLocation();
     void sendLocation();
+    void cancelLocation();
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);
     void editMessageCaption(qint64 messageId, const QString &message);
@@ -58,7 +61,8 @@ private:
     QPointer<QQmlObjectListModel<QTdMessage>> m_model;
     QPointer<QTdChat> m_chat;
     QPointer<QGeoPositionInfoSource> positionInfoSource;
-   
+    QGeoPositionInfo m_positionInfo;
+
     void setMessagesRead(QList<qint64> messages);
 
     int messagesToLoad = -1;

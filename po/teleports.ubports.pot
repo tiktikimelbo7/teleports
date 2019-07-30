@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-22 12:29+0000\n"
+"POT-Creation-Date: 2019-07-30 21:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,77 +159,75 @@ msgstr ""
 msgid "You have a new message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:314
+#: ../libs/qtdlib/messages/qtdmessage.cpp:315
 msgid "Sticker"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:318
+#: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "call has been ended"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:322
+#: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "sent an audio message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:326
+#: ../libs/qtdlib/messages/qtdmessage.cpp:327
 msgid "sent a photo"
 msgstr ""
 
-#. TRANSLATORS: Used in attach menu, when sending a location to the conversation.
-#: ../libs/qtdlib/messages/qtdmessage.cpp:335
-#: ../app/qml/components/AttachPanel.qml:103
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:339
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:343
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "sent a video note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:347
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "sent a voice note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:351
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "joined the group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:355
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:359
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "changed the chat title"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:363
+#: ../libs/qtdlib/messages/qtdmessage.cpp:364
 msgid "joined by invite link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:367
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:371
+#: ../libs/qtdlib/messages/qtdmessage.cpp:372
 msgid "deleted the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
+#: ../libs/qtdlib/messages/qtdmessage.cpp:376
 msgid "upgraded to supergroup"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:380
 msgid "message TTL has been changed"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:382
-msgid "sent an unknown message"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+msgid "sent an unknown message: %1"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
 msgstr ""
 
@@ -254,8 +252,8 @@ msgid "dd.MM.yy hh:mm"
 msgstr ""
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
-#: ../app/qml/pages/ConnectivityPage.qml:24
-#: ../app/qml/pages/ConnectivityPage.qml:30
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
 msgstr ""
 
@@ -291,11 +289,12 @@ msgstr ""
 msgid "Search country name..."
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
 msgstr ""
 
-#: ../app/qml/components/PopupDialog.qml:16
+#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:30
 msgid "Cancel"
 msgstr ""
@@ -305,7 +304,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:82
+#: ../app/qml/pages/ChatListPage.qml:81
 msgid "Clear history"
 msgstr ""
 
@@ -373,24 +372,24 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:77
+#: ../app/qml/pages/ChatListPage.qml:76
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:93
+#: ../app/qml/pages/ChatListPage.qml:92
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:281
+#: ../app/qml/pages/ChatListPage.qml:302
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:283
+#: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:297
+#: ../app/qml/pages/ChatListPage.qml:318
 msgid "Enter optional message..."
 msgstr ""
 
@@ -417,7 +416,7 @@ msgid "Group Details"
 msgstr ""
 
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
-#: ../app/qml/pages/ConnectivityPage.qml:46
+#: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr ""
@@ -446,41 +445,41 @@ msgstr ""
 msgid "Help translate"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:24
-#: ../app/qml/pages/ConnectivityPage.qml:26
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:24
-#: ../app/qml/pages/ConnectivityPage.qml:28
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:27
+#: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting To Proxy"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:29
+#: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:35
+#: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
 msgstr ""
 
@@ -532,28 +531,32 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:26
+#: ../app/qml/pages/MessageListPage.qml:27
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:112
+#: ../app/qml/pages/MessageListPage.qml:113
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:259
+#: ../app/qml/pages/MessageListPage.qml:260
 #: ../app/qml/delegates/MessageBubbleItem.qml:62
 msgid "Edit"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:259
+#: ../app/qml/pages/MessageListPage.qml:260
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Reply"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:333
+#: ../app/qml/pages/MessageListPage.qml:334
 msgid "Type a message..."
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:445
+msgid "Requesting location from OS..."
 msgstr ""
 
 #: ../app/qml/pages/UserProfilePage.qml:19
@@ -601,6 +604,10 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
+msgstr ""
+
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:51

@@ -9,8 +9,12 @@ QTdObject::Type QTdObject::type() const {
     return m_type;
 }
 
+QString QTdObject::typeString() const {
+    return m_typeString;
+}
+
 void QTdObject::unmarshalJson(const QJsonObject &json) {
-    Q_UNUSED(json);
+    m_typeString = json["@type"].toString();
 }
 
 QJsonObject QTdObject::marshalJson() {

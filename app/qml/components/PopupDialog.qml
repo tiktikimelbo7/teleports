@@ -9,7 +9,6 @@ UITK_Popups.Dialog {
     id: dialogue
     objectName: "dialogPopup"
 
-    property var question: ""
     //confirmButtonText should be a clear text
     //i.e. To the question: 'Do you want to delete this file?' Main action text should be 'Delete' instead of 'Okay' / 'Yes' or similar
     property var confirmButtonText: i18n.tr("Okay")

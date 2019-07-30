@@ -19,11 +19,11 @@
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
+#include "content/qtdmessagecustomserviceaction.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();
-
     // TODO: create a map of QMap<@type, QTdObject::Type> so we can do fast lookups and
     // switch on the type. Otherwise this is/elseif is going to get huge supporting all content
     // types
@@ -67,7 +67,9 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatUpgradeFrom(parent);
     } else if (type == "messageChatUgradeTo") {
         return new QTdMessageChatUpgradeTo(parent);
+    } else if (type == "messageCustomServiceAction") {
+        return new QTdMessageCustomServiceAction(parent);
     }
-    qDebug()<< "Message type "<< type << json;
+    qWarning()<< "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);
 }
