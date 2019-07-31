@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-08-02 14:49+0000\n"
+"Last-Translator: Moo <moose@mail.ru>\n"
+"Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
+"teleports/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,12 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:20
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:118
 msgid "sent you a message"
@@ -59,7 +61,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:151
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
 msgid "%1 sent a message to the group"
@@ -130,7 +132,7 @@ msgstr ""
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "Ties %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
@@ -144,7 +146,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:257 ../push/pushhelper.cpp:263
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Naujas prisijungimas iš nepažįstamo įrenginio"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
@@ -178,7 +180,7 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Vieta"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -274,7 +276,7 @@ msgstr ""
 #. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
 #: ../app/qml/components/AttachPanel.qml:64
 msgid "File"
-msgstr ""
+msgstr "Failas"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -298,7 +300,7 @@ msgstr ""
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:30
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -319,7 +321,7 @@ msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Užverti"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
@@ -371,7 +373,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: ../app/qml/pages/ChatListPage.qml:76
 msgid "Leave chat"
@@ -428,7 +430,7 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
 msgid "About"
-msgstr ""
+msgstr "Apie"
 
 #: ../app/qml/pages/AboutPage.qml:70
 msgid "Version %1"
@@ -518,7 +520,7 @@ msgstr ""
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -530,7 +532,7 @@ msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr ""
+msgstr "Įrašyti"
 
 #: ../app/qml/pages/MessageListPage.qml:27
 msgid "%1 member"
@@ -546,7 +548,7 @@ msgstr ""
 #: ../app/qml/pages/MessageListPage.qml:260
 #: ../app/qml/delegates/MessageBubbleItem.qml:62
 msgid "Edit"
-msgstr ""
+msgstr "Taisyti"
 
 #: ../app/qml/pages/MessageListPage.qml:260
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
@@ -594,7 +596,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:56
 msgid "Copy"
-msgstr ""
+msgstr "Kopijuoti"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:76
 msgid "Sticker Pack info"
