@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-22 11:22+0000\n"
+"PO-Revision-Date: 2019-08-02 14:49+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -178,7 +178,7 @@ msgstr "enviada una foto"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -225,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "se ha modificado el mensaje TTL"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "envió un mensaje desconocido"
+msgstr "envió un mensaje desconocido: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -476,22 +474,16 @@ msgid "Telegram connectivity status:"
 msgstr "Estado de conectividad de Telegram:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
-#, fuzzy
-#| msgid "Telegram connectivity status:"
 msgid "Ubuntu Touch connectivity status:"
-msgstr "Estado de conectividad de Telegram:"
+msgstr "Estado de conectividad de Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Ancho de banda limitado"
+msgstr "Ancho de banda limitado de Ubuntu Touch"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Ancho de banda ilimitado"
+msgstr "Ancho de banda ilimitado de Ubuntu Touch"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -573,7 +565,7 @@ msgstr "Escriba un mensaje..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Solicitud de ubicación del SO..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -628,6 +620,7 @@ msgstr "Reenviado desde "
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
+"Tipo de mensaje desconocido, vea el archivo de registro para más detalles..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
