@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-22 11:22+0000\n"
+"PO-Revision-Date: 2019-08-02 14:49+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -177,10 +177,8 @@ msgid "sent a photo"
 msgstr "zaslána fotografie"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
-#, fuzzy
-#| msgid "Notifications"
 msgid "Location"
-msgstr "Notifications"
+msgstr "Poloha"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -227,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "TTL zpráva změněna"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "zaslána neznámá zpráva"
+msgstr "zaslána neznámá zpráva: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -477,22 +473,16 @@ msgid "Telegram connectivity status:"
 msgstr "Stav připojení Telegramu:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
-#, fuzzy
-#| msgid "Telegram connectivity status:"
 msgid "Ubuntu Touch connectivity status:"
-msgstr "Stav připojení Telegramu:"
+msgstr "Stav připojení Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Omezený datový tok"
+msgstr "Ubuntu Touch omezený datový tok"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Neomezený datový tok"
+msgstr "Ubuntu Touch neomezený datový tok"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -573,7 +563,7 @@ msgstr "Napište zprávu..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Vyžadována poloha od OS..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -625,7 +615,7 @@ msgstr "Přeposlat "
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Neznámý typ zprávy, podrobnosti viz logfile..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
