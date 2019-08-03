@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-22 19:39+0000\n"
+"PO-Revision-Date: 2019-08-05 22:49+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -178,7 +178,7 @@ msgstr "a envoyé une photo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Position"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -225,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "la date d'expiration du message a été modifiée"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "a envoyé un message inconnu"
+msgstr "a envoyé un message inconnu : %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -479,22 +477,16 @@ msgid "Telegram connectivity status:"
 msgstr "Statut de connectivité de Telegram :"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
-#, fuzzy
-#| msgid "Telegram connectivity status:"
 msgid "Ubuntu Touch connectivity status:"
-msgstr "Statut de connectivité de Telegram :"
+msgstr "Statut de connectivité d'Ubuntu Touch :"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Bande passante limitée"
+msgstr "Bande passante d'Ubuntu Touch limitée"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Bande passante illimitée"
+msgstr "Bande passante d'Ubuntu Touch illimitée"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -578,7 +570,7 @@ msgstr "Saisissez un message..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Demande de la position au système d'exploitation..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -633,7 +625,7 @@ msgstr "Transféré par "
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Type de message inconnu, consultez les journaux pour plus de détails..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
