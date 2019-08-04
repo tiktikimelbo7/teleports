@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-23 21:49+0000\n"
-"Last-Translator: Moshe Lazar <wersewikkov@gmail.com>\n"
+"PO-Revision-Date: 2019-08-05 22:49+0000\n"
+"Last-Translator: vokaliz <vokaliz@protonmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
 "teleports/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
@@ -52,7 +52,7 @@ msgstr "прислал вам голосовое сообщение"
 
 #: ../push/pushhelper.cpp:142
 msgid "shared a contact with you"
-msgstr ""
+msgstr "поделился с вами контактом"
 
 #: ../push/pushhelper.cpp:146
 msgid "sent you a map"
@@ -63,7 +63,6 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:156
-#, fuzzy
 msgid "%1 sent a message to the group"
 msgstr "%1 прислал сообщение в группу"
 
@@ -81,32 +80,29 @@ msgstr "%1 прислал видео в группу"
 
 #: ../push/pushhelper.cpp:177
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 прислал документ группе"
 
 #: ../push/pushhelper.cpp:182
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 прислал звуковое сообщение группе"
 
 #: ../push/pushhelper.cpp:187
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 прислал контакт группе"
 
 #: ../push/pushhelper.cpp:192
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 прислал карту группе"
 
 #: ../push/pushhelper.cpp:197 ../push/pushhelper.cpp:218
-#, fuzzy
 msgid "%1 invited you to the group"
 msgstr "%1 пригласил вас в группу"
 
 #: ../push/pushhelper.cpp:202
-#, fuzzy
 msgid "%1 changed group name"
 msgstr "%1 изменил название группы"
 
 #: ../push/pushhelper.cpp:207
-#, fuzzy
 msgid "%1 changed group photo"
 msgstr "%1 изменил фото группы"
 
@@ -117,7 +113,6 @@ msgstr "%1 пригласил %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:224
-#, fuzzy
 msgid "%1 removed %2"
 msgstr "%1 исключил %2"
 
@@ -136,12 +131,12 @@ msgstr "%1 вернулся в группу"
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:244
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:246
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 зарегистрировался"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:252
@@ -155,7 +150,7 @@ msgstr "Новый вход с неизвестного устройства"
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:262
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:267
 msgid "updated profile photo"
@@ -163,7 +158,6 @@ msgstr "обновил фото профиля"
 
 #: ../push/pushhelper.cpp:272 ../push/pushhelper.cpp:277
 #: ../push/pushhelper.cpp:282
-#, fuzzy
 msgid "You have a new message"
 msgstr "У вас новое сообщение"
 
@@ -173,7 +167,7 @@ msgstr "Стикер"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "call has been ended"
-msgstr ""
+msgstr "вызов был закончен"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "sent an audio message"
@@ -185,19 +179,19 @@ msgstr "прислал фото"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
-msgstr ""
+msgstr "отправлено видео"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "sent a video note"
-msgstr ""
+msgstr "отправлено видео послание"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "sent a voice note"
-msgstr ""
+msgstr "отправлено звуковое послание"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "joined the group"
@@ -213,11 +207,11 @@ msgstr "изменил название беседы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:364
 msgid "joined by invite link"
-msgstr ""
+msgstr "присоединился по ссылке-приглашению"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
-msgstr ""
+msgstr "удаленный участник"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:372
 msgid "deleted the chat photo"
@@ -225,17 +219,15 @@ msgstr "удалил фотографию беседы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:376
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "повышен до супергруппы"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:380
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "TTL сообщение было измененено"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent an unknown message: %1"
-msgstr "отправлено голосовое сообщение"
+msgstr "отправлено неизвестное сообщение: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -254,13 +246,12 @@ msgid "Last seen one week ago"
 msgstr "Был в сети неделю назад"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
-#, fuzzy
 msgid "Last seen "
 msgstr "Был в сети "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:50
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "дд.ММ.гг. чч:мм"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
 #: ../app/qml/pages/ConnectivityPage.qml:25
@@ -270,11 +261,11 @@ msgstr "В сети"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:89
 msgid "Seen recently"
-msgstr ""
+msgstr "Был недавно"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:71
 msgid "Saved Messages"
-msgstr ""
+msgstr "Сохраненное сообщение"
 
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
 #: ../app/qml/components/AttachPanel.qml:55
@@ -289,7 +280,7 @@ msgstr "Файл"
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr ""
+msgstr "не доступен"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:29
@@ -298,11 +289,11 @@ msgstr "Выберите страну"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Поиск по названию страны..."
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "Одобряю"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
@@ -312,7 +303,7 @@ msgstr "Отменить"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Вы уверены, что хотите очистить историю?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 #: ../app/qml/pages/ChatListPage.qml:81
@@ -321,11 +312,11 @@ msgstr "Очистить историю"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Вы уверены, что хотите покинуть эту беседу?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr ""
+msgstr "Покинуть"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -333,7 +324,7 @@ msgstr "Закрыть"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "Код авторизации не ожидается в настоящее время"
 
 #: ../app/qml/stores/AuthStateStore.qml:83
 msgid "Oops! Internal error."
@@ -341,15 +332,15 @@ msgstr "Упс! Внутренняя ошибка."
 
 #: ../app/qml/stores/AuthStateStore.qml:89
 msgid "Incorrect auth code length."
-msgstr ""
+msgstr "Неверная длина кода авторизации."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Ошибка регистрации"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Отсутствует Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
@@ -374,10 +365,12 @@ msgstr "Код"
 #: ../app/qml/pages/WaitCodePage.qml:75
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
+"Мы отправили код через телеграмм на ваше устройство. Пожалуйста, введите код "
+"здесь."
 
 #: ../app/qml/pages/ChatListPage.qml:19
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Выберите адресата или отмените..."
 
 #: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
@@ -393,7 +386,7 @@ msgstr "Информация"
 
 #: ../app/qml/pages/ChatListPage.qml:302
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "Хотите перенаправить выбранные сообщения на% 1?"
 
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
@@ -401,8 +394,6 @@ msgid "Forward"
 msgstr "Переслать"
 
 #: ../app/qml/pages/ChatListPage.qml:318
-#, fuzzy
-#| msgid "Type a message..."
 msgid "Enter optional message..."
 msgstr "Написать сообщение..."
 
@@ -417,7 +408,7 @@ msgstr "Номер телефона"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "Пожалуйста, подтвердите код вашей страны и введите ваш номер телефона."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:48
@@ -469,36 +460,32 @@ msgid "Connecting"
 msgstr "Подключение"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connecting To Proxy"
-msgstr "Подключение"
+msgstr "Подключение к прокси-серверу"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "Обновление"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connectivity"
 msgstr "Подключение"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Статус подключения Телеграм:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Статус подключения Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
-msgstr ""
+msgstr "Ubuntu Touch с ограниченной пропускной способностью"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
-msgstr ""
+msgstr "Пропускная способность Ubuntu Touch не ограничена"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -514,7 +501,7 @@ msgstr "Удалить аккаунт"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Статус соединения"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -544,11 +531,11 @@ msgstr "Удалить"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr ""
+msgstr "Сборщик контента"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Файл: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
@@ -557,9 +544,9 @@ msgstr "Сохранить"
 #: ../app/qml/pages/MessageListPage.qml:27
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "Участник"
-msgstr[1] ""
-msgstr[2] "Участники"
+msgstr[0] "%1 участник"
+msgstr[1] "%1 участники"
+msgstr[2] "%1 участники"
 
 #: ../app/qml/pages/MessageListPage.qml:113
 msgid "Telegram"
@@ -581,7 +568,7 @@ msgstr "Написать сообщение..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Запрос местоположения из ОС..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -623,21 +610,19 @@ msgstr "Копировать"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:76
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Информация"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:232
 msgid "Edited"
 msgstr "Отредактировано"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
-#| msgid "Forward"
 msgid "Forwarded from "
-msgstr "Переслать"
+msgstr "Переслать "
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Неизвестный тип сообщения, подробности смотрите в файле журнала..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -666,11 +651,11 @@ msgstr "Длительность разговора: %1.%2"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr ""
+msgstr "дд ММММ"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 присоединился по ссылке-приглашению"
 
 #~ msgid "Not online"
 #~ msgstr "Не в сети"
