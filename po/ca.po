@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-30 20:49+0000\n"
-"Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
+"PO-Revision-Date: 2019-08-05 22:49+0000\n"
+"Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
 "Language: ca\n"
@@ -178,7 +178,7 @@ msgstr "s'ha enviat una foto"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Posició"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -225,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "s'ha modficat el TTL del missatge"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "ha enviat un missatge desconegut"
+msgstr "ha enviat un missatge desconegut: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -465,7 +463,7 @@ msgstr "S'està connectant al servidor intermediari"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "Actualitzant"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
@@ -473,23 +471,19 @@ msgstr "Connectivitat"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Estat de connexió del Telegram:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Estat de connexió de l'Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Ample de  banda limitat"
+msgstr "Ample de  banda limitat de l'Ubuntu Touch"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Ample de  banda no limitat"
+msgstr "Ample de  banda no limitat de l'Ubuntu Touch"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -505,7 +499,7 @@ msgstr "Elimina el compte"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Estat de la connexió"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -571,7 +565,7 @@ msgstr "Escriviu un missatge…"
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "S'està demanant la vostra posició al SO..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -625,7 +619,7 @@ msgstr "Reenviat des de "
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Missatge de tipus desconegut. Mireu el registre per més detalls..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
