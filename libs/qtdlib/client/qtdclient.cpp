@@ -5,12 +5,15 @@
 #include <QMetaObject>
 #include <QJsonDocument>
 #include <QtConcurrent>
+#include <QJsonDocument>
+#include <QApplication>
+#include <QStandardPaths>
 #include "qtdthread.h"
 #include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
-#include <QJsonDocument>
-
+#include "../../common/auxdb/auxdb.h"
+#include "../../common/auxdb/avatarmaptable.h"
 
 QJsonObject execTd(const QJsonObject &json) {
     qDebug() << "[EXEC]" << json;
@@ -33,7 +36,9 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     m_worker(new QThread),
     m_authState(Q_NULLPTR),
     m_connectionState(Q_NULLPTR),
-    m_tagcounter(0)
+    m_tagcounter(0),
+    m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
+              QGuiApplication::applicationDirPath().append("/assets"), this)
 {
     init();
     QTdWorker *w = new QTdWorker;
@@ -291,4 +296,7 @@ QVariant QTdClient::getOption(const QString name)
         return QVariant();
 }
 
-
+void QTdClient::setAvatarMapEntry(const qint64 id, const QString path) {
+    if (path != "")
+        m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
+}

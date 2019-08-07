@@ -48,6 +48,7 @@ execute_process(
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
+install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
 install(PROGRAMS ${CURRENT_LIBRARY_DIR}/qtdlib/libQTdlib.so DESTINATION ${QT_IMPORTS_DIR})
@@ -81,6 +82,7 @@ add_subdirectory(po)
 add_subdirectory(libs)
 add_subdirectory(app)
 add_subdirectory(push)
+add_subdirectory(common)
 
 # Make source files visible in qtcreator
 # We don't need to add plugin sources here as they get exposed

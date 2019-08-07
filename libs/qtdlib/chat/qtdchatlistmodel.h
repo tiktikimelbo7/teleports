@@ -28,6 +28,7 @@ public:
 
     QObject* model() const;
     QTdChat *currentChat() const;
+    QTdChat *chatById(const qint64 &chatId) const;
     QTdChat *forwardedFromChat() const;
     qint32 forwardingMessagesCount() const;
     ListMode listMode() const;
@@ -35,7 +36,8 @@ public:
 
 public slots:
     void setCurrentChat(QTdChat* currentChat);
-    void setForwardedFromChat(QTdChat* currentChat);
+    void setCurrentChatById(const int &chatId);
+    void setForwardedFromChat(QTdChat *currentChat);
     void setForwardingMessages(QStringList forwardingMessages);
     void setListMode(ListMode listMode);
     void clearCurrentChat();

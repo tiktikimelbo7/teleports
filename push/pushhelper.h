@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QJsonObject>
+#include <QHash>
 #include "pushclient.h"
+#include "../common/auxdb/auxdb.h"
 
 class PushHelper : public QObject {
     Q_OBJECT
@@ -30,6 +32,8 @@ private:
     QString mInfile;
     QString mOutfile;
     QJsonObject mPostalMessage;
+    QHash<qint64, qint64> emblemLookup;
+    AuxDatabase m_auxdb;
 };
 
 #endif
