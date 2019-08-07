@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-30 21:31+0000\n"
-"PO-Revision-Date: 2019-07-30 20:49+0000\n"
+"PO-Revision-Date: 2019-08-07 20:51+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -178,7 +178,7 @@ msgstr "enviou uma foto"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -225,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "mensagem TTL foi alterada"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "enviou uma mensagem desconhecida"
+msgstr "enviou uma mensagem desconhecida: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -371,7 +369,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:19
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Escolha o destino ou cancele..."
 
 #: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
@@ -387,7 +385,7 @@ msgstr "Info"
 
 #: ../app/qml/pages/ChatListPage.qml:302
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "Deseja reencaminhar as mensagens selecionadas para %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
@@ -468,7 +466,7 @@ msgstr "A ligar ao proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "A atualizar"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
@@ -476,23 +474,19 @@ msgstr "Conetividade"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Estado da conexão Telegram:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Estado da conetividade Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Banda larga limitada"
+msgstr "Banda larga limitada Ubuntu Touch"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Banda larga não limitada"
+msgstr "Banda larga não limitada Ubuntu Touch"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -508,7 +502,7 @@ msgstr "Eliminar conta"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Estado de conetividade"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -574,7 +568,7 @@ msgstr "Escrever mensagem..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "A pedir localização ao SO..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -628,6 +622,7 @@ msgstr "Encaminhado de "
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
+"Tipo de mensagem desconhecida, verifique o registo para mais detalhes..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
