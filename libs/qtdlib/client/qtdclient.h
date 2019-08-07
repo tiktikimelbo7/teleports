@@ -15,6 +15,7 @@
 #include "connections/qtdconnectionstate.h"
 #include "common/qtdrequest.h"
 #include "common/qtdresponse.h"
+#include "../../common/auxdb/auxdb.h"
 
 // callback to trigger on received messages from tdlib.
 typedef std::function<void(QJsonObject)> ReceiveCallback;
@@ -107,6 +108,8 @@ public:
      */
     QVariant getOption(const QString name);
 
+    void setAvatarMapEntry(const qint64 id, const QString path);
+
 signals:
     void authStateChanged(QTdAuthState *state);
     void connectionStateChanged(QTdConnectionState *state);
@@ -165,7 +168,7 @@ private:
 
     QString getTag();
     int m_tagcounter;
-
+    AuxDatabase m_auxdb;
 };
 
 #endif // QTDCLIENT_H

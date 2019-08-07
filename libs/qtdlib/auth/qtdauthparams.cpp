@@ -1,6 +1,7 @@
 #include "qtdauthparams.h"
 #include <QCoreApplication>
 #include <QStandardPaths>
+#include <QLocale>
 
 QTdAuthParams::QTdAuthParams(QObject *parent) : QTdObject(parent),
     m_useTestDC(false),
@@ -11,7 +12,7 @@ QTdAuthParams::QTdAuthParams(QObject *parent) : QTdObject(parent),
     m_useStorageOptimizer(true),
     m_apiID(0)
 {
-    m_systemLanguageCode = QStringLiteral("en");
+    m_systemLanguageCode = QLocale().name();
     m_deviceModel = QStringLiteral("Ubuntu Phone");
     m_systemVersion = QStringLiteral("xenial");
     m_applicationVersion = QCoreApplication::applicationVersion();
@@ -92,14 +93,14 @@ QString QTdAuthParams::filesDirectory() const
 QJsonObject QTdAuthParams::marshalJson()
 {
     return QJsonObject{
-        {"use_test_dc", m_useTestDC },
-        {"use_file_database", m_useFileDatabase},
+        { "use_test_dc", m_useTestDC },
+        { "use_file_database", m_useFileDatabase },
         { "use_chat_info_database", m_useChatInfoDatabase },
         { "use_message_database", m_useMessageDatabase },
         { "use_secret_chats", m_useSecretChats },
         { "api_id", m_apiID },
         { "api_hash", m_apiHash },
-        { "system_language_code", "en" },
+        { "system_language_code", m_systemLanguageCode },
         { "device_model", m_deviceModel },
         { "system_version", m_systemVersion },
         { "application_version", m_applicationVersion },

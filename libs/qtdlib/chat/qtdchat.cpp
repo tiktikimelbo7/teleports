@@ -42,7 +42,6 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
 
-    updateChatPhoto(json["photo"].toObject());
     updateLastMessage(json["last_message"].toObject());
 
     updateChatOrder(json);
@@ -63,6 +62,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     emit notificationSettingsChanged();
 
     QAbstractInt64Id::unmarshalJson(json);
+    updateChatPhoto(json["photo"].toObject());
 }
 
 QString QTdChat::title() const
@@ -431,7 +431,11 @@ void QTdChat::updateChatPhoto(const QJsonObject &photo)
     emit chatPhotoChanged(m_chatPhoto.data());
 
     if (m_chatPhoto->small()->local()->path().isEmpty()) {
+        connect(m_chatPhoto->small()->local(), &QTdLocalFile::pathChanged, this, &QTdChat::handleChatPhotoDownloaded);
         m_chatPhoto->small()->downloadFile();
+    } else
+    {
+        QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
     }
 }
 
@@ -493,6 +497,10 @@ void QTdChat::handleUpdateNewMessage(const QJsonObject &json)
     newMessage->unmarshalJson(m_newMsgJson);
     m_messages->append(newMessage);
     emit messagesChanged();
+}
+
+void QTdChat::handleChatPhotoDownloaded() {
+    QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
 }
 
 void QTdChat::onChatOpened()

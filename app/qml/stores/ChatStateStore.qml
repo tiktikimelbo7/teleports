@@ -77,7 +77,9 @@ Store {
         type: ChatKey.setCurrentChat
         onDispatched: {
             if (message.chat) {
+                console.log("Opening new chat...")
                 if (chatList.currentChat  && message.chat.id !== chatList.currentChat.id) {
+                    console.log("Wrong chat open...")
                     return
                 }
                 chatList.currentChat = message.chat
@@ -86,13 +88,26 @@ Store {
     }
 
     Filter {
+        type: ChatKey.setCurrentChatById
+        onDispatched: {
+            var chatById = chatList.model.get(message.chatId)
+            if (chatById) {
+                AppActions.chat.closeCurrentChat()
+                AppActions.chat.setCurrentChat(chatById)
+            } else
+                console.log("Could not find chat by id")
+        }
+    }
+
+    Filter {
         type: ChatKey.closeCurrentChat
         onDispatched: {
             if (chatList.currentChat) {
+                console.log("Closing current chat...")
                 chatList.currentChat.closeChat()
                 chatList.clearCurrentChat()
-
-            }
+            } else
+                console.log("No chat open, ignoring close request")
         }
     }
 

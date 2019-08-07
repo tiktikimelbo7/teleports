@@ -324,4 +324,33 @@ Page {
             }
         }
     }
+    function processUri(uri) {
+        if (typeof uri === "undefined") {
+            return;
+        }
+        var commands = uri.split("://")[1].split("/");
+        if (commands) {
+            switch(commands[0].toLowerCase()) {
+            case "chat": // no-i18n
+                var chatId = parseInt(commands[1]);
+                if (isNaN(chatId) || chatId === 0) {
+                    console.warn("Cannot parse chat id to open!");
+                } else {
+                    console.info("Opening chat: " + chatId);
+                    AppActions.chat.setCurrentChatById(chatId)
+                }
+            case "launch": // no-i18n
+                //userTapBackHome = true;
+                // Nothing to do.
+                break;
+            default: console.warn("Unmanaged URI: " + commands);
+            }
+        }
+    }
+    Connections {
+        target: UITK.UriHandler
+        onOpened: {
+            processUri(uris[0]);
+        }
+    }
 }

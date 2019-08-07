@@ -1,4 +1,5 @@
 #include "pushhelper.h"
+#include "../common/auxdb/avatarmaptable.h"
 #include "i18n.h"
 #include <QApplication>
 #include <QDebug>
@@ -7,19 +8,29 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QStringList>
+#include <iterator>
+#include <QStandardPaths>
 
-
-PushHelper::PushHelper(const QString appId, const QString infile, const QString outfile, QObject *parent) : QObject(parent),
-mInfile(infile), mOutfile(outfile)
+PushHelper::PushHelper(const QString appId, const QString infile, const QString outfile, QObject *parent)
+    : QObject(parent)
+    , mInfile(infile)
+    , mOutfile(outfile)
+    , emblemLookup(QHash<qint64, qint64>())
+    , m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
+              QGuiApplication::applicationDirPath().append("/assets"), this)
 {
+    setlocale(LC_ALL, "");
+    textdomain(GETTEXT_DOMAIN.toStdString().c_str());
+
     connect(&mPushClient, SIGNAL(persistentCleared()),
-    this, SLOT(notificationDismissed()));
+            this, SLOT(notificationDismissed()));
 
     mPushClient.setAppId(appId);
     mPushClient.registerApp(appId);
 }
 
-void PushHelper::process() {
+void PushHelper::process()
+{
     QString tag = "";
 
     QJsonObject pushMessage = readPushMessage(mInfile);
@@ -32,12 +43,14 @@ void PushHelper::process() {
     notificationDismissed();
 }
 
-void PushHelper::notificationDismissed() {
+void PushHelper::notificationDismissed()
+{
     writePostalMessage(mPostalMessage, mOutfile);
     Q_EMIT done(); // Why does this not work?
 }
 
-QJsonObject PushHelper::readPushMessage(const QString &filename) {
+QJsonObject PushHelper::readPushMessage(const QString &filename)
+{
     QFile file(filename);
     file.open(QIODevice::ReadOnly | QIODevice::Text);
 
@@ -46,7 +59,8 @@ QJsonObject PushHelper::readPushMessage(const QString &filename) {
     return QJsonDocument::fromJson(val.toUtf8()).object();
 }
 
-void PushHelper::writePostalMessage(const QJsonObject &postalMessage, const QString &filename) {
+void PushHelper::writePostalMessage(const QJsonObject &postalMessage, const QString &filename)
+{
     QFile out;
     out.setFileName(filename);
     out.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate);
@@ -55,13 +69,15 @@ void PushHelper::writePostalMessage(const QJsonObject &postalMessage, const QStr
     out.close();
 }
 
-void PushHelper::dismissNotification(const QString &tag) {
+void PushHelper::dismissNotification(const QString &tag)
+{
     QStringList tags;
     tags << tag;
     mPushClient.clearPersistent(tags);
 }
 
-QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &tag) {
+QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &tag)
+{
     /**
     * Only show a simple notification bubble.
     * TODO: Add more information about the notification
@@ -69,40 +85,38 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
     QString summary = "";
     QString body = "";
-    qint32 count = 0;
-
     QJsonObject message = push["message"].toObject();
     QJsonObject custom = message["custom"].toObject();
 
     QString key = "";
     if (message.keys().contains("loc_key")) {
-        key = message["loc_key"].toString();    // no-i18n
+        key = message["loc_key"].toString(); // no-i18n
     }
 
     QJsonArray args;
     if (message.keys().contains("loc_args")) {
-        args = message["loc_args"].toArray();   // no-i18n
+        args = message["loc_args"].toArray(); // no-i18n
     }
+
+    qint64 chatId = 0;
 
     if (custom.keys().contains("from_id")) {
         tag = custom["from_id"].toString();
-    }
-    if (custom.keys().contains("chat_id")) {
+        chatId = tag.toLong();
+    } else if (custom.keys().contains("chat_id")) {
         tag = custom["chat_id"].toString();
-    }
-    if (custom.keys().contains("channel_id")) {
+        chatId = tag.toLong() * -1;
+    } else if (custom.keys().contains("channel_id")) {
         tag = custom["channel_id"].toString();
+        chatId = (tag.toLong() + 1000000000000) * -1;
     }
 
     //Early bail-out: Telegram server just removes notification, message has been read elsewhere
     if (key == "") {
-        QStringList tags = mPushClient.getNotifications();
+        QStringList tags = QStringList(tag);
         mPushClient.clearPersistent(tags);
         return QJsonObject();
     }
-
-
-    qint64 chatId = tag.toInt();
 
     // TRANSLATORS: Application name.
     QString tg = QString(N_("TELEports")); // no-i18n
@@ -164,7 +178,6 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
         summary = args[1].toString();
         body = QString(N_("%1 sent a sticker to the group")).arg(args[0].toString());
-
 
     } else if (key == "CHAT_MESSAGE_VIDEO") { // no-i18n
 
@@ -286,29 +299,61 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         return QJsonObject();
     }
 
-    /* ===When the URI handler is working===
+    //Prepare action URL to open app
     QJsonArray actions = QJsonArray();
     QString actionUri = QString("teleports://chat/%1").arg(chatId);
-    actions.append(actionUri);*/
+    actions.append(actionUri);
 
-    // TODO: Load the correct avatar
+    //Load the correct avatar
     QString avatar = QString("telegram-symbolic");
+    if(m_auxdb.getAvatarMapTable()) {
+        QString avatarPath = m_auxdb.getAvatarMapTable()->getAvatarPathbyId(chatId);
+        if (avatarPath != "") {
+            avatar = QString("file://").append(avatarPath);
+        } else {
+            qWarning() << "Could not find any avatar picture!";
+        }
+    } else
+    {
+        qWarning() << "No valid avatar map table available!";
+    }
+
+    //Display emblem counter correctly for unread messages
+    qint32 count = 0;
+    if (message.keys().contains("badge")) {
+        count = message["badge"].toInt(); // no-i18n
+    } else if (push.keys().contains("notification")) {
+        // Legacy. Notification section is only used to retrieve the unread count.
+        count = push["notification"] // no-i18n
+                        .toObject()["emblem-counter"] // no-i18n
+                        .toObject()["count"] // no-i18n
+                        .toInt();
+    }
+    emblemLookup[chatId] = count;
+    QJsonObject emblem;
+    QHash<qint64, qint64>::iterator i;
+    qint64 totalCount = 0;
+    for (i = emblemLookup.begin(); i != emblemLookup.end(); ++i)
+        totalCount += i.value();
+    emblem["count"] = totalCount; // no-i18n
+    emblem["visible"] = totalCount > 0; // no-i18n
 
     QJsonObject notification{
-        {"card", QJsonObject{
-            {"summary", summary},
-            {"body", body},
-            {"popup", true},
-            {"persist", true},
-            //{"actions", actions},
-            {"icon", avatar},
-        }},
-        {"sound", true},
-        {"tag", tag},
-        {"vibrate", true},
+        { "card", QJsonObject{
+                          { "summary", summary },
+                          { "body", body },
+                          { "popup", true },
+                          { "persist", true },
+                          { "actions", actions },
+                          { "icon", avatar },
+                  } },
+        { "sound", true },
+        { "tag", tag },
+        { "vibrate", true },
+        { "emblem-counter", emblem }
     };
-
+    notification["emblem-counter"] = emblem;
     return QJsonObject{
-        {"notification", notification}
+        { "notification", notification }
     };
 }

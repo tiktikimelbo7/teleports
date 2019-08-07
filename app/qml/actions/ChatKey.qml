@@ -27,5 +27,5 @@ KeyTable {
     property string sendForwardMessage
     property string cancelForwardMessage
     property string viewGroupInfo
-
+    property string setCurrentChatById
 }
