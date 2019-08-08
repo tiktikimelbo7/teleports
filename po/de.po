@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-03 19:21+0000\n"
-"PO-Revision-Date: 2019-07-17 08:48+0000\n"
-"Last-Translator: Peter keck <peter.keck@t-online.de>\n"
+"PO-Revision-Date: 2019-08-08 11:05+0000\n"
+"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -177,10 +177,8 @@ msgid "sent a photo"
 msgstr "hat ein Foto geschickt"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
-#, fuzzy
-#| msgid "Notifications"
 msgid "Location"
-msgstr "Benachrichtigungen"
+msgstr "Standort"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
@@ -227,10 +225,8 @@ msgid "message TTL has been changed"
 msgstr "Nachrichten-TTL wurde geändert"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
-#, fuzzy
-#| msgid "sent an unknown message"
 msgid "sent an unknown message: %1"
-msgstr "hat eine unbekannte Nachricht geschickt"
+msgstr "hat eine unbekannte Nachricht geschickt: %1"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
@@ -464,40 +460,32 @@ msgid "Connecting"
 msgstr "Verbinde"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connecting To Proxy"
-msgstr "Verbinde"
+msgstr "Verbinde mit Proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "Aktualisieren"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
-#, fuzzy
-#| msgid "Connecting"
 msgid "Connectivity"
-msgstr "Verbinde"
+msgstr "Konnektivität"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Telegram Konnektivitätsstatus:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Ubuntu Touch Konnektivitätsstatus:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith limited"
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Bandbreite beschränkt"
+msgstr "Ubuntu Touch Bandbreite beschränkt"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
-#| msgid "Bandwith not limited"
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Bandbreite nicht beschränkt"
+msgstr "Ubuntu Touch Bandbreite nicht beschränkt"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -513,7 +501,7 @@ msgstr "Account löschen"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Konnektivitätsstatus"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -579,7 +567,7 @@ msgstr "Tippe eine Nachricht..."
 
 #: ../app/qml/pages/MessageListPage.qml:445
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Fordere Standort vom OS an..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -633,7 +621,7 @@ msgstr "Weitergeleitet von "
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Unbekannter Nachrichtentyp, Details im Logfile..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
