@@ -11,69 +11,51 @@
         <file>stores/SettingsStore.qml</file>
         <file>actions/AuthAction.qml</file>
         <file>actions/AuthKey.qml</file>
+        <file>actions/qmldir</file>
+        <file>pages/WaitCodePage.qml</file>
+        <file>pages/MediaImport.qml</file>
+        <file>pages/WaitPasswordPage.qml</file>
+        <file>pages/ChatListPage.qml</file>
+        <file>pages/SettingsPage.qml</file>
+        <file>pages/AboutPage.qml</file>
+        <file>pages/PreviewPage.qml</file>
+        <file>pages/PickerPage.qml</file>
+        <file>stores/UsersStateStore.qml</file>
+        <file>stores/ChatStateStore.qml</file>
+        <file>pages/MessageListPage.qml</file>
+        <file>actions/AppActions.qml</file>
         <file>actions/ChatActions.qml</file>
         <file>actions/ChatKey.qml</file>
-        <file>actions/SettingsActions.qml</file>
-        <file>actions/SettingsKey.qml</file>
         <file>actions/UserStateActions.qml</file>
         <file>actions/UserStateKey.qml</file>
-        <file>actions/ViewActions.qml</file>
-        <file>actions/ViewKeys.qml</file>
-        <file>actions/qmldir</file>
+        <file>actions/SettingsActions.qml</file>
+        <file>actions/SettingsKey.qml</file>
         <file>components/AttachPanel.qml</file>
         <file>components/AttachPanelItem.qml</file>
+        <file>delegates/MessageBubbleItem.qml</file>
+        <file>components/GenericPhoto.qml</file>
         <file>components/ChatPhoto.qml</file>
-        <file>components/Citation.qml</file>
         <file>components/CountryCodes.js</file>
         <file>components/CountryPicker.qml</file>
-        <file>components/FormattedText.qml</file>
-        <file>components/GenericPhoto.qml</file>
-        <file>components/InputInfoBox.qml</file>
-        <file>components/MediaImport.qml</file>
-        <file>components/MediaViewer.qml</file>
-        <file>components/PopupDialog.qml</file>
         <file>components/ProfilePhoto.qml</file>
+        <file>components/MediaViewer.qml</file>
+        <file>components/MediaImport.qml</file>
         <file>components/ReplyMarkupShowKeyboard.qml</file>
-        <file>components/UserProfile.qml</file>
-        <file>components/WebPagePreview.qml</file>
+        <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
         <file>delegates/MessageAnimationItem.qml</file>
         <file>delegates/MessageAudioItem.qml</file>
-        <file>delegates/MessageBubbleItem.qml</file>
-        <file>delegates/MessageCallItem.qml</file>
-        <file>delegates/MessageChatAddMembersItem.qml</file>
-        <file>delegates/MessageContactItem.qml</file>
-        <file>delegates/MessageContentAnimation.qml</file>
-        <file>delegates/MessageContentAudio.qml</file>
-        <file>delegates/MessageContentBase.qml</file>
-        <file>delegates/MessageContentCall.qml</file>
-        <file>delegates/MessageContentContact.qml</file>
-        <file>delegates/MessageContentDocument.qml</file>        
-        <file>delegates/MessageContentPhoto.qml</file>
-        <file>delegates/MessageContentSticker.qml</file>
-        <file>delegates/MessageContentText.qml</file>
-        <file>delegates/MessageContentVideo.qml</file>
-        <file>delegates/MessageDateItem.qml</file>
         <file>delegates/MessageContactItem.qml</file>
         <file>delegates/MessageDocumentItem.qml</file>
         <file>delegates/MessageLocationItem.qml</file>
         <file>delegates/MessageVideoItem.qml</file>
+        <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
-        <file>middleware/ChatMiddleware.qml</file>
-        <file>middleware/ErrorsMiddleware.qml</file>
-        <file>middleware/StackMiddleware.qml</file>
-        <file>pages/AboutPage.qml</file>
-        <file>pages/ChatListPage.qml</file>
-        <file>pages/GroupDetailsPage.qml</file>
-        <file>pages/MediaImport.qml</file>
-        <file>pages/MessageListPage.qml</file>
-        <file>pages/PickerPage.qml</file>
-        <file>pages/PreviewPage.qml</file>
-        <file>pages/SettingsPage.qml</file>
+        <file>components/WebPagePreview.qml</file>
+        <file>delegates/MessageStickerItem.qml</file>
+        <file>delegates/MessagePhotoItem.qml</file>
+        <file>delegates/MessageHiddenItem.qml</file>
         <file>pages/UserProfilePage.qml</file>
-        <file>pages/WaitCodePage.qml</file>
-        <file>pages/WaitPasswordPage.qml</file>
-        <file>pages/WaitPhoneNumberPage.qml</file>
         <file>plugins/QTelegramStyles/ColorsBright.qml</file>
         <file>plugins/QTelegramStyles/ColorsDark.qml</file>
         <file>plugins/QTelegramStyles/TColors.qml</file>
@@ -95,6 +77,7 @@
         <file>delegates/MessageContentText.qml</file>
         <file>delegates/MessageContentAnimation.qml</file>
         <file>delegates/MessageContentAudio.qml</file>
+        <file>delegates/MessageContentContact.qml</file>
         <file>delegates/MessageContentDocument.qml</file>
         <file>delegates/MessageContentLocation.qml</file>
         <file>delegates/MessageContentVideo.qml</file>
