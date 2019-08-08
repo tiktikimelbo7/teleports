@@ -10,6 +10,9 @@ KeyTable {
     property string sendContact
     property string sendDocument
     property string sendPhoto
+    property string requestLocation
+    property string sendLocation
+    property string cancelLocation
     property string sendChatAction
     property string leaveChat
     property string deleteChatHistory
@@ -22,6 +25,8 @@ KeyTable {
     property string sendReplyToMessage
     property string showStickerPack
     property string forwardMessage
+    property string sendForwardMessage
+    property string cancelForwardMessage
     property string viewGroupInfo
-
+    property string setCurrentChatById
 }

@@ -1,6 +1,5 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import QtQuick.Controls 2.2
-import Ubuntu.Connectivity 1.0
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.ListItems 1.3 as UITK_ListItem
 import Ubuntu.Components.Popups 1.3 as UITK_Popups
@@ -19,8 +18,6 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
-
-    property var statusMap: [i18n.tr("Offline"), i18n.tr("Connecting"), i18n.tr("Online")]
 
     header: UITK.PageHeader {
         title: i18n.tr('Settings')
@@ -120,24 +117,20 @@ Page {
 
                 onClicked: UITK_Popups.PopupUtils.open(deleteAccountConfirmationDialog)
             }
-            Label {
-                text: "Connectivity Debug:"
-                font.pixelSize: units.gu(1)
-            }
-            Label {
-                // use the online property
-                text: Connectivity.online ? i18n.tr("Online") : i18n.tr("Not online")
-                font.pixelSize: units.gu(1)
-            }
-            Label {
-                // use the status property
-                text: i18n.tr("Status:") + " " + statusMap[Connectivity.status]
-                font.pixelSize: units.gu(1)
-            }
-            Label {
-                // use the limitedBandwith property
-                text: Connectivity.limitedBandwith ? i18n.tr("Bandwith limited") : i18n.tr("Bandwith not limited")
-                font.pixelSize: units.gu(1)
+
+            UITK.ListItem {
+                UITK.ListItemLayout {
+                    UITK.Icon {
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        width: units.gu(2)
+                        name: "info"
+                    }
+                    title.text : i18n.tr("Connectivity status")
+                }
+
+                onClicked: {
+                    AppActions.settings.viewConnectivity(Telegram.connections)
+                }
             }
 
 //            UITK_ListItem.Header {
@@ -152,7 +145,6 @@ Page {
             text: i18n.tr("Warning: Logging out will delete all local data from this device, including secret chats. Are you still sure you want to log out?")
             confirmButtonColor: UITK.UbuntuColors.red
             confirmButtonText: i18n.tr("Logout")
-            cancelButtonColor: UITK.UbuntuColors.graphite 
             onConfirmed: AppActions.auth.logOut()
         }
     }
@@ -163,7 +155,6 @@ Page {
             text: i18n.tr("Warning: Deleting the account will delete all the data you ever received or send using telegram except for data you have explicitly saved outside the telegram cloud. Are you really really sure you want to delete your telegram account?")
             confirmButtonColor: UITK.UbuntuColors.red
             confirmButtonText: i18n.tr("Delete")
-            cancelButtonColor: UITK.UbuntuColors.graphite 
             onConfirmed: AppActions.auth.deleteAccount()
         }
     }

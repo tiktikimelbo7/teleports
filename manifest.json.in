@@ -7,14 +7,15 @@
         "teleports": {
             "apparmor": "teleports.apparmor",
             "desktop":  "teleports.desktop",
-            "content-hub": "teleports.content-hub"
+            "content-hub": "teleports.content-hub",
+            "urls": "teleports.url-dispatcher"
         },
         "push": {
             "apparmor": "push/push-apparmor.json",
             "push-helper": "push/push-helper.json"
         }
     },
-    "version": "0.2.0",
+    "version": "0.4.0",
     "maintainer": "UBports <dev@ubports.com>",
     "framework" : "ubuntu-sdk-16.04"
 }

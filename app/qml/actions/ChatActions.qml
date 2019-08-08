@@ -4,6 +4,7 @@ import "./"
 
 ActionCreator {
     signal setCurrentChat(var chat)
+    signal setCurrentChatById(string chatId)
     signal closeCurrentChat()
 
     signal loadMoreMessages();
@@ -12,6 +13,9 @@ ActionCreator {
     signal sendPhoto(string photoUrl, string text);
     signal sendContact();
     signal sendDocument(string documentUrl, string text);
+    signal requestLocation();
+    signal sendLocation();
+    signal cancelLocation();
     signal sendChatAction();
 
     signal leaveChat(string chatId);
@@ -19,6 +23,9 @@ ActionCreator {
 
     signal deleteMessage(string id)
     signal forwardMessage(string id)
+    signal sendForwardMessage(var chat,
+                              string text)
+    signal cancelForwardMessage()
     signal requestEditMessage(var message)
     signal sendEditMessageText(string id, string text)
     signal sendEditMessageCaption(string id, string text)

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("0.2.0"));
+    QCoreApplication::setApplicationVersion(QStringLiteral("0.4.0"));
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();

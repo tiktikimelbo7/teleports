@@ -9,6 +9,8 @@ find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Quick)
 find_package(Qt5Concurrent)
+find_package(Qt5Positioning)
+find_package(Qt5Widgets REQUIRED)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -25,7 +27,6 @@ set(
     # messages/content/qtdmessagegame.cpp
     # messages/content/qtdmessagegamescore.cpp
     # messages/content/qtdmessageinvoice.cpp
-    # messages/content/qtdmessagelocation.cpp
     # messages/content/qtdmessagepassportdatareceived.cpp
     # messages/content/qtdmessagepassportdatasent.cpp
     # messages/content/qtdmessagepaymentsuccessful.cpp
@@ -81,6 +82,7 @@ set(
     chat/requests/qtdclosechatrequest.cpp
     chat/requests/qtddeletechathistoryrequest.cpp
     chat/requests/qtdgetbasicgrouprequest.cpp
+    chat/requests/qtdgetchatrequest.cpp
     chat/requests/qtdgetchatsrequest.cpp
     chat/requests/qtdgetsecretchatrequest.cpp
     chat/requests/qtdgetsupergroupfullinforequest.cpp
@@ -91,6 +93,7 @@ set(
     chat/requests/qtdsendchatactionrequest.cpp
     chat/requests/qtdsetchattitlerequest.cpp
     chat/requests/qtdsetpinnedchatsrequest.cpp
+    chat/requests/qtdforwardmessagesrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp
@@ -104,6 +107,7 @@ set(
     common/qtdresponse.cpp
     connections/qtdconnectionstate.cpp
     connections/qtdconnectionstatefactory.cpp
+    connections/qtdconnectionmanager.cpp
     files/qtdanimation.cpp
     files/qtdaudio.cpp
     files/qtddocument.cpp
@@ -131,15 +135,18 @@ set(
     messages/content/qtdmessagechatsetttl.cpp
     messages/content/qtdmessagechatupgradefrom.cpp
     messages/content/qtdmessagechatupgradeto.cpp
+    messages/content/qtdmessagecustomserviceaction.cpp
     messages/content/qtdmessagedate.cpp
     messages/content/qtdmessagedocument.cpp
     messages/content/qtdmessagecontact.cpp
+    messages/content/qtdmessagelocation.cpp
     messages/content/qtdmessagephoto.cpp
     messages/content/qtdmessagesticker.cpp
     messages/content/qtdmessagetext.cpp
     messages/content/qtdmessagevideo.cpp
     messages/content/qtdtextentity.cpp
     messages/content/qtdtextentitytype.cpp
+    messages/content/qtdlocation.cpp
     messages/content/qtdwebpage.cpp
     messages/qtdchatstate.cpp
     messages/qtdmessage.cpp
@@ -150,9 +157,11 @@ set(
     messages/replymarkup/qtdkeyboardbutton.cpp
     messages/replymarkup/qtdkeyboardbuttontype.cpp
     messages/replymarkup/qtdreplymarkup.cpp
+    messages/forwardinfo/qtdmessageforwardinfo.cpp
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp
     messages/requests/content/qtdinputmessagetext.cpp
+    messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/qtddeletemessagesrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
@@ -191,7 +200,7 @@ link_directories(${CURRENT_TDLIB_BUILD_DIR}/)
 include_directories(../vendor/tdlib/)
 include_directories(${CURRENT_TDLIB_BUILD_DIR}/)
 include_directories(${CURRENT_TDLIB_BUILD_DIR}/generate)
-target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Qml Qt5::Concurrent tdjson)
+target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning tdjson auxdb)
 target_include_directories(${QTDLIB} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 #set_property(TARGET ${QTDLIB} PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${QTDLIB_DIR} ${CMAKE_CURRENT_SOURCE_DIR})

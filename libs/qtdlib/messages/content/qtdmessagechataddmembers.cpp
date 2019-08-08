@@ -22,6 +22,11 @@ QList<qint32> QTdMessageChatAddMembers::memberUserIds() const
     return m_member_user_ids;
 }
 
+qint32 QTdMessageChatAddMembers::firstMemberId() const
+{
+    return m_member_user_ids.first();
+}
+
 void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
 {
     const QJsonArray ids = json["member_user_ids"].toArray();

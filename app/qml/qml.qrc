@@ -1,7 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>Main.qml</file>
-        <file>actions/AppActions.qml</file>
+        <file>pages/WaitPhoneNumberPage.qml</file>
+        <file>stores/AuthStateStore.qml</file>
+        <file>stores/ConnectionsStore.qml</file>
+        <file>stores/qmldir</file>
+        <file>stores/MainStore.qml</file>
+        <file>stores/RootStore.qml</file>
+        <file>stores/NotificationsStateStore.qml</file>
+        <file>stores/SettingsStore.qml</file>
         <file>actions/AuthAction.qml</file>
         <file>actions/AuthKey.qml</file>
         <file>actions/ChatActions.qml</file>
@@ -49,12 +56,7 @@
         <file>delegates/MessageDateItem.qml</file>
         <file>delegates/MessageContactItem.qml</file>
         <file>delegates/MessageDocumentItem.qml</file>
-        <file>delegates/MessageHiddenItem.qml</file>
-        <file>delegates/MessageJoinByLink.qml</file>
-        <file>delegates/MessagePhotoItem.qml</file>
-        <file>delegates/MessageStickerItem.qml</file>
-        <file>delegates/MessageTextItem.qml</file>
-        <file>delegates/MessageUnavailable.qml</file>
+        <file>delegates/MessageLocationItem.qml</file>
         <file>delegates/MessageVideoItem.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>middleware/ChatMiddleware.qml</file>
@@ -76,14 +78,37 @@
         <file>plugins/QTelegramStyles/ColorsDark.qml</file>
         <file>plugins/QTelegramStyles/TColors.qml</file>
         <file>plugins/QTelegramStyles/qmldir</file>
-        <file>stores/AuthStateStore.qml</file>
-        <file>stores/ChatStateStore.qml</file>
-        <file>stores/MainStore.qml</file>
-        <file>stores/NotificationsStateStore.qml</file>
-        <file>stores/RootStore.qml</file>
-        <file>stores/SettingsStore.qml</file>
-        <file>stores/UsersStateStore.qml</file>
-        <file>stores/ViewStore.qml</file>
-        <file>stores/qmldir</file>
+        <file>components/PopupDialog.qml</file>
+        <file>components/UserProfile.qml</file>
+        <file>pages/GroupDetailsPage.qml</file>
+        <file>delegates/MessageDateItem.qml</file>
+        <file>components/InputInfoBox.qml</file>
+        <file>actions/ViewActions.qml</file>
+        <file>actions/ViewKeys.qml</file>
+        <file>middleware/ErrorsMiddleware.qml</file>
+        <file>delegates/MessageCallItem.qml</file>
+        <file>delegates/MessageJoinByLink.qml</file>
+        <file>delegates/MessageChatAddMembersItem.qml</file>
+        <file>middleware/ChatMiddleware.qml</file>
+        <file>middleware/StackMiddleware.qml</file>
+        <file>delegates/MessageContentBase.qml</file>
+        <file>delegates/MessageContentText.qml</file>
+        <file>delegates/MessageContentAnimation.qml</file>
+        <file>delegates/MessageContentAudio.qml</file>
+        <file>delegates/MessageContentDocument.qml</file>
+        <file>delegates/MessageContentLocation.qml</file>
+        <file>delegates/MessageContentVideo.qml</file>
+        <file>delegates/MessageContentCall.qml</file>
+        <file>delegates/MessageContentSticker.qml</file>
+        <file>delegates/MessageContentPhoto.qml</file>
+        <file>delegates/MessageCustomServiceAction.qml</file>
+        <file>delegates/MessageUnavailable.qml</file>
+        <file>delegates/MessageBasicGroupChatCreate.qml</file>
+        <file>delegates/MessageChatDeleteMember.qml</file>
+        <file>components/Citation.qml</file>
+        <file>components/FormattedText.qml</file>
+        <file>components/WaitingBar.qml</file>
+        <file>components/PopupWaitCancel.qml</file>
+        <file>pages/ConnectivityPage.qml</file>
     </qresource>
 </RCC>

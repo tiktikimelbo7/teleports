@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-04 22:21+0000\n"
-"PO-Revision-Date: 2019-05-10 21:03+0000\n"
-"Last-Translator: Mathieu H <wiiu3dsxl13127@gmail.com>\n"
+"POT-Creation-Date: 2019-07-30 21:31+0000\n"
+"PO-Revision-Date: 2019-07-22 19:39+0000\n"
+"Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
 "Language: fr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:18
+#: ../push/pushhelper.cpp:108 ../app/qml/pages/ChatListPage.qml:20
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
@@ -160,91 +160,79 @@ msgstr "photo de profil mise à jour"
 msgid "You have a new message"
 msgstr "Vous avez un nouveau message"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:240
+#: ../libs/qtdlib/messages/qtdmessage.cpp:315
 msgid "Sticker"
-msgstr ""
+msgstr "Autocollant"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:244
+#: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "call has been ended"
-msgstr ""
+msgstr "fin de l'appel"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:248
-#, fuzzy
-#| msgid "sent you a message"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "sent an audio message"
-msgstr "vous a envoyé un message"
+msgstr "a envoyé un message audio"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:252
-#, fuzzy
-#| msgid "sent you a photo"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:327
 msgid "sent a photo"
-msgstr "vous a envoyé une photo"
+msgstr "a envoyé une photo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:261
-#, fuzzy
-#| msgid "sent you a video"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+msgid "Location"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a video"
-msgstr "vous a envoyé une vidéo"
+msgstr "a envoyé une vidéo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:265
-#, fuzzy
-#| msgid "sent you a video"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "sent a video note"
-msgstr "vous a envoyé une vidéo"
+msgstr "a envoyé une note vidéo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:269
-#, fuzzy
-#| msgid "sent you a voice message"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "sent a voice note"
-msgstr "vous a envoyé un message vocal"
+msgstr "a envoyé une note vocale"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:273
-#, fuzzy
-#| msgid "%1 joined the group"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "joined the group"
-msgstr "%1 a rejoint le groupe"
+msgstr "a rejoint le groupe"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:277
-#, fuzzy
-#| msgid "%1 changed group photo"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat photo"
-msgstr "%1 a changé la photo de groupe"
+msgstr "a changé la photo du groupe"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:281
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "changed the chat title"
-msgstr ""
+msgstr "a changé le titre du groupe"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:285
-#, fuzzy
-#| msgid "%1 joined by invite link"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:364
 msgid "joined by invite link"
-msgstr "%1 vous a rejoint via un lien d'invitation"
+msgstr "vous a rejoint via un lien d'invitation"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:289
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
-msgstr ""
+msgstr "a enlevé un membre"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:293
+#: ../libs/qtdlib/messages/qtdmessage.cpp:372
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "a supprimé la photo du groupe"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:297
+#: ../libs/qtdlib/messages/qtdmessage.cpp:376
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "transformé en supergroupe"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:301
+#: ../libs/qtdlib/messages/qtdmessage.cpp:380
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "la date d'expiration du message a été modifiée"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:304
+#: ../libs/qtdlib/messages/qtdmessage.cpp:388
 #, fuzzy
-#| msgid "sent you a message"
-msgid "sent an unknown message"
-msgstr "vous a envoyé un message"
+#| msgid "sent an unknown message"
+msgid "sent an unknown message: %1"
+msgstr "a envoyé un message inconnu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:309
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "Me"
-msgstr ""
+msgstr "Moi"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -267,7 +255,8 @@ msgid "dd.MM.yy hh:mm"
 msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:72
-#: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/SettingsPage.qml:129
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
 msgstr "En ligne"
 
@@ -280,12 +269,12 @@ msgid "Saved Messages"
 msgstr "Messages enregistrés"
 
 #. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:54
+#: ../app/qml/components/AttachPanel.qml:55
 msgid "Image"
 msgstr "Image"
 
-#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-#: ../app/qml/components/AttachPanel.qml:63
+#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
+#: ../app/qml/components/AttachPanel.qml:64
 msgid "File"
 msgstr "Fichier"
 
@@ -303,28 +292,30 @@ msgstr "Choisissez un pays"
 msgid "Search country name..."
 msgstr "Rechercher le nom d'un pays..."
 
-#: ../app/qml/components/PopupDialog.qml:13
+#: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
 msgstr "Valider"
 
-#: ../app/qml/components/PopupDialog.qml:14
+#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupWaitCancel.qml:13
+#: ../app/qml/pages/ChatListPage.qml:30
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
 msgstr "Êtes-vous sûr(e) de vouloir supprimer l'historique ?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:23
-#: ../app/qml/pages/ChatListPage.qml:64
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/pages/ChatListPage.qml:81
 msgid "Clear history"
 msgstr "Supprimer l'historique"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:32
+#: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
 msgstr "Êtes-vous sûr(e) de vouloir quitter cette discussion ?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:33
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
 msgstr "Partir"
 
@@ -378,17 +369,34 @@ msgstr ""
 "Nous avons envoyé un code à votre appareil via Telegram. Veuillez le saisir "
 "ici."
 
-#: ../app/qml/pages/ChatListPage.qml:30 ../app/qml/pages/SettingsPage.qml:26
+#: ../app/qml/pages/ChatListPage.qml:19
+msgid "Select destination or cancel..."
+msgstr "Sélectionnez une destination ou annulez..."
+
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ../app/qml/pages/ChatListPage.qml:59
+#: ../app/qml/pages/ChatListPage.qml:76
 msgid "Leave chat"
 msgstr "Quitter la discussion"
 
-#: ../app/qml/pages/ChatListPage.qml:75
+#: ../app/qml/pages/ChatListPage.qml:92
 msgid "Info"
 msgstr "Informations"
+
+#: ../app/qml/pages/ChatListPage.qml:302
+msgid "Do you want to forward the selected messages to %1?"
+msgstr "Voulez-vous transférer le message sélectionné à %1 ?"
+
+#: ../app/qml/pages/ChatListPage.qml:304
+#: ../app/qml/delegates/MessageBubbleItem.qml:82
+msgid "Forward"
+msgstr "Transférer"
+
+#: ../app/qml/pages/ChatListPage.qml:318
+msgid "Enter optional message..."
+msgstr "Saisissez un message (facultatif)..."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
@@ -415,7 +423,8 @@ msgid "Group Details"
 msgstr "Détails du groupe"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
-#: ../app/qml/pages/SettingsPage.qml:37 ../app/qml/pages/UserProfilePage.qml:30
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr "Retour"
 
@@ -423,7 +432,7 @@ msgstr "Retour"
 msgid "Members: %1"
 msgstr "Membres : %1"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:48
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
 msgid "About"
 msgstr "À propos"
 
@@ -443,43 +452,67 @@ msgstr "Signaler un problème"
 msgid "Help translate"
 msgstr "Aider à la traduction"
 
-#: ../app/qml/pages/SettingsPage.qml:23
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
 msgstr "Hors ligne"
 
-#: ../app/qml/pages/SettingsPage.qml:23
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
 msgstr "Connexion"
 
-#: ../app/qml/pages/SettingsPage.qml:85
+#: ../app/qml/pages/ConnectivityPage.qml:28
+msgid "Connecting To Proxy"
+msgstr "Connexion au proxy"
+
+#: ../app/qml/pages/ConnectivityPage.qml:30
+msgid "Updating"
+msgstr "Mise à jour"
+
+#: ../app/qml/pages/ConnectivityPage.qml:36
+msgid "Connectivity"
+msgstr "Connectivité"
+
+#: ../app/qml/pages/ConnectivityPage.qml:75
+msgid "Telegram connectivity status:"
+msgstr "Statut de connectivité de Telegram :"
+
+#: ../app/qml/pages/ConnectivityPage.qml:82
+#, fuzzy
+#| msgid "Telegram connectivity status:"
+msgid "Ubuntu Touch connectivity status:"
+msgstr "Statut de connectivité de Telegram :"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+#, fuzzy
+#| msgid "Bandwith limited"
+msgid "Ubuntu Touch bandwith limited"
+msgstr "Bande passante limitée"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+#, fuzzy
+#| msgid "Bandwith not limited"
+msgid "Ubuntu Touch bandwith not limited"
+msgstr "Bande passante illimitée"
+
+#: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
 msgstr "Mode nuit"
 
-#: ../app/qml/pages/SettingsPage.qml:105 ../app/qml/pages/SettingsPage.qml:154
+#: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: ../app/qml/pages/SettingsPage.qml:118
+#: ../app/qml/pages/SettingsPage.qml:115
 msgid "Delete account"
 msgstr "Supprimer le compte"
 
-#: ../app/qml/pages/SettingsPage.qml:129
-msgid "Not online"
-msgstr "Invisible"
+#: ../app/qml/pages/SettingsPage.qml:128
+msgid "Connectivity status"
+msgstr "Statut de connectivité"
 
-#: ../app/qml/pages/SettingsPage.qml:134
-msgid "Status:"
-msgstr "Statut : "
-
-#: ../app/qml/pages/SettingsPage.qml:139
-msgid "Bandwith limited"
-msgstr "Bande passante limitée"
-
-#: ../app/qml/pages/SettingsPage.qml:139
-msgid "Bandwith not limited"
-msgstr "Bande passante illimitée"
-
-#: ../app/qml/pages/SettingsPage.qml:152
+#: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -488,7 +521,7 @@ msgstr ""
 "appareil, y compris les discussions secrètes. Êtes-vous sûr(e) de vouloir "
 "vous déconnecter ?"
 
-#: ../app/qml/pages/SettingsPage.qml:163
+#: ../app/qml/pages/SettingsPage.qml:155
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -501,7 +534,7 @@ msgstr ""
 "Telegram. Êtes-vous absolument sûr(e) de vouloir supprimer votre compte "
 "Telegram ?"
 
-#: ../app/qml/pages/SettingsPage.qml:165
+#: ../app/qml/pages/SettingsPage.qml:157
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
@@ -519,29 +552,33 @@ msgstr "Fichier : "
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ../app/qml/pages/MessageListPage.qml:26
+#: ../app/qml/pages/MessageListPage.qml:27
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: ../app/qml/pages/MessageListPage.qml:112
+#: ../app/qml/pages/MessageListPage.qml:113
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:63
+#: ../app/qml/pages/MessageListPage.qml:260
+#: ../app/qml/delegates/MessageBubbleItem.qml:62
 msgid "Edit"
 msgstr "Modifier"
 
-#: ../app/qml/pages/MessageListPage.qml:253
-#: ../app/qml/delegates/MessageBubbleItem.qml:71
+#: ../app/qml/pages/MessageListPage.qml:260
+#: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Reply"
 msgstr "Répondre"
 
-#: ../app/qml/pages/MessageListPage.qml:322
+#: ../app/qml/pages/MessageListPage.qml:334
 msgid "Type a message..."
 msgstr "Saisissez un message..."
+
+#: ../app/qml/pages/MessageListPage.qml:445
+msgid "Requesting location from OS..."
+msgstr ""
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
@@ -578,21 +615,25 @@ msgstr ""
 "Ce message ne sera supprimé que pour vous. Voulez-vous vraiment le "
 "supprimer ?"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:57
+#: ../app/qml/delegates/MessageBubbleItem.qml:56
 msgid "Copy"
 msgstr "Copier"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:77
+#: ../app/qml/delegates/MessageBubbleItem.qml:76
 msgid "Sticker Pack info"
 msgstr "Informations au sujet du pack d'autocollants"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:83
-msgid "Forward"
-msgstr "Transférer"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:233
+#: ../app/qml/delegates/MessageBubbleItem.qml:232
 msgid "Edited"
 msgstr "Modifié"
+
+#: ../app/qml/delegates/MessageContentBase.qml:35
+msgid "Forwarded from "
+msgstr "Transféré par "
+
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
+msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -626,6 +667,12 @@ msgstr "dd MMMM"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 vous a rejoint via un lien d'invitation"
+
+#~ msgid "Not online"
+#~ msgstr "Invisible"
+
+#~ msgid "Status:"
+#~ msgstr "Statut : "
 
 #, fuzzy
 #~| msgid "dd MMMM"

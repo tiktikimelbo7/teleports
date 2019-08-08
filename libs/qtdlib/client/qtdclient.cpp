@@ -5,13 +5,15 @@
 #include <QMetaObject>
 #include <QJsonDocument>
 #include <QtConcurrent>
-#include <QtGui/QGuiApplication>
+#include <QJsonDocument>
+#include <QApplication>
+#include <QStandardPaths>
 #include "qtdthread.h"
 #include "qtdhandle.h"
 #include "auth/qtdauthstatefactory.h"
 #include "connections/qtdconnectionstatefactory.h"
-#include <QJsonDocument>
-
+#include "../../common/auxdb/auxdb.h"
+#include "../../common/auxdb/avatarmaptable.h"
 
 QJsonObject execTd(const QJsonObject &json) {
     qDebug() << "[EXEC]" << json;
@@ -34,7 +36,9 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     m_worker(new QThread),
     m_authState(Q_NULLPTR),
     m_connectionState(Q_NULLPTR),
-    m_tagcounter(0)
+    m_tagcounter(0),
+    m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
+              QGuiApplication::applicationDirPath().append("/assets"), this)
 {
     init();
     QTdWorker *w = new QTdWorker;
@@ -42,8 +46,6 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     connect(m_worker.data(), &QThread::started, w, &QTdWorker::run);
     connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
     connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
-    connect(qGuiApp, &QGuiApplication::applicationStateChanged, this,
-            &QTdClient::handleApplicationStateChanged);
     m_worker->start();
 }
 
@@ -227,6 +229,8 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data){ emit updateChatReplyMarkup(data); });
     m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data){ emit updateChatTitle(data); });
     m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
+    m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
+
     m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data){ emit updateUserChatAction(data); });
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data){ emit updateChatNotificationSettings(data); });
 
@@ -239,6 +243,7 @@ void QTdClient::init()
     //Message updates to add to existing chats or channel views
     m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data){ emit updateNewMessage(data); });
     m_events.insert(QStringLiteral("chats"), [=](const QJsonObject &data){ emit chats(data); });
+    m_events.insert(QStringLiteral("chat"), [=](const QJsonObject &data) { emit chat(data); });
     m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data){ emit error(data); });
     m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
     m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group){ emit basicGroup(group); });
@@ -291,21 +296,7 @@ QVariant QTdClient::getOption(const QString name)
         return QVariant();
 }
 
-void QTdClient::handleApplicationStateChanged(Qt::ApplicationState state)
-{
-    switch(state) {
-        case Qt::ApplicationState::ApplicationSuspended:
-            qWarning() << "Application has been suspended!";
-            send(QJsonObject{
-                {"@type", "setNetworkType"},
-                {"type", QJsonObject{{"@type", "networkTypeNone"}}}});
-            break;
-        case Qt::ApplicationState::ApplicationActive:
-            qWarning() << "Application has been activated!";
-            send(QJsonObject{
-                {"@type", "setNetworkType"},
-                {"type", QJsonObject{{"@type", "networkTypeMobile"}}}});
-            break;
-    }
-
+void QTdClient::setAvatarMapEntry(const qint64 id, const QString path) {
+    if (path != "")
+        m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
 }

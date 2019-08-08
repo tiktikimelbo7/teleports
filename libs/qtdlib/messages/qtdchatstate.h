@@ -13,7 +13,7 @@ public:
         ReplyingToMessage,
     };
 
-    Q_ENUMS(ChatState)
+    Q_ENUM(ChatState)
 private:
     explicit QTdChatState();
 };

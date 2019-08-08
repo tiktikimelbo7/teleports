@@ -15,15 +15,16 @@
 #include "content/qtdmessagechatupgradeto.h"
 #include "content/qtdmessagecontact.h"
 #include "content/qtdmessagedocument.h"
+#include "content/qtdmessagelocation.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
+#include "content/qtdmessagecustomserviceaction.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();
-
     // TODO: create a map of QMap<@type, QTdObject::Type> so we can do fast lookups and
     // switch on the type. Otherwise this is/elseif is going to get huge supporting all content
     // types
@@ -40,7 +41,9 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageContact") {
         return new QTdMessageContact(parent);
     } else if (type == "messageDocument") {
-        return new QTdMessageDocument(parent);    
+          return new QTdMessageDocument(parent);
+    } else if (type == "messageLocation") {
+        return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
           return new QTdMessageVideo(parent);
     } else if (type == "messageContactRegistered"){
@@ -67,7 +70,9 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatUpgradeFrom(parent);
     } else if (type == "messageChatUgradeTo") {
         return new QTdMessageChatUpgradeTo(parent);
+    } else if (type == "messageCustomServiceAction") {
+        return new QTdMessageCustomServiceAction(parent);
     }
-    qDebug()<< "Message type "<< type << json;
+    qWarning()<< "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);
 }

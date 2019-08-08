@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import Ubuntu.Content 1.1 as ContentHub
 import QuickFlux 1.1
 import QTelegram 1.0
@@ -160,7 +161,7 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1
                 text: header.subtitle
-                color: header.isOnline ? UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
+                color: header.isOnline ? UITK.UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
 
                 Connections {
                     target: header
@@ -195,6 +196,12 @@ Page {
                 }
             }
         }
+    }
+
+    WaitingBar {
+        id: waitingBar
+        connectionState: Telegram.connections.connectionState
+        z: 10
     }
 
     ScrollView {
@@ -287,11 +294,16 @@ Page {
                 mediaImporter.contentType = mediaType;
                 mediaImporter.requestMedia();
             }
+            function requestLocation() {
+                UITK_Popups.PopupUtils.open(locationWaitDialog)
+                AppActions.chat.requestLocation();
+            }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
             onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
             onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
             onAudioRequested: requestMedia(ContentHub.ContentType.Music)
             onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
+            onLocationRequested: requestLocation()
         }
 
         MediaImport {
@@ -427,6 +439,19 @@ Page {
         }
     }
 
+                    Component {
+                        id: locationWaitDialog
+                        PopupWaitCancel {
+                            text: i18n.tr("Requesting location from OS...")
+                            onFinished: {
+                                AppActions.chat.sendLocation();
+                            }
+                            onCancelled: {
+                                AppActions.chat.cancelLocation();
+                            }
+                        }
+                    }
+
     Loader {
         id: showKeyboardLoader
         active: Telegram.chats.currentChat.replyMarkupMessageId != 0 && Telegram.chats.currentChat.replyMarkupMessage.replyMarkup.type == QTdObject.REPLY_MARKUP_SHOW_KEYBOARD
@@ -475,5 +500,6 @@ Page {
                d.messageOfInterest = message.message;
            }
        }
+
     }
 }

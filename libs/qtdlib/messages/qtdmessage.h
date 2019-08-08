@@ -5,6 +5,7 @@
 #include "qtdmessagecontent.h"
 #include "qtdmessagesendingstate.h"
 #include "replymarkup/qtdreplymarkup.h"
+#include "forwardinfo/qtdmessageforwardinfo.h"
 #include "user/qtduser.h"
 #include <QDateTime>
 #include <QObject>
@@ -43,6 +44,8 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QTdMessage * messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
     Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
     Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
+    Q_PROPERTY(bool isForwarded READ isForwarded NOTIFY messageChanged)
+    Q_PROPERTY(QString forwardedFromDetails READ forwardedFromDetails NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -83,6 +86,10 @@ public:
     QTdMessageContent *content() const;
 
     QTdReplyMarkup *replyMarkup() const;
+
+    bool isForwarded() const;
+
+    QString forwardedFromDetails() const;
 
     QString summary() const;
 
@@ -143,6 +150,8 @@ private:
     bool m_isValid;
     QTdInt32 m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
+    QString m_forwardedFromDetails;
+    QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;
 };

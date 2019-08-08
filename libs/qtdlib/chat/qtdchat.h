@@ -259,6 +259,11 @@ public:
      */
     Q_INVOKABLE void leaveChat();
 
+    /**
+     * @brief Leave chat and clear any history if possible
+     */
+    Q_INVOKABLE void forwardMessage(const QString &messageId);
+
     QJsonObject lastMessageJson() const {
         return m_lastMsgJson;
     }
@@ -292,6 +297,7 @@ signals:
     void summaryChanged();
     void closed();
     void chatUpdated();
+    void forwardingMessagesAction(QStringList forwardingMessages, QTdChat* forwarded_from_chat);
 
 public slots:
     void updateChatOrder(const QJsonObject &json);
@@ -306,6 +312,7 @@ public slots:
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
     void handleUpdateNewMessage(const QJsonObject &json);
+    void handleChatPhotoDownloaded();
 
 protected:
     virtual void onChatOpened();

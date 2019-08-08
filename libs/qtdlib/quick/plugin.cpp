@@ -3,6 +3,7 @@
 
 #include "plugin.h"
 #include "auth/qtdauthmanager.h"
+#include "connections/qtdconnectionmanager.h"
 #include "users.h"
 
 #include "auth/qtdauthstate.h"
@@ -38,6 +39,7 @@
 #include "messages/content/qtdmessagechatupgradeto.h"
 #include "messages/content/qtdmessagecontact.h"
 #include "messages/content/qtdmessagedocument.h"
+#include "messages/content/qtdmessagelocation.h"
 #include "messages/content/qtdmessagephoto.h"
 #include "messages/content/qtdmessagesticker.h"
 #include "messages/content/qtdmessagetext.h"
@@ -58,6 +60,13 @@ void QTdLib::registerQmlTypes()
     static const char *uri = "QTelegram";
     //@uri QTelegram
     qmlRegisterType<QTdAuthManager>(uri, 1, 0, "AuthState");
+    // ConnectionManager singleton
+    qmlRegisterSingletonType<QTdConnectionManager>(uri, 1, 0, "ConnectionManager", [](QQmlEngine *engine, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(engine)
+        Q_UNUSED(scriptEngine)
+        QTdConnectionManager *connectionManager = new QTdConnectionManager();
+        return connectionManager;
+    });
     qmlRegisterType<QTdAuthParams>(uri, 1, 0, "AuthParams");
     qmlRegisterType<Users>(uri, 1, 0, "Users");
     qmlRegisterType<QTdChatListModel>(uri, 1, 0, "ChatList");
@@ -164,6 +173,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessageChatUpgradeTo>(uri, 1, 0, "QTdMessageChatUpgradeTo", "C++ class");
     qmlRegisterUncreatableType<QTdMessageDocument>(uri, 1, 0, "QTdMessageDocument", "C++ class");
     qmlRegisterUncreatableType<QTdMessageContact>(uri, 1, 0, "QTdMessageContact", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageLocation>(uri, 1, 0, "QTdMessageLocation", "C++ class");
     qmlRegisterUncreatableType<QTdMessageHidden>(uri, 1, 0, "QTdMessageHidden", "C++ class");
     qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");
     qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");

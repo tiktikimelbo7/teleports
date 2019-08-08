@@ -26,4 +26,9 @@ Store {
     SettingsStore {
         id: settingsStore
     }
+
+    property alias connections: connectionsStore
+    ConnectionsStore {
+        id: connectionsStore
+    }
 }

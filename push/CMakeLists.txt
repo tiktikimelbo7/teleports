@@ -10,7 +10,7 @@ set(SOURCES
 
 add_executable(push ${SOURCES} )
 
-qt5_use_modules(push Widgets Core Network DBus )
+target_link_libraries(push Qt5::Core Qt5::Widgets Qt5::Network Qt5::DBus Qt5::Sql auxdb)
 
 install(FILES push-apparmor.json DESTINATION /push)
 install(FILES push-helper.json DESTINATION /push)

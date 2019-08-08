@@ -103,10 +103,12 @@ public:
         MESSAGE_CHAT_SET_TTL,
         MESSAGE_CHAT_UPGRADE_FROM,
         MESSAGE_CHAT_UPGRADE_TO,
+        MESSAGE_CUSTOM_SERVICE_ACTION,
         MESSAGE_DATE,
         MESSAGE_DOCUMENT,
         MESSAGE_CONTACT,
         MESSAGE_HIDDEN,
+        MESSAGE_LOCATION,
         MESSAGE_TEXT,
         MESSAGE_PHOTO,
         MESSAGE_STICKER,
@@ -161,11 +163,14 @@ public:
         REPLY_MARKUP_INLINE_KEYBOARD,
         REPLY_MARKUP_REMOVE_KEYBOARD,
         REPLY_MARKUP_SHOW_KEYBOARD,
+        MESSAGE_FORWARDED_FROM_USER,
+        MESSAGE_FORWARDED_POST,
     };
     Q_ENUM(Type)
 
     Type type() const;
-
+    QString typeString() const;
+    
     virtual void unmarshalJson(const QJsonObject &json);
     virtual QJsonObject marshalJson();
 
@@ -175,6 +180,7 @@ signals:
 protected:
     void setType(const Type type);
     Type m_type;
+    QString m_typeString;
 };
 
 #endif // QABSTRACTTDOBJECT_H

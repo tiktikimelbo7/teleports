@@ -18,11 +18,24 @@ Item {
 
     width: contentColumn.width
     height: contentColumn.height
-    
+
     Component {
         id: citation
         Citation {
             messageCited: message.messageRepliedTo
+        }
+    }
+    Component {
+        id: forward
+        Item {
+            height: childrenRect.height
+            width: Math.min(maximumAvailableContentWidth, childrenRect.width)
+            TextEdit {
+                readOnly: true
+                text: i18n.tr("Forwarded from " + message.forwardedFromDetails)
+                color: "#FF335280" //Suru.Blue
+                font.weight: Font.Medium
+            }
         }
     }
 
@@ -39,7 +52,12 @@ Item {
     Column {
         id: contentColumn
 
-        width: Math.max(citationLoader.width, mainContent.width)
+        width: Math.max(citationLoader.width, mainContent.width, forwardLoader.width)
+        Loader {
+            id: forwardLoader
+            active: message.isForwarded && !message.isReply
+            sourceComponent: forward
+        }
         // Show an icon on the right to expand/collapse the citation?
         Loader {
             id: citationLoader

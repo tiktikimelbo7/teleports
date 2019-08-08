@@ -9,6 +9,6 @@ Item {
 
     Label {
         anchors.centerIn: parent
-        text: "Not Implemented Delegate..."
+        text: i18n.tr("Unknown message type, see logfile for details...")
     }
 }

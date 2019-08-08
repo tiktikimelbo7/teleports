@@ -1,0 +1,9 @@
+[
+    {
+        "protocol": "teleports"
+    },
+    {
+        "protocol": "https",
+        "domain-suffix": "t.me/#"
+    }
+]

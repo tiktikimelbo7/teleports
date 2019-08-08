@@ -15,7 +15,9 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: i18n.tr("TELEports")
+        title: Telegram.chats.listMode != ChatList.Idle
+            ? i18n.tr("Select destination or cancel...")
+            : i18n.tr("TELEports")
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -23,6 +25,14 @@ Page {
             dividerColor: hd
         }
 
+        leadingActionBar.actions: [
+            UITK.Action {
+                text: i18n.tr("Cancel")
+                iconName: "cancel"
+                onTriggered: AppActions.chat.cancelForwardMessage()
+                visible: Telegram.chats.listMode != ChatList.Idle
+            }
+        ]
         trailingActionBar.actions: [
             UITK.Action {
                 id: settingsIcon
@@ -34,9 +44,14 @@ Page {
         ]
     }
 
+    WaitingBar {
+        id: waitingBar
+        connectionState: Telegram.connections.connectionState
+        z: 10
+    }
+
     ScrollView {
         anchors.fill: parent
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
         ListView {
             anchors{
                 fill: parent
@@ -50,7 +65,9 @@ Page {
                 height: layout.height
                 color: chat.isSecret ? "lightgreen" : "transparent"
 
-                onClicked: AppActions.chat.setCurrentChat(chat)
+                onClicked: (Telegram.chats.listMode == ChatList.ForwardingMessages)
+                    ? UITK_Popups.PopupUtils.open(forwardConfirmationDialog)
+                    : AppActions.chat.setCurrentChat(chat)
 
                 leadingActions: UITK.ListItemActions {
                     actions: [
@@ -240,6 +257,28 @@ Page {
                                     text: chat.unreadCount < 999 ? chat.unreadCount : ":D"; // no-i18n
                                 }
                             }
+                            Rectangle {
+                                id: mention_rect
+                                width: Math.min(height, units.gu(4))
+                                height: units.gu(2.8)
+                                radius: width*0.5
+                                color: Suru.highlightColor
+                                visible: chat.hasUnreadMentions
+
+                                Label {
+                                    id: mention_text
+                                    anchors {
+                                        centerIn: parent
+                                        margins: 0
+                                    }
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+                                    font.weight: Font.DemiBold
+                                    font.pixelSize: FontUtils.sizeToPixels("small")
+                                    color: "white"
+                                    text: "@"; // no-i18n
+                                }
+                            }
 
                             UITK.Icon {
                                 id: pinned_icon
@@ -257,8 +296,61 @@ Page {
                             }
                         }
                     }
+                    Component {
+                        id: forwardConfirmationDialog
+                        PopupDialog {
+                            text: i18n.tr("Do you want to forward the selected messages to %1?").arg(chat.title)
+                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonText: i18n.tr("Forward")
+                            onConfirmed: {
+                                var optionalMessageText = optionalMessage.text.trim();
+                                AppActions.chat.sendForwardMessage(chat, optionalMessageText);
+                            }
+                            UITK.TextArea {
+                                height: units.gu(10)
+                                autoSize: true
+                                anchors {
+                                    left: parent.left
+                                    right: parent.right
+                                    topMargin: units.gu(0.1)
+                                }
+                                id: optionalMessage
+                                placeholderText: i18n.tr("Enter optional message...")
+                            }
+                        }
+                    }
                 }
+
             }
+        }
+    }
+    function processUri(uri) {
+        if (typeof uri === "undefined") {
+            return;
+        }
+        var commands = uri.split("://")[1].split("/");
+        if (commands) {
+            switch(commands[0].toLowerCase()) {
+            case "chat": // no-i18n
+                var chatId = parseInt(commands[1]);
+                if (isNaN(chatId) || chatId === 0) {
+                    console.warn("Cannot parse chat id to open!");
+                } else {
+                    console.info("Opening chat: " + chatId);
+                    AppActions.chat.setCurrentChatById(chatId)
+                }
+            case "launch": // no-i18n
+                //userTapBackHome = true;
+                // Nothing to do.
+                break;
+            default: console.warn("Unmanaged URI: " + commands);
+            }
+        }
+    }
+    Connections {
+        target: UITK.UriHandler
+        onOpened: {
+            processUri(uris[0]);
         }
     }
 }

@@ -1,0 +1,94 @@
+import QtQuick 2.9
+import QtQuick.Controls 2.2
+import Ubuntu.Connectivity 1.0
+import Ubuntu.Components 1.3 as UITK
+import Ubuntu.Components.ListItems 1.3 as UITK_ListItem
+import Ubuntu.Components.Popups 1.3 as UITK_Popups
+import QtQuick.Controls.Suru 2.2
+import QtQuick.Layouts 1.1
+import QTelegram 1.0
+import QTelegramStyles 1.0
+import "../actions"
+import "../components"
+import "../stores"
+
+Page {
+    id: connectivityPage
+
+    property color hf: Suru.foregroundColor
+    property color hb: Suru.backgroundColor
+    property color hd: Suru.neutralColor
+    
+    property var connectionManager: null
+    readonly property var tgConnectionState: connectionManager.connectionState
+
+    property var connectivityStatusMap: [i18n.tr("Offline"), i18n.tr("Connecting"), i18n.tr("Online")]
+    property var tgStatusMapText: [
+        i18n.tr("Offline"),
+        i18n.tr("Connecting To Proxy"),
+        i18n.tr("Connecting"),
+        i18n.tr("Updating"),
+        i18n.tr("Online")
+    ]
+    property var tgStatusMapImage: ["sync-error", "sync-updating", "sync-updating", "sync-updating", "sync-idle"]
+
+    header: UITK.PageHeader {
+        title: i18n.tr('Connectivity')
+
+        UITK.StyleHints {
+            foregroundColor: hf
+            backgroundColor: hb
+            dividerColor: hd
+        }
+
+        leadingActionBar.actions: [
+            UITK.Action {
+                iconName: "back"
+                text: i18n.tr('Back')
+                onTriggered: {
+                  AppActions.view.popFromStack()
+                }
+            }
+        ]
+    }
+
+    Flickable {
+        id: connectivityFlickable
+        anchors.fill: parent
+        anchors.margins: units.gu(2)
+        contentHeight: connectivityColumn.height
+
+        ColumnLayout {
+            id: connectivityColumn
+            anchors {
+                fill: parent
+            }
+
+            UITK.ListItem {
+                divider.visible: false
+                UITK.ListItemLayout {
+                    UITK.Icon {
+                        width: units.gu(2)
+                        name: tgStatusMapImage[tgConnectionState]
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                    }
+                    title.text: i18n.tr('Telegram connectivity status:') + ' ' + tgStatusMapText[tgConnectionState]
+                }
+            }
+
+            UITK.ListItem {
+                divider.visible: false
+                UITK.ListItemLayout {
+                    title.text: i18n.tr("Ubuntu Touch connectivity status:") + " " + connectivityStatusMap[Connectivity.status]
+                }
+            }
+
+            UITK.ListItem {
+                divider.visible: false
+                UITK.ListItemLayout {
+                    title.text: Connectivity.limitedBandwith ? i18n.tr("Ubuntu Touch bandwith limited") : i18n.tr("Ubuntu Touch bandwith not limited")
+                }
+            }
+        }
+    }
+}

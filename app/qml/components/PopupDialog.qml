@@ -9,12 +9,15 @@ UITK_Popups.Dialog {
     id: dialogue
     objectName: "dialogPopup"
 
-    property var question: ""
+    //confirmButtonText should be a clear text
+    //i.e. To the question: 'Do you want to delete this file?' Main action text should be 'Delete' instead of 'Okay' / 'Yes' or similar
     property var confirmButtonText: i18n.tr("Okay")
     property var cancelButtonText: i18n.tr("Cancel")
+    //confirmButtonColor should be green for positive/go actions, blue for neutral actios and red for destructive actions
     property var confirmButtonColor: UITK.UbuntuColors.green
-    property var cancelButtonColor: UITK.UbuntuColors.red
-    
+    //Only main action should be colored. Cancel should be no color or ash
+    property var cancelButtonColor: UITK.UbuntuColors.ash
+
     signal confirmed();
     signal canceled();
 

@@ -12,6 +12,10 @@ int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
     QStringList args = app.arguments();
 
+    QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
+    QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
+    QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
+
     PushHelper pushHelper("teleports.ubports_teleports", // no-i18n
                           QString(args.at(1)), QString(args.at(2)), &app);
 

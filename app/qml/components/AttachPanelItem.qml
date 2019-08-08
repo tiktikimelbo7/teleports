@@ -10,12 +10,12 @@ Column {
 
     property alias text: attach_label.text
     property alias image: attach_image.source
-
+    property alias icon: attach_icon.name
     signal clicked(var mouse)
 
     Item {
-        width: attach_image.width
-        height: attach_image.height
+        width: attach_image.source? attach_image.width : attach_icon.width
+        height: attach_image.source? attach_image.height : attach_icon.height
 
         Image {
             id: attach_image
@@ -31,13 +31,17 @@ Column {
                 source: attach_item.showTick ? Qt.resolvedUrl("qrc:/qml/icons/attach_hide2.png") : ""
                 visible: attach_item.showTick
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: attach_item.clicked(mouse)
-            }
         }
 
+        UITK.Icon {
+            id: attach_icon
+            width: units.gu(6)
+            height: width
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: attach_item.clicked(mouse)
+        }
     }
 
     Label {
