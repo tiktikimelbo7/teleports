@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-03 19:21+0000\n"
+"POT-Creation-Date: 2019-08-07 22:48+0000\n"
 "PO-Revision-Date: 2019-08-05 22:49+0000\n"
 "Last-Translator: vokaliz <vokaliz@protonmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
@@ -21,143 +21,144 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:116 ../app/qml/pages/ChatListPage.qml:20
+#: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
 
-#: ../push/pushhelper.cpp:126
+#: ../push/pushhelper.cpp:132
 msgid "sent you a message"
 msgstr "прислал вам сообщение"
 
-#: ../push/pushhelper.cpp:130
+#: ../push/pushhelper.cpp:136
 msgid "sent you a photo"
 msgstr "прислал вам фото"
 
-#: ../push/pushhelper.cpp:134
+#: ../push/pushhelper.cpp:140
 msgid "sent you a sticker"
 msgstr "прислал вам стикер"
 
-#: ../push/pushhelper.cpp:138
+#: ../push/pushhelper.cpp:144
 msgid "sent you a video"
 msgstr "прислал вам видео"
 
-#: ../push/pushhelper.cpp:142
+#: ../push/pushhelper.cpp:148
 msgid "sent you a document"
 msgstr "прислал вам документ"
 
-#: ../push/pushhelper.cpp:146
+#: ../push/pushhelper.cpp:152
 msgid "sent you a voice message"
 msgstr "прислал вам голосовое сообщение"
 
-#: ../push/pushhelper.cpp:150
+#: ../push/pushhelper.cpp:156
 msgid "shared a contact with you"
 msgstr "поделился с вами контактом"
 
-#: ../push/pushhelper.cpp:154
+#: ../push/pushhelper.cpp:160
 msgid "sent you a map"
 msgstr "прислал вам геопозицию"
 
-#: ../push/pushhelper.cpp:159
+#: ../push/pushhelper.cpp:165
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: ../push/pushhelper.cpp:164
+#: ../push/pushhelper.cpp:170
 msgid "%1 sent a message to the group"
 msgstr "%1 прислал сообщение в группу"
 
-#: ../push/pushhelper.cpp:169
+#: ../push/pushhelper.cpp:175
 msgid "%1 sent a photo to the group"
 msgstr "%1 прислал фото в группу"
 
-#: ../push/pushhelper.cpp:174
+#: ../push/pushhelper.cpp:180
 msgid "%1 sent a sticker to the group"
 msgstr "%1 прислал стикер в группу"
 
-#: ../push/pushhelper.cpp:179
+#: ../push/pushhelper.cpp:185
 msgid "%1 sent a video to the group"
 msgstr "%1 прислал видео в группу"
 
-#: ../push/pushhelper.cpp:184
+#: ../push/pushhelper.cpp:190
 msgid "%1 sent a document to the group"
 msgstr "%1 прислал документ группе"
 
-#: ../push/pushhelper.cpp:189
+#: ../push/pushhelper.cpp:195
 msgid "%1 sent a voice message to the group"
 msgstr "%1 прислал звуковое сообщение группе"
 
-#: ../push/pushhelper.cpp:194
+#: ../push/pushhelper.cpp:200
 msgid "%1 sent a contact to the group"
 msgstr "%1 прислал контакт группе"
 
-#: ../push/pushhelper.cpp:199
+#: ../push/pushhelper.cpp:205
 msgid "%1 sent a map to the group"
 msgstr "%1 прислал карту группе"
 
-#: ../push/pushhelper.cpp:204 ../push/pushhelper.cpp:225
+#: ../push/pushhelper.cpp:210 ../push/pushhelper.cpp:231
 msgid "%1 invited you to the group"
 msgstr "%1 пригласил вас в группу"
 
-#: ../push/pushhelper.cpp:209
+#: ../push/pushhelper.cpp:215
 msgid "%1 changed group name"
 msgstr "%1 изменил название группы"
 
-#: ../push/pushhelper.cpp:214
+#: ../push/pushhelper.cpp:220
 msgid "%1 changed group photo"
 msgstr "%1 изменил фото группы"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:220
+#: ../push/pushhelper.cpp:226
 msgid "%1 invited %2"
 msgstr "%1 пригласил %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:231
+#: ../push/pushhelper.cpp:237
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr "%1 исключил %2"
 
-#: ../push/pushhelper.cpp:236
+#: ../push/pushhelper.cpp:242
 msgid "%1 removed you from the group"
 msgstr "%1 исключил вас из группы"
 
-#: ../push/pushhelper.cpp:241
+#: ../push/pushhelper.cpp:247
 msgid "%1 has left the group"
 msgstr "%1 вышел из группы"
 
-#: ../push/pushhelper.cpp:246
+#: ../push/pushhelper.cpp:252
 msgid "%1 has returned to the group"
 msgstr "%1 вернулся в группу"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:251
+#: ../push/pushhelper.cpp:257
 msgid "@ %1"
 msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:253
+#: ../push/pushhelper.cpp:259
 msgid "%1 has checked-in"
 msgstr "%1 зарегистрировался"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:259
+#: ../push/pushhelper.cpp:265
 msgid "%1 joined Telegram!"
 msgstr "%1 присоединился к Telegram!"
 
-#: ../push/pushhelper.cpp:264 ../push/pushhelper.cpp:270
+#: ../push/pushhelper.cpp:270 ../push/pushhelper.cpp:276
 msgid "New login from unrecognized device"
 msgstr "Новый вход с неизвестного устройства"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:269
+#: ../push/pushhelper.cpp:275
 msgid "%1 @ %2"
 msgstr "%1 @ %2"
 
-#: ../push/pushhelper.cpp:274
+#: ../push/pushhelper.cpp:280
 msgid "updated profile photo"
 msgstr "обновил фото профиля"
 
-#: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:284
-#: ../push/pushhelper.cpp:289
+#: ../push/pushhelper.cpp:285 ../push/pushhelper.cpp:290
+#: ../push/pushhelper.cpp:295
 msgid "You have a new message"
 msgstr "У вас новое сообщение"
 
@@ -225,11 +226,17 @@ msgstr "повышен до супергруппы"
 msgid "message TTL has been changed"
 msgstr "TTL сообщение было измененено"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#, fuzzy
+#| msgid "joined the group"
+msgid "created this group"
+msgstr "присоединился к группе"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "sent an unknown message: %1"
 msgstr "отправлено неизвестное сообщение: %1"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:393
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 msgid "Me"
 msgstr "Я"
 
@@ -582,13 +589,30 @@ msgstr "Введите пароль"
 msgid "Password"
 msgstr "Пароль"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
 msgstr "%1 присоединился к группе"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:31
-msgid "%1 users"
-msgstr "%1 пользователей"
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+#, fuzzy
+#| msgid "%1 invited %2"
+msgid "%1 added %2"
+msgstr "%1 пригласил %2"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#, fuzzy
+#| msgid "%1 users"
+msgid "%1 user(s)"
+msgid_plural ""
+msgstr[0] "%1 пользователей"
+msgstr[1] "%1 пользователей"
+msgstr[2] "%1 пользователей"
+
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
+#, fuzzy
+#| msgid "%1 has left the group"
+msgid "%1 left the group"
+msgstr "%1 вышел из группы"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -648,6 +672,10 @@ msgstr "Пропущенный вызов"
 #, javascript-format
 msgid "Duration: %1.%2"
 msgstr "Длительность разговора: %1.%2"
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
+msgid "%1 created a group called << %2 >>"
+msgstr ""
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
