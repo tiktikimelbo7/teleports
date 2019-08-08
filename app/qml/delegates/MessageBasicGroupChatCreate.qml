@@ -2,13 +2,14 @@ import QtQuick 2.9
 import "../actions"
 
 MessageActionItem {
-    text: "%1 %2".arg(
+    text: i18n.tr("%1 created a group called << %2 >>").arg(
               message.isCollapsed
               ? ""
-              : getAddingUserString())
-                .arg(message.content.text)
+              : getAddingUserString()).arg(content.title)
 
-    function getAddingUserString() {
+    onClicked: AppActions.user.showUserInfo(message.sender)
+
+        function getAddingUserString() {
         if (message.isCollapsed) {
             return ""
         }

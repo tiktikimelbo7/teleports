@@ -380,6 +380,10 @@ QString QTdMessage::summary() const
         content = tr("message TTL has been changed");
         break;
     }
+    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE: {
+        content = tr("created this group");
+        break;
+    }
     case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
         auto *c = qobject_cast<QTdMessageCustomServiceAction*>(m_content);
         content = c->text();
