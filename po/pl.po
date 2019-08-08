@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-07 22:48+0000\n"
-"PO-Revision-Date: 2019-08-02 14:49+0000\n"
+"PO-Revision-Date: 2019-08-09 09:15+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -227,10 +227,8 @@ msgid "message TTL has been changed"
 msgstr "wiadomość TTL została zmieniona"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:384
-#, fuzzy
-#| msgid "joined the group"
 msgid "created this group"
-msgstr "dołączył do grupy"
+msgstr "utworzył tę grupę"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "sent an unknown message: %1"
@@ -594,23 +592,17 @@ msgid "%1 joined the group"
 msgstr "%1 dołączył do grupy"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-#, fuzzy
-#| msgid "%1 invited %2"
 msgid "%1 added %2"
-msgstr "%1 zaprosił %2"
+msgstr "%1 dodał %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
-#, fuzzy
-#| msgid "%1 users"
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] "%1 użytkowników"
+msgstr[0] "%1 użytkownik"
 msgstr[1] "%1 użytkowników"
 msgstr[2] "%1 użytkowników"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-#, fuzzy
-#| msgid "%1 has left the group"
 msgid "%1 left the group"
 msgstr "%1 opuścił grupę"
 
@@ -675,7 +667,7 @@ msgstr "Czas trwania: %1.%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 utworzył grupę o nazwie << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
