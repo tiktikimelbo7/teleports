@@ -6,7 +6,7 @@
 #include "content/qtdmessagecall.h"
 #include "content/qtdmessagechataddmembers.h"
 #include "content/qtdmessagechatchangephoto.h"
-#include "content/qtdmessagechangechattitle.h"
+#include "content/qtdmessagechatchangetitle.h"
 #include "content/qtdmessagechatdeletemember.h"
 #include "content/qtdmessagechatdeletephoto.h"
 #include "content/qtdmessagechatjoinbylink.h"
@@ -14,6 +14,7 @@
 #include "content/qtdmessagechatupgradefrom.h"
 #include "content/qtdmessagechatupgradeto.h"
 #include "content/qtdmessagecontact.h"
+#include "content/qtdmessagescreenshottaken.h"
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagelocation.h"
 #include "content/qtdmessagephoto.h"
@@ -54,6 +55,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageBasicGroupChatCreate(parent);
     } else if (type == "messageCall") {
         return new QTdMessageCall(parent);
+    } else if (type == "messageScreenshotTaken") {
+        return new QTdMessageScreenshotTaken(parent);
     } else if (type == "messageChatAddMembers") {
         return new QTdMessageChatAddMembers(parent);
     } else if (type == "messageChatChangePhoto") {

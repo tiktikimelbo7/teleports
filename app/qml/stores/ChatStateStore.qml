@@ -24,7 +24,6 @@ Store {
         id: chatList
         onCurrentChatChanged: {
             if (chatList.currentChat) {
-                messageList.loadMore()
                 AppActions.view.pushToStack("qrc:/pages/MessageListPage.qml", {})
             } else {
                 AppActions.view.popFromStack()
@@ -112,15 +111,26 @@ Store {
     }
 
     Filter {
-        type: ChatKey.loadMoreMessages
+        type: ChatKey.loadOlderMessages
         onDispatched: {
             if (d.canLoadMoreMessages) {
-                messageList.loadMore()
+                messageList.loadOlder()
                 d.canLoadMoreMessages = false
                 enableLoadTimer.start()
             }
         }
     }
+    Filter {
+        type: ChatKey.loadNewerMessages
+        onDispatched: {
+            if (d.canLoadMoreMessages) {
+                messageList.loadNewer()
+                d.canLoadMoreMessages = false
+                enableLoadTimer.start()
+            }
+        }
+    }
+
 
     Filter {
         type: ChatKey.sendEditMessageText

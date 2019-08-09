@@ -123,10 +123,11 @@ set(
     messages/content/qtdcontact.cpp
     messages/content/qtdformattedtext.cpp
     messages/content/qtdmessageanimation.cpp
+    messages/content/qtdmessageunreadlabel.cpp
     messages/content/qtdmessageaudio.cpp
     messages/content/qtdmessagebasicgroupchatcreate.cpp
     messages/content/qtdmessagecall.cpp
-    messages/content/qtdmessagechangechattitle.cpp
+    messages/content/qtdmessagechatchangetitle.cpp
     messages/content/qtdmessagechataddmembers.cpp
     messages/content/qtdmessagechatchangephoto.cpp
     messages/content/qtdmessagechatdeletemember.cpp
@@ -148,6 +149,7 @@ set(
     messages/content/qtdtextentitytype.cpp
     messages/content/qtdlocation.cpp
     messages/content/qtdwebpage.cpp
+    messages/content/qtdmessagescreenshottaken.cpp
     messages/qtdchatstate.cpp
     messages/qtdmessage.cpp
     messages/qtdmessagecontent.cpp

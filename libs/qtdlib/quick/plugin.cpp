@@ -30,7 +30,7 @@
 #include "messages/content/qtdmessagecall.h"
 #include "messages/content/qtdmessagechataddmembers.h"
 #include "messages/content/qtdmessagechatchangephoto.h"
-#include "messages/content/qtdmessagechangechattitle.h"
+#include "messages/content/qtdmessagechatchangetitle.h"
 #include "messages/content/qtdmessagechatdeletemember.h"
 #include "messages/content/qtdmessagechatdeletephoto.h"
 #include "messages/content/qtdmessagechatjoinbylink.h"
@@ -44,6 +44,7 @@
 #include "messages/content/qtdmessagesticker.h"
 #include "messages/content/qtdmessagetext.h"
 #include "messages/content/qtdmessagevideo.h"
+#include "messages/content/qtdmessagescreenshottaken.h"
 #include "notifications/qtdenablenotifications.h"
 
 #include "utils/qtdtextformatter.h"
@@ -179,6 +180,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessagePhoto>(uri, 1, 0, "QTdMessagePhoto", "C++ class");
     qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");
     qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageScreenshotTaken>(uri, 1, 0, "QTdMessageScreenshotTaken", "C++ class");
     qmlRegisterUncreatableType<QTdMessageVideo>(uri, 1, 0, "QTdMessageVideo", "C++ class");
     qmlRegisterUncreatableType<QTdFormattedText>(uri, 1, 0, "QTdFormattedText", "C++ class");
     qmlRegisterUncreatableType<QTdWebPage>(uri, 1, 0, "QTdWebPage", "C++ class");
