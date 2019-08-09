@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 09:29+0000\n"
-"PO-Revision-Date: 2019-08-09 15:34+0000\n"
+"PO-Revision-Date: 2019-08-10 15:34+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -46,10 +46,8 @@ msgid "sent you a document"
 msgstr "le envió un documento"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent you a audio message"
-msgstr "enviado mensaje de audio"
+msgstr "le envió un mensaje de audio"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
@@ -270,10 +268,8 @@ msgid "Me"
 msgstr "Yo"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:214
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Unread Messages"
-msgstr "Mensajes guardados"
+msgstr "Mensajes no leídos"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -574,7 +570,7 @@ msgstr "Abandonar"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Falta la etiqueta..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -632,10 +628,8 @@ msgstr[0] "%1 usuario(s)"
 msgstr[1] ""
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "Voice note"
-msgstr "enviado mensaje de voz"
+msgstr "Nota de voz"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
