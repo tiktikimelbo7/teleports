@@ -10,6 +10,7 @@
 #include "files/qtdvideo.h"
 #include "files/qtddocument.h"
 #include "files/qtdsticker.h"
+#include "files/qtdvoicenote.h"
 
 class QTdWebPage : public QTdObject
 {
@@ -30,6 +31,7 @@ class QTdWebPage : public QTdObject
     Q_PROPERTY(QTdAnimation* animation READ animation NOTIFY webPageChanged)
     Q_PROPERTY(QTdAudio* audio READ audio NOTIFY webPageChanged)
     Q_PROPERTY(QTdVideo* video READ video NOTIFY webPageChanged)
+    Q_PROPERTY(QTdVoiceNote* voiceNote READ voiceNote NOTIFY webPageChanged)
     Q_PROPERTY(QTdDocument* document READ document NOTIFY webPageChanged)
     Q_PROPERTY(QTdSticker* sticker READ sticker NOTIFY webPageChanged)
     /**
@@ -71,6 +73,8 @@ public:
 
     QTdVideo *video() const;
 
+    QTdVoiceNote *voiceNote() const;
+
     QTdDocument *document() const;
 
     QTdSticker *sticker() const;
@@ -101,6 +105,7 @@ private:
     QScopedPointer<QTdDocument> m_document;
     QScopedPointer<QTdSticker> m_sticker;
     QScopedPointer<QTdVideo> m_video;
+    QScopedPointer<QTdVoiceNote> m_voiceNote;
     bool m_hasInstantView;
 };
 
