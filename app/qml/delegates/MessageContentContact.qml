@@ -9,17 +9,40 @@ import "../components"
 MessageContentBase {
     id: item
 
-    property QTdMessageContact contact: message.content
+    property QTdContact contact: message.content.contact
+    property QTdUser user: contact.user
 
-    Text {
-        anchors {
-            top: parent.top
-            topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
+    RowLayout {
+        GenericPhoto {
+            id: avatar
+            height: units.gu(13)
+            width: height
+            photoPath: user.profilePhoto.small.local.path ?
+                    user.profilePhoto.small.local.path : ""
+            initials: user.initials ? user.initials : "N/A"
+            myself: false
+            visible: contact.user_id != "0"
+        }        
+        ColumnLayout {
+            anchors {
+                top: parent.top
+                topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
+            }
+            Text {
+
+                text: "<b>%1 %2</b>".arg(contact.first_name).arg(contact.last_name)
+            }
+            Text {
+
+                text: contact.phone_number ? contact.phone_number
+                                        : ""
+            }
+            Text {
+
+                text: user.username ? "@" + user.username
+                                          : ""
+            }
         }
-
-        text: i18n.tr("Contact") + ":<br>"
-           + "<b>%1 %2</b><br>".arg(contact.contact.first_name).arg(contact.contact.last_name)
-           + contact.contact.phone_number
     }
 
     MouseArea {

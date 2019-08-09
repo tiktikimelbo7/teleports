@@ -149,6 +149,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdAudio>(uri, 1, 0, "QTdAudio", "c++ class");
     qmlRegisterUncreatableType<QTdVideo>(uri, 1, 0, "QTdVideo", "c++ class");
     qmlRegisterUncreatableType<QTdDocument>(uri, 1, 0, "QTdDocument", "c++ class");
+    qmlRegisterUncreatableType<QTdContact>(uri, 1, 0, "QTdContact", "c++ class");
     qmlRegisterUncreatableType<QTdSticker>(uri, 1, 0, "QTdSticker", "c++ class");
 
     // qtdlib notifications
