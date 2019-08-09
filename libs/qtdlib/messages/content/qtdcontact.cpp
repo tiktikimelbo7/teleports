@@ -56,9 +56,6 @@ void QTdContact::unmarshalJson(const QJsonObject &json)
     m_vcard = json["vcard"].toString();
     m_user_id = json["user_id"].toInt();
     emit dataChanged();
-    QJsonDocument doc(json);
-    QString strJson(doc.toJson(QJsonDocument::Compact));
-    qWarning() << strJson << ": " << m_phone_number;
     auto *users = QTdUsers::instance()->model();
     if (users->getByUid(qmlUserId())) {
         emit userChanged();
