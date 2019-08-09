@@ -636,6 +636,10 @@ msgstr "Info del paquet d'adhesius"
 msgid "Edited"
 msgstr "Editat"
 
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr ""
+
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
 msgstr "Reenviat des de "

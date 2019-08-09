@@ -638,6 +638,10 @@ msgstr "貼圖資訊"
 msgid "Edited"
 msgstr "已編輯"
 
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr ""
+
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
 msgstr "轉寄 "

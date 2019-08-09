@@ -638,6 +638,10 @@ msgstr "Informação do pacote de autocolantes"
 msgid "Edited"
 msgstr "Editado"
 
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr ""
+
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
 msgstr "Encaminhado de "

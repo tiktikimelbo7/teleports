@@ -641,6 +641,10 @@ msgstr "Info pacchetto di sticker"
 msgid "Edited"
 msgstr "Modificato"
 
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr ""
+
 #: ../app/qml/delegates/MessageContentBase.qml:35
 #, fuzzy
 #| msgid "Forward"
