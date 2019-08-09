@@ -5,7 +5,8 @@ import QuickFlux 1.1
 KeyTable {
     property string setCurrentChat
     property string closeCurrentChat
-    property string loadMoreMessages
+    property string loadOlderMessages
+    property string loadNewerMessages
     property string sendMessage
     property string sendDocument
     property string sendPhoto

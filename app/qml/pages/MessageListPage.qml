@@ -15,6 +15,7 @@ import "../stores"
 
 Page {
     property QTdChat currentChat: Telegram.chats.currentChat
+    property int currentMessageIndex: currentChat.currentMessageIndex
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
         subtitle: {
@@ -219,6 +220,9 @@ Page {
                 fill: parent
                 bottomMargin: Suru.units.gu(1)
             }
+
+            highlightRangeMode: ListView.ApplyRange
+
             model: Telegram.chats.messageList
             verticalLayoutDirection: ListView.BottomToTop
             delegate: Component {
@@ -227,19 +231,23 @@ Page {
                     width: parent.width
                     height: childrenRect.height
                     Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {message: modelData, chat: Telegram.chats.chat })
+                    asynchronous: false
                 }
             }
 
-            /**
-             * When we are near the top of the listview
-             * we want to load more messages.
-             * the visible area positioning goes from
-             * 1.0 to 0.0 because we start at y end
-             * so when we get below 0.02 we trigger another load action
-             */
             visibleArea.onYPositionChanged: {
-                if (visibleArea.yPosition < 0.02 && model.count > 20) {
-                    AppActions.chat.loadMoreMessages()
+                if (visibleArea.yPosition < 0.05 && model.count > 10) {
+                    AppActions.chat.loadOlderMessages()
+                }
+
+                if (visibleArea.yPosition > 1-visibleArea.heightRatio-0.05 && model.count > 10) {
+                    AppActions.chat.loadNewerMessages()
+                } 
+            }
+
+            onMovingChanged: {
+                if (moving && highlightRangeMode != ListView.NoHighlightRange) {
+                    highlightRangeMode = ListView.NoHighlightRange;
                 }
             }
         }
@@ -501,5 +509,10 @@ Page {
            }
        }
 
+    }
+
+    onCurrentMessageIndexChanged: {
+        msgList.currentIndex = currentMessageIndex
+        msgList.positionViewAtIndex(currentMessageIndex, ListView.Center);
     }
 }

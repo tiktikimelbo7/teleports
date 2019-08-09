@@ -122,6 +122,7 @@ set(
     files/qtdvideo.cpp
     messages/content/qtdformattedtext.cpp
     messages/content/qtdmessageanimation.cpp
+    messages/content/qtdmessageunreadlabel.cpp
     messages/content/qtdmessageaudio.cpp
     messages/content/qtdmessagebasicgroupchatcreate.cpp
     messages/content/qtdmessagecall.cpp

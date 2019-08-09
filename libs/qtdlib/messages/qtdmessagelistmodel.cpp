@@ -19,15 +19,14 @@
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
 
+
 QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_chat(Q_NULLPTR)
+    m_model(Q_NULLPTR), m_chat(Q_NULLPTR), m_messageHandler(Q_NULLPTR), m_isHandleUpdateLastChatMessageConnected(false)
 {
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::messages, this, &QTdMessageListModel::handleMessages);
-    connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
     connect(QTdClient::instance(), &QTdClient::updateMessageSendSucceeded, this, &QTdMessageListModel::handleUpdateMessageSendSucceeded);
     connect(QTdClient::instance(), &QTdClient::updateMessageContent, this, &QTdMessageListModel::handleUpdateMessageContent);
-
 }
 
 QTdChat *QTdMessageListModel::chat() const
@@ -40,46 +39,102 @@ QObject *QTdMessageListModel::qmlModel() const
     return m_model;
 }
 
+bool QTdMessageListModel::isUpToDateAndFollowing() const
+{
+    return m_isHandleUpdateLastChatMessageConnected;
+}
+
+bool QTdMessageListModel::hasNewer() const
+{
+    if (m_model->isEmpty())
+    {
+        return false;
+    }
+
+    return m_chat->lastMessage()->id() != m_model->first()->id();
+}
+
 void QTdMessageListModel::setChat(QTdChat *chat)
 {
     if (m_chat == chat)
         return;
-    if (m_chat) {
+    if (m_chat)
+    {
         disconnect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
     }
 
-    if (!m_model->isEmpty()) {
+    if (!m_model->isEmpty())
+    {
         cleanUp();
     }
 
     m_chat = chat;
 
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
 
-    if (m_chat) {
-        auto *lastMessage = new QTdMessage();
-        lastMessage->unmarshalJson(m_chat->lastMessageJson());
-        m_model->append(lastMessage);
+    if (m_chat)
+    {
         connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
-        loadMessages(m_model->first()->jsonId());
+        if (m_chat->hasUnreadMessages())
+        {
+            m_messageHandler = &unreadLabelWindowMessageHandler;
+            loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW/2, MESSAGE_LOAD_WINDOW/2);
+        }
+        else
+        {
+            m_messageHandler = &olderMessagesHandler;
+            auto *lastMessage = new QTdMessage();
+            lastMessage->unmarshalJson(m_chat->lastMessageJson());
+            m_model->append(lastMessage);
+            loadMessages(m_model->first()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+        }
     }
     m_chat->openChat();
     emit chatChanged(m_chat);
 }
 
-void QTdMessageListModel::loadMore()
+void QTdMessageListModel::loadNewer()
 {
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
-    loadMessages(m_model->last()->jsonId());
+    if (isUpToDateAndFollowing())
+    {
+        return;
+    }
+    if (m_messageHandler)
+    {
+        return;
+    }
+    m_messageHandler = &newerMessagesHandler;
+    loadMessages(m_chat->qmlLastReadInboxMessageId(), 0, MESSAGE_LOAD_WINDOW);
 }
+
+void QTdMessageListModel::loadOlder()
+{
+    if (!m_chat)
+    {
+        return;
+    }
+    if (m_messageHandler)
+    {
+        return;
+    }
+    m_messageHandler = &olderMessagesHandler;
+    loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+}
+
 
 void QTdMessageListModel::cleanUp()
 {
-    if (m_model->isEmpty()) {
+    m_isHandleUpdateLastChatMessageConnected = false;
+    disconnect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
+    if (m_model->isEmpty())
+    {
         return;
     }
     m_model->clear();
@@ -87,108 +142,204 @@ void QTdMessageListModel::cleanUp()
 
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
-
-  QJsonArray messages = json["messages"].toArray();
-  if (messages.count() == 0) {
-      messagesToLoad = -1;
-      return;
-  }
-  QList<qint64> unreadMessages;
-  auto oldestMessage = m_chat->lastReadInboxMessageId();
-  auto newestMessage = m_chat->lastMessage()->id();
-  for (const QJsonValue &msgData : messages)
-  {
-      const QJsonObject data = msgData.toObject();
-      const qint64 mid = qint64(data["id"].toDouble());
-      auto *msg = m_model->getByUid(QString::number(mid));
-      if (!msg)
-      {
-          auto *message = new QTdMessage;
-          message->unmarshalJson(data);
-          if (!m_model->isEmpty())
-          {
-              auto *last = m_model->last();
-              message->setPreviousSenderId(last->senderUserId());
-              last->setNextSenderId(message->senderUserId());
-              /**
-               * If there is a date change between the new and last message
-               * then we insert a date message to group messages from the same
-               * day
-               */
-              const QDate lastDate = last->qmlDate().date();
-              const QDate newDate = message->qmlDate().date();
-              if (lastDate.year() > newDate.year()
-                    || lastDate.month() > newDate.month()
-                    || lastDate.day() > newDate.day()) {
-                  auto *dateMessage = new QTdMessage;
-                  dateMessage->unmarshalJson(QJsonObject{
-                                                 {"dateLabel", last->date()}
-                                             });
-                  m_model->append(dateMessage);
-              }
-          }
-          m_model->append(message);
-          if (mid > oldestMessage && mid <= newestMessage)
-              unreadMessages << mid;
-      }
+    QJsonArray messages = json["messages"].toArray();
+    if (messages.count() == 0)
+    {
+        m_messageHandler = Q_NULLPTR;
+        return;
     }
-    unreadMessages << newestMessage;
-    setMessagesRead(unreadMessages);
+
+    if (!m_messageHandler)
+    {
+        return;
+    }
+
+    m_messageHandler->handle(*this, messages);
+
     emit modelChanged();
-    loadMessages(m_model->last()->jsonId(), messages.count());
+
+    if (m_model->count() < MESSAGE_LOAD_WINDOW && messages.count() > 0)
+    {
+        m_messageHandler = &olderMessagesHandler;
+        loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+    }
+    else
+    {
+        m_messageHandler = Q_NULLPTR;
+    }
+
+    if (!hasNewer())
+    {
+        connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
+        m_isHandleUpdateLastChatMessageConnected = true;
+        m_chat->positionMessageListViewAtIndex(-1);
+    }
+}
+
+void QTdMessageListModel::QTdOlderMessagesHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+{
+    for (unsigned int index = 0; index < messages.count(); index++)
+    {
+        auto * message = messageFromJson(messages[index]);
+        messageListModel.appendMessage(message);
+    }
+}
+
+void QTdMessageListModel::QTdNewerMessagesHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+{
+    QList<qint64> unreadMessages;
+
+    for (int index = messages.count()-1; index >= 0; index--)
+    {
+        auto * message = messageFromJson(messages[index]);
+        messageListModel.prependMessage(message);
+        unreadMessages << message->id();
+    }
+
+    messageListModel.setMessagesRead(unreadMessages);
+}
+
+void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+{
+    QList<qint64> unreadMessages;
+    unsigned int lastReadMessageIndex = 0;
+    auto lastReadMessageId = messageListModel.m_chat->lastReadInboxMessageId();
+
+    for (unsigned int index = 0; index < messages.count(); index++)
+    {
+        auto * message = messageFromJson(messages[index]);
+        if (message->id() == lastReadMessageId)
+        {
+            auto * unreadLabel = new QTdMessage;
+            unreadLabel->unmarshalJson(QJsonObject{{"unreadLabel", tr("Unread Messages")}});
+            messageListModel.m_model->append(unreadLabel);
+            lastReadMessageIndex = index;
+        }
+
+        messageListModel.appendMessage(message);
+        unreadMessages << message->id();
+    }
+
+    messageListModel.m_chat->positionMessageListViewAtIndex(lastReadMessageIndex+1);
+    messageListModel.setMessagesRead(unreadMessages);
+}
+
+void QTdMessageListModel::appendMessage(QTdMessage * message)
+{
+    if (m_model->isEmpty())
+    {
+        m_model->append(message);
+        return;
+    }
+
+    if (m_model->getByUid(message->qmlId()))
+    {
+        return;
+    }
+
+    auto *last = m_model->last();
+    message->setPreviousSenderId(last->senderUserId());
+    last->setNextSenderId(message->senderUserId());
+
+    const QDate lastDate = last->qmlDate().date();
+    const QDate newDate = message->qmlDate().date();
+    if (lastDate.year() > newDate.year()
+        || lastDate.month() > newDate.month()
+        || lastDate.day() > newDate.day())
+    {
+        auto *dateMessage = new QTdMessage;
+        dateMessage->unmarshalJson(QJsonObject{ {"dateLabel", last->date()} });
+        m_model->append(dateMessage);
+    }
+
+    m_model->append(message);
+}
+
+void QTdMessageListModel::prependMessage(QTdMessage * message)
+{
+    if (m_model->isEmpty())
+    {
+        m_model->prepend(message);
+        return;
+    }
+
+    if (m_model->getByUid(message->qmlId()))
+    {
+        return;
+    }
+
+    auto *first = m_model->first();
+    message->setNextSenderId(first->senderUserId());
+    first->setPreviousSenderId(message->senderUserId());
+
+    const QDate newDate = first->qmlDate().date();
+    const QDate lastDate = message->qmlDate().date();
+    if (lastDate.year() > newDate.year()
+        || lastDate.month() > newDate.month()
+        || lastDate.day() > newDate.day())
+    {
+        auto *dateMessage = new QTdMessage;
+        dateMessage->unmarshalJson(QJsonObject{ {"dateLabel", message->date()} });
+        m_model->prepend(dateMessage);
+    }
+
+    m_model->prepend(message);
+}
+
+void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, unsigned int amountOlder, unsigned int amountNewer)
+{
+    QTdClient::instance()->send(QJsonObject{
+        {"@type", "getChatHistory"},
+        {"chat_id", m_chat->jsonId()},
+        {"from_message_id", fromMsgId},
+        {"offset", static_cast<int>(-amountNewer)},
+        {"limit", static_cast<int>(amountOlder+amountNewer+1)},
+        {"only_local", false},
+    });
 }
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 {
-    if (!m_chat || json.isEmpty()) {
+    if (!m_chat || json.isEmpty())
+    {
         return;
     }
+
     const qint64 id = qint64(json["chat_id"].toDouble());
-    if (id != m_chat->id()) {
+    if (id != m_chat->id())
+    {
         return;
     }
-    const QJsonObject message = json["last_message"].toObject();
-    const qint64 mid = qint64(message["id"].toDouble());
-    auto *msg = m_model->getByUid(QString::number(mid));
-    if (msg) {
-        msg->unmarshalJson(message);
+
+    const QJsonObject messageJson = json["last_message"].toObject();
+
+    const qint64 messageId = qint64(messageJson["id"].toDouble());
+    if (!m_model->isEmpty() && m_model->getByUid(QString::number(messageId)))
+    {
         return;
     }
-    auto *m = new QTdMessage();
 
-    if (!m_model->isEmpty()) {
-        auto *first = m_model->first();
-        m->setPreviousSenderId(first->senderUserId());
-        first->setNextSenderId(m->senderUserId());
+    auto *message = new QTdMessage();
+    message->unmarshalJson(messageJson);
+    prependMessage(message);
 
-        const QDate firstDate = first->qmlDate().date();
-        const QDate newDate = m->qmlDate().date();
-        if (firstDate.year() < newDate.year()
-              || firstDate.month() < newDate.month()
-              || firstDate.day() < newDate.day()) {
-            auto *dateMessage = new QTdMessage;
-            dateMessage->unmarshalJson(QJsonObject{
-                                           {"dateLabel", m->date()}
-                                       });
-            m_model->append(dateMessage);
-        }
-    }
-    m->unmarshalJson(message);
-    m_model->prepend(m);
     QList<qint64> unreadMessages;
-    unreadMessages << mid;
+    unreadMessages << messageId;
     setMessagesRead(unreadMessages);
+    unreadMessages.clear();
 }
 
 void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &json)
 {
-    if (json.isEmpty()) {
+    if (json.isEmpty())
+    {
         return;
     }
     const qint64 oldMid = qint64(json["old_message_id"].toDouble());
     auto *msgSent = m_model->getByUid(QString::number(oldMid));
     const QJsonObject message = json["message"].toObject();
-    if (msgSent) {
+    if (msgSent)
+    {
         m_model->remove(msgSent);
         return;
     }
@@ -196,45 +347,25 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
 
 void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
 {
-    if (json.isEmpty()) {
+    if (json.isEmpty())
+    {
         return;
     }
 
     const qint64 messageId = qint64(json["message_id"].toDouble());
     const QJsonObject newContent = json["new_content"].toObject();
     QTdMessage* message = m_model->getByUid(QString::number(messageId));
-    if (message == nullptr) {
+    if (message == nullptr)
+    {
         return;
     }
     message->unmarshalUpdateContent(newContent);
 }
 
-void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, int amount)
-{
-  if (messagesToLoad > -1) {
-      messagesToLoad -= amount;
-      if (messagesToLoad <= 0) {
-        messagesToLoad = -1;
-        return;
-        }
-    } else {
-        messagesToLoad = amount;
-        qWarning() << "Trying to load " << messagesToLoad << "messages";
-    }
-
-    QTdClient::instance()->send(QJsonObject{
-        {"@type", "getChatHistory"},
-        {"chat_id", m_chat->jsonId()},
-        {"from_message_id", fromMsgId},
-        {"offset", 0},
-        {"limit", messagesToLoad},
-        {"only_local", false},
-    });
-}
-
 void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &replyToMessageId)
 {
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
     QString plainText;
@@ -251,7 +382,8 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
         messageText->setText(message);
         messageText->setEntities(formatEntities);
         request->setContent(messageText);
-        if(isFirstMessage) {
+        if(isFirstMessage)
+        {
             request->setReplyToMessageId(replyToMessageId);
             isFirstMessage = false;
         }
@@ -260,10 +392,12 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
         currentMessagePos += maxMessageLength;
     } while (currentMessagePos < plainText.length());
 }
+
 void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
     qDebug() << "send Photo";
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
 
@@ -280,10 +414,12 @@ void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, 
     request->setReplyToMessageId(replyToMessageId);
     QTdClient::instance()->send(request.data());
 }
+
 void QTdMessageListModel::sendDocument(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
     qDebug() << "send Document";
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
 
@@ -342,7 +478,8 @@ void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
 
@@ -357,7 +494,8 @@ void QTdMessageListModel::editMessageText(qint64 messageId, const QString &messa
 
     QFuture<QTdResponse> response = request->sendAsync();
     await(response);
-    if (response.result().isError()) {
+    if (response.result().isError())
+    {
         emit error(response.result().errorString());
     }
 }
@@ -369,7 +507,8 @@ void QTdMessageListModel::editMessageText(const QString &messageId, const QStrin
 
 void QTdMessageListModel::editMessageCaption(qint64 messageId, const QString &message)
 {
-    if (!m_chat) {
+    if (!m_chat)
+    {
         return;
     }
 
@@ -384,7 +523,8 @@ void QTdMessageListModel::editMessageCaption(qint64 messageId, const QString &me
 
     QFuture<QTdResponse> response = request->sendAsync();
     await(response);
-    if (response.result().isError()) {
+    if (response.result().isError())
+    {
         emit error(response.result().errorString());
     }
 }
@@ -413,13 +553,14 @@ void QTdMessageListModel::deleteMessage(qint64 messageId)
     req->setMessageIds(messages);
     QTdClient::instance()->send(req.data());
     auto *msgDeleted = m_model->getByUid(QString::number(messageId));
-    if (msgDeleted) {
+    if (msgDeleted)
+    {
         m_model->remove(msgDeleted);
         return;
     }
 }
 
-void QTdMessageListModel::setMessagesRead( QList<qint64> messages)
+void QTdMessageListModel::setMessagesRead( QList<qint64> & messages)
 {
     //TODO: Determine how to detect which messages are in the visible part of the window
     QScopedPointer<QTdViewMessagesRequest> req(new QTdViewMessagesRequest);

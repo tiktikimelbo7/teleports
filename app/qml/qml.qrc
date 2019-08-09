@@ -44,6 +44,8 @@
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
         <file>delegates/MessageAnimationItem.qml</file>
+        <file>delegates/MessageUnreadLabelItem.qml</file>
+        <file>delegates/MessageBarItem.qml</file>
         <file>delegates/MessageAudioItem.qml</file>
         <file>delegates/MessageDocumentItem.qml</file>
         <file>delegates/MessageLocationItem.qml</file>

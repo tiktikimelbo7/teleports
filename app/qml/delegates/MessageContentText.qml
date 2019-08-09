@@ -20,6 +20,8 @@ MessageContentBase {
         maximumWidth: maximumAvailableContentWidth
         formattedText: textContent.text
 
+        // loading asynchronous with yet undefined height makes jumping
+        // to the first unread message unpresice
         Loader {
             visible: textContent.webPage && !message.isCollapsed
             active: visible

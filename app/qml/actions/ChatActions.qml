@@ -7,7 +7,8 @@ ActionCreator {
     signal setCurrentChatById(string chatId)
     signal closeCurrentChat()
 
-    signal loadMoreMessages();
+    signal loadNewerMessages();
+    signal loadOlderMessages();
 
     signal sendMessage(string text);
     signal sendPhoto(string photoUrl, string text);

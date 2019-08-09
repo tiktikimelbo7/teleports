@@ -328,6 +328,7 @@ void QTdChat::closeChat()
     QScopedPointer<QTdCloseChatRequest> req(new QTdCloseChatRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
+    m_currentMessageIndex= -1;
     emit closed();
 }
 
@@ -490,15 +491,6 @@ void QTdChat::handleUpdateChatAction(const QJsonObject &json)
     updateChatAction(json);
 }
 
-void QTdChat::handleUpdateNewMessage(const QJsonObject &json)
-{
-    auto m_newMsgJson = json["message"].toObject();
-    QTdMessage *newMessage = new QTdMessage();
-    newMessage->unmarshalJson(m_newMsgJson);
-    m_messages->append(newMessage);
-    emit messagesChanged();
-}
-
 void QTdChat::handleChatPhotoDownloaded() {
     QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
 }
@@ -574,3 +566,15 @@ QString QTdChat::formatDate(const QDateTime &dt)
 {
     return QTdHelpers::formatDate(dt);
 }
+
+int QTdChat::currentMessageIndex() const
+{
+    return m_currentMessageIndex;
+}
+
+void QTdChat::positionMessageListViewAtIndex(int index)
+{
+    m_currentMessageIndex = index;
+    currentMessageIndexChanged();
+}
+
