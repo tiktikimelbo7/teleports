@@ -20,6 +20,7 @@
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
+#include "content/qtdmessagevoicenote.h"
 #include "content/qtdmessagecustomserviceaction.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
@@ -44,6 +45,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
           return new QTdMessageVideo(parent);
+    } else if (type == "messageVoiceNote") {
+          return new QTdMessageVoiceNote(parent);
     } else if (type == "messageContactRegistered"){
         return new QTdMessageAction(parent);
     } else if (type =="messageChatJoinByLink"){

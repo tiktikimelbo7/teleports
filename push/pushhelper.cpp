@@ -149,7 +149,11 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
     } else if (key == "MESSAGE_AUDIO" || key == "CHANNEL_MESSAGE_AUDIO") { // no-i18n
 
-        body = N_("sent you a voice message");
+        body = N_("sent you a audio message");
+
+    } else if (key == "MESSAGE_VOICE_NOTE" || key == "CHANNEL_MESSAGE_VOICE_NOTE") { // no-i18n
+
+          body = N_("sent you a voice message");
 
     } else if (key == "MESSAGE_CONTACT" || key == "CHANNEL_MESSAGE_CONTACT") { // no-i18n
 
