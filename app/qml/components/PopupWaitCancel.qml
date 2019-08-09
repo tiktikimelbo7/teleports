@@ -11,7 +11,6 @@ UITK_Popups.Dialog {
 
     property var progress: -1
     property var cancelButtonText: i18n.tr("Cancel")
-    //Only main action should be colored. Cancel should be no color or ash
     property var cancelButtonColor: UITK.UbuntuColors.ash
 
     signal finished();

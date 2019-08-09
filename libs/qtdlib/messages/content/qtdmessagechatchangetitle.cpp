@@ -1,4 +1,4 @@
-#include "qtdmessagechangechattitle.h"
+#include "qtdmessagechatchangetitle.h"
 
 QTdMessageChatChangeTitle::QTdMessageChatChangeTitle(QObject *parent) : QTdMessageContent(parent)
 {
