@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-07 22:48+0000\n"
-"PO-Revision-Date: 2019-08-05 22:49+0000\n"
+"PO-Revision-Date: 2019-08-09 15:34+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -226,10 +226,8 @@ msgid "message TTL has been changed"
 msgstr "la date d'expiration du message a été modifiée"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:384
-#, fuzzy
-#| msgid "joined the group"
 msgid "created this group"
-msgstr "a rejoint le groupe"
+msgstr "a créé ce groupe"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "sent an unknown message: %1"
@@ -596,22 +594,16 @@ msgid "%1 joined the group"
 msgstr "%1 a rejoint le groupe"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-#, fuzzy
-#| msgid "%1 invited %2"
 msgid "%1 added %2"
-msgstr "%1 a invité %2"
+msgstr "%1 a ajouté %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
-#, fuzzy
-#| msgid "%1 users"
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] "%1 utilisateurs"
-msgstr[1] "%1 utilisateurs"
+msgstr[0] "%1 utilisateur/trice"
+msgstr[1] "%1 utilisateurs/trices"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-#, fuzzy
-#| msgid "%1 has left the group"
 msgid "%1 left the group"
 msgstr "%1 a quitté le groupe"
 
@@ -644,7 +636,7 @@ msgstr "Modifié"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Une capture d'écran a été prise"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
@@ -682,7 +674,7 @@ msgstr "Durée : %1.%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 a créé un groupe appelé << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
