@@ -56,12 +56,15 @@ Item {
         Loader {
             id: forwardLoader
             active: message.isForwarded && !message.isReply
+            asynchronous: true
             sourceComponent: forward
         }
+
         // Show an icon on the right to expand/collapse the citation?
         Loader {
             id: citationLoader
             active: message.isReply && !message.isCollapsed
+            asynchronous: true
             sourceComponent: citation
         }
 

@@ -10,18 +10,48 @@
 #include "qtdchatstate.h"
 #include "qtdmessage.h"
 
-#define MESSAGE_LOAD_WINDOW 100
+#define MESSAGE_LOAD_WINDOW 60
 
 class QTdMessageListModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QTdChat *chat READ chat WRITE setChat NOTIFY chatChanged)
     Q_PROPERTY(QObject *model READ qmlModel NOTIFY modelChanged)
+
 public:
     explicit QTdMessageListModel(QObject *parent = nullptr);
 
     QTdChat *chat() const;
     QObject *qmlModel() const;
+
+    class QTdAbstractMessageHandler : public QObject
+    {
+    public: 
+        virtual ~QTdAbstractMessageHandler() {}
+        virtual void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const = 0;
+        QTdMessage * messageFromJson(const QJsonValue &msgData) const
+        {
+            const QJsonObject data = msgData.toObject();
+            auto * message = new QTdMessage;
+            message->unmarshalJson(data);
+            return message;
+        }
+    };
+
+    class QTdNewerMessagesHandler : public QTdAbstractMessageHandler
+    {
+        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+    };
+
+    class QTdOlderMessagesHandler : public QTdAbstractMessageHandler
+    {
+        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+    };
+
+    class QTdUnreadLabelWindowMessageHandler : public QTdAbstractMessageHandler
+    {
+        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+    };
 
 signals:
     void chatChanged(QTdChat *chat);
@@ -31,7 +61,8 @@ signals:
 
 public slots:
     void setChat(QTdChat *chat);
-    void loadMore();
+    void loadNewer();
+    void loadOlder();
     void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);
@@ -53,7 +84,8 @@ private slots:
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
     void handleUpdateMessageContent(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId,
-                      int amount = MESSAGE_LOAD_WINDOW);
+                      unsigned int amountBefore,
+                      unsigned int amountAfter);
     void positionUpdated(const QGeoPositionInfo &info);
 
 private:
@@ -62,10 +94,17 @@ private:
     QPointer<QTdChat> m_chat;
     QPointer<QGeoPositionInfoSource> positionInfoSource;
     QGeoPositionInfo m_positionInfo;
+    QPointer<QTdAbstractMessageHandler> m_messageHandler;
+    QTdNewerMessagesHandler newerMessagesHandler;
+    QTdOlderMessagesHandler olderMessagesHandler;
+    QTdUnreadLabelWindowMessageHandler unreadLabelWindowMessageHandler;
+    bool m_isHandleUpdateLastChatMessageConnected;
 
-    void setMessagesRead(QList<qint64> messages);
-
-    int messagesToLoad = -1;
+    void setMessagesRead(QList<qint64> & messages);
+    void appendMessage(QTdMessage * message);
+    void prependMessage(QTdMessage * message);
+    bool isUpToDateAndFollowing() const;
+    bool hasNewer() const;
 };
 
 #endif // QTDMESSAGELISTMODEL_H

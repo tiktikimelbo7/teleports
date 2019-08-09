@@ -5,6 +5,7 @@
 #include "qtdmessagecontentfactory.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagedate.h"
+#include "content/qtdmessageunreadlabel.h"
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagelocation.h"
@@ -91,12 +92,18 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
         m_content = nullptr;
     }
 
-    // This is a special case to insert a dateLabel into the model
-    // so messages can be grouped by day. It has no data beyond
-    // holding the date so we just return early.
+    // This is a special case to insert a date and unread labels into the
+    // model so messages can be grouped by day and by read-state. No data
+    // beyond so we just return early.
     if (json.keys().contains("dateLabel")) {
         auto *md = new QTdMessageDate(this);
         md->setDate(json["dateLabel"].toInt());
+        m_content = md;
+        return;
+    }
+    if (json.keys().contains("unreadLabel")) {
+        auto *md = new QTdMessageUnreadLabel(this);
+        md->setLabel(json["unreadLabel"].toString());
         m_content = md;
         return;
     }

@@ -55,6 +55,8 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QTdNotificationSettings* notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
     Q_PROPERTY(QString summary READ summary NOTIFY summaryChanged)
     Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
+    Q_PROPERTY(int currentMessageIndex READ currentMessageIndex NOTIFY currentMessageIndexChanged)
+
 
     // TODO:
     // draftMessage:draf_message && updateChatDraftMessage
@@ -218,6 +220,16 @@ public:
     QObject *messages() const;
 
     /**
+     * @brief current messages index in message list view
+     */
+    int currentMessageIndex() const;
+
+    /**
+     * @brief position message list view at index
+     */
+    void positionMessageListViewAtIndex(int index);
+
+    /**
      * @brief Open chat
      *
      * This method should be called if the chat is opened by the user.
@@ -298,6 +310,7 @@ signals:
     void closed();
     void chatUpdated();
     void forwardingMessagesAction(QStringList forwardingMessages, QTdChat* forwarded_from_chat);
+    void currentMessageIndexChanged();
 
 public slots:
     void updateChatOrder(const QJsonObject &json);
@@ -311,7 +324,6 @@ public slots:
     void updateChatNotificationSettings(const QJsonObject &json);
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
-    void handleUpdateNewMessage(const QJsonObject &json);
     void handleChatPhotoDownloaded();
 
 protected:
@@ -351,6 +363,7 @@ private:
 
     QMap<qint32, useraction> m_chatActions;
     QJsonObject m_lastMsgJson;
+    int m_currentMessageIndex = -1;
 };
 
 #endif // QTDCHAT_H
