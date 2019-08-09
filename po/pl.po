@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-07 22:48+0000\n"
-"PO-Revision-Date: 2019-08-09 09:15+0000\n"
+"PO-Revision-Date: 2019-08-09 15:34+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -634,7 +634,7 @@ msgstr "Edytowane"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Zrzut ekranu został zrobiony"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from "
