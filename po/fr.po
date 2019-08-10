@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-09 09:29+0000\n"
-"PO-Revision-Date: 2019-08-09 15:34+0000\n"
+"PO-Revision-Date: 2019-08-10 15:34+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -46,10 +46,8 @@ msgid "sent you a document"
 msgstr "vous a envoyé un document"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent you a audio message"
-msgstr "a envoyé un message audio"
+msgstr "vous a envoyé un message audio"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
@@ -270,10 +268,8 @@ msgid "Me"
 msgstr "Moi"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:214
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Unread Messages"
-msgstr "Messages enregistrés"
+msgstr "Messages non lus"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -362,8 +358,8 @@ msgid ""
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
 "Attention : une déconnexion supprimera toutes les données en local sur cet "
-"appareil, y compris les discussions secrètes. Êtes-vous sûr(e) de vouloir "
-"vous déconnecter ?"
+"appareil, y compris les discussions secrètes. Voulez-vous vraiment vous "
+"déconnecter ?"
 
 #: ../app/qml/pages/SettingsPage.qml:155
 msgid ""
@@ -375,8 +371,7 @@ msgstr ""
 "Attention : la suppression de ce compte supprimera toutes les données que "
 "vous avez reçues ou envoyées en utilisant Telegram, à l'exception des "
 "données que vous avez explicitement enregistrées en dehors des serveurs de "
-"Telegram. Êtes-vous absolument sûr(e) de vouloir supprimer votre compte "
-"Telegram ?"
+"Telegram. Voulez-vous vraiment supprimer votre compte Telegram ?"
 
 #: ../app/qml/pages/SettingsPage.qml:157
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
@@ -567,11 +562,11 @@ msgstr "Fermer"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr "Êtes-vous sûr(e) de vouloir supprimer l'historique ?"
+msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr "Êtes-vous sûr(e) de vouloir quitter cette discussion ?"
+msgstr "Voulez-vous vraiment quitter cette discussion ?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
@@ -579,7 +574,7 @@ msgstr "Partir"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Étiquette manquante..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -637,10 +632,8 @@ msgstr[0] "%1 utilisateur/trice"
 msgstr[1] "%1 utilisateurs/trices"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "Voice note"
-msgstr "a envoyé une note vocale"
+msgstr "Note vocale"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
