@@ -20,6 +20,7 @@
 #include "content/qtdmessagesticker.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
+#include "content/qtdmessagevideonote.h"
 #include "content/qtdmessagevoicenote.h"
 #include "content/qtdmessagecustomserviceaction.h"
 
@@ -45,6 +46,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
           return new QTdMessageVideo(parent);
+    } else if (type == "messageVideoNote") {
+          return new QTdMessageVideoNote(parent);
     } else if (type == "messageVoiceNote") {
           return new QTdMessageVoiceNote(parent);
     } else if (type == "messageContactRegistered"){

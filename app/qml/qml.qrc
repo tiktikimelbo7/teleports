@@ -50,6 +50,7 @@
         <file>delegates/MessageDocumentItem.qml</file>
         <file>delegates/MessageLocationItem.qml</file>
         <file>delegates/MessageVideoItem.qml</file>
+        <file>delegates/MessageVideoNote.qml</file>
         <file>delegates/MessageVoiceNote.qml</file>
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
@@ -86,6 +87,7 @@
         <file>delegates/MessageContentCall.qml</file>
         <file>delegates/MessageContentSticker.qml</file>
         <file>delegates/MessageContentPhoto.qml</file>
+        <file>delegates/MessageContentVideoNote.qml</file>
         <file>delegates/MessageContentVoiceNote.qml</file>
         <file>delegates/MessageCustomServiceAction.qml</file>
         <file>delegates/MessageUnavailable.qml</file>
