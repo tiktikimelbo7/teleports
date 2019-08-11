@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-10 15:34+0000\n"
+"PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -47,8 +47,6 @@ msgid "sent you a document"
 msgstr "wysłał Tobie dokument"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent you a audio message"
 msgid "sent you an audio message"
 msgstr "wysłałem Ci wiadomość audio"
 
