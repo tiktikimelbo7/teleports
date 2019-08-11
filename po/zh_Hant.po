@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 09:29+0000\n"
+"POT-Creation-Date: 2019-08-10 20:33+0000\n"
 "PO-Revision-Date: 2019-07-25 18:49+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -48,7 +48,7 @@ msgstr "向您發送了一個文件"
 #: ../push/pushhelper.cpp:152
 #, fuzzy
 #| msgid "sent an audio message"
-msgid "sent you a audio message"
+msgid "sent you an audio message"
 msgstr "發送了一則音訊訊息"
 
 #: ../push/pushhelper.cpp:156

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-09 09:29+0000\n"
+"POT-Creation-Date: 2019-08-10 20:33+0000\n"
 "PO-Revision-Date: 2019-08-09 09:15+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -48,7 +48,7 @@ msgstr "t'at imbiadu unu documentu"
 #: ../push/pushhelper.cpp:152
 #, fuzzy
 #| msgid "sent an audio message"
-msgid "sent you a audio message"
+msgid "sent you an audio message"
 msgstr "at imbiadu unu messàgiu de àudio"
 
 #: ../push/pushhelper.cpp:156
