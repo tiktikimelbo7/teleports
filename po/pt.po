@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-07 20:51+0000\n"
+"PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -46,10 +46,8 @@ msgid "sent you a document"
 msgstr "enviou-lhe um documento"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent you an audio message"
-msgstr "enviou-lhe uma mensagem de áudio"
+msgstr "enviou uma mensagem de áudio"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
@@ -258,10 +256,8 @@ msgid "message TTL has been changed"
 msgstr "mensagem TTL foi alterada"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:391
-#, fuzzy
-#| msgid "joined the group"
 msgid "created this group"
-msgstr "juntou-se ao grupo"
+msgstr "criou este grupo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:399
 msgid "sent an unknown message: %1"
@@ -272,10 +268,8 @@ msgid "Me"
 msgstr "Eu"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:214
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Unread Messages"
-msgstr "Mensagens guardadas"
+msgstr "Mensagens não lidas"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -579,7 +573,7 @@ msgstr "Sair"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Etiqueta em falta..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -612,41 +606,33 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Uma captura de ecrã foi tirada"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-#, fuzzy
-#| msgid "%1 has left the group"
 msgid "%1 left the group"
 msgstr "%1 saiu do grupo"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 criou um grupo chamado << %2 >>"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
 msgstr "%1 juntou-se ao grupo"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-#, fuzzy
-#| msgid "%1 invited %2"
 msgid "%1 added %2"
-msgstr "%1 convidou %2"
+msgstr "%1 adicionou %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
-#, fuzzy
-#| msgid "%1 users"
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] "%1 utilizadores"
+msgstr[0] "%1 utilizador(es)"
 msgstr[1] "%1 utilizadores"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "Voice note"
-msgstr "enviou uma nota de voz"
+msgstr "Nota de voz"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
