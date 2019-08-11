@@ -120,6 +120,7 @@ set(
     files/qtdremotefile.cpp
     files/qtdsticker.cpp
     files/qtdvideo.cpp
+    files/qtdvideonote.cpp
     files/qtdvoicenote.cpp
     messages/content/qtdformattedtext.cpp
     messages/content/qtdmessageanimation.cpp
@@ -144,6 +145,7 @@ set(
     messages/content/qtdmessagesticker.cpp
     messages/content/qtdmessagetext.cpp
     messages/content/qtdmessagevideo.cpp
+    messages/content/qtdmessagevideonote.cpp
     messages/content/qtdmessagevoicenote.cpp
     messages/content/qtdtextentity.cpp
     messages/content/qtdtextentitytype.cpp
