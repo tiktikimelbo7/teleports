@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-10 15:34+0000\n"
+"PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -46,8 +46,6 @@ msgid "sent you a document"
 msgstr "le envió un documento"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent you a audio message"
 msgid "sent you an audio message"
 msgstr "le envió un mensaje de audio"
 
@@ -447,11 +445,11 @@ msgstr "Versión %1"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr "Obtener código fuente"
+msgstr "Obtener el código"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
-msgstr "Informar de fallos"
+msgstr "Informar de problemas"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
@@ -460,7 +458,7 @@ msgstr "Ayudar a traducir"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr "Desconectado"
+msgstr "Sin conexión"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
