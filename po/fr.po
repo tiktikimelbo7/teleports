@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-10 15:34+0000\n"
+"PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -46,8 +46,6 @@ msgid "sent you a document"
 msgstr "vous a envoyé un document"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent you a audio message"
 msgid "sent you an audio message"
 msgstr "vous a envoyé un message audio"
 
@@ -451,7 +449,7 @@ msgstr "Version %1"
 
 #: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
-msgstr "Obtenir le code source"
+msgstr "Récupérer le code source"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
@@ -459,7 +457,7 @@ msgstr "Signaler un problème"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
-msgstr "Aider à la traduction"
+msgstr "Aider à traduire"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
