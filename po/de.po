@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-11 07:56+0000\n"
+"PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
@@ -46,8 +46,6 @@ msgid "sent you a document"
 msgstr "hat Dir ein Dokument geschickt"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent you an audio message"
 msgstr "hat eine Audionachricht geschickt"
 
