@@ -323,7 +323,7 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_CALL: {
-        content = tr("call has been ended");
+        content = tr("Phone call");
         break;
     }
     case QTdObject::MESSAGE_AUDIO: {
@@ -379,7 +379,8 @@ QString QTdMessage::summary() const
         content = tr("deleted the chat photo");
         break;
     }
-    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM: {
+    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM:
+    case QTdObject::MESSAGE_CHAT_UPGRADE_TO: {
         content = tr("upgraded to supergroup");
         break;
     }
@@ -396,7 +397,11 @@ QString QTdMessage::summary() const
         content = c->text();
         break;
     }
-    default : content = tr("sent an unknown message: %1").arg(m_content->typeString());
+    case QTdObject::MESSAGE_UNSUPPORTED: {
+        content = tr("Unsupported message");
+        break;
+    }
+    default : content = tr("Unimplemented: %1").arg(m_content->typeString());
         break;
     }
 

@@ -15,18 +15,21 @@
 #include "../../common/auxdb/auxdb.h"
 #include "../../common/auxdb/avatarmaptable.h"
 
-QJsonObject execTd(const QJsonObject &json) {
-    qDebug() << "[EXEC]" << json;
+QJsonObject execTd(const QJsonObject &json, const bool debug) {
+    if (debug)
+        qDebug() << "[EXEC]" << json;
     const QByteArray  tmp = (QJsonDocument(json).toJson(QJsonDocument::Compact) % '\0');
     QSharedPointer<Handle> tdlib = QTdHandle::instance();
     const QByteArray  str = QByteArray(td_json_client_execute(tdlib->handle(), tmp.constData()));
     const QJsonObject ret = QJsonDocument::fromJson(str).object();
-    qDebug() << "[EXEC RESULT]" << ret;
+    if (debug)
+        qDebug() << "[EXEC RESULT]" << ret;
     return ret;
 }
 
-void sendTd(const QJsonObject &json) {
-    qDebug() << "[SEND] :" << json;
+void sendTd(const QJsonObject &json, const bool debug) {
+    if (debug)
+        qDebug() << "[SEND] :" << json;
     const QByteArray msg = QJsonDocument(json).toJson(QJsonDocument::Compact).append('\0');
     QSharedPointer<Handle> tdlib = QTdHandle::instance();
     td_json_client_send(tdlib->handle(), msg.constData());
@@ -38,8 +41,13 @@ QTdClient::QTdClient(QObject *parent) : QObject(parent),
     m_connectionState(Q_NULLPTR),
     m_tagcounter(0),
     m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
-              QGuiApplication::applicationDirPath().append("/assets"), this)
+              QGuiApplication::applicationDirPath().append("/assets"), this),
+    m_debug(false)
 {
+    if (!m_debug) {
+        m_debug = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
+    }
+
     init();
     QTdWorker *w = new QTdWorker;
     w->moveToThread(m_worker.data());
@@ -79,14 +87,14 @@ void QTdClient::send(const QJsonObject &json)
         qDebug() << "Empty Json object, nothing to send?";
         return;
     }
-    QtConcurrent::run(sendTd, json);
+    QtConcurrent::run(sendTd, json, m_debug);
 }
 
 QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*signal)(QJsonObject)) {
     QJsonObject data = obj->marshalJson();
     const QString tag = getTag();
     data["@extra"] = tag;
-    QFuture<QTdResponse> f = QtConcurrent::run([](void(QTdClient::*s)(QJsonObject), const QJsonObject &data, const QString &tag)->QTdResponse{
+    QFuture<QTdResponse> f = QtConcurrent::run([this](void(QTdClient::*s)(QJsonObject), const QJsonObject &data, const QString &tag)->QTdResponse{
         // TODO: Should we wrap this up in a QRunnable instead of using an event loop
         QEventLoop loop;
 
@@ -113,7 +121,7 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*sig
          * for the next available thread the request is always sent "after" setting up the response
          * slots.
          */
-        sendTd(data);
+        sendTd(data, m_debug);
 
         loop.exec();
         disconnect(con1);
@@ -130,18 +138,14 @@ QFuture<QJsonObject> QTdClient::exec(QTdRequest *obj)
 
 QFuture<QJsonObject> QTdClient::exec(const QJsonObject &json)
 {
-    return QtConcurrent::run(execTd, json);
+    return QtConcurrent::run(execTd, json, m_debug);
 }
 
 void QTdClient::handleRecv(const QJsonObject &data)
 {
-    static bool DEBUG_TDLIB = false;
-    if (!DEBUG_TDLIB) {
-        DEBUG_TDLIB = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
-    }
     const QString type = data["@type"].toString();
 
-    if (DEBUG_TDLIB) {
+    if (m_debug) {
         qDebug() << "-------------[ RCV ]-----------------------";
         qDebug() << "TYPE >> " << type;
         qDebug() << "DATA >> " << data;
@@ -152,11 +156,9 @@ void QTdClient::handleRecv(const QJsonObject &data)
         m_events.value(type)(data);
         return;
     }
-    if (DEBUG_TDLIB) {
-        qDebug() << "---------[UNHANDLED]-------------";
-        qDebug() << type;
-        qDebug() << "---------------------------------";
-    }
+    qWarning() << "---------[UNHANDLED]-------------";
+    qWarning() << type;
+    qWarning() << "---------------------------------";
 }
 
 void QTdClient::init()
@@ -231,7 +233,13 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
     m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
 
-    m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data){ emit updateUserChatAction(data); });
+    m_events.insert(QStringLiteral("updateUnreadMessageCount"), [=](const QJsonObject &data) { emit updateUnreadMessageCount(data); });
+    m_events.insert(QStringLiteral("updateScopeNotificationSettings"), [=](const QJsonObject &data) { emit updateScopeNotificationSettings(data); });
+    m_events.insert(QStringLiteral("updateUnreadChatCount"), [=](const QJsonObject &data) { emit updateUnreadChatCount(data); });
+    m_events.insert(QStringLiteral("updateMessageEdited"), [=](const QJsonObject &data) { emit updateMessageEdited(data); });
+    m_events.insert(QStringLiteral("updateDeleteMessages"), [=](const QJsonObject &data) { emit updateDeleteMessages(data); });
+
+    m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data) { emit updateUserChatAction(data); });
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data){ emit updateChatNotificationSettings(data); });
 
     m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data){ emit messages(data); });

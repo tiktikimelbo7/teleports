@@ -23,6 +23,7 @@
 #include "content/qtdmessagevideonote.h"
 #include "content/qtdmessagevoicenote.h"
 #include "content/qtdmessagecustomserviceaction.h"
+#include "content/qtdmessageunsupported.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
@@ -72,12 +73,14 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatDeletePhoto(parent);
     } else if (type == "messageChatSetTtl") {
         return new QTdMessageChatSetTTL(parent);
-    } else if (type == "messageChatUgradeFrom") {
+    } else if (type == "messageChatUpgradeFrom") {
         return new QTdMessageChatUpgradeFrom(parent);
-    } else if (type == "messageChatUgradeTo") {
+    } else if (type == "messageChatUpgradeTo") {
         return new QTdMessageChatUpgradeTo(parent);
     } else if (type == "messageCustomServiceAction") {
         return new QTdMessageCustomServiceAction(parent);
+    } else if (type == "messageUnsupported") {
+        return new QTdMessageUnsupported(parent);
     }
     qWarning()<< "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);

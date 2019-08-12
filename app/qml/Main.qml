@@ -41,7 +41,6 @@ ApplicationWindow {
                         easing.type: Easing.OutQuad
                     }
                 }
-                onBottomMarginChanged: console.debug("TODO: implement scrool to correct position")
             }
         }
 
