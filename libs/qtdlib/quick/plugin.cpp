@@ -46,6 +46,7 @@
 #include "messages/content/qtdmessagevideo.h"
 #include "messages/content/qtdmessagevideonote.h"
 #include "messages/content/qtdmessagevoicenote.h"
+#include "messages/content/qtdmessageunsupported.h"
 #include "notifications/qtdenablenotifications.h"
 
 #include "utils/qtdtextformatter.h"
@@ -180,6 +181,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessageSticker>(uri, 1, 0, "QTdMessageSticker", "C++ class");
     qmlRegisterUncreatableType<QTdMessageText>(uri, 1, 0, "QTdMessageText", "C++ class");
     qmlRegisterUncreatableType<QTdMessageScreenshotTaken>(uri, 1, 0, "QTdMessageScreenshotTaken", "C++ class");
+    qmlRegisterUncreatableType<QTdMessageUnsupported>(uri, 1, 0, "QTdMessageUnsupported", "C++ class");
     qmlRegisterUncreatableType<QTdMessageVideo>(uri, 1, 0, "QTdMessageVideo", "C++ class");
     qmlRegisterUncreatableType<QTdMessageVideoNote>(uri, 1, 0, "QTdMessageVideoNote", "C++ class");
     qmlRegisterUncreatableType<QTdMessageVoiceNote>(uri, 1, 0, "QTdMessageVoiceNote", "C++ class");

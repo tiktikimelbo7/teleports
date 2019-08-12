@@ -151,6 +151,7 @@ set(
     messages/content/qtdtextentitytype.cpp
     messages/content/qtdlocation.cpp
     messages/content/qtdwebpage.cpp
+    messages/content/qtdmessageunsupported.cpp
     messages/content/qtdmessagescreenshottaken.cpp
     messages/qtdchatstate.cpp
     messages/qtdmessage.cpp

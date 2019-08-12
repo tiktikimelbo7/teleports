@@ -188,7 +188,7 @@ void QTdSuperGroupChat::onChatOpened()
 void QTdSuperGroupChat::getSuperGroupData()
 {
     QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup*>(chatType());
-    if (group->superGroupId() > 0) {
+    if (group && group->superGroupId() > 0) {
         QScopedPointer<QTdGetSuperGroupRequest> req(new QTdGetSuperGroupRequest);
         req->setSuperGroupId(group->superGroupId());
         QTdClient::instance()->send(req.data());

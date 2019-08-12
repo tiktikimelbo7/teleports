@@ -19,6 +19,10 @@ MessageContentDelegateMap::MessageContentDelegateMap(QObject *parent) : QObject(
     m_delegates.insert(QTdObject::MESSAGE_VOICE_NOTE, QStringLiteral("qrc:///delegates/MessageContentVoiceNote.qml"));
     m_delegates.insert(QTdObject::MESSAGE_VIDEO_NOTE, QStringLiteral("qrc:///delegates/MessageContentVideoNote.qml"));
     m_delegates.insert(QTdObject::MESSAGE_SCREENSHOT_TAKEN, QStringLiteral("qrc:///delegates/MessageScreenshotTaken.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_UNSUPPORTED, QStringLiteral("qrc:///delegates/MessageUnsupported.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_TO, QStringLiteral("qrc:///delegates/MessageChatUpgradeTo.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_FROM, QStringLiteral("qrc:///delegates/MessageChatUpgradeFrom.qml"));
+
     m_default = QStringLiteral("qrc:///delegates/NotImplementedYet.qml");
 }
 
