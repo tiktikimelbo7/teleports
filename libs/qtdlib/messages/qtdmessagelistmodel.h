@@ -75,7 +75,8 @@ public slots:
     void editMessageCaption(const QString &messageId, const QString &message);
     void sendReplyToMessage(const qint64 &replyToMessageId, const QString &message);
     void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
-    void deleteMessage(qint64 messageId);
+    void deleteMessage(const qint64 messageId);
+    void deleteMessages(const QList<qint64> &messageIds);
 
 private slots:
     void cleanUp();
@@ -83,6 +84,7 @@ private slots:
     void handleUpdateChatLastMessage(const QJsonObject &json);
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
     void handleUpdateMessageContent(const QJsonObject &json);
+    void handleUpdateDeleteMessages(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId,
                       unsigned int amountBefore,
                       unsigned int amountAfter);

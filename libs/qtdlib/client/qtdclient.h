@@ -140,7 +140,6 @@ signals:
     void updateUnreadMessageCount(const QJsonObject &message);
     void updateScopeNotificationSettings(const QJsonObject &message);
     void updateMessageEdited(const QJsonObject &message);
-    void updateDeleteMessage(const QJsonObject &message);
     void updateUnreadChatCount(const QJsonObject &message);
     void updateNewMessage(const QJsonObject &message);
 
