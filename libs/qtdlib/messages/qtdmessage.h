@@ -81,6 +81,8 @@ public:
 
     QString views() const;
 
+    void setViews(const qint32 value);
+
     bool containsUnreadMention() const;
 
     QTdMessageContent *content() const;
