@@ -273,11 +273,17 @@ QString QTdMessage::views() const
 {
 
     if (m_views > 9999 && m_views <= 999999)
-        return  QString("%1K").arg(((double)(m_views/ 100)) / 10, 0, 'd', 1);
+        return QString("%1K").arg(((double)(m_views / 100)) / 10, 0, 'd', 1);
     else if (m_views > 999999)
         return QString("%1M").arg(((double)(m_views / 100000)) / 10, 0, 'd', 1);
     else
         return QString("%1").arg(m_views);
+}
+
+void QTdMessage::setViews(const qint32 value)
+{
+    m_views = value;
+    emit messageChanged();
 }
 
 bool QTdMessage::containsUnreadMention() const
@@ -310,15 +316,13 @@ QString QTdMessage::summary() const
     QString content;
 
     switch (m_content->type()) {
-    case QTdObject::MESSAGE_TEXT:
-    {
-        auto *c = qobject_cast<QTdMessageText*>(m_content);
+    case QTdObject::MESSAGE_TEXT: {
+        auto *c = qobject_cast<QTdMessageText *>(m_content);
         content = c->text()->text();
         break;
     }
-    case QTdObject::MESSAGE_STICKER:
-    {
-        auto *c = qobject_cast<QTdMessageSticker*>(m_content);
+    case QTdObject::MESSAGE_STICKER: {
+        auto *c = qobject_cast<QTdMessageSticker *>(m_content);
         content = c->sticker()->emoji() + " " + tr("Sticker");
         break;
     }
@@ -335,7 +339,7 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_DOCUMENT: {
-        auto *c = qobject_cast<QTdMessageDocument*>(m_content);
+        auto *c = qobject_cast<QTdMessageDocument *>(m_content);
         content = c->document()->fileName();
         break;
     }
@@ -393,7 +397,7 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
-        auto *c = qobject_cast<QTdMessageCustomServiceAction*>(m_content);
+        auto *c = qobject_cast<QTdMessageCustomServiceAction *>(m_content);
         content = c->text();
         break;
     }
@@ -401,7 +405,8 @@ QString QTdMessage::summary() const
         content = tr("Unsupported message");
         break;
     }
-    default : content = tr("Unimplemented: %1").arg(m_content->typeString());
+    default:
+        content = tr("Unimplemented: %1").arg(m_content->typeString());
         break;
     }
 
@@ -436,7 +441,6 @@ void QTdMessage::setPreviousSenderId(const qint32 &id)
 {
     m_previousSender = id;
     emit previousSenderChanged();
-
 }
 
 bool QTdMessage::sameUserAsNextMessage() const
@@ -487,9 +491,8 @@ void QTdMessage::updateSender(const qint32 &senderId)
     }
     connect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdMessage::updateSender);
     QTdClient::instance()->send(QJsonObject{
-                                    {"@type", "getUser"},
-                                    {"user_id", m_sender_user_id.value()}
-                                });
+            { "@type", "getUser" },
+            { "user_id", m_sender_user_id.value() } });
     m_waitingForSender = true;
 }
 
@@ -501,7 +504,7 @@ void QTdMessage::updateSendingState(const QJsonObject &json)
     const QJsonObject jsonSendingState = json["sending_state"].toObject();
     const QString type = jsonSendingState["@type"].toString();
     QTdMessageSendingState *obj = Q_NULLPTR;
-    if (type == "messageSendingStatePending"){
+    if (type == "messageSendingStatePending") {
         obj = new QTdMessageSendingStatePending(this);
     } else {
         qWarning() << "Unknown user status type: " << type;
@@ -514,7 +517,7 @@ bool QTdMessage::isReply() const
     return (m_replyToMessageId.value() > 0);
 }
 
-QTdMessage * QTdMessage::messageRepliedTo()
+QTdMessage *QTdMessage::messageRepliedTo()
 {
     if (replyToMessageId() <= 0) {
         return Q_NULLPTR;
@@ -533,7 +536,7 @@ void QTdMessage::handleMessage(const QJsonObject &json)
         return;
     }
 
-    auto * msgRepliedTo = messageRepliedTo();
+    auto *msgRepliedTo = messageRepliedTo();
     msgRepliedTo->collapse();
 
     if (!msgRepliedTo) {

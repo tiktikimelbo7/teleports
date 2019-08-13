@@ -250,7 +250,8 @@ void QTdClient::init()
 
     //Message updates to add to existing chats or channel views
     m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data){ emit updateNewMessage(data); });
-    m_events.insert(QStringLiteral("chats"), [=](const QJsonObject &data){ emit chats(data); });
+    m_events.insert(QStringLiteral("updateMessageViews"), [=](const QJsonObject &data) { emit updateMessageViews(data); });
+    m_events.insert(QStringLiteral("chats"), [=](const QJsonObject &data) { emit chats(data); });
     m_events.insert(QStringLiteral("chat"), [=](const QJsonObject &data) { emit chat(data); });
     m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data){ emit error(data); });
     m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
