@@ -19,14 +19,18 @@
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
 
-
-QTdMessageListModel::QTdMessageListModel(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_chat(Q_NULLPTR), m_messageHandler(Q_NULLPTR), m_isHandleUpdateLastChatMessageConnected(false)
+QTdMessageListModel::QTdMessageListModel(QObject *parent)
+    : QObject(parent)
+    , m_model(Q_NULLPTR)
+    , m_chat(Q_NULLPTR)
+    , m_messageHandler(Q_NULLPTR)
+    , m_isHandleUpdateLastChatMessageConnected(false)
 {
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::messages, this, &QTdMessageListModel::handleMessages);
     connect(QTdClient::instance(), &QTdClient::updateMessageSendSucceeded, this, &QTdMessageListModel::handleUpdateMessageSendSucceeded);
     connect(QTdClient::instance(), &QTdClient::updateMessageContent, this, &QTdMessageListModel::handleUpdateMessageContent);
+    connect(QTdClient::instance(), &QTdClient::updateDeleteMessages, this, &QTdMessageListModel::handleUpdateDeleteMessages);
 }
 
 QTdChat *QTdMessageListModel::chat() const
@@ -46,8 +50,7 @@ bool QTdMessageListModel::isUpToDateAndFollowing() const
 
 bool QTdMessageListModel::hasNewer() const
 {
-    if (m_model->isEmpty())
-    {
+    if (m_model->isEmpty()) {
         return false;
     }
 
@@ -58,33 +61,26 @@ void QTdMessageListModel::setChat(QTdChat *chat)
 {
     if (m_chat == chat)
         return;
-    if (m_chat)
-    {
+    if (m_chat) {
         disconnect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
     }
 
-    if (!m_model->isEmpty())
-    {
+    if (!m_model->isEmpty()) {
         cleanUp();
     }
 
     m_chat = chat;
 
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
 
-    if (m_chat)
-    {
+    if (m_chat) {
         connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
-        if (m_chat->hasUnreadMessages())
-        {
+        if (m_chat->hasUnreadMessages()) {
             m_messageHandler = &unreadLabelWindowMessageHandler;
-            loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW/2, MESSAGE_LOAD_WINDOW/2);
-        }
-        else
-        {
+            loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
+        } else {
             m_messageHandler = &olderMessagesHandler;
             auto *lastMessage = new QTdMessage();
             lastMessage->unmarshalJson(m_chat->lastMessageJson());
@@ -98,16 +94,13 @@ void QTdMessageListModel::setChat(QTdChat *chat)
 
 void QTdMessageListModel::loadNewer()
 {
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
-    if (isUpToDateAndFollowing())
-    {
+    if (isUpToDateAndFollowing()) {
         return;
     }
-    if (m_messageHandler)
-    {
+    if (m_messageHandler) {
         return;
     }
     m_messageHandler = &newerMessagesHandler;
@@ -116,25 +109,21 @@ void QTdMessageListModel::loadNewer()
 
 void QTdMessageListModel::loadOlder()
 {
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
-    if (m_messageHandler)
-    {
+    if (m_messageHandler) {
         return;
     }
     m_messageHandler = &olderMessagesHandler;
     loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
 }
 
-
 void QTdMessageListModel::cleanUp()
 {
     m_isHandleUpdateLastChatMessageConnected = false;
     disconnect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
-    if (m_model->isEmpty())
-    {
+    if (m_model->isEmpty()) {
         return;
     }
     m_model->clear();
@@ -143,14 +132,12 @@ void QTdMessageListModel::cleanUp()
 void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
     QJsonArray messages = json["messages"].toArray();
-    if (messages.count() == 0)
-    {
+    if (messages.count() == 0) {
         m_messageHandler = Q_NULLPTR;
         return;
     }
 
-    if (!m_messageHandler)
-    {
+    if (!m_messageHandler) {
         return;
     }
 
@@ -158,40 +145,34 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 
     emit modelChanged();
 
-    if (m_model->count() < MESSAGE_LOAD_WINDOW && messages.count() > 0)
-    {
+    if (m_model->count() < MESSAGE_LOAD_WINDOW && messages.count() > 0) {
         m_messageHandler = &olderMessagesHandler;
         loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
-    }
-    else
-    {
+    } else {
         m_messageHandler = Q_NULLPTR;
     }
 
-    if (!hasNewer())
-    {
+    if (!hasNewer()) {
         connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
         m_isHandleUpdateLastChatMessageConnected = true;
         m_chat->positionMessageListViewAtIndex(-1);
     }
 }
 
-void QTdMessageListModel::QTdOlderMessagesHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+void QTdMessageListModel::QTdOlderMessagesHandler::handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const
 {
-    for (unsigned int index = 0; index < messages.count(); index++)
-    {
-        auto * message = messageFromJson(messages[index]);
+    for (unsigned int index = 0; index < messages.count(); index++) {
+        auto *message = messageFromJson(messages[index]);
         messageListModel.appendMessage(message);
     }
 }
 
-void QTdMessageListModel::QTdNewerMessagesHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+void QTdMessageListModel::QTdNewerMessagesHandler::handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const
 {
     QList<qint64> unreadMessages;
 
-    for (int index = messages.count()-1; index >= 0; index--)
-    {
-        auto * message = messageFromJson(messages[index]);
+    for (int index = messages.count() - 1; index >= 0; index--) {
+        auto *message = messageFromJson(messages[index]);
         messageListModel.prependMessage(message);
         unreadMessages << message->id();
     }
@@ -199,19 +180,17 @@ void QTdMessageListModel::QTdNewerMessagesHandler::handle(QTdMessageListModel & 
     messageListModel.setMessagesRead(unreadMessages);
 }
 
-void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const
+void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const
 {
     QList<qint64> unreadMessages;
     unsigned int lastReadMessageIndex = 0;
     auto lastReadMessageId = messageListModel.m_chat->lastReadInboxMessageId();
 
-    for (unsigned int index = 0; index < messages.count(); index++)
-    {
-        auto * message = messageFromJson(messages[index]);
-        if (message->id() == lastReadMessageId)
-        {
-            auto * unreadLabel = new QTdMessage;
-            unreadLabel->unmarshalJson(QJsonObject{{"unreadLabel", tr("Unread Messages")}});
+    for (unsigned int index = 0; index < messages.count(); index++) {
+        auto *message = messageFromJson(messages[index]);
+        if (message->id() == lastReadMessageId) {
+            auto *unreadLabel = new QTdMessage;
+            unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel", tr("Unread Messages") } });
             messageListModel.m_model->append(unreadLabel);
             lastReadMessageIndex = index;
         }
@@ -220,20 +199,18 @@ void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageL
         unreadMessages << message->id();
     }
 
-    messageListModel.m_chat->positionMessageListViewAtIndex(lastReadMessageIndex+1);
+    messageListModel.m_chat->positionMessageListViewAtIndex(lastReadMessageIndex + 1);
     messageListModel.setMessagesRead(unreadMessages);
 }
 
-void QTdMessageListModel::appendMessage(QTdMessage * message)
+void QTdMessageListModel::appendMessage(QTdMessage *message)
 {
-    if (m_model->isEmpty())
-    {
+    if (m_model->isEmpty()) {
         m_model->append(message);
         return;
     }
 
-    if (m_model->getByUid(message->qmlId()))
-    {
+    if (m_model->getByUid(message->qmlId())) {
         return;
     }
 
@@ -245,26 +222,23 @@ void QTdMessageListModel::appendMessage(QTdMessage * message)
     const QDate newDate = message->qmlDate().date();
     if (lastDate.year() > newDate.year()
         || lastDate.month() > newDate.month()
-        || lastDate.day() > newDate.day())
-    {
+        || lastDate.day() > newDate.day()) {
         auto *dateMessage = new QTdMessage;
-        dateMessage->unmarshalJson(QJsonObject{ {"dateLabel", last->date()} });
+        dateMessage->unmarshalJson(QJsonObject{ { "dateLabel", last->date() } });
         m_model->append(dateMessage);
     }
 
     m_model->append(message);
 }
 
-void QTdMessageListModel::prependMessage(QTdMessage * message)
+void QTdMessageListModel::prependMessage(QTdMessage *message)
 {
-    if (m_model->isEmpty())
-    {
+    if (m_model->isEmpty()) {
         m_model->prepend(message);
         return;
     }
 
-    if (m_model->getByUid(message->qmlId()))
-    {
+    if (m_model->getByUid(message->qmlId())) {
         return;
     }
 
@@ -276,10 +250,9 @@ void QTdMessageListModel::prependMessage(QTdMessage * message)
     const QDate lastDate = message->qmlDate().date();
     if (lastDate.year() > newDate.year()
         || lastDate.month() > newDate.month()
-        || lastDate.day() > newDate.day())
-    {
+        || lastDate.day() > newDate.day()) {
         auto *dateMessage = new QTdMessage;
-        dateMessage->unmarshalJson(QJsonObject{ {"dateLabel", message->date()} });
+        dateMessage->unmarshalJson(QJsonObject{ { "dateLabel", message->date() } });
         m_model->prepend(dateMessage);
     }
 
@@ -289,33 +262,30 @@ void QTdMessageListModel::prependMessage(QTdMessage * message)
 void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, unsigned int amountOlder, unsigned int amountNewer)
 {
     QTdClient::instance()->send(QJsonObject{
-        {"@type", "getChatHistory"},
-        {"chat_id", m_chat->jsonId()},
-        {"from_message_id", fromMsgId},
-        {"offset", static_cast<int>(-amountNewer)},
-        {"limit", static_cast<int>(amountOlder+amountNewer+1)},
-        {"only_local", false},
+            { "@type", "getChatHistory" },
+            { "chat_id", m_chat->jsonId() },
+            { "from_message_id", fromMsgId },
+            { "offset", static_cast<int>(-amountNewer) },
+            { "limit", static_cast<int>(amountOlder + amountNewer + 1) },
+            { "only_local", false },
     });
 }
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 {
-    if (!m_chat || json.isEmpty())
-    {
+    if (!m_chat || json.isEmpty()) {
         return;
     }
 
     const qint64 id = qint64(json["chat_id"].toDouble());
-    if (id != m_chat->id())
-    {
+    if (id != m_chat->id()) {
         return;
     }
 
     const QJsonObject messageJson = json["last_message"].toObject();
 
     const qint64 messageId = qint64(messageJson["id"].toDouble());
-    if (!m_model->isEmpty() && m_model->getByUid(QString::number(messageId)))
-    {
+    if (!m_model->isEmpty() && m_model->getByUid(QString::number(messageId))) {
         return;
     }
 
@@ -331,32 +301,44 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
 
 void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &json)
 {
-    if (json.isEmpty())
-    {
+    if (json.isEmpty()) {
         return;
     }
     const qint64 oldMid = qint64(json["old_message_id"].toDouble());
     auto *msgSent = m_model->getByUid(QString::number(oldMid));
     const QJsonObject message = json["message"].toObject();
-    if (msgSent)
-    {
+    if (msgSent) {
         m_model->remove(msgSent);
         return;
     }
 }
 
+void QTdMessageListModel::handleUpdateDeleteMessages(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+    const QJsonArray messagesToDelete = json["message_ids"].toArray();
+    foreach (QJsonValue messageToDelete, messagesToDelete) {
+        auto messageId = QString::number(messageToDelete.toDouble(), 'f', 0);
+        QTdMessage *message = m_model->getByUid(messageId);
+        if (message == nullptr) {
+            continue;
+        }
+        m_model->remove(message);
+    }
+}
+
 void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
 {
-    if (json.isEmpty())
-    {
+    if (json.isEmpty()) {
         return;
     }
 
     const qint64 messageId = qint64(json["message_id"].toDouble());
     const QJsonObject newContent = json["new_content"].toObject();
-    QTdMessage* message = m_model->getByUid(QString::number(messageId));
-    if (message == nullptr)
-    {
+    QTdMessage *message = m_model->getByUid(QString::number(messageId));
+    if (message == nullptr) {
         return;
     }
     message->unmarshalUpdateContent(newContent);
@@ -364,8 +346,7 @@ void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
 
 void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &replyToMessageId)
 {
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
     QString plainText;
@@ -382,8 +363,7 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
         messageText->setText(message);
         messageText->setEntities(formatEntities);
         request->setContent(messageText);
-        if(isFirstMessage)
-        {
+        if (isFirstMessage) {
             request->setReplyToMessageId(replyToMessageId);
             isFirstMessage = false;
         }
@@ -396,8 +376,7 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
 void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
     qDebug() << "send Photo";
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
 
@@ -418,8 +397,7 @@ void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, 
 void QTdMessageListModel::sendDocument(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
     qDebug() << "send Document";
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
 
@@ -437,7 +415,8 @@ void QTdMessageListModel::sendDocument(const QString &url, const QString &captio
     QTdClient::instance()->send(request.data());
 }
 
-void QTdMessageListModel::requestLocation() {
+void QTdMessageListModel::requestLocation()
+{
     if (!m_chat) {
         return;
     }
@@ -453,7 +432,8 @@ void QTdMessageListModel::requestLocation() {
     positionInfoSource->requestUpdate();
 }
 
-void QTdMessageListModel::sendLocation() {
+void QTdMessageListModel::sendLocation()
+{
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
@@ -463,7 +443,8 @@ void QTdMessageListModel::sendLocation() {
     QTdClient::instance()->send(request.data());
 }
 
-void QTdMessageListModel::cancelLocation() {
+void QTdMessageListModel::cancelLocation()
+{
     disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
                this, SLOT(positionUpdated(QGeoPositionInfo)));
     m_positionInfo = QGeoPositionInfo();
@@ -478,8 +459,7 @@ void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
 
@@ -494,8 +474,7 @@ void QTdMessageListModel::editMessageText(qint64 messageId, const QString &messa
 
     QFuture<QTdResponse> response = request->sendAsync();
     await(response);
-    if (response.result().isError())
-    {
+    if (response.result().isError()) {
         emit error(response.result().errorString());
     }
 }
@@ -507,8 +486,7 @@ void QTdMessageListModel::editMessageText(const QString &messageId, const QStrin
 
 void QTdMessageListModel::editMessageCaption(qint64 messageId, const QString &message)
 {
-    if (!m_chat)
-    {
+    if (!m_chat) {
         return;
     }
 
@@ -523,8 +501,7 @@ void QTdMessageListModel::editMessageCaption(qint64 messageId, const QString &me
 
     QFuture<QTdResponse> response = request->sendAsync();
     await(response);
-    if (response.result().isError())
-    {
+    if (response.result().isError()) {
         emit error(response.result().errorString());
     }
 }
@@ -544,23 +521,22 @@ void QTdMessageListModel::sendReplyToMessage(const QString &replyToMessageId, co
     sendMessage(message, replyToMessageId.toLongLong());
 }
 
-void QTdMessageListModel::deleteMessage(qint64 messageId)
+void QTdMessageListModel::deleteMessage(const qint64 messageId)
 {
-    QScopedPointer<QTdDeleteMessagesRequest> req(new QTdDeleteMessagesRequest);
     QList<qint64> messages;
     messages << messageId;
-    req->setChatId(m_chat->id());
-    req->setMessageIds(messages);
-    QTdClient::instance()->send(req.data());
-    auto *msgDeleted = m_model->getByUid(QString::number(messageId));
-    if (msgDeleted)
-    {
-        m_model->remove(msgDeleted);
-        return;
-    }
+    deleteMessages(messages);
 }
 
-void QTdMessageListModel::setMessagesRead( QList<qint64> & messages)
+void QTdMessageListModel::deleteMessages(const QList<qint64> &messageIds)
+{
+    QScopedPointer<QTdDeleteMessagesRequest> req(new QTdDeleteMessagesRequest);
+    req->setChatId(m_chat->id());
+    req->setMessageIds(messageIds);
+    QTdClient::instance()->send(req.data());
+}
+
+void QTdMessageListModel::setMessagesRead(QList<qint64> &messages)
 {
     //TODO: Determine how to detect which messages are in the visible part of the window
     QScopedPointer<QTdViewMessagesRequest> req(new QTdViewMessagesRequest);
