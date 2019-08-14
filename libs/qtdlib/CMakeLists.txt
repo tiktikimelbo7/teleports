@@ -22,7 +22,6 @@ set(
     # todo
     # messages/content/qtdmessagecontact.cpp
     # messages/content/qtdmessagecontactregistered.cpp
-    # messages/content/qtdmessagecustomserviceaction.cpp
     # messages/content/qtdmessageexpiredphoto.cpp
     # messages/content/qtdmessageexpiredvideo.cpp
     # messages/content/qtdmessagegame.cpp
@@ -33,12 +32,7 @@ set(
     # messages/content/qtdmessagepaymentsuccessful.cpp
     # messages/content/qtdmessagepaymentsuccessfulbot.cpp
     # messages/content/qtdmessagepinmessage.cpp
-    # messages/content/qtdmessagescreenshottaken.cpp
-    # messages/content/qtdmessagesupergroupchatcreate.cpp
-    # messages/content/qtdmessageunsupported.cpp
     # messages/content/qtdmessagevenue.cpp
-    # messages/content/qtdmessagevideonote.cpp
-    # messages/content/qtdmessagevoicenote.cpp
     # messages/content/qtdmessagewebsiteconnected.cpp
     # messages/requests/content/qtdinputmessageanimation.cpp
     # messages/requests/content/qtdinputmessageaudio.cpp
@@ -143,6 +137,7 @@ set(
     messages/content/qtdmessagelocation.cpp
     messages/content/qtdmessagephoto.cpp
     messages/content/qtdmessagesticker.cpp
+    messages/content/qtdmessagesupergroupchatcreate.cpp
     messages/content/qtdmessagetext.cpp
     messages/content/qtdmessagevideo.cpp
     messages/content/qtdmessagevideonote.cpp

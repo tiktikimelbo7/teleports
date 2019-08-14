@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-12 22:24+0000\n"
+"POT-Creation-Date: 2019-08-13 19:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,84 +164,84 @@ msgstr ""
 msgid "You have a new message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:322
+#: ../libs/qtdlib/messages/qtdmessage.cpp:328
 msgid "Sticker"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:326
+#: ../libs/qtdlib/messages/qtdmessage.cpp:332
 msgid "Phone call"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:330
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "sent an audio message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:334
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "sent a photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:343
+#: ../libs/qtdlib/messages/qtdmessage.cpp:349
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:347
+#: ../libs/qtdlib/messages/qtdmessage.cpp:353
 msgid "sent a video"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:351
+#: ../libs/qtdlib/messages/qtdmessage.cpp:357
 msgid "sent a video note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:355
+#: ../libs/qtdlib/messages/qtdmessage.cpp:361
 msgid "sent a voice note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:359
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "joined the group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:363
+#: ../libs/qtdlib/messages/qtdmessage.cpp:369
 msgid "changed the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:367
+#: ../libs/qtdlib/messages/qtdmessage.cpp:373
 msgid "changed the chat title"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:371
+#: ../libs/qtdlib/messages/qtdmessage.cpp:377
 msgid "joined by invite link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
+#: ../libs/qtdlib/messages/qtdmessage.cpp:381
 msgid "removed a member"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:385
 msgid "deleted the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:390
 msgid "upgraded to supergroup"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+#: ../libs/qtdlib/messages/qtdmessage.cpp:394
 msgid "message TTL has been changed"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:399
 msgid "created this group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:401
+#: ../libs/qtdlib/messages/qtdmessage.cpp:408
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:404
+#: ../libs/qtdlib/messages/qtdmessage.cpp:411
 msgid "Unimplemented: %1"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:409
+#: ../libs/qtdlib/messages/qtdmessage.cpp:416
 msgid "Me"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:215
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:194
 msgid "Unread Messages"
 msgstr ""
 
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Sticker Pack info"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:232
+#: ../app/qml/delegates/MessageBubbleItem.qml:212
 msgid "Edited"
 msgstr ""
 
@@ -675,7 +675,11 @@ msgstr ""
 msgid "Duration: %1:%2"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called << %1 >> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
 msgstr ""
 

@@ -244,6 +244,12 @@ bool QTdMessage::isEdited() const
     return m_isEdited;
 }
 
+void QTdMessage::setIsEdited(const bool value)
+{
+    m_isEdited = value;
+    emit messageChanged();
+}
+
 bool QTdMessage::canBeEdited() const
 {
     return m_canBeEdited;
@@ -392,7 +398,8 @@ QString QTdMessage::summary() const
         content = tr("message TTL has been changed");
         break;
     }
-    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE: {
+    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE:
+    case QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE: {
         content = tr("created this group");
         break;
     }
