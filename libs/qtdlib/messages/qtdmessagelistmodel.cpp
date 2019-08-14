@@ -31,6 +31,7 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateMessageSendSucceeded, this, &QTdMessageListModel::handleUpdateMessageSendSucceeded);
     connect(QTdClient::instance(), &QTdClient::updateMessageContent, this, &QTdMessageListModel::handleUpdateMessageContent);
     connect(QTdClient::instance(), &QTdClient::updateDeleteMessages, this, &QTdMessageListModel::handleUpdateDeleteMessages);
+    connect(QTdClient::instance(), &QTdClient::updateMessageEdited, this, &QTdMessageListModel::handleUpdateMessageEdited);
     connect(QTdClient::instance(), &QTdClient::updateMessageViews, this, &QTdMessageListModel::handleUpdateMessageViews);
 }
 
@@ -314,12 +315,24 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
     }
 }
 
+void QTdMessageListModel::handleUpdateMessageEdited(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+    auto messageId = QString::number(json["message_id"].toDouble(), 'f', 0);
+    QTdMessage *message = m_model->getByUid(messageId);
+    if (message == nullptr) {
+        return;
+    }
+    message->setIsEdited(true);
+}
+
 void QTdMessageListModel::handleUpdateMessageViews(const QJsonObject &json)
 {
     if (json.isEmpty()) {
         return;
     }
-    qWarning() << "Updating channel views...";
     auto messageId = QString::number(json["message_id"].toDouble(), 'f', 0);
     QTdMessage *message = m_model->getByUid(messageId);
     if (message == nullptr) {

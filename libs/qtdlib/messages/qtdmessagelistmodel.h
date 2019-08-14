@@ -85,6 +85,7 @@ private slots:
     void handleUpdateMessageSendSucceeded(const QJsonObject &json);
     void handleUpdateMessageContent(const QJsonObject &json);
     void handleUpdateDeleteMessages(const QJsonObject &json);
+    void handleUpdateMessageEdited(const QJsonObject &json);
     void handleUpdateMessageViews(const QJsonObject &json);
     void loadMessages(const QJsonValue &fromMsgId,
                       unsigned int amountBefore,

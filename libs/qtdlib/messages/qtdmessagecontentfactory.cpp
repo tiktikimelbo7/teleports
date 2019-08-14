@@ -18,6 +18,7 @@
 #include "content/qtdmessagelocation.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
+#include "content/qtdmessagesupergroupchatcreate.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
 #include "content/qtdmessagevideonote.h"
@@ -81,6 +82,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageCustomServiceAction(parent);
     } else if (type == "messageUnsupported") {
         return new QTdMessageUnsupported(parent);
+    } else if (type == "messageSupergroupChatCreate") {
+        return new QTdMessageSuperGroupChatCreate(parent);
     }
     qWarning()<< "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);

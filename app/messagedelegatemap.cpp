@@ -21,6 +21,7 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent) : QObject(parent)
     m_delegates.insert(QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION, QStringLiteral("qrc:///delegates/MessageCustomServiceAction.qml"));
     m_delegates.insert(QTdObject::MESSAGE_SCREENSHOT_TAKEN, QStringLiteral("qrc:///delegates/MessageScreenshotTaken.qml"));
     m_delegates.insert(QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE, QStringLiteral("qrc:///delegates/MessageBasicGroupChatCreate.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE, QStringLiteral("qrc:///delegates/MessageBasicGroupChatCreate.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_DELETE_MEMBER, QStringLiteral("qrc:///delegates/MessageChatDeleteMember.qml"));
     m_delegates.insert(QTdObject::MESSAGE_VOICE_NOTE, QStringLiteral("qrc:///delegates/MessageVoiceNote.qml"));
     m_delegates.insert(QTdObject::MESSAGE_VIDEO_NOTE, QStringLiteral("qrc:///delegates/MessageVideoNote.qml"));

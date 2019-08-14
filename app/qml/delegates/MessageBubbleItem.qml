@@ -170,7 +170,7 @@ UITK.ListItem {
                 width: Math.min(Suru.units.gu(45) - mc.horizontalMargins,
                                 Math.max(mainContent.width,
                                          senderLabel.contentWidth,
-                                         dateLabel.implicitWidth))
+                                         message_status_row.implicitWidth))
                 height: childrenRect.height
 
                 Item {
@@ -202,9 +202,19 @@ UITK.ListItem {
                     height: Suru.units.gu(2.5)
                     width: parent.width
 
-                    RowLayout {
-                        id: bottomBar
-                        anchors.fill: parent
+                    Row {
+                        id: message_status_row
+                        spacing: units.dp(4)
+                        anchors.right: parent.right
+
+                        Label {
+                            id: editedLabel
+                            text: i18n.tr("Edited");
+                            visible: message.isEdited;
+                            Suru.textLevel: Suru.Small
+                            Suru.textStyle: Suru.TertiaryText
+                            opacity: message.isOutgoing ? 1 : 0.6
+                        }
 
                         Row {
                             id: channel_views
@@ -228,19 +238,9 @@ UITK.ListItem {
                         }
 
                         Label {
-                            id: editedLabel
-                            text: i18n.tr("Edited");
-                            visible: message.isEdited;
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                            Suru.textLevel: Suru.Small
-                            Suru.textStyle: Suru.TertiaryText
-                            opacity: message.isOutgoing ? 1 : 0.6
-                        }
-
-                        Label {
                             id: dateLabel
                             text: message.formatDate(message.date)
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            anchors.verticalCenter: parent.verticalCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
                         }
