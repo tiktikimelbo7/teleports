@@ -33,12 +33,6 @@ UITK.ListItem {
                 text: i18n.tr("Delete")
                 onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
                 visible: message.canBeDeletedOnlyForSelf || message.canBeDeletedForAllUsers
-            },
-            UITK.Action {
-                iconSource: "qrc:/qml/icons/attach.svg"
-                text: i18n.tr("Pin")
-                visible: (chat.status && chat.status.canPinMessages) ? chat.status.canPinMessages : false
-                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message.id)
             }
         ]
     }
@@ -92,6 +86,12 @@ UITK.ListItem {
                 text: i18n.tr("Forward")
                 visible: message.canBeForwarded
                 onTriggered: AppActions.chat.forwardMessage([message.id])
+            },
+            UITK.Action {
+                iconSource: "qrc:/qml/icons/pin.svg"
+                text: i18n.tr("Pin")
+                visible: (chat.status && chat.status.canPinMessages) ? chat.status.canPinMessages : false
+                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message.id)
             }
         ]
     }
