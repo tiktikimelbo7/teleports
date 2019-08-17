@@ -16,8 +16,7 @@
 #include "chat/requests/qtdgetchatrequest.h"
 #include "chat/qtdchat.h"
 #include "utils/await.h"
-
-//#include "i18n.h"
+#include "utils/i18n.h"
 
 QTdMessage::QTdMessage(QObject *parent)
     : QAbstractInt64Id(parent)
@@ -329,19 +328,19 @@ QString QTdMessage::summary() const
     }
     case QTdObject::MESSAGE_STICKER: {
         auto *c = qobject_cast<QTdMessageSticker *>(m_content);
-        content = c->sticker()->emoji() + " " + tr("Sticker");
+        content = c->sticker()->emoji() + " " + gettext("Sticker");
         break;
     }
     case QTdObject::MESSAGE_CALL: {
-        content = tr("Phone call");
+        content = gettext("Phone call");
         break;
     }
     case QTdObject::MESSAGE_AUDIO: {
-        content = tr("sent an audio message");
+        content = gettext("sent an audio message");
         break;
     }
     case QTdObject::MESSAGE_PHOTO: {
-        content = tr("sent a photo");
+        content = gettext("sent a photo");
         break;
     }
     case QTdObject::MESSAGE_DOCUMENT: {
@@ -350,57 +349,57 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_LOCATION: {
-        content = tr("Location");
+        content = gettext("Location");
         break;
     }
     case QTdObject::MESSAGE_VIDEO: {
-        content = tr("sent a video");
+        content = gettext("sent a video");
         break;
     }
     case QTdObject::MESSAGE_VIDEO_NOTE: {
-        content = tr("sent a video note");
+        content = gettext("sent a video note");
         break;
     }
     case QTdObject::MESSAGE_VOICE_NOTE: {
-        content = tr("sent a voice note");
+        content = gettext("sent a voice note");
         break;
     }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
-        content = tr("joined the group");
+        content = gettext("joined the group");
         break;
     }
     case QTdObject::MESSAGE_CHAT_CHANGE_PHOTO: {
-        content = tr("changed the chat photo");
+        content = gettext("changed the chat photo");
         break;
     }
     case QTdObject::MESSAGE_CHAT_CHANGE_TITLE: {
-        content = tr("changed the chat title");
+        content = gettext("changed the chat title");
         break;
     }
     case QTdObject::MESSAGE_CHAT_JOIN_BY_LINK: {
-        content = tr("joined by invite link");
+        content = gettext("joined by invite link");
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
-        content = tr("removed a member");
+        content = gettext("removed a member");
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_PHOTO: {
-        content = tr("deleted the chat photo");
+        content = gettext("deleted the chat photo");
         break;
     }
     case QTdObject::MESSAGE_CHAT_UPGRADE_FROM:
     case QTdObject::MESSAGE_CHAT_UPGRADE_TO: {
-        content = tr("upgraded to supergroup");
+        content = gettext("upgraded to supergroup");
         break;
     }
     case QTdObject::MESSAGE_CHAT_SET_TTL: {
-        content = tr("message TTL has been changed");
+        content = gettext("message TTL has been changed");
         break;
     }
     case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE:
     case QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE: {
-        content = tr("created this group");
+        content = gettext("created this group");
         break;
     }
     case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
@@ -409,16 +408,16 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_UNSUPPORTED: {
-        content = tr("Unsupported message");
+        content = gettext("Unsupported message");
         break;
     }
     default:
-        content = tr("Unimplemented: %1").arg(m_content->typeString());
+        content = QString("%1 %2").arg(gettext("Unimplemented:"), m_content->typeString());
         break;
     }
 
     if (isOutgoing())
-        return QString("%1: %2").arg(tr("Me"), content);
+        return QString("%1: %2").arg(gettext("Me"), content);
     QString name;
     if (m_sender) {
         name = m_sender->firstName();
