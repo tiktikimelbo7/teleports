@@ -1,5 +1,6 @@
 #include "qtdmessagecontent.h"
 #include <libintl.h>
+#include "utils/i18n.h"
 
 QTdMessageContent::QTdMessageContent(QObject *parent) : QTdObject(parent)
 {

@@ -68,7 +68,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
 QString QTdChat::title() const
 {
     if (isMyself())
-        return tr("Saved Messages");
+        return gettext("Saved Messages");
     else
         return m_title;
 }

@@ -10,6 +10,8 @@
 #include "messagecontentdelegatemap.h"
 #include <libintl.h>
 #include <locale.h>
+#include <utils/i18n.h>
+
 #define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
 
 int main(int argc, char *argv[])
@@ -27,9 +29,10 @@ int main(int argc, char *argv[])
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
 
+    setlocale(LC_ALL, "");
     bindtextdomain ("teleports.ubports", "/opt/click.ubuntu.com/teleports.ubports/current/share/locale");
     bind_textdomain_codeset ("teleports.ubports", "UTF-8");
-    textdomain ("teleports.ubports");
+    textdomain(GETTEXT_DOMAIN.toStdString().c_str());
 
     MessageDelegateMap delegateMap;
     MessageContentDelegateMap contentDelegateMap;

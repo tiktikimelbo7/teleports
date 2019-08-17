@@ -15,7 +15,7 @@
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
 #include "messages/requests/qtddeletemessagesrequest.h"
-
+#include "utils/i18n.h"
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
 
@@ -192,7 +192,7 @@ void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageL
         auto *message = messageFromJson(messages[index]);
         if (message->id() == lastReadMessageId) {
             auto *unreadLabel = new QTdMessage;
-            unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel", tr("Unread Messages") } });
+            unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel",gettext("Unread Messages") } });
             messageListModel.m_model->append(unreadLabel);
             lastReadMessageIndex = index;
         }
