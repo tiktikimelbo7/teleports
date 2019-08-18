@@ -54,6 +54,8 @@ signals:
     void listModeChanged();
 
 private slots:
+    void handleChats(const QJsonObject &json);
+    void handleChat(const QJsonObject &json);
     void handleUpdateNewChat(const QJsonObject &chat);
     void handleUpdateChatOrder(const QJsonObject &json);
     void handleUpdateChatLastMessage(const QJsonObject chat);
@@ -83,7 +85,7 @@ private:
     ListMode m_listMode;
     QStringList m_forwardingMessages;
     QPointer<QTdChat> m_forwardedFromChat;
-
+    QList<qint64> m_receivedChatIds;
 };
 
 #endif // QTDCHATLISTMODEL_H

@@ -17,9 +17,17 @@ class QTdGetChatsRequest : public QTdRequest
 public:
     explicit QTdGetChatsRequest(QObject *parent = nullptr);
 
+    void setOffsetOrder(const qint64 value);
+
+    void setOffsetChatId(const qint64 value);
+
     QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
+
+    private:
+        qint64 m_offset_order;
+        qint64 m_offset_chat_id;
 };
 
 #endif // QTDGETCHATSREQUEST_H

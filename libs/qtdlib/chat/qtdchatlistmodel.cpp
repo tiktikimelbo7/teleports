@@ -2,6 +2,7 @@
 #include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
+#include "chat/requests/qtdgetchatrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
@@ -9,13 +10,19 @@
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
 
-
 #include "chat/qtdchattypefactory.h"
 
-QTdChatListModel::QTdChatListModel(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_currentChat(Q_NULLPTR), m_forwardedFromChat(Q_NULLPTR), m_forwardingMessages(QStringList()), m_listMode(ListMode::Idle)
+QTdChatListModel::QTdChatListModel(QObject *parent)
+    : QObject(parent)
+    , m_model(Q_NULLPTR)
+    , m_currentChat(Q_NULLPTR)
+    , m_forwardedFromChat(Q_NULLPTR)
+    , m_forwardingMessages(QStringList())
+    , m_listMode(ListMode::Idle)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
+    connect(QTdClient::instance(), &QTdClient::chats, this, &QTdChatListModel::handleChats);
+    connect(QTdClient::instance(), &QTdClient::chat, this, &QTdChatListModel::handleChat);
     connect(QTdClient::instance(), &QTdClient::updateNewChat, this, &QTdChatListModel::handleUpdateNewChat);
     connect(QTdClient::instance(), &QTdClient::authStateChanged, this, &QTdChatListModel::handleAuthStateChanges);
     connect(QTdClient::instance(), &QTdClient::updateChatOrder, this, &QTdChatListModel::handleUpdateChatOrder);
@@ -51,7 +58,8 @@ void QTdChatListModel::setCurrentChatById(const int &chatId)
     setCurrentChat(currentChat);
 }
 
-qint32 QTdChatListModel::forwardingMessagesCount() const {
+qint32 QTdChatListModel::forwardingMessagesCount() const
+{
     return m_forwardingMessages.length();
 }
 
@@ -94,6 +102,44 @@ void QTdChatListModel::clearCurrentChat()
     emit currentChatChanged(m_currentChat);
 }
 
+void QTdChatListModel::handleChat(const QJsonObject &json) {
+    QScopedPointer<QTdChat> chat(new QTdChat);
+    chat->unmarshalJson(json);
+    if (chat->isMyself()) {
+        qWarning() << "Chat with myself. Id:" << chat->id() << "Order:" << chat->order();
+    }
+    handleUpdateNewChat(json);
+}
+
+void QTdChatListModel::handleChats(const QJsonObject &json)
+{
+    QJsonArray chats = json["chat_ids"].toArray();
+    if (chats.count() == 0) {
+        if (m_receivedChatIds.count()>0) {
+            QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
+            foreach (qint64 chatToRequest, m_receivedChatIds) {
+                qWarning() << "Requesting chat" << chatToRequest;
+                chatReq->setChatId(chatToRequest);
+                chatReq->sendAsync();
+            }
+        }
+        return;
+    }
+    qWarning() << "Handling getChats result:";
+    qWarning() << "Received" << chats.count() << "chats.";
+    foreach (QJsonValue chatToRequest, chats) {
+        m_receivedChatIds.append((qint64) chatToRequest.toDouble());
+    }
+    auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
+    if (!lastChat) {
+        qWarning() << "Last chat not yet loaded, cannot fetch more chats";
+        return;
+    }
+    QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
+    req->setOffsetChatId(lastChat->id());
+    req->setOffsetOrder(lastChat->order());
+    req->sendAsync();
+}
 void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
 {
     const qint64 id = qint64(chat["id"].toDouble());
@@ -141,15 +187,15 @@ void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject chat)
 void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
 {
     switch (state->type()) {
-    case QTdAuthState::Type::AUTHORIZATION_STATE_READY:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_READY: {
+        QTdClient::instance()->send(QJsonObject{ { "@type", "clearRecentlyFoundChats" } });
+        qWarning() << "Requesting initially 50 chats";
+        m_receivedChatIds.clear();
         QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
-        QTdClient::instance()->send(QJsonObject{{"@type", "clearRecentlyFoundChats"}});
-        QTdClient::instance()->send(req.data());
+        req->sendAsync();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED: {
         m_model->clear();
         break;
     }
@@ -244,32 +290,32 @@ void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &c
     }
 }
 
-void QTdChatListModel::sendForwardMessage(const QStringList  &forwardMessageIds,
-                                             const qint64 &recievingChatId,
-                                             const qint64 &fromChatId,
-                                             const QString &message){
+void QTdChatListModel::sendForwardMessage(const QStringList &forwardMessageIds,
+                                          const qint64 &recievingChatId,
+                                          const qint64 &fromChatId,
+                                          const QString &message)
+{
 
-  QString plainText;
-  QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
-  QTdInputMessageText *messageText = new QTdInputMessageText();
-  messageText->setText(message);
-  messageText->setEntities(formatEntities);
-  QScopedPointer<QTdForwardMessagesRequest> request(new QTdForwardMessagesRequest);
-  request->setChatId(recievingChatId);
-  request->setFromChatId(fromChatId);
-  QScopedPointer<QTdSendMessageRequest> additionalTextMessagerequest(new QTdSendMessageRequest);
-  additionalTextMessagerequest->setChatId(recievingChatId);
-  additionalTextMessagerequest->setContent(messageText);
-  QList<qint64> forwardingMessageIntIds;
-	foreach(QString msgId, forwardMessageIds) {
-	    forwardingMessageIntIds.append(msgId.toLongLong());
-	}
-  request->setMessageIds(forwardingMessageIntIds);
-  QTdClient::instance()->send(request.data());
-  if(message!=""){
-    QTdClient::instance()->send(additionalTextMessagerequest.data());
-  }
-
+    QString plainText;
+    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(message, plainText);
+    QTdInputMessageText *messageText = new QTdInputMessageText();
+    messageText->setText(message);
+    messageText->setEntities(formatEntities);
+    QScopedPointer<QTdForwardMessagesRequest> request(new QTdForwardMessagesRequest);
+    request->setChatId(recievingChatId);
+    request->setFromChatId(fromChatId);
+    QScopedPointer<QTdSendMessageRequest> additionalTextMessagerequest(new QTdSendMessageRequest);
+    additionalTextMessagerequest->setChatId(recievingChatId);
+    additionalTextMessagerequest->setContent(messageText);
+    QList<qint64> forwardingMessageIntIds;
+    foreach (QString msgId, forwardMessageIds) {
+        forwardingMessageIntIds.append(msgId.toLongLong());
+    }
+    request->setMessageIds(forwardingMessageIntIds);
+    QTdClient::instance()->send(request.data());
+    if (message != "") {
+        QTdClient::instance()->send(additionalTextMessagerequest.data());
+    }
 }
 
 void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pinned)
@@ -288,15 +334,18 @@ void QTdChatListModel::handlePinChatAction(const qint64 &chatId, const bool &pin
     QTdClient::instance()->send(req.data());
 }
 
-void QTdChatListModel::handleForwardingMessagesAction() {
+void QTdChatListModel::handleForwardingMessagesAction()
+{
     setListMode(ListMode::ForwardingMessages);
 }
 
-QTdChatListModel::ListMode QTdChatListModel::listMode() const{
+QTdChatListModel::ListMode QTdChatListModel::listMode() const
+{
     return m_listMode;
 }
 
-void QTdChatListModel::setListMode(ListMode listMode) {
+void QTdChatListModel::setListMode(ListMode listMode)
+{
     m_listMode = listMode;
     emit listModeChanged();
 }
