@@ -2,7 +2,8 @@
 #include <libintl.h>
 #include "utils/i18n.h"
 
-QTdMessageContent::QTdMessageContent(QObject *parent) : QTdObject(parent)
+QTdMessageContent::QTdMessageContent(QObject *parent)
+    : QTdObject(parent)
 {
     m_infoText = gettext("Message");
     m_infoImageUrl = QUrl();
@@ -18,13 +19,14 @@ QUrl QTdMessageContent::infoImageUrl() const
     return m_infoImageUrl;
 }
 
-QTdMessageAction::QTdMessageAction(QObject *parent) : QTdMessageContent(parent)
+QTdMessageAction::QTdMessageAction(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_ACTION);
 }
 
-QTdMessageHidden::QTdMessageHidden(QObject *parent) : QTdMessageContent(parent)
+QTdMessageHidden::QTdMessageHidden(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_HIDDEN);
 }
-

@@ -7,7 +7,8 @@
 #include "pushclient.h"
 #include "../common/auxdb/auxdb.h"
 
-class PushHelper : public QObject {
+class PushHelper : public QObject
+{
     Q_OBJECT
 
 public:

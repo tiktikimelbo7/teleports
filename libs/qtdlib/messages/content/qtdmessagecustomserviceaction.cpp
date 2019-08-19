@@ -2,7 +2,8 @@
 #include "chat/requests/qtdgetsupergrouprequest.h"
 #include "utils/await.h"
 
-QTdMessageCustomServiceAction::QTdMessageCustomServiceAction(QObject *parent) : QTdMessageContent(parent)
+QTdMessageCustomServiceAction::QTdMessageCustomServiceAction(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_CUSTOM_SERVICE_ACTION);
 }

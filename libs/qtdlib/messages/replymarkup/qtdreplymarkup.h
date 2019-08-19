@@ -35,6 +35,7 @@ public:
     void unmarshalJson(const QJsonObject &json);
 signals:
     void isPersonalChanged();
+
 private:
     bool m_isPersonal;
 };
@@ -55,6 +56,7 @@ public:
     void unmarshalJson(const QJsonObject &json);
 signals:
     void rowsChanged();
+
 private:
     QPointer<QQmlObjectListModel<QTdKeyboardRow>> m_rows;
 };
@@ -75,6 +77,7 @@ public:
     void unmarshalJson(const QJsonObject &json);
 signals:
     void isPersonalChanged();
+
 private:
     bool m_isPersonal;
 };

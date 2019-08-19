@@ -13,6 +13,7 @@ class QTdGetSuperGroupRequest : public QTdRequest
 {
     Q_OBJECT
     qint32 m_sgId;
+
 public:
     explicit QTdGetSuperGroupRequest(QObject *parent = nullptr);
     void setSuperGroupId(const qint32 &id);

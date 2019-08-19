@@ -1,8 +1,9 @@
 #include "qtdformattedtext.h"
 #include <QJsonArray>
 
-QTdFormattedText::QTdFormattedText(QObject *parent) : QTdObject(parent),
-    m_entities(Q_NULLPTR)
+QTdFormattedText::QTdFormattedText(QObject *parent)
+    : QTdObject(parent)
+    , m_entities(Q_NULLPTR)
 {
     setType(FORMATTED_TEXT);
     m_entities = new QQmlObjectListModel<QTdTextEntity>(this);
@@ -18,7 +19,10 @@ QQmlObjectListModel<QTdTextEntity> *QTdFormattedText::entities() const
     return m_entities;
 }
 
-QObject *QTdFormattedText::qmlEntities() const { return m_entities; }
+QObject *QTdFormattedText::qmlEntities() const
+{
+    return m_entities;
+}
 
 void QTdFormattedText::unmarshalJson(const QJsonObject &json)
 {

@@ -5,8 +5,9 @@
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
 
-QTdMessageChatAddMembers::QTdMessageChatAddMembers(QObject *parent) : QTdMessageContent(parent),
-    m_model(new QTdUsersSortFilterModel)
+QTdMessageChatAddMembers::QTdMessageChatAddMembers(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_model(new QTdUsersSortFilterModel)
 {
     setType(MESSAGE_CHAT_ADD_MEMBERS);
     m_model->setSourceModel(QTdUsers::instance()->model());

@@ -5,10 +5,16 @@
 #include "chat/requests/qtdgetbasicgrouprequest.h"
 #include "client/qtdclient.h"
 
-QTdBasicGroupChat::QTdBasicGroupChat(QObject *parent) : QTdChat(parent),
-    m_groupId(0), m_memberCount(0), m_status(Q_NULLPTR),
-    m_everyoneIsAdmin(false), m_isActive(false), m_upgradedSGID(0),
-    m_creatorId(0), m_members(Q_NULLPTR)
+QTdBasicGroupChat::QTdBasicGroupChat(QObject *parent)
+    : QTdChat(parent)
+    , m_groupId(0)
+    , m_memberCount(0)
+    , m_status(Q_NULLPTR)
+    , m_everyoneIsAdmin(false)
+    , m_isActive(false)
+    , m_upgradedSGID(0)
+    , m_creatorId(0)
+    , m_members(Q_NULLPTR)
 {
     m_members = new QQmlObjectListModel<QTdChatMember>(this, "", "userId");
     connect(QTdClient::instance(), &QTdClient::basicGroup, this, &QTdBasicGroupChat::updateGroupData);
@@ -101,7 +107,7 @@ void QTdBasicGroupChat::onChatOpened()
 
 void QTdBasicGroupChat::requestGroupData()
 {
-    QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup*>(chatType());
+    QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup *>(chatType());
     if (group->basicGroupId() > 0) {
         QScopedPointer<QTdGetBasicGroupRequest> req(new QTdGetBasicGroupRequest);
         req->setGroupId(group->basicGroupId());
@@ -111,7 +117,7 @@ void QTdBasicGroupChat::requestGroupData()
 
 void QTdBasicGroupChat::updateGroupData(const QJsonObject &json)
 {
-    QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup*>(chatType());
+    QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup *>(chatType());
     const qint32 gid = qint32(json["id"].toInt());
     if (gid != group->basicGroupId()) {
         return;

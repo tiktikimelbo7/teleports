@@ -1,7 +1,9 @@
 #include "qtddocument.h"
 
-QTdDocument::QTdDocument(QObject *parent) : QTdObject(parent),
-    m_thumbnail(new QTdPhotoSize), m_document(new QTdFile)
+QTdDocument::QTdDocument(QObject *parent)
+    : QTdObject(parent)
+    , m_thumbnail(new QTdPhotoSize)
+    , m_document(new QTdFile)
 {
     setType(DOCUMENT);
 }

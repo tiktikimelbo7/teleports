@@ -18,6 +18,7 @@ public:
 
 signals:
     void contentChanged();
+
 private:
     QString m_title;
 };

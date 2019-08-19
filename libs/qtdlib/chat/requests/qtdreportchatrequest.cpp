@@ -1,6 +1,6 @@
 #include "qtdreportchatrequest.h"
 
-QTdReportChatRequest::QTdReportChatRequest(QObject *parent) : QObject(parent)
+QTdReportChatRequest::QTdReportChatRequest(QObject *parent)
+    : QObject(parent)
 {
-
 }

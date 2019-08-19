@@ -1,7 +1,9 @@
 #include "qtdmessagephoto.h"
 
-QTdMessagePhoto::QTdMessagePhoto(QObject *parent) : QTdMessageContent(parent),
-    m_photo(new QTdPhotos), m_caption(new QTdFormattedText)
+QTdMessagePhoto::QTdMessagePhoto(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_photo(new QTdPhotos)
+    , m_caption(new QTdFormattedText)
 {
     setType(MESSAGE_PHOTO);
 }
@@ -12,7 +14,7 @@ QTdPhotos *QTdMessagePhoto::photo() const
 }
 QTdFormattedText *QTdMessagePhoto::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
 void QTdMessagePhoto::unmarshalJson(const QJsonObject &json)
 {

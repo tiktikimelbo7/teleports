@@ -41,7 +41,7 @@ class QTdMessage : public QAbstractInt64Id
     // Indicates if this message is the first/latest message in the model
     Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
     Q_PROPERTY(QString replyToMessageId READ qmlReplyToMessageId NOTIFY messageChanged)
-    Q_PROPERTY(QTdMessage * messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
+    Q_PROPERTY(QTdMessage *messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
     Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
     Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
     Q_PROPERTY(bool isForwarded READ isForwarded NOTIFY messageChanged)
@@ -118,7 +118,7 @@ public:
     qint64 replyToMessageId() const;
     QString qmlReplyToMessageId() const;
     bool isReply() const;
-    QTdMessage * messageRepliedTo();
+    QTdMessage *messageRepliedTo();
 
 signals:
     void messageChanged();

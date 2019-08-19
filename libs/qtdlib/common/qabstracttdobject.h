@@ -172,7 +172,7 @@ public:
 
     Type type() const;
     QString typeString() const;
-    
+
     virtual void unmarshalJson(const QJsonObject &json);
     virtual QJsonObject marshalJson();
 

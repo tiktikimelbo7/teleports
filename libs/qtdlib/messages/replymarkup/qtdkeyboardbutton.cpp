@@ -1,8 +1,9 @@
 #include "common/qabstracttdobject.h"
 #include "qtdkeyboardbutton.h"
 
-QTdKeyboardButton::QTdKeyboardButton(QObject *parent) : QTdObject(parent),
-    m_type(Q_NULLPTR)
+QTdKeyboardButton::QTdKeyboardButton(QObject *parent)
+    : QTdObject(parent)
+    , m_type(Q_NULLPTR)
 {
 }
 
@@ -35,8 +36,9 @@ QTdKeyboardButtonType *QTdKeyboardButton::type() const
     return m_type;
 }
 
-QTdKeyboardRow::QTdKeyboardRow(QObject *parent) : QTdObject(parent),
-    m_row(Q_NULLPTR)
+QTdKeyboardRow::QTdKeyboardRow(QObject *parent)
+    : QTdObject(parent)
+    , m_row(Q_NULLPTR)
 {
     m_row = new QQmlObjectListModel<QTdKeyboardButton>(this);
 }
@@ -49,7 +51,7 @@ QObject *QTdKeyboardRow::row() const
 void QTdKeyboardRow::unmarshalJson(const QJsonValue &json)
 {
     const QJsonArray row = json.toArray();
-    for (const QJsonValue &v: row) {
+    for (const QJsonValue &v : row) {
         QTdKeyboardButton *button = new QTdKeyboardButton;
         button->unmarshalJson(v.toObject());
         m_row->append(button);

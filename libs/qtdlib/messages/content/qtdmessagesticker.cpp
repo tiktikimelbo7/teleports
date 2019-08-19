@@ -1,7 +1,8 @@
 #include "qtdmessagesticker.h"
 
-QTdMessageSticker::QTdMessageSticker(QObject *parent) : QTdMessageContent(parent),
-    m_sticker(new QTdSticker)
+QTdMessageSticker::QTdMessageSticker(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_sticker(new QTdSticker)
 {
     setType(MESSAGE_STICKER);
 }

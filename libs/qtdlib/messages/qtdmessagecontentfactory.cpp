@@ -37,24 +37,24 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageSticker") {
         return new QTdMessageSticker(parent);
     } else if (type == "messagePhoto") {
-          return new QTdMessagePhoto(parent);
+        return new QTdMessagePhoto(parent);
     } else if (type == "messageAnimation") {
-          return new QTdMessageAnimation(parent);
+        return new QTdMessageAnimation(parent);
     } else if (type == "messageAudio") {
-          return new QTdMessageAudio(parent);
+        return new QTdMessageAudio(parent);
     } else if (type == "messageDocument") {
-          return new QTdMessageDocument(parent);
+        return new QTdMessageDocument(parent);
     } else if (type == "messageLocation") {
         return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
-          return new QTdMessageVideo(parent);
+        return new QTdMessageVideo(parent);
     } else if (type == "messageVideoNote") {
-          return new QTdMessageVideoNote(parent);
+        return new QTdMessageVideoNote(parent);
     } else if (type == "messageVoiceNote") {
-          return new QTdMessageVoiceNote(parent);
-    } else if (type == "messageContactRegistered"){
+        return new QTdMessageVoiceNote(parent);
+    } else if (type == "messageContactRegistered") {
         return new QTdMessageAction(parent);
-    } else if (type =="messageChatJoinByLink"){
+    } else if (type == "messageChatJoinByLink") {
         return new QTdMessageChatJoinByLink(parent);
     } else if (type == "messageBasicGroupChatCreate") {
         return new QTdMessageBasicGroupChatCreate(parent);
@@ -85,6 +85,6 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageSupergroupChatCreate") {
         return new QTdMessageSuperGroupChatCreate(parent);
     }
-    qWarning()<< "Received unknown message type" << type << json;
+    qWarning() << "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);
 }

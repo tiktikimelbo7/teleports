@@ -6,10 +6,9 @@
 #include <QString>
 #include <QDebug>
 
-
 #include "../qtdinputmessagecontent.h"
 
-class QTdInputMessageDocument: public QTdInputMessageContent
+class QTdInputMessageDocument : public QTdInputMessageContent
 {
     Q_OBJECT
 public:

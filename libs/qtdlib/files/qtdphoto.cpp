@@ -2,8 +2,10 @@
 #include "qtdlocalfile.h"
 #include "qtdremotefile.h"
 
-QTdPhoto::QTdPhoto(QObject *parent) : QTdObject(parent),
-    m_small(new QTdFile), m_big(new QTdFile)
+QTdPhoto::QTdPhoto(QObject *parent)
+    : QTdObject(parent)
+    , m_small(new QTdFile)
+    , m_big(new QTdFile)
 {
 }
 

@@ -1,6 +1,7 @@
 #include "qtdtextentitytype.h"
 
-QTdTextEntityType::QTdTextEntityType(QObject *parent) : QTdObject(parent)
+QTdTextEntityType::QTdTextEntityType(QObject *parent)
+    : QTdObject(parent)
 {
 }
 

@@ -13,7 +13,7 @@ class QAbstractInt64Id : public QTdObject
     // 32, 53 and 64 bit id's
     Q_PROPERTY(QString id READ qmlId NOTIFY idChanged)
     Q_PROPERTY(qint64 rawId READ id NOTIFY idChanged)
-    
+
 public:
     explicit QAbstractInt64Id(QObject *parent = nullptr);
 

@@ -14,6 +14,7 @@ class QTdDeleteChatHistoryRequest : public QTdOkRequest
     Q_OBJECT
     qint64 m_chatId;
     bool m_removeFromChatList;
+
 public:
     explicit QTdDeleteChatHistoryRequest(QObject *parent = nullptr);
     void setChatId(const qint64 &id);

@@ -30,7 +30,6 @@ signals:
 private:
     Q_DISABLE_COPY(QAbstractInt32Id)
     QTdInt32 m_id;
-
 };
 
 #endif // QABSTRACTINT32ID_H

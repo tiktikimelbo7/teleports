@@ -1,7 +1,8 @@
 #include "messagedelegatemap.h"
 #include <qtdlib/common/qabstracttdobject.h>
 
-MessageDelegateMap::MessageDelegateMap(QObject *parent) : QObject(parent)
+MessageDelegateMap::MessageDelegateMap(QObject *parent)
+    : QObject(parent)
 {
     m_delegates.insert(QTdObject::MESSAGE_ANIMATION, QStringLiteral("qrc:///delegates/MessageAnimationItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_AUDIO, QStringLiteral("qrc:///delegates/MessageAudioItem.qml"));
@@ -37,6 +38,7 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent) : QObject(parent)
     m_default = QStringLiteral("qrc:///delegates/NotImplementedYet.qml");
 }
 
-QString MessageDelegateMap::findComponent(const int &type) {
+QString MessageDelegateMap::findComponent(const int &type)
+{
     return m_delegates.value(type, m_default);
 }

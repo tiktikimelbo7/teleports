@@ -5,7 +5,7 @@
 #include <QScopedPointer>
 #include "messages/qtdmessagecontent.h"
 
-class QTdMessageUnsupported: public QTdMessageContent
+class QTdMessageUnsupported : public QTdMessageContent
 {
     Q_OBJECT
 public:

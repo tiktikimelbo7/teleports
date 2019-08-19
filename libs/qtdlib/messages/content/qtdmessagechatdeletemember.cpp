@@ -3,8 +3,9 @@
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
 
-QTdMessageChatDeleteMember::QTdMessageChatDeleteMember(QObject *parent) : QTdMessageContent(parent),
-    m_user(Q_NULLPTR)
+QTdMessageChatDeleteMember::QTdMessageChatDeleteMember(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_user(Q_NULLPTR)
 {
     setType(MESSAGE_CHAT_DELETE_MEMBER);
     connect(&m_watcher, &QFutureWatcher<QTdResponse>::finished, this, &QTdMessageChatDeleteMember::handleResponse);
@@ -55,5 +56,3 @@ void QTdMessageChatDeleteMember::handleResponse()
     m_user->unmarshalJson(resp.json());
     emit userChanged();
 }
-
-

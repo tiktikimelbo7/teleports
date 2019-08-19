@@ -75,6 +75,7 @@ public slots:
     void setApplicationVersion(QString applicationVersion);
     void setDatabaseDirectory(QString databaseDirectory);
     void setFilesDirectory(QString filesDirectory);
+
 private:
     bool m_useTestDC;
     bool m_useFileDatabase;

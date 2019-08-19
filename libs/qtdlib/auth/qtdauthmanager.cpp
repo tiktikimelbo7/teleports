@@ -10,9 +10,10 @@
 #include "requests/qtdauthpasswordresponse.h"
 #include "requests/qtdauthdeleteaccountresponse.h"
 
-QTdAuthManager::QTdAuthManager(QObject *parent) : QObject(parent),
-    m_state(Invalid),
-    m_params(0)
+QTdAuthManager::QTdAuthManager(QObject *parent)
+    : QObject(parent)
+    , m_state(Invalid)
+    , m_params(0)
 {
     connect(QTdClient::instance(),
             &QTdClient::authStateChanged,
@@ -127,61 +128,52 @@ void QTdAuthManager::sendPassword(const QString &password)
 
 void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
 {
-    if(!state)
+    if (!state)
         return;
     switch (state->type()) {
-    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_TDLIB_PARAMETERS:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_TDLIB_PARAMETERS: {
         m_state = WaitTdParams;
         emit waitingForTdParams();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_ENCRYPTION_KEY:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_ENCRYPTION_KEY: {
         m_state = WaitEncryptionKey;
         emit waitingForEncryptionKey();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PHONE_NUMBER:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PHONE_NUMBER: {
         m_state = WaitPhoneNumber;
         emit waitingForPhoneNumber();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE:
-    {
-        auto currentState = (QTdAuthStateWaitCode*) state;
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE: {
+        auto currentState = (QTdAuthStateWaitCode *)state;
         emit waitingForCode(currentState->isRegistered());
         m_state = WaitCode;
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PASSWORD:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PASSWORD: {
         m_state = WaitPassword;
-        auto currentState = (QTdAuthStateWaitPassword*) state;
+        auto currentState = (QTdAuthStateWaitPassword *)state;
         emit waitingForPassword(currentState->passwordHint(), currentState->hasRecoveryEmail(), currentState->recoveryEmail());
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_READY:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_READY: {
         m_state = Ready;
         emit ready();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_LOGGING_OUT:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_LOGGING_OUT: {
         m_state = LoggingOut;
         emit loggingOut();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSING:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSING: {
         m_state = Closing;
         emit closing();
         break;
     }
-    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED:
-    {
+    case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED: {
         m_state = Closed;
         emit closed();
         break;

@@ -5,9 +5,9 @@
 #include <QEventLoop>
 #include <QTimer>
 
-
-template <typename T>
-inline void await(QFuture<T> future, int timeout = -1) {
+template<typename T>
+inline void await(QFuture<T> future, int timeout = -1)
+{
     if (future.isFinished()) {
         return;
     }

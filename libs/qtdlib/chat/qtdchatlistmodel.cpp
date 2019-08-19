@@ -102,7 +102,8 @@ void QTdChatListModel::clearCurrentChat()
     emit currentChatChanged(m_currentChat);
 }
 
-void QTdChatListModel::handleChat(const QJsonObject &json) {
+void QTdChatListModel::handleChat(const QJsonObject &json)
+{
     QScopedPointer<QTdChat> chat(new QTdChat);
     chat->unmarshalJson(json);
     if (chat->isMyself()) {
@@ -115,7 +116,7 @@ void QTdChatListModel::handleChats(const QJsonObject &json)
 {
     QJsonArray chats = json["chat_ids"].toArray();
     if (chats.count() == 0) {
-        if (m_receivedChatIds.count()>0) {
+        if (m_receivedChatIds.count() > 0) {
             QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
             foreach (qint64 chatToRequest, m_receivedChatIds) {
                 qWarning() << "Requesting chat" << chatToRequest;
@@ -128,7 +129,7 @@ void QTdChatListModel::handleChats(const QJsonObject &json)
     qWarning() << "Handling getChats result:";
     qWarning() << "Received" << chats.count() << "chats.";
     foreach (QJsonValue chatToRequest, chats) {
-        m_receivedChatIds.append((qint64) chatToRequest.toDouble());
+        m_receivedChatIds.append((qint64)chatToRequest.toDouble());
     }
     auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
     if (!lastChat) {

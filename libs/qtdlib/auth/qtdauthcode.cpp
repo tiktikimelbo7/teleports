@@ -1,13 +1,14 @@
 #include "qtdauthcode.h"
 #include <QDebug>
 
-QTdAuthCode::QTdAuthCode(QObject *parent) : QTdObject(parent)
+QTdAuthCode::QTdAuthCode(QObject *parent)
+    : QTdObject(parent)
 {
-
 }
 
-QTdAuthCodeTelegramMessage::QTdAuthCodeTelegramMessage(QObject *parent) : QTdAuthCode(parent),
-    m_length(0)
+QTdAuthCodeTelegramMessage::QTdAuthCodeTelegramMessage(QObject *parent)
+    : QTdAuthCode(parent)
+    , m_length(0)
 {
     setType(AUTHENTICATION_CODE_TYPE_TELEGRAM_MESSAGE);
 }
@@ -31,8 +32,9 @@ void QTdAuthCodeTelegramMessage::unmarshalJson(const QJsonObject &json)
     QTdAuthCode::unmarshalJson(json);
 }
 
-QTdAuthCodeSms::QTdAuthCodeSms(QObject *parent) : QTdAuthCode(parent),
-    m_length(0)
+QTdAuthCodeSms::QTdAuthCodeSms(QObject *parent)
+    : QTdAuthCode(parent)
+    , m_length(0)
 {
     setType(AUTHENTICATION_CODE_TYPE_SMS);
 }
@@ -56,8 +58,9 @@ void QTdAuthCodeSms::unmarshalJson(const QJsonObject &json)
     QTdAuthCode::unmarshalJson(json);
 }
 
-QTdAuthCodeCall::QTdAuthCodeCall(QObject *parent) : QTdAuthCode(parent),
-    m_length(0)
+QTdAuthCodeCall::QTdAuthCodeCall(QObject *parent)
+    : QTdAuthCode(parent)
+    , m_length(0)
 {
     setType(AUTHENTICATION_CODE_TYPE_CALL);
 }
@@ -81,7 +84,8 @@ void QTdAuthCodeCall::unmarshalJson(const QJsonObject &json)
     QTdAuthCode::unmarshalJson(json);
 }
 
-QTdAuthCodeFlashCall::QTdAuthCodeFlashCall(QObject *parent) : QTdAuthCode(parent)
+QTdAuthCodeFlashCall::QTdAuthCodeFlashCall(QObject *parent)
+    : QTdAuthCode(parent)
 {
     setType(AUTHENTICATION_CODE_TYPE_FLASH_CALL);
 }
@@ -101,8 +105,11 @@ void QTdAuthCodeFlashCall::unmarshalJson(const QJsonObject &json)
     QTdAuthCode::unmarshalJson(json);
 }
 
-QTdAuthCodeInfo::QTdAuthCodeInfo(QObject *parent) : QTdObject(parent),
-    m_timeout(0), m_type(0), m_nextType(0)
+QTdAuthCodeInfo::QTdAuthCodeInfo(QObject *parent)
+    : QTdObject(parent)
+    , m_timeout(0)
+    , m_type(0)
+    , m_nextType(0)
 {
 }
 

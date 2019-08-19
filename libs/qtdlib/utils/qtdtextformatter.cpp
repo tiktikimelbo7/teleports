@@ -4,12 +4,14 @@
 #include <QTextCharFormat>
 #include <QStringBuilder>
 
-QTdTextFormatter::QTdTextFormatter(QObject *parent) : QObject(parent),
-    m_textDocument(Q_NULLPTR), m_content(Q_NULLPTR)
+QTdTextFormatter::QTdTextFormatter(QObject *parent)
+    : QObject(parent)
+    , m_textDocument(Q_NULLPTR)
+    , m_content(Q_NULLPTR)
 {
-    connect (this, &QTdTextFormatter::textDocumentChanged, this, [this] {
-        if (QTextDocument * doc = m_textDocument->textDocument ()) {
-            connect (doc, &QTextDocument::contentsChange, this, &QTdTextFormatter::doFormat);
+    connect(this, &QTdTextFormatter::textDocumentChanged, this, [this] {
+        if (QTextDocument *doc = m_textDocument->textDocument()) {
+            connect(doc, &QTextDocument::contentsChange, this, &QTdTextFormatter::doFormat);
             doFormat();
         }
     });
@@ -82,7 +84,7 @@ void QTdTextFormatter::doFormat()
         return;
     }
 
-    const QList<QTdTextEntity*> entities = m_content->entities()->toList();
+    const QList<QTdTextEntity *> entities = m_content->entities()->toList();
     QTextDocument *doc = m_textDocument->textDocument();
     if (doc->isEmpty()) {
         return;
@@ -93,9 +95,8 @@ void QTdTextFormatter::doFormat()
         cursor.setPosition(entity->offset(), QTextCursor::MoveAnchor);
         cursor.setPosition(entity->offset() + entity->length(), QTextCursor::KeepAnchor);
         const QString subText = rawText.mid(entity->offset(), entity->length());
-        switch(entity->entityType()->type()) {
-        case QTdTextEntity::TEXT_ENTITY_TYPE_BOLD:
-        {
+        switch (entity->entityType()->type()) {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_BOLD: {
             QTextCharFormat format;
             format.setFontWeight(60);
             cursor.mergeCharFormat(format);
@@ -106,8 +107,7 @@ void QTdTextFormatter::doFormat()
             break;
         case QTdTextEntity::TEXT_ENTITY_TYPE_CODE:
         case QTdTextEntity::TEXT_ENTITY_TYPE_PRE:
-        case QTdTextEntity::TEXT_ENTITY_TYPE_PRE_CODE:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_PRE_CODE: {
             QTextCharFormat format;
             format.setFontFamily("Ubuntu Mono");
             format.setFontFixedPitch(true);
@@ -117,8 +117,7 @@ void QTdTextFormatter::doFormat()
             cursor.mergeCharFormat(format);
             break;
         }
-        case QTdTextEntity::TEXT_ENTITY_TYPE_EMAIL_ADDRESS:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_EMAIL_ADDRESS: {
             QTextCharFormat format;
             format.setAnchor(true);
             format.setAnchorHref("mailto:" % subText);
@@ -128,8 +127,7 @@ void QTdTextFormatter::doFormat()
             cursor.mergeCharFormat(format);
             break;
         }
-        case QTdTextEntity::TEXT_ENTITY_TYPE_ITALIC:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_ITALIC: {
             QTextCharFormat format;
             format.setFontItalic(true);
             cursor.mergeCharFormat(format);
@@ -137,8 +135,7 @@ void QTdTextFormatter::doFormat()
         }
         case QTdTextEntity::TEXT_ENTITY_TYPE_HASHTAG:
         case QTdTextEntity::TEXT_ENTITY_TYPE_MENTION:
-        case QTdTextEntity::TEXT_ENTITY_TYPE_MENTION_NAME:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_MENTION_NAME: {
             QTextCharFormat format;
             format.setAnchor(true);
             format.setAnchorHref(subText);
@@ -148,8 +145,7 @@ void QTdTextFormatter::doFormat()
             cursor.mergeCharFormat(format);
             break;
         }
-        case QTdTextEntity::TEXT_ENTITY_TYPE_PHONE_NUMBER:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_PHONE_NUMBER: {
             QTextCharFormat format;
             format.setAnchor(true);
             format.setAnchorHref("tel:" % subText);
@@ -161,8 +157,7 @@ void QTdTextFormatter::doFormat()
         }
         case QTdTextEntity::TEXT_ENTITY_TYPE_TEXT_URL:
             break;
-        case QTdTextEntity::TEXT_ENTITY_TYPE_URL:
-        {
+        case QTdTextEntity::TEXT_ENTITY_TYPE_URL: {
             QTextCharFormat format;
             format.setAnchor(true);
             format.setAnchorHref(subText);

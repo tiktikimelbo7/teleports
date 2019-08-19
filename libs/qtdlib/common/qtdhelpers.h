@@ -1,8 +1,9 @@
 #include <QDateTime>
-#include <QDebug> 
+#include <QDebug>
 #include "messages/content/qtdtextentity.h"
 
-class QTdHelpers {
+class QTdHelpers
+{
 
     static QRegExp rxEntity;
     static QRegExp rxLinebreaks;

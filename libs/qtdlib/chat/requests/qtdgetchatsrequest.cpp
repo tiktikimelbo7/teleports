@@ -18,7 +18,8 @@ QJsonObject QTdGetChatsRequest::marshalJson()
     };
 }
 
-void QTdGetChatsRequest::setOffsetOrder(const qint64 value) {
+void QTdGetChatsRequest::setOffsetOrder(const qint64 value)
+{
     m_offset_order = value;
 }
 

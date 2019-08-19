@@ -1,8 +1,10 @@
 #include "qtddownloadfilerequest.h"
 #include "client/qtdclient.h"
 
-QTdDownloadFileRequest::QTdDownloadFileRequest(QObject *parent) : QTdRequest(parent),
-    m_priority(Low), m_fileId(0)
+QTdDownloadFileRequest::QTdDownloadFileRequest(QObject *parent)
+    : QTdRequest(parent)
+    , m_priority(Low)
+    , m_fileId(0)
 {
 }
 
@@ -19,9 +21,9 @@ void QTdDownloadFileRequest::setFileId(const qint32 &fileId)
 QJsonObject QTdDownloadFileRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "downloadFile"},
-        {"file_id", m_fileId},
-        {"priority", (qint32)m_priority},
+        { "@type", "downloadFile" },
+        { "file_id", m_fileId },
+        { "priority", (qint32)m_priority },
     };
 }
 

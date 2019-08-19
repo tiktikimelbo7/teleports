@@ -1,8 +1,10 @@
 #include "qtdvoicenote.h"
 #include <QTime>
 
-QTdVoiceNote::QTdVoiceNote(QObject *parent) : QTdObject(parent),
-    m_duration(0), m_voice(new QTdFile)
+QTdVoiceNote::QTdVoiceNote(QObject *parent)
+    : QTdObject(parent)
+    , m_duration(0)
+    , m_voice(new QTdFile)
 {
     setType(VOICE_NOTE);
 }

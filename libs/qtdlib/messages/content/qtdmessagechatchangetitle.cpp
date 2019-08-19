@@ -1,6 +1,7 @@
 #include "qtdmessagechatchangetitle.h"
 
-QTdMessageChatChangeTitle::QTdMessageChatChangeTitle(QObject *parent) : QTdMessageContent(parent)
+QTdMessageChatChangeTitle::QTdMessageChatChangeTitle(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_CHAT_CHANGE_TITLE);
 }

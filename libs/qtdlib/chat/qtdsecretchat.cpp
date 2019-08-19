@@ -3,9 +3,14 @@
 #include "chat/requests/qtdgetsecretchatrequest.h"
 #include "client/qtdclient.h"
 
-QTdSecretChat::QTdSecretChat(QObject *parent) : QTdChat(parent),
-    m_secretChatId(0), m_userId(0), m_isOutbound(false),
-    m_ttl(0), m_layer(0), m_state(Q_NULLPTR)
+QTdSecretChat::QTdSecretChat(QObject *parent)
+    : QTdChat(parent)
+    , m_secretChatId(0)
+    , m_userId(0)
+    , m_isOutbound(false)
+    , m_ttl(0)
+    , m_layer(0)
+    , m_state(Q_NULLPTR)
 {
     connect(QTdClient::instance(), &QTdClient::secretChat, this, &QTdSecretChat::updateSecretChat);
     connect(QTdClient::instance(), &QTdClient::updateSecretChat, this, &QTdSecretChat::updateSecretChat);
@@ -64,7 +69,7 @@ void QTdSecretChat::onChatOpened()
 
 void QTdSecretChat::getSecretChatData()
 {
-    QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret*>(chatType());
+    QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret *>(chatType());
     if (secret->secretChatId() > 0) {
         QScopedPointer<QTdGetSecretChatRequest> req(new QTdGetSecretChatRequest);
         req->setSecretChatId(secret->secretChatId());
@@ -74,7 +79,7 @@ void QTdSecretChat::getSecretChatData()
 
 void QTdSecretChat::updateSecretChat(const QJsonObject &data)
 {
-    QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret*>(chatType());
+    QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret *>(chatType());
     const qint32 sid = qint32(data["id"].toInt());
     if (sid != secret->secretChatId()) {
         return;

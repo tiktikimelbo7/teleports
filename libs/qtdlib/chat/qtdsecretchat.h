@@ -11,7 +11,7 @@ class QTdSecretChat : public QTdChat
     Q_OBJECT
     Q_PROPERTY(QString secretChatId READ qmlSecretChatId NOTIFY secretChatChanged)
     Q_PROPERTY(QString userId READ qmlUserId NOTIFY secretChatChanged)
-    Q_PROPERTY(QTdSecretChatState* state READ state NOTIFY stateChanged)
+    Q_PROPERTY(QTdSecretChatState *state READ state NOTIFY stateChanged)
     Q_PROPERTY(bool isOutbound READ isOutbound NOTIFY secretChatChanged)
     Q_PROPERTY(qint32 ttl READ ttl NOTIFY secretChatChanged)
     Q_PROPERTY(QString keyHash READ keyHash NOTIFY secretChatChanged)
@@ -28,11 +28,11 @@ public:
     QString keyHash() const;
     qint32 layer() const;
 
-    QTdSecretChatState* state() const;
+    QTdSecretChatState *state() const;
 
 signals:
     void secretChatChanged();
-    void stateChanged(QTdSecretChatState* state);
+    void stateChanged(QTdSecretChatState *state);
 
 private:
     virtual void onChatOpened();

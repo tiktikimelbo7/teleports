@@ -24,8 +24,8 @@ public:
     QFuture<QTdResponse> sendAsync();
 
 private:
-    qint64 m_chat{0};
-    qint64 m_msg{0};
+    qint64 m_chat{ 0 };
+    qint64 m_msg{ 0 };
 };
 
 #endif // QTDGETMESSAGEREQUEST_H

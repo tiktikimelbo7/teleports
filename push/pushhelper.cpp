@@ -153,7 +153,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
     } else if (key == "MESSAGE_VOICE_NOTE" || key == "CHANNEL_MESSAGE_VOICE_NOTE") { // no-i18n
 
-          body = N_("sent you a voice message");
+        body = N_("sent you a voice message");
 
     } else if (key == "MESSAGE_CONTACT" || key == "CHANNEL_MESSAGE_CONTACT") { // no-i18n
 
@@ -310,15 +310,14 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
     //Load the correct avatar
     QString avatar = QString("telegram-symbolic");
-    if(m_auxdb.getAvatarMapTable()) {
+    if (m_auxdb.getAvatarMapTable()) {
         QString avatarPath = m_auxdb.getAvatarMapTable()->getAvatarPathbyId(chatId);
         if (avatarPath != "") {
             avatar = QString("file://").append(avatarPath);
         } else {
             qWarning() << "Could not find any avatar picture!";
         }
-    } else
-    {
+    } else {
         qWarning() << "No valid avatar map table available!";
     }
 

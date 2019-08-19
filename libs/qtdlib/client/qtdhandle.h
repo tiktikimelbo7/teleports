@@ -16,6 +16,7 @@
 class Handle
 {
     void *m_handle;
+
 public:
     explicit Handle();
     void *handle();

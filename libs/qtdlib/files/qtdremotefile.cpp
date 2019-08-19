@@ -1,8 +1,10 @@
 #include "qtdremotefile.h"
 
-QTdRemoteFile::QTdRemoteFile(QObject *parent) : QTdObject(parent),
-    m_isUploadingActive(false), m_isUploadingCompleted(false),
-    m_uploadedSize(0)
+QTdRemoteFile::QTdRemoteFile(QObject *parent)
+    : QTdObject(parent)
+    , m_isUploadingActive(false)
+    , m_isUploadingCompleted(false)
+    , m_uploadedSize(0)
 {
     setType(REMOTE_FILE);
 }

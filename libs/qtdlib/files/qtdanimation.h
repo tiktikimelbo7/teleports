@@ -20,8 +20,8 @@ class QTdAnimation : public QTdObject
     Q_PROPERTY(qint32 height READ height NOTIFY animationChanged)
     Q_PROPERTY(QString fileName READ fileName NOTIFY animationChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY animationChanged)
-    Q_PROPERTY(QTdPhotoSize* thumbnail READ thumbnail NOTIFY animationChanged)
-    Q_PROPERTY(QTdFile* animation READ animation NOTIFY animationChanged)
+    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY animationChanged)
+    Q_PROPERTY(QTdFile *animation READ animation NOTIFY animationChanged)
 public:
     explicit QTdAnimation(QObject *parent = nullptr);
 

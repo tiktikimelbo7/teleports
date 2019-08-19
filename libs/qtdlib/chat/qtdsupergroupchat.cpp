@@ -4,13 +4,27 @@
 #include "chat/requests/qtdgetsupergroupfullinforequest.h"
 #include "client/qtdclient.h"
 
-QTdSuperGroupChat::QTdSuperGroupChat(QObject *parent) : QTdChat(parent),
-    m_sgId(0), m_date(0), m_status(Q_NULLPTR),
-    m_memberCount(0), m_canInvite(false), m_signMessages(false),
-    m_isChannel(false), m_isVerified(false), m_adminCount(0),
-    m_restrictedCount(0), m_bannedCount(0), m_canGetMembers(false),
-    m_canSetUsername(false), m_canSetStickerSet(false), m_historyAvailable(false), m_stickerSet(0),
-    m_pinnedMessageId(0), m_upgradeGroupId(0), m_upgradeMaxMsgId(0)
+QTdSuperGroupChat::QTdSuperGroupChat(QObject *parent)
+    : QTdChat(parent)
+    , m_sgId(0)
+    , m_date(0)
+    , m_status(Q_NULLPTR)
+    , m_memberCount(0)
+    , m_canInvite(false)
+    , m_signMessages(false)
+    , m_isChannel(false)
+    , m_isVerified(false)
+    , m_adminCount(0)
+    , m_restrictedCount(0)
+    , m_bannedCount(0)
+    , m_canGetMembers(false)
+    , m_canSetUsername(false)
+    , m_canSetStickerSet(false)
+    , m_historyAvailable(false)
+    , m_stickerSet(0)
+    , m_pinnedMessageId(0)
+    , m_upgradeGroupId(0)
+    , m_upgradeMaxMsgId(0)
 {
     connect(QTdClient::instance(), &QTdClient::superGroup, this, &QTdSuperGroupChat::updateSuperGroup);
     connect(QTdClient::instance(), &QTdClient::updateSuperGroup, this, &QTdSuperGroupChat::updateSuperGroup);
@@ -187,7 +201,7 @@ void QTdSuperGroupChat::onChatOpened()
 
 void QTdSuperGroupChat::getSuperGroupData()
 {
-    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup*>(chatType());
+    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup *>(chatType());
     if (group && group->superGroupId() > 0) {
         QScopedPointer<QTdGetSuperGroupRequest> req(new QTdGetSuperGroupRequest);
         req->setSuperGroupId(group->superGroupId());
@@ -197,7 +211,7 @@ void QTdSuperGroupChat::getSuperGroupData()
 
 void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
 {
-    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup*>(chatType());
+    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup *>(chatType());
     const qint32 gid = qint32(json["id"].toInt());
     if (gid != group->superGroupId()) {
         return;

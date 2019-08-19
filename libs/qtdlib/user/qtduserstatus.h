@@ -80,6 +80,7 @@ public:
     QString toString() const override;
 signals:
     void wasOnlineChanged(QDateTime wasOnline);
+
 private:
     QDateTime m_wasOnline;
 };
@@ -101,6 +102,7 @@ public:
     QString toString() const override;
 signals:
     void expiresChanged();
+
 private:
     QDateTime m_expires;
 };

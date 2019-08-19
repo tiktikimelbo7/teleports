@@ -2,8 +2,9 @@
 #include "chat/requests/qtdgetsupergrouprequest.h"
 #include "utils/await.h"
 
-QTdMessageChatUpgradeTo::QTdMessageChatUpgradeTo(QObject *parent) : QTdMessageContent(parent)
-    
+QTdMessageChatUpgradeTo::QTdMessageChatUpgradeTo(QObject *parent)
+    : QTdMessageContent(parent)
+
 {
     setType(MESSAGE_CHAT_UPGRADE_TO);
 }

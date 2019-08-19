@@ -1,7 +1,10 @@
 #include "qtdinputmessagephoto.h"
 
-QTdInputMessagePhoto::QTdInputMessagePhoto(QObject *parent) : QTdInputMessageContent(parent),
-    m_photo(QString()), m_caption(QString()), m_captionEntities(QJsonArray())
+QTdInputMessagePhoto::QTdInputMessagePhoto(QObject *parent)
+    : QTdInputMessageContent(parent)
+    , m_photo(QString())
+    , m_caption(QString())
+    , m_captionEntities(QJsonArray())
 {
 }
 void QTdInputMessagePhoto::setPhoto(const QString &url)
@@ -19,17 +22,12 @@ void QTdInputMessagePhoto::setCaptionEntities(const QJsonArray &entities)
 }
 QJsonObject QTdInputMessagePhoto::marshalJson()
 {
-    qDebug()<<"inputMessagePhoto";
+    qDebug() << "inputMessagePhoto";
     return QJsonObject{
-      {"@type", "inputMessagePhoto"},
-      {"photo", QJsonObject{
-        {"@type", "inputFileLocal"},
-        {"path", m_photo}
-      }},
-      {"caption", QJsonObject{
-        {"@type", "formattedText"},
-        {"text", m_caption},
-        {"entities", m_captionEntities}
-      }},
+        { "@type", "inputMessagePhoto" },
+        { "photo", QJsonObject{
+                           { "@type", "inputFileLocal" },
+                           { "path", m_photo } } },
+        { "caption", QJsonObject{ { "@type", "formattedText" }, { "text", m_caption }, { "entities", m_captionEntities } } },
     };
 }

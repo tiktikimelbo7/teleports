@@ -15,19 +15,21 @@
 #include "../../common/auxdb/auxdb.h"
 #include "../../common/auxdb/avatarmaptable.h"
 
-QJsonObject execTd(const QJsonObject &json, const bool debug) {
+QJsonObject execTd(const QJsonObject &json, const bool debug)
+{
     if (debug)
         qDebug() << "[EXEC]" << json;
-    const QByteArray  tmp = (QJsonDocument(json).toJson(QJsonDocument::Compact) % '\0');
+    const QByteArray tmp = (QJsonDocument(json).toJson(QJsonDocument::Compact) % '\0');
     QSharedPointer<Handle> tdlib = QTdHandle::instance();
-    const QByteArray  str = QByteArray(td_json_client_execute(tdlib->handle(), tmp.constData()));
+    const QByteArray str = QByteArray(td_json_client_execute(tdlib->handle(), tmp.constData()));
     const QJsonObject ret = QJsonDocument::fromJson(str).object();
     if (debug)
         qDebug() << "[EXEC RESULT]" << ret;
     return ret;
 }
 
-void sendTd(const QJsonObject &json, const bool debug) {
+void sendTd(const QJsonObject &json, const bool debug)
+{
     if (debug)
         qDebug() << "[SEND] :" << json;
     const QByteArray msg = QJsonDocument(json).toJson(QJsonDocument::Compact).append('\0');
@@ -35,14 +37,15 @@ void sendTd(const QJsonObject &json, const bool debug) {
     td_json_client_send(tdlib->handle(), msg.constData());
 }
 
-QTdClient::QTdClient(QObject *parent) : QObject(parent),
-    m_worker(new QThread),
-    m_authState(Q_NULLPTR),
-    m_connectionState(Q_NULLPTR),
-    m_tagcounter(0),
-    m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
-              QGuiApplication::applicationDirPath().append("/assets"), this),
-    m_debug(false)
+QTdClient::QTdClient(QObject *parent)
+    : QObject(parent)
+    , m_worker(new QThread)
+    , m_authState(Q_NULLPTR)
+    , m_connectionState(Q_NULLPTR)
+    , m_tagcounter(0)
+    , m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
+              QGuiApplication::applicationDirPath().append("/assets"), this)
+    , m_debug(false)
 {
     if (!m_debug) {
         m_debug = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
@@ -90,16 +93,17 @@ void QTdClient::send(const QJsonObject &json)
     QtConcurrent::run(sendTd, json, m_debug);
 }
 
-QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*signal)(QJsonObject)) {
+QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*signal)(QJsonObject))
+{
     QJsonObject data = obj->marshalJson();
     const QString tag = getTag();
     data["@extra"] = tag;
-    QFuture<QTdResponse> f = QtConcurrent::run([this](void(QTdClient::*s)(QJsonObject), const QJsonObject &data, const QString &tag)->QTdResponse{
+    QFuture<QTdResponse> f = QtConcurrent::run([this](void (QTdClient::*s)(QJsonObject), const QJsonObject &data, const QString &tag) -> QTdResponse {
         // TODO: Should we wrap this up in a QRunnable instead of using an event loop
         QEventLoop loop;
 
         QTdResponse result;
-        auto respSlot = [&](QJsonObject resp){
+        auto respSlot = [&](QJsonObject resp) {
             if (resp.contains("@extra")) {
                 QString extra = resp.value("@extra").toString();
                 if (extra == tag) {
@@ -127,7 +131,8 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*sig
         disconnect(con1);
         disconnect(con2);
         return result;
-    }, signal, data, tag);
+    },
+                                               signal, data, tag);
     return f;
 }
 
@@ -189,49 +194,49 @@ void QTdClient::init()
         emit connectionStateChanged(m_connectionState);
     });
 
-    m_events.insert(QStringLiteral("updateUser"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateUser"), [=](const QJsonObject &data) {
         emit updateUser(data["user"].toObject());
     });
 
-    m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data) {
         const QString userId = QString::number(qint32(data["user_id"].toInt()));
         emit updateUserStatus(userId, data["status"].toObject());
     });
 
-    m_events.insert(QStringLiteral("updateFile"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateFile"), [=](const QJsonObject &data) {
         emit updateFile(data["file"].toObject());
     });
 
-    m_events.insert(QStringLiteral("updateNewChat"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateNewChat"), [=](const QJsonObject &data) {
         emit updateNewChat(data["chat"].toObject());
     });
 
-    m_events.insert(QStringLiteral("updateBasicGroup"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateBasicGroup"), [=](const QJsonObject &data) {
         emit updateBasicGroup(data["basic_group"].toObject());
     });
 
-    m_events.insert(QStringLiteral("updateBasicGroupFullInfo"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("updateBasicGroupFullInfo"), [=](const QJsonObject &data) {
         emit updateBasicGroupFullInfo(data);
     });
-    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &data){ emit updateBasicGroup(data); });
-    m_events.insert(QStringLiteral("secretChat"), [=](const QJsonObject &data){ emit secretChat(data); });
-    m_events.insert(QStringLiteral("updateSecretChat"), [=](const QJsonObject &data){ emit updateSecretChat(data["secret_chat"].toObject()); });
-    m_events.insert(QStringLiteral("supergroup"), [=](const QJsonObject &data){ emit superGroup(data); });
-    m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data){ emit updateSupergroupFullInfo(data); });
-    m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data){ emit supergroupFullInfo(data); });
-    m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data){ emit updateSuperGroup(data["supergroup"].toObject()); });
-    m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data){ emit updateChatOrder(data); });
-    m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data){ emit updateChatLastMessage(data); });
-    m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data){ emit updateMessageContent(data); });
-    m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data){ emit updateMessageSendSucceeded(data); });
-    m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data){ emit updateChatReadInbox(data); });
-    m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data){ emit updateChatIsPinned(data); });
-    m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data){ emit updateChatPhoto(data); });
-    m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data){ emit updateChatReadOutbox(data); });
-    m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data){ emit updateChatReplyMarkup(data); });
-    m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data){ emit updateChatTitle(data); });
-    m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
-    m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
+    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &data) { emit updateBasicGroup(data); });
+    m_events.insert(QStringLiteral("secretChat"), [=](const QJsonObject &data) { emit secretChat(data); });
+    m_events.insert(QStringLiteral("updateSecretChat"), [=](const QJsonObject &data) { emit updateSecretChat(data["secret_chat"].toObject()); });
+    m_events.insert(QStringLiteral("supergroup"), [=](const QJsonObject &data) { emit superGroup(data); });
+    m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data) { emit updateSupergroupFullInfo(data); });
+    m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data) { emit supergroupFullInfo(data); });
+    m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data) { emit updateSuperGroup(data["supergroup"].toObject()); });
+    m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data) { emit updateChatOrder(data); });
+    m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data) { emit updateChatLastMessage(data); });
+    m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data) { emit updateMessageContent(data); });
+    m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data) { emit updateMessageSendSucceeded(data); });
+    m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data) { emit updateChatReadInbox(data); });
+    m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data) { emit updateChatIsPinned(data); });
+    m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data) { emit updateChatPhoto(data); });
+    m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data) { emit updateChatReadOutbox(data); });
+    m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data) { emit updateChatReplyMarkup(data); });
+    m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data) { emit updateChatTitle(data); });
+    m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });
+    m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });
 
     m_events.insert(QStringLiteral("updateUnreadMessageCount"), [=](const QJsonObject &data) { emit updateUnreadMessageCount(data); });
     m_events.insert(QStringLiteral("updateScopeNotificationSettings"), [=](const QJsonObject &data) { emit updateScopeNotificationSettings(data); });
@@ -240,27 +245,27 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateDeleteMessages"), [=](const QJsonObject &data) { emit updateDeleteMessages(data); });
 
     m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data) { emit updateUserChatAction(data); });
-    m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data){ emit updateChatNotificationSettings(data); });
+    m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data) { emit updateChatNotificationSettings(data); });
 
-    m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data){ emit messages(data); });
-    m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data){ emit message(data); });
+    m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data) { emit messages(data); });
+    m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data) { emit message(data); });
 
     //Option handling - more or less global constants, still could change during execution
-    m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data){ emit updateOption(data); });
+    m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data) { emit updateOption(data); });
 
     //Message updates to add to existing chats or channel views
-    m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data){ emit updateNewMessage(data); });
+    m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data) { emit updateNewMessage(data); });
     m_events.insert(QStringLiteral("updateMessageViews"), [=](const QJsonObject &data) { emit updateMessageViews(data); });
     m_events.insert(QStringLiteral("chats"), [=](const QJsonObject &data) { emit chats(data); });
     m_events.insert(QStringLiteral("chat"), [=](const QJsonObject &data) { emit chat(data); });
-    m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data){ emit error(data); });
-    m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data){ emit ok(data); });
-    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group){ emit basicGroup(group); });
-    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("error"), [=](const QJsonObject &data) { emit error(data); });
+    m_events.insert(QStringLiteral("ok"), [=](const QJsonObject &data) { emit ok(data); });
+    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &group) { emit basicGroup(group); });
+    m_events.insert(QStringLiteral("file"), [=](const QJsonObject &data) {
         emit updateFile(data);
         emit file(data);
     });
-    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data){
+    m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data) {
         emit updateUser(data);
         emit user(data);
     });
@@ -297,15 +302,14 @@ QString QTdClient::getTag()
 
 QVariant QTdClient::getOption(const QString name)
 {
-    if (m_options.contains(name))
-    {
+    if (m_options.contains(name)) {
         return m_options[name];
-    }
-    else
+    } else
         return QVariant();
 }
 
-void QTdClient::setAvatarMapEntry(const qint64 id, const QString path) {
+void QTdClient::setAvatarMapEntry(const qint64 id, const QString path)
+{
     if (path != "")
         m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
 }

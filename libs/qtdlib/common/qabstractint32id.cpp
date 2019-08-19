@@ -1,6 +1,7 @@
 #include "qabstractint32id.h"
 
-QAbstractInt32Id::QAbstractInt32Id(QObject *parent) : QTdObject(parent)
+QAbstractInt32Id::QAbstractInt32Id(QObject *parent)
+    : QTdObject(parent)
 {
 }
 

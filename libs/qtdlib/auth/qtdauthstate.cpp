@@ -1,13 +1,14 @@
 #include "qtdauthstate.h"
 
-
-QTdAuthStateWaitParams::QTdAuthStateWaitParams(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateWaitParams::QTdAuthStateWaitParams(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_WAIT_TDLIB_PARAMETERS);
 }
 
-QTdAuthStateWaitEncryptionKey::QTdAuthStateWaitEncryptionKey(QObject *parent) : QTdAuthState(parent),
-    m_encrypted(false)
+QTdAuthStateWaitEncryptionKey::QTdAuthStateWaitEncryptionKey(QObject *parent)
+    : QTdAuthState(parent)
+    , m_encrypted(false)
 {
     setType(AUTHORIZATION_STATE_WAIT_ENCRYPTION_KEY);
 }
@@ -33,13 +34,16 @@ void QTdAuthStateWaitEncryptionKey::unmarshalJson(const QJsonObject &json)
     QTdAuthState::unmarshalJson(json);
 }
 
-QTdAuthStateWaitPhoneNumber::QTdAuthStateWaitPhoneNumber(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateWaitPhoneNumber::QTdAuthStateWaitPhoneNumber(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_WAIT_PHONE_NUMBER);
 }
 
-QTdAuthStateWaitCode::QTdAuthStateWaitCode(QObject *parent) : QTdAuthState(parent),
-    m_isRegistered(false), m_info(0)
+QTdAuthStateWaitCode::QTdAuthStateWaitCode(QObject *parent)
+    : QTdAuthState(parent)
+    , m_isRegistered(false)
+    , m_info(0)
 {
     setType(AUTHORIZATION_STATE_WAIT_CODE);
 }
@@ -62,8 +66,9 @@ void QTdAuthStateWaitCode::unmarshalJson(const QJsonObject &json)
     emit infoChanged();
 }
 
-QTdAuthStateWaitPassword::QTdAuthStateWaitPassword(QObject *parent) : QTdAuthState(parent),
-    m_hasRecovery(false)
+QTdAuthStateWaitPassword::QTdAuthStateWaitPassword(QObject *parent)
+    : QTdAuthState(parent)
+    , m_hasRecovery(false)
 {
     setType(AUTHORIZATION_STATE_WAIT_PASSWORD);
 }
@@ -92,22 +97,26 @@ void QTdAuthStateWaitPassword::unmarshalJson(const QJsonObject &json)
     emit dataChanged();
 }
 
-QTdAuthStateReady::QTdAuthStateReady(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateReady::QTdAuthStateReady(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_READY);
 }
 
-QTdAuthStateLoggingOut::QTdAuthStateLoggingOut(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateLoggingOut::QTdAuthStateLoggingOut(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_LOGGING_OUT);
 }
 
-QTdAuthStateClosing::QTdAuthStateClosing(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateClosing::QTdAuthStateClosing(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_CLOSING);
 }
 
-QTdAuthStateClosed::QTdAuthStateClosed(QObject *parent) : QTdAuthState(parent)
+QTdAuthStateClosed::QTdAuthStateClosed(QObject *parent)
+    : QTdAuthState(parent)
 {
     setType(AUTHORIZATION_STATE_CLOSED);
 }

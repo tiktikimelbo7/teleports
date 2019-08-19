@@ -1,7 +1,10 @@
 #include "qtdtextentity.h"
 
-QTdTextEntity::QTdTextEntity(QObject *parent) : QTdObject(parent),
-    m_offset(0), m_length(0), m_type(Q_NULLPTR)
+QTdTextEntity::QTdTextEntity(QObject *parent)
+    : QTdObject(parent)
+    , m_offset(0)
+    , m_length(0)
+    , m_type(Q_NULLPTR)
 {
     setType(TEXT_ENTITY);
 }

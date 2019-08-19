@@ -2,9 +2,10 @@
 #include <QJsonArray>
 #include <QDebug>
 
-
-QTdPhotos::QTdPhotos(QObject *parent) : QAbstractInt64Id(parent),
-    m_hasStickers(false), m_sizes(Q_NULLPTR)
+QTdPhotos::QTdPhotos(QObject *parent)
+    : QAbstractInt64Id(parent)
+    , m_hasStickers(false)
+    , m_sizes(Q_NULLPTR)
 {
     m_sizes = new QQmlObjectListModel<QTdPhotoSize>(this, "", "type");
 }

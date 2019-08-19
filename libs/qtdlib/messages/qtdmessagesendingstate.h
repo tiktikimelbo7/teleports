@@ -18,7 +18,6 @@ public:
     explicit QTdMessageSendingStateFailed(QObject *parent = nullptr);
 };
 
-
 class QTdMessageSendingStatePending : public QTdMessageSendingState
 {
     Q_OBJECT

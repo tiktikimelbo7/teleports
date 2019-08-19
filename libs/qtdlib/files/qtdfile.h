@@ -12,8 +12,8 @@ class QTdFile : public QAbstractInt32Id
     Q_OBJECT
     Q_PROPERTY(QString size READ qmlSize NOTIFY fileChanged)
     Q_PROPERTY(QString expectedSize READ qmlExpectedSize NOTIFY fileChanged)
-    Q_PROPERTY(QTdLocalFile* local READ local NOTIFY fileChanged)
-    Q_PROPERTY(QTdRemoteFile* remote READ remote NOTIFY fileChanged)
+    Q_PROPERTY(QTdLocalFile *local READ local NOTIFY fileChanged)
+    Q_PROPERTY(QTdRemoteFile *remote READ remote NOTIFY fileChanged)
 public:
     explicit QTdFile(QObject *parent = nullptr);
 
@@ -23,9 +23,9 @@ public:
     qint32 expectedSize() const;
     QString qmlExpectedSize() const;
 
-    QTdLocalFile* local() const;
+    QTdLocalFile *local() const;
 
-    QTdRemoteFile* remote() const;
+    QTdRemoteFile *remote() const;
 
     void unmarshalJson(const QJsonObject &json);
 

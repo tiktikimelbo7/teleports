@@ -1,7 +1,8 @@
 #include "qtdsetpinnedchatsrequest.h"
 #include <QJsonArray>
 
-QTdSetPinnedChatsRequest::QTdSetPinnedChatsRequest(QObject *parent) : QTdOkRequest(parent)
+QTdSetPinnedChatsRequest::QTdSetPinnedChatsRequest(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -17,7 +18,7 @@ QJsonObject QTdSetPinnedChatsRequest::marshalJson()
         ids << QJsonValue(id);
     }
     return QJsonObject{
-        {"@type", "setPinnedChats"},
-        {"chat_ids", ids},
+        { "@type", "setPinnedChats" },
+        { "chat_ids", ids },
     };
 }

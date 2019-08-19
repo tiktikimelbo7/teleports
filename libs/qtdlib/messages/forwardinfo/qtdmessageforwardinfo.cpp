@@ -4,13 +4,17 @@
 #include "qtdmessageforwardinfo.h"
 #include "common/qtdhelpers.h"
 
-QTdMessageForwardInfo::QTdMessageForwardInfo(QObject *parent) : QTdObject(parent)
+QTdMessageForwardInfo::QTdMessageForwardInfo(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-
-QTdMessageForwardedFromUser::QTdMessageForwardedFromUser(QObject *parent) : QTdMessageForwardInfo(parent),
-    m_senderUserId(0), m_date(0), m_forwardedFromChatId(0), m_forwardedFromMessageId(0)
+QTdMessageForwardedFromUser::QTdMessageForwardedFromUser(QObject *parent)
+    : QTdMessageForwardInfo(parent)
+    , m_senderUserId(0)
+    , m_date(0)
+    , m_forwardedFromChatId(0)
+    , m_forwardedFromMessageId(0)
 {
     setType(MESSAGE_FORWARDED_FROM_USER);
 }
@@ -63,15 +67,16 @@ void QTdMessageForwardedFromUser::unmarshalJson(const QJsonObject &json)
     emit forwardInfoChanged();
 }
 
-
-
-QTdMessageForwardedPost::QTdMessageForwardedPost(QObject *parent) : QTdMessageForwardInfo(parent),
-    m_chatId(0), m_date(0), m_messageId(0),
-    m_forwardedFromChatId(0), m_forwardedFromMessageId(0)
+QTdMessageForwardedPost::QTdMessageForwardedPost(QObject *parent)
+    : QTdMessageForwardInfo(parent)
+    , m_chatId(0)
+    , m_date(0)
+    , m_messageId(0)
+    , m_forwardedFromChatId(0)
+    , m_forwardedFromMessageId(0)
 {
     setType(MESSAGE_FORWARDED_POST);
 }
-
 
 QString QTdMessageForwardedPost::qmlChatId() const
 {

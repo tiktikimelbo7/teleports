@@ -1,8 +1,13 @@
 #include "qtdsticker.h"
 
-QTdSticker::QTdSticker(QObject *parent) : QTdObject(parent),
-    m_setId(0), m_width(0), m_height(0), m_isMask(false),
-    m_thumbnail(new QTdPhotoSize), m_sticker(new QTdFile)
+QTdSticker::QTdSticker(QObject *parent)
+    : QTdObject(parent)
+    , m_setId(0)
+    , m_width(0)
+    , m_height(0)
+    , m_isMask(false)
+    , m_thumbnail(new QTdPhotoSize)
+    , m_sticker(new QTdFile)
 {
     setType(STICKER);
 }

@@ -26,11 +26,11 @@ public:
     QUrl infoImageUrl() const;
 signals:
     void dataChanged();
+
 protected:
     QString m_infoText;
     QUrl m_infoImageUrl;
 };
-
 
 class QTdMessageAction : public QTdMessageContent
 {
@@ -47,6 +47,7 @@ class QTdMessageHidden : public QTdMessageContent
     Q_OBJECT
 public:
     explicit QTdMessageHidden(QObject *parent = nullptr);
+
 private:
     Q_DISABLE_COPY(QTdMessageHidden)
 };

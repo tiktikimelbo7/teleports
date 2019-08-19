@@ -1,6 +1,5 @@
 #include "qtdlinkstatefactory.h"
 
-
 QTdLinkState *QTdLinkStateFactory::create(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();

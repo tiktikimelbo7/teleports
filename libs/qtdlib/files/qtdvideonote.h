@@ -8,14 +8,13 @@
 #include "qtdphotosize.h"
 #include "qtdfile.h"
 
-
 class QTdVideoNote : public QTdObject
 {
     Q_OBJECT
     Q_PROPERTY(qint32 duration READ duration NOTIFY videoChanged)
     Q_PROPERTY(qint32 length READ length NOTIFY videoChanged)
-    Q_PROPERTY(QTdPhotoSize* thumbnail READ thumbnail NOTIFY videoChanged)
-    Q_PROPERTY(QTdFile* video READ video NOTIFY videoChanged)
+    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY videoChanged)
+    Q_PROPERTY(QTdFile *video READ video NOTIFY videoChanged)
 public:
     explicit QTdVideoNote(QObject *parent = nullptr);
 

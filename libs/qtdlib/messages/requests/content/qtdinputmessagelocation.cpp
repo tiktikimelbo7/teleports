@@ -21,8 +21,8 @@ void QTdInputMessageLocation::setLivePeriod(const qint32 live_period)
 QJsonObject QTdInputMessageLocation::marshalJson()
 {
     return QJsonObject{
-      {"@type", "inputMessageLocation"},
-      {"location", m_location->marshalJson()},
-      {"live_period", m_live_period}
+        { "@type", "inputMessageLocation" },
+        { "location", m_location->marshalJson() },
+        { "live_period", m_live_period }
     };
 }

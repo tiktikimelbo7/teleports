@@ -6,10 +6,9 @@
 #include <QString>
 #include <QDebug>
 
-
 #include "../qtdinputmessagecontent.h"
 
-class QTdInputMessagePhoto: public QTdInputMessageContent
+class QTdInputMessagePhoto : public QTdInputMessageContent
 {
     Q_OBJECT
 public:

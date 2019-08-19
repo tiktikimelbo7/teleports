@@ -20,7 +20,7 @@ CommentPragmas: "^!|^:"
 PointerBindsToType: false
 
 # We use template< without space.
-#SpaceAfterTemplateKeyword: false
+SpaceAfterTemplateKeyword: false
 
 # We want to break before the operators, but not before a '='.
 BreakBeforeBinaryOperators: NonAssignment

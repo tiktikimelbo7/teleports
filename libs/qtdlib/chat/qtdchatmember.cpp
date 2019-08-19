@@ -3,9 +3,13 @@
 #include "client/qtdclient.h"
 #include "qtdchatactionfactory.h"
 
-QTdChatMember::QTdChatMember(QObject *parent) : QTdObject(parent),
-    m_userId(0), m_inviteUserId(0), m_joinedChatDate(0), m_status(Q_NULLPTR),
-    m_waitingForUser(false)
+QTdChatMember::QTdChatMember(QObject *parent)
+    : QTdObject(parent)
+    , m_userId(0)
+    , m_inviteUserId(0)
+    , m_joinedChatDate(0)
+    , m_status(Q_NULLPTR)
+    , m_waitingForUser(false)
 {
     setType(CHAT_MEMBER);
 }
@@ -88,12 +92,10 @@ void QTdChatMember::unmarshalJson(const QJsonObject &json)
     }
     connect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdChatMember::isUserAvailable);
     QTdClient::instance()->send(QJsonObject{
-                                    {"@type", "getUser"},
-                                    {"user_id", m_userId.value()}
-                                });
+            { "@type", "getUser" },
+            { "user_id", m_userId.value() } });
     m_waitingForUser = true;
 }
-
 
 void QTdChatMember::isUserAvailable(const qint32 &userId)
 {

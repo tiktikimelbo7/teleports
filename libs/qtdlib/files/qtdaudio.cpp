@@ -1,8 +1,10 @@
 #include "qtdaudio.h"
 
-QTdAudio::QTdAudio(QObject *parent) : QTdObject(parent),
-    m_duration(0), m_albumCoverThumbnail(new QTdPhotoSize),
-    m_audio(new QTdFile)
+QTdAudio::QTdAudio(QObject *parent)
+    : QTdObject(parent)
+    , m_duration(0)
+    , m_albumCoverThumbnail(new QTdPhotoSize)
+    , m_audio(new QTdFile)
 {
     setType(AUDIO);
 }

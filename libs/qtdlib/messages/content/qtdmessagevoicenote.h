@@ -7,11 +7,11 @@
 #include "files/qtdvoicenote.h"
 #include "qtdformattedtext.h"
 
-class QTdMessageVoiceNote: public QTdMessageContent
+class QTdMessageVoiceNote : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdVoiceNote* voiceNote READ voiceNote NOTIFY dataChanged)
-    Q_PROPERTY(QTdFormattedText* caption READ caption NOTIFY dataChanged)
+    Q_PROPERTY(QTdVoiceNote *voiceNote READ voiceNote NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText *caption READ caption NOTIFY dataChanged)
     Q_PROPERTY(bool isListened READ isListened NOTIFY dataChanged)
 public:
     explicit QTdMessageVoiceNote(QObject *parent = nullptr);

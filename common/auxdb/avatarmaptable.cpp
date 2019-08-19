@@ -21,7 +21,7 @@ QString AvatarMapTable::getAvatarPathbyId(qint64 id)
     query.bindValue(":id", id);
     if (!query.exec())
         m_db->logSqlError(query);
-    if(query.next()) {
+    if (query.next()) {
         path = query.value(1).toString();
     }
     return path;
@@ -36,4 +36,3 @@ void AvatarMapTable::setMapEntry(qint64 id, QString path)
     if (!query.exec())
         m_db->logSqlError(query);
 }
-

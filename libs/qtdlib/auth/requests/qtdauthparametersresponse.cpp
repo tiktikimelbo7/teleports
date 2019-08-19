@@ -1,6 +1,7 @@
 #include "qtdauthparametersresponse.h"
 
-QTdAuthParametersResponse::QTdAuthParametersResponse(QObject *parent) : QTdOkRequest(parent)
+QTdAuthParametersResponse::QTdAuthParametersResponse(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -12,7 +13,7 @@ void QTdAuthParametersResponse::setParameters(QTdAuthParams *params)
 QJsonObject QTdAuthParametersResponse::marshalJson()
 {
     return QJsonObject{
-        {"@type", "setTdlibParameters"},
-        {"parameters", m_params},
+        { "@type", "setTdlibParameters" },
+        { "parameters", m_params },
     };
 }

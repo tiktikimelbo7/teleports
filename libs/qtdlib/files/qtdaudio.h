@@ -6,7 +6,6 @@
 #include "common/qabstracttdobject.h"
 #include "qtdphotosize.h"
 
-
 class QTdAudio : public QTdObject
 {
     Q_OBJECT
@@ -15,8 +14,8 @@ class QTdAudio : public QTdObject
     Q_PROPERTY(QString performer READ performer NOTIFY audioChanged)
     Q_PROPERTY(QString fileName READ fileName NOTIFY audioChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY audioChanged)
-    Q_PROPERTY(QTdPhotoSize* albumCoverThumbnail READ albumCoverThumbnail NOTIFY audioChanged)
-    Q_PROPERTY(QTdFile* audio READ audio NOTIFY audioChanged)
+    Q_PROPERTY(QTdPhotoSize *albumCoverThumbnail READ albumCoverThumbnail NOTIFY audioChanged)
+    Q_PROPERTY(QTdFile *audio READ audio NOTIFY audioChanged)
 public:
     explicit QTdAudio(QObject *parent = nullptr);
 

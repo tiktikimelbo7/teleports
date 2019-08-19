@@ -7,7 +7,7 @@
 #include "qtdlocation.h"
 #include "qtdformattedtext.h"
 
-class QTdMessageLocation: public QTdMessageContent
+class QTdMessageLocation : public QTdMessageContent
 {
     Q_OBJECT
     Q_PROPERTY(QTdLocation *location READ location NOTIFY dataChanged)
@@ -24,7 +24,6 @@ signals:
 private:
     Q_DISABLE_COPY(QTdMessageLocation)
     QScopedPointer<QTdLocation> m_location;
-
 };
 
 #endif // QTDMESSAGELOCATION_H

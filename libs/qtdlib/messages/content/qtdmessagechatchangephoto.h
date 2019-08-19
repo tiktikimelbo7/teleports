@@ -14,7 +14,7 @@
 class QTdMessageChatChangePhoto : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdPhoto* photo READ photo NOTIFY contentChanged)
+    Q_PROPERTY(QTdPhoto *photo READ photo NOTIFY contentChanged)
 public:
     explicit QTdMessageChatChangePhoto(QObject *parent = nullptr);
 

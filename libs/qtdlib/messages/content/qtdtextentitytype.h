@@ -11,12 +11,17 @@ public:
     explicit QTdTextEntityType(QObject *parent = nullptr);
 };
 
-#define TEXT_ENTITY_CLASS(name, type) \
-    class QTdTextEntityType##name : public QTdTextEntityType { \
-        Q_OBJECT \
-        Q_DISABLE_COPY(QTdTextEntityType##name) \
-    public: \
-        explicit QTdTextEntityType##name (QObject *parent = 0) : QTdTextEntityType(parent) { setType( type ); }; \
+#define TEXT_ENTITY_CLASS(name, type)                         \
+    class QTdTextEntityType##name : public QTdTextEntityType  \
+    {                                                         \
+        Q_OBJECT                                              \
+        Q_DISABLE_COPY(QTdTextEntityType##name)               \
+    public:                                                   \
+        explicit QTdTextEntityType##name(QObject *parent = 0) \
+            : QTdTextEntityType(parent)                       \
+        {                                                     \
+            setType(type);                                    \
+        };                                                    \
     };
 
 TEXT_ENTITY_CLASS(Bold, QTdObject::TEXT_ENTITY_TYPE_BOLD)
@@ -34,9 +39,9 @@ TEXT_ENTITY_CLASS(PreCode, QTdObject::TEXT_ENTITY_TYPE_PRE_CODE)
 TEXT_ENTITY_CLASS(TextUrl, QTdObject::TEXT_ENTITY_TYPE_TEXT_URL)
 TEXT_ENTITY_CLASS(Url, QTdObject::TEXT_ENTITY_TYPE_URL)
 
-struct QTdTextEntityFactory {
+struct QTdTextEntityFactory
+{
     static QTdTextEntityType *create(const QJsonObject &json, QObject *parent = Q_NULLPTR);
 };
-
 
 #endif // QTDTEXTENTITYTYPE_H
