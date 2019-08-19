@@ -1,11 +1,13 @@
 #include "utils/i18n.h"
 #include "qtduserstatus.h"
 
-QTdUserStatus::QTdUserStatus(QObject *parent) : QTdObject(parent)
+QTdUserStatus::QTdUserStatus(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-QTdUserStatusEmpty::QTdUserStatusEmpty(QObject *parent) : QTdUserStatus(parent)
+QTdUserStatusEmpty::QTdUserStatusEmpty(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_EMPTY);
 }
@@ -15,7 +17,8 @@ QString QTdUserStatusEmpty::toString() const
     return "n/a";
 }
 
-QTdUserStateLastMonth::QTdUserStateLastMonth(QObject *parent) : QTdUserStatus(parent)
+QTdUserStateLastMonth::QTdUserStateLastMonth(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_LAST_MONTH);
 }
@@ -25,7 +28,8 @@ QString QTdUserStateLastMonth::toString() const
     return gettext("Last seen one month ago");
 }
 
-QTdUserStatusLastWeek::QTdUserStatusLastWeek(QObject *parent) : QTdUserStatus(parent)
+QTdUserStatusLastWeek::QTdUserStatusLastWeek(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_LAST_WEEK);
 }
@@ -35,7 +39,8 @@ QString QTdUserStatusLastWeek::toString() const
     return gettext("Last seen one week ago");
 }
 
-QTdUserStatusOffline::QTdUserStatusOffline(QObject *parent) : QTdUserStatus(parent)
+QTdUserStatusOffline::QTdUserStatusOffline(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_OFFLINE);
 }
@@ -57,7 +62,8 @@ void QTdUserStatusOffline::unmarshalJson(const QJsonObject &json)
     QTdObject::unmarshalJson(json);
 }
 
-QTdUserStatusOnline::QTdUserStatusOnline(QObject *parent) : QTdUserStatus(parent)
+QTdUserStatusOnline::QTdUserStatusOnline(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_ONLINE);
 }
@@ -79,7 +85,8 @@ void QTdUserStatusOnline::unmarshalJson(const QJsonObject &json)
     QTdObject::unmarshalJson(json);
 }
 
-QTdUserStatusRecently::QTdUserStatusRecently(QObject *parent) : QTdUserStatus(parent)
+QTdUserStatusRecently::QTdUserStatusRecently(QObject *parent)
+    : QTdUserStatus(parent)
 {
     setType(USER_STATUS_RECENTLY);
 }
@@ -88,5 +95,3 @@ QString QTdUserStatusRecently::toString() const
 {
     return gettext("Seen recently");
 }
-
-

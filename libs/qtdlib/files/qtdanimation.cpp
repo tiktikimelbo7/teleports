@@ -1,8 +1,12 @@
 #include "qtdanimation.h"
 
-QTdAnimation::QTdAnimation(QObject *parent) : QTdObject(parent),
-    m_duration(0), m_width(0), m_height(0),
-    m_thumbnail(new QTdPhotoSize), m_animation(new QTdFile)
+QTdAnimation::QTdAnimation(QObject *parent)
+    : QTdObject(parent)
+    , m_duration(0)
+    , m_width(0)
+    , m_height(0)
+    , m_thumbnail(new QTdPhotoSize)
+    , m_animation(new QTdFile)
 {
     setType(ANIMATION);
 }

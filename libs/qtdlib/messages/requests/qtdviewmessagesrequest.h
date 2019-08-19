@@ -14,6 +14,7 @@ class QTdViewMessagesRequest : public QTdOkRequest
     Q_OBJECT
     qint64 m_chatId;
     QList<qint64> m_messageIds;
+
 public:
     explicit QTdViewMessagesRequest(QObject *parent = nullptr);
     void setMessageIds(const QList<qint64> &messageIds);

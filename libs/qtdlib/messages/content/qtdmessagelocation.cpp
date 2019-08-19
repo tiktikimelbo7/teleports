@@ -1,7 +1,8 @@
 #include "qtdmessagelocation.h"
 
-QTdMessageLocation::QTdMessageLocation(QObject *parent) : QTdMessageContent(parent),
-    m_location(new QTdLocation)
+QTdMessageLocation::QTdMessageLocation(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_location(new QTdLocation)
 {
     setType(MESSAGE_LOCATION);
 }

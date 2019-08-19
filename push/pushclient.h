@@ -24,7 +24,8 @@ License along with this program.  If not, see
 
 class QDBusPendingCallWatcher;
 
-class PushClient : public QObject {
+class PushClient : public QObject
+{
     Q_OBJECT
 
 public:

@@ -45,11 +45,12 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authentication_code_type_sms.html
  */
-class QTdAuthCodeSms : public QTdAuthCode {
+class QTdAuthCodeSms : public QTdAuthCode
+{
     Q_OBJECT
     Q_PROPERTY(QString length READ qmlLength NOTIFY lengthChanged)
 public:
-    explicit QTdAuthCodeSms (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthCodeSms(QObject *parent = Q_NULLPTR);
 
     QString qmlLength() const;
     qint32 length() const;
@@ -67,11 +68,12 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authentication_code_type_call.html
  */
-class QTdAuthCodeCall : public QTdAuthCode {
+class QTdAuthCodeCall : public QTdAuthCode
+{
     Q_OBJECT
     Q_PROPERTY(QString length READ qmlLength NOTIFY lengthChanged)
 public:
-    explicit QTdAuthCodeCall (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthCodeCall(QObject *parent = Q_NULLPTR);
 
     QString qmlLength() const;
     qint32 length() const;
@@ -89,17 +91,19 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authentication_code_type_flash_call.html
  */
-class QTdAuthCodeFlashCall : public QTdAuthCode {
+class QTdAuthCodeFlashCall : public QTdAuthCode
+{
     Q_OBJECT
     Q_PROPERTY(QString pattern READ pattern NOTIFY patternChanged)
 public:
-    explicit QTdAuthCodeFlashCall (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthCodeFlashCall(QObject *parent = Q_NULLPTR);
 
     QString pattern() const;
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 signals:
     void patternChanged();
+
 private:
     QString m_pattern;
 };
@@ -109,13 +113,14 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authentication_code_info.html
  */
-class QTdAuthCodeInfo : public QTdObject {
+class QTdAuthCodeInfo : public QTdObject
+{
     Q_OBJECT
     Q_PROPERTY(QString timeout READ qmlTimeout NOTIFY infoChanged)
     Q_PROPERTY(QTdAuthCode *type READ type NOTIFY infoChanged)
     Q_PROPERTY(QTdAuthCode *nextType READ nextType NOTIFY infoChanged)
 public:
-    explicit QTdAuthCodeInfo (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthCodeInfo(QObject *parent = Q_NULLPTR);
 
     QString qmlTimeout() const;
     qint32 timeout() const;
@@ -135,6 +140,5 @@ private:
     QTdAuthCode *m_type;
     QTdAuthCode *m_nextType;
 };
-
 
 #endif // QTDAUTHCODE_H

@@ -33,6 +33,4 @@ private:
     QFutureWatcher<QTdResponse> m_watcher;
 };
 
-
-
 #endif // QTDENABLENOTIFICATIONS_H

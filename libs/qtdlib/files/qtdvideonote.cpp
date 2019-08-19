@@ -1,8 +1,11 @@
 #include "qtdvideonote.h"
 
-QTdVideoNote::QTdVideoNote(QObject *parent) : QTdObject(parent),
-    m_duration(0), m_length(0),
-    m_thumbnail(new QTdPhotoSize), m_video(new QTdFile)
+QTdVideoNote::QTdVideoNote(QObject *parent)
+    : QTdObject(parent)
+    , m_duration(0)
+    , m_length(0)
+    , m_thumbnail(new QTdPhotoSize)
+    , m_video(new QTdFile)
 {
     setType(VIDEO_NOTE);
 }

@@ -22,11 +22,12 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1connection_state_waiting_for_network.html
  */
-class QTdConnectionStateWaitingForNetwork : public QTdConnectionState {
+class QTdConnectionStateWaitingForNetwork : public QTdConnectionState
+{
     Q_OBJECT
     Q_DISABLE_COPY(QTdConnectionStateWaitingForNetwork)
 public:
-    explicit QTdConnectionStateWaitingForNetwork (QObject * parent = Q_NULLPTR);
+    explicit QTdConnectionStateWaitingForNetwork(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -34,11 +35,12 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1connection_state_connecting_to_proxy.html
  */
-class QTdConnectionStateConnectingToProxy : public QTdConnectionState {
+class QTdConnectionStateConnectingToProxy : public QTdConnectionState
+{
     Q_OBJECT
     Q_DISABLE_COPY(QTdConnectionStateConnectingToProxy)
 public:
-    explicit QTdConnectionStateConnectingToProxy (QObject * parent = Q_NULLPTR);
+    explicit QTdConnectionStateConnectingToProxy(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -46,11 +48,12 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1connection_state_connecting.html
  */
-class QTdConnectionStateConnecting : public QTdConnectionState {
+class QTdConnectionStateConnecting : public QTdConnectionState
+{
     Q_OBJECT
     Q_DISABLE_COPY(QTdConnectionStateConnecting)
 public:
-    explicit QTdConnectionStateConnecting (QObject * parent = Q_NULLPTR);
+    explicit QTdConnectionStateConnecting(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -58,11 +61,12 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1connection_state_updating.html
  */
-class QTdConnectionStateUpdating : public QTdConnectionState {
+class QTdConnectionStateUpdating : public QTdConnectionState
+{
     Q_OBJECT
     Q_DISABLE_COPY(QTdConnectionStateUpdating)
 public:
-    explicit QTdConnectionStateUpdating (QObject * parent = Q_NULLPTR);
+    explicit QTdConnectionStateUpdating(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -70,11 +74,12 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1connection_state_ready.html
  */
-class QTdConnectionStateReady : public QTdConnectionState {
+class QTdConnectionStateReady : public QTdConnectionState
+{
     Q_OBJECT
     Q_DISABLE_COPY(QTdConnectionStateReady)
 public:
-    explicit QTdConnectionStateReady (QObject * parent = Q_NULLPTR);
+    explicit QTdConnectionStateReady(QObject *parent = Q_NULLPTR);
 };
 
 #endif // QTDCONNECTIONSTATE_H

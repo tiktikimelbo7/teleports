@@ -192,7 +192,7 @@ void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageL
         auto *message = messageFromJson(messages[index]);
         if (message->id() == lastReadMessageId) {
             auto *unreadLabel = new QTdMessage;
-            unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel",gettext("Unread Messages") } });
+            unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel", gettext("Unread Messages") } });
             messageListModel.m_model->append(unreadLabel);
             lastReadMessageIndex = index;
         }

@@ -1,6 +1,7 @@
 #include "qtdcalldiscardreason.h"
 
-QTdCallDiscardReason::QTdCallDiscardReason(QObject *parent) : QTdObject(parent)
+QTdCallDiscardReason::QTdCallDiscardReason(QObject *parent)
+    : QTdObject(parent)
 {
     setType(CALL_DISCARD_REASON);
 }

@@ -25,9 +25,9 @@ public:
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 
-    private:
-        qint64 m_offset_order;
-        qint64 m_offset_chat_id;
+private:
+    qint64 m_offset_order;
+    qint64 m_offset_chat_id;
 };
 
 #endif // QTDGETCHATSREQUEST_H

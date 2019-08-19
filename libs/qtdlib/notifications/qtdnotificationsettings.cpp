@@ -1,7 +1,9 @@
 #include "qtdnotificationsettings.h"
 
-QTdNotificationSettings::QTdNotificationSettings(QObject *parent) : QTdObject(parent),
-    m_muteFor(0), m_showPreview(false)
+QTdNotificationSettings::QTdNotificationSettings(QObject *parent)
+    : QTdObject(parent)
+    , m_muteFor(0)
+    , m_showPreview(false)
 {
     setType(NOTIFICATION_SETTINGS);
 }
@@ -19,15 +21,13 @@ bool QTdNotificationSettings::showPreview() const
 void QTdNotificationSettings::unmarshalJson(const QJsonObject &json)
 {
     auto muteFor = json["mute_for"].toInt();
-    if(m_muteFor != muteFor)
-    {
+    if (m_muteFor != muteFor) {
         m_muteFor = muteFor;
         emit muteForChanged(m_muteFor);
     }
 
     auto showPreview = json["show_preview"].toBool();
-    if(m_showPreview != showPreview)
-    {
+    if (m_showPreview != showPreview) {
         m_showPreview = showPreview;
         emit showPreviewChanged(m_showPreview);
     }

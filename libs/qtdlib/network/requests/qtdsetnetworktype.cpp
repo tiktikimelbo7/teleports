@@ -1,15 +1,20 @@
 #include "qtdsetnetworktype.h"
 
 QTdSetNetworkTypeRequest::QTdSetNetworkTypeRequest(QObject *parent)
-    : QTdOkRequest(parent), m_networkType(Q_NULLPTR) {}
+    : QTdOkRequest(parent)
+    , m_networkType(Q_NULLPTR)
+{
+}
 
-void QTdSetNetworkTypeRequest::setNetworkType(QTdNetworkType *networkType) {
+void QTdSetNetworkTypeRequest::setNetworkType(QTdNetworkType *networkType)
+{
     m_networkType = networkType;
 }
 
-QJsonObject QTdSetNetworkTypeRequest::marshalJson() {
+QJsonObject QTdSetNetworkTypeRequest::marshalJson()
+{
     return QJsonObject{
-        {"@type", "setNetworkType"},
-        {"type", m_networkType->marshalJson()},
+        { "@type", "setNetworkType" },
+        { "type", m_networkType->marshalJson() },
     };
 }

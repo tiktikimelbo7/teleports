@@ -11,7 +11,7 @@ class QTdPhotos : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_PROPERTY(bool hasSitckers READ hasStickers NOTIFY photosChanged)
-    Q_PROPERTY(QObject* sizes READ qmlSizes NOTIFY photosChanged)
+    Q_PROPERTY(QObject *sizes READ qmlSizes NOTIFY photosChanged)
 public:
     explicit QTdPhotos(QObject *parent = nullptr);
     ~QTdPhotos();

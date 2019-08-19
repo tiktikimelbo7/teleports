@@ -11,8 +11,8 @@ class QTdDocument : public QTdObject
     Q_OBJECT
     Q_PROPERTY(QString fileName READ fileName NOTIFY documentChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY documentChanged)
-    Q_PROPERTY(QTdPhotoSize* thumbnail READ thumbnail NOTIFY documentChanged)
-    Q_PROPERTY(QTdFile* document READ document NOTIFY documentChanged)
+    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY documentChanged)
+    Q_PROPERTY(QTdFile *document READ document NOTIFY documentChanged)
 public:
     explicit QTdDocument(QObject *parent = nullptr);
 

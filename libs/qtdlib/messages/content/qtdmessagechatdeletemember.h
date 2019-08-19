@@ -16,7 +16,7 @@
 class QTdMessageChatDeleteMember : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdUser* user READ user NOTIFY userChanged)
+    Q_PROPERTY(QTdUser *user READ user NOTIFY userChanged)
     Q_PROPERTY(QString userId READ qmlUserId NOTIFY contentChanged)
 public:
     explicit QTdMessageChatDeleteMember(QObject *parent = nullptr);

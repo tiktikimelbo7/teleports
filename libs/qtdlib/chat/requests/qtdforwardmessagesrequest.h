@@ -18,15 +18,15 @@ public:
     void setChatId(const qint64 chatId);
     void setFromChatId(const qint64 fromChatId);
     void setMessageIds(const QList<qint64> &messageIds);
-    
+
     QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
+
 private:
     Q_DISABLE_COPY(QTdForwardMessagesRequest)
     qint64 m_chatId, m_fromChatId;
     QList<qint64> m_messageIds;
-
 };
 
 #endif // QTDFORWARDMESSAGESREQUEST_H

@@ -51,7 +51,6 @@
 
 #include "utils/qtdtextformatter.h"
 
-
 void QTdLib::registerQmlTypes()
 {
     static bool registered = false;
@@ -99,7 +98,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdChatTypeSecret>(uri, 1, 0, "QTdChatTypeSecret", "c++ class");
     qmlRegisterUncreatableType<QTdChatTypeSuperGroup>(uri, 1, 0, "QTdChatTypeSuperGroup", "c++ class");
     qmlRegisterUncreatableType<QTdChatPhoto>(uri, 1, 0, "QTdChatPhoto", "c++ class");
-//    qmlRegisterUncreatableType<QAbstractTdObject>(uri, 1, 0, "QTdObject", "c++ class");
+    //    qmlRegisterUncreatableType<QAbstractTdObject>(uri, 1, 0, "QTdObject", "c++ class");
 
     // qtdlib auth
     qmlRegisterUncreatableType<QTdAuthState>(uri, 1, 0, "QTdAuthState", "Base TD auth state class");

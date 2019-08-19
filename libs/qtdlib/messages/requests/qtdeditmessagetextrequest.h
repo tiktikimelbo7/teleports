@@ -14,7 +14,7 @@ class QTdEditMessageTextRequest : public QTdRequest
     QString m_text;
     QJsonArray m_entities;
 
-  public:
+public:
     explicit QTdEditMessageTextRequest(QObject *parent = nullptr);
     void setText(const QString &text);
     void setChatId(const qint64 &id);

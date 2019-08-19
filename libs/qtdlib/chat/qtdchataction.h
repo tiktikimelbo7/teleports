@@ -20,7 +20,6 @@ public:
     explicit QTdChatActionCancel(QObject *parent = nullptr);
 };
 
-
 class QTdChatActionChoosingContact : public QTdChatAction
 {
     Q_OBJECT

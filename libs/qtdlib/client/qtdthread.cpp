@@ -5,8 +5,9 @@
 #include <QDebug>
 #include <QCoreApplication>
 
-QTdWorker::QTdWorker(QObject *parent) : QObject(parent),
-    m_tdlib(QTdHandle::instance())
+QTdWorker::QTdWorker(QObject *parent)
+    : QObject(parent)
+    , m_tdlib(QTdHandle::instance())
 {
 }
 
@@ -26,7 +27,7 @@ void QTdWorker::run()
                 emit recv(json);
                 // if this is an authorizationStateClosed we should exit the event loop and destroy
                 // the client.
-                if (json["@type"] == "updateAuthorizationState" ) {
+                if (json["@type"] == "updateAuthorizationState") {
                     const QJsonObject state = json["authorization_state"].toObject();
                     if (state["type"] == "authorizationStateClosed") {
                         qDebug() << "Closing connection";

@@ -13,6 +13,7 @@ class QTdCloseChatRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;
+
 public:
     explicit QTdCloseChatRequest(QObject *parent = nullptr);
 

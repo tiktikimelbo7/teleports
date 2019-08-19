@@ -6,41 +6,41 @@
 
 class QTdNetworkType : public QTdObject
 {
-  Q_OBJECT
-  Q_DISABLE_COPY(QTdNetworkType)
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdNetworkType)
 public:
-  explicit QTdNetworkType(QObject *parent = nullptr);
+    explicit QTdNetworkType(QObject *parent = nullptr);
 };
 
 class QTdNetworkTypeMobile : public QTdNetworkType
 {
-  Q_OBJECT
-  Q_DISABLE_COPY(QTdNetworkTypeMobile)
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdNetworkTypeMobile)
 public:
-  explicit QTdNetworkTypeMobile(QObject *parent = Q_NULLPTR);
+    explicit QTdNetworkTypeMobile(QObject *parent = Q_NULLPTR);
 };
 
 class QTdNetworkTypeMobileRoaming : public QTdNetworkType
 {
-  Q_OBJECT
-  Q_DISABLE_COPY(QTdNetworkTypeMobileRoaming)
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdNetworkTypeMobileRoaming)
 public:
-  explicit QTdNetworkTypeMobileRoaming(QObject *parent = Q_NULLPTR);
+    explicit QTdNetworkTypeMobileRoaming(QObject *parent = Q_NULLPTR);
 };
 
 class QTdNetworkTypeNone : public QTdNetworkType
 {
-  Q_OBJECT
-  Q_DISABLE_COPY(QTdNetworkTypeNone)
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdNetworkTypeNone)
 public:
-  explicit QTdNetworkTypeNone(QObject *parent = Q_NULLPTR);
+    explicit QTdNetworkTypeNone(QObject *parent = Q_NULLPTR);
 };
 
 class QTdNetworkTypeOther : public QTdNetworkType
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdNetworkTypeOther)
-  public:
+public:
     explicit QTdNetworkTypeOther(QObject *parent = Q_NULLPTR);
 };
 
@@ -48,7 +48,7 @@ class QTdNetworkTypeWiFi : public QTdNetworkType
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdNetworkTypeWiFi)
-  public:
+public:
     explicit QTdNetworkTypeWiFi(QObject *parent = Q_NULLPTR);
 };
 

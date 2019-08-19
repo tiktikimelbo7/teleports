@@ -21,7 +21,7 @@ public:
 
     void unmarshalJson(const QJsonObject &json);
     QJsonObject marshalJson();
-    
+
 signals:
     void entityChanged();
 

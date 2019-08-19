@@ -1,8 +1,9 @@
 #include "qabstractint64id.h"
 #include <QDebug>
 
-QAbstractInt64Id::QAbstractInt64Id(QObject *parent): QTdObject(parent),
-    m_id(0)
+QAbstractInt64Id::QAbstractInt64Id(QObject *parent)
+    : QTdObject(parent)
+    , m_id(0)
 {
 }
 

@@ -1,7 +1,9 @@
 #include "qtdmessagevideo.h"
 
-QTdMessageVideo::QTdMessageVideo(QObject *parent) : QTdMessageContent(parent),
-    m_video(new QTdVideo), m_caption(new QTdFormattedText)
+QTdMessageVideo::QTdMessageVideo(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_video(new QTdVideo)
+    , m_caption(new QTdFormattedText)
 {
     setType(MESSAGE_VIDEO);
 }
@@ -12,7 +14,7 @@ QTdVideo *QTdMessageVideo::video() const
 }
 QTdFormattedText *QTdMessageVideo::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
 void QTdMessageVideo::unmarshalJson(const QJsonObject &json)
 {

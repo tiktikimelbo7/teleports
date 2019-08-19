@@ -27,9 +27,10 @@ public:
     QString placeholder() const;
     bool needLocation() const;
 
-    void unmarshalJson(const QJsonObject &json)  Q_DECL_FINAL;
+    void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 signals:
     void userTypeDataChanged();
+
 private:
     Q_DISABLE_COPY(QTdUserTypeBot)
     bool m_canJoinGroups;

@@ -1,10 +1,18 @@
 #include "qtdwebpage.h"
 
-QTdWebPage::QTdWebPage(QObject *parent) : QTdObject(parent),
-    m_photo(new QTdPhotos), m_embedWidth(0), m_embedheight(0),
-    m_duration(0), m_animation(new QTdAnimation), m_audio(new QTdAudio),
-    m_video(new QTdVideo), m_voiceNote(new QTdVoiceNote),
-    m_document(new QTdDocument), m_sticker(new QTdSticker), m_hasInstantView(false)
+QTdWebPage::QTdWebPage(QObject *parent)
+    : QTdObject(parent)
+    , m_photo(new QTdPhotos)
+    , m_embedWidth(0)
+    , m_embedheight(0)
+    , m_duration(0)
+    , m_animation(new QTdAnimation)
+    , m_audio(new QTdAudio)
+    , m_video(new QTdVideo)
+    , m_voiceNote(new QTdVoiceNote)
+    , m_document(new QTdDocument)
+    , m_sticker(new QTdSticker)
+    , m_hasInstantView(false)
 {
     setType(WEB_PAGE);
 }

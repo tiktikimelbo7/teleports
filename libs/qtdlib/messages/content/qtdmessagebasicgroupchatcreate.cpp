@@ -5,7 +5,8 @@
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
 
-QTdMessageBasicGroupChatCreate::QTdMessageBasicGroupChatCreate(QObject *parent) : QTdMessageChatAddMembers(parent)
+QTdMessageBasicGroupChatCreate::QTdMessageBasicGroupChatCreate(QObject *parent)
+    : QTdMessageChatAddMembers(parent)
 {
     setType(MESSAGE_BASIC_GROUP_CHAT_CREATE);
 }

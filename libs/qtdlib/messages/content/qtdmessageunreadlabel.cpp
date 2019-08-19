@@ -1,7 +1,8 @@
 #include "qtdmessageunreadlabel.h"
 
-QTdMessageUnreadLabel::QTdMessageUnreadLabel(QObject *parent) : QTdMessageContent(parent),
-    m_label("")
+QTdMessageUnreadLabel::QTdMessageUnreadLabel(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_label("")
 {
     setType(MESSAGE_UNREAD_LABEL);
 }

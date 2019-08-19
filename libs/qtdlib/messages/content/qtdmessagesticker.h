@@ -6,10 +6,10 @@
 #include "messages/qtdmessagecontent.h"
 #include "files/qtdsticker.h"
 
-class QTdMessageSticker: public QTdMessageContent
+class QTdMessageSticker : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdSticker* sticker READ sticker NOTIFY dataChanged)
+    Q_PROPERTY(QTdSticker *sticker READ sticker NOTIFY dataChanged)
 public:
     explicit QTdMessageSticker(QObject *parent = nullptr);
 

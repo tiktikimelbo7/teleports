@@ -1,7 +1,10 @@
 #include "qtdmessagevoicenote.h"
 
-QTdMessageVoiceNote::QTdMessageVoiceNote(QObject *parent) : QTdMessageContent(parent),
-    m_voiceNote(new QTdVoiceNote), m_caption(new QTdFormattedText), m_isListened(new bool)
+QTdMessageVoiceNote::QTdMessageVoiceNote(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_voiceNote(new QTdVoiceNote)
+    , m_caption(new QTdFormattedText)
+    , m_isListened(new bool)
 {
     setType(MESSAGE_VOICE_NOTE);
 }
@@ -12,11 +15,11 @@ QTdVoiceNote *QTdMessageVoiceNote::voiceNote() const
 }
 QTdFormattedText *QTdMessageVoiceNote::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
 bool QTdMessageVoiceNote::isListened() const
 {
-  return m_isListened;
+    return m_isListened;
 }
 void QTdMessageVoiceNote::unmarshalJson(const QJsonObject &json)
 {

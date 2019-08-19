@@ -36,7 +36,7 @@ public:
 
     void unmarshalJson(const QJsonObject &json);
     // TODO: allow admins to set status on a member
-//    Q_INVOKABLE void setStatus();
+    //    Q_INVOKABLE void setStatus();
 
 signals:
     void chatMemberChanged();

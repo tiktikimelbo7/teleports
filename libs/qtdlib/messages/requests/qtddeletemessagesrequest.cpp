@@ -26,12 +26,12 @@ void QTdDeleteMessagesRequest::setRevoke(const bool value)
 QJsonObject QTdDeleteMessagesRequest::marshalJson()
 {
     QJsonArray json_messages;
-    for (auto & m_messageId : m_messageIds)
-       json_messages.append(m_messageId);
+    for (auto &m_messageId : m_messageIds)
+        json_messages.append(m_messageId);
     return QJsonObject{
-        {"@type", "deleteMessages"},
-        {"chat_id", m_chatId},
-        {"message_ids", json_messages},
-        {"revoke", m_revoke}
+        { "@type", "deleteMessages" },
+        { "chat_id", m_chatId },
+        { "message_ids", json_messages },
+        { "revoke", m_revoke }
     };
 }

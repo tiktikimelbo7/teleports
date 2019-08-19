@@ -1,7 +1,8 @@
 #include "qtdmessagedate.h"
 
-QTdMessageDate::QTdMessageDate(QObject *parent) : QTdMessageContent(parent),
-    m_date(0)
+QTdMessageDate::QTdMessageDate(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_date(0)
 {
     setType(MESSAGE_DATE);
 }

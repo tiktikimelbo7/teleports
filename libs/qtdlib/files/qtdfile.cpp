@@ -4,8 +4,12 @@
 #include "client/qtdclient.h"
 #include "files/qtddownloadfilerequest.h"
 
-QTdFile::QTdFile(QObject *parent) : QAbstractInt32Id(parent),
-    m_size(0), m_expectedSize(0), m_local(new QTdLocalFile), m_remote(new QTdRemoteFile)
+QTdFile::QTdFile(QObject *parent)
+    : QAbstractInt32Id(parent)
+    , m_size(0)
+    , m_expectedSize(0)
+    , m_local(new QTdLocalFile)
+    , m_remote(new QTdRemoteFile)
 {
     setType(FILE);
     connect(QTdClient::instance(), &QTdClient::updateFile, this, &QTdFile::handleUpdateFile);

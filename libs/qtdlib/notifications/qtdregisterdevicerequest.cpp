@@ -1,6 +1,7 @@
 #include "qtdregisterdevicerequest.h"
 
-QTdRegisterDeviceRequest::QTdRegisterDeviceRequest(QObject *parent) : QTdOkRequest(parent)
+QTdRegisterDeviceRequest::QTdRegisterDeviceRequest(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -12,10 +13,9 @@ void QTdRegisterDeviceRequest::setToken(const QString &token)
 QJsonObject QTdRegisterDeviceRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "registerDevice"},
-        {"device_token", QJsonObject{
-            {"@type", "deviceTokenUbuntuPush"},
-            {"token", m_token}
-        }}
+        { "@type", "registerDevice" },
+        { "device_token", QJsonObject{
+                                  { "@type", "deviceTokenUbuntuPush" },
+                                  { "token", m_token } } }
     };
 }

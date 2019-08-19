@@ -16,7 +16,7 @@ class QTdMessageChatAddMembers : public QTdMessageContent
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdMessageChatAddMembers)
-    Q_PROPERTY(QObject* members READ members NOTIFY membersChanged)
+    Q_PROPERTY(QObject *members READ members NOTIFY membersChanged)
     Q_PROPERTY(qint32 firstMemberId READ firstMemberId NOTIFY membersChanged)
 
 public:

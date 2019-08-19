@@ -12,7 +12,7 @@ class QTdSuperGroupChat : public QTdChat
     Q_PROPERTY(QString superGroupId READ qmlSuperGroupId NOTIFY superGroupChanged)
     Q_PROPERTY(QString userName READ userName NOTIFY superGroupChanged)
     Q_PROPERTY(QDateTime date READ qmlDate NOTIFY superGroupChanged)
-    Q_PROPERTY(QTdChatMemberStatus* status READ status NOTIFY superGroupChanged)
+    Q_PROPERTY(QTdChatMemberStatus *status READ status NOTIFY superGroupChanged)
     Q_PROPERTY(bool anyoneCanInvite READ anyoneCanInvite NOTIFY superGroupChanged)
     Q_PROPERTY(bool signMessages READ signMessages NOTIFY superGroupChanged)
     Q_PROPERTY(bool isChannel READ isChannel NOTIFY superGroupChanged)
@@ -39,7 +39,7 @@ public:
     QString userName() const;
     QDateTime qmlDate() const;
     qint32 date() const;
-    QTdChatMemberStatus* status() const;
+    QTdChatMemberStatus *status() const;
     QString qmlMemberCount() const;
     qint32 memberCount() const;
     bool anyoneCanInvite() const;
@@ -79,6 +79,7 @@ private slots:
     void updateSuperGroupFullInfo(const QJsonObject &json);
     void handleSuperGroupFullInfo(const QJsonObject &json);
     void superGroupFullInfo(const QJsonObject &info);
+
 private:
     Q_DISABLE_COPY(QTdSuperGroupChat)
     QTdInt32 m_sgId;

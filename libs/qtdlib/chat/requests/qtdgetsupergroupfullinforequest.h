@@ -13,6 +13,7 @@ class QTdGetSuperGroupFullInfoRequest : public QTdRequest
 {
     Q_OBJECT
     qint32 m_id;
+
 public:
     explicit QTdGetSuperGroupFullInfoRequest(QObject *parent = nullptr);
 

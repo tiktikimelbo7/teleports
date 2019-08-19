@@ -2,7 +2,6 @@
 
 QTdResponse::QTdResponse(QObject *parent)
 {
-
 }
 
 bool QTdResponse::isError() const

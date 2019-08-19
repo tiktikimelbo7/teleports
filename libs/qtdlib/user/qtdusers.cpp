@@ -5,8 +5,10 @@
 #include "common/qtdint.h"
 #include "user/qtduserstatusfactory.h"
 
-QTdUsers::QTdUsers(QObject *parent) : QObject(parent),
-    m_model(Q_NULLPTR), m_meMyself(Q_NULLPTR)
+QTdUsers::QTdUsers(QObject *parent)
+    : QObject(parent)
+    , m_model(Q_NULLPTR)
+    , m_meMyself(Q_NULLPTR)
 {
     m_model = new QQmlObjectListModel<QTdUser>(this, "", "id");
     m_meMyself = new QTdUser(this);
@@ -42,7 +44,6 @@ QTdUser *QTdUsers::meMyself() const
 {
     return m_meMyself;
 }
-
 
 void QTdUsers::handleUpdateUser(const QJsonObject &user)
 {
@@ -82,10 +83,10 @@ void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &
     if (uid == myId) {
         m_meMyself->setStatus(QTdUserStatusFactory::create(status, m_meMyself));
     }
-
 }
 
-QTdUsersSortFilterModel::QTdUsersSortFilterModel(QObject *parent) : QSortFilterProxyModel(parent)
+QTdUsersSortFilterModel::QTdUsersSortFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     connect(this, &QTdUsersSortFilterModel::countChanged, this, &QTdUsersSortFilterModel::rowCountChanged);
@@ -97,7 +98,7 @@ QTdUser *QTdUsersSortFilterModel::get(const int &row)
     if (idx.isValid()) {
         QModelIndex srcIdx = mapToSource(idx);
         if (srcIdx.isValid()) {
-            QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser>*>(sourceModel());
+            QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser> *>(sourceModel());
             return model->at(srcIdx.row());
         }
     }
@@ -116,11 +117,10 @@ void QTdUsersSortFilterModel::setAllowedUsers(QList<qint32> user_ids)
 
 bool QTdUsersSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser>*>(sourceModel());
+    QQmlObjectListModel<QTdUser> *model = static_cast<QQmlObjectListModel<QTdUser> *>(sourceModel());
     QTdUser *user = model->at(source_row);
     if (!user) {
         return false;
     }
     return m_uids.contains(user->id());
 }
-

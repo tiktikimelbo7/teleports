@@ -1,6 +1,7 @@
 #include "qtdauthencryptionkeyresponse.h"
 
-QTdAuthEncryptionKeyResponse::QTdAuthEncryptionKeyResponse(QObject *parent) : QTdOkRequest(parent)
+QTdAuthEncryptionKeyResponse::QTdAuthEncryptionKeyResponse(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -12,7 +13,7 @@ void QTdAuthEncryptionKeyResponse::setKey(const QString &key)
 QJsonObject QTdAuthEncryptionKeyResponse::marshalJson()
 {
     return QJsonObject{
-        {"@type", "setDatabaseEncryptionKey"},
-        {"new_encryption_key", m_key},
+        { "@type", "setDatabaseEncryptionKey" },
+        { "new_encryption_key", m_key },
     };
 }

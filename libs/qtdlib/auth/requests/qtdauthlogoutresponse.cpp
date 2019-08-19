@@ -1,12 +1,13 @@
 #include "qtdauthlogoutresponse.h"
 
-QTdAuthLogOutResponse::QTdAuthLogOutResponse(QObject *parent) : QTdOkRequest(parent)
+QTdAuthLogOutResponse::QTdAuthLogOutResponse(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
 QJsonObject QTdAuthLogOutResponse::marshalJson()
 {
-    return QJsonObject {
-        {"@type", "logOut"},
+    return QJsonObject{
+        { "@type", "logOut" },
     };
 }

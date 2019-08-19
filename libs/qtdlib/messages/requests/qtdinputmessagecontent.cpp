@@ -1,7 +1,8 @@
 #include "qtdinputmessagecontent.h"
 #include <libintl.h>
 
-QTdInputMessageContent::QTdInputMessageContent(QObject *parent) : QTdObject(parent)
+QTdInputMessageContent::QTdInputMessageContent(QObject *parent)
+    : QTdObject(parent)
 {
-  setType(INPUT_MESSAGE);
+    setType(INPUT_MESSAGE);
 }

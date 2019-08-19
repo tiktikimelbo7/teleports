@@ -3,14 +3,15 @@
 #include <QStandardPaths>
 #include <QLocale>
 
-QTdAuthParams::QTdAuthParams(QObject *parent) : QTdObject(parent),
-    m_useTestDC(false),
-    m_useFileDatabase(true),
-    m_useChatInfoDatabase(true),
-    m_useMessageDatabase(true),
-    m_useSecretChats(true),
-    m_useStorageOptimizer(true),
-    m_apiID(0)
+QTdAuthParams::QTdAuthParams(QObject *parent)
+    : QTdObject(parent)
+    , m_useTestDC(false)
+    , m_useFileDatabase(true)
+    , m_useChatInfoDatabase(true)
+    , m_useMessageDatabase(true)
+    , m_useSecretChats(true)
+    , m_useStorageOptimizer(true)
+    , m_apiID(0)
 {
     m_systemLanguageCode = QLocale().name();
     m_deviceModel = QStringLiteral("Ubuntu Phone");

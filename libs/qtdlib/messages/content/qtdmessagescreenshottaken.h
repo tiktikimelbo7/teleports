@@ -5,7 +5,7 @@
 #include <QScopedPointer>
 #include "messages/qtdmessagecontent.h"
 
-class QTdMessageScreenshotTaken: public QTdMessageContent
+class QTdMessageScreenshotTaken : public QTdMessageContent
 {
     Q_OBJECT
 public:
@@ -15,7 +15,6 @@ public:
 
 private:
     Q_DISABLE_COPY(QTdMessageScreenshotTaken)
-
 };
 
 #endif // QTDMESSAGESCREENSHOTTAKEN_H

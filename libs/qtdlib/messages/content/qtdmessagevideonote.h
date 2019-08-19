@@ -6,10 +6,10 @@
 #include "messages/qtdmessagecontent.h"
 #include "files/qtdvideonote.h"
 
-class QTdMessageVideoNote: public QTdMessageContent
+class QTdMessageVideoNote : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdVideoNote* videoNote READ videoNote NOTIFY dataChanged)
+    Q_PROPERTY(QTdVideoNote *videoNote READ videoNote NOTIFY dataChanged)
     Q_PROPERTY(bool isViewed READ isViewed NOTIFY dataChanged)
     Q_PROPERTY(bool isSecret READ isSecret NOTIFY dataChanged)
 

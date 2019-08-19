@@ -3,7 +3,8 @@
 
 #include <QQmlExtensionPlugin>
 
-class QTdLib {
+class QTdLib
+{
 public:
     static void registerQmlTypes();
 };

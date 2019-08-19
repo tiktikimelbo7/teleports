@@ -1,8 +1,8 @@
 #include "qabstractint53id.h"
 
-QAbstractInt53Id::QAbstractInt53Id(QObject *parent) : QTdObject(parent)
+QAbstractInt53Id::QAbstractInt53Id(QObject *parent)
+    : QTdObject(parent)
 {
-
 }
 
 qint64 QAbstractInt53Id::id() const

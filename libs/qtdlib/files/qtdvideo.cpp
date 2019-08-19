@@ -1,8 +1,12 @@
 #include "qtdvideo.h"
 
-QTdVideo::QTdVideo(QObject *parent) : QTdObject(parent),
-    m_duration(0), m_width(0), m_height(0),
-    m_thumbnail(new QTdPhotoSize), m_video(new QTdFile)
+QTdVideo::QTdVideo(QObject *parent)
+    : QTdObject(parent)
+    , m_duration(0)
+    , m_width(0)
+    , m_height(0)
+    , m_thumbnail(new QTdPhotoSize)
+    , m_video(new QTdFile)
 {
     setType(VIDEO);
 }

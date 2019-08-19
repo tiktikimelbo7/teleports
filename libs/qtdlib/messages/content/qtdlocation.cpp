@@ -35,7 +35,8 @@ void QTdLocation::unmarshalJson(const QJsonObject &json)
     emit entityChanged();
 }
 
-QJsonObject QTdLocation::marshalJson() {
+QJsonObject QTdLocation::marshalJson()
+{
     return QJsonObject{
         { "latitude", m_latitude },
         { "longitude", m_longitude }

@@ -1,9 +1,13 @@
 #include "qtdlocalfile.h"
 
-QTdLocalFile::QTdLocalFile(QObject *parent) : QTdObject(parent),
-    m_canBeDownloaded(false), m_canBeDeleted(false),
-    m_isDownloadingActive(false), m_isDownloadingCompleted(false),
-    m_prefixSize(0), m_size(0)
+QTdLocalFile::QTdLocalFile(QObject *parent)
+    : QTdObject(parent)
+    , m_canBeDownloaded(false)
+    , m_canBeDeleted(false)
+    , m_isDownloadingActive(false)
+    , m_isDownloadingCompleted(false)
+    , m_prefixSize(0)
+    , m_size(0)
 {
     setType(LOCAL_FILE);
 }

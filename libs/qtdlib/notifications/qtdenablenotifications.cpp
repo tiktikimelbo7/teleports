@@ -5,9 +5,10 @@
 #include "client/qtdclient.h"
 #include "qtdregisterdevicerequest.h"
 
-QTdEnableNotifications::QTdEnableNotifications(QObject *parent) : QObject(parent)
+QTdEnableNotifications::QTdEnableNotifications(QObject *parent)
+    : QObject(parent)
 {
-    connect(QTdClient::instance(), &QTdClient::authStateChanged, [=](QTdAuthState *state){
+    connect(QTdClient::instance(), &QTdClient::authStateChanged, [=](QTdAuthState *state) {
         if (!m_token.isEmpty() && state->type() == QTdAuthState::Type::AUTHORIZATION_STATE_READY) {
             registerDevice();
         }

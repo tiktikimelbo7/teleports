@@ -1,7 +1,8 @@
 #include "qtdgetuserrequest.h"
 #include "client/qtdclient.h"
 
-QTdGetUserRequest::QTdGetUserRequest(QObject *parent) : QTdRequest(parent)
+QTdGetUserRequest::QTdGetUserRequest(QObject *parent)
+    : QTdRequest(parent)
 {
 }
 

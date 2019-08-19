@@ -14,6 +14,7 @@ class QTdSetPinnedChatsRequest : public QTdOkRequest
     Q_OBJECT
     Q_DISABLE_COPY(QTdSetPinnedChatsRequest)
     QList<qint64> m_chatIds;
+
 public:
     explicit QTdSetPinnedChatsRequest(QObject *parent = nullptr);
 

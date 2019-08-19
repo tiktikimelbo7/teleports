@@ -30,11 +30,11 @@ public:
 class QTdChat : public QAbstractInt64Id
 {
     Q_OBJECT
-    Q_PROPERTY(QTdChatType* chatType READ chatType NOTIFY chatTypeChanged)
+    Q_PROPERTY(QTdChatType *chatType READ chatType NOTIFY chatTypeChanged)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QTdChatPhoto *chatPhoto READ chatPhoto NOTIFY chatPhotoChanged)
     Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
-    Q_PROPERTY(QTdMessage* lastMessage READ lastMessage NOTIFY lastMessageChanged)
+    Q_PROPERTY(QTdMessage *lastMessage READ lastMessage NOTIFY lastMessageChanged)
     Q_PROPERTY(QString order READ qmlOrder NOTIFY orderChanged)
     Q_PROPERTY(bool isPinned READ isPinned NOTIFY isPinnedChanged)
     Q_PROPERTY(bool isMuted READ isMuted NOTIFY notificationSettingsChanged)
@@ -52,16 +52,15 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString unreadMentionCount READ qmlUnreadMentionCount NOTIFY unreadMentionCountChanged)
     Q_PROPERTY(QString replyMarkupMessageId READ qmlReplyMarkupMessageId NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdMessage *replyMarkupMessage READ replyMarkupMessage NOTIFY replyMarkupMessageChanged)
-    Q_PROPERTY(QTdNotificationSettings* notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
+    Q_PROPERTY(QTdNotificationSettings *notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
     Q_PROPERTY(QString summary READ summary NOTIFY summaryChanged)
     Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
     Q_PROPERTY(int currentMessageIndex READ currentMessageIndex NOTIFY currentMessageIndexChanged)
 
-
     // TODO:
     // draftMessage:draf_message && updateChatDraftMessage
     // string:client_data
-    Q_PROPERTY(QObject* messages READ messages NOTIFY messagesChanged)
+    Q_PROPERTY(QObject *messages READ messages NOTIFY messagesChanged)
 
 public:
     explicit QTdChat(QObject *parent = nullptr);
@@ -276,7 +275,8 @@ public:
      */
     Q_INVOKABLE void forwardMessage(const QString &messageId);
 
-    QJsonObject lastMessageJson() const {
+    QJsonObject lastMessageJson() const
+    {
         return m_lastMsgJson;
     }
 
@@ -309,7 +309,7 @@ signals:
     void summaryChanged();
     void closed();
     void chatUpdated();
-    void forwardingMessagesAction(QStringList forwardingMessages, QTdChat* forwarded_from_chat);
+    void forwardingMessagesAction(QStringList forwardingMessages, QTdChat *forwarded_from_chat);
     void currentMessageIndexChanged();
 
 public slots:
@@ -351,14 +351,18 @@ private:
     QScopedPointer<QTdNotificationSettings> m_notifySettings;
     bool m_chatOpen;
 
-    struct useraction {
+    struct useraction
+    {
         QTdInt32 userId;
         QString singular_description;
         QString plural_description;
         useraction() {}
         useraction(const qint32 id, const QString singular_desc, const QString plural_desc)
-            : userId(id), singular_description(singular_desc),
-              plural_description(plural_desc) {}
+            : userId(id)
+            , singular_description(singular_desc)
+            , plural_description(plural_desc)
+        {
+        }
     };
 
     QMap<qint32, useraction> m_chatActions;

@@ -4,7 +4,8 @@
 
 #include "pushhelper.h"
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     if (argc != 3) {
         qFatal("Usage: %s infile outfile", argv[0]); // no-i18n
     }

@@ -26,13 +26,13 @@ public:
 
     class QTdAbstractMessageHandler : public QObject
     {
-    public: 
+    public:
         virtual ~QTdAbstractMessageHandler() {}
-        virtual void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const = 0;
-        QTdMessage * messageFromJson(const QJsonValue &msgData) const
+        virtual void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const = 0;
+        QTdMessage *messageFromJson(const QJsonValue &msgData) const
         {
             const QJsonObject data = msgData.toObject();
-            auto * message = new QTdMessage;
+            auto *message = new QTdMessage;
             message->unmarshalJson(data);
             return message;
         }
@@ -40,17 +40,17 @@ public:
 
     class QTdNewerMessagesHandler : public QTdAbstractMessageHandler
     {
-        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+        void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const;
     };
 
     class QTdOlderMessagesHandler : public QTdAbstractMessageHandler
     {
-        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+        void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const;
     };
 
     class QTdUnreadLabelWindowMessageHandler : public QTdAbstractMessageHandler
     {
-        void handle(QTdMessageListModel & messageListModel, const QJsonArray & messages) const;
+        void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const;
     };
 
 signals:
@@ -104,9 +104,9 @@ private:
     QTdUnreadLabelWindowMessageHandler unreadLabelWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
 
-    void setMessagesRead(QList<qint64> & messages);
-    void appendMessage(QTdMessage * message);
-    void prependMessage(QTdMessage * message);
+    void setMessagesRead(QList<qint64> &messages);
+    void appendMessage(QTdMessage *message);
+    void prependMessage(QTdMessage *message);
     bool isUpToDateAndFollowing() const;
     bool hasNewer() const;
 };

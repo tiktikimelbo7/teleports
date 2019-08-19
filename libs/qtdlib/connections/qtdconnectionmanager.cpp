@@ -4,10 +4,11 @@
 #include <QtGui/QGuiApplication>
 #include "client/qtdclient.h"
 
-QTdConnectionManager::QTdConnectionManager(QObject *parent) : QObject(parent),
-    m_connectionState(WaitingForNetwork)
+QTdConnectionManager::QTdConnectionManager(QObject *parent)
+    : QObject(parent)
+    , m_connectionState(WaitingForNetwork)
 {
-     connect(QTdClient::instance(),
+    connect(QTdClient::instance(),
             &QTdClient::connectionStateChanged,
             this,
             &QTdConnectionManager::handleConnectionStateChanged);
@@ -18,9 +19,8 @@ QTdConnectionManager::QTdConnectionManager(QObject *parent) : QObject(parent),
         handleConnectionStateChanged(QTdClient::instance()->connectionState());
     }
     connect(qGuiApp, &QGuiApplication::applicationStateChanged, this,
-        &QTdConnectionManager::handleApplicationStateChanged);
+            &QTdConnectionManager::handleApplicationStateChanged);
 }
-
 
 QTdConnectionManager::ConnectionState QTdConnectionManager::connectionState() const
 {
@@ -32,12 +32,13 @@ bool QTdConnectionManager::connectivityOnline() const
     return m_connectivity_online;
 }
 
-void QTdConnectionManager::setConnectivityOnline(bool value) {
-    #if defined(__amd64__)
-      qDebug()<< "ConnectivityOnline on amd64 as online";
-      value = 1;
-    #endif
-    if(m_connectivity_online != value) {
+void QTdConnectionManager::setConnectivityOnline(bool value)
+{
+#if defined(__amd64__)
+    qDebug() << "ConnectivityOnline on amd64 as online";
+    value = 1;
+#endif
+    if (m_connectivity_online != value) {
         m_connectivity_online = value;
         emit connectivityOnlineChanged(value);
         setTdLibNetworkState();
@@ -46,35 +47,30 @@ void QTdConnectionManager::setConnectivityOnline(bool value) {
 
 void QTdConnectionManager::handleConnectionStateChanged(QTdConnectionState *state)
 {
-    if(!state)
+    if (!state)
         return;
     switch (state->type()) {
-    case QTdConnectionState::Type::CONNECTION_STATE_WAITING_FOR_NETWORK:
-    {
+    case QTdConnectionState::Type::CONNECTION_STATE_WAITING_FOR_NETWORK: {
         m_connectionState = WaitingForNetwork;
         emit waitingForNetwork();
         break;
     }
-    case QTdConnectionState::Type::CONNECTION_STATE_CONNECTING_TO_PROXY:
-    {
+    case QTdConnectionState::Type::CONNECTION_STATE_CONNECTING_TO_PROXY: {
         m_connectionState = ConnectingToProxy;
         emit connectingToProxy();
         break;
     }
-    case QTdConnectionState::Type::CONNECTION_STATE_CONNECTING:
-    {
+    case QTdConnectionState::Type::CONNECTION_STATE_CONNECTING: {
         m_connectionState = Connecting;
         emit connecting();
         break;
     }
-    case QTdConnectionState::Type::CONNECTION_STATE_UPDATING:
-    {
+    case QTdConnectionState::Type::CONNECTION_STATE_UPDATING: {
         m_connectionState = Updating;
         emit updating();
         break;
     }
-    case QTdConnectionState::Type::CONNECTION_STATE_READY:
-    {
+    case QTdConnectionState::Type::CONNECTION_STATE_READY: {
         m_connectionState = Ready;
         emit ready();
         break;
@@ -94,16 +90,15 @@ void QTdConnectionManager::handleApplicationStateChanged(Qt::ApplicationState st
     }
 }
 
-void QTdConnectionManager::setTdLibNetworkState() {
-    if (m_connectivity_online && m_application_active)
-    {
+void QTdConnectionManager::setTdLibNetworkState()
+{
+    if (m_connectivity_online && m_application_active) {
         QTdClient::instance()->send(QJsonObject{
-            {"@type", "setNetworkType"},
-            {"type", QJsonObject{{"@type", "networkTypeMobile"}}}});
-    } else
-    {
+                { "@type", "setNetworkType" },
+                { "type", QJsonObject{ { "@type", "networkTypeMobile" } } } });
+    } else {
         QTdClient::instance()->send(QJsonObject{
-            {"@type", "setNetworkType"},
-            {"type", QJsonObject{{"@type", "networkTypeNone"}}}});
+                { "@type", "setNetworkType" },
+                { "type", QJsonObject{ { "@type", "networkTypeNone" } } } });
     }
 }

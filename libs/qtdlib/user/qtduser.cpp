@@ -4,13 +4,14 @@
 #include "common/qtdhelpers.h"
 #include "client/qtdclient.h"
 
-QTdUser::QTdUser(QObject *parent) : QAbstractInt32Id(parent),
-    m_status(Q_NULLPTR),
-    m_profilePhoto(new QTdProfilePhoto),
-    m_outgoingLink(Q_NULLPTR),
-    m_incomingLink(Q_NULLPTR),
-    m_isVerified(false),
-    m_userType(Q_NULLPTR)
+QTdUser::QTdUser(QObject *parent)
+    : QAbstractInt32Id(parent)
+    , m_status(Q_NULLPTR)
+    , m_profilePhoto(new QTdProfilePhoto)
+    , m_outgoingLink(Q_NULLPTR)
+    , m_incomingLink(Q_NULLPTR)
+    , m_isVerified(false)
+    , m_userType(Q_NULLPTR)
 {
     setType(USER);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -196,16 +197,16 @@ QString QTdUser::phoneNumber() const
 
 QString QTdUser::initials() const
 {
-    if(m_firstName != "") {
-        if(m_lastName != "") {
+    if (m_firstName != "") {
+        if (m_lastName != "") {
             return (m_firstName.trimmed().left(1) + m_lastName.trimmed().left(1)).toUpper();
         }
         return m_firstName.trimmed().left(2).toUpper();
     }
-    if(m_lastName != "") {
+    if (m_lastName != "") {
         return m_lastName.trimmed().left(2).toUpper();
     }
-    if(m_username != "") {
+    if (m_username != "") {
         return m_username.trimmed().left(2).toUpper();
     }
     return "N/A";

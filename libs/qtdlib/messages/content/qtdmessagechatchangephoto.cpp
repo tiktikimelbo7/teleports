@@ -1,7 +1,8 @@
 #include "qtdmessagechatchangephoto.h"
 
-QTdMessageChatChangePhoto::QTdMessageChatChangePhoto(QObject *parent) : QTdMessageContent(parent),
-    m_photo(new QTdPhoto)
+QTdMessageChatChangePhoto::QTdMessageChatChangePhoto(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_photo(new QTdPhoto)
 {
     setType(MESSAGE_CHAT_CHANGE_PHOTO);
 }

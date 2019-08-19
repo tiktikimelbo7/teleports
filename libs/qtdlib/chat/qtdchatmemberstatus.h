@@ -56,10 +56,11 @@ public:
 
     bool canPromoteMembers() const;
 
-    void unmarshalJson(const QJsonObject &json)  Q_DECL_FINAL;
+    void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 
 signals:
     void statusChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatMemberStatusAdmin)
     bool m_canBeEdited;
@@ -90,6 +91,7 @@ public:
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 signals:
     void statusChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatMemberStatusBanned)
     qint32 m_bannedTil;
@@ -110,6 +112,7 @@ public:
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 signals:
     void statusChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatMemberStatusCreator)
     bool m_isMember;

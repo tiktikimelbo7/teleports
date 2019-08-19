@@ -10,8 +10,8 @@
 class QTdUsers : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* model READ qmlModel NOTIFY modelChanged)
-    Q_PROPERTY(QTdUser* me READ meMyself NOTIFY meMyselfChanged)
+    Q_PROPERTY(QObject *model READ qmlModel NOTIFY modelChanged)
+    Q_PROPERTY(QTdUser *me READ meMyself NOTIFY meMyselfChanged)
 
 public:
     explicit QTdUsers(QObject *parent = nullptr);
@@ -19,16 +19,15 @@ public:
 
     static QTdUsers *instance();
 
-    QObject* qmlModel() const;
-    QTdUser* meMyself() const;
+    QObject *qmlModel() const;
+    QTdUser *meMyself() const;
 
     QQmlObjectListModel<QTdUser> *model() const;
 
 signals:
-    void modelChanged(QObject* model);
+    void modelChanged(QObject *model);
     void userCreated(qint32 id);
     void meMyselfChanged(QTdUser *meMyself);
-
 
 private slots:
     void handleUpdateUser(const QJsonObject &user);
@@ -38,7 +37,6 @@ private:
     Q_DISABLE_COPY(QTdUsers)
     QQmlObjectListModel<QTdUser> *m_model;
     QPointer<QTdUser> m_meMyself;
-
 };
 
 /**
