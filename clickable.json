@@ -10,7 +10,6 @@
     "ccache"
   ],
   "build_dir": "build/teleports",
-  "make_jobs": 4,
   "libraries": {
     "tdlib-prepare": {
       "template": "cmake",
