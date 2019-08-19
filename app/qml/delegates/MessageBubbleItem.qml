@@ -167,7 +167,7 @@ UITK.ListItem {
 
                 property real horizontalMargins: mc.anchors.leftMargin + mc.anchors.rightMargin
 
-                width: Math.min(Suru.units.gu(45) - mc.horizontalMargins,
+                width: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)) - mc.horizontalMargins,
                                 Math.max(mainContent.width,
                                          senderLabel.contentWidth,
                                          message_status_row.implicitWidth))
@@ -206,35 +206,36 @@ UITK.ListItem {
                         id: message_status_row
                         spacing: units.dp(4)
                         anchors.right: parent.right
-
-                        Label {
-                            id: editedLabel
-                            text: i18n.tr("Edited");
-                            visible: message.isEdited;
-                            Suru.textLevel: Suru.Small
-                            Suru.textStyle: Suru.TertiaryText
-                            opacity: message.isOutgoing ? 1 : 0.6
-                        }
+                        opacity: message.isOutgoing ? 1 : 0.8
 
                         Row {
                             id: channel_views
                             visible: message.isChannelPost
                             anchors.verticalCenter: parent.verticalCenter
-                            opacity: message.isOutgoing ? 1 : 0.6
                             UITK.Icon {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: units.gu(2)
                                 height: width
                                 source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
-                                color: Suru.foregroundColor
+                                color: channel_views_count.color
                             }
 
                             Label {
+                                id: channel_views_count
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: message.views
                                 Suru.textLevel: Suru.Small
                                 Suru.textStyle: Suru.TertiaryText
                             }
+                        }
+
+                        Label {
+                            anchors.verticalCenter: parent.verticalCenter
+                            id: editedLabel
+                            text: i18n.tr("Edited")
+                            visible: message.isEdited
+                            Suru.textLevel: Suru.Small
+                            Suru.textStyle: Suru.TertiaryText
                         }
 
                         Label {
