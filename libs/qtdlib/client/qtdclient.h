@@ -135,6 +135,7 @@ signals:
     void updateChatReadOutbox(const QJsonObject &chat);
     void updateChatIsPinned(const QJsonObject &chat);
     void updateChatPhoto(const QJsonObject &photo);
+    void updateChatPinnedMessage(const QJsonObject &json);
     void updateChatReplyMarkup(const QJsonObject &chat);
     void updateChatTitle(const QJsonObject &chat);
     void updateChatUnreadMentionCount(const QJsonObject &chat);

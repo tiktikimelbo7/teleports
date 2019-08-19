@@ -304,6 +304,7 @@ signals:
     void titleChanged(QString title);
     void lastMessageChanged(QTdMessage *lastMessage);
     void chatPhotoChanged(QTdChatPhoto *chatPhoto);
+    void chatPinnedMessageChanged(QTdMessage *pinnedMessage);
     void initialsChanged(QString initials);
     void orderChanged();
     void isPinnedChanged();
@@ -337,6 +338,7 @@ public slots:
     void updateChatReadOutbox(const QJsonObject &json);
     void updateChatIsPinned(const QJsonObject &json);
     void updateChatPhoto(const QJsonObject &photo);
+    void handleUpdateChatPinnedMessage(const QJsonObject &json);
     void updateChatReplyMarkup(const QJsonObject &json);
     void updateChatTitle(const QJsonObject &json);
     void updateChatUnreadMentionCount(const QJsonObject &json);
@@ -355,6 +357,7 @@ protected:
     QPointer<QQmlObjectListModel<QTdMessage>> m_messages;
 
 private:
+    void updatePinnedMessage(qint64 pinnedMessageId);
     Q_DISABLE_COPY(QTdChat)
     QPointer<QTdChatType> m_chatType;
     QString m_title;
@@ -391,6 +394,7 @@ private:
     QMap<qint32, useraction> m_chatActions;
     QJsonObject m_lastMsgJson;
     int m_currentMessageIndex = -1;
+    QPointer<QTdMessage> m_pinnedMessage;
 };
 
 #endif // QTDCHAT_H

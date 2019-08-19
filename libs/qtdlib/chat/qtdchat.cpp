@@ -34,11 +34,13 @@ QTdChat::QTdChat(QObject *parent)
     , m_notifySettings(new QTdNotificationSettings)
     , m_messages(0)
     , m_chatOpen(false)
+    , m_pinnedMessage(Q_NULLPTR)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
+    connect(QTdClient::instance(), &QTdClient::updateChatPinnedMessage, this, &QTdChat::handleUpdateChatPinnedMessage);
     connect(m_lastMessage.data(), &QTdMessage::senderChanged, this, &QTdChat::summaryChanged);
     emit messagesChanged();
 }
@@ -81,6 +83,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatPhoto(json["photo"].toObject());
 
     onChatDeserialized();
+    updatePinnedMessage(json["pinned_message_id"].toDouble());
 }
 
 QString QTdChat::title() const
@@ -486,6 +489,43 @@ void QTdChat::updateChatPhoto(const QJsonObject &photo)
     } else {
         QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
     }
+}
+
+void QTdChat::handleUpdateChatPinnedMessage(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+
+    const qint64 pinnedMessageId = qint64(json["pinned_message_id"].toDouble());
+
+    updatePinnedMessage(pinnedMessageId);
+}
+
+void QTdChat::updatePinnedMessage(qint64 pinnedMessageId)
+{
+    if (pinnedMessageId == 0) {
+        return;
+    }
+
+    QScopedPointer<QTdGetMessageRequest> req(new QTdGetMessageRequest);
+    req->setChatId(id());
+    req->setMessageId(pinnedMessageId);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Failed to get pinned message with error: " << resp.result().errorString();
+        return;
+    }
+
+    if (m_pinnedMessage) {
+        delete m_pinnedMessage;
+    }
+
+    m_pinnedMessage = new QTdMessage(this);
+    m_pinnedMessage->unmarshalJson(resp.result().json());
+
+    emit chatPinnedMessageChanged(m_pinnedMessage);
 }
 
 void QTdChat::updateChatReplyMarkup(const QJsonObject &json)
