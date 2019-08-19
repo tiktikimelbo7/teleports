@@ -240,7 +240,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: chat.isMuted ? Suru.neutralColor : Suru.highlightColor
+                                color: chat.isMuted ? Suru.neutralColor : UITK.UbuntuColors.blue
                                 visible: chat.hasUnreadMessages
 
                                 Label {
@@ -262,7 +262,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: Suru.highlightColor
+                                color: UITK.UbuntuColors.blue
                                 visible: chat.hasUnreadMentions
 
                                 Label {
