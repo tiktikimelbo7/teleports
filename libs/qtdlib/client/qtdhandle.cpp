@@ -24,7 +24,8 @@ Handle::Handle()
     : m_handle(Q_NULLPTR)
 {
     m_handle = td_json_client_create();
-    td_set_log_verbosity_level(2);
+    // https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_log_verbosity_level.html
+    td_json_client_execute(nullptr, "{\"@type\":\"setLogVerbosityLevel\", \"new_verbosity_level\":2}");
 }
 
 void *Handle::handle()
