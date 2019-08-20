@@ -13,7 +13,7 @@ tdlib-prepare:
     script:
         - clickable build-libs tdlib-prepare --arch amd64
     cache:
-        key: deps-cache
+        key: deps-cache-1.4
         paths:
             - build/tdlib
             - build/tdlib-prepare
@@ -25,7 +25,7 @@ tdlib:
     script:
         - clickable build-libs tdlib --arch armhf
     cache:
-        key: deps-cache
+        key: deps-cache-1.4
         paths:
             - build/tdlib
             - build/tdlib-prepare
