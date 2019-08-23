@@ -104,6 +104,7 @@ private:
     QTdUnreadLabelWindowMessageHandler unreadLabelWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
 
+    QTdMessage *getDateLabelIfNeeded(QTdMessage *firstMessage, QTdMessage *secondMessage);
     void setMessagesRead(QList<qint64> &messages);
     void appendMessage(QTdMessage *message);
     void prependMessage(QTdMessage *message);
