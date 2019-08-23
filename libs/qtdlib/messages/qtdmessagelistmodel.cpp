@@ -87,7 +87,7 @@ void QTdMessageListModel::setChat(QTdChat *chat)
             auto *lastMessage = new QTdMessage();
             lastMessage->unmarshalJson(m_chat->lastMessageJson());
             m_model->append(lastMessage);
-            loadMessages(m_model->first()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+            loadMessages(lastMessage->jsonId(), MESSAGE_LOAD_WINDOW, 0);
         }
     }
     m_chat->openChat();
@@ -135,6 +135,12 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 {
     QJsonArray messages = json["messages"].toArray();
     if (messages.count() == 0) {
+        if (m_model->count() > 0 && m_model->last()->id() != 0) {
+            auto dateMessage = getDateLabelIfNeeded(m_model->last(), Q_NULLPTR);
+            if (dateMessage) {
+                m_model->append(dateMessage);
+            }
+        }
         m_messageHandler = Q_NULLPTR;
         return;
     }
@@ -147,9 +153,16 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
 
     emit modelChanged();
 
-    if (m_model->count() < MESSAGE_LOAD_WINDOW && messages.count() > 0) {
+    if (m_model->count() < MESSAGE_LOAD_WINDOW) {
         m_messageHandler = &olderMessagesHandler;
-        loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+        qint64 lastValidMessageId;
+        QJsonValue(jsonMessageId);
+        auto i = m_model->count() - 1;
+        do {
+            lastValidMessageId = m_model->at(i)->id();
+            jsonMessageId = m_model->at(i)->jsonId();
+        } while (--i > 0 && lastValidMessageId == 0);
+        loadMessages(jsonMessageId, MESSAGE_LOAD_WINDOW, 0);
     } else {
         m_messageHandler = Q_NULLPTR;
     }
@@ -205,29 +218,41 @@ void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageL
     messageListModel.setMessagesRead(unreadMessages);
 }
 
+QTdMessage *QTdMessageListModel::getDateLabelIfNeeded(QTdMessage *firstMessage, QTdMessage *secondMessage)
+{
+    const QDate firstDate = firstMessage->qmlDate().date();
+    const QDate secondDate = secondMessage
+            ? secondMessage->qmlDate().date()
+            : QDate();
+    if (firstDate.year() > secondDate.year()
+        || firstDate.month() > secondDate.month()
+        || firstDate.day() > secondDate.day()) {
+        auto *dateMessage = new QTdMessage;
+        dateMessage->unmarshalJson(QJsonObject{ { "dateLabel", firstMessage->date() } });
+        return dateMessage;
+    } else {
+        return Q_NULLPTR;
+    }
+}
+
 void QTdMessageListModel::appendMessage(QTdMessage *message)
 {
     if (m_model->isEmpty()) {
         m_model->append(message);
         return;
     }
-
     if (m_model->getByUid(message->qmlId())) {
         return;
     }
-
     auto *last = m_model->last();
     message->setPreviousSenderId(last->senderUserId());
     last->setNextSenderId(message->senderUserId());
 
-    const QDate lastDate = last->qmlDate().date();
-    const QDate newDate = message->qmlDate().date();
-    if (lastDate.year() > newDate.year()
-        || lastDate.month() > newDate.month()
-        || lastDate.day() > newDate.day()) {
-        auto *dateMessage = new QTdMessage;
-        dateMessage->unmarshalJson(QJsonObject{ { "dateLabel", last->date() } });
-        m_model->append(dateMessage);
+    if (!message->sendingState()) {
+        auto dateMessage = getDateLabelIfNeeded(last, message);
+        if (dateMessage) {
+            m_model->append(dateMessage);
+        }
     }
 
     m_model->append(message);
@@ -239,23 +264,18 @@ void QTdMessageListModel::prependMessage(QTdMessage *message)
         m_model->prepend(message);
         return;
     }
-
     if (m_model->getByUid(message->qmlId())) {
         return;
     }
-
     auto *first = m_model->first();
     message->setNextSenderId(first->senderUserId());
     first->setPreviousSenderId(message->senderUserId());
 
-    const QDate newDate = first->qmlDate().date();
-    const QDate lastDate = message->qmlDate().date();
-    if (lastDate.year() > newDate.year()
-        || lastDate.month() > newDate.month()
-        || lastDate.day() > newDate.day()) {
-        auto *dateMessage = new QTdMessage;
-        dateMessage->unmarshalJson(QJsonObject{ { "dateLabel", message->date() } });
-        m_model->prepend(dateMessage);
+    if (!message->sendingState()) {
+        auto dateMessage = getDateLabelIfNeeded(message, first);
+        if (dateMessage) {
+            m_model->prepend(dateMessage);
+        }
     }
 
     m_model->prepend(message);
@@ -344,7 +364,7 @@ void QTdMessageListModel::handleUpdateMessageViews(const QJsonObject &json)
 
 void QTdMessageListModel::handleUpdateDeleteMessages(const QJsonObject &json)
 {
-    if (json.isEmpty()) {
+    if (json.isEmpty() || json["from_cache"].toBool()) {
         return;
     }
     const QJsonArray messagesToDelete = json["message_ids"].toArray();
