@@ -112,7 +112,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
     }
 
     //Early bail-out: Telegram server just removes notification, message has been read elsewhere
-    if (key == "") {
+    if (key == "" || key == "READ_HISTORY") {
         QStringList tags = QStringList(tag);
         mPushClient.clearPersistent(tags);
         return QJsonObject();
