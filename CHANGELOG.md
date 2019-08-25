@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.4.1
+### Bugfix
+- A logrotate issue surfaced when we suddenly received errors from the push helper. Provide bandaid to not fill people´s log directories anymore
+
 ## 0.4
 ### Added
 - Finally: Unread Messages indicator in message list and positioning there!
