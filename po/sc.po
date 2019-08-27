@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-08-09 09:15+0000\n"
+"PO-Revision-Date: 2019-08-28 10:50+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -46,10 +46,8 @@ msgid "sent you a document"
 msgstr "t'at imbiadu unu documentu"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
-#| msgid "sent an audio message"
 msgid "sent you an audio message"
-msgstr "at imbiadu unu messàgiu de àudio"
+msgstr "t'at imbiadu unu messàgiu de àudio"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
@@ -270,10 +268,8 @@ msgid "Me"
 msgstr "Deo"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:214
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Unread Messages"
-msgstr "Messàgios sarvados"
+msgstr "Messàgios non lèghidos"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
 msgid "Message"
@@ -576,7 +572,7 @@ msgstr "Essi·nche"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Ammancat s'eticheta..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -609,7 +605,7 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Istantànea fata"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
@@ -634,10 +630,8 @@ msgstr[0] "%1 usuàriu(/-os)"
 msgstr[1] ""
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "Voice note"
-msgstr "at imbiadu unu messàgiu vocale"
+msgstr "Nota vocale"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
