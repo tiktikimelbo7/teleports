@@ -314,11 +314,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         QString avatarPath = m_auxdb.getAvatarMapTable()->getAvatarPathbyId(chatId);
         if (avatarPath != "") {
             avatar = QString("file://").append(avatarPath);
-        } else {
-            qWarning() << "Could not find any avatar picture!";
         }
-    } else {
-        qWarning() << "No valid avatar map table available!";
     }
 
     //Display emblem counter correctly for unread messages
