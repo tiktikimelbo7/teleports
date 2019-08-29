@@ -54,8 +54,12 @@ UITK.ListItem {
             UITK.Action {
                 iconName: "edit-copy"
                 text: i18n.tr("Copy")
-                visible: false
-                onTriggered: { /* TODO: Implement copy */ }
+                visible: message.content.type == QTdObject.MESSAGE_TEXT
+                onTriggered: {
+                    var mimeData = UITK.Clipboard.newData();
+                    mimeData.text = message.content.text.text;
+                    UITK.Clipboard.push(mimeData);
+                }
             },
             UITK.Action {
                 iconName: "edit"
