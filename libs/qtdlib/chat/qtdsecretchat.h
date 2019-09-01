@@ -24,11 +24,15 @@ public:
     QString qmlUserId() const;
     qint32 userId() const;
     bool isOutbound() const;
+    bool isWritable() const override;
+    bool isPending() const;
+    bool isClosed() const;
     qint32 ttl() const;
     QString keyHash() const;
     qint32 layer() const;
 
     QTdSecretChatState *state() const;
+
 
 signals:
     void secretChatChanged();

@@ -46,6 +46,7 @@ public:
     bool signMessages() const;
     bool isChannel() const;
     bool isVerified() const;
+    bool isWritable() const override;
     QString restrictionReason() const;
     QString description() const;
     QString qmlAdminCount() const;

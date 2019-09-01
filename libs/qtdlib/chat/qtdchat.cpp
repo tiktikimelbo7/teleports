@@ -146,31 +146,36 @@ bool QTdChat::isMuted() const
 
 bool QTdChat::isPrivate() const
 {
-    return qobject_cast<QTdChatTypePrivate *>(m_chatType) != NULL;
+    return qobject_cast<QTdChatTypePrivate *>(m_chatType) != nullptr;
 }
 
 bool QTdChat::isSecret() const
 {
-    return qobject_cast<QTdChatTypeSecret *>(m_chatType) != NULL;
+    return qobject_cast<QTdChatTypeSecret *>(m_chatType) != nullptr;
 }
 
 bool QTdChat::isGroup() const
 {
-    if (qobject_cast<QTdChatTypeBasicGroup *>(m_chatType) != NULL)
+    if (qobject_cast<QTdChatTypeBasicGroup *>(m_chatType) != nullptr)
         return true;
     auto result = qobject_cast<QTdChatTypeSuperGroup *>(m_chatType);
-    return result != NULL && !result->isChannel();
+    return result != nullptr && !result->isChannel();
 }
 
 bool QTdChat::isChannel() const
 {
     auto result = qobject_cast<QTdChatTypeSuperGroup *>(m_chatType);
-    return result != NULL && result->isChannel();
+    return result != nullptr && result->isChannel();
 }
 
 bool QTdChat::isMyself() const
 {
     return id() == m_my_id;
+}
+
+bool QTdChat::isWritable() const
+{
+    return true;
 }
 
 bool QTdChat::canBeReported() const
