@@ -41,6 +41,24 @@ bool QTdSecretChat::isOutbound() const
     return m_isOutbound;
 }
 
+bool QTdSecretChat::isWritable() const
+{
+    auto result = qobject_cast<QTdSecretChatStateReady *>(m_state);
+    return result != nullptr;
+}
+
+bool QTdSecretChat::isPending() const
+{
+    auto result = qobject_cast<QTdSecretChatStatePending *>(m_state);
+    return result != nullptr;
+}
+
+bool QTdSecretChat::isClosed() const
+{
+    auto result = qobject_cast<QTdSecretChatStateClosed *>(m_state);
+    return result != nullptr;
+}
+
 qint32 QTdSecretChat::ttl() const
 {
     return m_ttl;
@@ -103,6 +121,7 @@ void QTdSecretChat::updateSecretChat(const QJsonObject &data)
     if (m_state) {
         m_state->unmarshalJson(state);
         emit stateChanged(m_state);
+        emit isWritableChanged();
     }
     m_isOutbound = data["is_outbound"].toBool();
     m_ttl = qint32(data["ttl"].toInt());

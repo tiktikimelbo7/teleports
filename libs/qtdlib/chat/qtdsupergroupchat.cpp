@@ -3,6 +3,7 @@
 #include "chat/requests/qtdgetsupergrouprequest.h"
 #include "chat/requests/qtdgetsupergroupfullinforequest.h"
 #include "client/qtdclient.h"
+#include "common/qabstracttdobject.h"
 
 QTdSuperGroupChat::QTdSuperGroupChat(QObject *parent)
     : QTdChat(parent)
@@ -90,6 +91,13 @@ bool QTdSuperGroupChat::isChannel() const
 bool QTdSuperGroupChat::isVerified() const
 {
     return m_isVerified;
+}
+
+bool QTdSuperGroupChat::isWritable() const
+{
+    auto atLeastAdmin = m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_ADMIN
+        || m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_CREATOR;
+    return !m_isChannel || m_isChannel && atLeastAdmin;
 }
 
 QString QTdSuperGroupChat::restrictionReason() const
