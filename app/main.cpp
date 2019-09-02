@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("0.4.0"));
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
@@ -43,6 +42,10 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
     engine.rootContext()->setContextProperty(QStringLiteral("contentDelegateMap"), &contentDelegateMap);
+
+    //Inject versioning strings from CI
+    QCoreApplication::setApplicationVersion(QStringLiteral(BUILD_VERSION));
+    engine.rootContext()->setContextProperty(QStringLiteral("devBuildHash"), QStringLiteral(GIT_HASH));
 
     engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 
