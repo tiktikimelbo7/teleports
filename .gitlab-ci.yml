@@ -15,8 +15,8 @@ tdlib-prepare:
     cache:
         key: deps-cache-1.4
         paths:
-            - build/tdlib
-            - build/tdlib-prepare
+            - build/arm-linux-gnueabihf/tdlib/install
+            - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
 
 tdlib:
@@ -27,13 +27,13 @@ tdlib:
     cache:
         key: deps-cache-1.4
         paths:
-            - build/tdlib
-            - build/tdlib-prepare
+            - build/arm-linux-gnueabihf/tdlib/install
+            - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
     artifacts:
         paths:
-            - build/tdlib
-            - build/tdlib-prepare
+            - build/arm-linux-gnueabihf/tdlib/install
+            - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
         expire_in: 1 week
 
@@ -43,7 +43,7 @@ teleports:
     except:
         - tags
     script:
-        - clickable build click-build
+        - clickable build
     dependencies:
         - tdlib
     cache:
@@ -51,7 +51,7 @@ teleports:
         untracked: true
     artifacts:
         paths:
-            - build/teleports/*.click
+            - build/arm-linux-gnueabihf/app/*.click
         expire_in: 1 week
 
 publish:
@@ -60,7 +60,7 @@ publish:
     only:
         - tags
     script:
-        - clickable build click-build
+        - clickable build
         - clickable publish "$CI_COMMIT_MESSAGE"
     dependencies:
         - tdlib
@@ -69,5 +69,5 @@ publish:
         untracked: true
     artifacts:
         paths:
-            - build/teleports/*.click
+            - build/arm-linux-gnueabihf/app/*.click
         expire_in: 1 week
