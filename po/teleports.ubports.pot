@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-31 13:37+0000\n"
+"POT-Creation-Date: 2019-09-01 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -338,15 +338,23 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:77
+#: ../app/qml/stores/AuthStateStore.qml:60
+msgid "Invalid phone number!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:74
+msgid "Invalid password!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:83
+#: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:89
+#: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
 msgstr ""
 
@@ -362,23 +370,23 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:19
+#: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:45
+#: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:53
+#: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:60
+#: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:75
+#: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
@@ -425,7 +433,7 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-#: ../app/qml/pages/WaitPasswordPage.qml:48
+#: ../app/qml/pages/WaitPasswordPage.qml:60
 msgid "Next..."
 msgstr ""
 
@@ -593,11 +601,11 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
+#: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
+#: ../app/qml/pages/WaitPasswordPage.qml:41
 msgid "Password"
 msgstr ""
 

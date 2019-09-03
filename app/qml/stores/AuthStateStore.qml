@@ -55,16 +55,33 @@ Store {
         onClosed: {
               Qt.quit();
         }
+        onPhoneNumberError: {
+            if (message == "PHONE_NUMBER_INVALID") {
+                AppActions.auth.authPhoneNumberError(i18n.tr("Invalid phone number!"));
+            } else {
+                AppActions.auth.authPhoneNumberError(message);
+            }
+        }
+        onCodeError: {
+            if (message == "PHONE_CODE_INVALID") {
+                AppActions.auth.authCodeError(i18n.tr("Invalid code!"));
+            } else {
+                AppActions.auth.authCodeError(message);
+            }
+        }
+        onPasswordError: {
+            if (message == "PASSWORD_HASH_INVALID") {
+                AppActions.auth.authPasswordError(i18n.tr("Invalid password!"));
+            } else {
+                AppActions.auth.authPasswordError(message);
+            }
+        }
     }
 
     Filter {
         type: AuthKey.setPhoneNumber
         onDispatched: {
             var number = message.dialcode.trim() + message.phonenumber.trim()
-//            if (!PhoneNumber.valid(number)) {
-//                AppActions.auth.authPhoneNumberError("Invalid phone number");
-//                return
-//            }
 
             authState.sendPhoneNumber(number)
         }
