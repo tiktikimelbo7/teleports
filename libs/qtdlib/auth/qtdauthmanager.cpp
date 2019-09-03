@@ -9,6 +9,7 @@
 #include "requests/qtdauthlogoutresponse.h"
 #include "requests/qtdauthpasswordresponse.h"
 #include "requests/qtdauthdeleteaccountresponse.h"
+#include "utils/await.h"
 
 QTdAuthManager::QTdAuthManager(QObject *parent)
     : QObject(parent)
@@ -84,9 +85,14 @@ void QTdAuthManager::sendPhoneNumber(const QString &number)
         qWarning() << "TDLib isn't waiting for the phone number";
         return;
     }
-    QScopedPointer<QTdAuthPhoneNumberResponse> resp(new QTdAuthPhoneNumberResponse);
-    resp->setPhoneNumber(number);
-    QTdClient::instance()->send(resp.data());
+    QScopedPointer<QTdAuthPhoneNumberResponse> autPhoneNoResp(new QTdAuthPhoneNumberResponse);
+    autPhoneNoResp->setPhoneNumber(number);
+    QFuture<QTdResponse> resp = autPhoneNoResp.data()->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        emit phoneNumberError(resp.result().errorString());
+        return;
+    }
 }
 
 void QTdAuthManager::logOut()
@@ -108,11 +114,16 @@ void QTdAuthManager::sendCode(const QString &code, const QString &firstname, con
         qWarning() << "TDLib isn't waiting for a code";
         return;
     }
-    QScopedPointer<QTdAuthCodeResponse> resp(new QTdAuthCodeResponse);
-    resp->setCode(code);
-    resp->setFirstName(firstname);
-    resp->setLastName(lastname);
-    QTdClient::instance()->send(resp.data());
+    QScopedPointer<QTdAuthCodeResponse> authCodeResp(new QTdAuthCodeResponse);
+    authCodeResp->setCode(code);
+    authCodeResp->setFirstName(firstname);
+    authCodeResp->setLastName(lastname);
+    QFuture<QTdResponse> resp = authCodeResp.data()->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        emit codeError(resp.result().errorString());
+        return;
+    }
 }
 
 void QTdAuthManager::sendPassword(const QString &password)
@@ -121,9 +132,14 @@ void QTdAuthManager::sendPassword(const QString &password)
         qWarning() << "TDLib isn't waiting for a password";
         return;
     }
-    QScopedPointer<QTdAuthPasswordResponse> resp(new QTdAuthPasswordResponse);
-    resp->setPassword(password);
-    QTdClient::instance()->send(resp.data());
+    QScopedPointer<QTdAuthPasswordResponse> authPasswordResp(new QTdAuthPasswordResponse);
+    authPasswordResp->setPassword(password);
+    QFuture<QTdResponse> resp = authPasswordResp.data()->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        emit passwordError(resp.result().errorString());
+        return;
+    }
 }
 
 void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)

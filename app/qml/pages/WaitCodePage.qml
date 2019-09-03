@@ -5,7 +5,6 @@ import QtQuick.Controls.Suru 2.2
 import QuickFlux 1.1
 import "../actions"
 
-// TODO: Use qqc2-suru
 Page {
     id: waitCodePage
 
@@ -90,6 +89,7 @@ Page {
         type: AuthKey.authCodeError
           onDispatched: {
             errorLabel.text = message.error
+            codeField.text = ""
         }
       }
     }
@@ -99,6 +99,9 @@ Page {
        script: {
            // Enter number including dial code
            AppActions.auth.setCode(message.code, message.firstname, message.lastname);
+            once(AuthKey.authCodeError, function(message) {
+               exit(1);
+           })
            once(AuthKey.authCodeAccepted, exit.bind(this,0))
        }
     }

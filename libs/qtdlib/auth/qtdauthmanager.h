@@ -49,6 +49,9 @@ signals:
     void waitingForPhoneNumber();
     void waitingForCode(bool isRegistered);
     void waitingForPassword(QString passwordHint, bool hasRecoveryEmailAddress, QString recoveryEmailAddressPattern);
+    void phoneNumberError(QString message);
+    void codeError(QString message);
+    void passwordError(QString message);
     void ready();
     void loggingOut();
     void closing();
