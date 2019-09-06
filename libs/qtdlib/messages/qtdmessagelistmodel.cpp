@@ -52,10 +52,18 @@ bool QTdMessageListModel::isUpToDateAndFollowing() const
 
 bool QTdMessageListModel::hasNewer() const
 {
-    if (m_model->isEmpty()) {
+    // when setting messages read, model is already up to date, but hasUnreadMessages still true
+    if (!m_chat->hasUnreadMessages())
+    {
         return false;
     }
 
+    if (m_model->isEmpty())
+    {
+        return false;
+    }
+
+    // this fails if the first message is a date label, which achtually should never be the case
     return m_chat->lastMessage()->id() != m_model->first()->id();
 }
 
@@ -63,11 +71,13 @@ void QTdMessageListModel::setChat(QTdChat *chat)
 {
     if (m_chat == chat)
         return;
-    if (m_chat) {
+    if (m_chat)
+    {
         disconnect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
     }
 
-    if (!m_model->isEmpty()) {
+    if (!m_model->isEmpty())
+    {
         cleanUp();
     }
 
@@ -84,10 +94,10 @@ void QTdMessageListModel::setChat(QTdChat *chat)
             loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
         } else {
             m_messageHandler = &olderMessagesHandler;
-            auto *lastMessage = new QTdMessage();
+            QScopedPointer<QTdMessage> lastMessage(new QTdMessage());
             lastMessage->unmarshalJson(m_chat->lastMessageJson());
-            m_model->append(lastMessage);
-            loadMessages(lastMessage->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+            loadMessages(lastMessage->jsonId(), MESSAGE_LOAD_WINDOW, 1);
+            connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
         }
     }
     m_chat->openChat();
@@ -106,7 +116,7 @@ void QTdMessageListModel::loadNewer()
         return;
     }
     m_messageHandler = &newerMessagesHandler;
-    loadMessages(m_chat->qmlLastReadInboxMessageId(), 0, MESSAGE_LOAD_WINDOW);
+    loadMessages(m_model->first()->jsonId(), 0, MESSAGE_LOAD_WINDOW);
 }
 
 void QTdMessageListModel::loadOlder()
@@ -167,7 +177,7 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
         m_messageHandler = Q_NULLPTR;
     }
 
-    if (!hasNewer()) {
+    if (!hasNewer() && !m_isHandleUpdateLastChatMessageConnected) {
         connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
         m_isHandleUpdateLastChatMessageConnected = true;
         m_chat->positionMessageListViewAtIndex(-1);
@@ -319,6 +329,8 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
     unreadMessages << messageId;
     setMessagesRead(unreadMessages);
     unreadMessages.clear();
+
+    emit modelChanged();
 }
 
 void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &json)
