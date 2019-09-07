@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-10 20:33+0000\n"
-"PO-Revision-Date: 2019-09-06 19:50+0000\n"
+"PO-Revision-Date: 2019-09-08 13:50+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "teleports/lt/>\n"
@@ -124,7 +124,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:246
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 pašalino jus iš grupes"
 
 #: ../push/pushhelper.cpp:251
 msgid "%1 has left the group"
@@ -132,10 +132,11 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:256
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 grįžo į grupę"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:261
+#, fuzzy
 msgid "@ %1"
 msgstr "Ties %1"
 
@@ -165,7 +166,7 @@ msgstr ""
 #: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
 #: ../push/pushhelper.cpp:299
 msgid "You have a new message"
-msgstr ""
+msgstr "Gavote naują žinutę"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:25
 msgid "Last seen one month ago"
@@ -519,7 +520,7 @@ msgstr ""
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:82
 msgid "Forward"
-msgstr ""
+msgstr "Pirmyn"
 
 #: ../app/qml/pages/ChatListPage.qml:318
 msgid "Enter optional message..."
@@ -561,8 +562,9 @@ msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
+#, fuzzy
 msgid "Leave"
-msgstr ""
+msgstr "Palikti"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
