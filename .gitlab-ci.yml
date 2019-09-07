@@ -15,7 +15,7 @@ tdlib-prepare:
     cache:
         key: deps-cache-1.4
         paths:
-            - build/arm-linux-gnueabihf/tdlib/install
+            - build/arm-linux-gnueabihf/tdlib
             - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
 
@@ -27,12 +27,12 @@ tdlib:
     cache:
         key: deps-cache-1.4
         paths:
-            - build/arm-linux-gnueabihf/tdlib/install
+            - build/arm-linux-gnueabihf/tdlib
             - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
     artifacts:
         paths:
-            - build/arm-linux-gnueabihf/tdlib/install
+            - build/arm-linux-gnueabihf/tdlib
             - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
         expire_in: 1 week
