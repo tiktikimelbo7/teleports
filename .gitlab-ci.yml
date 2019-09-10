@@ -43,7 +43,7 @@ teleports:
     except:
         - tags
     script:
-        - clickable build
+        - clickable clean build
     dependencies:
         - tdlib
     cache:
@@ -60,7 +60,7 @@ publish:
     only:
         - tags
     script:
-        - clickable build
+        - clickable clean build
         - clickable publish "$CI_COMMIT_MESSAGE"
     dependencies:
         - tdlib
