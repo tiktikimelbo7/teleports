@@ -32,7 +32,7 @@ Item {
             width: Math.min(maximumAvailableContentWidth, childrenRect.width)
             TextEdit {
                 readOnly: true
-                text: i18n.tr("Forwarded from " + message.forwardedFromDetails)
+                text: i18n.tr("Forwarded from %1").arg(message.forwardInfo.displayedName)
                 color: "#FF335280" //Suru.Blue
                 font.weight: Font.Medium
             }

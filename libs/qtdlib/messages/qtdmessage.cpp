@@ -38,7 +38,6 @@ QTdMessage::QTdMessage(QObject *parent)
     , m_previousSender(0)
     , m_nextSender(0)
     , m_replyMarkup(Q_NULLPTR)
-    , m_forwardedFromDetails("")
     , m_messageRepliedTo(Q_NULLPTR)
     , m_replyToMessageId(0)
     , m_isCollapsed(false)
@@ -169,41 +168,10 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     qint64 forwardedFromId = 0;
     const QJsonObject forwardInfo = json["forward_info"].toObject();
     if (!forwardInfo.isEmpty()) {
-        const QString forwardInfoType = forwardInfo["@type"].toString();
-        if (forwardInfoType == "messageForwardedFromUser") {
-            auto tempForwardInfo = new QTdMessageForwardedFromUser(this);
-            tempForwardInfo->unmarshalJson(forwardInfo);
-            m_forwardInfo = tempForwardInfo;
-            forwardedFromId = tempForwardInfo->senderUserId();
-            QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
-            req->setUserId(forwardedFromId);
-            QFuture<QTdResponse> resp = req->sendAsync();
-            await(resp, 2000);
-            if (resp.result().isError()) {
-                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
-                return;
-            }
-            auto tempUser = new QTdUser(this);
-            tempUser->unmarshalJson(resp.result().json());
-            m_forwardedFromDetails = tempUser->firstName() + " " + tempUser->lastName();
-        } else if (forwardInfoType == "messageForwardedPost") {
-            auto tempForwardInfo = new QTdMessageForwardedPost(this);
-            tempForwardInfo->unmarshalJson(forwardInfo);
-            m_forwardInfo = tempForwardInfo;
-            forwardedFromId = tempForwardInfo->chatId();
-            QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
-            req->setChatId(forwardedFromId);
-            QFuture<QTdResponse> resp = req->sendAsync();
-            await(resp, 2000);
-            if (resp.result().isError()) {
-                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
-                return;
-            }
-            auto tempChat = new QTdChat(this);
-            tempChat->unmarshalJson(resp.result().json());
-            m_forwardedFromDetails = tempChat->title();
+        m_forwardInfo = new QTdMessageForwardInfo(this);
+        if (m_forwardInfo) {
+            m_forwardInfo->unmarshalJson(forwardInfo);
         }
-        emit messageChanged();
     }
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
@@ -306,9 +274,9 @@ QTdReplyMarkup *QTdMessage::replyMarkup() const
     return m_replyMarkup;
 }
 
-QString QTdMessage::forwardedFromDetails() const
+QTdMessageForwardInfo *QTdMessage::forwardInfo() const
 {
-    return m_forwardedFromDetails;
+    return m_forwardInfo;
 }
 
 bool QTdMessage::isForwarded() const
