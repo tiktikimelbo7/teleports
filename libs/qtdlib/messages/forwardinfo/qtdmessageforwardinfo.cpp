@@ -3,141 +3,117 @@
 #include <QDateTime>
 #include "qtdmessageforwardinfo.h"
 #include "common/qtdhelpers.h"
+#include "user/requests/qtdgetuserrequest.h"
+#include "chat/requests/qtdgetchatrequest.h"
+#include "chat/qtdchat.h"
+#include "utils/await.h"
+#include "user/qtdusers.h"
 
 QTdMessageForwardInfo::QTdMessageForwardInfo(QObject *parent)
     : QTdObject(parent)
-{
-}
-
-QTdMessageForwardedFromUser::QTdMessageForwardedFromUser(QObject *parent)
-    : QTdMessageForwardInfo(parent)
-    , m_senderUserId(0)
+    , m_origin(Q_NULLPTR)
     , m_date(0)
-    , m_forwardedFromChatId(0)
-    , m_forwardedFromMessageId(0)
+    , m_fromChatId(0)
+    , m_fromMessageId(0)
 {
-    setType(MESSAGE_FORWARDED_FROM_USER);
 }
 
-QString QTdMessageForwardedFromUser::qmlSenderUserId() const
+QTdMessageForwardOrigin *QTdMessageForwardInfo::origin() const
 {
-    return m_senderUserId.toQmlValue();
-}
-qint32 QTdMessageForwardedFromUser::senderUserId() const
-{
-    return m_senderUserId.value();
+    return m_origin;
 }
 
-QDateTime QTdMessageForwardedFromUser::qmlDate() const
+QDateTime QTdMessageForwardInfo::qmlDate() const
 {
     return QDateTime::fromTime_t(m_date);
 }
-qint32 QTdMessageForwardedFromUser::date() const
+qint32 QTdMessageForwardInfo::date() const
 {
     return m_date;
 }
 
-QString QTdMessageForwardedFromUser::qmlForwardedFromChatId() const
+QString QTdMessageForwardInfo::qmlFromChatId() const
 {
-    return m_forwardedFromChatId.toQmlValue();
+    return m_fromChatId.toQmlValue();
 }
-qint64 QTdMessageForwardedFromUser::forwardedFromChatId() const
+qint64 QTdMessageForwardInfo::fromChatId() const
 {
-    return m_forwardedFromChatId.value();
-}
-
-QString QTdMessageForwardedFromUser::qmlForwardedFromMessageId() const
-{
-    return m_forwardedFromMessageId.toQmlValue();
-}
-qint64 QTdMessageForwardedFromUser::forwardedFromMessageId() const
-{
-    return m_forwardedFromMessageId.value();
+    return m_fromChatId.value();
 }
 
-void QTdMessageForwardedFromUser::unmarshalJson(const QJsonObject &json)
+QString QTdMessageForwardInfo::qmlFromMessageId() const
+{
+    return m_fromMessageId.toQmlValue();
+}
+qint64 QTdMessageForwardInfo::fromMessageId() const
+{
+    return m_fromMessageId.value();
+}
+
+QString QTdMessageForwardInfo::displayedName() const
+{
+    return m_displayedName;
+}
+
+void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
 {
     if (json.isEmpty()) {
         return;
     }
-    m_senderUserId = json["sender_user_id"].toInt();
-    m_date = json["date"].toInt();
-    m_forwardedFromChatId = json["forwarded_from_chat_id"].toInt();
-    m_forwardedFromMessageId = json["forwarded_from_message_id"].toInt();
-    emit forwardInfoChanged();
-}
-
-QTdMessageForwardedPost::QTdMessageForwardedPost(QObject *parent)
-    : QTdMessageForwardInfo(parent)
-    , m_chatId(0)
-    , m_date(0)
-    , m_messageId(0)
-    , m_forwardedFromChatId(0)
-    , m_forwardedFromMessageId(0)
-{
-    setType(MESSAGE_FORWARDED_POST);
-}
-
-QString QTdMessageForwardedPost::qmlChatId() const
-{
-    return m_chatId.toQmlValue();
-}
-qint64 QTdMessageForwardedPost::chatId() const
-{
-    return m_chatId.value();
-}
-
-QString QTdMessageForwardedPost::authorSignature() const
-{
-    return m_authorSignature;
-}
-
-QDateTime QTdMessageForwardedPost::qmlDate() const
-{
-    return QDateTime::fromTime_t(m_date);
-}
-qint32 QTdMessageForwardedPost::date() const
-{
-    return m_date;
-}
-
-QString QTdMessageForwardedPost::qmlMessageId() const
-{
-    return m_messageId.toQmlValue();
-}
-qint64 QTdMessageForwardedPost::messageId() const
-{
-    return m_messageId.value();
-}
-
-QString QTdMessageForwardedPost::qmlForwardedFromChatId() const
-{
-    return m_forwardedFromChatId.toQmlValue();
-}
-qint64 QTdMessageForwardedPost::forwardedFromChatId() const
-{
-    return m_forwardedFromChatId.value();
-}
-
-QString QTdMessageForwardedPost::qmlForwardedFromMessageId() const
-{
-    return m_forwardedFromMessageId.toQmlValue();
-}
-qint64 QTdMessageForwardedPost::forwardedFromMessageId() const
-{
-    return m_forwardedFromMessageId.value();
-}
-
-void QTdMessageForwardedPost::unmarshalJson(const QJsonObject &json)
-{
-    if (json.isEmpty()) {
-        return;
+    const QJsonObject origin = json["origin"].toObject();
+    if (!origin.isEmpty()) {
+        qint64 originId = 0;
+        const QString originType = origin["@type"].toString();
+        if (originType == "messageForwardOriginChannel") {
+            auto tempOrigin = new QTdMessageForwardOriginChannel(this);
+            tempOrigin->unmarshalJson(origin);
+            m_origin = tempOrigin;
+            originId = tempOrigin->chatId();
+            QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
+            req->setChatId(originId);
+            QFuture<QTdResponse> resp = req->sendAsync();
+            await(resp, 2000);
+            if (resp.result().isError()) {
+                qWarning() << "Failed to get chat with error: " << resp.result().errorString();
+                m_displayedName = "";
+            } else {
+                auto tempChat = new QTdChat(this);
+                tempChat->unmarshalJson(resp.result().json());
+                m_displayedName = tempChat->title();
+                delete tempChat;
+            }
+        } else if (originType == "messageForwardOriginHiddenUser") {
+            auto tempOrigin = new QTdMessageForwardOriginHiddenUser(this);
+            tempOrigin->unmarshalJson(origin);
+            m_origin = tempOrigin;
+            m_displayedName = tempOrigin->senderName();
+        } else if (originType == "messageForwardOriginUser") {
+            auto tempOrigin = new QTdMessageForwardOriginUser(this);
+            tempOrigin->unmarshalJson(origin);
+            m_origin = tempOrigin;
+            originId = tempOrigin->senderUserId();
+            auto *user = QTdUsers::instance()->model()->getByUid(QString::number(originId));
+            if (!user) {
+                QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
+                req->setUserId(originId);
+                QFuture<QTdResponse> resp = req->sendAsync();
+                await(resp, 2000);
+                if (resp.result().isError()) {
+                    qWarning() << "Failed to get user with error: " << resp.result().errorString();
+                    m_displayedName = "";
+                } else {
+                    auto tempUser = new QTdUser(this);
+                    tempUser->unmarshalJson(resp.result().json());
+                    m_displayedName = tempUser->firstName() + " " + tempUser->lastName();
+                    delete tempUser;
+                }
+            } else {
+                m_displayedName = user->firstName() + " " + user->lastName();
+            }
+        }
     }
-    m_chatId = json["chat_id"];
-    m_authorSignature = json["author_signature"].toString();
     m_date = json["date"].toInt();
-    m_messageId = json["message_id"].toInt();
-    m_forwardedFromChatId = json["forwarded_from_chat_id"].toInt();
-    m_forwardedFromMessageId = json["forwarded_from_message_id"].toInt();
+    m_fromChatId = json["forwarded_from_chat_id"].toInt();
+    m_fromMessageId = json["forwarded_from_message_id"].toInt();
     emit forwardInfoChanged();
 }

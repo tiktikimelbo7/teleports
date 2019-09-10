@@ -29,6 +29,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessageForwardInfo *forwardInfo READ forwardInfo NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
@@ -45,7 +46,6 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
     Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
     Q_PROPERTY(bool isForwarded READ isForwarded NOTIFY messageChanged)
-    Q_PROPERTY(QString forwardedFromDetails READ forwardedFromDetails NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -91,9 +91,9 @@ public:
 
     QTdReplyMarkup *replyMarkup() const;
 
-    bool isForwarded() const;
+    QTdMessageForwardInfo *forwardInfo() const;
 
-    QString forwardedFromDetails() const;
+    bool isForwarded() const;
 
     QString summary() const;
 
@@ -154,7 +154,6 @@ private:
     bool m_isValid;
     QTdInt32 m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
-    QString m_forwardedFromDetails;
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;
