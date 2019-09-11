@@ -14,8 +14,11 @@ import "../delegates"
 import "../stores"
 
 Page {
+    id: messageListPage
     property QTdChat currentChat: Telegram.chats.currentChat
     property int currentMessageIndex: currentChat.currentMessageIndex
+    property var locationWaitDialog: null
+
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
         subtitle: {
@@ -339,8 +342,7 @@ Page {
             }
 
             function requestLocation() {
-                UITK_Popups.PopupUtils.open(locationWaitDialog)
-                AppActions.chat.requestLocation();
+                UITK_Popups.PopupUtils.open(sendLocationConfirmationDialog)
             }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
             onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
@@ -355,10 +357,21 @@ Page {
 
             onMediaReceived: {
                 var filePath = String(mediaUrl).replace('file://', '');
-                if (contentType == 1) {
-                    AppActions.chat.sendDocument(filePath, "");
-                } else if (contentType == 2) {
-                    AppActions.chat.sendPhoto(filePath, "");
+                switch(contentType) {
+                    case ContentHub.ContentType.Pictures:
+                        AppActions.chat.sendPhoto(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Videos:
+                        AppActions.chat.sendVideo(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Music:
+                        AppActions.chat.sendAudio(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Contacts:
+                        AppActions.chat.sendContact(filePath, "");
+                    break;
+                    default:
+                        AppActions.chat.sendDocument(filePath, "");
                 }
             }
         }
@@ -480,6 +493,19 @@ Page {
     }
 
     Component {
+        id: sendLocationConfirmationDialog
+        PopupDialog {
+            text: i18n.tr("Do you want to share your location with %1?").arg(currentChat.title)
+            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonText: i18n.tr("Send")
+            onConfirmed: {
+                messageListPage.locationWaitDialog = UITK_Popups.PopupUtils.open(locationWaitDialog)
+                AppActions.chat.requestLocation();
+            }
+        }
+    }
+
+    Component {
         id: locationWaitDialog
         PopupWaitCancel {
             text: i18n.tr("Requesting location from OS...")
@@ -488,6 +514,15 @@ Page {
             }
             onCancelled: {
                 AppActions.chat.cancelLocation();
+            }
+        }
+    }
+
+    AppListener {
+        Filter {
+            type: ChatKey.stopWaitLocation
+            onDispatched: {
+                UITK_Popups.PopupUtils.close(messageListPage.locationWaitDialog);
             }
         }
     }
@@ -519,15 +554,13 @@ Page {
         Filter {
             type: ChatKey.requestEditMessage
             onDispatched: {
+                d.chatState = ChatState.EditingMessage;
+                d.messageOfInterest = message.message;
                 switch (message.message.content.type) {
                     case QTdObject.MESSAGE_TEXT:
-                        d.chatState = ChatState.EditingMessage
-                        d.messageOfInterest = message.message;
                         entry.text = message.message.content.text.text;
                         break;
                     case QTdObject.MESSAGE_PHOTO:
-                        d.chatState = ChatState.EditingMessage;
-                        d.messageOfInterest = message.message;
                         entry.text = message.message.content.caption.text;
                         break;
                 }

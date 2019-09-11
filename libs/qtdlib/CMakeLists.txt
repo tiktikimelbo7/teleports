@@ -161,6 +161,8 @@ set(
     messages/forwardinfo/qtdmessageforwardorigin.cpp
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp
+    messages/requests/content/qtdinputmessagevideo.cpp
+    messages/requests/content/qtdinputmessageaudio.cpp
     messages/requests/content/qtdinputmessagetext.cpp
     messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/qtddeletemessagesrequest.cpp

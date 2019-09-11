@@ -85,13 +85,13 @@ Page {
     }
 
     AppListener {
-      Filter {
-        type: AuthKey.authCodeError
-          onDispatched: {
-            errorLabel.text = message.error
-            codeField.text = ""
+        Filter {
+            type: AuthKey.authCodeError
+            onDispatched: {
+                errorLabel.text = message.error
+                codeField.text = ""
+            }
         }
-      }
     }
 
     AppScript {

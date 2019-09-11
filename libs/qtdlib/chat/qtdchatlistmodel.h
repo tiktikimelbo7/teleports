@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QPointer>
+#include <QTimer>
+#include <QtPositioning/QGeoPositionInfoSource>
 #include "auth/qtdauthstate.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchat.h"
@@ -47,6 +49,8 @@ public slots:
                             const qint64 &recievingChatId,
                             const qint64 &fromChatId,
                             const QString &message);
+    void requestPositionInfo();
+    void cancelPositionInfo();
 
 signals:
     void modelChanged(QObject *model);
@@ -54,6 +58,8 @@ signals:
     void chatStatusChanged();
     void currentChatChanged(QTdChat *currentChat);
     void listModeChanged();
+    void positionInfoReceived(double latitude, double longitude);
+    void positionInfoTimeout();
 
 private slots:
     void handleChats(const QJsonObject &json);
@@ -71,6 +77,8 @@ private slots:
     void handleUpdateChatUnreadMentionCount(const QJsonObject &chat);
     void handleUpdateChatNotificationSettings(const QJsonObject &chat);
     void handleForwardingMessagesAction();
+    void positionUpdated(const QGeoPositionInfo &info);
+    void onPositionInfoTimeout();
 
     /**
      * @brief Set the pinned chats for the user
@@ -89,6 +97,9 @@ private:
     QStringList m_forwardingMessages;
     QPointer<QTdChat> m_forwardedFromChat;
     QList<qint64> m_receivedChatIds;
+    QPointer<QGeoPositionInfoSource> m_positionInfoSource;
+    QTimer *m_positionWaitTimer;
+
 };
 
 #endif // QTDCHATLISTMODEL_H
