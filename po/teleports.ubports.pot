@@ -249,7 +249,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:208
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
 msgid "Unread Messages"
 msgstr ""
 
@@ -291,6 +291,16 @@ msgstr ""
 #. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
 #: ../app/qml/components/AttachPanel.qml:64
 msgid "File"
+msgstr ""
+
+#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+#: ../app/qml/components/AttachPanel.qml:73
+msgid "Video"
+msgstr ""
+
+#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
+#: ../app/qml/components/AttachPanel.qml:83
+msgid "Audio"
 msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:77
@@ -372,6 +382,14 @@ msgstr ""
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "Error"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "No valid location received after 180 seconds!"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:18
@@ -565,43 +583,51 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:26
+#: ../app/qml/pages/MessageListPage.qml:29
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:120
+#: ../app/qml/pages/MessageListPage.qml:123
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:277
+#: ../app/qml/pages/MessageListPage.qml:280
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:277
+#: ../app/qml/pages/MessageListPage.qml:280
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:301
+#: ../app/qml/pages/MessageListPage.qml:304
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:304
+#: ../app/qml/pages/MessageListPage.qml:307
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:306
+#: ../app/qml/pages/MessageListPage.qml:309
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:377
+#: ../app/qml/pages/MessageListPage.qml:390
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:485
+#: ../app/qml/pages/MessageListPage.qml:498
+msgid "Do you want to share your location with %1?"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:500
+msgid "Send"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:511
 msgid "Requesting location from OS..."
 msgstr ""
 

@@ -19,8 +19,13 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     , m_forwardedFromChat(Q_NULLPTR)
     , m_forwardingMessages(QStringList())
     , m_listMode(ListMode::Idle)
+    , m_positionWaitTimer(new QTimer(this))
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
+    m_positionWaitTimer->setInterval(180000);
+    m_positionWaitTimer->setSingleShot(true);
+    connect(this->m_positionWaitTimer, &QTimer::timeout, this, &QTdChatListModel::onPositionInfoTimeout);
+
     connect(QTdClient::instance(), &QTdClient::chats, this, &QTdChatListModel::handleChats);
     connect(QTdClient::instance(), &QTdClient::chat, this, &QTdChatListModel::handleChat);
     connect(QTdClient::instance(), &QTdClient::updateNewChat, this, &QTdChatListModel::handleUpdateNewChat);
@@ -349,4 +354,38 @@ void QTdChatListModel::setListMode(ListMode listMode)
 {
     m_listMode = listMode;
     emit listModeChanged();
+}
+
+void QTdChatListModel::requestPositionInfo()
+{
+    if (!m_positionInfoSource) {
+        m_positionInfoSource = QGeoPositionInfoSource::createDefaultSource(this);
+        if (!m_positionInfoSource) {
+            qWarning() << "Could not initialize position info source!";
+            return;
+        }
+    }
+    connect(m_positionInfoSource, &QGeoPositionInfoSource::positionUpdated,
+            this, &QTdChatListModel::positionUpdated);
+    m_positionInfoSource->requestUpdate(180000);
+    m_positionWaitTimer->start();
+}
+
+void QTdChatListModel::cancelPositionInfo()
+{
+    disconnect(m_positionInfoSource, &QGeoPositionInfoSource::positionUpdated,
+               this, &QTdChatListModel::positionUpdated);
+    m_positionWaitTimer->stop();
+}
+
+void QTdChatListModel::onPositionInfoTimeout()
+{
+    cancelPositionInfo();
+    emit positionInfoTimeout();
+}
+
+void QTdChatListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
+{
+    cancelPositionInfo();
+    emit positionInfoReceived(positionInfo.coordinate().latitude(), positionInfo.coordinate().longitude());
 }

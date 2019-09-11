@@ -7,7 +7,7 @@ QTdInputMessageDocument::QTdInputMessageDocument(QObject *parent)
     , m_captionEntities(QJsonArray())
 {
 }
-void QTdInputMessageDocument::setDocument(const QString &url)
+void QTdInputMessageDocument::setAttachmentPath(const QString &url)
 {
 
     m_document = url;

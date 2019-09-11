@@ -3,12 +3,15 @@
 #include <QJsonArray>
 #include <QScopedPointer>
 #include <QtPositioning/QGeoCoordinate>
+#include <QTimer>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
 #include "requests/qtdeditmessagecaptionrequest.h"
 #include "requests/content/qtdinputmessagetext.h"
 #include "requests/content/qtdinputmessagephoto.h"
+#include "requests/content/qtdinputmessagevideo.h"
+#include "requests/content/qtdinputmessageaudio.h"
 #include "requests/content/qtdinputmessagedocument.h"
 #include "requests/content/qtdinputmessagelocation.h"
 #include "qtdmessagecontentfactory.h"
@@ -18,6 +21,8 @@
 #include "utils/i18n.h"
 #include "common/qtdhelpers.h"
 #include "utils/await.h"
+#include "requests/content/imessageattachmentcontent.h"
+#include "requests/content/imessagecaptioncontent.h"
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent)
     : QObject(parent)
@@ -434,88 +439,73 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
     } while (currentMessagePos < plainText.length());
 }
 
-void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
-{
-    qDebug() << "send Photo";
+void QTdMessageListModel::setCaptionProperties(IMessageCaptionContent *contentObj, const QString &caption) {
+    if (contentObj != nullptr) {
+        QString plainText;
+        QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
+        contentObj->setCaption(plainText);
+        contentObj->setCaptionEntities(formatEntities);
+    }
+}
+
+void QTdMessageListModel::setAttachmentProperties(IMessageAttachmentContent *contentObj, const QString &attachmentUrl) {
+    if (contentObj != nullptr) {
+        contentObj->setAttachmentPath(attachmentUrl);
+    }
+}
+
+void QTdMessageListModel::prepareAndSendAttachmentMessage(QTdInputMessageContent *content, const qint64 &replyToMessageId) {
     if (!m_chat) {
         return;
     }
-
-    QString plainText;
-    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
-
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
-    QTdInputMessagePhoto *messageContent = new QTdInputMessagePhoto();
-    messageContent->setPhoto(url);
-    messageContent->setCaption(caption);
-    messageContent->setCaptionEntities(formatEntities);
-    request->setContent(messageContent);
+    request->setContent(content);
     request->setReplyToMessageId(replyToMessageId);
     QTdClient::instance()->send(request.data());
+}
+
+void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+    QScopedPointer<QTdInputMessagePhoto> messageContent(new QTdInputMessagePhoto);
+    setAttachmentProperties(messageContent.data(), url);
+    setCaptionProperties(messageContent.data(), caption);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
+}
+
+void QTdMessageListModel::sendVideo(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+    QScopedPointer<QTdInputMessageVideo> messageContent(new QTdInputMessageVideo);
+    setAttachmentProperties(messageContent.data(), url);
+    setCaptionProperties(messageContent.data(), caption);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
+}
+
+void QTdMessageListModel::sendAudio(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+    QScopedPointer<QTdInputMessageAudio> messageContent(new QTdInputMessageAudio);
+    setAttachmentProperties(messageContent.data(), url);
+    setCaptionProperties(messageContent.data(), caption);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
 }
 
 void QTdMessageListModel::sendDocument(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
-    qDebug() << "send Document";
-    if (!m_chat) {
-        return;
-    }
-
-    QString plainText;
-    QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
-
-    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
-    request->setChatId(m_chat->id());
-    QTdInputMessageDocument *messageContent = new QTdInputMessageDocument();
-    messageContent->setDocument(url);
-    messageContent->setCaption(caption);
-    messageContent->setCaptionEntities(formatEntities);
-    request->setContent(messageContent);
-    request->setReplyToMessageId(replyToMessageId);
-    QTdClient::instance()->send(request.data());
+    QScopedPointer<QTdInputMessageDocument> messageContent(new QTdInputMessageDocument);
+    setAttachmentProperties(messageContent.data(), url);
+    setCaptionProperties(messageContent.data(), caption);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
 }
 
-void QTdMessageListModel::requestLocation()
-{
-    if (!m_chat) {
-        return;
-    }
-    if (!positionInfoSource) {
-        positionInfoSource = QGeoPositionInfoSource::createDefaultSource(this);
-        if (!positionInfoSource) {
-            qWarning() << "Could not initialize position info source!";
-            return;
-        }
-    }
-    connect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-            this, SLOT(positionUpdated(QGeoPositionInfo)));
-    positionInfoSource->requestUpdate();
-}
-
-void QTdMessageListModel::sendLocation()
+void QTdMessageListModel::sendLocation(const double latitude, const double longitude, const qint32 livePeriod)
 {
     QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
     request->setChatId(m_chat->id());
     QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
-    messageContent->setLocation(m_positionInfo.coordinate().latitude(), m_positionInfo.coordinate().longitude());
-    messageContent->setLivePeriod(0);
+    messageContent->setLocation(latitude, longitude);
+    messageContent->setLivePeriod(livePeriod);
     request->setContent(messageContent);
     QTdClient::instance()->send(request.data());
-}
-
-void QTdMessageListModel::cancelLocation()
-{
-    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-               this, SLOT(positionUpdated(QGeoPositionInfo)));
-    m_positionInfo = QGeoPositionInfo();
-}
-void QTdMessageListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
-{
-    disconnect(positionInfoSource, SIGNAL(positionUpdated(QGeoPositionInfo)),
-               this, SLOT(positionUpdated(QGeoPositionInfo)));
-    m_positionInfo = positionInfo;
-    emit positionInfoReceived();
 }
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)

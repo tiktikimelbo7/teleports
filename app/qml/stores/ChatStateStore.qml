@@ -29,6 +29,14 @@ Store {
                 AppActions.view.popFromStack()
             }
         }
+        onPositionInfoReceived: {
+            AppActions.chat.stopWaitLocation();
+            AppActions.chat.sendLocation(latitude, longitude, 0);
+        }
+        onPositionInfoTimeout: {
+            AppActions.chat.stopWaitLocation();
+            AppActions.view.showError(i18n.tr("Error"), i18n.tr("No valid location received after 180 seconds!"), "");
+        }
     }
 
     /**
@@ -192,27 +200,48 @@ Store {
         }
     }
     Filter {
+        type: ChatKey.sendVideo
+        onDispatched: {
+            messageList.sendVideo(message.videoUrl, message.text, 0);
+        }
+    }
+    Filter {
+        type: ChatKey.sendAudio
+        onDispatched: {
+            messageList.sendAudio(message.audioUrl, message.text, 0);
+        }
+    }
+    Filter {
+        type: ChatKey.sendContact
+        onDispatched: {
+            messageList.sendContact(message.contactUrl, message.text, 0);
+        }
+    }
+    Filter {
         type: ChatKey.sendDocument
         onDispatched: {
             messageList.sendDocument(message.documentUrl, message.text, 0);
         }
     }
+
+    //Location requesting and sending
     Filter {
         type: ChatKey.requestLocation
         onDispatched: {
-            messageList.requestLocation();
+            chatList.requestPositionInfo();
         }
     }
     Filter {
         type: ChatKey.sendLocation
         onDispatched: {
-            messageList.sendLocation();
+            messageList.sendLocation(message.latitude, message.longitude, message.livePeriod);
         }
     }
+
     Filter {
         type: ChatKey.cancelLocation
         onDispatched: {
-            messageList.cancelLocation();
+            chatList.cancelPositionInfo();
         }
     }
     Filter {

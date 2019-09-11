@@ -43,7 +43,7 @@ Item {
                 topMargin: units.gu(1)
                 horizontalCenter: parent.horizontalCenter
             }
-            columns: 5
+            columns: 7
             rows: 1
             horizontalItemAlignment: Grid.AlignHCenter
             verticalItemAlignment: Grid.AlignVCenter
@@ -68,26 +68,26 @@ Item {
                     attach_panel.close()
                 }
             }
-            // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-            //     text: i18n.tr("Video")
-            //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_video.png")
-            //     onClicked: {
-            //         attach_panel.videoRequested()
-            //         attach_panel.close()
-            //     }
-            // }
-            //
-            // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending audio to the conversation.
-            //     text: i18n.tr("Audio")
-            //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_audio.png")
-            //     onClicked: {
-            //         attach_panel.audioRequested()
-            //         attach_panel.close()
-            //     }
-            // }
-            //
+            AttachPanelItem {
+                // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+                text: i18n.tr("Video")
+                image: Qt.resolvedUrl("qrc:/qml/icons/attach_video.png")
+                onClicked: {
+                    attach_panel.videoRequested()
+                    attach_panel.close()
+                }
+            }
+
+            AttachPanelItem {
+                // TRANSLATORS: Used in attach menu, when sending audio to the conversation.
+                text: i18n.tr("Audio")
+                image: Qt.resolvedUrl("qrc:/qml/icons/attach_audio.png")
+                onClicked: {
+                    attach_panel.audioRequested()
+                    attach_panel.close()
+                }
+            }
+
             // AttachPanelItem {
             //     // TRANSLATORS: Used in attach menu, when sending a contact to the conversation.
             //     text: i18n.tr("Contact")
@@ -98,15 +98,15 @@ Item {
             //     }
             // }
 
-/*             AttachPanelItem {
+             AttachPanelItem {
                 // TRANSLATORS: Used in attach menu, when sending a location to the conversation.
                 text: i18n.tr("Location")
-                icon:"location-idle"
+                icon:"location-active"
                 onClicked: {
                     attach_panel.locationRequested()
                     attach_panel.close()
                 }
-            } */
+            }
 
             AttachPanelItem {
                 height: attach_photo_item.height

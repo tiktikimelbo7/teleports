@@ -1,31 +1,30 @@
-#include "qtdinputmessagephoto.h"
+#include "qtdinputmessagevideo.h"
 
-QTdInputMessagePhoto::QTdInputMessagePhoto(QObject *parent)
+QTdInputMessageVideo::QTdInputMessageVideo(QObject *parent)
     : QTdInputMessageContent(parent)
     , m_photo(QString())
     , m_caption(QString())
     , m_captionEntities(QJsonArray())
 {
 }
-void QTdInputMessagePhoto::setAttachmentPath(const QString &url)
+void QTdInputMessageVideo::setAttachmentPath(const QString &url)
 {
 
     m_photo = url;
 }
-void QTdInputMessagePhoto::setCaption(const QString &caption)
+void QTdInputMessageVideo::setCaption(const QString &caption)
 {
     m_caption = caption;
 }
-void QTdInputMessagePhoto::setCaptionEntities(const QJsonArray &entities)
+void QTdInputMessageVideo::setCaptionEntities(const QJsonArray &entities)
 {
     m_captionEntities = entities;
 }
-QJsonObject QTdInputMessagePhoto::marshalJson()
+QJsonObject QTdInputMessageVideo::marshalJson()
 {
-    qDebug() << "inputMessagePhoto";
     return QJsonObject{
-        { "@type", "inputMessagePhoto" },
-        { "photo", QJsonObject{
+        { "@type", "inputMessageVideo" },
+        { "video", QJsonObject{
                            { "@type", "inputFileLocal" },
                            { "path", m_photo } } },
         { "caption", QJsonObject{ { "@type", "formattedText" }, { "text", m_caption }, { "entities", m_captionEntities } } },

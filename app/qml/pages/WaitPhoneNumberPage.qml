@@ -105,13 +105,13 @@ Page {
     }
 
     AppListener {
-      Filter {
-        type: AuthKey.authPhoneNumberError
-          onDispatched: {
-            errorLabel.text = message.error
-            phoneNumberTextField.text = ""
+        Filter {
+            type: AuthKey.authPhoneNumberError
+            onDispatched: {
+                errorLabel.text = message.error
+                phoneNumberTextField.text = ""
+            }
         }
-      }
     }
 
     AppScript {

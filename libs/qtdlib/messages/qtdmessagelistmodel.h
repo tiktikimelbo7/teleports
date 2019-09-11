@@ -4,11 +4,13 @@
 #include <QObject>
 #include <QPointer>
 #include <QDebug>
-#include <QtPositioning/QGeoPositionInfoSource>
 #include "chat/qtdchat.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchatstate.h"
 #include "qtdmessage.h"
+#include "requests/qtdinputmessagecontent.h"
+#include "requests/content/imessageattachmentcontent.h"
+#include "requests/content/imessagecaptioncontent.h"
 
 #define MESSAGE_LOAD_WINDOW 60
 
@@ -56,19 +58,23 @@ public:
 signals:
     void chatChanged(QTdChat *chat);
     void modelChanged();
-    void positionInfoReceived();
     void error(const QString &errorMessage);
 
 public slots:
     void setChat(QTdChat *chat);
     void loadNewer();
     void loadOlder();
+
+    void setCaptionProperties(IMessageCaptionContent *contentObj, const QString &caption);
+    void setAttachmentProperties(IMessageAttachmentContent *contentObj, const QString &attachmentUrl);
+    void prepareAndSendAttachmentMessage(QTdInputMessageContent *contentObj, const qint64 &replyToMessageId);
     void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);
-    void requestLocation();
-    void sendLocation();
-    void cancelLocation();
+    void sendVideo(const QString &url, const QString &message, const qint64 &replyToMessageId);
+    void sendAudio(const QString &url, const QString &message, const qint64 &replyToMessageId);
+    void sendLocation(const double latitude, const double longitude, const qint32 livePeriod);
+
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);
     void editMessageCaption(qint64 messageId, const QString &message);
@@ -90,14 +96,11 @@ private slots:
     void loadMessages(const QJsonValue &fromMsgId,
                       unsigned int amountBefore,
                       unsigned int amountAfter);
-    void positionUpdated(const QGeoPositionInfo &info);
 
 private:
     Q_DISABLE_COPY(QTdMessageListModel)
     QPointer<QQmlObjectListModel<QTdMessage>> m_model;
     QPointer<QTdChat> m_chat;
-    QPointer<QGeoPositionInfoSource> positionInfoSource;
-    QGeoPositionInfo m_positionInfo;
     QPointer<QTdAbstractMessageHandler> m_messageHandler;
     QTdNewerMessagesHandler newerMessagesHandler;
     QTdOlderMessagesHandler olderMessagesHandler;
