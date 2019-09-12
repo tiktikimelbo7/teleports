@@ -10,7 +10,7 @@ MessageContentBase {
     id: item
 
     property QTdMessageText textContent: message.content
-    width: webpage_loader.visible && textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), text.width) : text.width
+    implicitWidth: webpage_loader.visible && textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), text.width) : text.width
 
     FormattedText {
         id: text

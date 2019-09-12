@@ -71,7 +71,7 @@ Item {
         Item {
             id: mainContent
             height: childrenRect.height
-            width: childrenRect.width
+            width: Math.max(childrenRect.width, content.implicitWidth)
         }
     }
 }
