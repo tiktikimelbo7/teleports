@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-10 20:33+0000\n"
+"POT-Creation-Date: 2019-09-10 20:20+0000\n"
 "PO-Revision-Date: 2019-08-12 20:49+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:122 ../app/qml/pages/AboutPage.qml:65
-#: ../app/qml/pages/ChatListPage.qml:20 teleports.desktop.in.h:1
+#: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
+#: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
 
@@ -165,176 +165,382 @@ msgstr "atualizou a foto de perfil"
 msgid "You have a new message"
 msgstr "Você tem uma mensagem nova"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:25
+#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+msgid "Sticker"
+msgstr "Autocolante"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+msgid "Phone call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+msgid "sent an audio message"
+msgstr "enviou-lhe uma mensagem de áudio"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+msgid "sent a photo"
+msgstr "enviou uma foto"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+msgid "Location"
+msgstr "Localização"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+msgid "sent a video"
+msgstr "enviou um vídeo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+msgid "sent a video note"
+msgstr "enviou um nota em vídeo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+msgid "sent a voice note"
+msgstr "enviou uma nota de voz"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+msgid "joined the group"
+msgstr "juntou-se ao grupo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+msgid "changed the chat photo"
+msgstr "alterou a foto do grupo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+msgid "changed the chat title"
+msgstr "alterou o título da conversa"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+msgid "joined by invite link"
+msgstr "juntou-se através de convite"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+msgid "removed a member"
+msgstr "removeu um membro"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+msgid "deleted the chat photo"
+msgstr "eliminou a foto da conversa"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+msgid "upgraded to supergroup"
+msgstr "atualizou para supergrupo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+msgid "message TTL has been changed"
+msgstr "mensagem TTL foi alterada"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+msgid "created this group"
+msgstr "criou este grupo"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../app/qml/delegates/MessageUnsupported.qml:4
+#, fuzzy
+msgid "Unsupported message"
+msgstr "Mensagens não lidas"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+msgid "Unimplemented:"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+msgid "Me"
+msgstr "Eu"
+
+#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
+msgid "Message"
+msgstr "Mensagem"
+
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
+msgid "Unread Messages"
+msgstr "Mensagens não lidas"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
 msgstr "Última vez visto há um mês"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:35
+#: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
 msgstr "Última vez visto há uma semana"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
 msgstr "Visto pela última vez "
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
 msgstr "dd.MM.yy hh:mm"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:72
+#: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
 msgstr "Ligado"
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:89
+#: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
 msgstr "Visto recentemente"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:322
-msgid "Sticker"
-msgstr "Autocolante"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:326
-msgid "call has been ended"
-msgstr "chamada foi terminada"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:330
-msgid "sent an audio message"
-msgstr "enviou-lhe uma mensagem de áudio"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:334
-msgid "sent a photo"
-msgstr "enviou uma foto"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:343
-msgid "Location"
-msgstr "Localização"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:347
-msgid "sent a video"
-msgstr "enviou um vídeo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:351
-msgid "sent a video note"
-msgstr "enviou um nota em vídeo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:355
-msgid "sent a voice note"
-msgstr "enviou uma nota de voz"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:359
-msgid "joined the group"
-msgstr "juntou-se ao grupo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:363
-msgid "changed the chat photo"
-msgstr "alterou a foto do grupo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:367
-msgid "changed the chat title"
-msgstr "alterou o título da conversa"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:371
-msgid "joined by invite link"
-msgstr "juntou-se através de convite"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
-msgid "removed a member"
-msgstr "removeu um membro"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
-msgid "deleted the chat photo"
-msgstr "eliminou a foto da conversa"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
-msgid "upgraded to supergroup"
-msgstr "atualizou para supergrupo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
-msgid "message TTL has been changed"
-msgstr "mensagem TTL foi alterada"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:391
-msgid "created this group"
-msgstr "criou este grupo"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:399
-msgid "sent an unknown message: %1"
-msgstr "enviou uma mensagem desconhecida: %1"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:404
-msgid "Me"
-msgstr "Eu"
-
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:214
-msgid "Unread Messages"
-msgstr "Mensagens não lidas"
-
-#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
-msgid "Message"
-msgstr "Mensagem"
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:71
+#: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
 msgstr "Mensagens guardadas"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
-msgid "Enter Password"
-msgstr "Introduza a palavra-chave"
+#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
+#: ../app/qml/components/AttachPanel.qml:55
+msgid "Image"
+msgstr "Imagem"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
-msgid "Password"
-msgstr "Palavra-chave"
+#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
+#: ../app/qml/components/AttachPanel.qml:64
+msgid "File"
+msgstr "Ficheiro"
 
-#: ../app/qml/pages/WaitPasswordPage.qml:48
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-msgid "Next..."
-msgstr "Próximo..."
+#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+#: ../app/qml/components/AttachPanel.qml:73
+msgid "Video"
+msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:19
+#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
+#: ../app/qml/components/AttachPanel.qml:83
+msgid "Audio"
+msgstr ""
+
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
+msgid "not available"
+msgstr "não disponível"
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr "Escolha um país"
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "Procurar o nome do país..."
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Okay"
+msgstr "Ok"
+
+#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupWaitCancel.qml:13
+#: ../app/qml/pages/ChatListPage.qml:30
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:21
+msgid "Are you sure you want to clear the history?"
+msgstr "Tem a certeza que deseja limpar o histórico?"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/pages/ChatListPage.qml:81
+msgid "Clear history"
+msgstr "Limpar histórico"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:31
+msgid "Are you sure you want to leave this chat?"
+msgstr "Tem a certeza que deseja sair desta conversa?"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:32
+msgid "Leave"
+msgstr "Sair"
+
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr "Fechar"
+
+#: ../app/qml/stores/AuthStateStore.qml:60
+#, fuzzy
+msgid "Invalid phone number!"
+msgstr "Número de telefone"
+
+#: ../app/qml/stores/AuthStateStore.qml:67
+msgid "Invalid code!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:74
+msgid "Invalid password!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:94
+msgid "Auth code not expected right now"
+msgstr "Código de autenticação não esperado agora"
+
+#: ../app/qml/stores/AuthStateStore.qml:100
+msgid "Oops! Internal error."
+msgstr "Oops! Erro interno."
+
+#: ../app/qml/stores/AuthStateStore.qml:106
+msgid "Incorrect auth code length."
+msgstr "Comprimento do código de autenticação incorreto."
+
+#: ../app/qml/stores/NotificationsStateStore.qml:12
+msgid "Push Registration Failed"
+msgstr "Falhou o registo no servidor Push"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:23
+msgid "No Ubuntu One"
+msgstr "Sem Ubuntu One"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:24
+msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr "Por favor, conectar-se ao Ubuntu One para receber notificações."
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "Error"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "No valid location received after 180 seconds!"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
 msgstr "Introduza o código"
 
-#: ../app/qml/pages/WaitCodePage.qml:45
+#: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
 msgstr "Primeiro nome"
 
-#: ../app/qml/pages/WaitCodePage.qml:53
+#: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
 msgstr "Apelido"
 
-#: ../app/qml/pages/WaitCodePage.qml:60
+#: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
 msgstr "Código"
 
-#: ../app/qml/pages/WaitCodePage.qml:75
+#: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 "Enviamos-lhes um código via telegram para o seu dispositivo. Por favor "
 "introduza-o aqui."
 
-#: ../app/qml/pages/PreviewPage.qml:35
-msgid "File: "
-msgstr "Ficheiro: "
+#: ../app/qml/pages/ChatListPage.qml:19
+msgid "Select destination or cancel..."
+msgstr "Escolha o destino ou cancele..."
 
-#: ../app/qml/pages/PreviewPage.qml:49
-msgid "Save"
-msgstr "Guardar"
-
-#: ../app/qml/pages/SettingsPage.qml:23 ../app/qml/pages/ChatListPage.qml:40
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr "Definições"
 
-#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
+#: ../app/qml/pages/ChatListPage.qml:76
+msgid "Leave chat"
+msgstr "Sair da conversa"
+
+#: ../app/qml/pages/ChatListPage.qml:92
+msgid "Info"
+msgstr "Info"
+
+#: ../app/qml/pages/ChatListPage.qml:302
+msgid "Do you want to forward the selected messages to %1?"
+msgstr "Deseja reencaminhar as mensagens selecionadas para %1?"
+
+#: ../app/qml/pages/ChatListPage.qml:304
+#: ../app/qml/delegates/MessageBubbleItem.qml:86
+msgid "Forward"
+msgstr "Reencaminhar"
+
+#: ../app/qml/pages/ChatListPage.qml:318
+msgid "Enter optional message..."
+msgstr "Escreva uma mensagem opcional..."
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
+msgstr "Introduza o número de telefone"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr "Número de telefone"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr ""
+"Por favor, confirme o código do seus país e introduza o seu número de "
+"telefone."
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
+#: ../app/qml/pages/WaitPasswordPage.qml:60
+msgid "Next..."
+msgstr "Próximo..."
+
+#: ../app/qml/pages/GroupDetailsPage.qml:21
+msgid "Group Details"
+msgstr "Detalhes do grupo"
+
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
 msgstr "Voltar"
 
-#: ../app/qml/pages/SettingsPage.qml:45 ../app/qml/pages/AboutPage.qml:13
+#: ../app/qml/pages/GroupDetailsPage.qml:96
+msgid "Members: %1"
+msgstr "Membros: %1"
+
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
 msgid "About"
 msgstr "Sobre"
+
+#: ../app/qml/pages/AboutPage.qml:71
+msgid "Version %1"
+msgstr "Versão %1"
+
+#: ../app/qml/pages/AboutPage.qml:73
+msgid " (git# %1)"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:98
+msgid "Get the source"
+msgstr "Obter o código-fonte"
+
+#: ../app/qml/pages/AboutPage.qml:99
+msgid "Report issues"
+msgstr "Reportar falhas"
+
+#: ../app/qml/pages/AboutPage.qml:100
+msgid "Help translate"
+msgstr "Ajudar a traduzir"
+
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:27
+msgid "Offline"
+msgstr "Desligado"
+
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:29
+msgid "Connecting"
+msgstr "A ligar"
+
+#: ../app/qml/pages/ConnectivityPage.qml:28
+msgid "Connecting To Proxy"
+msgstr "A ligar ao proxy"
+
+#: ../app/qml/pages/ConnectivityPage.qml:30
+msgid "Updating"
+msgstr "A atualizar"
+
+#: ../app/qml/pages/ConnectivityPage.qml:36
+msgid "Connectivity"
+msgstr "Conetividade"
+
+#: ../app/qml/pages/ConnectivityPage.qml:75
+msgid "Telegram connectivity status:"
+msgstr "Estado da conexão Telegram:"
+
+#: ../app/qml/pages/ConnectivityPage.qml:82
+msgid "Ubuntu Touch connectivity status:"
+msgstr "Estado da conetividade Ubuntu Touch:"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+msgid "Ubuntu Touch bandwith limited"
+msgstr "Banda larga limitada Ubuntu Touch"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+msgid "Ubuntu Touch bandwith not limited"
+msgstr "Banda larga não limitada Ubuntu Touch"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
@@ -378,198 +584,141 @@ msgstr ""
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
-msgid "Enter Phone Number"
-msgstr "Introduza o número de telefone"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
-#: ../app/qml/components/CountryPicker.qml:21
-msgid "Choose a country"
-msgstr "Escolha um país"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-msgid "Phone number"
-msgstr "Número de telefone"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
-msgid "Please confirm your country code and enter your phone number."
-msgstr ""
-"Por favor, confirme o código do seus país e introduza o seu número de "
-"telefone."
-
-#: ../app/qml/pages/UserProfilePage.qml:19
-msgid "Profile"
-msgstr "Perfil"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:21
-msgid "Group Details"
-msgstr "Detalhes do grupo"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:96
-msgid "Members: %1"
-msgstr "Membros: %1"
-
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
 msgstr "Seletor de conteúdo"
 
-#: ../app/qml/pages/MessageListPage.qml:28
+#: ../app/qml/pages/PreviewPage.qml:35
+msgid "File: "
+msgstr "Ficheiro: "
+
+#: ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "Guardar"
+
+#: ../app/qml/pages/MessageListPage.qml:29
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membros"
 
-#: ../app/qml/pages/MessageListPage.qml:114
+#: ../app/qml/pages/MessageListPage.qml:123
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:268
-#: ../app/qml/delegates/MessageBubbleItem.qml:62
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Editar"
 
-#: ../app/qml/pages/MessageListPage.qml:268
-#: ../app/qml/delegates/MessageBubbleItem.qml:70
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Responder"
 
-#: ../app/qml/pages/MessageListPage.qml:342
+#: ../app/qml/pages/MessageListPage.qml:304
+msgid "You are not allowed to post in this channel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:307
+msgid "Waiting for other party to accept the secret chat..."
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:309
+#, fuzzy
+msgid "Secret chat has been closed"
+msgstr "chamada foi terminada"
+
+#: ../app/qml/pages/MessageListPage.qml:390
 msgid "Type a message..."
 msgstr "Escrever mensagem..."
 
-#: ../app/qml/pages/MessageListPage.qml:453
+#: ../app/qml/pages/MessageListPage.qml:498
+msgid "Do you want to share your location with %1?"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:500
+msgid "Send"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:511
 msgid "Requesting location from OS..."
 msgstr "A pedir localização ao SO..."
 
-#: ../app/qml/pages/AboutPage.qml:70
-msgid "Version %1"
-msgstr "Versão %1"
+#: ../app/qml/pages/UserProfilePage.qml:19
+msgid "Profile"
+msgstr "Perfil"
 
-#: ../app/qml/pages/AboutPage.qml:92
-msgid "Get the source"
-msgstr "Obter o código-fonte"
+#: ../app/qml/pages/WaitPasswordPage.qml:18
+msgid "Enter Password"
+msgstr "Introduza a palavra-chave"
 
-#: ../app/qml/pages/AboutPage.qml:93
-msgid "Report issues"
-msgstr "Reportar falhas"
+#: ../app/qml/pages/WaitPasswordPage.qml:41
+msgid "Password"
+msgstr "Palavra-chave"
 
-#: ../app/qml/pages/AboutPage.qml:94
-msgid "Help translate"
-msgstr "Ajudar a traduzir"
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
+msgid "%1 joined the group"
+msgstr "%1 juntou-se ao grupo"
 
-#: ../app/qml/pages/ConnectivityPage.qml:25
-#: ../app/qml/pages/ConnectivityPage.qml:27
-msgid "Offline"
-msgstr "Desligado"
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+msgid "%1 added %2"
+msgstr "%1 adicionou %2"
 
-#: ../app/qml/pages/ConnectivityPage.qml:25
-#: ../app/qml/pages/ConnectivityPage.qml:29
-msgid "Connecting"
-msgstr "A ligar"
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+msgid "%1 user(s)"
+msgid_plural ""
+msgstr[0] "%1 utilizador(es)"
+msgstr[1] "%1 utilizadores"
 
-#: ../app/qml/pages/ConnectivityPage.qml:28
-msgid "Connecting To Proxy"
-msgstr "A ligar ao proxy"
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
+msgid "%1 left the group"
+msgstr "%1 saiu do grupo"
 
-#: ../app/qml/pages/ConnectivityPage.qml:30
-msgid "Updating"
-msgstr "A atualizar"
+#: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
+#: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
+#, fuzzy
+msgid "Group has been upgraded to Supergroup"
+msgstr "atualizou para supergrupo"
 
-#: ../app/qml/pages/ConnectivityPage.qml:36
-msgid "Connectivity"
-msgstr "Conetividade"
+#: ../app/qml/delegates/MessageBubbleItem.qml:44
+msgid ""
+"The message will be deleted for all users in the chat. Do you really want to "
+"delete it?"
+msgstr ""
+"A mensagem irá ser eliminada para todos os utilizadores do chat. Deseja "
+"mesmo eliminar?"
 
-#: ../app/qml/pages/ConnectivityPage.qml:75
-msgid "Telegram connectivity status:"
-msgstr "Estado da conexão Telegram:"
+#: ../app/qml/delegates/MessageBubbleItem.qml:45
+msgid ""
+"The message will be deleted only for you. Do you really want to delete it?"
+msgstr "A mensagem será eliminada apenas para si. Deseja mesmo eliminar?"
 
-#: ../app/qml/pages/ConnectivityPage.qml:82
-msgid "Ubuntu Touch connectivity status:"
-msgstr "Estado da conetividade Ubuntu Touch:"
+#: ../app/qml/delegates/MessageBubbleItem.qml:56
+msgid "Copy"
+msgstr "Copiar"
 
-#: ../app/qml/pages/ConnectivityPage.qml:89
-msgid "Ubuntu Touch bandwith limited"
-msgstr "Banda larga limitada Ubuntu Touch"
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
+msgid "Sticker Pack info"
+msgstr "Informação do pacote de autocolantes"
 
-#: ../app/qml/pages/ConnectivityPage.qml:89
-msgid "Ubuntu Touch bandwith not limited"
-msgstr "Banda larga não limitada Ubuntu Touch"
+#: ../app/qml/delegates/MessageBubbleItem.qml:239
+msgid "Edited"
+msgstr "Editado"
 
-#: ../app/qml/pages/ChatListPage.qml:19
-msgid "Select destination or cancel..."
-msgstr "Escolha o destino ou cancele..."
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr "Uma captura de ecrã foi tirada"
 
-#: ../app/qml/pages/ChatListPage.qml:30
-#: ../app/qml/components/PopupDialog.qml:15
-#: ../app/qml/components/PopupWaitCancel.qml:13
-msgid "Cancel"
-msgstr "Cancelar"
+#: ../app/qml/delegates/MessageContentBase.qml:35
+#, fuzzy
+msgid "Forwarded from %1"
+msgstr "Encaminhado de "
 
-#: ../app/qml/pages/ChatListPage.qml:76
-msgid "Leave chat"
-msgstr "Sair da conversa"
-
-#: ../app/qml/pages/ChatListPage.qml:81
-#: ../app/qml/middleware/ChatMiddleware.qml:22
-msgid "Clear history"
-msgstr "Limpar histórico"
-
-#: ../app/qml/pages/ChatListPage.qml:92
-msgid "Info"
-msgstr "Info"
-
-#: ../app/qml/pages/ChatListPage.qml:302
-msgid "Do you want to forward the selected messages to %1?"
-msgstr "Deseja reencaminhar as mensagens selecionadas para %1?"
-
-#: ../app/qml/pages/ChatListPage.qml:304
-#: ../app/qml/delegates/MessageBubbleItem.qml:82
-msgid "Forward"
-msgstr "Reencaminhar"
-
-#: ../app/qml/pages/ChatListPage.qml:318
-msgid "Enter optional message..."
-msgstr "Escreva uma mensagem opcional..."
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr "Procurar o nome do país..."
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Okay"
-msgstr "Ok"
-
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "não disponível"
-
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:55
-msgid "Image"
-msgstr "Imagem"
-
-#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-#: ../app/qml/components/AttachPanel.qml:64
-msgid "File"
-msgstr "Ficheiro"
-
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
-msgstr "Fechar"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:21
-msgid "Are you sure you want to clear the history?"
-msgstr "Tem a certeza que deseja limpar o histórico?"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:31
-msgid "Are you sure you want to leave this chat?"
-msgstr "Tem a certeza que deseja sair desta conversa?"
-
-#: ../app/qml/middleware/ChatMiddleware.qml:32
-msgid "Leave"
-msgstr "Sair"
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
+msgstr ""
+"Tipo de mensagem desconhecida, verifique o registo para mais detalhes..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -596,105 +745,32 @@ msgid "Missed Call"
 msgstr "Chamada perdida"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, javascript-format
-msgid "Duration: %1.%2"
+#, fuzzy
+msgid "Duration: %1:%2"
 msgstr "Duração: %1.%2"
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called << %1 >> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
+msgid "%1 created a group called << %2 >>"
+msgstr "%1 criou um grupo chamado << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
 msgstr "dd MMMM"
 
-#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
-msgid "A screenshot has been taken"
-msgstr "Uma captura de ecrã foi tirada"
-
-#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-msgid "%1 left the group"
-msgstr "%1 saiu do grupo"
-
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
-msgid "%1 created a group called << %2 >>"
-msgstr "%1 criou um grupo chamado << %2 >>"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
-msgid "%1 joined the group"
-msgstr "%1 juntou-se ao grupo"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-msgid "%1 added %2"
-msgstr "%1 adicionou %2"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
-msgid "%1 user(s)"
-msgid_plural ""
-msgstr[0] "%1 utilizador(es)"
-msgstr[1] "%1 utilizadores"
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
+msgid "%1 joined by invite link"
+msgstr "%1 juntou-se através de convite"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
 msgid "Voice note"
 msgstr "Nota de voz"
 
-#: ../app/qml/delegates/MessageJoinByLink.qml:5
-msgid "%1 joined by invite link"
-msgstr "%1 juntou-se através de convite"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:44
-msgid ""
-"The message will be deleted for all users in the chat. Do you really want to "
-"delete it?"
-msgstr ""
-"A mensagem irá ser eliminada para todos os utilizadores do chat. Deseja "
-"mesmo eliminar?"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:45
-msgid ""
-"The message will be deleted only for you. Do you really want to delete it?"
-msgstr "A mensagem será eliminada apenas para si. Deseja mesmo eliminar?"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:56
-msgid "Copy"
-msgstr "Copiar"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:76
-msgid "Sticker Pack info"
-msgstr "Informação do pacote de autocolantes"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:232
-msgid "Edited"
-msgstr "Editado"
-
-#: ../app/qml/delegates/NotImplementedYet.qml:12
-msgid "Unknown message type, see logfile for details..."
-msgstr ""
-"Tipo de mensagem desconhecida, verifique o registo para mais detalhes..."
-
-#: ../app/qml/delegates/MessageContentBase.qml:35
-msgid "Forwarded from "
-msgstr "Encaminhado de "
-
-#: ../app/qml/stores/NotificationsStateStore.qml:12
-msgid "Push Registration Failed"
-msgstr "Falhou o registo no servidor Push"
-
-#: ../app/qml/stores/NotificationsStateStore.qml:23
-msgid "No Ubuntu One"
-msgstr "Sem Ubuntu One"
-
-#: ../app/qml/stores/NotificationsStateStore.qml:24
-msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "Por favor, conectar-se ao Ubuntu One para receber notificações."
-
-#: ../app/qml/stores/AuthStateStore.qml:77
-msgid "Auth code not expected right now"
-msgstr "Código de autenticação não esperado agora"
-
-#: ../app/qml/stores/AuthStateStore.qml:83
-msgid "Oops! Internal error."
-msgstr "Oops! Erro interno."
-
-#: ../app/qml/stores/AuthStateStore.qml:89
-msgid "Incorrect auth code length."
-msgstr "Comprimento do código de autenticação incorreto."
+#~ msgid "sent an unknown message: %1"
+#~ msgstr "enviou uma mensagem desconhecida: %1"
 
 #~ msgid "Not online"
 #~ msgstr "Não está ligado"
