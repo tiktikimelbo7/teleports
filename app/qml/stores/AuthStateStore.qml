@@ -64,9 +64,9 @@ Store {
         }
         onCodeError: {
             if (message == "PHONE_CODE_INVALID") {
-                AppActions.auth.authCodeError(i18n.tr("Invalid code!"));
+                AppActions.auth.authCodeError(i18n.tr("Invalid code!"), false);
             } else {
-                AppActions.auth.authCodeError(message);
+                AppActions.auth.authCodeError(message, false);
             }
         }
         onPasswordError: {
@@ -91,19 +91,19 @@ Store {
         type: AuthKey.setCode
         onDispatched: {
             if (authState.state !== AuthState.WaitCode) {
-                AppActions.auth.authCodeError(i18n.tr('Auth code not expected right now'))
+                AppActions.auth.authCodeError(i18n.tr('Auth code not expected right now'), false)
                 console.log("setCode: Auth code not expected right now")
                 return
             }
             var info = authState.type.info;
             if (!info) {
-                AppActions.auth.authCodeError(i18n.tr('Oops! Internal error.'))
+                AppActions.auth.authCodeError(i18n.tr('Oops! Internal error.'), false)
                 console.log("setCode: Oops! Internal error.")
                 return
             }
 
             if (message.code.length !== parseInt(info.type.length)) {
-                AppActions.auth.authCodeError(i18n.tr('Incorrect auth code length.'));
+                AppActions.auth.authCodeError(i18n.tr('Incorrect auth code length.'), true);
                 console.log("setCode: Incorrect auth code length.")
                 return;
             }

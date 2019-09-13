@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2018 UBports Foundation
 # This file is distributed under the same license as the teleports.ubports package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-10 20:20+0000\n"
+"POT-Creation-Date: 2019-09-12 19:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
 msgid "Unread Messages"
 msgstr ""
 
@@ -281,26 +281,6 @@ msgstr ""
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:55
-msgid "Image"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-#: ../app/qml/components/AttachPanel.qml:64
-msgid "File"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-#: ../app/qml/components/AttachPanel.qml:73
-msgid "Video"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
-#: ../app/qml/components/AttachPanel.qml:83
-msgid "Audio"
 msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:77
@@ -469,7 +449,7 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/GroupDetailsPage.qml:96
+#: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
 msgstr ""
 
