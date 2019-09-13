@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-10 20:20+0000\n"
-"PO-Revision-Date: 2019-09-12 22:01+0000\n"
+"PO-Revision-Date: 2019-09-15 12:50+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -167,7 +167,7 @@ msgstr "Máte novou zprávu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
-msgstr "Sticker"
+msgstr "Nálepka"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:303
 msgid "Phone call"
@@ -488,7 +488,7 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
-msgstr "Získat zdrojové kódy"
+msgstr "Získat zdrojový kód"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
