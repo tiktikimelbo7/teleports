@@ -14,6 +14,7 @@
 #include "requests/content/qtdinputmessageaudio.h"
 #include "requests/content/qtdinputmessagedocument.h"
 #include "requests/content/qtdinputmessagelocation.h"
+#include "requests/content/qtdinputmessagecontact.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -486,6 +487,17 @@ void QTdMessageListModel::sendAudio(const QString &url, const QString &caption, 
     QScopedPointer<QTdInputMessageAudio> messageContent(new QTdInputMessageAudio);
     setAttachmentProperties(messageContent.data(), url);
     setCaptionProperties(messageContent.data(), caption);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
+}
+
+void QTdMessageListModel::sendContact(const QString &url, const QString &caption, const qint64 &replyToMessageId)
+{
+
+    QScopedPointer<QTdContact> contact(new QTdContact);
+    contact->set_first_name("Test");
+    contact->set_last_name("Tester");
+    QScopedPointer<QTdInputMessageContact> messageContent(new QTdInputMessageContact);
+    messageContent->setContact(contact.data());
     prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
 }
 

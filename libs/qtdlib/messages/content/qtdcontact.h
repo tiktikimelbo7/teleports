@@ -5,6 +5,7 @@
 #include <QPointer>
 #include "common/qabstracttdobject.h"
 #include "user/qtduser.h"
+#include "common/qtdint.h"
 
 class QTdContact: public QTdObject {
     Q_OBJECT
@@ -30,10 +31,10 @@ public:
     void set_first_name(QString value);
     void set_last_name(QString value);
     void set_vcard(QString value);
-    void set_user_id(QString value);
+    void set_user_id(qint32 value);
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
-    //QJsonObject marshalJson();
+    QJsonObject marshalJson() Q_DECL_FINAL;
 
 signals:
     void dataChanged();

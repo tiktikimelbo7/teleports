@@ -94,7 +94,6 @@ Item {
                     attach_panel.contactRequested()
                     attach_panel.close()
                 }
-                visible: false
             }
 
             AttachPanelItem {

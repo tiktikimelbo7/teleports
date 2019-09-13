@@ -38,6 +38,31 @@ qint32 QTdContact::user_id() const
     return m_user_id.value();
 }
 
+void QTdContact::set_user_id(qint32 value)
+{
+    m_user_id = QTdInt32(value);
+}
+
+void QTdContact::set_first_name(QString value)
+{
+    m_first_name = value;
+}
+
+void QTdContact::set_last_name(QString value)
+{
+    m_last_name = value;
+}
+
+void QTdContact::set_phone_number(QString value)
+{
+    m_phone_number = value;
+}
+
+void QTdContact::set_vcard(QString value)
+{
+    m_vcard = value;
+}
+
 QTdUser *QTdContact::user() const
 {
     return QTdUsers::instance()->model()->getByUid(qmlUserId());
@@ -46,6 +71,17 @@ QTdUser *QTdContact::user() const
 QString QTdContact::qmlUserId() const
 {
     return m_user_id.toQmlValue();
+}
+
+QJsonObject QTdContact::marshalJson() {
+    return QJsonObject{
+        { "@type", "contact" },
+        { "phone_number", m_phone_number },
+        { "first_name", m_first_name },
+        { "last_name", m_last_name },
+        { "vcard", m_vcard },
+        { "user_id", m_user_id.toJsonValue() },
+    };
 }
 
 void QTdContact::unmarshalJson(const QJsonObject &json)
