@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-10 20:20+0000\n"
-"PO-Revision-Date: 2019-08-12 20:49+0000\n"
+"PO-Revision-Date: 2019-09-15 12:50+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -171,7 +171,7 @@ msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:303
 msgid "Phone call"
-msgstr ""
+msgstr "Anruf"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:307
 msgid "sent an audio message"
@@ -235,13 +235,12 @@ msgstr "erstellte diese Gruppe"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "Ungelesene Nachrichten"
+msgstr "Nicht unterstützte Nachricht"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Nicht implementiert:"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
 msgid "Me"
@@ -298,12 +297,12 @@ msgstr "Datei"
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:73
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
 #: ../app/qml/components/AttachPanel.qml:83
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -351,17 +350,16 @@ msgid "Close"
 msgstr "Schließen"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "Telefonnummer"
+msgstr "Ungültige Telefonnummer!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Ungültiger Code!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Ungültiges Passwort!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -390,11 +388,11 @@ msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Kein gültiger Standort nach 180 Sekunden empfangen!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
