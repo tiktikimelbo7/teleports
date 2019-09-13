@@ -1,8 +1,9 @@
 #include "qtdgetbasicgrouprequest.h"
 #include "client/qtdclient.h"
 
-QTdGetBasicGroupRequest::QTdGetBasicGroupRequest(QObject *parent) : QTdRequest(parent),
-    m_groupId(0)
+QTdGetBasicGroupRequest::QTdGetBasicGroupRequest(QObject *parent)
+    : QTdRequest(parent)
+    , m_groupId(0)
 {
 }
 
@@ -14,8 +15,8 @@ void QTdGetBasicGroupRequest::setGroupId(const qint32 groupId)
 QJsonObject QTdGetBasicGroupRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "getBasicGroup"},
-        {"basic_group_id", m_groupId},
+        { "@type", "getBasicGroup" },
+        { "basic_group_id", m_groupId },
     };
 }
 

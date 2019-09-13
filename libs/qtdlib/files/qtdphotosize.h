@@ -10,7 +10,7 @@ class QTdPhotoSize : public QTdObject
 {
     Q_OBJECT
     Q_PROPERTY(QString type READ type NOTIFY photoSizeChanged)
-    Q_PROPERTY(QTdFile* photo READ photo NOTIFY photoSizeChanged)
+    Q_PROPERTY(QTdFile *photo READ photo NOTIFY photoSizeChanged)
     Q_PROPERTY(qint32 width READ width NOTIFY photoSizeChanged)
     Q_PROPERTY(qint32 height READ height NOTIFY photoSizeChanged)
 public:

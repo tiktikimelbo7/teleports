@@ -1,10 +1,10 @@
 #include "qtdgetsupergroupfullinforequest.h"
 #include "client/qtdclient.h"
 
-QTdGetSuperGroupFullInfoRequest::QTdGetSuperGroupFullInfoRequest(QObject *parent) : QTdRequest(parent),
-    m_id(0)
+QTdGetSuperGroupFullInfoRequest::QTdGetSuperGroupFullInfoRequest(QObject *parent)
+    : QTdRequest(parent)
+    , m_id(0)
 {
-
 }
 
 void QTdGetSuperGroupFullInfoRequest::setSupergroupId(const qint32 &id)
@@ -15,9 +15,9 @@ void QTdGetSuperGroupFullInfoRequest::setSupergroupId(const qint32 &id)
 QJsonObject QTdGetSuperGroupFullInfoRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "getSupergroupFullInfo"},
-        {"supergroup_id", m_id},
-        {"@extra", QString::number(m_id)},
+        { "@type", "getSupergroupFullInfo" },
+        { "supergroup_id", m_id },
+        { "@extra", QString::number(m_id) },
     };
 }
 

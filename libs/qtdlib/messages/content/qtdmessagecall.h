@@ -14,7 +14,7 @@
 class QTdMessageCall : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdCallDiscardReason* discardReason READ discardReason NOTIFY contentChanged)
+    Q_PROPERTY(QTdCallDiscardReason *discardReason READ discardReason NOTIFY contentChanged)
     Q_PROPERTY(qint32 duration READ duration NOTIFY contentChanged)
 public:
     explicit QTdMessageCall(QObject *parent = nullptr);

@@ -112,7 +112,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
     }
 
     //Early bail-out: Telegram server just removes notification, message has been read elsewhere
-    if (key == "") {
+    if (key == "" || key == "READ_HISTORY") {
         QStringList tags = QStringList(tag);
         mPushClient.clearPersistent(tags);
         return QJsonObject();
@@ -148,6 +148,10 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         body = N_("sent you a document");
 
     } else if (key == "MESSAGE_AUDIO" || key == "CHANNEL_MESSAGE_AUDIO") { // no-i18n
+
+        body = N_("sent you an audio message");
+
+    } else if (key == "MESSAGE_VOICE_NOTE" || key == "CHANNEL_MESSAGE_VOICE_NOTE") { // no-i18n
 
         body = N_("sent you a voice message");
 
@@ -306,16 +310,11 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
     //Load the correct avatar
     QString avatar = QString("telegram-symbolic");
-    if(m_auxdb.getAvatarMapTable()) {
+    if (m_auxdb.getAvatarMapTable()) {
         QString avatarPath = m_auxdb.getAvatarMapTable()->getAvatarPathbyId(chatId);
         if (avatarPath != "") {
             avatar = QString("file://").append(avatarPath);
-        } else {
-            qWarning() << "Could not find any avatar picture!";
         }
-    } else
-    {
-        qWarning() << "No valid avatar map table available!";
     }
 
     //Display emblem counter correctly for unread messages

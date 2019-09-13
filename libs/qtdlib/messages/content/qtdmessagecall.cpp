@@ -1,8 +1,10 @@
 #include "qtdmessagecall.h"
 #include <QDebug>
 
-QTdMessageCall::QTdMessageCall(QObject *parent) : QTdMessageContent(parent),
-    m_discardReason(Q_NULLPTR), m_duration(0)
+QTdMessageCall::QTdMessageCall(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_discardReason(Q_NULLPTR)
+    , m_duration(0)
 {
     setType(MESSAGE_CALL);
 }

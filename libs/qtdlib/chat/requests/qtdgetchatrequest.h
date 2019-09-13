@@ -27,7 +27,6 @@ public:
 
 private:
     qint64 m_chat_id;
-
 };
 
 #endif // QTDGETCHATREQUEST_H

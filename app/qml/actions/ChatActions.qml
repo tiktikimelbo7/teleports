@@ -12,11 +12,14 @@ ActionCreator {
 
     signal sendMessage(string text);
     signal sendPhoto(string photoUrl, string text);
-    signal sendContact();
+    signal sendVideo(string videoUrl, string text);
+    signal sendAudio(string audioUrl, string text);
+    signal sendContact(string contactUrl, string text);
     signal sendDocument(string documentUrl, string text);
     signal requestLocation();
-    signal sendLocation();
+    signal sendLocation(double latitude, double longitude, int livePeriod);
     signal cancelLocation();
+    signal stopWaitLocation();
     signal sendChatAction();
 
     signal leaveChat(string chatId);

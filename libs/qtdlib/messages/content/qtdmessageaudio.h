@@ -7,11 +7,11 @@
 #include "files/qtdaudio.h"
 #include "qtdformattedtext.h"
 
-class QTdMessageAudio: public QTdMessageContent
+class QTdMessageAudio : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdAudio* audio READ audio NOTIFY dataChanged)
-    Q_PROPERTY(QTdFormattedText* caption READ caption NOTIFY dataChanged)
+    Q_PROPERTY(QTdAudio *audio READ audio NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText *caption READ caption NOTIFY dataChanged)
 public:
     explicit QTdMessageAudio(QObject *parent = nullptr);
 

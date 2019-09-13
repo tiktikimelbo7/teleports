@@ -7,11 +7,11 @@
 #include "files/qtdphotos.h"
 #include "qtdformattedtext.h"
 
-class QTdMessagePhoto: public QTdMessageContent
+class QTdMessagePhoto : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdPhotos* photo READ photo NOTIFY dataChanged)
-    Q_PROPERTY(QTdFormattedText* caption READ caption NOTIFY dataChanged)
+    Q_PROPERTY(QTdPhotos *photo READ photo NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText *caption READ caption NOTIFY dataChanged)
 public:
     explicit QTdMessagePhoto(QObject *parent = nullptr);
 
@@ -27,7 +27,6 @@ private:
     Q_DISABLE_COPY(QTdMessagePhoto)
     QScopedPointer<QTdPhotos> m_photo;
     QScopedPointer<QTdFormattedText> m_caption;
-
 };
 
 #endif // QTDMESSAGEPHOTO_H

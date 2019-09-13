@@ -50,7 +50,7 @@ ActionCreator {
      */
     signal setCode(string code, string firstname, string lastname)
     signal authCodeAccepted()
-    signal authCodeError(string error)
+    signal authCodeError(string error, bool isLengthWarning)
 
     /**
      * Auth password actions

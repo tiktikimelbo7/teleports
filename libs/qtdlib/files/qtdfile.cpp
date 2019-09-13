@@ -4,8 +4,12 @@
 #include "client/qtdclient.h"
 #include "files/qtddownloadfilerequest.h"
 
-QTdFile::QTdFile(QObject *parent) : QAbstractInt32Id(parent),
-    m_size(0), m_expectedSize(0), m_local(new QTdLocalFile), m_remote(new QTdRemoteFile)
+QTdFile::QTdFile(QObject *parent)
+    : QAbstractInt32Id(parent)
+    , m_size(0)
+    , m_expectedSize(0)
+    , m_local(new QTdLocalFile)
+    , m_remote(new QTdRemoteFile)
 {
     setType(FILE);
     connect(QTdClient::instance(), &QTdClient::updateFile, this, &QTdFile::handleUpdateFile);
@@ -54,7 +58,6 @@ void QTdFile::unmarshalJson(const QJsonObject &json)
 void QTdFile::downloadFile()
 {
     if (!m_local->canBeDownloaded()) {
-        qDebug() << "Cannot download file";
         return;
     }
     QScopedPointer<QTdDownloadFileRequest> req(new QTdDownloadFileRequest);
@@ -68,6 +71,5 @@ void QTdFile::handleUpdateFile(const QJsonObject &json)
     if (qint32(json["id"].toInt()) != this->id()) {
         return;
     }
-    // qDebug() << "UPDATING FILE:" << this->id();
     this->unmarshalJson(json);
 }

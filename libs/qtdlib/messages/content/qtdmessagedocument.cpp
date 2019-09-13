@@ -1,7 +1,9 @@
 #include "qtdmessagedocument.h"
 
-QTdMessageDocument::QTdMessageDocument(QObject *parent) : QTdMessageContent(parent),
-    m_document(new QTdDocument), m_caption(new QTdFormattedText)
+QTdMessageDocument::QTdMessageDocument(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_document(new QTdDocument)
+    , m_caption(new QTdFormattedText)
 {
     setType(MESSAGE_DOCUMENT);
 }
@@ -12,7 +14,7 @@ QTdDocument *QTdMessageDocument::document() const
 }
 QTdFormattedText *QTdMessageDocument::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
 void QTdMessageDocument::unmarshalJson(const QJsonObject &json)
 {

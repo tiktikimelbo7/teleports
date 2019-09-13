@@ -1,12 +1,16 @@
 #include "qtdusertype.h"
 
-QTdUserType::QTdUserType(QObject *parent) : QTdObject(parent)
+QTdUserType::QTdUserType(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-QTdUserTypeBot::QTdUserTypeBot(QObject *parent) : QTdUserType(parent),
-    m_canJoinGroups(false), m_canReadAllGroupMessages(false),
-    m_isInline(false), m_needLocation(false)
+QTdUserTypeBot::QTdUserTypeBot(QObject *parent)
+    : QTdUserType(parent)
+    , m_canJoinGroups(false)
+    , m_canReadAllGroupMessages(false)
+    , m_isInline(false)
+    , m_needLocation(false)
 {
     setType(USER_TYPE_BOT);
 }
@@ -47,17 +51,20 @@ void QTdUserTypeBot::unmarshalJson(const QJsonObject &json)
     emit userTypeDataChanged();
 }
 
-QTdUserTypeDeleted::QTdUserTypeDeleted(QObject *parent) : QTdUserType(parent)
+QTdUserTypeDeleted::QTdUserTypeDeleted(QObject *parent)
+    : QTdUserType(parent)
 {
     setType(USER_TYPE_DELETED);
 }
 
-QTdUserTypeRegular::QTdUserTypeRegular(QObject *parent) : QTdUserType(parent)
+QTdUserTypeRegular::QTdUserTypeRegular(QObject *parent)
+    : QTdUserType(parent)
 {
     setType(USER_TYPE_REGULAR);
 }
 
-QTdUserTypeUnknown::QTdUserTypeUnknown(QObject *parent) : QTdUserType(parent)
+QTdUserTypeUnknown::QTdUserTypeUnknown(QObject *parent)
+    : QTdUserType(parent)
 {
     setType(USER_TYPE_UNKNOWN);
 }

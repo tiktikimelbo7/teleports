@@ -1,8 +1,11 @@
 #include "qtdphotosize.h"
 #include <QDebug>
 
-QTdPhotoSize::QTdPhotoSize(QObject *parent) : QTdObject(parent),
-    m_photo(new QTdFile), m_width(0), m_height(0)
+QTdPhotoSize::QTdPhotoSize(QObject *parent)
+    : QTdObject(parent)
+    , m_photo(new QTdFile)
+    , m_width(0)
+    , m_height(0)
 {
     setType(PHOTO_SIZE);
 }

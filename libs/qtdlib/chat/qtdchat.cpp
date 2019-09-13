@@ -16,12 +16,21 @@
 #include "messages/requests/qtdgetmessagerequest.h"
 #include "utils/await.h"
 
-QTdChat::QTdChat(QObject *parent) : QAbstractInt64Id(parent),
-    m_chatType(0), m_chatPhoto(new QTdChatPhoto), m_lastMessage(new QTdMessage),
-    m_order(0), m_isPinned(false), m_canBeReported(false),
-    m_unreadCount(0), m_lastReadInboxMsg(0), m_lastReadOutboxMsg(0),
-    m_unreadMentionCount(0), m_notifySettings(new QTdNotificationSettings),
-    m_messages(0), m_chatOpen(false)
+QTdChat::QTdChat(QObject *parent)
+    : QAbstractInt64Id(parent)
+    , m_chatType(0)
+    , m_chatPhoto(new QTdChatPhoto)
+    , m_lastMessage(new QTdMessage)
+    , m_order(0)
+    , m_isPinned(false)
+    , m_canBeReported(false)
+    , m_unreadCount(0)
+    , m_lastReadInboxMsg(0)
+    , m_lastReadOutboxMsg(0)
+    , m_unreadMentionCount(0)
+    , m_notifySettings(new QTdNotificationSettings)
+    , m_messages(0)
+    , m_chatOpen(false)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -68,7 +77,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
 QString QTdChat::title() const
 {
     if (isMyself())
-        return tr("Saved Messages");
+        return gettext("Saved Messages");
     else
         return m_title;
 }
@@ -85,11 +94,10 @@ QTdChatPhoto *QTdChat::chatPhoto() const
 
 QString QTdChat::initials() const
 {
-    if(m_title != "") {
+    if (m_title != "") {
         QString initials = "";
         QStringList parts = m_title.trimmed().split(" ", QString::SkipEmptyParts);
-        for (int i = 0; i < parts.size(); i++)
-        {
+        for (int i = 0; i < parts.size(); i++) {
             initials += parts[i][0].toUpper();
             if (initials.length() >= 2) {
                 break;
@@ -138,31 +146,36 @@ bool QTdChat::isMuted() const
 
 bool QTdChat::isPrivate() const
 {
-    return qobject_cast<QTdChatTypePrivate*>(m_chatType) != NULL;
+    return qobject_cast<QTdChatTypePrivate *>(m_chatType) != nullptr;
 }
 
 bool QTdChat::isSecret() const
 {
-    return qobject_cast<QTdChatTypeSecret*>(m_chatType) != NULL;
+    return qobject_cast<QTdChatTypeSecret *>(m_chatType) != nullptr;
 }
 
 bool QTdChat::isGroup() const
 {
-    if (qobject_cast<QTdChatTypeBasicGroup*>(m_chatType) != NULL)
+    if (qobject_cast<QTdChatTypeBasicGroup *>(m_chatType) != nullptr)
         return true;
-    auto result = qobject_cast<QTdChatTypeSuperGroup*>(m_chatType);
-    return result != NULL && !result->isChannel();
+    auto result = qobject_cast<QTdChatTypeSuperGroup *>(m_chatType);
+    return result != nullptr && !result->isChannel();
 }
 
 bool QTdChat::isChannel() const
 {
-    auto result = qobject_cast<QTdChatTypeSuperGroup*>(m_chatType);
-    return result != NULL && result->isChannel();
+    auto result = qobject_cast<QTdChatTypeSuperGroup *>(m_chatType);
+    return result != nullptr && result->isChannel();
 }
 
 bool QTdChat::isMyself() const
 {
     return id() == m_my_id;
+}
+
+bool QTdChat::isWritable() const
+{
+    return true;
 }
 
 bool QTdChat::canBeReported() const
@@ -240,7 +253,8 @@ bool QTdChat::hasReplyMarkup() const
     return m_replyMarkupMessageId.value() != 0;
 }
 
-void QTdChat::loadReplyMarkupMessage() {
+void QTdChat::loadReplyMarkupMessage()
+{
     if (!hasReplyMarkup()) {
         return;
     }
@@ -263,44 +277,42 @@ QTdNotificationSettings *QTdChat::notificationSettings() const
     return m_notifySettings.data();
 }
 
-QString QTdChat::action() const {
+QString QTdChat::action() const
+{
     auto *users = QTdUsers::instance()->model();
     QString actionMessage;
-    switch(m_chatActions.count())
-    {
-        case 0:
-            return "";
-        case 1:
-        {
-          auto *user =
-              users->getByUid(QString::number(m_chatActions.first().userId.value()));
-          if (user)
-              actionMessage = QString("%1 %2 ").arg(
-                  user->firstName(), m_chatActions.first().singular_description);
-        }
-        break;
-        case 2:
-        {
-          auto *user1 = users->getByUid(
-              QString::number(m_chatActions.first().userId.value()));
-          if (user1)
+    switch (m_chatActions.count()) {
+    case 0:
+        return "";
+    case 1: {
+        auto *user =
+                users->getByUid(QString::number(m_chatActions.first().userId.value()));
+        if (user)
+            actionMessage = QString("%1 %2 ").arg(
+                    user->firstName(), m_chatActions.first().singular_description);
+    } break;
+    case 2: {
+        auto *user1 = users->getByUid(
+                QString::number(m_chatActions.first().userId.value()));
+        if (user1)
             actionMessage = QString("%1, ").arg(user1->firstName());
-          auto *user2 = users->getByUid(
-              QString::number(m_chatActions.last().userId.value()));
-          if (user2)
+        auto *user2 = users->getByUid(
+                QString::number(m_chatActions.last().userId.value()));
+        if (user2)
             actionMessage += QString("%1 %2").arg(
-                user2->firstName(), m_chatActions.last().plural_description);
-        }
-        break;
-        default: {
-            actionMessage = QString("%1 %2").arg(
-                m_chatActions.count()).arg(m_chatActions.first().plural_description);
-        }
+                    user2->firstName(), m_chatActions.last().plural_description);
+    } break;
+    default: {
+        actionMessage = QString("%1 %2").arg(
+                                                m_chatActions.count())
+                                .arg(m_chatActions.first().plural_description);
+    }
     }
     return actionMessage;
 }
 
-QString QTdChat::summary() const {
+QString QTdChat::summary() const
+{
     if (action() != "") {
         return action();
     }
@@ -328,7 +340,7 @@ void QTdChat::closeChat()
     QScopedPointer<QTdCloseChatRequest> req(new QTdCloseChatRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
-    m_currentMessageIndex= -1;
+    m_currentMessageIndex = -1;
     emit closed();
 }
 
@@ -382,13 +394,12 @@ void QTdChat::leaveChat()
      * Strangely it takes the id and not superGroupId and basicGroupId
      */
     QScopedPointer<QTdLeaveChatRequest> req(new QTdLeaveChatRequest);
-    switch(m_chatType->type()) {
+    switch (m_chatType->type()) {
     case QTdChat::CHAT_TYPE_PRIVATE:
     case QTdChat::CHAT_TYPE_SECRET:
         return deleteChatHistory(true);
     case QTdChat::CHAT_TYPE_SUPERGROUP:
-    case QTdChat::CHAT_TYPE_BASIC_GROUP:
-    {
+    case QTdChat::CHAT_TYPE_BASIC_GROUP: {
         req->setChatId(id());
         break;
     }
@@ -434,8 +445,7 @@ void QTdChat::updateChatPhoto(const QJsonObject &photo)
     if (m_chatPhoto->small()->local()->path().isEmpty()) {
         connect(m_chatPhoto->small()->local(), &QTdLocalFile::pathChanged, this, &QTdChat::handleChatPhotoDownloaded);
         m_chatPhoto->small()->downloadFile();
-    } else
-    {
+    } else {
         QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
     }
 }
@@ -469,7 +479,6 @@ void QTdChat::updateChatNotificationSettings(const QJsonObject &json)
     emit notificationSettingsChanged();
 }
 
-
 void QTdChat::updateLastMessage(const QJsonObject &json)
 {
     if (json.isEmpty()) {
@@ -491,7 +500,8 @@ void QTdChat::handleUpdateChatAction(const QJsonObject &json)
     updateChatAction(json);
 }
 
-void QTdChat::handleChatPhotoDownloaded() {
+void QTdChat::handleChatPhotoDownloaded()
+{
     QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
 }
 
@@ -503,7 +513,8 @@ void QTdChat::onChatClosed()
 {
 }
 
-void QTdChat::forwardMessage(const QString &messageId) {
+void QTdChat::forwardMessage(const QString &messageId)
+{
     QStringList forwardingMessages = QStringList(messageId);
     emit forwardingMessagesAction(forwardingMessages, this);
 }
@@ -523,27 +534,27 @@ void QTdChat::updateChatAction(const QJsonObject &json)
         case QTdChatAction::Type::CHAT_ACTION_CANCEL:
             return;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_CONTACT:
-          singular_description = QStringLiteral("is choosing contact...");
-          plural_description = QStringLiteral("are choosing contact...");
-          break;
+            singular_description = QStringLiteral("is choosing contact...");
+            plural_description = QStringLiteral("are choosing contact...");
+            break;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_LOCATION:
-          singular_description = QStringLiteral("is choosing location...");
-          plural_description = QStringLiteral("are choosing location...");
-          break;
+            singular_description = QStringLiteral("is choosing location...");
+            plural_description = QStringLiteral("are choosing location...");
+            break;
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO_NOTE:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VOICE_NOTE:
-          singular_description = QStringLiteral("is recording...");
-          plural_description = QStringLiteral("are recording...");
-          break;
+            singular_description = QStringLiteral("is recording...");
+            plural_description = QStringLiteral("are recording...");
+            break;
         case QTdChatAction::Type::CHAT_ACTION_TYPING:
-          singular_description = QStringLiteral("is typing...");
-          plural_description = QStringLiteral("are typing...");
-          break;
+            singular_description = QStringLiteral("is typing...");
+            plural_description = QStringLiteral("are typing...");
+            break;
         default:
-          singular_description = QStringLiteral("is doing something");
-          plural_description = QStringLiteral("are doing something");
-          break;
+            singular_description = QStringLiteral("is doing something");
+            plural_description = QStringLiteral("are doing something");
+            break;
         }
         m_chatActions.insert(user_id, useraction(user_id, singular_description,
                                                  plural_description));
@@ -557,7 +568,8 @@ QTdChatType *QTdChat::chatType() const
     return m_chatType;
 }
 
-QTdChatPhoto::QTdChatPhoto(QObject *parent) : QTdPhoto(parent)
+QTdChatPhoto::QTdChatPhoto(QObject *parent)
+    : QTdPhoto(parent)
 {
     setType(CHAT_PHOTO);
 }
@@ -577,4 +589,3 @@ void QTdChat::positionMessageListViewAtIndex(int index)
     m_currentMessageIndex = index;
     currentMessageIndexChanged();
 }
-

@@ -94,6 +94,7 @@ public:
         MESSAGE_UNREAD_LABEL,
         MESSAGE_AUDIO,
         MESSAGE_BASIC_GROUP_CHAT_CREATE,
+        MESSAGE_SUPER_GROUP_CHAT_CREATE,
         MESSAGE_CALL,
         MESSAGE_CHAT_ADD_MEMBERS,
         MESSAGE_CHAT_CHANGE_PHOTO,
@@ -119,6 +120,7 @@ public:
         MESSAGE_VOICE_NOTE,
         MESSAGE_SENDING_STATE_FAILED,
         MESSAGE_SENDING_STATE_PENDING,
+        MESSAGE_UNSUPPORTED,
         NETWORK_TYPE_MOBILE,
         NETWORK_TYPE_MOBILE_ROAMING,
         NETWORK_TYPE_NONE,
@@ -165,14 +167,15 @@ public:
         REPLY_MARKUP_INLINE_KEYBOARD,
         REPLY_MARKUP_REMOVE_KEYBOARD,
         REPLY_MARKUP_SHOW_KEYBOARD,
-        MESSAGE_FORWARDED_FROM_USER,
-        MESSAGE_FORWARDED_POST,
+        MESSAGE_FORWARD_ORIGIN_CHANNEL,
+        MESSAGE_FORWARD_ORIGIN_HIDDEN_USER,
+        MESSAGE_FORWARD_ORIGIN_USER,
     };
     Q_ENUM(Type)
 
     Type type() const;
     QString typeString() const;
-    
+
     virtual void unmarshalJson(const QJsonObject &json);
     virtual QJsonObject marshalJson();
 

@@ -8,12 +8,15 @@ KeyTable {
     property string loadOlderMessages
     property string loadNewerMessages
     property string sendMessage
+    property string sendPhoto
+    property string sendVideo
+    property string sendAudio
     property string sendContact
     property string sendDocument
-    property string sendPhoto
     property string requestLocation
     property string sendLocation
     property string cancelLocation
+    property string stopWaitLocation
     property string sendChatAction
     property string leaveChat
     property string deleteChatHistory

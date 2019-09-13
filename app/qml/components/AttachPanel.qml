@@ -29,7 +29,7 @@ Item {
     Rectangle {
         id: attach_box
         width: parent.width
-        height: units.gu(18)
+        height: units.gu(12)
         y: -height
 
         Rectangle {
@@ -43,75 +43,63 @@ Item {
                 topMargin: units.gu(1)
                 horizontalCenter: parent.horizontalCenter
             }
-            columns: 5
+            columns: 7
             rows: 1
             horizontalItemAlignment: Grid.AlignHCenter
             verticalItemAlignment: Grid.AlignVCenter
-            spacing: units.gu(2.8)
+            spacing: units.gu(1)
 
             AttachPanelItem {
                 id: attach_photo_item
-                // TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-                text: i18n.tr("Image")
-                image: Qt.resolvedUrl("qrc:/qml/icons/attach_gallery.png")
+                icon: "stock_image"
                 onClicked: {
                     attach_panel.photoRequested()
                     attach_panel.close()
                 }
             }
             AttachPanelItem {
-                // TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-                text: i18n.tr("File")
-                image: Qt.resolvedUrl("qrc:/qml/icons/attach_document.png")
+                icon: "stock_document"
                 onClicked: {
                     attach_panel.documentRequested()
                     attach_panel.close()
                 }
             }
-            // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-            //     text: i18n.tr("Video")
-            //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_video.png")
-            //     onClicked: {
-            //         attach_panel.videoRequested()
-            //         attach_panel.close()
-            //     }
-            // }
-            //
-            // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending audio to the conversation.
-            //     text: i18n.tr("Audio")
-            //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_audio.png")
-            //     onClicked: {
-            //         attach_panel.audioRequested()
-            //         attach_panel.close()
-            //     }
-            // }
-            //
-            // AttachPanelItem {
-            //     // TRANSLATORS: Used in attach menu, when sending a contact to the conversation.
-            //     text: i18n.tr("Contact")
-            //     image: Qt.resolvedUrl("qrc:/qml/icons/attach_contact.png")
-            //     onClicked: {
-            //         attach_panel.contactRequested()
-            //         attach_panel.close()
-            //     }
-            // }
+            AttachPanelItem {
+                icon: "stock_video"
+                onClicked: {
+                    attach_panel.videoRequested()
+                    attach_panel.close()
+                }
+            }
 
-/*             AttachPanelItem {
-                // TRANSLATORS: Used in attach menu, when sending a location to the conversation.
-                text: i18n.tr("Location")
-                icon:"location-idle"
+            AttachPanelItem {
+                icon: "stock_music"
+                onClicked: {
+                    attach_panel.audioRequested()
+                    attach_panel.close()
+                }
+            }
+
+             AttachPanelItem {
+                icon: "location-active"
                 onClicked: {
                     attach_panel.locationRequested()
                     attach_panel.close()
                 }
-            } */
+            }
+
+            AttachPanelItem {
+                icon: "stock_contact"
+                onClicked: {
+                    attach_panel.contactRequested()
+                    attach_panel.close()
+                }
+                visible: false
+            }
 
             AttachPanelItem {
                 height: attach_photo_item.height
-                // TRANSLATORS: Used in attach menu, when sending a file to the conversation.
-                image: Qt.resolvedUrl("qrc:/qml/icons/attach_hide1.png")
+                icon: "down"
                 showTick: true
                 onClicked: {
                     attach_panel.close()

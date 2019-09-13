@@ -15,6 +15,7 @@ class QTdSetChatTitleRequest : public QTdOkRequest
     Q_DISABLE_COPY(QTdSetChatTitleRequest)
     QString m_title;
     qint64 m_chatId;
+
 public:
     explicit QTdSetChatTitleRequest(QObject *parent = nullptr);
 

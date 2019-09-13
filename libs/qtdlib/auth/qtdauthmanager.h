@@ -9,8 +9,8 @@ class QTdAuthManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(State state READ state NOTIFY stateChanged)
-    Q_PROPERTY(QTdAuthState* type READ type NOTIFY stateChanged)
-    Q_PROPERTY(QTdAuthParams* params READ params WRITE setParams NOTIFY paramsChanged)
+    Q_PROPERTY(QTdAuthState *type READ type NOTIFY stateChanged)
+    Q_PROPERTY(QTdAuthParams *params READ params WRITE setParams NOTIFY paramsChanged)
 public:
     explicit QTdAuthManager(QObject *parent = nullptr);
 
@@ -30,10 +30,10 @@ public:
     State state() const;
     QTdAuthState *type() const;
 
-    QTdAuthParams* params() const;
+    QTdAuthParams *params() const;
 
 public slots:
-    void setParams(QTdAuthParams* params);
+    void setParams(QTdAuthParams *params);
     void sendParams();
     void setEncryptionKey(const QString &key);
     void sendPhoneNumber(const QString &number);
@@ -49,19 +49,22 @@ signals:
     void waitingForPhoneNumber();
     void waitingForCode(bool isRegistered);
     void waitingForPassword(QString passwordHint, bool hasRecoveryEmailAddress, QString recoveryEmailAddressPattern);
+    void phoneNumberError(QString message);
+    void codeError(QString message);
+    void passwordError(QString message);
     void ready();
     void loggingOut();
     void closing();
     void closed();
 
-    void paramsChanged(QTdAuthParams* params);
+    void paramsChanged(QTdAuthParams *params);
 
 private slots:
     void handleAuthStateChanged(QTdAuthState *state);
 
 private:
     State m_state;
-    QTdAuthParams* m_params;
+    QTdAuthParams *m_params;
 };
 
 #endif // AUTHMANAGER_H

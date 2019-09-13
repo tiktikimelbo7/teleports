@@ -82,7 +82,7 @@ public:
      * qDebug() << resp.result().json()
      *
      */
-    QFuture<QTdResponse> sendAsync(QTdRequest *obj, void(QTdClient::*signal)(QJsonObject));
+    QFuture<QTdResponse> sendAsync(QTdRequest *obj, void (QTdClient::*signal)(QJsonObject));
 
     /**
      * @brief Execute synchronous request in another Thread
@@ -137,7 +137,12 @@ signals:
     void updateChatNotificationSettings(const QJsonObject &chat);
     void updateDeleteMessages(const QJsonObject &messages);
     void updateOption(const QJsonObject &option);
+    void updateUnreadMessageCount(const QJsonObject &message);
+    void updateScopeNotificationSettings(const QJsonObject &message);
+    void updateMessageEdited(const QJsonObject &message);
+    void updateUnreadChatCount(const QJsonObject &message);
     void updateNewMessage(const QJsonObject &message);
+    void updateMessageViews(const QJsonObject &message);
 
     // Response signals
     void error(QJsonObject error);
@@ -158,6 +163,7 @@ private slots:
 
 private:
     Q_DISABLE_COPY(QTdClient)
+    bool m_debug;
     void init();
     void handleUpdateOption(const QJsonObject &json);
     QScopedPointer<QThread> m_worker;

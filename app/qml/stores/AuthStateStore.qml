@@ -55,16 +55,33 @@ Store {
         onClosed: {
               Qt.quit();
         }
+        onPhoneNumberError: {
+            if (message == "PHONE_NUMBER_INVALID") {
+                AppActions.auth.authPhoneNumberError(i18n.tr("Invalid phone number!"));
+            } else {
+                AppActions.auth.authPhoneNumberError(message);
+            }
+        }
+        onCodeError: {
+            if (message == "PHONE_CODE_INVALID") {
+                AppActions.auth.authCodeError(i18n.tr("Invalid code!"), false);
+            } else {
+                AppActions.auth.authCodeError(message, false);
+            }
+        }
+        onPasswordError: {
+            if (message == "PASSWORD_HASH_INVALID") {
+                AppActions.auth.authPasswordError(i18n.tr("Invalid password!"));
+            } else {
+                AppActions.auth.authPasswordError(message);
+            }
+        }
     }
 
     Filter {
         type: AuthKey.setPhoneNumber
         onDispatched: {
             var number = message.dialcode.trim() + message.phonenumber.trim()
-//            if (!PhoneNumber.valid(number)) {
-//                AppActions.auth.authPhoneNumberError("Invalid phone number");
-//                return
-//            }
 
             authState.sendPhoneNumber(number)
         }
@@ -74,19 +91,19 @@ Store {
         type: AuthKey.setCode
         onDispatched: {
             if (authState.state !== AuthState.WaitCode) {
-                AppActions.auth.authCodeError(i18n.tr('Auth code not expected right now'))
+                AppActions.auth.authCodeError(i18n.tr('Auth code not expected right now'), false)
                 console.log("setCode: Auth code not expected right now")
                 return
             }
             var info = authState.type.info;
             if (!info) {
-                AppActions.auth.authCodeError(i18n.tr('Oops! Internal error.'))
+                AppActions.auth.authCodeError(i18n.tr('Oops! Internal error.'), false)
                 console.log("setCode: Oops! Internal error.")
                 return
             }
 
             if (message.code.length !== parseInt(info.type.length)) {
-                AppActions.auth.authCodeError(i18n.tr('Incorrect auth code length.'));
+                AppActions.auth.authCodeError(i18n.tr('Incorrect auth code length.'), true);
                 console.log("setCode: Incorrect auth code length.")
                 return;
             }

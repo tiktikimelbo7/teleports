@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QPointer>
+#include <QTimer>
+#include <QtPositioning/QGeoPositionInfoSource>
 #include "auth/qtdauthstate.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchat.h"
@@ -13,20 +15,22 @@ class QTdChatListModel : public QObject
 {
 
     Q_OBJECT
-    Q_PROPERTY(QObject* model READ model NOTIFY modelChanged)
-    Q_PROPERTY(QTdChat* currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
+    Q_PROPERTY(QObject *model READ model NOTIFY modelChanged)
+    Q_PROPERTY(QTdChat *currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
     Q_PROPERTY(ListMode listMode READ listMode WRITE setListMode NOTIFY listModeChanged)
     Q_PROPERTY(qint32 forwardingMessagesCount READ forwardingMessagesCount NOTIFY modelChanged)
-    Q_PROPERTY(QTdChat* forwardedFromChat READ forwardedFromChat  WRITE setForwardedFromChat NOTIFY modelChanged)
+    Q_PROPERTY(QTdChat *forwardedFromChat READ forwardedFromChat WRITE setForwardedFromChat NOTIFY modelChanged)
     Q_PROPERTY(QStringList forwardingMessages READ forwardingMessages WRITE setForwardingMessages NOTIFY modelChanged)
 
 public:
-    enum ListMode { Idle, ForwardingMessages, ImportingAttachments };
+    enum ListMode { Idle,
+                    ForwardingMessages,
+                    ImportingAttachments };
     Q_ENUM(ListMode)
 
     explicit QTdChatListModel(QObject *parent = nullptr);
 
-    QObject* model() const;
+    QObject *model() const;
     QTdChat *currentChat() const;
     QTdChat *chatById(const qint64 &chatId) const;
     QTdChat *forwardedFromChat() const;
@@ -35,25 +39,31 @@ public:
     QStringList forwardingMessages() const;
 
 public slots:
-    void setCurrentChat(QTdChat* currentChat);
+    void setCurrentChat(QTdChat *currentChat);
     void setCurrentChatById(const int &chatId);
     void setForwardedFromChat(QTdChat *currentChat);
     void setForwardingMessages(QStringList forwardingMessages);
     void setListMode(ListMode listMode);
     void clearCurrentChat();
-    void sendForwardMessage(const QStringList  &forwardMessageIds,
+    void sendForwardMessage(const QStringList &forwardMessageIds,
                             const qint64 &recievingChatId,
                             const qint64 &fromChatId,
                             const QString &message);
+    void requestPositionInfo();
+    void cancelPositionInfo();
 
 signals:
-    void modelChanged(QObject* model);
+    void modelChanged(QObject *model);
     void contentsChanged();
     void chatStatusChanged();
-    void currentChatChanged(QTdChat* currentChat);
+    void currentChatChanged(QTdChat *currentChat);
     void listModeChanged();
+    void positionInfoReceived(double latitude, double longitude);
+    void positionInfoTimeout();
 
 private slots:
+    void handleChats(const QJsonObject &json);
+    void handleChat(const QJsonObject &json);
     void handleUpdateNewChat(const QJsonObject &chat);
     void handleUpdateChatOrder(const QJsonObject &json);
     void handleUpdateChatLastMessage(const QJsonObject chat);
@@ -67,6 +77,8 @@ private slots:
     void handleUpdateChatUnreadMentionCount(const QJsonObject &chat);
     void handleUpdateChatNotificationSettings(const QJsonObject &chat);
     void handleForwardingMessagesAction();
+    void positionUpdated(const QGeoPositionInfo &info);
+    void onPositionInfoTimeout();
 
     /**
      * @brief Set the pinned chats for the user
@@ -75,6 +87,7 @@ private slots:
      * changes via updateChatIsPinned events.
      */
     void handlePinChatAction(const qint64 &chatId, const bool &pinned);
+
 private:
     Q_DISABLE_COPY(QTdChatListModel)
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
@@ -83,6 +96,9 @@ private:
     ListMode m_listMode;
     QStringList m_forwardingMessages;
     QPointer<QTdChat> m_forwardedFromChat;
+    QList<qint64> m_receivedChatIds;
+    QPointer<QGeoPositionInfoSource> m_positionInfoSource;
+    QTimer *m_positionWaitTimer;
 
 };
 

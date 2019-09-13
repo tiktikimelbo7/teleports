@@ -68,7 +68,7 @@ MessageContentBase {
                     readonly property string minutesString: (minutes < 10 ? "0%1" : "%1").arg(minutes)
                     readonly property int seconds: call.duration - minutes * 60
                     readonly property string secondsString: (seconds < 10 ? "0%1" : "%1").arg(seconds)
-                    text: i18n.tr("Duration: %1.%2").arg(minutesString).arg(secondsString)
+                    text: i18n.tr("Duration: %1:%2").arg(minutesString).arg(secondsString)
                     Suru.textLevel: Suru.Small
                     Suru.textStyle: Suru.TertiaryText
                 }

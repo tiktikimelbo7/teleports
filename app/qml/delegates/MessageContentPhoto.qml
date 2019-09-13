@@ -69,7 +69,7 @@ MessageContentBase {
         }
 
         formattedText: photoContent.caption
-        maximumWidth: maximumAvailableContentWidth
+        maximumWidth: imgContainer.width
         isPreview: message.isCollapsed
     }
 

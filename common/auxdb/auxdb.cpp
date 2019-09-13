@@ -210,4 +210,3 @@ QString AuxDatabase::getDBname() const
 {
     return m_databaseDirectory + "/auxdb.sqlite";
 }
-

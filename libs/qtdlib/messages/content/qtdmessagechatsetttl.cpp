@@ -1,6 +1,7 @@
 #include "qtdmessagechatsetttl.h"
 
-QTdMessageChatSetTTL::QTdMessageChatSetTTL(QObject *parent) : QTdMessageContent(parent)
+QTdMessageChatSetTTL::QTdMessageChatSetTTL(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_CHAT_SET_TTL);
 }

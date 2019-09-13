@@ -2,7 +2,8 @@
 #include <QDebug>
 #include "client/qtdclient.h"
 
-QTdRequest::QTdRequest(QObject *parent) : QTdObject(parent)
+QTdRequest::QTdRequest(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
@@ -16,7 +17,8 @@ QFuture<QJsonObject> QTdRequest::exec()
     return QTdClient::instance()->exec(this);
 }
 
-QTdOkRequest::QTdOkRequest(QObject *parent) : QTdRequest(parent)
+QTdOkRequest::QTdOkRequest(QObject *parent)
+    : QTdRequest(parent)
 {
 }
 

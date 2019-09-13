@@ -1,6 +1,7 @@
 #include "qtdauthphonenumberresponse.h"
 
-QTdAuthPhoneNumberResponse::QTdAuthPhoneNumberResponse(QObject *parent) : QTdOkRequest(parent)
+QTdAuthPhoneNumberResponse::QTdAuthPhoneNumberResponse(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -11,10 +12,10 @@ void QTdAuthPhoneNumberResponse::setPhoneNumber(const QString &number)
 
 QJsonObject QTdAuthPhoneNumberResponse::marshalJson()
 {
-    return QJsonObject {
-        {"@type", "setAuthenticationPhoneNumber"},
-        {"phone_number", m_number},
-        {"allow_flash_call", false},
-        {"is_current_phone_number", true}
+    return QJsonObject{
+        { "@type", "setAuthenticationPhoneNumber" },
+        { "phone_number", m_number },
+        { "allow_flash_call", false },
+        { "is_current_phone_number", true }
     };
 }

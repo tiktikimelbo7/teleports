@@ -14,17 +14,18 @@ import "../delegates"
 import "../stores"
 
 Page {
+    id: messageListPage
     property QTdChat currentChat: Telegram.chats.currentChat
     property int currentMessageIndex: currentChat.currentMessageIndex
+    property var locationWaitDialog: null
+
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
         subtitle: {
-            if (Telegram.chats && currentChat)
-            {
+            if (Telegram.chats && currentChat) {
                 if (currentChat.action != "")
                     return currentChat.action;
-                if (currentChat.isGroup || currentChat.isChannel)
-                {
+                if (currentChat.isGroup || currentChat.isChannel) {
                     return i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
                 }
                 return currentChat.chatType.user.status.string
@@ -52,7 +53,7 @@ Page {
                 }
                 height: units.gu(5)
                 width: height
-                property QTdLocalFile localFile : Telegram.chats.currentChat.chatPhoto.small.local
+                property QTdLocalFile localFile: Telegram.chats.currentChat.chatPhoto.small.local
                 photoPath: {
                     if (localFile && localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
                         Telegram.chats.currentChat.chatPhoto.small.downloadFile();
@@ -70,17 +71,25 @@ Page {
                 visible: false
                 color: theme.palette.normal.background
                 UITK.Icon {
-                    name: "sync-updating"// telegram.busy? "sync-updating" : isConnecting? "sync-error" : "sync-paused"
+                    name: "sync-updating" // telegram.busy? "sync-updating" : isConnecting? "sync-error" : "sync-paused"
                     anchors.fill: parent
                     color: Theme.palette.normal.backgroundSecondaryText
                 }
                 SequentialAnimation {
                     running: visible
                     loops: Animation.Infinite
-                    PropertyAnimation { target: connectingIndicator; property: "opacity"; to: 1; duration: 500 }
-                    PropertyAnimation { duration: 300 }
-                    PropertyAnimation { target: connectingIndicator; property: "opacity"; to: 0.0; duration: 800 }
-                    PropertyAnimation { duration: 300 }
+                    PropertyAnimation {
+                        target: connectingIndicator;property: "opacity";to: 1;duration: 500
+                    }
+                    PropertyAnimation {
+                        duration: 300
+                    }
+                    PropertyAnimation {
+                        target: connectingIndicator;property: "opacity";to: 0.0;duration: 800
+                    }
+                    PropertyAnimation {
+                        duration: 300
+                    }
                 }
             }
 
@@ -101,7 +110,7 @@ Page {
                 id: titleText
                 anchors {
                     top: parent.top
-                    left: secret_chat_icon.visible? secret_chat_icon.right : avatar.right
+                    left: secret_chat_icon.visible ? secret_chat_icon.right : avatar.right
                     leftMargin: units.gu(1)
                     right: parent.right
                 }
@@ -230,7 +239,10 @@ Page {
                     id: loader
                     width: parent.width
                     height: childrenRect.height
-                    Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {message: modelData, chat: Telegram.chats.chat })
+                    Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {
+                        message: modelData,
+                        chat: Telegram.chats.chat
+                    })
                     asynchronous: false
                 }
             }
@@ -240,9 +252,9 @@ Page {
                     AppActions.chat.loadOlderMessages()
                 }
 
-                if (visibleArea.yPosition > 1-visibleArea.heightRatio-0.05 && model.count > 10) {
+                if (visibleArea.yPosition > 1 - visibleArea.heightRatio - 0.05 && model.count > 10) {
                     AppActions.chat.loadNewerMessages()
-                } 
+                }
             }
 
             onMovingChanged: {
@@ -275,6 +287,32 @@ Page {
         }
     }
 
+    UITK.Label {
+        id: writableChatInfo
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: showKeyboardLoader.top
+        }
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        height: entry.height + Suru.units.gu(2)
+        visible: !Telegram.chats.currentChat.isWritable &&
+            (Telegram.chats.currentChat.isSecret || Telegram.chats.currentChat.isChannel)
+        text: {
+            if (Telegram.chats.currentChat.isChannel)
+                return i18n.tr("You are not allowed to post in this channel");
+            else if (Telegram.chats.currentChat.isSecret) {
+                if (Telegram.chats.currentChat.isPending) {
+                    return i18n.tr("Waiting for other party to accept the secret chat...");
+                } else if (Telegram.chats.currentChat.isClosed) {
+                    return i18n.tr("Secret chat has been closed");
+                }
+            }
+            return "";
+        }
+    }
+
     Rectangle {
         id: input
         anchors {
@@ -284,7 +322,7 @@ Page {
         }
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
-
+        visible: Telegram.chats.currentChat.isWritable
         Rectangle {
             anchors {
                 top: parent.top
@@ -302,9 +340,9 @@ Page {
                 mediaImporter.contentType = mediaType;
                 mediaImporter.requestMedia();
             }
+
             function requestLocation() {
-                UITK_Popups.PopupUtils.open(locationWaitDialog)
-                AppActions.chat.requestLocation();
+                UITK_Popups.PopupUtils.open(sendLocationConfirmationDialog)
             }
             onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
             onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
@@ -319,11 +357,21 @@ Page {
 
             onMediaReceived: {
                 var filePath = String(mediaUrl).replace('file://', '');
-                if(contentType==1){
-                  AppActions.chat.sendDocument(filePath,"");
-                }
-                else if(contentType==2){
-                  AppActions.chat.sendPhoto(filePath,"");
+                switch(contentType) {
+                    case ContentHub.ContentType.Pictures:
+                        AppActions.chat.sendPhoto(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Videos:
+                        AppActions.chat.sendVideo(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Music:
+                        AppActions.chat.sendAudio(filePath, "");
+                    break;
+                    case ContentHub.ContentType.Contacts:
+                        AppActions.chat.sendContact(filePath, "");
+                    break;
+                    default:
+                        AppActions.chat.sendDocument(filePath, "");
                 }
             }
         }
@@ -349,14 +397,14 @@ Page {
 
                     if (d.chatState === ChatState.EditingMessage) {
                         switch (d.messageOfInterest.content.type) {
-                        case QTdObject.MESSAGE_TEXT:
-                            AppActions.chat.sendEditMessageText(d.messageOfInterest.id, text.trim())
-                            break;
-                        case QTdObject.MESSAGE_PHOTO:
-                            AppActions.chat.sendEditMessageCaption(d.messageOfInterest.id, text.trim())
-                            break;
-                        default:
-                            console.warn("Unsupported edit message type");
+                            case QTdObject.MESSAGE_TEXT:
+                                AppActions.chat.sendEditMessageText(d.messageOfInterest.id, text.trim())
+                                break;
+                            case QTdObject.MESSAGE_PHOTO:
+                                AppActions.chat.sendEditMessageCaption(d.messageOfInterest.id, text.trim())
+                                break;
+                            default:
+                                console.warn("Unsupported edit message type");
                         }
                     } else if (d.chatState === ChatState.ReplyingToMessage) {
                         AppActions.chat.sendReplyToMessage(d.messageOfInterest.id, text.trim());
@@ -393,7 +441,6 @@ Page {
                 width: height
                 UITK.Icon {
                     anchors.fill: parent
-                    visible: true
                     name: "attachment"
                     color: Suru.foregroundColor
                     Suru.textStyle: Suru.SecondaryText
@@ -401,8 +448,7 @@ Page {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                          // attach_panel_object.attachmentItem = attach_panel_component.createObject(dialogPage)
-                          attach_panel_object.visible = !attach_panel_object.visible;
+                            attach_panel_object.visible = !attach_panel_object.visible;
                         }
                     }
                 }
@@ -424,8 +470,7 @@ Page {
                             if (UbuntuApplication.inputMethod.visible) {
                                 UbuntuApplication.inputMethod.hide()
                                 showKeyboardLoader.item.hidden = false
-                            }
-                            else {
+                            } else {
                                 showKeyboardLoader.item.hidden = !showKeyboardLoader.item.hidden
                             }
                         }
@@ -447,18 +492,40 @@ Page {
         }
     }
 
-                    Component {
-                        id: locationWaitDialog
-                        PopupWaitCancel {
-                            text: i18n.tr("Requesting location from OS...")
-                            onFinished: {
-                                AppActions.chat.sendLocation();
-                            }
-                            onCancelled: {
-                                AppActions.chat.cancelLocation();
-                            }
-                        }
-                    }
+    Component {
+        id: sendLocationConfirmationDialog
+        PopupDialog {
+            text: i18n.tr("Do you want to share your location with %1?").arg(currentChat.title)
+            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonText: i18n.tr("Send")
+            onConfirmed: {
+                messageListPage.locationWaitDialog = UITK_Popups.PopupUtils.open(locationWaitDialog)
+                AppActions.chat.requestLocation();
+            }
+        }
+    }
+
+    Component {
+        id: locationWaitDialog
+        PopupWaitCancel {
+            text: i18n.tr("Requesting location from OS...")
+            onFinished: {
+                AppActions.chat.sendLocation();
+            }
+            onCancelled: {
+                AppActions.chat.cancelLocation();
+            }
+        }
+    }
+
+    AppListener {
+        Filter {
+            type: ChatKey.stopWaitLocation
+            onDispatched: {
+                UITK_Popups.PopupUtils.close(messageListPage.locationWaitDialog);
+            }
+        }
+    }
 
     Loader {
         id: showKeyboardLoader
@@ -479,35 +546,34 @@ Page {
         id: d
 
         property int chatState: ChatState.Default
-        property var messageOfInterest: null
+        property
+        var messageOfInterest: null
     }
 
     AppListener {
-       Filter {
-           type: ChatKey.requestEditMessage
-           onDispatched: {
-               switch (message.message.content.type) {
-               case QTdObject.MESSAGE_TEXT:
-                    d.chatState = ChatState.EditingMessage
-                    d.messageOfInterest = message.message;
-                    entry.text = message.message.content.text.text;
-                    break;
-               case QTdObject.MESSAGE_PHOTO:
-                    d.chatState = ChatState.EditingMessage;
-                    d.messageOfInterest = message.message;
-                    entry.text = message.message.content.caption.text;
-                    break;
-               }
-           }
-       }
+        Filter {
+            type: ChatKey.requestEditMessage
+            onDispatched: {
+                d.chatState = ChatState.EditingMessage;
+                d.messageOfInterest = message.message;
+                switch (message.message.content.type) {
+                    case QTdObject.MESSAGE_TEXT:
+                        entry.text = message.message.content.text.text;
+                        break;
+                    case QTdObject.MESSAGE_PHOTO:
+                        entry.text = message.message.content.caption.text;
+                        break;
+                }
+            }
+        }
 
-       Filter {
-           type: ChatKey.requestReplyToMessage
-           onDispatched: {
-               d.chatState = ChatState.ReplyingToMessage
-               d.messageOfInterest = message.message;
-           }
-       }
+        Filter {
+            type: ChatKey.requestReplyToMessage
+            onDispatched: {
+                d.chatState = ChatState.ReplyingToMessage
+                d.messageOfInterest = message.message;
+            }
+        }
 
     }
 

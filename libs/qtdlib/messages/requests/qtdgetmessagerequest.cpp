@@ -1,9 +1,9 @@
 #include "qtdgetmessagerequest.h"
 #include "client/qtdclient.h"
 
-QTdGetMessageRequest::QTdGetMessageRequest(QObject *parent) : QTdRequest(parent)
+QTdGetMessageRequest::QTdGetMessageRequest(QObject *parent)
+    : QTdRequest(parent)
 {
-
 }
 
 void QTdGetMessageRequest::setChatId(const qint64 &chat)
@@ -18,7 +18,7 @@ void QTdGetMessageRequest::setMessageId(const qint64 &msg)
 
 QJsonObject QTdGetMessageRequest::marshalJson()
 {
-    return QJsonObject {
+    return QJsonObject{
         { "@type", "getMessage" },
         { "chat_id", m_chat },
         { "message_id", m_msg },

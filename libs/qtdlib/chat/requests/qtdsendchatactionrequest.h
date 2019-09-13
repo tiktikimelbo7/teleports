@@ -14,11 +14,12 @@ class QTdSendChatActionRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;
+
 public:
-  explicit QTdSendChatActionRequest(QObject *parent = nullptr);
-  void setChatId(const qint64 &id);
-  void setAction(const QTdChatAction &action);
-  QJsonObject marshalJson() Q_DECL_FINAL;
+    explicit QTdSendChatActionRequest(QObject *parent = nullptr);
+    void setChatId(const qint64 &id);
+    void setAction(const QTdChatAction &action);
+    QJsonObject marshalJson() Q_DECL_FINAL;
 };
 
 #endif // QTDCLOSECHATREQUEST_H

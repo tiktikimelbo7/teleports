@@ -19,9 +19,13 @@
 #include "content/qtdmessagelocation.h"
 #include "content/qtdmessagephoto.h"
 #include "content/qtdmessagesticker.h"
+#include "content/qtdmessagesupergroupchatcreate.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagevideo.h"
+#include "content/qtdmessagevideonote.h"
+#include "content/qtdmessagevoicenote.h"
 #include "content/qtdmessagecustomserviceaction.h"
+#include "content/qtdmessageunsupported.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
@@ -34,22 +38,26 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     } else if (type == "messageSticker") {
         return new QTdMessageSticker(parent);
     } else if (type == "messagePhoto") {
-          return new QTdMessagePhoto(parent);
+        return new QTdMessagePhoto(parent);
     } else if (type == "messageAnimation") {
-          return new QTdMessageAnimation(parent);
+        return new QTdMessageAnimation(parent);
     } else if (type == "messageAudio") {
           return new QTdMessageAudio(parent);
     } else if (type == "messageContact") {
         return new QTdMessageContact(parent);
     } else if (type == "messageDocument") {
-          return new QTdMessageDocument(parent);
+        return new QTdMessageDocument(parent);
     } else if (type == "messageLocation") {
         return new QTdMessageLocation(parent);
     } else if (type == "messageVideo") {
-          return new QTdMessageVideo(parent);
-    } else if (type == "messageContactRegistered"){
+        return new QTdMessageVideo(parent);
+    } else if (type == "messageVideoNote") {
+        return new QTdMessageVideoNote(parent);
+    } else if (type == "messageVoiceNote") {
+        return new QTdMessageVoiceNote(parent);
+    } else if (type == "messageContactRegistered") {
         return new QTdMessageAction(parent);
-    } else if (type =="messageChatJoinByLink"){
+    } else if (type == "messageChatJoinByLink") {
         return new QTdMessageChatJoinByLink(parent);
     } else if (type == "messageBasicGroupChatCreate") {
         return new QTdMessageBasicGroupChatCreate(parent);
@@ -69,13 +77,17 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatDeletePhoto(parent);
     } else if (type == "messageChatSetTtl") {
         return new QTdMessageChatSetTTL(parent);
-    } else if (type == "messageChatUgradeFrom") {
+    } else if (type == "messageChatUpgradeFrom") {
         return new QTdMessageChatUpgradeFrom(parent);
-    } else if (type == "messageChatUgradeTo") {
+    } else if (type == "messageChatUpgradeTo") {
         return new QTdMessageChatUpgradeTo(parent);
     } else if (type == "messageCustomServiceAction") {
         return new QTdMessageCustomServiceAction(parent);
+    } else if (type == "messageUnsupported") {
+        return new QTdMessageUnsupported(parent);
+    } else if (type == "messageSupergroupChatCreate") {
+        return new QTdMessageSuperGroupChatCreate(parent);
     }
-    qWarning()<< "Received unknown message type" << type << json;
+    qWarning() << "Received unknown message type" << type << json;
     return new QTdMessageContent(parent);
 }

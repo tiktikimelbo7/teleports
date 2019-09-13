@@ -1,9 +1,9 @@
 #include "qtdsetchattitlerequest.h"
 
-QTdSetChatTitleRequest::QTdSetChatTitleRequest(QObject *parent) : QTdOkRequest(parent),
-    m_chatId(0)
+QTdSetChatTitleRequest::QTdSetChatTitleRequest(QObject *parent)
+    : QTdOkRequest(parent)
+    , m_chatId(0)
 {
-
 }
 
 void QTdSetChatTitleRequest::setTitle(const qint64 &chatId, const QString &title)
@@ -15,8 +15,8 @@ void QTdSetChatTitleRequest::setTitle(const qint64 &chatId, const QString &title
 QJsonObject QTdSetChatTitleRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "setChatTitle"},
-        {"chat_id", m_chatId},
-        {"title", m_title},
+        { "@type", "setChatTitle" },
+        { "chat_id", m_chatId },
+        { "title", m_title },
     };
 }

@@ -2,5 +2,4 @@
 
 QTdChatState::QTdChatState()
 {
-
 }

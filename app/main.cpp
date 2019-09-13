@@ -10,6 +10,8 @@
 #include "messagecontentdelegatemap.h"
 #include <libintl.h>
 #include <locale.h>
+#include <utils/i18n.h>
+
 #define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
 
 int main(int argc, char *argv[])
@@ -22,14 +24,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("0.4.0"));
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
 
-    bindtextdomain ("teleports.ubports", "/opt/click.ubuntu.com/teleports.ubports/current/share/locale");
-    bind_textdomain_codeset ("teleports.ubports", "UTF-8");
-    textdomain ("teleports.ubports");
+    setlocale(LC_ALL, "");
+    bindtextdomain("teleports.ubports", "/opt/click.ubuntu.com/teleports.ubports/current/share/locale");
+    bind_textdomain_codeset("teleports.ubports", "UTF-8");
+    textdomain(GETTEXT_DOMAIN.toStdString().c_str());
 
     MessageDelegateMap delegateMap;
     MessageContentDelegateMap contentDelegateMap;
@@ -40,6 +42,10 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
     engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
     engine.rootContext()->setContextProperty(QStringLiteral("contentDelegateMap"), &contentDelegateMap);
+
+    //Inject versioning strings from CI
+    QCoreApplication::setApplicationVersion(QStringLiteral(BUILD_VERSION));
+    engine.rootContext()->setContextProperty(QStringLiteral("devBuildHash"), QStringLiteral(GIT_HASH));
 
     engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 

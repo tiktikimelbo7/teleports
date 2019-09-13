@@ -1,7 +1,8 @@
 #include "qtdopenchatrequest.h"
 
-QTdOpenChatRequest::QTdOpenChatRequest(QObject *parent) : QTdOkRequest(parent),
-    m_chatId(0)
+QTdOpenChatRequest::QTdOpenChatRequest(QObject *parent)
+    : QTdOkRequest(parent)
+    , m_chatId(0)
 {
 }
 
@@ -13,7 +14,7 @@ void QTdOpenChatRequest::setChatId(const qint64 &id)
 QJsonObject QTdOpenChatRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "openChat"},
-        {"chat_id", m_chatId}
+        { "@type", "openChat" },
+        { "chat_id", m_chatId }
     };
 }

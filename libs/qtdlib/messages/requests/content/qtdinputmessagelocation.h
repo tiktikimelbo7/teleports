@@ -9,7 +9,7 @@
 #include "../qtdinputmessagecontent.h"
 #include "../../content/qtdlocation.h"
 
-class QTdInputMessageLocation: public QTdInputMessageContent
+class QTdInputMessageLocation : public QTdInputMessageContent
 {
     Q_OBJECT
 public:

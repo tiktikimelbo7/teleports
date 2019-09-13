@@ -9,25 +9,25 @@
 class QTdPhoto : public QTdObject
 {
     Q_OBJECT
-    Q_PROPERTY(QTdFile* small READ small NOTIFY smallChanged)
-    Q_PROPERTY(QTdFile* big READ big NOTIFY bigChanged)
+    Q_PROPERTY(QTdFile *small READ small NOTIFY smallChanged)
+    Q_PROPERTY(QTdFile *big READ big NOTIFY bigChanged)
 public:
     explicit QTdPhoto(QObject *parent = nullptr);
 
     /**
      * @brief A small (160x160) user profile photo
      */
-    QTdFile* small() const;
+    QTdFile *small() const;
     /**
      * @brief A big (640x640) user profile photo
      */
-    QTdFile* big() const;
+    QTdFile *big() const;
 
     void unmarshalJson(const QJsonObject &json);
 
 signals:
-    void smallChanged(QTdFile* small);
-    void bigChanged(QTdFile* big);
+    void smallChanged(QTdFile *small);
+    void bigChanged(QTdFile *big);
 
 private:
     QScopedPointer<QTdFile> m_small;

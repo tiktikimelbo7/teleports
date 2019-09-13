@@ -1,13 +1,21 @@
 #include "qtdchatmemberstatus.h"
 
-QTdChatMemberStatus::QTdChatMemberStatus(QObject *parent) : QTdObject(parent)
+QTdChatMemberStatus::QTdChatMemberStatus(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-QTdChatMemberStatusAdmin::QTdChatMemberStatusAdmin(QObject *parent) : QTdChatMemberStatus(parent),
-    m_canBeEdited(false), m_canChangeInfo(false), m_canPostMessages(false),
-    m_canEditMessages(false), m_canDeleteMessages(false), m_canInviteUsers(false),
-    m_canRestrictMembers(false), m_canPinMessages(false), m_canPromoteMembers(false)
+QTdChatMemberStatusAdmin::QTdChatMemberStatusAdmin(QObject *parent)
+    : QTdChatMemberStatus(parent)
+    , m_canBeEdited(false)
+    , m_canChangeInfo(false)
+    , m_canPostMessages(false)
+    , m_canEditMessages(false)
+    , m_canDeleteMessages(false)
+    , m_canInviteUsers(false)
+    , m_canRestrictMembers(false)
+    , m_canPinMessages(false)
+    , m_canPromoteMembers(false)
 {
     setType(CHAT_MEMBER_STATUS_ADMIN);
 }
@@ -71,8 +79,9 @@ void QTdChatMemberStatusAdmin::unmarshalJson(const QJsonObject &json)
     emit statusChanged();
 }
 
-QTdChatMemberStatusBanned::QTdChatMemberStatusBanned(QObject *parent) : QTdChatMemberStatus(parent),
-    m_bannedTil(0)
+QTdChatMemberStatusBanned::QTdChatMemberStatusBanned(QObject *parent)
+    : QTdChatMemberStatus(parent)
+    , m_bannedTil(0)
 {
     setType(CHAT_MEMBER_STATUS_BANNED);
 }
@@ -93,8 +102,9 @@ void QTdChatMemberStatusBanned::unmarshalJson(const QJsonObject &json)
     emit statusChanged();
 }
 
-QTdChatMemberStatusCreator::QTdChatMemberStatusCreator(QObject *parent) : QTdChatMemberStatus(parent),
-    m_isMember(false)
+QTdChatMemberStatusCreator::QTdChatMemberStatusCreator(QObject *parent)
+    : QTdChatMemberStatus(parent)
+    , m_isMember(false)
 {
     setType(CHAT_MEMBER_STATUS_CREATOR);
 }
@@ -110,19 +120,26 @@ void QTdChatMemberStatusCreator::unmarshalJson(const QJsonObject &json)
     emit statusChanged();
 }
 
-QTdChatMemberStatusLeft::QTdChatMemberStatusLeft(QObject *parent) : QTdChatMemberStatus(parent)
+QTdChatMemberStatusLeft::QTdChatMemberStatusLeft(QObject *parent)
+    : QTdChatMemberStatus(parent)
 {
     setType(CHAT_MEMBER_STATUS_LEFT);
 }
 
-QTdChatMemberStatusMember::QTdChatMemberStatusMember(QObject *parent) : QTdChatMemberStatus(parent)
+QTdChatMemberStatusMember::QTdChatMemberStatusMember(QObject *parent)
+    : QTdChatMemberStatus(parent)
 {
     setType(CHAT_MEMBER_STATUS_MEMBER);
 }
 
-QTdChatMemberStatusRestricted::QTdChatMemberStatusRestricted(QObject *parent) : QTdChatMemberStatus(parent),
-    m_isMember(false), m_restrictedUntil(0), m_canSendMessages(false),
-    m_canSendMediaMessages(false), m_canSendOtherMessages(false), m_canAddWebPagePreviews(false)
+QTdChatMemberStatusRestricted::QTdChatMemberStatusRestricted(QObject *parent)
+    : QTdChatMemberStatus(parent)
+    , m_isMember(false)
+    , m_restrictedUntil(0)
+    , m_canSendMessages(false)
+    , m_canSendMediaMessages(false)
+    , m_canSendOtherMessages(false)
+    , m_canAddWebPagePreviews(false)
 {
     setType(CHAT_MEMBER_STATUS_RESTRICTED);
 }

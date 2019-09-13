@@ -2,12 +2,14 @@
 #include "client/qtdclient.h"
 #include "user/qtdusers.h"
 
-QTdChatType::QTdChatType(QObject *parent) : QTdObject(parent)
+QTdChatType::QTdChatType(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-QTdChatTypeBasicGroup::QTdChatTypeBasicGroup(QObject *parent) : QTdChatType(parent),
-    m_groupId(0)
+QTdChatTypeBasicGroup::QTdChatTypeBasicGroup(QObject *parent)
+    : QTdChatType(parent)
+    , m_groupId(0)
 {
     setType(CHAT_TYPE_BASIC_GROUP);
 }
@@ -47,7 +49,7 @@ qint32 QTdChatTypePrivate::userId() const
     return m_userId.value();
 }
 
-QTdUser* QTdChatTypePrivate::user() const
+QTdUser *QTdChatTypePrivate::user() const
 {
     return m_user;
 }
@@ -86,8 +88,9 @@ void QTdChatTypePrivate::updateUser(const qint32 &userId)
     m_waitingForUser = true;
 }
 
-QTdChatTypeSecret::QTdChatTypeSecret(QObject *parent) : QTdChatTypePrivate(parent),
-    m_chatId(0)
+QTdChatTypeSecret::QTdChatTypeSecret(QObject *parent)
+    : QTdChatTypePrivate(parent)
+    , m_chatId(0)
 {
     setType(CHAT_TYPE_SECRET);
 }
@@ -109,9 +112,10 @@ void QTdChatTypeSecret::unmarshalJson(const QJsonObject &json)
     QTdChatTypePrivate::unmarshalJson(json);
 }
 
-QTdChatTypeSuperGroup::QTdChatTypeSuperGroup(QObject *parent) : QTdChatType(parent),
-    m_groupId(0),
-    m_isChannel(false)
+QTdChatTypeSuperGroup::QTdChatTypeSuperGroup(QObject *parent)
+    : QTdChatType(parent)
+    , m_groupId(0)
+    , m_isChannel(false)
 {
     setType(CHAT_TYPE_SUPERGROUP);
 }

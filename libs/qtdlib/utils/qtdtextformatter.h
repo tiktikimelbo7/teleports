@@ -9,8 +9,8 @@
 class QTdTextFormatter : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QQuickTextDocument* textDocument READ textDocument WRITE setTextDocument NOTIFY textDocumentChanged)
-    Q_PROPERTY(QTdFormattedText* content READ content WRITE setContent NOTIFY contentChanged)
+    Q_PROPERTY(QQuickTextDocument *textDocument READ textDocument WRITE setTextDocument NOTIFY textDocumentChanged)
+    Q_PROPERTY(QTdFormattedText *content READ content WRITE setContent NOTIFY contentChanged)
     Q_PROPERTY(QColor linkColor READ linkColor WRITE setLinkColor NOTIFY linkColorChanged)
     Q_PROPERTY(QColor codeColor READ codeColor WRITE setCodeColor NOTIFY codeColorChanged)
 public:
@@ -25,8 +25,8 @@ public:
     QColor codeColor() const;
 
 signals:
-    void textDocumentChanged(QQuickTextDocument* textDocument);
-    void contentChanged(QTdFormattedText* content);
+    void textDocumentChanged(QQuickTextDocument *textDocument);
+    void contentChanged(QTdFormattedText *content);
 
     void linkColorChanged(QColor linkColor);
 
@@ -34,9 +34,9 @@ signals:
 
 public slots:
 
-    void setTextDocument(QQuickTextDocument* textDocument);
+    void setTextDocument(QQuickTextDocument *textDocument);
 
-    void setContent(QTdFormattedText* content);
+    void setContent(QTdFormattedText *content);
 
     void setLinkColor(QColor linkColor);
 

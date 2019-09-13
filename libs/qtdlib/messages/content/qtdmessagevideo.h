@@ -7,11 +7,11 @@
 #include "files/qtdvideo.h"
 #include "qtdformattedtext.h"
 
-class QTdMessageVideo: public QTdMessageContent
+class QTdMessageVideo : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdVideo* video READ video NOTIFY dataChanged)
-    Q_PROPERTY(QTdFormattedText* caption READ caption NOTIFY dataChanged)
+    Q_PROPERTY(QTdVideo *video READ video NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText *caption READ caption NOTIFY dataChanged)
 public:
     explicit QTdMessageVideo(QObject *parent = nullptr);
 

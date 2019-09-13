@@ -21,7 +21,7 @@ Column {
             id: attach_image
             objectName: "attach_gallery"
             asynchronous: true
-            width: units.gu(6)
+            width: units.gu(5)
             height: width
             fillMode: Image.PreserveAspectFit
             sourceSize: Qt.size(width, height)
@@ -35,7 +35,7 @@ Column {
 
         UITK.Icon {
             id: attach_icon
-            width: units.gu(6)
+            width: units.gu(5)
             height: width
         }
         MouseArea {
@@ -49,5 +49,6 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
         // fontSize: "x-small"
         font.weight: Font.DemiBold
+        visible: text != ""
     }
 }

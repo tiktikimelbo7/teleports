@@ -1,7 +1,9 @@
 #include "qtdmessageaudio.h"
 
-QTdMessageAudio::QTdMessageAudio(QObject *parent) : QTdMessageContent(parent),
-    m_audio(new QTdAudio), m_caption(new QTdFormattedText)
+QTdMessageAudio::QTdMessageAudio(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_audio(new QTdAudio)
+    , m_caption(new QTdFormattedText)
 {
     setType(MESSAGE_AUDIO);
 }
@@ -12,7 +14,7 @@ QTdAudio *QTdMessageAudio::audio() const
 }
 QTdFormattedText *QTdMessageAudio::caption() const
 {
-  return m_caption.data();
+    return m_caption.data();
 }
 void QTdMessageAudio::unmarshalJson(const QJsonObject &json)
 {

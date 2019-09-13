@@ -1,7 +1,8 @@
 #include "QmlVariantListModel.h"
 
-QmlVariantListModel::QmlVariantListModel(QObject *parent) : QAbstractListModel(parent),
-    m_count(0)
+QmlVariantListModel::QmlVariantListModel(QObject *parent)
+    : QAbstractListModel(parent)
+    , m_count(0)
 {
 }
 
@@ -26,7 +27,7 @@ bool QmlVariantListModel::setData(const QModelIndex &index, const QVariant &valu
 {
     bool dataSet = false;
     const int row = index.row();
-    if (row >=0 && row < count()) {
+    if (row >= 0 && row < count()) {
         m_values.replace(row, value);
         QModelIndex item = QAbstractListModel::index(row, 0, QModelIndex());
         emit dataChanged(item, item, QVector<int>(1, role));
@@ -107,7 +108,7 @@ void QmlVariantListModel::insertList(int index, const QVariantList &values)
     }
     beginInsertRows(QModelIndex(), index, (index + values.count()) - 1);
     int offset = 0;
-    for(auto value : values) {
+    for (auto value : values) {
         m_values.insert(index + offset, value);
         ++offset;
     }
@@ -127,7 +128,7 @@ void QmlVariantListModel::move(int index, int to)
         return;
     }
     beginMoveRows(QModelIndex(), index, index, QModelIndex(), (index < to ? to + 1 : to));
-    m_values.move(index,to);
+    m_values.move(index, to);
     endMoveRows();
     countPossiblyChanged();
 }
@@ -180,4 +181,3 @@ void QmlVariantListModel::countPossiblyChanged()
         emit countChanged();
     }
 }
-

@@ -1,70 +1,84 @@
 #include "qtdchataction.h"
 
-QTdChatAction::QTdChatAction(QObject *parent) : QTdObject(parent)
+QTdChatAction::QTdChatAction(QObject *parent)
+    : QTdObject(parent)
 {
 }
 
-QTdChatActionCancel::QTdChatActionCancel(QObject *parent) : QTdChatAction(parent)
+QTdChatActionCancel::QTdChatActionCancel(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_CANCEL);
 }
 
-QTdChatActionChoosingContact::QTdChatActionChoosingContact(QObject *parent) : QTdChatAction(parent)
+QTdChatActionChoosingContact::QTdChatActionChoosingContact(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_CHOOSING_CONTACT);
 }
 
-QTdChatActionRecordingVideo::QTdChatActionRecordingVideo(QObject *parent) : QTdChatAction(parent)
+QTdChatActionRecordingVideo::QTdChatActionRecordingVideo(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_RECORDING_VIDEO);
 }
 
-QTdChatActionChoosingLocation::QTdChatActionChoosingLocation(QObject *parent) : QTdChatAction(parent)
+QTdChatActionChoosingLocation::QTdChatActionChoosingLocation(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_CHOOSING_LOCATION);
 }
 
-QTdChatActionRecordingVideoNote::QTdChatActionRecordingVideoNote(QObject *parent) : QTdChatAction(parent)
+QTdChatActionRecordingVideoNote::QTdChatActionRecordingVideoNote(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_RECORDING_VIDEO_NOTE);
 }
 
-QTdChatActionRecordingVoiceNote::QTdChatActionRecordingVoiceNote(QObject *parent) : QTdChatAction(parent)
+QTdChatActionRecordingVoiceNote::QTdChatActionRecordingVoiceNote(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_RECORDING_VOICE_NOTE);
 }
 
-QTdChatActionStartPlayingGame::QTdChatActionStartPlayingGame(QObject *parent) : QTdChatAction(parent)
+QTdChatActionStartPlayingGame::QTdChatActionStartPlayingGame(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_START_PLAYING_GAME);
 }
 
-QTdChatActionTyping::QTdChatActionTyping(QObject *parent) : QTdChatAction(parent)
+QTdChatActionTyping::QTdChatActionTyping(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_TYPING);
 }
 
-QTdChatActionUploadingDocument::QTdChatActionUploadingDocument(QObject *parent) : QTdChatAction(parent)
+QTdChatActionUploadingDocument::QTdChatActionUploadingDocument(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_UPLOADING_DOCUMENT);
 }
 
-QTdChatActionUploadingPhoto::QTdChatActionUploadingPhoto(QObject *parent) : QTdChatAction(parent)
+QTdChatActionUploadingPhoto::QTdChatActionUploadingPhoto(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_UPLOADING_PHOTO);
 }
 
-QTdChatActionUploadingVideo::QTdChatActionUploadingVideo(QObject *parent) : QTdChatAction(parent)
+QTdChatActionUploadingVideo::QTdChatActionUploadingVideo(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_UPLOADING_VIDEO);
 }
 
-QTdChatActionUploadingVideoNote::QTdChatActionUploadingVideoNote(QObject *parent) : QTdChatAction(parent)
+QTdChatActionUploadingVideoNote::QTdChatActionUploadingVideoNote(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_UPLOADING_VIDEO_NOTE);
 }
 
-QTdChatActionUploadingVoiceNote::QTdChatActionUploadingVoiceNote(QObject *parent) : QTdChatAction(parent)
+QTdChatActionUploadingVoiceNote::QTdChatActionUploadingVoiceNote(QObject *parent)
+    : QTdChatAction(parent)
 {
     setType(CHAT_ACTION_UPLOADING_VOICE_NOTE);
 }

@@ -14,7 +14,10 @@ class QTdAuthState : public QTdObject
 {
     Q_OBJECT
 public:
-    explicit QTdAuthState(QObject *parent = Q_NULLPTR) : QTdObject(parent) {}
+    explicit QTdAuthState(QObject *parent = Q_NULLPTR)
+        : QTdObject(parent)
+    {
+    }
 };
 
 /**
@@ -48,6 +51,7 @@ signals:
 
 protected:
     void setIsEncrypted(const bool encrypted);
+
 private:
     bool m_encrypted;
 
@@ -73,12 +77,13 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_wait_code.html
  */
-class QTdAuthStateWaitCode : public QTdAuthState {
+class QTdAuthStateWaitCode : public QTdAuthState
+{
     Q_OBJECT
     Q_PROPERTY(bool isRegistered READ isRegistered NOTIFY infoChanged)
     Q_PROPERTY(QTdAuthCodeInfo *info READ info NOTIFY infoChanged)
 public:
-    explicit QTdAuthStateWaitCode (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateWaitCode(QObject *parent = Q_NULLPTR);
 
     bool isRegistered() const;
     QTdAuthCodeInfo *info() const;
@@ -87,6 +92,7 @@ public:
 signals:
     void infoChanged();
     void isRegisteredChanged();
+
 private:
     bool m_isRegistered;
     QTdAuthCodeInfo *m_info;
@@ -97,13 +103,14 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_wait_password.html
  */
-class QTdAuthStateWaitPassword : public QTdAuthState {
+class QTdAuthStateWaitPassword : public QTdAuthState
+{
     Q_OBJECT
     Q_PROPERTY(QString passwordHint READ passwordHint NOTIFY dataChanged)
     Q_PROPERTY(bool hasRecoveryEmail READ hasRecoveryEmail NOTIFY dataChanged)
     Q_PROPERTY(QString recoveryEmail READ recoveryEmail NOTIFY dataChanged)
 public:
-    explicit QTdAuthStateWaitPassword (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateWaitPassword(QObject *parent = Q_NULLPTR);
 
     QString passwordHint() const;
     QString recoveryEmail() const;
@@ -112,6 +119,7 @@ public:
     void unmarshalJson(const QJsonObject &json);
 signals:
     void dataChanged();
+
 private:
     QString m_hint;
     bool m_hasRecovery;
@@ -123,10 +131,11 @@ private:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_ready.html
  */
-class QTdAuthStateReady : public QTdAuthState {
+class QTdAuthStateReady : public QTdAuthState
+{
     Q_OBJECT
 public:
-    explicit QTdAuthStateReady (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateReady(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -134,10 +143,11 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_logging_out.html
  */
-class QTdAuthStateLoggingOut : public QTdAuthState {
+class QTdAuthStateLoggingOut : public QTdAuthState
+{
     Q_OBJECT
 public:
-    explicit QTdAuthStateLoggingOut (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateLoggingOut(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -145,10 +155,11 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_closing.html
  */
-class QTdAuthStateClosing : public QTdAuthState {
+class QTdAuthStateClosing : public QTdAuthState
+{
     Q_OBJECT
 public:
-    explicit QTdAuthStateClosing (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateClosing(QObject *parent = Q_NULLPTR);
 };
 
 /**
@@ -156,10 +167,11 @@ public:
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_closed.html
  */
-class QTdAuthStateClosed : public QTdAuthState {
+class QTdAuthStateClosed : public QTdAuthState
+{
     Q_OBJECT
 public:
-    explicit QTdAuthStateClosed (QObject * parent = Q_NULLPTR);
+    explicit QTdAuthStateClosed(QObject *parent = Q_NULLPTR);
 };
 
 #endif // QTDAUTHSTATE_H

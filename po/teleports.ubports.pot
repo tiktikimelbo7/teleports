@@ -1,5 +1,5 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2018 UBports Foundation
 # This file is distributed under the same license as the teleports.ubports package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-07 22:48+0000\n"
+"POT-Creation-Date: 2019-09-12 19:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,239 +45,242 @@ msgid "sent you a document"
 msgstr ""
 
 #: ../push/pushhelper.cpp:152
-msgid "sent you a voice message"
+msgid "sent you an audio message"
 msgstr ""
 
 #: ../push/pushhelper.cpp:156
-msgid "shared a contact with you"
+msgid "sent you a voice message"
 msgstr ""
 
 #: ../push/pushhelper.cpp:160
+msgid "shared a contact with you"
+msgstr ""
+
+#: ../push/pushhelper.cpp:164
 msgid "sent you a map"
 msgstr ""
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:169
 msgid "%1: %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:170
+#: ../push/pushhelper.cpp:174
 msgid "%1 sent a message to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:175
+#: ../push/pushhelper.cpp:179
 msgid "%1 sent a photo to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:180
+#: ../push/pushhelper.cpp:184
 msgid "%1 sent a sticker to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:185
+#: ../push/pushhelper.cpp:189
 msgid "%1 sent a video to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:190
+#: ../push/pushhelper.cpp:194
 msgid "%1 sent a document to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:195
+#: ../push/pushhelper.cpp:199
 msgid "%1 sent a voice message to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:200
+#: ../push/pushhelper.cpp:204
 msgid "%1 sent a contact to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:205
+#: ../push/pushhelper.cpp:209
 msgid "%1 sent a map to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:210 ../push/pushhelper.cpp:231
+#: ../push/pushhelper.cpp:214 ../push/pushhelper.cpp:235
 msgid "%1 invited you to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:215
+#: ../push/pushhelper.cpp:219
 msgid "%1 changed group name"
 msgstr ""
 
-#: ../push/pushhelper.cpp:220
+#: ../push/pushhelper.cpp:224
 msgid "%1 changed group photo"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:226
+#: ../push/pushhelper.cpp:230
 msgid "%1 invited %2"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:237
+#: ../push/pushhelper.cpp:241
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:242
+#: ../push/pushhelper.cpp:246
 msgid "%1 removed you from the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:247
+#: ../push/pushhelper.cpp:251
 msgid "%1 has left the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:252
+#: ../push/pushhelper.cpp:256
 msgid "%1 has returned to the group"
 msgstr ""
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:257
+#: ../push/pushhelper.cpp:261
 msgid "@ %1"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:259
+#: ../push/pushhelper.cpp:263
 msgid "%1 has checked-in"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:265
+#: ../push/pushhelper.cpp:269
 msgid "%1 joined Telegram!"
 msgstr ""
 
-#: ../push/pushhelper.cpp:270 ../push/pushhelper.cpp:276
+#: ../push/pushhelper.cpp:274 ../push/pushhelper.cpp:280
 msgid "New login from unrecognized device"
 msgstr ""
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:275
+#: ../push/pushhelper.cpp:279
 msgid "%1 @ %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:280
+#: ../push/pushhelper.cpp:284
 msgid "updated profile photo"
 msgstr ""
 
-#: ../push/pushhelper.cpp:285 ../push/pushhelper.cpp:290
-#: ../push/pushhelper.cpp:295
+#: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
+#: ../push/pushhelper.cpp:299
 msgid "You have a new message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:315
+#: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:319
-msgid "call has been ended"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+msgid "Phone call"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:323
+#: ../libs/qtdlib/messages/qtdmessage.cpp:307
 msgid "sent an audio message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:327
+#: ../libs/qtdlib/messages/qtdmessage.cpp:311
 msgid "sent a photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:320
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:324
 msgid "sent a video"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:328
 msgid "sent a video note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:332
 msgid "sent a voice note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "joined the group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "changed the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:360
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "changed the chat title"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:364
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined by invite link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:368
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "removed a member"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:372
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "deleted the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:376
+#: ../libs/qtdlib/messages/qtdmessage.cpp:361
 msgid "upgraded to supergroup"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:380
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "message TTL has been changed"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "created this group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
-msgid "sent an unknown message: %1"
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../app/qml/delegates/MessageUnsupported.qml:4
+msgid "Unsupported message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:397
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+msgid "Unimplemented:"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:388
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:6
+#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:25
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
+msgid "Unread Messages"
+msgstr ""
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:35
+#: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:50
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:72
+#: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
 msgstr ""
 
-#: ../libs/qtdlib/user/qtduserstatus.cpp:89
+#: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:71
+#: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:55
-msgid "Image"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-#: ../app/qml/components/AttachPanel.qml:64
-msgid "File"
 msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:77
@@ -325,15 +328,27 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:77
+#: ../app/qml/stores/AuthStateStore.qml:60
+msgid "Invalid phone number!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:67
+msgid "Invalid code!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:74
+msgid "Invalid password!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:83
+#: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:89
+#: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
 msgstr ""
 
@@ -349,23 +364,31 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:19
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "Error"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "No valid location received after 180 seconds!"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:45
+#: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:53
+#: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:60
+#: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:75
+#: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
@@ -390,7 +413,7 @@ msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:304
-#: ../app/qml/delegates/MessageBubbleItem.qml:82
+#: ../app/qml/delegates/MessageBubbleItem.qml:86
 msgid "Forward"
 msgstr ""
 
@@ -412,7 +435,7 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-#: ../app/qml/pages/WaitPasswordPage.qml:48
+#: ../app/qml/pages/WaitPasswordPage.qml:60
 msgid "Next..."
 msgstr ""
 
@@ -426,7 +449,7 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: ../app/qml/pages/GroupDetailsPage.qml:96
+#: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
 msgstr ""
 
@@ -434,19 +457,23 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:70
+#: ../app/qml/pages/AboutPage.qml:71
 msgid "Version %1"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:92
+#: ../app/qml/pages/AboutPage.qml:73
+msgid " (git# %1)"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:93
+#: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:94
+#: ../app/qml/pages/AboutPage.qml:100
 msgid "Help translate"
 msgstr ""
 
@@ -536,31 +563,51 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:27
+#: ../app/qml/pages/MessageListPage.qml:29
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:113
+#: ../app/qml/pages/MessageListPage.qml:123
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:260
-#: ../app/qml/delegates/MessageBubbleItem.qml:62
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:260
-#: ../app/qml/delegates/MessageBubbleItem.qml:70
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:334
+#: ../app/qml/pages/MessageListPage.qml:304
+msgid "You are not allowed to post in this channel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:307
+msgid "Waiting for other party to accept the secret chat..."
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:309
+msgid "Secret chat has been closed"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:390
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:445
+#: ../app/qml/pages/MessageListPage.qml:498
+msgid "Do you want to share your location with %1?"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:500
+msgid "Send"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:511
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -568,11 +615,11 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:13
+#: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:32
+#: ../app/qml/pages/WaitPasswordPage.qml:41
 msgid "Password"
 msgstr ""
 
@@ -594,6 +641,11 @@ msgstr[1] ""
 msgid "%1 left the group"
 msgstr ""
 
+#: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
+#: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
+msgid "Group has been upgraded to Supergroup"
+msgstr ""
+
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
@@ -609,11 +661,11 @@ msgstr ""
 msgid "Copy"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:76
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
 msgid "Sticker Pack info"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:232
+#: ../app/qml/delegates/MessageBubbleItem.qml:239
 msgid "Edited"
 msgstr ""
 
@@ -622,11 +674,15 @@ msgid "A screenshot has been taken"
 msgstr ""
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-msgid "Forwarded from "
+msgid "Forwarded from %1"
 msgstr ""
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
+msgstr ""
+
+#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
+msgid "Missing label..."
 msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
@@ -650,11 +706,14 @@ msgid "Missed Call"
 msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, javascript-format
-msgid "Duration: %1.%2"
+msgid "Duration: %1:%2"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:5
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called << %1 >> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
 msgstr ""
 
@@ -664,4 +723,8 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
+msgstr ""
+
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:67
+msgid "Voice note"
 msgstr ""

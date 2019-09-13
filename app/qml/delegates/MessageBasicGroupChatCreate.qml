@@ -2,8 +2,9 @@ import QtQuick 2.9
 import "../actions"
 
 MessageActionItem {
-    text: i18n.tr("%1 created a group called << %2 >>").arg(
-              message.isCollapsed
+    text: message.isChannelPost
+            ? i18n.tr("Channel called << %1 >> created").arg(content.title)
+            : i18n.tr("%1 created a group called << %2 >>").arg(message.isCollapsed
               ? ""
               : getAddingUserString()).arg(content.title)
 
@@ -13,6 +14,8 @@ MessageActionItem {
         if (message.isCollapsed) {
             return ""
         }
+        if(!message.sender)
+            return "";
         if (message.sender.firstName !== "") {
             var fullName = message.sender.firstName
             if (message.sender.lastName !== "")

@@ -11,7 +11,7 @@ class QTdTextEntity : public QTdObject
     Q_OBJECT
     Q_PROPERTY(qint32 offset READ offset NOTIFY entityChanged)
     Q_PROPERTY(qint32 length READ length NOTIFY entityChanged)
-    Q_PROPERTY(QTdTextEntityType* entityType READ entityType NOTIFY entityChanged)
+    Q_PROPERTY(QTdTextEntityType *entityType READ entityType NOTIFY entityChanged)
 public:
     explicit QTdTextEntity(QObject *parent = nullptr);
 

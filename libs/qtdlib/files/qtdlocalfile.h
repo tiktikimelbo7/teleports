@@ -40,6 +40,7 @@ signals:
     void isDownloadingCompletedChanged(bool isDownloadingCompleted);
     void downloadedPrefixSizeChanged();
     void downloadedSizeChanged();
+
 private:
     QString m_path;
     bool m_canBeDownloaded;

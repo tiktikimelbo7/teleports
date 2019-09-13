@@ -18,6 +18,7 @@ public:
     void setPhoneNumber(const QString &number);
 
     QJsonObject marshalJson();
+
 private:
     QString m_number;
 };

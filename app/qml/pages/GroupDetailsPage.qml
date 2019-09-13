@@ -45,9 +45,7 @@ Page {
 
         ColumnLayout {
             id: groupDetailsColumn
-            anchors {
-                fill: parent
-            }
+            anchors.fill: parent
 
             RowLayout {
                 anchors.fill: parent
@@ -83,16 +81,21 @@ Page {
 
                     Item {
                         height: titleAndMemberCount.height
-                        width: titleAndMemberCount.width
+                        width: parent.width
                         UITK.ListItemLayout {
                             id: titleAndMemberCount
+                            width: parent.width
 
                             padding {
                                 top: units.gu(0.25)
                                 bottom: units.gu(2)
                             }
-                            title.text: chat.title
-                            title.font.pixelSize: units.gu(2.5)
+                            title {
+                                text: chat.title
+                                font.pixelSize: units.gu(2.5)
+                                wrapMode: Text.Wrap
+                                maximumLineCount: 3
+                            }
                             subtitle.text: i18n.tr("Members: %1").arg(parseInt(chat.memberCount))
                             subtitle.font.pixelSize: units.gu(1.5)
                         }
@@ -100,11 +103,12 @@ Page {
 
                     Item {
                         height: chatInviteLinkLayout.height
-                        width: chatInviteLinkLayout.width
+                        width: parent.width
                         visible: chat.inviteLink
 
                         UITK.ListItemLayout {
                             id: chatInviteLinkLayout
+                            width: parent.width
 
                             padding {
                                 top: 0
@@ -112,28 +116,34 @@ Page {
                             }
 
                             UITK.Icon {
-                                height: parent.title.height
-                                width: parent.title.height
+                                height: parent.title.font.pixelSize
+                                width: height
                                 name: "insert-link"
                                 UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                                anchors.verticalCenter: parent.verticalCenter
                             }
 
-                            title.text: chat.inviteLink
+                            title {
+                                text: chat.inviteLink
+                                wrapMode: Text.Wrap
+                                maximumLineCount: 3
+                            }
                         }
                     }
 
                     Item {
                         height: chatDescriptionLayout.height
-                        width: chatDescriptionLayout.width
+                        width: parent.width
 
                         UITK.ListItemLayout {
                             id: chatDescriptionLayout
+                            width: parent.width
 
                             padding {
                                 top: 0
                                 bottom: 0
                             }
-             
+
                             /*UITK.Icon {
                                 height: parent.title.height
                                 width: parent.title.height
@@ -141,12 +151,15 @@ Page {
                                 UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                             }*/
 
-                            //title.text.wrapMode: Text.WordWrap
-                            title.text: chat.description
+                            title {
+                                text: chat.description
+                                wrapMode: Text.Wrap
+                                maximumLineCount: 15
+                            }
                         }
                     }
                 }
             }
         }
-    }   
+    }
 }

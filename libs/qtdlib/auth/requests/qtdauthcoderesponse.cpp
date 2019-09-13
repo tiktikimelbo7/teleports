@@ -1,8 +1,8 @@
 #include "qtdauthcoderesponse.h"
 
-QTdAuthCodeResponse::QTdAuthCodeResponse(QObject *parent) : QTdOkRequest(parent)
+QTdAuthCodeResponse::QTdAuthCodeResponse(QObject *parent)
+    : QTdOkRequest(parent)
 {
-
 }
 
 void QTdAuthCodeResponse::setCode(const QString &code)
@@ -23,9 +23,9 @@ void QTdAuthCodeResponse::setLastName(const QString &lastname)
 QJsonObject QTdAuthCodeResponse::marshalJson()
 {
     return QJsonObject{
-        {"@type", "checkAuthenticationCode"},
-        {"code", m_code},
-        {"first_name", m_firstname},
-        {"last_name", m_lastname},
+        { "@type", "checkAuthenticationCode" },
+        { "code", m_code },
+        { "first_name", m_firstname },
+        { "last_name", m_lastname },
     };
 }

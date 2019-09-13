@@ -54,8 +54,12 @@ UITK.ListItem {
             UITK.Action {
                 iconName: "edit-copy"
                 text: i18n.tr("Copy")
-                visible: false
-                onTriggered: { /* TODO: Implement copy */ }
+                visible: message.content.type == QTdObject.MESSAGE_TEXT
+                onTriggered: {
+                    var mimeData = UITK.Clipboard.newData();
+                    mimeData.text = message.content.text.text;
+                    UITK.Clipboard.push(mimeData);
+                }
             },
             UITK.Action {
                 iconName: "edit"
@@ -167,10 +171,10 @@ UITK.ListItem {
 
                 property real horizontalMargins: mc.anchors.leftMargin + mc.anchors.rightMargin
 
-                width: Math.min(Suru.units.gu(45) - mc.horizontalMargins,
+                width: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)) - mc.horizontalMargins,
                                 Math.max(mainContent.width,
                                          senderLabel.contentWidth,
-                                         dateLabel.implicitWidth))
+                                         message_status_row.implicitWidth))
                 height: childrenRect.height
 
                 Item {
@@ -202,24 +206,26 @@ UITK.ListItem {
                     height: Suru.units.gu(2.5)
                     width: parent.width
 
-                    RowLayout {
-                        id: bottomBar
-                        anchors.fill: parent
+                    Row {
+                        id: message_status_row
+                        spacing: units.dp(4)
+                        anchors.right: parent.right
+                        opacity: message.isOutgoing ? 1 : 0.8
 
                         Row {
                             id: channel_views
                             visible: message.isChannelPost
                             anchors.verticalCenter: parent.verticalCenter
-                            opacity: message.isOutgoing ? 1 : 0.6
                             UITK.Icon {
                                 anchors.verticalCenter: parent.verticalCenter
                                 width: units.gu(2)
                                 height: width
                                 source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
-                                color: Suru.foregroundColor
+                                color: channel_views_count.color
                             }
 
                             Label {
+                                id: channel_views_count
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: message.views
                                 Suru.textLevel: Suru.Small
@@ -228,19 +234,18 @@ UITK.ListItem {
                         }
 
                         Label {
+                            anchors.verticalCenter: parent.verticalCenter
                             id: editedLabel
-                            text: i18n.tr("Edited");
-                            visible: message.isEdited;
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            text: i18n.tr("Edited")
+                            visible: message.isEdited
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
-                            opacity: message.isOutgoing ? 1 : 0.6
                         }
 
                         Label {
                             id: dateLabel
                             text: message.formatDate(message.date)
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            anchors.verticalCenter: parent.verticalCenter
                             Suru.textLevel: Suru.Small
                             Suru.textStyle: Suru.TertiaryText
                         }

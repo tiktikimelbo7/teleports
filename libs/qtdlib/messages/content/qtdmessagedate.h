@@ -19,6 +19,7 @@ public:
 
 signals:
     void dataChanged();
+
 private:
     qint32 m_date;
 };

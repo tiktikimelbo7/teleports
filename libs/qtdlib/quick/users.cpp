@@ -2,7 +2,8 @@
 #include <QDebug>
 #include "user/qtdusers.h"
 
-Users::Users(QObject *parent) : QObject(parent)
+Users::Users(QObject *parent)
+    : QObject(parent)
 {
     emit modelChanged();
     connect(QTdUsers::instance(), &QTdUsers::meMyselfChanged, this, &Users::meChanged);

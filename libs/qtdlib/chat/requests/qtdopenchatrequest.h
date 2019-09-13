@@ -13,6 +13,7 @@ class QTdOpenChatRequest : public QTdOkRequest
 {
     Q_OBJECT
     qint64 m_chatId;
+
 public:
     explicit QTdOpenChatRequest(QObject *parent = nullptr);
     void setChatId(const qint64 &id);

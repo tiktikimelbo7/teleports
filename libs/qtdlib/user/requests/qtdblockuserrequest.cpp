@@ -1,6 +1,7 @@
 #include "qtdblockuserrequest.h"
 
-QTdBlockUserRequest::QTdBlockUserRequest(QObject *parent) : QTdOkRequest(parent)
+QTdBlockUserRequest::QTdBlockUserRequest(QObject *parent)
+    : QTdOkRequest(parent)
 {
 }
 
@@ -22,7 +23,7 @@ void QTdBlockUserRequest::setUserId(const QString &id)
 QJsonObject QTdBlockUserRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "blockUser"},
-        {"user_id", m_userId},
+        { "@type", "blockUser" },
+        { "user_id", m_userId },
     };
 }

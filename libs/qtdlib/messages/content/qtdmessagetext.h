@@ -10,8 +10,8 @@
 class QTdMessageText : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdFormattedText* text READ text NOTIFY dataChanged)
-    Q_PROPERTY(QTdWebPage* webPage READ webPage NOTIFY dataChanged)
+    Q_PROPERTY(QTdFormattedText *text READ text NOTIFY dataChanged)
+    Q_PROPERTY(QTdWebPage *webPage READ webPage NOTIFY dataChanged)
 public:
     explicit QTdMessageText(QObject *parent = nullptr);
 
@@ -22,6 +22,7 @@ public:
 
 signals:
     void dataChanged();
+
 private:
     Q_DISABLE_COPY(QTdMessageText)
     QScopedPointer<QTdFormattedText> m_text;

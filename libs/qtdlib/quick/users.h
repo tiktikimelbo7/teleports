@@ -8,14 +8,14 @@
 class Users : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* model READ model NOTIFY modelChanged)
-    Q_PROPERTY(QTdUser* me READ meMyself NOTIFY meChanged)
+    Q_PROPERTY(QObject *model READ model NOTIFY modelChanged)
+    Q_PROPERTY(QTdUser *me READ meMyself NOTIFY meChanged)
 public:
     explicit Users(QObject *parent = nullptr);
 
-    QObject* model() const;
+    QObject *model() const;
 
-    QTdUser* meMyself() const;
+    QTdUser *meMyself() const;
 signals:
     void modelChanged();
     void meChanged();

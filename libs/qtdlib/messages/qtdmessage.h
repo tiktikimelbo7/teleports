@@ -19,7 +19,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QString chatId READ qmlChatId NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageSendingState *sendingState READ sendingState NOTIFY sendingStateChanged)
     Q_PROPERTY(bool isOutgoing READ isOutgoing NOTIFY messageChanged)
-    Q_PROPERTY(bool isEdited READ isEdited NOTIFY messageChanged)
+    Q_PROPERTY(bool isEdited READ isEdited WRITE setIsEdited NOTIFY messageChanged)
     Q_PROPERTY(bool canBeEdited READ canBeEdited NOTIFY messageChanged)
     Q_PROPERTY(bool canBeForwarded READ canBeForwarded NOTIFY messageChanged)
     Q_PROPERTY(bool canBeDeletedOnlyForSelf READ canBeDeletedOnlyForSelf NOTIFY messageChanged)
@@ -29,6 +29,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessageForwardInfo *forwardInfo READ forwardInfo NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
     Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
@@ -41,11 +42,10 @@ class QTdMessage : public QAbstractInt64Id
     // Indicates if this message is the first/latest message in the model
     Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
     Q_PROPERTY(QString replyToMessageId READ qmlReplyToMessageId NOTIFY messageChanged)
-    Q_PROPERTY(QTdMessage * messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
+    Q_PROPERTY(QTdMessage *messageRepliedTo READ messageRepliedTo NOTIFY messageRepliedToChanged)
     Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
     Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
     Q_PROPERTY(bool isForwarded READ isForwarded NOTIFY messageChanged)
-    Q_PROPERTY(QString forwardedFromDetails READ forwardedFromDetails NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -69,6 +69,8 @@ public:
 
     bool isEdited() const;
 
+    void setIsEdited(const bool value);
+
     bool canBeEdited() const;
 
     bool canBeForwarded() const;
@@ -81,15 +83,17 @@ public:
 
     QString views() const;
 
+    void setViews(const qint32 value);
+
     bool containsUnreadMention() const;
 
     QTdMessageContent *content() const;
 
     QTdReplyMarkup *replyMarkup() const;
 
-    bool isForwarded() const;
+    QTdMessageForwardInfo *forwardInfo() const;
 
-    QString forwardedFromDetails() const;
+    bool isForwarded() const;
 
     QString summary() const;
 
@@ -114,7 +118,7 @@ public:
     qint64 replyToMessageId() const;
     QString qmlReplyToMessageId() const;
     bool isReply() const;
-    QTdMessage * messageRepliedTo();
+    QTdMessage *messageRepliedTo();
 
 signals:
     void messageChanged();
@@ -150,7 +154,6 @@ private:
     bool m_isValid;
     QTdInt32 m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
-    QString m_forwardedFromDetails;
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;

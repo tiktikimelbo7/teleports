@@ -20,7 +20,7 @@ class QTdSendMessageRequest : public QTdRequest
     qint64 m_replyMessageId;
     QTdInputMessageContent *m_content;
 
-  public:
+public:
     explicit QTdSendMessageRequest(QObject *parent = nullptr);
     void setContent(QTdInputMessageContent *content);
     void setChatId(const qint64 &id);

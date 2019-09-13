@@ -16,8 +16,8 @@ class QTdSticker : public QTdObject
     Q_PROPERTY(QString emoji READ emoji NOTIFY stickerChanged)
     Q_PROPERTY(bool isMask READ isMask NOTIFY stickerChanged)
     // TODO: Q_PROPERTY(QTdMaskPosition maskPosition READ maskPosition NOTIFY stickerChanged)
-    Q_PROPERTY(QTdPhotoSize* thumbnail READ thumbnail NOTIFY stickerChanged)
-    Q_PROPERTY(QTdFile* sticker READ sticker NOTIFY stickerChanged)
+    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY stickerChanged)
+    Q_PROPERTY(QTdFile *sticker READ sticker NOTIFY stickerChanged)
 public:
     explicit QTdSticker(QObject *parent = nullptr);
 
@@ -36,7 +36,7 @@ public:
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 
-    QTdPhotoSize* thumbnail() const;
+    QTdPhotoSize *thumbnail() const;
 
 signals:
     void stickerChanged();

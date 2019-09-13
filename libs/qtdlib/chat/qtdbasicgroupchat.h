@@ -13,7 +13,7 @@ class QTdBasicGroupChat : public QTdChat
     Q_OBJECT
     Q_PROPERTY(QString groupId READ qmlGroupId NOTIFY groupChanged)
     Q_PROPERTY(QString memberCount READ qmlMemberCount NOTIFY groupChanged)
-    Q_PROPERTY(QTdChatMemberStatus* status READ status NOTIFY groupChanged)
+    Q_PROPERTY(QTdChatMemberStatus *status READ status NOTIFY groupChanged)
     Q_PROPERTY(bool everyoneIsAdmin READ everyoneIsAdmin NOTIFY groupChanged)
     Q_PROPERTY(bool isActive READ isActive NOTIFY groupChanged)
     Q_PROPERTY(QString upgradedToSuperGroupId READ qmlUpgradedToSuperGroupId NOTIFY groupChanged)
@@ -29,7 +29,7 @@ public:
     qint32 groupId() const;
     QString qmlMemberCount() const;
     qint32 memberCount() const;
-    QTdChatMemberStatus* status() const;
+    QTdChatMemberStatus *status() const;
     bool everyoneIsAdmin() const;
     bool isActive() const;
     QString qmlUpgradedToSuperGroupId() const;

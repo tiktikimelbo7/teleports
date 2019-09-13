@@ -17,7 +17,7 @@
 class QTdChatListSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QTdChatListModel* model READ model WRITE setModel NOTIFY modelChanged)
+    Q_PROPERTY(QTdChatListModel *model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int chatFilters READ chatFilters WRITE setChatFilters NOTIFY chatFiltersChanged)
 public:
     explicit QTdChatListSortFilterModel(QObject *parent = nullptr);

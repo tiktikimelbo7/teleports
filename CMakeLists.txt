@@ -36,7 +36,11 @@ set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
-set(CURRENT_TDLIB_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../tdlib/${ARCH_TRIPLET})
+set(TDLIB_INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build/${ARCH_TRIPLET}/tdlib/install)
+set(TDLIB_LIB_DIR ${TDLIB_INSTALL_DIR}/lib)
+set(TDLIB_INCLUDE_DIR ${TDLIB_INSTALL_DIR}/include)
+
+link_directories(${TDLIB_LIB_DIR})
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -45,14 +49,43 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
+# Sets BUILD_VERSION: Either tag of the current git HEAD or devel build version with git hash
+execute_process(
+  COMMAND git describe --tags --abbrev=0 --exact-match
+  OUTPUT_VARIABLE BUILD_VERSION_RAW
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  ERROR_QUIET
+  )
+if(NOT BUILD_VERSION_RAW)
+  execute_process(
+    COMMAND git describe --tags --abbrev=0
+    OUTPUT_VARIABLE LAST_VERSION_RAW
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+    )
+  execute_process(
+    COMMAND git rev-parse --short HEAD
+    OUTPUT_VARIABLE GIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    ERROR_QUIET
+    )
+  string(TIMESTAMP BUILD_VERSION_RAW "${LAST_VERSION_RAW}.%y%m%d%H%M%S" UTC)
+  message(STATUS "Development build. Git hash is: ${GIT_HASH}")
+endif(NOT BUILD_VERSION_RAW)
+string(SUBSTRING ${BUILD_VERSION_RAW} 1 -1 BUILD_VERSION)
+message(STATUS "Build version is: ${BUILD_VERSION}")
+
+#Version for the app is set in app/CMakeLists.txt
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
+
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
+file(GLOB TDLIB_SO_FILES "${TDLIB_LIB_DIR}/libtdjson.so*")
 install(PROGRAMS ${CURRENT_LIBRARY_DIR}/qtdlib/libQTdlib.so DESTINATION ${QT_IMPORTS_DIR})
-install(PROGRAMS ${CURRENT_TDLIB_BUILD_DIR}/libtdjson.so DESTINATION ${QT_IMPORTS_DIR})
+install(FILES ${TDLIB_SO_FILES} DESTINATION ${QT_IMPORTS_DIR})
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/app/${PROJECT_NAME} DESTINATION ${DATA_DIR})
 
 # Translations
@@ -75,8 +108,6 @@ add_custom_target(${DESKTOP_FILE_NAME} ALL
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE_NAME} DESTINATION ${DATA_DIR})
-
-link_directories(${CURRENT_TDLIB_BUILD_DIR})
 
 add_subdirectory(po)
 add_subdirectory(libs)

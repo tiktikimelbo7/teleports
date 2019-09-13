@@ -1,0 +1,771 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the teleports.ubports package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: teleports.ubports\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-10 20:20+0000\n"
+"PO-Revision-Date: 2019-08-19 20:49+0000\n"
+"Last-Translator: Tom Dom <thomas@patoel.nl>\n"
+"Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
+"teleports/nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.6.1\n"
+
+#. TRANSLATORS: Application name.
+#: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
+#: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
+msgid "TELEports"
+msgstr "TELEports"
+
+#: ../push/pushhelper.cpp:132
+msgid "sent you a message"
+msgstr "heeft je een bericht gestuurd"
+
+#: ../push/pushhelper.cpp:136
+msgid "sent you a photo"
+msgstr "heeft je een foto gestuurd"
+
+#: ../push/pushhelper.cpp:140
+msgid "sent you a sticker"
+msgstr "heeft je een sticker gestuurd"
+
+#: ../push/pushhelper.cpp:144
+msgid "sent you a video"
+msgstr "heeft je een video gestuurd"
+
+#: ../push/pushhelper.cpp:148
+msgid "sent you a document"
+msgstr "heeft je een document gestuurd"
+
+#: ../push/pushhelper.cpp:152
+msgid "sent you an audio message"
+msgstr "heeft je een geluidsfragment gestuurd"
+
+#: ../push/pushhelper.cpp:156
+msgid "sent you a voice message"
+msgstr "heeft je een spraakbericht gestuurd"
+
+#: ../push/pushhelper.cpp:160
+msgid "shared a contact with you"
+msgstr "heeft een contact met jou gedeeld"
+
+#: ../push/pushhelper.cpp:164
+msgid "sent you a map"
+msgstr "heeft je een locatie gestuurd"
+
+#: ../push/pushhelper.cpp:169
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: ../push/pushhelper.cpp:174
+msgid "%1 sent a message to the group"
+msgstr "%1 heeft een bericht naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:179
+msgid "%1 sent a photo to the group"
+msgstr "%1 heeft een foto naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:184
+msgid "%1 sent a sticker to the group"
+msgstr "%1 heeft een sticker naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:189
+msgid "%1 sent a video to the group"
+msgstr "%1 heeft een video naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:194
+msgid "%1 sent a document to the group"
+msgstr "%1 heeft een document naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:199
+msgid "%1 sent a voice message to the group"
+msgstr "%1 heeft een spraakbericht naar de groep gestuurd"
+
+#: ../push/pushhelper.cpp:204
+msgid "%1 sent a contact to the group"
+msgstr "%1 heeft een contact met de groep gedeeld"
+
+#: ../push/pushhelper.cpp:209
+msgid "%1 sent a map to the group"
+msgstr "%1 heeft een locatie met de groep gedeeld"
+
+#: ../push/pushhelper.cpp:214 ../push/pushhelper.cpp:235
+msgid "%1 invited you to the group"
+msgstr "%1 heeft je uitgenodigd voor de groep"
+
+#: ../push/pushhelper.cpp:219
+msgid "%1 changed group name"
+msgstr "%1 heeft de groepnaam gewijzigd"
+
+#: ../push/pushhelper.cpp:224
+msgid "%1 changed group photo"
+msgstr "%1 heeft de groepfoto gewijzigd"
+
+#. TRANSLATORS: Notification message saying: person A invited person B (to a group)
+#: ../push/pushhelper.cpp:230
+msgid "%1 invited %2"
+msgstr "%1 heeft %2 uitgenodigd"
+
+#. TRANSLATORS: Notification message saying: person A removed person B (from a group)
+#: ../push/pushhelper.cpp:241
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:7
+msgid "%1 removed %2"
+msgstr "%1 heeft %2 verwijderd"
+
+#: ../push/pushhelper.cpp:246
+msgid "%1 removed you from the group"
+msgstr "%1 heeft jou uit de groep verwijderd"
+
+#: ../push/pushhelper.cpp:251
+msgid "%1 has left the group"
+msgstr "%1 heeft de groep verlaten"
+
+#: ../push/pushhelper.cpp:256
+msgid "%1 has returned to the group"
+msgstr "%1 is teruggekeerd in de groep"
+
+#. TRANSLATORS: This format string tells location, like: @ McDonals, New York
+#: ../push/pushhelper.cpp:261
+msgid "@ %1"
+msgstr "@ %1"
+
+#. TRANSLATORS: This format string tells who has checked in (in a geographical location).
+#: ../push/pushhelper.cpp:263
+msgid "%1 has checked-in"
+msgstr "%1 is aangekomen"
+
+#. TRANSLATORS: This format string tells who has just joined Telegram.
+#: ../push/pushhelper.cpp:269
+msgid "%1 joined Telegram!"
+msgstr "%1 heeft nu ook Telegram!"
+
+#: ../push/pushhelper.cpp:274 ../push/pushhelper.cpp:280
+msgid "New login from unrecognized device"
+msgstr "Nieuwe login van onbekend apparaat"
+
+#. TRANSLATORS: This format string indicates new login of: (device name) at (location).
+#: ../push/pushhelper.cpp:279
+msgid "%1 @ %2"
+msgstr "%1 @ %2"
+
+#: ../push/pushhelper.cpp:284
+msgid "updated profile photo"
+msgstr "Bijgewerkte profielfoto"
+
+#: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
+#: ../push/pushhelper.cpp:299
+msgid "You have a new message"
+msgstr "Je hebt een nieuw bericht"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+msgid "Sticker"
+msgstr "Sticker"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+msgid "Phone call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+msgid "sent an audio message"
+msgstr "heeft een spraakbericht gestuurd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+msgid "sent a photo"
+msgstr "heeft een foto gestuurd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+msgid "Location"
+msgstr "Locatie"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+msgid "sent a video"
+msgstr "heeft een video gestuurd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+msgid "sent a video note"
+msgstr "heeft een video-notitie gestuurd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+msgid "sent a voice note"
+msgstr "heeft een spraaknotitie gestuurd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+msgid "joined the group"
+msgstr "is lid geworden van de groep"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+msgid "changed the chat photo"
+msgstr "heeft de chatfoto gewijzigd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+msgid "changed the chat title"
+msgstr "heeft de chatnaam gewijzigd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+msgid "joined by invite link"
+msgstr "is lid geworden via een link met uitnodiging"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+msgid "removed a member"
+msgstr "heeft een lid verwijderd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+msgid "deleted the chat photo"
+msgstr "heeft de chatfoto verwijderd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+msgid "upgraded to supergroup"
+msgstr "geüpgrade naar supergroep"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+msgid "message TTL has been changed"
+msgstr "TTL-bericht is gewijzigd"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+msgid "created this group"
+msgstr "heeft deze groep aangemaakt"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../app/qml/delegates/MessageUnsupported.qml:4
+#, fuzzy
+msgid "Unsupported message"
+msgstr "Ongelezen Berichten"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+msgid "Unimplemented:"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+msgid "Me"
+msgstr "Ik"
+
+#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
+msgid "Message"
+msgstr "Bericht"
+
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
+msgid "Unread Messages"
+msgstr "Ongelezen Berichten"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:28
+msgid "Last seen one month ago"
+msgstr "Laatst gezien een maand geleden"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:39
+msgid "Last seen one week ago"
+msgstr "Laatst gezien een week geleden"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
+msgid "Last seen "
+msgstr "Laatst gezien "
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:55
+msgid "dd.MM.yy hh:mm"
+msgstr "dd-MM-yy hh:mm"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:78
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:31
+msgid "Online"
+msgstr "Online"
+
+#: ../libs/qtdlib/user/qtduserstatus.cpp:96
+msgid "Seen recently"
+msgstr "Onlangs gezien"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:80
+msgid "Saved Messages"
+msgstr "Opgeslagen Berichten"
+
+#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
+#: ../app/qml/components/AttachPanel.qml:55
+msgid "Image"
+msgstr "Afbeelding"
+
+#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
+#: ../app/qml/components/AttachPanel.qml:64
+msgid "File"
+msgstr "Bestand"
+
+#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
+#: ../app/qml/components/AttachPanel.qml:73
+msgid "Video"
+msgstr ""
+
+#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
+#: ../app/qml/components/AttachPanel.qml:83
+msgid "Audio"
+msgstr ""
+
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
+msgid "not available"
+msgstr "niet beschikbaar"
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+msgid "Choose a country"
+msgstr "Kies een land"
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "Zoek landnaam..."
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Okay"
+msgstr "OK"
+
+#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupWaitCancel.qml:13
+#: ../app/qml/pages/ChatListPage.qml:30
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:21
+msgid "Are you sure you want to clear the history?"
+msgstr "Weet je zeker of je de geschiedenis wilt wissen?"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+#: ../app/qml/pages/ChatListPage.qml:81
+msgid "Clear history"
+msgstr "Geschiedenis wissen"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:31
+msgid "Are you sure you want to leave this chat?"
+msgstr "Weet je zeker dat je deze chat wilt verlaten?"
+
+#: ../app/qml/middleware/ChatMiddleware.qml:32
+msgid "Leave"
+msgstr "Verlaat"
+
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr "Sluiten"
+
+#: ../app/qml/stores/AuthStateStore.qml:60
+#, fuzzy
+msgid "Invalid phone number!"
+msgstr "Telefoonnummer"
+
+#: ../app/qml/stores/AuthStateStore.qml:67
+msgid "Invalid code!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:74
+msgid "Invalid password!"
+msgstr ""
+
+#: ../app/qml/stores/AuthStateStore.qml:94
+msgid "Auth code not expected right now"
+msgstr "Authorisatiecode nu niet verwacht"
+
+#: ../app/qml/stores/AuthStateStore.qml:100
+msgid "Oops! Internal error."
+msgstr "Oeps! Interne fout."
+
+#: ../app/qml/stores/AuthStateStore.qml:106
+msgid "Incorrect auth code length."
+msgstr "Incorrecte authorisatiecodelengte."
+
+#: ../app/qml/stores/NotificationsStateStore.qml:12
+msgid "Push Registration Failed"
+msgstr "Push Registratie Mislukt"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:23
+msgid "No Ubuntu One"
+msgstr "Geen Ubuntu One"
+
+#: ../app/qml/stores/NotificationsStateStore.qml:24
+msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr "Verbindt met Ubuntu One on pushmeldingen te ontvangen."
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "Error"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:38
+msgid "No valid location received after 180 seconds!"
+msgstr ""
+
+#: ../app/qml/pages/WaitCodePage.qml:18
+msgid "Enter Code"
+msgstr "Code Invoeren"
+
+#: ../app/qml/pages/WaitCodePage.qml:44
+msgid "First Name"
+msgstr "Voornaam"
+
+#: ../app/qml/pages/WaitCodePage.qml:52
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: ../app/qml/pages/WaitCodePage.qml:59
+msgid "Code"
+msgstr "Code"
+
+#: ../app/qml/pages/WaitCodePage.qml:74
+msgid "We've send a code via telegram to your device. Please enter it here."
+msgstr ""
+"Voer hier de code in die we via Telegram naar je apparaat gestuurd hebben."
+
+#: ../app/qml/pages/ChatListPage.qml:19
+msgid "Select destination or cancel..."
+msgstr "Kies locatie of annuleer..."
+
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../app/qml/pages/ChatListPage.qml:76
+msgid "Leave chat"
+msgstr "Chat verlaten"
+
+#: ../app/qml/pages/ChatListPage.qml:92
+msgid "Info"
+msgstr "Info"
+
+#: ../app/qml/pages/ChatListPage.qml:302
+msgid "Do you want to forward the selected messages to %1?"
+msgstr "Wil je de geselecteerde berichten doorsturen naar %1?"
+
+#: ../app/qml/pages/ChatListPage.qml:304
+#: ../app/qml/delegates/MessageBubbleItem.qml:86
+msgid "Forward"
+msgstr "Doorsturen"
+
+#: ../app/qml/pages/ChatListPage.qml:318
+msgid "Enter optional message..."
+msgstr "Optioneel bericht invoeren..."
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+msgid "Enter Phone Number"
+msgstr "Voer Telefoonnummer In"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+msgid "Phone number"
+msgstr "Telefoonnummer"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+msgid "Please confirm your country code and enter your phone number."
+msgstr "Bevestig je landnummer en voer je telefoonnummer in."
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
+#: ../app/qml/pages/WaitPasswordPage.qml:60
+msgid "Next..."
+msgstr "Volgende..."
+
+#: ../app/qml/pages/GroupDetailsPage.qml:21
+msgid "Group Details"
+msgstr "Groepdetails"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
+msgid "Back"
+msgstr "Vorige"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:96
+msgid "Members: %1"
+msgstr "Leden: %1"
+
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
+msgid "About"
+msgstr "Over"
+
+#: ../app/qml/pages/AboutPage.qml:71
+msgid "Version %1"
+msgstr "Versie %1"
+
+#: ../app/qml/pages/AboutPage.qml:73
+msgid " (git# %1)"
+msgstr ""
+
+#: ../app/qml/pages/AboutPage.qml:98
+msgid "Get the source"
+msgstr "Broncode verkrijgen"
+
+#: ../app/qml/pages/AboutPage.qml:99
+msgid "Report issues"
+msgstr "Problemen melden"
+
+#: ../app/qml/pages/AboutPage.qml:100
+msgid "Help translate"
+msgstr "Helpen met vertalen"
+
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:27
+msgid "Offline"
+msgstr "Offline"
+
+#: ../app/qml/pages/ConnectivityPage.qml:25
+#: ../app/qml/pages/ConnectivityPage.qml:29
+msgid "Connecting"
+msgstr "Verbinden"
+
+#: ../app/qml/pages/ConnectivityPage.qml:28
+msgid "Connecting To Proxy"
+msgstr "Verbinden met Proxy"
+
+#: ../app/qml/pages/ConnectivityPage.qml:30
+msgid "Updating"
+msgstr "Updaten"
+
+#: ../app/qml/pages/ConnectivityPage.qml:36
+msgid "Connectivity"
+msgstr "Verbinding"
+
+#: ../app/qml/pages/ConnectivityPage.qml:75
+msgid "Telegram connectivity status:"
+msgstr "Verbindingsstatus van Telegram:"
+
+#: ../app/qml/pages/ConnectivityPage.qml:82
+msgid "Ubuntu Touch connectivity status:"
+msgstr "Verbindingsstatus van Ubuntu Touch:"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+msgid "Ubuntu Touch bandwith limited"
+msgstr "Bandbreedte van Ubuntu Touch is beperkt"
+
+#: ../app/qml/pages/ConnectivityPage.qml:89
+msgid "Ubuntu Touch bandwith not limited"
+msgstr "Bandbreedte van Ubuntu Touch is niet beperkt"
+
+#: ../app/qml/pages/SettingsPage.qml:82
+msgid "Night mode"
+msgstr "Nachtmodus"
+
+#: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
+msgid "Logout"
+msgstr "Afmelden"
+
+#: ../app/qml/pages/SettingsPage.qml:115
+msgid "Delete account"
+msgstr "Account verwijderen"
+
+#: ../app/qml/pages/SettingsPage.qml:128
+msgid "Connectivity status"
+msgstr "Verbindingsstatus"
+
+#: ../app/qml/pages/SettingsPage.qml:145
+msgid ""
+"Warning: Logging out will delete all local data from this device, including "
+"secret chats. Are you still sure you want to log out?"
+msgstr ""
+"Waarschuwing: met afmelden worden alle lokaal opgeslagen gegevens, inclusief "
+"de geheime chats verwijderd. Weet je zeker dat je wilt afmelden?"
+
+#: ../app/qml/pages/SettingsPage.qml:155
+msgid ""
+"Warning: Deleting the account will delete all the data you ever received or "
+"send using telegram except for data you have explicitly saved outside the "
+"telegram cloud. Are you really really sure you want to delete your telegram "
+"account?"
+msgstr ""
+"Waarschuwing: met het verwijderen van het account worden alle gegevens die "
+"je ooit met Telegram ontvangen of verzonden hebt verwijderd. Dit geldt niet "
+"voor de data die je buiten de Telegram-servers om hebt opgeslagen. Weet je "
+"heel, heel, heel erg zeker dat je je Telegram-account wilt verwijderen?"
+
+#: ../app/qml/pages/SettingsPage.qml:157
+#: ../app/qml/delegates/MessageBubbleItem.qml:33
+#: ../app/qml/delegates/MessageBubbleItem.qml:47
+msgid "Delete"
+msgstr "Verwijder"
+
+#: ../app/qml/pages/PickerPage.qml:16
+msgid "Content Picker"
+msgstr "Openen vanuit"
+
+#: ../app/qml/pages/PreviewPage.qml:35
+msgid "File: "
+msgstr "Bestand: "
+
+#: ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "Opslaan"
+
+#: ../app/qml/pages/MessageListPage.qml:29
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 lid"
+msgstr[1] "%1 leden"
+
+#: ../app/qml/pages/MessageListPage.qml:123
+msgid "Telegram"
+msgstr "Telegram"
+
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:66
+msgid "Edit"
+msgstr "Bewerken"
+
+#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
+msgid "Reply"
+msgstr "Antwoorden"
+
+#: ../app/qml/pages/MessageListPage.qml:304
+msgid "You are not allowed to post in this channel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:307
+msgid "Waiting for other party to accept the secret chat..."
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:309
+#, fuzzy
+msgid "Secret chat has been closed"
+msgstr "gesprek is beëindigd"
+
+#: ../app/qml/pages/MessageListPage.qml:390
+msgid "Type a message..."
+msgstr "Bericht typen..."
+
+#: ../app/qml/pages/MessageListPage.qml:498
+msgid "Do you want to share your location with %1?"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:500
+msgid "Send"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:511
+msgid "Requesting location from OS..."
+msgstr "Locatie opvragen bij OS..."
+
+#: ../app/qml/pages/UserProfilePage.qml:19
+msgid "Profile"
+msgstr "Profiel"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:18
+msgid "Enter Password"
+msgstr "Wachtwoord Invoeren"
+
+#: ../app/qml/pages/WaitPasswordPage.qml:41
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
+msgid "%1 joined the group"
+msgstr "%1 is lid geworden van de groep"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+msgid "%1 added %2"
+msgstr "%1 heeft %2 toegevoegd"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+msgid "%1 user(s)"
+msgid_plural ""
+msgstr[0] "%1 gebruiker"
+msgstr[1] "%1 gebruikers"
+
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
+msgid "%1 left the group"
+msgstr "%1 heeft de groep verlaten"
+
+#: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
+#: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
+#, fuzzy
+msgid "Group has been upgraded to Supergroup"
+msgstr "geüpgrade naar supergroep"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:44
+msgid ""
+"The message will be deleted for all users in the chat. Do you really want to "
+"delete it?"
+msgstr ""
+"Het bericht wordt verwijderd voor alle gebruikers in de chat. Weet je zeker "
+"dat je het wilt verwijderen?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:45
+msgid ""
+"The message will be deleted only for you. Do you really want to delete it?"
+msgstr ""
+"Het bericht wordt alleen voor jou verwijderd. Weet je zeker dat je het wilt "
+"verwijderen?"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:56
+msgid "Copy"
+msgstr "Kopieer"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
+msgid "Sticker Pack info"
+msgstr "Stickerpaketinfo"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:239
+msgid "Edited"
+msgstr "Bewerkt"
+
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr "Er is een schermprint gemaakt"
+
+#: ../app/qml/delegates/MessageContentBase.qml:35
+#, fuzzy
+msgid "Forwarded from %1"
+msgstr "Doorgestuurd van "
+
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
+msgstr "Onbekend berichttype, zie logbestand voor details..."
+
+#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
+msgid "Missing label..."
+msgstr "Missend label..."
+
+#: ../app/qml/delegates/MessageContentCall.qml:51
+msgid "Call Declined"
+msgstr "Oproep Geweigerd"
+
+#: ../app/qml/delegates/MessageContentCall.qml:53
+msgid "Call Disconnected"
+msgstr "Verbinding Verbroken"
+
+#: ../app/qml/delegates/MessageContentCall.qml:56
+msgid "Call Ended"
+msgstr "Oproep beëindigd"
+
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Cancelled Call"
+msgstr "Geannuleerde Oproepen"
+
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Missed Call"
+msgstr "Gemiste Oproepen"
+
+#: ../app/qml/delegates/MessageContentCall.qml:71
+#, fuzzy
+msgid "Duration: %1:%2"
+msgstr "Duur: %1.%2"
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called << %1 >> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
+msgid "%1 created a group called << %2 >>"
+msgstr "%1 heeft een groep aangemaakt met de naam << %2 >>"
+
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "dd MMMM"
+msgstr "dd MMMM"
+
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
+msgid "%1 joined by invite link"
+msgstr "%1 is lid geworden via een link met uitnodiging"
+
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:67
+msgid "Voice note"
+msgstr "Spraaknotitie"
+
+#~ msgid "sent an unknown message: %1"
+#~ msgstr "heeft een onbekend bericht gestuurd: %1"

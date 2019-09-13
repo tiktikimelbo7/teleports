@@ -1,7 +1,8 @@
 #include "messagedelegatemap.h"
 #include <qtdlib/common/qabstracttdobject.h>
 
-MessageDelegateMap::MessageDelegateMap(QObject *parent) : QObject(parent)
+MessageDelegateMap::MessageDelegateMap(QObject *parent)
+    : QObject(parent)
 {
     m_delegates.insert(QTdObject::MESSAGE_ANIMATION, QStringLiteral("qrc:///delegates/MessageAnimationItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_AUDIO, QStringLiteral("qrc:///delegates/MessageAudioItem.qml"));
@@ -22,18 +23,23 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent) : QObject(parent)
     m_delegates.insert(QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION, QStringLiteral("qrc:///delegates/MessageCustomServiceAction.qml"));
     m_delegates.insert(QTdObject::MESSAGE_SCREENSHOT_TAKEN, QStringLiteral("qrc:///delegates/MessageScreenshotTaken.qml"));
     m_delegates.insert(QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE, QStringLiteral("qrc:///delegates/MessageBasicGroupChatCreate.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE, QStringLiteral("qrc:///delegates/MessageBasicGroupChatCreate.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_DELETE_MEMBER, QStringLiteral("qrc:///delegates/MessageChatDeleteMember.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_VOICE_NOTE, QStringLiteral("qrc:///delegates/MessageVoiceNote.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_VIDEO_NOTE, QStringLiteral("qrc:///delegates/MessageVideoNote.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_TO, QStringLiteral("qrc:///delegates/MessageChatUpgradeTo.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_FROM, QStringLiteral("qrc:///delegates/MessageChatUpgradeFrom.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_UNSUPPORTED, QStringLiteral("qrc:///delegates/MessageUnsupported.qml"));
 
     // TODO: implement delegates
     m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_PHOTO, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_TITLE, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_DELETE_PHOTO, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_SET_TTL, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
-    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_FROM, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
-    m_delegates.insert(QTdObject::MESSAGE_CHAT_UPGRADE_TO, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_default = QStringLiteral("qrc:///delegates/NotImplementedYet.qml");
 }
 
-QString MessageDelegateMap::findComponent(const int &type) {
+QString MessageDelegateMap::findComponent(const int &type)
+{
     return m_delegates.value(type, m_default);
 }

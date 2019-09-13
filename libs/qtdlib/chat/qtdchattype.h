@@ -37,6 +37,7 @@ public:
     void unmarshalJson(const QJsonObject &json);
 signals:
     void groupIdChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatTypeBasicGroup)
     QTdInt32 m_groupId;
@@ -51,7 +52,7 @@ class QTdChatTypePrivate : public QTdChatType
 {
     Q_OBJECT
     Q_PROPERTY(QString userId READ qmlUserId NOTIFY userIdChanged)
-    Q_PROPERTY(QTdUser* user READ user NOTIFY userChanged)
+    Q_PROPERTY(QTdUser *user READ user NOTIFY userChanged)
 public:
     explicit QTdChatTypePrivate(QObject *parent = Q_NULLPTR);
 
@@ -67,7 +68,7 @@ signals:
 private:
     Q_DISABLE_COPY(QTdChatTypePrivate)
     QTdInt32 m_userId;
-    QTdUser* m_user;
+    QTdUser *m_user;
     bool m_waitingForUser;
 
     void updateUser(const qint32 &userId);
@@ -92,6 +93,7 @@ public:
 
 signals:
     void secretChatIdChanged();
+
 private:
     Q_DISABLE_COPY(QTdChatTypeSecret)
     QTdInt32 m_chatId;

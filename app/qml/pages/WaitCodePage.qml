@@ -5,7 +5,6 @@ import QtQuick.Controls.Suru 2.2
 import QuickFlux 1.1
 import "../actions"
 
-// TODO: Use qqc2-suru
 Page {
     id: waitCodePage
 
@@ -28,8 +27,7 @@ Page {
     Column {
         width: Math.min( Suru.units.gu(45), parent.width - units.gu(4) )
         spacing: Suru.units.gu(2)
-        
-        anchors.top: header.bottom
+
         anchors.horizontalCenter: parent.horizontalCenter
 
         Rectangle {
@@ -86,12 +84,14 @@ Page {
     }
 
     AppListener {
-      Filter {
-        type: AuthKey.authCodeError
-          onDispatched: {
-            errorLabel.text = message.error
+        Filter {
+            type: AuthKey.authCodeError
+            onDispatched: {
+                errorLabel.text = message.error
+                if(!message.isLengthWarning)
+                    codeField.text = ""
+            }
         }
-      }
     }
 
     AppScript {
@@ -99,6 +99,9 @@ Page {
        script: {
            // Enter number including dial code
            AppActions.auth.setCode(message.code, message.firstname, message.lastname);
+            once(AuthKey.authCodeError, function(message) {
+               exit(1);
+           })
            once(AuthKey.authCodeAccepted, exit.bind(this,0))
        }
     }

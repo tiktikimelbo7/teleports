@@ -104,6 +104,16 @@ Page {
         sendNumber.run({number: phoneInput})
     }
 
+    AppListener {
+        Filter {
+            type: AuthKey.authPhoneNumberError
+            onDispatched: {
+                errorLabel.text = message.error
+                phoneNumberTextField.text = ""
+            }
+        }
+    }
+
     AppScript {
         id: sendNumber
         script: {
@@ -111,7 +121,6 @@ Page {
             AppActions.auth.setPhoneNumber("", message.number);
 
             once(AuthKey.authPhoneNumberError, function(message) {
-                errorLabel.text = message.error;
                 exit(1);
             })
 

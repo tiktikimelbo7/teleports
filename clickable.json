@@ -1,5 +1,5 @@
 {
-  "clickable_minimum_required": "5.8.1",
+  "clickable_minimum_required": "6",
   "template": "cmake",
   "kill": "teleports",
   "dependencies_target": [
@@ -9,8 +9,6 @@
   "dependencies_build": [
     "ccache"
   ],
-  "build_dir": "build/teleports",
-  "make_jobs": 4,
   "libraries": {
     "tdlib-prepare": {
       "template": "cmake",
@@ -23,7 +21,6 @@
     "tdlib": {
       "template": "cmake",
       "src_dir": "libs/vendor/tdlib",
-      "make_jobs": 1,
       "make_args": "tdjson",
       "dependencies_target": [
         "zlib1g-dev",

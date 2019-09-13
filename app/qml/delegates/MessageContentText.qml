@@ -10,8 +10,10 @@ MessageContentBase {
     id: item
 
     property QTdMessageText textContent: message.content
+    implicitWidth: webpage_loader.visible && textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), text.width) : text.width
 
     FormattedText {
+        id: text
         anchors {
             top: parent.top
         }
@@ -23,11 +25,12 @@ MessageContentBase {
         // loading asynchronous with yet undefined height makes jumping
         // to the first unread message unpresice
         Loader {
+            id: webpage_loader
             visible: textContent.webPage && !message.isCollapsed
             active: visible
             asynchronous: true
             height: childrenRect.height
-            width: parent.width
+            width: item.width
             sourceComponent: Component {
                 WebPagePreview {
                     preview: textContent.webPage

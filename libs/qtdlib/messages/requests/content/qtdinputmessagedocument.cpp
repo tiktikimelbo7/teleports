@@ -1,10 +1,13 @@
 #include "qtdinputmessagedocument.h"
 
-QTdInputMessageDocument::QTdInputMessageDocument(QObject *parent) : QTdInputMessageContent(parent),
-    m_document(QString()), m_caption(QString()), m_captionEntities(QJsonArray())
+QTdInputMessageDocument::QTdInputMessageDocument(QObject *parent)
+    : QTdInputMessageContent(parent)
+    , m_document(QString())
+    , m_caption(QString())
+    , m_captionEntities(QJsonArray())
 {
 }
-void QTdInputMessageDocument::setDocument(const QString &url)
+void QTdInputMessageDocument::setAttachmentPath(const QString &url)
 {
 
     m_document = url;
@@ -19,17 +22,12 @@ void QTdInputMessageDocument::setCaptionEntities(const QJsonArray &entities)
 }
 QJsonObject QTdInputMessageDocument::marshalJson()
 {
-    qDebug()<<"inputMessageDocument";
+    qDebug() << "inputMessageDocument";
     return QJsonObject{
-      {"@type", "inputMessageDocument"},
-      {"document", QJsonObject{
-        {"@type", "inputFileLocal"},
-        {"path", m_document}
-      }},
-      {"caption", QJsonObject{
-        {"@type", "formattedText"},
-        {"text", m_caption},
-        {"entities", m_captionEntities}
-      }},
+        { "@type", "inputMessageDocument" },
+        { "document", QJsonObject{
+                              { "@type", "inputFileLocal" },
+                              { "path", m_document } } },
+        { "caption", QJsonObject{ { "@type", "formattedText" }, { "text", m_caption }, { "entities", m_captionEntities } } },
     };
 }

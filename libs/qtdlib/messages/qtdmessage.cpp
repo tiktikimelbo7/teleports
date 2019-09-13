@@ -17,8 +17,7 @@
 #include "chat/requests/qtdgetchatrequest.h"
 #include "chat/qtdchat.h"
 #include "utils/await.h"
-
-//#include "i18n.h"
+#include "utils/i18n.h"
 
 QTdMessage::QTdMessage(QObject *parent)
     : QAbstractInt64Id(parent)
@@ -40,7 +39,6 @@ QTdMessage::QTdMessage(QObject *parent)
     , m_previousSender(0)
     , m_nextSender(0)
     , m_replyMarkup(Q_NULLPTR)
-    , m_forwardedFromDetails("")
     , m_messageRepliedTo(Q_NULLPTR)
     , m_replyToMessageId(0)
     , m_isCollapsed(false)
@@ -171,41 +169,10 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     qint64 forwardedFromId = 0;
     const QJsonObject forwardInfo = json["forward_info"].toObject();
     if (!forwardInfo.isEmpty()) {
-        const QString forwardInfoType = forwardInfo["@type"].toString();
-        if (forwardInfoType == "messageForwardedFromUser") {
-            auto tempForwardInfo = new QTdMessageForwardedFromUser(this);
-            tempForwardInfo->unmarshalJson(forwardInfo);
-            m_forwardInfo = tempForwardInfo;
-            forwardedFromId = tempForwardInfo->senderUserId();
-            QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
-            req->setUserId(forwardedFromId);
-            QFuture<QTdResponse> resp = req->sendAsync();
-            await(resp, 2000);
-            if (resp.result().isError()) {
-                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
-                return;
-            }
-            auto tempUser = new QTdUser(this);
-            tempUser->unmarshalJson(resp.result().json());
-            m_forwardedFromDetails = tempUser->firstName() + " " + tempUser->lastName();
-        } else if (forwardInfoType == "messageForwardedPost") {
-            auto tempForwardInfo = new QTdMessageForwardedPost(this);
-            tempForwardInfo->unmarshalJson(forwardInfo);
-            m_forwardInfo = tempForwardInfo;
-            forwardedFromId = tempForwardInfo->chatId();
-            QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
-            req->setChatId(forwardedFromId);
-            QFuture<QTdResponse> resp = req->sendAsync();
-            await(resp, 2000);
-            if (resp.result().isError()) {
-                qWarning() << "Failed to get forward info message with error: " << resp.result().errorString();
-                return;
-            }
-            auto tempChat = new QTdChat(this);
-            tempChat->unmarshalJson(resp.result().json());
-            m_forwardedFromDetails = tempChat->title();
+        m_forwardInfo = new QTdMessageForwardInfo(this);
+        if (m_forwardInfo) {
+            m_forwardInfo->unmarshalJson(forwardInfo);
         }
-        emit messageChanged();
     }
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
@@ -245,6 +212,12 @@ bool QTdMessage::isEdited() const
     return m_isEdited;
 }
 
+void QTdMessage::setIsEdited(const bool value)
+{
+    m_isEdited = value;
+    emit messageChanged();
+}
+
 bool QTdMessage::canBeEdited() const
 {
     return m_canBeEdited;
@@ -274,11 +247,17 @@ QString QTdMessage::views() const
 {
 
     if (m_views > 9999 && m_views <= 999999)
-        return  QString("%1K").arg(((double)(m_views/ 100)) / 10, 0, 'd', 1);
+        return QString("%1K").arg(((double)(m_views / 100)) / 10, 0, 'd', 1);
     else if (m_views > 999999)
         return QString("%1M").arg(((double)(m_views / 100000)) / 10, 0, 'd', 1);
     else
         return QString("%1").arg(m_views);
+}
+
+void QTdMessage::setViews(const qint32 value)
+{
+    m_views = value;
+    emit messageChanged();
 }
 
 bool QTdMessage::containsUnreadMention() const
@@ -296,9 +275,9 @@ QTdReplyMarkup *QTdMessage::replyMarkup() const
     return m_replyMarkup;
 }
 
-QString QTdMessage::forwardedFromDetails() const
+QTdMessageForwardInfo *QTdMessage::forwardInfo() const
 {
-    return m_forwardedFromDetails;
+    return m_forwardInfo;
 }
 
 bool QTdMessage::isForwarded() const
@@ -311,28 +290,26 @@ QString QTdMessage::summary() const
     QString content;
 
     switch (m_content->type()) {
-    case QTdObject::MESSAGE_TEXT:
-    {
-        auto *c = qobject_cast<QTdMessageText*>(m_content);
+    case QTdObject::MESSAGE_TEXT: {
+        auto *c = qobject_cast<QTdMessageText *>(m_content);
         content = c->text()->text();
         break;
     }
-    case QTdObject::MESSAGE_STICKER:
-    {
-        auto *c = qobject_cast<QTdMessageSticker*>(m_content);
-        content = c->sticker()->emoji() + " " + tr("Sticker");
+    case QTdObject::MESSAGE_STICKER: {
+        auto *c = qobject_cast<QTdMessageSticker *>(m_content);
+        content = c->sticker()->emoji() + " " + gettext("Sticker");
         break;
     }
     case QTdObject::MESSAGE_CALL: {
-        content = tr("call has been ended");
+        content = gettext("Phone call");
         break;
     }
     case QTdObject::MESSAGE_AUDIO: {
-        content = tr("sent an audio message");
+        content = gettext("sent an audio message");
         break;
     }
     case QTdObject::MESSAGE_PHOTO: {
-        content = tr("sent a photo");
+        content = gettext("sent a photo");
         break;
     }
     case QTdObject::MESSAGE_CONTACT: {
@@ -340,73 +317,80 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_DOCUMENT: {
-        auto *c = qobject_cast<QTdMessageDocument*>(m_content);
+        auto *c = qobject_cast<QTdMessageDocument *>(m_content);
         content = c->document()->fileName();
         break;
     }
     case QTdObject::MESSAGE_LOCATION: {
-        content = tr("Location");
+        content = gettext("Location");
         break;
     }
     case QTdObject::MESSAGE_VIDEO: {
-        content = tr("sent a video");
+        content = gettext("sent a video");
         break;
     }
     case QTdObject::MESSAGE_VIDEO_NOTE: {
-        content = tr("sent a video note");
+        content = gettext("sent a video note");
         break;
     }
     case QTdObject::MESSAGE_VOICE_NOTE: {
-        content = tr("sent a voice note");
+        content = gettext("sent a voice note");
         break;
     }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
-        content = tr("joined the group");
+        content = gettext("joined the group");
         break;
     }
     case QTdObject::MESSAGE_CHAT_CHANGE_PHOTO: {
-        content = tr("changed the chat photo");
+        content = gettext("changed the chat photo");
         break;
     }
     case QTdObject::MESSAGE_CHAT_CHANGE_TITLE: {
-        content = tr("changed the chat title");
+        content = gettext("changed the chat title");
         break;
     }
     case QTdObject::MESSAGE_CHAT_JOIN_BY_LINK: {
-        content = tr("joined by invite link");
+        content = gettext("joined by invite link");
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
-        content = tr("removed a member");
+        content = gettext("removed a member");
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_PHOTO: {
-        content = tr("deleted the chat photo");
+        content = gettext("deleted the chat photo");
         break;
     }
-    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM: {
-        content = tr("upgraded to supergroup");
+    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM:
+    case QTdObject::MESSAGE_CHAT_UPGRADE_TO: {
+        content = gettext("upgraded to supergroup");
         break;
     }
     case QTdObject::MESSAGE_CHAT_SET_TTL: {
-        content = tr("message TTL has been changed");
+        content = gettext("message TTL has been changed");
         break;
     }
-    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE: {
-        content = tr("created this group");
+    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE:
+    case QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE: {
+        content = gettext("created this group");
         break;
     }
     case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
-        auto *c = qobject_cast<QTdMessageCustomServiceAction*>(m_content);
+        auto *c = qobject_cast<QTdMessageCustomServiceAction *>(m_content);
         content = c->text();
         break;
     }
-    default : content = tr("sent an unknown message: %1").arg(m_content->typeString());
+    case QTdObject::MESSAGE_UNSUPPORTED: {
+        content = gettext("Unsupported message");
+        break;
+    }
+    default:
+        content = QString("%1 %2").arg(gettext("Unimplemented:"), m_content->typeString());
         break;
     }
 
     if (isOutgoing())
-        return QString("%1: %2").arg(tr("Me"), content);
+        return QString("%1: %2").arg(gettext("Me"), content);
     QString name;
     if (m_sender) {
         name = m_sender->firstName();
@@ -436,7 +420,6 @@ void QTdMessage::setPreviousSenderId(const qint32 &id)
 {
     m_previousSender = id;
     emit previousSenderChanged();
-
 }
 
 bool QTdMessage::sameUserAsNextMessage() const
@@ -487,9 +470,8 @@ void QTdMessage::updateSender(const qint32 &senderId)
     }
     connect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdMessage::updateSender);
     QTdClient::instance()->send(QJsonObject{
-                                    {"@type", "getUser"},
-                                    {"user_id", m_sender_user_id.value()}
-                                });
+            { "@type", "getUser" },
+            { "user_id", m_sender_user_id.value() } });
     m_waitingForSender = true;
 }
 
@@ -501,7 +483,7 @@ void QTdMessage::updateSendingState(const QJsonObject &json)
     const QJsonObject jsonSendingState = json["sending_state"].toObject();
     const QString type = jsonSendingState["@type"].toString();
     QTdMessageSendingState *obj = Q_NULLPTR;
-    if (type == "messageSendingStatePending"){
+    if (type == "messageSendingStatePending") {
         obj = new QTdMessageSendingStatePending(this);
     } else {
         qWarning() << "Unknown user status type: " << type;
@@ -514,7 +496,7 @@ bool QTdMessage::isReply() const
     return (m_replyToMessageId.value() > 0);
 }
 
-QTdMessage * QTdMessage::messageRepliedTo()
+QTdMessage *QTdMessage::messageRepliedTo()
 {
     if (replyToMessageId() <= 0) {
         return Q_NULLPTR;
@@ -533,7 +515,7 @@ void QTdMessage::handleMessage(const QJsonObject &json)
         return;
     }
 
-    auto * msgRepliedTo = messageRepliedTo();
+    auto *msgRepliedTo = messageRepliedTo();
     msgRepliedTo->collapse();
 
     if (!msgRepliedTo) {

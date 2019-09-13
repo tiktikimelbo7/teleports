@@ -1,6 +1,9 @@
 #include "qtdnetworktype.h"
 
-QTdNetworkType::QTdNetworkType(QObject *parent) : QTdObject(parent) {}
+QTdNetworkType::QTdNetworkType(QObject *parent)
+    : QTdObject(parent)
+{
+}
 
 QTdNetworkTypeMobile::QTdNetworkTypeMobile(QObject *parent)
     : QTdNetworkType(parent)
@@ -17,7 +20,7 @@ QTdNetworkTypeMobileRoaming::QTdNetworkTypeMobileRoaming(QObject *parent)
 QTdNetworkTypeNone::QTdNetworkTypeNone(QObject *parent)
     : QTdNetworkType(parent)
 {
-  setType(NETWORK_TYPE_NONE);
+    setType(NETWORK_TYPE_NONE);
 }
 
 QTdNetworkTypeOther::QTdNetworkTypeOther(QObject *parent)
@@ -29,5 +32,5 @@ QTdNetworkTypeOther::QTdNetworkTypeOther(QObject *parent)
 QTdNetworkTypeWiFi::QTdNetworkTypeWiFi(QObject *parent)
     : QTdNetworkType(parent)
 {
-  setType(NETWORK_TYPE_WIFI);
+    setType(NETWORK_TYPE_WIFI);
 }

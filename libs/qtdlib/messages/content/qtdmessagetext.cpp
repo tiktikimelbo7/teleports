@@ -1,7 +1,10 @@
 #include "qtdmessagetext.h"
 
-QTdMessageText::QTdMessageText(QObject *parent) : QTdMessageContent(parent),
-    m_text(new QTdFormattedText), m_webPage(new QTdWebPage), m_hasWebPage(false)
+QTdMessageText::QTdMessageText(QObject *parent)
+    : QTdMessageContent(parent)
+    , m_text(new QTdFormattedText)
+    , m_webPage(new QTdWebPage)
+    , m_hasWebPage(false)
 {
     setType(MESSAGE_TEXT);
 }

@@ -1,6 +1,7 @@
 #include "qtdmessagechatupgradefrom.h"
 
-QTdMessageChatUpgradeFrom::QTdMessageChatUpgradeFrom(QObject *parent) : QTdMessageContent(parent)
+QTdMessageChatUpgradeFrom::QTdMessageChatUpgradeFrom(QObject *parent)
+    : QTdMessageContent(parent)
 {
     setType(MESSAGE_CHAT_UPGRADE_FROM);
 }
