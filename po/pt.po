@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-10 20:20+0000\n"
-"PO-Revision-Date: 2019-08-12 20:49+0000\n"
+"PO-Revision-Date: 2019-09-15 12:50+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -171,7 +171,7 @@ msgstr "Autocolante"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:303
 msgid "Phone call"
-msgstr ""
+msgstr "Chamada telefónica"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:307
 msgid "sent an audio message"
@@ -235,13 +235,12 @@ msgstr "criou este grupo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "Mensagens não lidas"
+msgstr "Mensagem não suportada"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Não implementado:"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:388
 msgid "Me"
@@ -298,12 +297,12 @@ msgstr "Ficheiro"
 #. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
 #: ../app/qml/components/AttachPanel.qml:73
 msgid "Video"
-msgstr ""
+msgstr "Vídeo"
 
 #. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
 #: ../app/qml/components/AttachPanel.qml:83
 msgid "Audio"
-msgstr ""
+msgstr "Áudio"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -351,17 +350,16 @@ msgid "Close"
 msgstr "Fechar"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "Número de telefone"
+msgstr "Número de telefone inválido!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Código inválido!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Palavra-passe inválida!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -389,11 +387,11 @@ msgstr "Por favor, conectar-se ao Ubuntu One para receber notificações."
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Sem localização válida recebida após 180 segundos!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
@@ -490,7 +488,7 @@ msgstr "Versão %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
@@ -618,16 +616,15 @@ msgstr "Responder"
 
 #: ../app/qml/pages/MessageListPage.qml:304
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Não tem permissão para conversar neste canal"
 
 #: ../app/qml/pages/MessageListPage.qml:307
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "À espera pela outra parte para aceitar o chat secreto..."
 
 #: ../app/qml/pages/MessageListPage.qml:309
-#, fuzzy
 msgid "Secret chat has been closed"
-msgstr "chamada foi terminada"
+msgstr "Chat secreto foi fechado"
 
 #: ../app/qml/pages/MessageListPage.qml:390
 msgid "Type a message..."
@@ -635,11 +632,11 @@ msgstr "Escrever mensagem..."
 
 #: ../app/qml/pages/MessageListPage.qml:498
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Deseja partilhar a localização com %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:500
 msgid "Send"
-msgstr ""
+msgstr "Enviar"
 
 #: ../app/qml/pages/MessageListPage.qml:511
 msgid "Requesting location from OS..."
@@ -677,9 +674,8 @@ msgstr "%1 saiu do grupo"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "atualizou para supergrupo"
+msgstr "Grupo atualizado para Supergrupo"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -711,9 +707,8 @@ msgid "A screenshot has been taken"
 msgstr "Uma captura de ecrã foi tirada"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
 msgid "Forwarded from %1"
-msgstr "Encaminhado de "
+msgstr "Encaminhado de %1"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
@@ -745,13 +740,12 @@ msgid "Missed Call"
 msgstr "Chamada perdida"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "Duração: %1.%2"
+msgstr "Duração: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Canal << %1 >> criado"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
