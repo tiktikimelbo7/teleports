@@ -223,27 +223,26 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateBasicGroupFullInfo"), [=](const QJsonObject &data) {
         emit updateBasicGroupFullInfo(data);
     });
-
-    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &data){ emit updateBasicGroup(data); });
-    m_events.insert(QStringLiteral("secretChat"), [=](const QJsonObject &data){ emit secretChat(data); });
-    m_events.insert(QStringLiteral("updateSecretChat"), [=](const QJsonObject &data){ emit updateSecretChat(data["secret_chat"].toObject()); });
-    m_events.insert(QStringLiteral("supergroup"), [=](const QJsonObject &data){ emit superGroup(data); });
-    m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data){ emit updateSupergroupFullInfo(data); });
-    m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data){ emit supergroupFullInfo(data); });
-    m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data){ emit updateSuperGroup(data["supergroup"].toObject()); });
-    m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data){ emit updateChatOrder(data); });
-    m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data){ emit updateChatLastMessage(data); });
-    m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data){ emit updateMessageContent(data); });
-    m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data){ emit updateMessageSendSucceeded(data); });
-    m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data){ emit updateChatReadInbox(data); });
-    m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data){ emit updateChatIsPinned(data); });
-    m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data){ emit updateChatPhoto(data); });
-    m_events.insert(QStringLiteral("updateChatPinnedMessage"), [=](const QJsonObject &data){ emit updateChatPinnedMessage(data); });
-    m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data){ emit updateChatReadOutbox(data); });
-    m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data){ emit updateChatReplyMarkup(data); });
-    m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data){ emit updateChatTitle(data); });
-    m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
-    m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data){ emit updateChatUnreadMentionCount(data); });
+    m_events.insert(QStringLiteral("basicGroup"), [=](const QJsonObject &data) { emit updateBasicGroup(data); });
+    m_events.insert(QStringLiteral("secretChat"), [=](const QJsonObject &data) { emit secretChat(data); });
+    m_events.insert(QStringLiteral("updateSecretChat"), [=](const QJsonObject &data) { emit updateSecretChat(data["secret_chat"].toObject()); });
+    m_events.insert(QStringLiteral("supergroup"), [=](const QJsonObject &data) { emit superGroup(data); });
+    m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data) { emit updateSupergroupFullInfo(data); });
+    m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data) { emit supergroupFullInfo(data); });
+    m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data) { emit updateSuperGroup(data["supergroup"].toObject()); });
+    m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data) { emit updateChatOrder(data); });
+    m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data) { emit updateChatLastMessage(data); });
+    m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data) { emit updateMessageContent(data); });
+    m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data) { emit updateMessageSendSucceeded(data); });
+    m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data) { emit updateChatReadInbox(data); });
+    m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data) { emit updateChatIsPinned(data); });
+    m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data) { emit updateChatPhoto(data); });
+    m_events.insert(QStringLiteral("updateChatPinnedMessage"), [=](const QJsonObject &data) { emit updateChatPinnedMessage(data); });
+    m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data) { emit updateChatReadOutbox(data); });
+    m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data) { emit updateChatReplyMarkup(data); });
+    m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data) { emit updateChatTitle(data); });
+    m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });
+    m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });
 
     m_events.insert(QStringLiteral("updateUnreadMessageCount"), [=](const QJsonObject &data) { emit updateUnreadMessageCount(data); });
     m_events.insert(QStringLiteral("updateScopeNotificationSettings"), [=](const QJsonObject &data) { emit updateScopeNotificationSettings(data); });
@@ -255,8 +254,8 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data) { emit updateChatNotificationSettings(data); });
     m_events.insert(QStringLiteral("updateChatOnlineMemberCount"), [=](const QJsonObject &data) { emit updateChatOnlineMemberCount(data); });
 
-    m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data){ emit messages(data); });
-    m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data){ emit message(data); });
+    m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data) { emit messages(data); });
+    m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data) { emit message(data); });
 
     //Option handling - more or less global constants, still could change during execution
     m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data) { emit updateOption(data); });

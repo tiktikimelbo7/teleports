@@ -218,13 +218,40 @@ Page {
         z: 10
     }
 
-    ScrollView {
+    UITK.ListItem {
+        id: pinnedMessageItem
+        expansion.height: units.gu(6)
+        expansion.expanded: Telegram.chats.currentChat.hasPinnedMessage
+        divider.visible: Telegram.chats.currentChat.hasPinnedMessage
         anchors {
             left: parent.left
             top: parent.top
             right: parent.right
             bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
+
+        Loader {
+            id: citationLoader
+            active: Telegram.chats.currentChat.hasPinnedMessage
+            sourceComponent: pinnedMessage
+        }
+
+        Component {
+            id: pinnedMessage
+            Citation {
+                property real maximumAvailableContentWidth: parent.width
+                messageCited: Telegram.chats.currentChat.pinnedMessage
+            }
+        }
+    }
+
+    ScrollView {
+        id: msgListScroll
+        anchors {
+            left: parent.left
+            top: pinnedMessageItem.bottom
+            right: parent.right
+            bottom: input.top
 
         FlyingButton {
             id: scrollDownButton

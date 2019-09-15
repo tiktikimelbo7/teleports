@@ -63,6 +63,8 @@ class QTdChat : public QAbstractInt64Id
     // draftMessage:draf_message && updateChatDraftMessage
     // string:client_data
     Q_PROPERTY(QObject *messages READ messages NOTIFY messagesChanged)
+    Q_PROPERTY(QObject *pinnedMessage READ pinnedMessage NOTIFY chatPinnedMessageChanged)
+    Q_PROPERTY(bool hasPinnedMessage READ hasPinnedMessage NOTIFY hasPinnedMessageChanged)
 
 public:
     explicit QTdChat(QObject *parent = nullptr);
@@ -244,6 +246,13 @@ public:
     void positionMessageListViewAtIndex(int index);
 
     /**
+     * @brief Pinned message
+     */
+    QTdMessage *pinnedMessage() const;
+
+    bool hasPinnedMessage() const;
+
+    /**
      * @brief Open chat
      *
      * This method should be called if the chat is opened by the user.
@@ -331,6 +340,7 @@ signals:
     void chatUpdated();
     void forwardingMessagesAction(QStringList forwardingMessages, QTdChat *forwarded_from_chat);
     void currentMessageIndexChanged();
+    void hasPinnedMessageChanged();
 
 public slots:
     void updateChatOrder(const QJsonObject &json);

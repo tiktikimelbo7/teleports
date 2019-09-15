@@ -677,3 +677,14 @@ void QTdChat::positionMessageListViewAtIndex(int index)
     m_currentMessageIndex = index;
     currentMessageIndexChanged();
 }
+
+bool QTdChat::hasPinnedMessage() const
+{
+    return m_pinnedMessage != Q_NULLPTR;
+}
+
+QTdMessage *QTdChat::pinnedMessage() const
+{
+    return m_pinnedMessage;
+}
+
