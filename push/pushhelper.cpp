@@ -198,6 +198,11 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         summary = args[1].toString();
         body = QString(N_("%1 sent a voice message to the group")).arg(args[0].toString());
 
+    } else if (key == "CHAT_MESSAGE_GIF") { // no-i18n
+
+        summary = tg;
+        body = QString(N_("%1 sent a GIF to the group")).arg(args[0].toString());
+
     } else if (key == "CHAT_MESSAGE_CONTACT") { // no-i18n
 
         summary = args[1].toString();
@@ -297,6 +302,11 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
 
         summary = tg;
         body = N_("You have a new message");
+
+    } else if (key == "PINNED_TEXT") { // no-i18n
+
+        summary = tg;
+        body = QString(N_("%1 pinned a message")).arg(args[0].toString());
 
     } else {
         qDebug() << "Unhandled push type: " << key; // no-i18n
