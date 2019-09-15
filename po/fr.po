@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-15 19:17+0000\n"
-"PO-Revision-Date: 2019-09-15 12:50+0000\n"
+"PO-Revision-Date: 2019-09-15 20:54+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -90,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 a envoyé un message vocal au groupe"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 a envoyé une carte au groupe"
+msgstr "%1 a envoyé un GIF au groupe"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
@@ -172,10 +170,8 @@ msgid "You have a new message"
 msgstr "Vous avez un nouveau message"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Saisissez un message..."
+msgstr "%1 a épinglé un message"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
