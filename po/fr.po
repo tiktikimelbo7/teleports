@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-10 20:20+0000\n"
+"POT-Creation-Date: 2019-09-15 19:17+0000\n"
 "PO-Revision-Date: 2019-09-15 12:50+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
@@ -90,80 +90,92 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 a envoyé un message vocal au groupe"
 
 #: ../push/pushhelper.cpp:204
+#, fuzzy
+#| msgid "%1 sent a map to the group"
+msgid "%1 sent a GIF to the group"
+msgstr "%1 a envoyé une carte au groupe"
+
+#: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
 msgstr "%1 a envoyé un contact au groupe"
 
-#: ../push/pushhelper.cpp:209
+#: ../push/pushhelper.cpp:214
 msgid "%1 sent a map to the group"
 msgstr "%1 a envoyé une carte au groupe"
 
-#: ../push/pushhelper.cpp:214 ../push/pushhelper.cpp:235
+#: ../push/pushhelper.cpp:219 ../push/pushhelper.cpp:240
 msgid "%1 invited you to the group"
 msgstr "%1 vous a invité à rejoindre le groupe"
 
-#: ../push/pushhelper.cpp:219
+#: ../push/pushhelper.cpp:224
 msgid "%1 changed group name"
 msgstr "%1 a modifié le nom du groupe"
 
-#: ../push/pushhelper.cpp:224
+#: ../push/pushhelper.cpp:229
 msgid "%1 changed group photo"
 msgstr "%1 a changé la photo de groupe"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:230
+#: ../push/pushhelper.cpp:235
 msgid "%1 invited %2"
 msgstr "%1 a invité %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:241
+#: ../push/pushhelper.cpp:246
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr "%1 a supprimé %2"
 
-#: ../push/pushhelper.cpp:246
+#: ../push/pushhelper.cpp:251
 msgid "%1 removed you from the group"
 msgstr "%1 vous a supprimé du groupe"
 
-#: ../push/pushhelper.cpp:251
+#: ../push/pushhelper.cpp:256
 msgid "%1 has left the group"
 msgstr "%1 a quitté le groupe"
 
-#: ../push/pushhelper.cpp:256
+#: ../push/pushhelper.cpp:261
 msgid "%1 has returned to the group"
 msgstr "%1 est revenu dans le groupe"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:261
+#: ../push/pushhelper.cpp:266
 msgid "@ %1"
 msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:263
+#: ../push/pushhelper.cpp:268
 msgid "%1 has checked-in"
 msgstr "%1 est arrivé(e)"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:269
+#: ../push/pushhelper.cpp:274
 msgid "%1 joined Telegram!"
 msgstr "%1 a rejoint Telegram !"
 
-#: ../push/pushhelper.cpp:274 ../push/pushhelper.cpp:280
+#: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:285
 msgid "New login from unrecognized device"
 msgstr "Nouvelle connexion à partir d'un appareil non connu"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:279
+#: ../push/pushhelper.cpp:284
 msgid "%1 @ %2"
 msgstr "%1 @ %2"
 
-#: ../push/pushhelper.cpp:284
+#: ../push/pushhelper.cpp:289
 msgid "updated profile photo"
 msgstr "photo de profil mise à jour"
 
-#: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
-#: ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:294 ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:304
 msgid "You have a new message"
 msgstr "Vous avez un nouveau message"
+
+#: ../push/pushhelper.cpp:309
+#, fuzzy
+#| msgid "Type a message..."
+msgid "%1 pinned a message"
+msgstr "Saisissez un message..."
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
@@ -250,7 +262,7 @@ msgstr "Moi"
 msgid "Message"
 msgstr "Message"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
 msgid "Unread Messages"
 msgstr "Messages non lus"
 
@@ -283,26 +295,6 @@ msgstr "Vu(e) récemment"
 #: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
 msgstr "Messages enregistrés"
-
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:55
-msgid "Image"
-msgstr "Image"
-
-#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-#: ../app/qml/components/AttachPanel.qml:64
-msgid "File"
-msgstr "Fichier"
-
-#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-#: ../app/qml/components/AttachPanel.qml:73
-msgid "Video"
-msgstr "Vidéo"
-
-#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
-#: ../app/qml/components/AttachPanel.qml:83
-msgid "Audio"
-msgstr "Audio"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -397,19 +389,19 @@ msgstr "Aucune position valide reçue après 180 secondes !"
 msgid "Enter Code"
 msgstr "Saisissez un code"
 
-#: ../app/qml/pages/WaitCodePage.qml:44
+#: ../app/qml/pages/WaitCodePage.qml:43
 msgid "First Name"
 msgstr "Prénom"
 
-#: ../app/qml/pages/WaitCodePage.qml:52
+#: ../app/qml/pages/WaitCodePage.qml:51
 msgid "Last Name"
 msgstr "Nom de famille"
 
-#: ../app/qml/pages/WaitCodePage.qml:59
+#: ../app/qml/pages/WaitCodePage.qml:58
 msgid "Code"
 msgstr "Code"
 
-#: ../app/qml/pages/WaitCodePage.qml:74
+#: ../app/qml/pages/WaitCodePage.qml:73
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 "Nous avons envoyé un code à votre appareil via Telegram. Veuillez le saisir "
@@ -474,7 +466,7 @@ msgstr "Détails du groupe"
 msgid "Back"
 msgstr "Retour"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:96
+#: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
 msgstr "Membres : %1"
 
@@ -766,6 +758,18 @@ msgstr "%1 vous a rejoint via un lien d'invitation"
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
 msgid "Voice note"
 msgstr "Note vocale"
+
+#~ msgid "Image"
+#~ msgstr "Image"
+
+#~ msgid "File"
+#~ msgstr "Fichier"
+
+#~ msgid "Video"
+#~ msgstr "Vidéo"
+
+#~ msgid "Audio"
+#~ msgstr "Audio"
 
 #~ msgid "sent an unknown message: %1"
 #~ msgstr "a envoyé un message inconnu : %1"

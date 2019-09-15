@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-10 20:20+0000\n"
+"POT-Creation-Date: 2019-09-15 19:17+0000\n"
 "PO-Revision-Date: 2019-08-28 10:50+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -90,80 +90,92 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 at imbiadu unu messàgiu vocale a su grupu"
 
 #: ../push/pushhelper.cpp:204
+#, fuzzy
+#| msgid "%1 sent a map to the group"
+msgid "%1 sent a GIF to the group"
+msgstr "%1 at imbiadu una mapa a su grupu"
+
+#: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
 msgstr "%1 at imbiadu unu cuntatu a su grupu"
 
-#: ../push/pushhelper.cpp:209
+#: ../push/pushhelper.cpp:214
 msgid "%1 sent a map to the group"
 msgstr "%1 at imbiadu una mapa a su grupu"
 
-#: ../push/pushhelper.cpp:214 ../push/pushhelper.cpp:235
+#: ../push/pushhelper.cpp:219 ../push/pushhelper.cpp:240
 msgid "%1 invited you to the group"
 msgstr "%1 t'at invitadu a su grupu"
 
-#: ../push/pushhelper.cpp:219
+#: ../push/pushhelper.cpp:224
 msgid "%1 changed group name"
 msgstr "%1 at mudadu su nòmine de su grupu"
 
-#: ../push/pushhelper.cpp:224
+#: ../push/pushhelper.cpp:229
 msgid "%1 changed group photo"
 msgstr "%1 at mudadu sa fotografia de su grupu"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:230
+#: ../push/pushhelper.cpp:235
 msgid "%1 invited %2"
 msgstr "%1 at invitadu a %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:241
+#: ../push/pushhelper.cpp:246
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr "%1 nch'at bogadu %2"
 
-#: ../push/pushhelper.cpp:246
+#: ../push/pushhelper.cpp:251
 msgid "%1 removed you from the group"
 msgstr "%1 ti nch'at bogadu de su grupu"
 
-#: ../push/pushhelper.cpp:251
+#: ../push/pushhelper.cpp:256
 msgid "%1 has left the group"
 msgstr "%1 at lassadu su grupu"
 
-#: ../push/pushhelper.cpp:256
+#: ../push/pushhelper.cpp:261
 msgid "%1 has returned to the group"
 msgstr "%1 est torradu a su grupu"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:261
+#: ../push/pushhelper.cpp:266
 msgid "@ %1"
 msgstr "in %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:263
+#: ../push/pushhelper.cpp:268
 msgid "%1 has checked-in"
 msgstr "%1 est intradu"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:269
+#: ../push/pushhelper.cpp:274
 msgid "%1 joined Telegram!"
 msgstr "%1 at aderidu a Telegram!"
 
-#: ../push/pushhelper.cpp:274 ../push/pushhelper.cpp:280
+#: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:285
 msgid "New login from unrecognized device"
 msgstr "Atzessu nou dae unu dispositivu disconnotu"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:279
+#: ../push/pushhelper.cpp:284
 msgid "%1 @ %2"
 msgstr "%1 in %2"
 
-#: ../push/pushhelper.cpp:284
+#: ../push/pushhelper.cpp:289
 msgid "updated profile photo"
 msgstr "at atualizadu sa foto de su profilu"
 
-#: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
-#: ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:294 ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:304
 msgid "You have a new message"
 msgstr "Tenes unu messàgiu nou"
+
+#: ../push/pushhelper.cpp:309
+#, fuzzy
+#| msgid "Type a message..."
+msgid "%1 pinned a message"
+msgstr "Iscrie unu messàgiu..."
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
@@ -251,7 +263,7 @@ msgstr "Deo"
 msgid "Message"
 msgstr "Messàgiu"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:213
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
 msgid "Unread Messages"
 msgstr "Messàgios non lèghidos"
 
@@ -284,26 +296,6 @@ msgstr "Bidu de reghente"
 #: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
 msgstr "Messàgios sarvados"
-
-#. TRANSLATORS: Used in attach menu, when sending a photo to the conversation.
-#: ../app/qml/components/AttachPanel.qml:55
-msgid "Image"
-msgstr "Immàgine"
-
-#. TRANSLATORS: Used in attach menu, when sending a document to the conversation.
-#: ../app/qml/components/AttachPanel.qml:64
-msgid "File"
-msgstr "Archìviu"
-
-#. TRANSLATORS: Used in attach menu, when sending a video to the conversation.
-#: ../app/qml/components/AttachPanel.qml:73
-msgid "Video"
-msgstr ""
-
-#. TRANSLATORS: Used in attach menu, when sending audio to the conversation.
-#: ../app/qml/components/AttachPanel.qml:83
-msgid "Audio"
-msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -399,19 +391,19 @@ msgstr ""
 msgid "Enter Code"
 msgstr "Inserta·nche su còdighe"
 
-#: ../app/qml/pages/WaitCodePage.qml:44
+#: ../app/qml/pages/WaitCodePage.qml:43
 msgid "First Name"
 msgstr "Nòmine"
 
-#: ../app/qml/pages/WaitCodePage.qml:52
+#: ../app/qml/pages/WaitCodePage.qml:51
 msgid "Last Name"
 msgstr "Sangunadu"
 
-#: ../app/qml/pages/WaitCodePage.qml:59
+#: ../app/qml/pages/WaitCodePage.qml:58
 msgid "Code"
 msgstr "Còdighe"
 
-#: ../app/qml/pages/WaitCodePage.qml:74
+#: ../app/qml/pages/WaitCodePage.qml:73
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 "T'amus imbiadu unu còdighe tràmite Telegram a su dispositivu tuo. "
@@ -475,7 +467,7 @@ msgstr "Detàllios de su grupu"
 msgid "Back"
 msgstr "In segus"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:96
+#: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
 msgstr "Membros: %1"
 
@@ -768,6 +760,12 @@ msgstr "%1 at aderidu tràmite unu ligàmene de invitu"
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
 msgid "Voice note"
 msgstr "Nota vocale"
+
+#~ msgid "Image"
+#~ msgstr "Immàgine"
+
+#~ msgid "File"
+#~ msgstr "Archìviu"
 
 #~ msgid "sent an unknown message: %1"
 #~ msgstr "at imbiadu unu messàgiu disconnotu: %1"
