@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-15 19:17+0000\n"
-"PO-Revision-Date: 2019-09-15 12:50+0000\n"
+"PO-Revision-Date: 2019-09-17 19:50+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
@@ -286,7 +286,7 @@ msgstr "dd.MM.yy hh:mm"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr "Online"
+msgstr "Verbunden"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
@@ -335,7 +335,7 @@ msgstr "Sind Sie sicher das sie den Chat verlassen wollen?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr "Chat verlassen"
+msgstr "Verlassen"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -483,20 +483,20 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
-msgstr "Quellcode"
+msgstr "Hol dir den Quellcode"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
-msgstr "Fehler melden"
+msgstr "Probleme melden"
 
 #: ../app/qml/pages/AboutPage.qml:100
 msgid "Help translate"
-msgstr "Übersetzung"
+msgstr "Übersetzen helfen"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr "Offline"
+msgstr "Getrennt"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
