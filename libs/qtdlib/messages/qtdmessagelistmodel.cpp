@@ -493,9 +493,17 @@ void QTdMessageListModel::sendAudio(const QString &url, const QString &caption, 
 void QTdMessageListModel::sendContact(const QString &url, const QString &caption, const qint64 &replyToMessageId)
 {
 
+    QFile f(url);
+    if (f.open(QFile::ReadOnly | QFile::Text)) {
+        QTextStream in(&f);
+        qDebug() << f.size() << in.readAll();
+    }
+
     QScopedPointer<QTdContact> contact(new QTdContact);
     contact->set_first_name("Test");
     contact->set_last_name("Tester");
+    contact->set_phone_number("+436649614355");
+    contact->set_vcard("BEGIN:VCARD\nEND:VCARD");
     QScopedPointer<QTdInputMessageContact> messageContent(new QTdInputMessageContact);
     messageContent->setContact(contact.data());
     prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
