@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-15 19:17+0000\n"
-"PO-Revision-Date: 2019-09-13 07:25+0000\n"
+"PO-Revision-Date: 2019-09-17 19:50+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -90,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 ha enviat un missatge de veu al grup"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 ha enviat un mapa al grup"
+msgstr "%1 ha enviat un GIF al grup"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
@@ -172,10 +170,8 @@ msgid "You have a new message"
 msgstr "Teniu un missatge nou"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Escriviu un missatge…"
+msgstr "%1 ha fixat un missatge"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
