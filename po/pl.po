@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-15 19:17+0000\n"
-"PO-Revision-Date: 2019-09-12 22:01+0000\n"
+"PO-Revision-Date: 2019-09-17 19:50+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -91,10 +91,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 wysłał wiadomość głosową do grupy"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 wysłał mapę do grupy"
+msgstr "%1 wysłał GIFa na grupę"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
@@ -173,10 +171,8 @@ msgid "You have a new message"
 msgstr "Masz nową wiadomość"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Wpisz wiadomość..."
+msgstr "%1 przypiął wiadomość"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
@@ -430,7 +426,7 @@ msgstr "Czy chcesz przekazać wybrane wiadomości do %1?"
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:86
 msgid "Forward"
-msgstr "Naprzód"
+msgstr "Przekaż"
 
 #: ../app/qml/pages/ChatListPage.qml:318
 msgid "Enter optional message..."
@@ -482,7 +478,7 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
-msgstr "Uzyskaj kod źródłowy"
+msgstr "Uzyskaj źródło"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
@@ -495,7 +491,7 @@ msgstr "Pomóż w tłumaczeniu"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr "Offline"
+msgstr "Rozłączony"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
