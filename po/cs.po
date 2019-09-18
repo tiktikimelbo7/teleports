@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 19:10+0000\n"
-"PO-Revision-Date: 2019-09-15 12:50+0000\n"
+"PO-Revision-Date: 2019-09-20 15:50+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -90,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 zaslal skupině hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 zaslal skupině mapu"
+msgstr "%1 zaslal skupině GIF"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
@@ -172,10 +170,8 @@ msgid "You have a new message"
 msgstr "Máte novou zprávu"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Napište zprávu..."
+msgstr "%1 připnul zprávu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
@@ -246,10 +242,8 @@ msgid "created this group"
 msgstr "vytvořil tuto skupinu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 se připojil k Telegramu!"
+msgstr "se připojil k Telegramu!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
@@ -703,8 +697,6 @@ msgid "Forwarded from %1"
 msgstr "Přeposláno z %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
 msgstr "%1 se připojil k Telegramu!"
 
