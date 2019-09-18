@@ -80,6 +80,7 @@
         <file>delegates/MessageContentText.qml</file>
         <file>delegates/MessageContentAnimation.qml</file>
         <file>delegates/MessageContentAudio.qml</file>
+        <file>delegates/MessageContactRegistered.qml</file>
         <file>delegates/MessageScreenshotTaken.qml</file>
         <file>delegates/MessageContentDocument.qml</file>
         <file>delegates/MessageContentLocation.qml</file>
