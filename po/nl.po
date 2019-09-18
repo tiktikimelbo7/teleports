@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 19:17+0000\n"
+"POT-Creation-Date: 2019-09-16 19:10+0000\n"
 "PO-Revision-Date: 2019-08-19 20:49+0000\n"
 "Last-Translator: Tom Dom <thomas@patoel.nl>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
@@ -246,16 +246,22 @@ msgid "created this group"
 msgstr "heeft deze groep aangemaakt"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#, fuzzy
+#| msgid "%1 joined Telegram!"
+msgid "has joined Telegram!"
+msgstr "%1 heeft nu ook Telegram!"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 #, fuzzy
 msgid "Unsupported message"
 msgstr "Ongelezen Berichten"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+#: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "Me"
 msgstr "Ik"
 
@@ -705,6 +711,12 @@ msgstr "Er is een schermprint gemaakt"
 #, fuzzy
 msgid "Forwarded from %1"
 msgstr "Doorgestuurd van "
+
+#: ../app/qml/delegates/MessageContactRegistered.qml:5
+#, fuzzy
+#| msgid "%1 joined Telegram!"
+msgid "%1 has joined Telegram!"
+msgstr "%1 heeft nu ook Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."

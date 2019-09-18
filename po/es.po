@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 19:17+0000\n"
+"POT-Creation-Date: 2019-09-16 19:10+0000\n"
 "PO-Revision-Date: 2019-09-17 19:50+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -242,15 +242,21 @@ msgid "created this group"
 msgstr "creó este grupo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#, fuzzy
+#| msgid "%1 joined Telegram!"
+msgid "has joined Telegram!"
+msgstr "¡%1 se unió a Telegram!"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "Mensaje no compatible"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "Unimplemented:"
 msgstr "No implementado:"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+#: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "Me"
 msgstr "Yo"
 
@@ -695,6 +701,12 @@ msgstr "Captura de pantalla realizada"
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from %1"
 msgstr "Reenviado desde %1"
+
+#: ../app/qml/delegates/MessageContactRegistered.qml:5
+#, fuzzy
+#| msgid "%1 joined Telegram!"
+msgid "%1 has joined Telegram!"
+msgstr "¡%1 se unió a Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
