@@ -13,7 +13,7 @@ Item {
 
     signal clicked()
 
-    height: message.isCollapsed ? childrenRect.height : container.height + Suru.units.gu(2)
+    height: message.isCollapsed ? childrenRect.height : Math.max(container.height + Suru.units.gu(2), childrenRect.height)
     width: childrenRect.width
 
     Label {
