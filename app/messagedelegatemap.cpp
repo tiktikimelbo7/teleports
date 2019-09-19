@@ -19,6 +19,9 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent)
     m_delegates.insert(QTdObject::MESSAGE_CHAT_JOIN_BY_LINK, QStringLiteral("qrc:///delegates/MessageJoinByLink.qml"));
     m_delegates.insert(QTdObject::MESSAGE_PIN_MESSAGE, QStringLiteral("qrc:///delegates/MessagePinMessage.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_ADD_MEMBERS, QStringLiteral("qrc:///delegates/MessageChatAddMembersItem.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_TITLE, QStringLiteral("qrc:///delegates/MessageChatChangeTitle.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_PHOTO, QStringLiteral("qrc:///delegates/MessageChatChangePhoto.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_CHAT_DELETE_PHOTO, QStringLiteral("qrc:///delegates/MessageChatDeletePhoto.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CALL, QStringLiteral("qrc:///delegates/MessageCallItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION, QStringLiteral("qrc:///delegates/MessageCustomServiceAction.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CONTACT_REGISTERED, QStringLiteral("qrc:///delegates/MessageContactRegistered.qml"));
@@ -34,9 +37,6 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent)
     m_delegates.insert(QTdObject::MESSAGE_CONTACT, QStringLiteral("qrc:///delegates/MessageContactItem.qml"));
 
     // TODO: implement delegates
-    m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_PHOTO, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
-    m_delegates.insert(QTdObject::MESSAGE_CHAT_CHANGE_TITLE, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
-    m_delegates.insert(QTdObject::MESSAGE_CHAT_DELETE_PHOTO, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_SET_TTL, QStringLiteral("qrc:///delegates/NotImplementedYet.qml"));
     m_default = QStringLiteral("qrc:///delegates/NotImplementedYet.qml");
 }
