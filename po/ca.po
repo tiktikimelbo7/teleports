@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 19:10+0000\n"
-"PO-Revision-Date: 2019-09-17 19:50+0000\n"
+"PO-Revision-Date: 2019-09-20 15:50+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -242,10 +242,8 @@ msgid "created this group"
 msgstr "ha creat aquest grup"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 s'ha afegit al Telegram"
+msgstr "s'ha afegit al Telegram"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
@@ -703,8 +701,6 @@ msgid "Forwarded from %1"
 msgstr "Reenviat de %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
 msgstr "%1 s'ha afegit al Telegram"
 
