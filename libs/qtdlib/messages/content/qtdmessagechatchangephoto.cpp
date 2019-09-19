@@ -3,12 +3,12 @@
 
 QTdMessageChatChangePhoto::QTdMessageChatChangePhoto(QObject *parent)
     : QTdMessageContent(parent)
-    , m_photo(new QTdPhoto)
+    , m_photo(new QTdPhotos)
 {
     setType(MESSAGE_CHAT_CHANGE_PHOTO);
 }
 
-QTdPhoto *QTdMessageChatChangePhoto::photo() const
+QTdPhotos *QTdMessageChatChangePhoto::photo() const
 {
     return m_photo.data();
 }

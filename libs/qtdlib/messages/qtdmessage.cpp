@@ -245,7 +245,7 @@ QTdMessageSendingState *QTdMessage::sendingState() const
 
 bool QTdMessage::isOutgoing() const
 {
-    return m_isOutgoing;
+    return m_isOutgoing && !m_isChannelPost;
 }
 
 bool QTdMessage::isEdited() const

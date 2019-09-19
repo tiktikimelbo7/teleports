@@ -875,10 +875,19 @@ msgstr ""
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:5
+#: ../app/qml/delegates/MessageChatChangeTitle.qml:6
+msgid "Channel title has been changed to <i>%1</i>"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatChangeTitle.qml:7
 msgid "%1 changed the chat title to <i>%2</i>"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatDeletePhoto.qml:5
+#: ../app/qml/delegates/MessageChatDeletePhoto.qml:6
+msgid "Channel photo has been removed"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
 msgid "%1 deleted the chat photo"
 msgstr ""
 
@@ -886,7 +895,11 @@ msgstr ""
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatChangePhoto.qml:12
+#: ../app/qml/delegates/MessageChatChangePhoto.qml:26
+msgid "Channel photo has been changed"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatChangePhoto.qml:27
 msgid "%1 changed the chat photo"
 msgstr ""
 
