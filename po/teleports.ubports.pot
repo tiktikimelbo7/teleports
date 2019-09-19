@@ -874,6 +874,24 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
+#: ../app/qml/delegates/MessageChatChangeTitle.qml:5
+msgid "%1 changed the chat title to <i>%2</i>"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatDeletePhoto.qml:5
+msgid "%1 deleted the chat photo"
+msgstr ""
+
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatChangePhoto.qml:12
+msgid "%1 changed the chat photo"
+msgstr ""
+
+#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
+msgid "Missing label..."
 msgstr ""
 
 #: ../push/pushhelper.cpp:201
@@ -907,6 +925,12 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called <i>%1</i> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
+msgid "%1 created a group called <i>%2</i>"
 msgstr ""
 
 #: ../push/pushhelper.cpp:253
