@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 19:10+0000\n"
-"PO-Revision-Date: 2019-09-08 13:50+0000\n"
+"PO-Revision-Date: 2019-09-21 20:50+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "teleports/lt/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
@@ -425,7 +425,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:92
 msgid "Info"
-msgstr ""
+msgstr "Informacija"
 
 #: ../app/qml/pages/ChatListPage.qml:302
 msgid "Do you want to forward the selected messages to %1?"
@@ -433,6 +433,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:86
+#, fuzzy
 msgid "Forward"
 msgstr "Pirmyn"
 
@@ -466,7 +467,7 @@ msgstr ""
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
-msgstr ""
+msgstr "Atgal"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
@@ -478,7 +479,7 @@ msgstr "Apie"
 
 #: ../app/qml/pages/AboutPage.qml:71
 msgid "Version %1"
-msgstr ""
+msgstr "Versija %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
