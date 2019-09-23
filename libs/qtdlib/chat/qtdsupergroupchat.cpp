@@ -96,7 +96,7 @@ bool QTdSuperGroupChat::isVerified() const
 bool QTdSuperGroupChat::isWritable() const
 {
     auto atLeastAdmin = m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_ADMIN
-        || m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_CREATOR;
+            || m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_CREATOR;
     return !m_isChannel || m_isChannel && atLeastAdmin;
 }
 
@@ -190,41 +190,44 @@ qint64 QTdSuperGroupChat::upgradedFromMaxMessageId() const
     return m_upgradeMaxMsgId.value();
 }
 
-void QTdSuperGroupChat::unmarshalJson(const QJsonObject &json)
+void QTdSuperGroupChat::onChatDeserialized()
 {
-    QTdChat::unmarshalJson(json);
-    if (m_status.isNull()) {
-        getSuperGroupData();
-    }
+    getSuperGroupData();
+    getSuperGroupFullInfo();
 }
 
-void QTdSuperGroupChat::onChatOpened()
+void QTdSuperGroupChat::parseSuperGroupId() {
+    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup *>(chatType());
+    if (group && group->superGroupId() > 0) {
+        m_sgId = group->superGroupId();
+    }
+}
+void QTdSuperGroupChat::getSuperGroupFullInfo()
 {
+    if (m_sgId.value() == 0) {
+        parseSuperGroupId();
+    }
     QScopedPointer<QTdGetSuperGroupFullInfoRequest> req(new QTdGetSuperGroupFullInfoRequest);
     req->setSupergroupId(superGroupId());
     QTdClient::instance()->send(req.data());
-
-    QTdChat::onChatOpened();
 }
 
 void QTdSuperGroupChat::getSuperGroupData()
 {
-    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup *>(chatType());
-    if (group && group->superGroupId() > 0) {
-        QScopedPointer<QTdGetSuperGroupRequest> req(new QTdGetSuperGroupRequest);
-        req->setSuperGroupId(group->superGroupId());
-        QTdClient::instance()->send(req.data());
+    if (m_sgId.value() == 0) {
+        parseSuperGroupId();
     }
+    QScopedPointer<QTdGetSuperGroupRequest> req(new QTdGetSuperGroupRequest);
+    req->setSuperGroupId(superGroupId());
+    QTdClient::instance()->send(req.data());
 }
 
 void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
 {
-    QTdChatTypeSuperGroup *group = qobject_cast<QTdChatTypeSuperGroup *>(chatType());
     const qint32 gid = qint32(json["id"].toInt());
-    if (gid != group->superGroupId()) {
+    if (gid != superGroupId()) {
         return;
     }
-    m_sgId = gid;
 
     if (m_status) {
         delete m_status;
