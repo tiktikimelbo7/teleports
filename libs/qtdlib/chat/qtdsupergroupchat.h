@@ -66,22 +66,23 @@ public:
     QString qmlUpgradedFromMaxMessageId() const;
     qint64 upgradedFromMaxMessageId() const;
 
-    void unmarshalJson(const QJsonObject &json);
 signals:
     void superGroupChanged();
     void superGroupInfoChanged();
 
 protected:
-    virtual void onChatOpened();
+    virtual void onChatDeserialized() override;
 
 private slots:
     void getSuperGroupData();
     void updateSuperGroup(const QJsonObject &json);
+    void getSuperGroupFullInfo();
     void updateSuperGroupFullInfo(const QJsonObject &json);
     void handleSuperGroupFullInfo(const QJsonObject &json);
     void superGroupFullInfo(const QJsonObject &info);
 
 private:
+    void parseSuperGroupId();
     Q_DISABLE_COPY(QTdSuperGroupChat)
     QTdInt32 m_sgId;
     QString m_username;

@@ -337,6 +337,8 @@ protected:
     virtual void onChatOpened();
     virtual void onChatClosed();
     virtual void updateChatAction(const QJsonObject &json);
+    virtual void onChatDeserialized();
+
     QPointer<QQmlObjectListModel<QTdMessage>> m_messages;
 
 private:

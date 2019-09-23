@@ -47,7 +47,7 @@ signals:
     void groupInfoChanged();
 
 protected:
-    virtual void onChatOpened();
+    virtual void onChatDeserialized() override;
 
 private slots:
     void requestGroupData();

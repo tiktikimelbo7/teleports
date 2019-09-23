@@ -72,6 +72,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
 
     QAbstractInt64Id::unmarshalJson(json);
     updateChatPhoto(json["photo"].toObject());
+
+    onChatDeserialized();
 }
 
 QString QTdChat::title() const
@@ -510,6 +512,10 @@ void QTdChat::onChatOpened()
 }
 
 void QTdChat::onChatClosed()
+{
+}
+
+void QTdChat::onChatDeserialized()
 {
 }
 

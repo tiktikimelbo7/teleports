@@ -100,7 +100,7 @@ void QTdBasicGroupChat::unmarshalJson(const QJsonObject &json)
     }
 }
 
-void QTdBasicGroupChat::onChatOpened()
+void QTdBasicGroupChat::onChatDeserialized()
 {
     requestGroupData();
 }
