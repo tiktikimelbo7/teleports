@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 19:10+0000\n"
-"PO-Revision-Date: 2019-09-21 20:50+0000\n"
+"PO-Revision-Date: 2019-09-25 20:51+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "teleports/lt/>\n"
@@ -29,31 +29,31 @@ msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a message"
-msgstr ""
+msgstr "atsiuntė jums žinutę"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a photo"
-msgstr ""
+msgstr "atsiuntė jums nuotrauką"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a sticker"
-msgstr ""
+msgstr "atsiuntė jums lipduką"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you a video"
-msgstr ""
+msgstr "atsiuntė jums vaizdo įrašą"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a document"
-msgstr ""
+msgstr "atsiuntė jums dokumentą"
 
 #: ../push/pushhelper.cpp:152
 msgid "sent you an audio message"
-msgstr ""
+msgstr "atsiuntė jums garso žinutę"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
-msgstr ""
+msgstr "atsiuntė jums balso žinutę"
 
 #: ../push/pushhelper.cpp:160
 msgid "shared a contact with you"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:164
 msgid "sent you a map"
-msgstr ""
+msgstr "atsiuntė jums žemėlapį"
 
 #: ../push/pushhelper.cpp:169
 msgid "%1: %2"
@@ -69,53 +69,51 @@ msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:174
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę žinutę"
 
 #: ../push/pushhelper.cpp:179
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę nuotrauką"
 
 #: ../push/pushhelper.cpp:184
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę lipduką"
 
 #: ../push/pushhelper.cpp:189
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę vaizdo įrašą"
 
 #: ../push/pushhelper.cpp:194
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę dokumentą"
 
 #: ../push/pushhelper.cpp:199
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę balso žinutę"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 has returned to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 grįžo į grupę"
+msgstr "%1 atsiuntė į grupę GIF"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę adresatą"
 
 #: ../push/pushhelper.cpp:214
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 atsiuntė į grupę žemėlapį"
 
 #: ../push/pushhelper.cpp:219 ../push/pushhelper.cpp:240
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 pakvietė jus į grupę"
 
 #: ../push/pushhelper.cpp:224
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 pakeitė grupės pavadinimą"
 
 #: ../push/pushhelper.cpp:229
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 pakeitė grupės nuotrauką"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:235
@@ -134,7 +132,7 @@ msgstr "%1 pašalino jus iš grupes"
 
 #: ../push/pushhelper.cpp:256
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 išėjo iš grupės"
 
 #: ../push/pushhelper.cpp:261
 msgid "%1 has returned to the group"
@@ -154,7 +152,7 @@ msgstr ""
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:274
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 prisijungė prie Telegram!"
 
 #: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:285
 msgid "New login from unrecognized device"
@@ -167,7 +165,7 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:289
 msgid "updated profile photo"
-msgstr ""
+msgstr "atnaujino profilio nuotrauką"
 
 #: ../push/pushhelper.cpp:294 ../push/pushhelper.cpp:299
 #: ../push/pushhelper.cpp:304
@@ -176,11 +174,11 @@ msgstr "Gavote naują žinutę"
 
 #: ../push/pushhelper.cpp:309
 msgid "%1 pinned a message"
-msgstr ""
+msgstr "%1 prisegė žinutę"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
-msgstr ""
+msgstr "Lipdukas"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:303
 msgid "Phone call"
@@ -244,32 +242,32 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "created this group"
-msgstr ""
+msgstr "sukūrė šią grupę"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "has joined Telegram!"
-msgstr ""
+msgstr "prisijungė prie Telegram!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
-msgstr ""
+msgstr "Nepalaikoma žinutė"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Neįgyvendinta:"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "Me"
-msgstr ""
+msgstr "Aš"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
 msgid "Message"
-msgstr ""
+msgstr "Žinutė"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neskaitytos žinutės"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
@@ -299,7 +297,7 @@ msgstr ""
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:80
 msgid "Saved Messages"
-msgstr ""
+msgstr "Įrašytos žinutės"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -317,7 +315,7 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "Gerai"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
@@ -327,21 +325,20 @@ msgstr "Atsisakyti"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Ar tikrai norite išvalyti istoriją?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 #: ../app/qml/pages/ChatListPage.qml:81
 msgid "Clear history"
-msgstr ""
+msgstr "Išvalyti istoriją"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Ar tikrai norite išeiti iš šio pokalbio?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
-#, fuzzy
 msgid "Leave"
-msgstr "Palikti"
+msgstr "Išeiti"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -349,15 +346,15 @@ msgstr "Užverti"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
-msgstr ""
+msgstr "Neteisingas telefono numeris!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Neteisingas kodas!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Neteisingas slaptažodis!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -365,7 +362,7 @@ msgstr ""
 
 #: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Oi! Vidinė klaida."
 
 #: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
@@ -385,7 +382,7 @@ msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "No valid location received after 180 seconds!"
@@ -397,15 +394,15 @@ msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:43
 msgid "First Name"
-msgstr ""
+msgstr "Vardas"
 
 #: ../app/qml/pages/WaitCodePage.qml:51
 msgid "Last Name"
-msgstr ""
+msgstr "Pavardė"
 
 #: ../app/qml/pages/WaitCodePage.qml:58
 msgid "Code"
-msgstr ""
+msgstr "Kodas"
 
 #: ../app/qml/pages/WaitCodePage.qml:73
 msgid "We've send a code via telegram to your device. Please enter it here."
@@ -421,7 +418,7 @@ msgstr "Nustatymai"
 
 #: ../app/qml/pages/ChatListPage.qml:76
 msgid "Leave chat"
-msgstr ""
+msgstr "Išeiti iš pokalbio"
 
 #: ../app/qml/pages/ChatListPage.qml:92
 msgid "Info"
@@ -448,16 +445,16 @@ msgstr ""
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 msgid "Phone number"
-msgstr ""
+msgstr "Telefono numeris"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "Patvirtinkite savo šalies kodą ir įveskite savo telefono numerį."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:60
 msgid "Next..."
-msgstr ""
+msgstr "Kitas..."
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -517,15 +514,15 @@ msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
-msgstr ""
+msgstr "Jungiamumas"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Telegram jungiamumo būsena:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Ubuntu Touch jungiamumo būsena:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
@@ -537,19 +534,19 @@ msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
-msgstr ""
+msgstr "Nakties veiksena"
 
 #: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
 msgid "Logout"
-msgstr ""
+msgstr "Atsijungti"
 
 #: ../app/qml/pages/SettingsPage.qml:115
 msgid "Delete account"
-msgstr ""
+msgstr "Ištrinti paskyrą"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr ""
+msgstr "Jungiamumo būsena"
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
@@ -577,7 +574,7 @@ msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Failas: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
@@ -592,7 +589,7 @@ msgstr[2] ""
 
 #: ../app/qml/pages/MessageListPage.qml:123
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:280
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
@@ -602,7 +599,7 @@ msgstr "Taisyti"
 #: ../app/qml/pages/MessageListPage.qml:280
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
-msgstr ""
+msgstr "Atsakyti"
 
 #: ../app/qml/pages/MessageListPage.qml:304
 msgid "You are not allowed to post in this channel"
@@ -622,19 +619,19 @@ msgstr ""
 
 #: ../app/qml/pages/MessageListPage.qml:498
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Ar norite bendrinti savo buvimo vietą su %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:500
 msgid "Send"
-msgstr ""
+msgstr "Siųsti"
 
 #: ../app/qml/pages/MessageListPage.qml:511
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Užklausiama buvimo vieta iš OS..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
-msgstr ""
+msgstr "Profilis"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -646,7 +643,7 @@ msgstr "Slaptažodis"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 prisijungė prie grupės"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
 msgid "%1 added %2"
@@ -661,7 +658,7 @@ msgstr[2] ""
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
-msgstr ""
+msgstr "%1 išėjo iš grupės"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -686,7 +683,7 @@ msgstr "Kopijuoti"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:80
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Lipdukų paketo informacija"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:239
 msgid "Edited"
@@ -694,7 +691,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Padaryta ekrano kopija"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from %1"
@@ -702,7 +699,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
-msgstr ""
+msgstr "%1 prisijungė prie Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
@@ -710,7 +707,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Trūksta etiketės..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -734,7 +731,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
 msgid "Duration: %1:%2"
-msgstr ""
+msgstr "Trukmė: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
