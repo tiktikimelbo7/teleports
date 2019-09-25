@@ -1,6 +1,24 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.5
+### Added
+- Message text can be copied to clipboard via left-swipe
+- New language: Dutch
+- Location sending is now also live, missed the last release
+- Location maps are now styled better in size and appearance
+- Audio and video files can be attached via attach panel
+
+### Changed
+- Lots of graphical improvements!
+- Upgrade to tdlib 1.4 - Thank You Telegram
+- Do not show text input box in channels and terminated secret chats
+- The registration and login process now shows sensible error messages instead of just being quiet
+
+## 0.4.1
+### Bugfix
+- A logrotate issue surfaced when we suddenly received errors from the push helper. Provide bandaid to not fill people´s log directories anymore
+
 ## 0.4
 ### Added
 - Finally: Unread Messages indicator in message list and positioning there!

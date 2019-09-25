@@ -25,6 +25,7 @@
 #include "content/qtdmessagevideonote.h"
 #include "content/qtdmessagevoicenote.h"
 #include "content/qtdmessagecustomserviceaction.h"
+#include "content/qtdmessagecontactregistered.h"
 #include "content/qtdmessageunsupported.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
@@ -55,8 +56,6 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageVideoNote(parent);
     } else if (type == "messageVoiceNote") {
         return new QTdMessageVoiceNote(parent);
-    } else if (type == "messageContactRegistered") {
-        return new QTdMessageAction(parent);
     } else if (type == "messageChatJoinByLink") {
         return new QTdMessageChatJoinByLink(parent);
     } else if (type == "messageBasicGroupChatCreate") {
@@ -83,6 +82,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageChatUpgradeTo(parent);
     } else if (type == "messageCustomServiceAction") {
         return new QTdMessageCustomServiceAction(parent);
+    } else if (type == "messageContactRegistered") {
+        return new QTdMessageContactRegistered(parent);
     } else if (type == "messageUnsupported") {
         return new QTdMessageUnsupported(parent);
     } else if (type == "messageSupergroupChatCreate") {

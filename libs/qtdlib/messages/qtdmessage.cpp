@@ -380,6 +380,10 @@ QString QTdMessage::summary() const
         content = c->text();
         break;
     }
+    case QTdObject::MESSAGE_CONTACT_REGISTERED: {
+        content = gettext("has joined Telegram!");
+        break;
+    }
     case QTdObject::MESSAGE_UNSUPPORTED: {
         content = gettext("Unsupported message");
         break;

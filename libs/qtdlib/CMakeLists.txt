@@ -133,6 +133,7 @@ set(
     messages/content/qtdmessagechatupgradefrom.cpp
     messages/content/qtdmessagechatupgradeto.cpp
     messages/content/qtdmessagecustomserviceaction.cpp
+    messages/content/qtdmessagecontactregistered.cpp
     messages/content/qtdmessagedate.cpp
     messages/content/qtdmessagedocument.cpp
     messages/content/qtdmessagecontact.cpp

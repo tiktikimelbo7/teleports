@@ -31,11 +31,10 @@ Item {
         width: parent.width
         height: units.gu(12)
         y: -height
-
-        Rectangle {
-            anchors.fill: parent
-            color: Suru.backgroundColor
-        }
+        radius: 4
+        color: Suru.backgroundColor
+        border.color: Suru.neutralColor
+        border.width: 2
         Grid {
             id: attachment_grid
             anchors {
@@ -97,9 +96,7 @@ Item {
             }
 
             AttachPanelItem {
-                height: attach_photo_item.height
                 icon: "down"
-                showTick: true
                 onClicked: {
                     attach_panel.close()
                 }

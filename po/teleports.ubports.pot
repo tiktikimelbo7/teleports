@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 21:16+0000\n"
+"POT-Creation-Date: 2019-09-16 19:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,82 +89,90 @@ msgid "%1 sent a voice message to the group"
 msgstr ""
 
 #: ../push/pushhelper.cpp:204
-msgid "%1 sent a contact to the group"
+msgid "%1 sent a GIF to the group"
 msgstr ""
 
 #: ../push/pushhelper.cpp:209
+msgid "%1 sent a contact to the group"
+msgstr ""
+
+#: ../push/pushhelper.cpp:214
 msgid "%1 sent a map to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:214 ../push/pushhelper.cpp:235
+#: ../push/pushhelper.cpp:219 ../push/pushhelper.cpp:240
 msgid "%1 invited you to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:219
+#: ../push/pushhelper.cpp:224
 msgid "%1 changed group name"
 msgstr ""
 
-#: ../push/pushhelper.cpp:224
+#: ../push/pushhelper.cpp:229
 msgid "%1 changed group photo"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:230
+#: ../push/pushhelper.cpp:235
 msgid "%1 invited %2"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:241
+#: ../push/pushhelper.cpp:246
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:246
+#: ../push/pushhelper.cpp:251
 msgid "%1 removed you from the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:251
+#: ../push/pushhelper.cpp:256
 msgid "%1 has left the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:256
+#: ../push/pushhelper.cpp:261
 msgid "%1 has returned to the group"
 msgstr ""
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:261
+#: ../push/pushhelper.cpp:266
 msgid "@ %1"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:263
+#: ../push/pushhelper.cpp:268
 msgid "%1 has checked-in"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:269
+#: ../push/pushhelper.cpp:274
 msgid "%1 joined Telegram!"
 msgstr ""
 
-#: ../push/pushhelper.cpp:274 ../push/pushhelper.cpp:280
+#: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:285
 msgid "New login from unrecognized device"
 msgstr ""
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:279
+#: ../push/pushhelper.cpp:284
 msgid "%1 @ %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:284
+#: ../push/pushhelper.cpp:289
 msgid "updated profile photo"
 msgstr ""
 
-#: ../push/pushhelper.cpp:289 ../push/pushhelper.cpp:294
-#: ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:294 ../push/pushhelper.cpp:299
+#: ../push/pushhelper.cpp:304
 msgid "You have a new message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:300
+#: ../push/pushhelper.cpp:309
+msgid "%1 pinned a message"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
 msgstr ""
 
@@ -236,16 +244,20 @@ msgstr ""
 msgid "created this group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+msgid "has joined Telegram!"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:388
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:393
+#: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "Me"
 msgstr ""
 
@@ -679,6 +691,10 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
 msgid "Forwarded from %1"
+msgstr ""
+
+#: ../app/qml/delegates/MessageContactRegistered.qml:5
+msgid "%1 has joined Telegram!"
 msgstr ""
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
