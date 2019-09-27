@@ -143,6 +143,7 @@ signals:
     void updateUnreadChatCount(const QJsonObject &message);
     void updateNewMessage(const QJsonObject &message);
     void updateMessageViews(const QJsonObject &message);
+    void updateChatOnlineMemberCount(const QJsonObject &data);
 
     // Response signals
     void error(QJsonObject error);

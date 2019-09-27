@@ -62,20 +62,21 @@ signals:
     void positionInfoTimeout();
 
 private slots:
-    void handleChats(const QJsonObject &json);
-    void handleChat(const QJsonObject &json);
-    void handleUpdateNewChat(const QJsonObject &chat);
-    void handleUpdateChatOrder(const QJsonObject &json);
-    void handleUpdateChatLastMessage(const QJsonObject chat);
+    void handleChats(const QJsonObject &data);
+    void handleChat(const QJsonObject &data);
+    void handleUpdateNewChat(const QJsonObject &data);
+    void handleUpdateChatOrder(const QJsonObject &data);
+    void handleUpdateChatLastMessage(const QJsonObject &data);
     void handleAuthStateChanges(const QTdAuthState *state);
-    void updateChatReadInbox(const QJsonObject &json);
-    void updateChatReadOutbox(const QJsonObject &json);
-    void handleUpdateChatIsPinned(const QJsonObject &json);
-    void handleUpdateChatPhoto(const QJsonObject &chat);
-    void handleUpdateChatReplyMarkup(const QJsonObject &chat);
-    void handleUpdateChatTitle(const QJsonObject &chat);
-    void handleUpdateChatUnreadMentionCount(const QJsonObject &chat);
-    void handleUpdateChatNotificationSettings(const QJsonObject &chat);
+    void updateChatReadInbox(const QJsonObject &data);
+    void updateChatReadOutbox(const QJsonObject &data);
+    void handleUpdateChatIsPinned(const QJsonObject &data);
+    void handleUpdateChatPhoto(const QJsonObject &data);
+    void handleUpdateChatReplyMarkup(const QJsonObject &data);
+    void handleUpdateChatTitle(const QJsonObject &data);
+    void handleUpdateChatUnreadMentionCount(const QJsonObject &data);
+    void handleUpdateChatNotificationSettings(const QJsonObject &data);
+    void handleUpdateChatOnlineMemberCount(const QJsonObject &data);
     void handleForwardingMessagesAction();
     void positionUpdated(const QGeoPositionInfo &info);
     void onPositionInfoTimeout();

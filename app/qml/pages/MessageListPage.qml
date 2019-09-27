@@ -26,7 +26,11 @@ Page {
                 if (currentChat.action != "")
                     return currentChat.action;
                 if (currentChat.isGroup || currentChat.isChannel) {
-                    return i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
+                    var memberCountInfo = i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
+                    if (currentChat.onlineMemberCount > 0) {
+                        memberCountInfo += i18n.tr(", %1 online", ", %1 online", currentChat.onlineMemberCount).arg(currentChat.onlineMemberCount);
+                    }
+                    return memberCountInfo;
                 }
                 return currentChat.chatType.user.status.string
             }

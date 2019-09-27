@@ -40,6 +40,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateChatTitle, this, &QTdChatListModel::handleUpdateChatTitle);
     connect(QTdClient::instance(), &QTdClient::updateChatUnreadMentionCount, this, &QTdChatListModel::handleUpdateChatUnreadMentionCount);
     connect(QTdClient::instance(), &QTdClient::updateChatNotificationSettings, this, &QTdChatListModel::handleUpdateChatNotificationSettings);
+    connect(QTdClient::instance(), &QTdClient::updateChatOnlineMemberCount, this, &QTdChatListModel::handleUpdateChatOnlineMemberCount);
 }
 
 QObject *QTdChatListModel::model() const
@@ -107,19 +108,19 @@ void QTdChatListModel::clearCurrentChat()
     emit currentChatChanged(m_currentChat);
 }
 
-void QTdChatListModel::handleChat(const QJsonObject &json)
+void QTdChatListModel::handleChat(const QJsonObject &data)
 {
     QScopedPointer<QTdChat> chat(new QTdChat);
-    chat->unmarshalJson(json);
+    chat->unmarshalJson(data);
     if (chat->isMyself()) {
         qWarning() << "Chat with myself. Id:" << chat->id() << "Order:" << chat->order();
     }
-    handleUpdateNewChat(json);
+    handleUpdateNewChat(data);
 }
 
-void QTdChatListModel::handleChats(const QJsonObject &json)
+void QTdChatListModel::handleChats(const QJsonObject &data)
 {
-    QJsonArray chats = json["chat_ids"].toArray();
+    QJsonArray chats = data["chat_ids"].toArray();
     if (chats.count() == 0) {
         if (m_receivedChatIds.count() > 0) {
             QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
@@ -146,16 +147,16 @@ void QTdChatListModel::handleChats(const QJsonObject &json)
     req->setOffsetOrder(lastChat->order());
     req->sendAsync();
 }
-void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["id"].toDouble());
+    const qint64 id = qint64(data["id"].toDouble());
     // Need to remember the model actually indexes on the qmlId variant which is a QString
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->unmarshalJson(chat);
+        tdchat->unmarshalJson(data);
     } else {
-        tdchat = QTdChatFactory::createChat(chat["type"].toObject());
-        tdchat->unmarshalJson(chat);
+        tdchat = QTdChatFactory::createChat(data["type"].toObject());
+        tdchat->unmarshalJson(data);
         m_model->append(tdchat);
         connect(tdchat, &QTdChat::chatStatusChanged, this, &QTdChatListModel::chatStatusChanged);
         // We also need to update the internal pinned chats list now
@@ -169,23 +170,23 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &chat)
     emit contentsChanged();
 }
 
-void QTdChatListModel::handleUpdateChatOrder(const QJsonObject &json)
+void QTdChatListModel::handleUpdateChatOrder(const QJsonObject &data)
 {
-    const qint64 id = qint64(json["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatOrder(json);
+        tdchat->updateChatOrder(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject chat)
+void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateLastMessage(chat);
-        tdchat->updateChatOrder(chat);
+        tdchat->updateLastMessage(data);
+        tdchat->updateChatOrder(data);
         emit contentsChanged();
     }
 }
@@ -210,32 +211,32 @@ void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
     }
 }
 
-void QTdChatListModel::updateChatReadInbox(const QJsonObject &json)
+void QTdChatListModel::updateChatReadInbox(const QJsonObject &data)
 {
-    const qint64 id = qint64(json["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatReadInbox(json);
+        tdchat->updateChatReadInbox(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::updateChatReadOutbox(const QJsonObject &json)
+void QTdChatListModel::updateChatReadOutbox(const QJsonObject &data)
 {
-    const qint64 id = qint64(json["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatReadOutbox(json);
+        tdchat->updateChatReadOutbox(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatIsPinned(const QJsonObject &json)
+void QTdChatListModel::handleUpdateChatIsPinned(const QJsonObject &data)
 {
-    const qint64 id = qint64(json["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatIsPinned(json);
+        tdchat->updateChatIsPinned(data);
         emit contentsChanged();
         // Update our internal PinnedChats list
         if (tdchat->isPinned() && !m_pinnedChats.contains(tdchat->id())) {
@@ -246,52 +247,62 @@ void QTdChatListModel::handleUpdateChatIsPinned(const QJsonObject &json)
     }
 }
 
-void QTdChatListModel::handleUpdateChatPhoto(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateChatPhoto(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatPhoto(chat["photo"].toObject());
+        tdchat->updateChatPhoto(data["photo"].toObject());
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatReplyMarkup(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateChatReplyMarkup(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatReplyMarkup(chat);
+        tdchat->updateChatReplyMarkup(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatTitle(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateChatTitle(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatTitle(chat);
+        tdchat->updateChatTitle(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatUnreadMentionCount(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateChatUnreadMentionCount(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatUnreadMentionCount(chat);
+        tdchat->updateChatUnreadMentionCount(data);
         emit contentsChanged();
     }
 }
 
-void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &chat)
+void QTdChatListModel::handleUpdateChatNotificationSettings(const QJsonObject &data)
 {
-    const qint64 id = qint64(chat["chat_id"].toDouble());
+    const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateChatNotificationSettings(chat);
+        tdchat->updateChatNotificationSettings(data);
+        emit contentsChanged();
+    }
+}
+
+void QTdChatListModel::handleUpdateChatOnlineMemberCount(const QJsonObject &data)
+{
+    const qint64 id = qint64(data["chat_id"].toDouble());
+    QTdChat *tdchat = chatById(id);
+    if (tdchat) {
+        tdchat->updateChatOnlineMemberCount(data);
         emit contentsChanged();
     }
 }

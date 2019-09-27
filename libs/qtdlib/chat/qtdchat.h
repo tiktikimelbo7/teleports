@@ -51,6 +51,7 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString lastReadOutboxMessageId READ qmlLastReadOutboxMessageId NOTIFY lastReadOutboxMessageIdChanged)
     Q_PROPERTY(bool hasUnreadMentions READ hasUnreadMentions NOTIFY unreadMentionCountChanged)
     Q_PROPERTY(QString unreadMentionCount READ qmlUnreadMentionCount NOTIFY unreadMentionCountChanged)
+    Q_PROPERTY(QString onlineMemberCount READ qmlOnlineMemberCount NOTIFY onlineMemberCountChanged)
     Q_PROPERTY(QString replyMarkupMessageId READ qmlReplyMarkupMessageId NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdMessage *replyMarkupMessage READ replyMarkupMessage NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdNotificationSettings *notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
@@ -190,6 +191,14 @@ public:
      */
     qint32 unreadMentionCount() const;
     /**
+     * @brief Number of online members for qml
+     */
+    QString qmlOnlineMemberCount() const;
+    /**
+     * @brief Number of online members
+     */
+    qint32 onlineMemberCount() const;
+    /**
      * @brief Id of the message from which reply markup needs to be used for qml
      */
     QString qmlReplyMarkupMessageId() const;
@@ -308,6 +317,7 @@ signals:
     void lastReadInboxMessageIdChanged();
     void lastReadOutboxMessageIdChanged();
     void unreadMentionCountChanged();
+    void onlineMemberCountChanged();
     void replyMarkupMessageChanged();
     void notificationSettingsChanged();
     void messagesChanged();
@@ -328,6 +338,7 @@ public slots:
     void updateChatReplyMarkup(const QJsonObject &json);
     void updateChatTitle(const QJsonObject &json);
     void updateChatUnreadMentionCount(const QJsonObject &json);
+    void updateChatOnlineMemberCount(const QJsonObject &json);
     void updateChatNotificationSettings(const QJsonObject &json);
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
@@ -355,6 +366,7 @@ private:
     QTdInt64 m_lastReadInboxMsg;
     QTdInt64 m_lastReadOutboxMsg;
     QTdInt32 m_unreadMentionCount;
+    QTdInt32 m_onlineMemberCount;
     QTdInt64 m_replyMarkupMessageId;
     QPointer<QTdMessage> m_replyMarkupMessage;
     QScopedPointer<QTdNotificationSettings> m_notifySettings;

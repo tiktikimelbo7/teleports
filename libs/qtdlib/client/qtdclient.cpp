@@ -246,6 +246,7 @@ void QTdClient::init()
 
     m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data) { emit updateUserChatAction(data); });
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data) { emit updateChatNotificationSettings(data); });
+    m_events.insert(QStringLiteral("updateChatOnlineMemberCount"), [=](const QJsonObject &data) { emit updateChatOnlineMemberCount(data); });
 
     m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data) { emit messages(data); });
     m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data) { emit message(data); });
