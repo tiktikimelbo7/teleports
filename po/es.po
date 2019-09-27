@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:10+0000\n"
+"POT-Creation-Date: 2019-09-26 21:18+0000\n"
 "PO-Revision-Date: 2019-09-20 15:50+0000\n"
 "Last-Translator: advocatux <advocatux@airpost.net>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -292,7 +292,7 @@ msgstr "Conectado"
 msgid "Seen recently"
 msgstr "Visto recientemente"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:80
+#: ../libs/qtdlib/chat/qtdchat.cpp:82
 msgid "Saved Messages"
 msgstr "Mensajes guardados"
 
@@ -589,45 +589,53 @@ msgid_plural "%1 members"
 msgstr[0] "%1 miembro"
 msgstr[1] "%1 miembros"
 
-#: ../app/qml/pages/MessageListPage.qml:123
+#: ../app/qml/pages/MessageListPage.qml:31
+#, fuzzy
+#| msgid "Not online"
+msgid ", %1 online"
+msgid_plural ", %1 online"
+msgstr[0] "Desconectado"
+msgstr[1] "Desconectado"
+
+#: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Editar"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Contestar"
 
-#: ../app/qml/pages/MessageListPage.qml:304
+#: ../app/qml/pages/MessageListPage.qml:308
 msgid "You are not allowed to post in this channel"
 msgstr "No tiene permiso para publicar en este canal"
 
-#: ../app/qml/pages/MessageListPage.qml:307
+#: ../app/qml/pages/MessageListPage.qml:311
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Esperando a que la otra parte acepte el chat secreto..."
 
-#: ../app/qml/pages/MessageListPage.qml:309
+#: ../app/qml/pages/MessageListPage.qml:313
 msgid "Secret chat has been closed"
 msgstr "El chat secreto se ha cerrado"
 
-#: ../app/qml/pages/MessageListPage.qml:390
+#: ../app/qml/pages/MessageListPage.qml:394
 msgid "Type a message..."
 msgstr "Escriba un mensaje..."
 
-#: ../app/qml/pages/MessageListPage.qml:498
+#: ../app/qml/pages/MessageListPage.qml:502
 msgid "Do you want to share your location with %1?"
 msgstr "¿Quiere compartir su ubicación con %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:500
+#: ../app/qml/pages/MessageListPage.qml:504
 msgid "Send"
 msgstr "Enviar"
 
-#: ../app/qml/pages/MessageListPage.qml:511
+#: ../app/qml/pages/MessageListPage.qml:515
 msgid "Requesting location from OS..."
 msgstr "Solicitud de ubicación del SO..."
 
@@ -771,9 +779,6 @@ msgstr "Nota de voz"
 
 #~ msgid "sent an unknown message: %1"
 #~ msgstr "envió un mensaje desconocido: %1"
-
-#~ msgid "Not online"
-#~ msgstr "Desconectado"
 
 #~ msgid "Status:"
 #~ msgstr "Estado:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:10+0000\n"
+"POT-Creation-Date: 2019-09-26 21:18+0000\n"
 "PO-Revision-Date: 2019-09-20 15:50+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -292,7 +292,7 @@ msgstr "Připojen"
 msgid "Seen recently"
 msgstr "Viděn nedávno"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:80
+#: ../libs/qtdlib/chat/qtdchat.cpp:82
 msgid "Saved Messages"
 msgstr "Uložené zprávy"
 
@@ -587,45 +587,53 @@ msgid_plural "%1 members"
 msgstr[0] "%1 člen"
 msgstr[1] "%1 členové"
 
-#: ../app/qml/pages/MessageListPage.qml:123
+#: ../app/qml/pages/MessageListPage.qml:31
+#, fuzzy
+#| msgid "Not online"
+msgid ", %1 online"
+msgid_plural ", %1 online"
+msgstr[0] "Nejste připojení"
+msgstr[1] "Nejste připojení"
+
+#: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Editovat"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: ../app/qml/pages/MessageListPage.qml:304
+#: ../app/qml/pages/MessageListPage.qml:308
 msgid "You are not allowed to post in this channel"
 msgstr "Nemáte oprávněni k zasílání zpráv na tomto kanále"
 
-#: ../app/qml/pages/MessageListPage.qml:307
+#: ../app/qml/pages/MessageListPage.qml:311
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Čeká se na přijetí skrytého chatování příjemcem…"
 
-#: ../app/qml/pages/MessageListPage.qml:309
+#: ../app/qml/pages/MessageListPage.qml:313
 msgid "Secret chat has been closed"
 msgstr "Skrytý chat byl ukončen"
 
-#: ../app/qml/pages/MessageListPage.qml:390
+#: ../app/qml/pages/MessageListPage.qml:394
 msgid "Type a message..."
 msgstr "Napište zprávu..."
 
-#: ../app/qml/pages/MessageListPage.qml:498
+#: ../app/qml/pages/MessageListPage.qml:502
 msgid "Do you want to share your location with %1?"
 msgstr "Přejete si sdílet vaši polohu s %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:500
+#: ../app/qml/pages/MessageListPage.qml:504
 msgid "Send"
 msgstr "Odeslat"
 
-#: ../app/qml/pages/MessageListPage.qml:511
+#: ../app/qml/pages/MessageListPage.qml:515
 msgid "Requesting location from OS..."
 msgstr "Vyžadována poloha od OS..."
 
@@ -766,9 +774,6 @@ msgstr "Hlasová poznámka"
 
 #~ msgid "sent an unknown message: %1"
 #~ msgstr "zaslána neznámá zpráva: %1"
-
-#~ msgid "Not online"
-#~ msgstr "Nejste připojení"
 
 #~ msgid "Status:"
 #~ msgstr "Status:"
