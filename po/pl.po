@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 21:18+0000\n"
-"PO-Revision-Date: 2019-09-20 15:50+0000\n"
+"PO-Revision-Date: 2019-09-28 20:52+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -593,13 +593,11 @@ msgstr[1] "%1 członków"
 msgstr[2] "%1 członków"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Not online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "Niedostępny"
-msgstr[1] "Niedostępny"
-msgstr[2] "Niedostępny"
+msgstr[0] ", %1 online"
+msgstr[1] ", %1 online"
+msgstr[2] ", %1 online"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
