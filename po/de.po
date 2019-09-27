@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 21:18+0000\n"
-"PO-Revision-Date: 2019-09-17 19:50+0000\n"
+"PO-Revision-Date: 2019-09-28 20:52+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
@@ -90,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 hat eine Sprachnachricht an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 hat eine Karte an die Gruppe geschickt"
+msgstr "%1 hat ein GIF an die Gruppe geschickt"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
@@ -172,10 +170,8 @@ msgid "You have a new message"
 msgstr "Du hast eine neue Nachricht"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Tippe eine Nachricht..."
+msgstr "%1 hat eine Nachricht angeheftet"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
@@ -246,10 +242,8 @@ msgid "created this group"
 msgstr "erstellte diese Gruppe"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 ist Telegram beigetreten!"
+msgstr "ist Telegram beigetreten!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
@@ -485,7 +479,7 @@ msgstr "Version %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
@@ -598,12 +592,10 @@ msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Not online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "Nicht online"
-msgstr[1] "Nicht online"
+msgstr[0] ", %1 online"
+msgstr[1] ", %1 online"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
@@ -621,16 +613,15 @@ msgstr "Antworten"
 
 #: ../app/qml/pages/MessageListPage.qml:308
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Du darfst in diesem Channel nicht schreiben"
 
 #: ../app/qml/pages/MessageListPage.qml:311
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "Warte auf das Gegenüber um den geheimen Chat anzunehmen..."
 
 #: ../app/qml/pages/MessageListPage.qml:313
-#, fuzzy
 msgid "Secret chat has been closed"
-msgstr "Anruf wurde beendet"
+msgstr "Geheimer Chat wurde beendet"
 
 #: ../app/qml/pages/MessageListPage.qml:394
 msgid "Type a message..."
@@ -638,11 +629,11 @@ msgstr "Tippe eine Nachricht..."
 
 #: ../app/qml/pages/MessageListPage.qml:502
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Willst Du Deinen Standort mit %1 teilen?"
 
 #: ../app/qml/pages/MessageListPage.qml:504
 msgid "Send"
-msgstr ""
+msgstr "Senden"
 
 #: ../app/qml/pages/MessageListPage.qml:515
 msgid "Requesting location from OS..."
@@ -680,9 +671,8 @@ msgstr "%1 hat die Gruppe verlassen"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "zur Supergruppe umgewandelt"
+msgstr "Gruppe wurde zur Supergruppe umgewandelt"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -715,9 +705,8 @@ msgid "A screenshot has been taken"
 msgstr "Ein Screenshot wurde gemacht"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
 msgid "Forwarded from %1"
-msgstr "Weitergeleitet von "
+msgstr "Weitergeleitet von  %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 #, fuzzy
@@ -754,13 +743,12 @@ msgid "Missed Call"
 msgstr "Verpasster Anruf"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "Dauer: %1.%2"
+msgstr "Dauer: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Kanal mit dem Titel << %1 >> erstellt"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
