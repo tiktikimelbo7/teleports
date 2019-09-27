@@ -235,6 +235,16 @@ qint32 QTdChat::unreadMentionCount() const
     return m_unreadMentionCount.value();
 }
 
+QString QTdChat::qmlOnlineMemberCount() const
+{
+    return m_onlineMemberCount.toQmlValue();
+}
+
+qint32 QTdChat::onlineMemberCount() const
+{
+    return m_onlineMemberCount.value();
+}
+
 QString QTdChat::qmlReplyMarkupMessageId() const
 {
     return m_replyMarkupMessageId.toQmlValue();
@@ -470,6 +480,12 @@ void QTdChat::updateChatUnreadMentionCount(const QJsonObject &json)
 {
     m_unreadMentionCount = json["unread_mention_count"];
     emit unreadMentionCountChanged();
+}
+
+void QTdChat::updateChatOnlineMemberCount(const QJsonObject &json)
+{
+    m_onlineMemberCount = json["online_member_count"];
+    emit onlineMemberCountChanged();
 }
 
 void QTdChat::updateChatNotificationSettings(const QJsonObject &json)
