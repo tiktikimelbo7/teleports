@@ -83,16 +83,16 @@ void QTdConnectionManager::handleConnectionStateChanged(QTdConnectionState *stat
 
 void QTdConnectionManager::handleApplicationStateChanged(Qt::ApplicationState state)
 {
-    auto application_active = state == Qt::ApplicationState::ApplicationActive;
-    if (m_application_active != application_active) {
-        m_application_active = application_active;
+    auto application_suspended = state == Qt::ApplicationState::ApplicationSuspended;
+    if (m_application_suspended != application_suspended) {
+        m_application_suspended = application_suspended;
         setTdLibNetworkState();
     }
 }
 
 void QTdConnectionManager::setTdLibNetworkState()
 {
-    if (m_connectivity_online && m_application_active) {
+    if (m_connectivity_online && !m_application_suspended) {
         QTdClient::instance()->send(QJsonObject{
                 { "@type", "setNetworkType" },
                 { "type", QJsonObject{ { "@type", "networkTypeMobile" } } } });
