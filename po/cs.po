@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 21:18+0000\n"
-"PO-Revision-Date: 2019-09-28 20:52+0000\n"
+"PO-Revision-Date: 2019-10-04 12:53+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -488,12 +488,12 @@ msgstr "Nahlásit problémy"
 
 #: ../app/qml/pages/AboutPage.qml:100
 msgid "Help translate"
-msgstr "Pomoc s překlady"
+msgstr "Pomožte s překlady"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr "Odpojen"
+msgstr "Nepřipojen"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
