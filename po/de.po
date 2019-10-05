@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 21:18+0000\n"
-"PO-Revision-Date: 2019-09-28 20:52+0000\n"
-"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
+"PO-Revision-Date: 2019-10-07 15:53+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -709,8 +709,6 @@ msgid "Forwarded from %1"
 msgstr "Weitergeleitet von  %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
 msgstr "%1 ist Telegram beigetreten!"
 
