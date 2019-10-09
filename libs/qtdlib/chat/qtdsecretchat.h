@@ -16,6 +16,9 @@ class QTdSecretChat : public QTdChat
     Q_PROPERTY(qint32 ttl READ ttl NOTIFY secretChatChanged)
     Q_PROPERTY(QString keyHash READ keyHash NOTIFY secretChatChanged)
     Q_PROPERTY(qint32 layer READ layer NOTIFY secretChatChanged)
+    Q_PROPERTY(bool isPending READ isPending NOTIFY stateChanged)
+    Q_PROPERTY(bool isClosed READ isClosed NOTIFY stateChanged)
+
 public:
     explicit QTdSecretChat(QObject *parent = nullptr);
 
