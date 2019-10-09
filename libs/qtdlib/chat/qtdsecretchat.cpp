@@ -88,11 +88,13 @@ void QTdSecretChat::onChatOpened()
 void QTdSecretChat::getSecretChatData()
 {
     QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret *>(chatType());
-    if (secret->secretChatId() > 0) {
+    if (secret) {
         QScopedPointer<QTdGetSecretChatRequest> req(new QTdGetSecretChatRequest);
         req->setSecretChatId(secret->secretChatId());
         QTdClient::instance()->send(req.data());
     }
+    else
+        qWarning() << "Secret chat is null!";
 }
 
 void QTdSecretChat::updateSecretChat(const QJsonObject &data)

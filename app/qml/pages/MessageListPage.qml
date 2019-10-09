@@ -219,8 +219,7 @@ Page {
             left: parent.left
             top: parent.top
             right: parent.right
-            bottom: input.top
-            // bottom: infoBox.top
+            bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
 
         ListView {
@@ -274,7 +273,7 @@ Page {
         anchors {
             left: parent.left
             right: parent.right
-            bottom: input.top
+            bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
         enabled: editingMessage || replyingToMessage
         title: editingMessage ? i18n.tr("Edit") : i18n.tr("Reply")
@@ -297,15 +296,15 @@ Page {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         height: entry.height + Suru.units.gu(2)
-        visible: !Telegram.chats.currentChat.isWritable &&
-            (Telegram.chats.currentChat.isSecret || Telegram.chats.currentChat.isChannel)
+        visible: !currentChat.isWritable
         text: {
-            if (Telegram.chats.currentChat.isChannel)
+            if (currentChat.isChannel) {
                 return i18n.tr("You are not allowed to post in this channel");
-            else if (Telegram.chats.currentChat.isSecret) {
-                if (Telegram.chats.currentChat.isPending) {
+            }
+            else if (currentChat.isSecret) {
+                if (currentChat.isPending) {
                     return i18n.tr("Waiting for other party to accept the secret chat...");
-                } else if (Telegram.chats.currentChat.isClosed) {
+                } else if (currentChat.isClosed) {
                     return i18n.tr("Secret chat has been closed");
                 }
             }
@@ -322,7 +321,7 @@ Page {
         }
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
-        visible: Telegram.chats.currentChat.isWritable
+        visible: currentChat.isWritable
         Rectangle {
             anchors {
                 top: parent.top
