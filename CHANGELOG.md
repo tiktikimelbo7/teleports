@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.5.1
+### Bugfix
+- Secret chats with negative IDs were set to read-only
+
 ## 0.5
 ### Added
 - Message text can be copied to clipboard via left-swipe
