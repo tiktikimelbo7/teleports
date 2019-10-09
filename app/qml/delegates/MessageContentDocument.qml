@@ -11,11 +11,13 @@ import "../actions"
 import "../components"
 
 MessageContentBase {
-    property QTdMessageDocument document: message.content
-    property QTdLocalFile documentLocal: document.document.document.local
-    property QTdPhotoSize thumbnail: document.document.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.local ? thumbnail.local : null
-    property url localFileSource: document && documentLocal.path ? Qt.resolvedUrl("file://" + documentLocal.path) : ""
+    property QTdMessageDocument documentContent: message.content
+    property QTdFile tdFile: documentContent.document.document
+    property QTdLocalFile localFile: tdFile.local
+    property QTdRemoteFile remoteFile: tdFile.remote
+    property QTdPhotoSize thumbnail: documentContent.document.thumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
+    property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
 
     Item {
         id: documentContainer
@@ -24,34 +26,38 @@ MessageContentBase {
         height:Math.max(fileNameLabel.height,fileIcon.height)
 
         Component.onCompleted: {
-            // console.log("c_reg",this,"\n")
-            if (documentLocal.canBeDownloaded && !documentLocal.isDownloadingCompleted) {
-                document.document.document.downloadFile();
-            }
             if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
                 thumbnail.downloadFile();
             }
         }
         Item {
             id: fileIcon
-            height: documentIcon.height
-            width: height
+            width: units.gu(7)
+            height: units.gu(7)
             anchors.rightMargin: Suru.units.gu(2)
             UITK.Icon {
-                id: documentIcon
-                visible: documentLocal.isDownloadingCompleted
-                source: "qrc:/qml/icons/download.svg"
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    bottomMargin: Suru.units.gu(0.5)
-                }
-                width: height
-            }
-            BusyIndicator {
-                visible: !documentLocal.isDownloadingCompleted
+                visible: localFile.isDownloadingCompleted
+                color: UITK.UbuntuColors.orange
+                name: "document-open"
                 anchors.fill: parent
-                running: !documentLocal.isDownloadingCompleted
+            }
+            UITK.Icon {
+                visible: !localFile.isDownloadingCompleted && !localFile.isDownloadingActive
+                source: "qrc:/qml/icons/download.svg"
+                anchors.fill: parent
+            }
+            BusyPercentageIndicator {
+                anchors.fill: parent
+                visible: localFile.isDownloadingActive || remoteFile.isUploadingActive
+                running: !localFile.isDownloadingCompleted || !remoteFile.isUploadingCompleted
+                percentage: {
+                    if (localFile.isDownloadingActive) {
+                        return parseInt(localFile.downloadedSize) / parseInt(tdFile.size) * 100;
+                    } else if (remoteFile.isUploadingActive) {
+                        return parseInt(remoteFile.uploadedSize) / parseInt(tdFile.size) * 100;
+                    }
+                    return 0.0;
+                }
             }
         }
         Label {
@@ -64,7 +70,7 @@ MessageContentBase {
                 top: parent.top
                 leftMargin: Suru.units.gu(2)
             }
-            text: document.document.fileName
+            text: documentContent.document.fileName
             color: Suru.foregroundColor
 
         }
@@ -73,10 +79,9 @@ MessageContentBase {
     FormattedText {
         anchors {
             top: documentContainer.bottom
-            topMargin: textEdit.text ? Suru.units.dp(5) : Suru.units.dp(0)
         }
 
-        formattedText: document.caption
+        formattedText: documentContent.caption
         maximumWidth: maximumAvailableContentWidth
         isPreview: message.isCollapsed
     }
@@ -84,8 +89,10 @@ MessageContentBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            if(documentLocal.isDownloadingCompleted){
-                console.log("document clicked")
+            if (localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
+                tdFile.downloadFile();
+            }
+            if(localFile.isDownloadingCompleted){
                 AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
                                                 "url": localFileSource,
                                                 "handler": ContentHandler.Destination,

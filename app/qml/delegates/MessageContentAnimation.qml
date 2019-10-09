@@ -29,39 +29,11 @@ MessageContentBase {
                    Math.min(mediaWidth, maximumMediaWidth):
                    mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
         height: mediaHeight >= mediaWidth?
-                    Math.min(mediaHeight, maximumMediaHeight):
+                    Math.max(fileIcon.height, Math.min(mediaHeight, maximumMediaHeight)):
                     Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
-        // VideoOutput {
-        //     visible:media_video.isPlaying
-        //     source: media_video
-        //     anchors.fill: parent
-        //     smooth: true
-        // }
-        // MediaPlayer {
-        //     id: media_video
-        //     loops: 1
-        //     autoPlay: false
-        //     autoLoad: false
-        //     property bool isPlaying: playbackState === MediaPlayer.PlayingState
-        //
-        //     // fillMode: Video.PreserveAspectFit
-        //     function reload() {
-        //         console.log("reload triggerd")
-        //         media_video.stop()
-        //         // media_video.source = Qt.resolvedUrl();
-        //         // media_video.source = localFileSource;
-        //     }
-        //     onError: {
-        //         console.error("MediaPlayer: " + error + ":" + errorString)
-        //     }
-        //
-        //     source: localFileSource
-        //
-        // }
 
         Image {
             id: thumbnailImg
-            // visible:!media_video.isPlaying
             anchors.fill: parent
             source:animation && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
         }
@@ -72,21 +44,22 @@ MessageContentBase {
             anchors.centerIn: parent
             UITK.Icon {
                 visible: animationLocal.isDownloadingCompleted
-                source: "qrc:/qml/icons/playMedia.svg"
+                source: "qrc:/qml/icons/play.svg"
                 anchors.fill: parent
             }
-            BusyIndicator {
-                anchors.centerIn: parent
-                visible: !animationLocal.isDownloadingCompleted
+            UITK.Icon {
+                visible: !animationLocal.isDownloadingCompleted && !animationLocal.isDownloadingActive
+                source: "qrc:/qml/icons/download.svg"
+                anchors.fill: parent
+            }
+            BusyPercentageIndicator {
+                visible: animationLocal.isDownloadingActive
+                anchors.fill: parent
                 running: !animationLocal.isDownloadingCompleted
+                percentage: parseInt(animationLocal.downloadedSize) / parseInt(animation.animation.animation.size) * 100
             }
         }
 
-        // BusyIndicator {
-        //     anchors.centerIn: parent
-        //     running: media_video.status === VideoOutput.Loading
-        //              || media_video.status === VideoOutput.Null
-        // }
         Connections {
             target: animation.animation.animation
             onFileChanged: {
@@ -94,10 +67,6 @@ MessageContentBase {
             }
         }
         Component.onCompleted: {
-            // console.log("c_reg",this,"\n")
-            if (animationLocal.canBeDownloaded && !animationLocal.isDownloadingCompleted) {
-                animation.animation.animation.downloadFile();
-            }
             if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
                 thumbnail.downloadFile();
             }
@@ -118,11 +87,10 @@ MessageContentBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
+            if (animationLocal.canBeDownloaded && !animationLocal.isDownloadingCompleted) {
+                animation.animation.animation.downloadFile();
+            }
             if(animationLocal.isDownloadingCompleted){
-                console.log("animated gif clicked")
-                //TODO crashes the app sometimes or dbus ;)
-                // if(media_video.isPlaying)media_video.pause()
-                // else media_video.play()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": animation.animation.fileName,
                                                 "videoPreviewSource": localFileSource

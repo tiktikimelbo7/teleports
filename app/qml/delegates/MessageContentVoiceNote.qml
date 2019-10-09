@@ -17,45 +17,34 @@ MessageContentBase {
     Item {
         id: voiceNoteContainer
         width: maximumAvailableContentWidth
-        height:Suru.units.gu(3)
-        Connections {
-            target: voiceNote.voiceNote
-            onFileChanged: {
-                // do something when media is loaded/changed
-            }
-        }
-        Component.onCompleted: {
-            if (voiceLocal.canBeDownloaded && !voiceLocal.isDownloadingCompleted) {
-                voiceNote.voiceNote.voice.downloadFile();
-            }
-        }
+        height:fileIcon.height
         Item {
             id: fileIcon
-            height:audioIcon.height
-            width: height
+            width: units.gu(7)
+            height: units.gu(7)
             anchors.rightMargin: Suru.units.gu(2)
             UITK.Icon {
-                id: audioIcon
                 visible: voiceLocal.isDownloadingCompleted
-                source: voiceLocal.isDownloadingCompleted ? "qrc:/qml/icons/playMedia.svg" : ""
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    bottomMargin: Suru.units.gu(0.5)
-                }
-                width: height
+                source: "qrc:/qml/icons/play.svg"
+                anchors.fill: parent
             }
-            BusyIndicator {
-                visible: !voiceLocal.isDownloadingCompleted
+            UITK.Icon {
+                visible: !voiceLocal.isDownloadingCompleted && !voiceLocal.isDownloadingActive
+                source: "qrc:/qml/icons/download.svg"
+                anchors.fill: parent
+            }
+            BusyPercentageIndicator {
+                visible: voiceLocal.isDownloadingActive
                 anchors.fill: parent
                 running: !voiceLocal.isDownloadingCompleted
+                percentage: parseInt(voiceLocal.downloadedSize) / parseInt(voiceNote.voiceNote.voice.size) * 100
             }
         }
 
         TextEdit {
             id:infoLabel
             height: contentHeight
-            width: parent.width - audioIcon.width
+            width: parent.width - fileIcon.width
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
             anchors{
                 left: fileIcon.right
@@ -84,9 +73,10 @@ MessageContentBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-          console.log(message.content.voiceNote.voice.local);
+            if (voiceLocal.canBeDownloaded && !voiceLocal.isDownloadingCompleted) {
+                voiceNote.voiceNote.voice.downloadFile();
+            }
             if(voiceLocal.isDownloadingCompleted){
-                console.log("voice note clicked "+ voiceLocal.path)
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": voiceNote.voiceNote.voice.fileName,
                                                 "audioPreviewSource": localFileSource

@@ -359,22 +359,29 @@ Page {
             id: mediaImporter
 
             onMediaReceived: {
-                var filePath = String(mediaUrl).replace('file://', '');
-                switch(contentType) {
-                    case ContentHub.ContentType.Pictures:
-                        AppActions.chat.sendPhoto(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Videos:
-                        AppActions.chat.sendVideo(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Music:
-                        AppActions.chat.sendAudio(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Contacts:
-                        AppActions.chat.sendContact(filePath, "");
-                    break;
-                    default:
-                        AppActions.chat.sendDocument(filePath, "");
+                var fileNames = [ ]
+                for ( var i = 0; i < importedFiles.length; i++ ) {
+                    var filePath = String(importedFiles[i].url).replace('file://', '')
+                    var fileName = filePath.split("/").pop();
+                    fileNames.push(filePath)
+                }
+                for (var i = 0; i < fileNames.length; i++) {
+                    switch(contentType) {
+                        case ContentHub.ContentType.Pictures:
+                            AppActions.chat.sendPhoto(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Videos:
+                            AppActions.chat.sendVideo(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Music:
+                            AppActions.chat.sendAudio(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Contacts:
+                            AppActions.chat.sendContact(fileNames[i], "");
+                        break;
+                        default:
+                            AppActions.chat.sendDocument(fileNames[i], "");
+                    }
                 }
             }
         }
