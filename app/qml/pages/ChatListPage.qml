@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import Ubuntu.Content 1.3
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.Popups 1.3 as UITK_Popups
@@ -60,14 +61,21 @@ Page {
             delegate: UITK.ListItem {
 
                 readonly property QTdChat chat: modelData
-
+                property QTdChat userSelectedChat
                 width: parent.width
                 height: layout.height
                 color: chat.isSecret ? "lightgreen" : "transparent"
 
-                onClicked: (Telegram.chats.listMode == ChatList.ForwardingMessages)
-                    ? UITK_Popups.PopupUtils.open(forwardConfirmationDialog)
-                    : AppActions.chat.setCurrentChat(chat)
+                onClicked: {
+                    if (Telegram.chats.listMode == ChatList.ForwardingMessages) {
+                        userSelectedChat = chat;
+                        UITK_Popups.PopupUtils.open(forwardConfirmationDialog);
+                    } else if (Telegram.chats.listMode == ChatList.ImportingAttachments) {
+                        userSelectedChat = chat;
+                        UITK_Popups.PopupUtils.open(importConfirmationDialog);
+                    } else
+                        AppActions.chat.setCurrentChat(chat);
+                }
 
                 leadingActions: UITK.ListItemActions {
                     actions: [
@@ -299,12 +307,36 @@ Page {
                     Component {
                         id: forwardConfirmationDialog
                         PopupDialog {
-                            text: i18n.tr("Do you want to forward the selected messages to %1?").arg(chat.title)
+                            text: i18n.tr("Do you want to forward the selected messages to %1?").arg(userSelectedChat.title)
                             confirmButtonColor: UITK.UbuntuColors.blue
                             confirmButtonText: i18n.tr("Forward")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();
-                                AppActions.chat.sendForwardMessage(chat, optionalMessageText);
+                                AppActions.chat.sendForwardMessage(userSelectedChat, optionalMessageText);
+                            }
+                            UITK.TextArea {
+                                height: units.gu(10)
+                                autoSize: true
+                                anchors {
+                                    left: parent.left
+                                    right: parent.right
+                                    topMargin: units.gu(0.1)
+                                }
+                                id: optionalMessage
+                                placeholderText: i18n.tr("Enter optional message...")
+                            }
+                        }
+                    }
+
+                    Component {
+                        id: importConfirmationDialog
+                        PopupDialog {
+                            text: i18n.tr("Do you want to send the imported files to %1?").arg(userSelectedChat.title)
+                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonText: i18n.tr("Send")
+                            onConfirmed: {
+                                var optionalMessageText = optionalMessage.text.trim();
+                                AppActions.chat.sendImportData(userSelectedChat, optionalMessageText);
                             }
                             UITK.TextArea {
                                 height: units.gu(10)
@@ -347,10 +379,27 @@ Page {
             }
         }
     }
+
     Connections {
         target: UITK.UriHandler
         onOpened: {
             processUri(uris[0]);
         }
+    }
+
+    function processContentHubIncoming(transfer) {
+        var fileNames = [ ]
+        for ( var i = 0; i < transfer.items.length; i++ ) {
+            var filePath = String(transfer.items[i].url).replace('file://', '')
+            var fileName = filePath.split("/").pop();
+            fileNames.push(filePath)
+        }
+        AppActions.chat.importFromContentHub(transfer.contentType, fileNames)
+    }
+
+    Connections {
+        target: ContentHub
+        onImportRequested: processContentHubIncoming(transfer)
+        onShareRequested: processContentHubIncoming(transfer)
     }
 }

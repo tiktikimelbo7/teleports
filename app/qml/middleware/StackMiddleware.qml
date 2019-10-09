@@ -23,4 +23,8 @@ Middleware {
     function popFromStack(message) {
         stack.pop()
     }
+
+    function popAllButOneFromStack(message) {
+        stack.pop(null)
+    }
 }

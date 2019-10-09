@@ -165,6 +165,8 @@ set(
     messages/requests/content/qtdinputmessagevideo.cpp
     messages/requests/content/qtdinputmessageaudio.cpp
     messages/requests/content/qtdinputmessagetext.cpp
+    messages/requests/content/qtdinputmessageaudio.cpp
+    messages/requests/content/qtdinputmessagevideo.cpp
     messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/qtddeletemessagesrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp

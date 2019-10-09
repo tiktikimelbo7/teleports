@@ -2,7 +2,7 @@
 
 QTdInputMessageAudio::QTdInputMessageAudio(QObject *parent)
     : QTdInputMessageContent(parent)
-    , m_photo(QString())
+    , m_audio(QString())
     , m_caption(QString())
     , m_captionEntities(QJsonArray())
 {
@@ -10,7 +10,7 @@ QTdInputMessageAudio::QTdInputMessageAudio(QObject *parent)
 void QTdInputMessageAudio::setAttachmentPath(const QString &url)
 {
 
-    m_photo = url;
+    m_audio = url;
 }
 void QTdInputMessageAudio::setCaption(const QString &caption)
 {
@@ -26,7 +26,7 @@ QJsonObject QTdInputMessageAudio::marshalJson()
         { "@type", "inputMessageAudio" },
         { "audio", QJsonObject{
                            { "@type", "inputFileLocal" },
-                           { "path", m_photo } } },
+                           { "path", m_audio } } },
         { "caption", QJsonObject{ { "@type", "formattedText" }, { "text", m_caption }, { "entities", m_captionEntities } } },
     };
 }

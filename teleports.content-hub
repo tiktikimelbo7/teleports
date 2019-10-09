@@ -1,10 +1,22 @@
 {
-    "destination": [
-        "pictures",
-        "videos",
+    "share": [
+        "contacts",
+        "documents",
+        "ebooks",
         "links",
+        "music",
+        "pictures",
         "text",
-        "documents"
-
+        "videos"
+    ],
+    "destination": [
+        "contacts",
+        "documents",
+        "ebooks",
+        "links",
+        "music",
+        "pictures",
+        "text",
+        "videos"
     ]
 }

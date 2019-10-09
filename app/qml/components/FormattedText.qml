@@ -27,7 +27,6 @@ Column {
         selectedTextColor: Suru.highlightColor
         wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
         onLinkActivated: {
-            console.log("Link activated: ", link)
             Qt.openUrlExternally(link)
         }
     }

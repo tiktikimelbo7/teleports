@@ -2,7 +2,7 @@
 
 QTdInputMessageVideo::QTdInputMessageVideo(QObject *parent)
     : QTdInputMessageContent(parent)
-    , m_photo(QString())
+    , m_video(QString())
     , m_caption(QString())
     , m_captionEntities(QJsonArray())
 {
@@ -10,7 +10,7 @@ QTdInputMessageVideo::QTdInputMessageVideo(QObject *parent)
 void QTdInputMessageVideo::setAttachmentPath(const QString &url)
 {
 
-    m_photo = url;
+    m_video = url;
 }
 void QTdInputMessageVideo::setCaption(const QString &caption)
 {
@@ -26,7 +26,7 @@ QJsonObject QTdInputMessageVideo::marshalJson()
         { "@type", "inputMessageVideo" },
         { "video", QJsonObject{
                            { "@type", "inputFileLocal" },
-                           { "path", m_photo } } },
+                           { "path", m_video } } },
         { "caption", QJsonObject{ { "@type", "formattedText" }, { "text", m_caption }, { "entities", m_captionEntities } } },
     };
 }

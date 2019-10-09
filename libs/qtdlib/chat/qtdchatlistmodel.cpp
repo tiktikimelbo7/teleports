@@ -125,15 +125,12 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
         if (m_receivedChatIds.count() > 0) {
             QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
             foreach (qint64 chatToRequest, m_receivedChatIds) {
-                qWarning() << "Requesting chat" << chatToRequest;
                 chatReq->setChatId(chatToRequest);
                 chatReq->sendAsync();
             }
         }
         return;
     }
-    qWarning() << "Handling getChats result:";
-    qWarning() << "Received" << chats.count() << "chats.";
     foreach (QJsonValue chatToRequest, chats) {
         m_receivedChatIds.append((qint64)chatToRequest.toDouble());
     }

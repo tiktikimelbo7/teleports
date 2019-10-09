@@ -25,7 +25,7 @@ Item {
     property var importDialog: null
     property var contentType: ContentHub.ContentType.All
 
-    signal mediaReceived(string mediaUrl)
+    signal mediaReceived(var importedFiles)
 
     function requestMedia() {
         if (!root.importDialog) {
@@ -55,7 +55,7 @@ Item {
                     handler: ContentHub.ContentHandler.Source
 
                     onPeerSelected: {
-                        peer.selectionType = ContentHub.ContentTransfer.Single
+                        peer.selectionType = ContentHub.ContentTransfer.Multiple
                         dialogue.activeTransfer = peer.request()
                     }
 
@@ -70,12 +70,11 @@ Item {
 
                 onStateChanged: {
                     var done = (dialogue.activeTransfer.state === ContentHub.ContentTransfer.Charged)
-                             //   (dialogue.activeTransfer.state === ContentHub.ContentTransfer.Aborted))
 
                     if (dialogue.activeTransfer.state === ContentHub.ContentTransfer.Charged) {
                         dialogue.hide()
                         if (dialogue.activeTransfer.items.length > 0) {
-                            root.mediaReceived(dialogue.activeTransfer.items[0].url)
+                            root.mediaReceived(dialogue.activeTransfer.items)
                         }
                     }
 

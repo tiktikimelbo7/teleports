@@ -6,5 +6,6 @@ KeyTable {
     property string pushToStack
     property string replaceOnStack
     property string popFromStack
+    property string popAllButOneFromStack
     property string showError
 }

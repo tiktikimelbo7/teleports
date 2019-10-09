@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
+#: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:21
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr ""
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:225
 msgid "Unread Messages"
 msgstr ""
 
@@ -315,7 +315,7 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
-#: ../app/qml/pages/ChatListPage.qml:30
+#: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:81
+#: ../app/qml/pages/ChatListPage.qml:84
 msgid "Clear history"
 msgstr ""
 
@@ -404,33 +404,42 @@ msgstr ""
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
+#: ../app/qml/pages/ChatListPage.qml:41 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:76
+#: ../app/qml/pages/ChatListPage.qml:79
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:92
+#: ../app/qml/pages/ChatListPage.qml:95
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:302
+#: ../app/qml/pages/ChatListPage.qml:305
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:304
+#: ../app/qml/pages/ChatListPage.qml:307
 #: ../app/qml/delegates/MessageBubbleItem.qml:86
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:318
+#: ../app/qml/pages/ChatListPage.qml:321 ../app/qml/pages/ChatListPage.qml:345
 msgid "Enter optional message..."
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:329
+msgid "Do you want to send the imported files to %1?"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:331
+#: ../app/qml/pages/MessageListPage.qml:500
+msgid "Send"
 msgstr ""
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
@@ -747,6 +756,6 @@ msgstr ""
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:67
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:66
 msgid "Voice note"
 msgstr ""
