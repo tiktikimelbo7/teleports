@@ -11,6 +11,7 @@
 #include "chat/requests/qtdsendchatactionrequest.h"
 #include "chat/requests/qtddeletechathistoryrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
+#include "chat/requests/qtdclosesecretchatrequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
 #include "messages/requests/qtdgetmessagerequest.h"
@@ -384,6 +385,13 @@ void QTdChat::deleteChatHistory(const bool &removeFromChatlist)
     if (m_chatType->type() == QTdChat::CHAT_TYPE_SUPERGROUP || isChannel()) {
         qWarning() << "Cannot delete chat history for supergroups or channels";
         return;
+    }
+    if (isSecret()) {
+        auto secretChatType = qobject_cast<QTdChatTypeSecret *>(m_chatType);
+        QScopedPointer<QTdCloseSecretChatRequest>
+                req(new QTdCloseSecretChatRequest);
+        req->setSecretChatId(secretChatType->secretChatId());
+        QTdClient::instance()->send(req.data());
     }
     QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
     req->setChatId(id());
