@@ -105,7 +105,8 @@ void QTdAuthManager::deleteAccount(const QString &reason)
 {
     QScopedPointer<QTdAuthDeleteAccountResponse> resp(new QTdAuthDeleteAccountResponse);
     resp->setReason(reason);
-    QTdClient::instance()->send(resp.data());
+    qWarning() << "Account deletion is disabled!";
+    //QTdClient::instance()->send(resp.data());
 }
 
 void QTdAuthManager::sendCode(const QString &code, const QString &firstname, const QString &lastname)
