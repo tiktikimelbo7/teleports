@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.5.2
+### Bugfix
+- Disabled account deletion due to reports of unwanted deleted accounts
+
 ## 0.5.1
 ### Bugfix
 - Secret chats with negative IDs were set to read-only
