@@ -15,38 +15,20 @@ PushHelper::PushHelper(const QString appId, const QString infile, const QString 
     : QObject(parent)
     , mInfile(infile)
     , mOutfile(outfile)
-    , emblemLookup(QHash<qint64, qint64>())
     , m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
               QGuiApplication::applicationDirPath().append("/assets"), this)
 {
     setlocale(LC_ALL, "");
     textdomain(GETTEXT_DOMAIN.toStdString().c_str());
 
-    connect(&mPushClient, SIGNAL(persistentCleared()),
-            this, SLOT(notificationDismissed()));
-
-    mPushClient.setAppId(appId);
-    mPushClient.registerApp(appId);
+    m_postalClient = new PostalClient(appId);
 }
 
 void PushHelper::process()
 {
-    QString tag = "";
-
     QJsonObject pushMessage = readPushMessage(mInfile);
-    mPostalMessage = pushToPostalMessage(pushMessage, tag);
-    if (!tag.isEmpty()) {
-        dismissNotification(tag);
-    }
-
-    // persistentCleared not called!
-    notificationDismissed();
-}
-
-void PushHelper::notificationDismissed()
-{
+    mPostalMessage = pushToPostalMessage(pushMessage);
     writePostalMessage(mPostalMessage, mOutfile);
-    Q_EMIT done(); // Why does this not work?
 }
 
 QJsonObject PushHelper::readPushMessage(const QString &filename)
@@ -69,14 +51,7 @@ void PushHelper::writePostalMessage(const QJsonObject &postalMessage, const QStr
     out.close();
 }
 
-void PushHelper::dismissNotification(const QString &tag)
-{
-    QStringList tags;
-    tags << tag;
-    mPushClient.clearPersistent(tags);
-}
-
-QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &tag)
+QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push)
 {
     /**
     * Only show a simple notification bubble.
@@ -99,7 +74,7 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
     }
 
     qint64 chatId = 0;
-
+    QString tag;
     if (custom.keys().contains("from_id")) {
         tag = custom["from_id"].toString();
         chatId = tag.toLong();
@@ -111,10 +86,27 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         chatId = (tag.toLong() + 1000000000000) * -1;
     }
 
+    //Display emblem counter correctly for unread messages
+    qint32 count = 0;
+    if (message.keys().contains("badge")) {
+        count = message["badge"].toInt(); // no-i18n
+    } else if (push.keys().contains("notification")) {
+        // Legacy. Notification section is only used to retrieve the unread count.
+        count = push["notification"] // no-i18n
+                        .toObject()["emblem-counter"] // no-i18n
+                        .toObject()["count"] // no-i18n
+                        .toInt();
+    }
+    qint64 totalCount = 0;
+    if (m_auxdb.getAvatarMapTable()) {
+        m_auxdb.getAvatarMapTable()->setUnreadMapEntry(chatId, count);
+        totalCount = m_auxdb.getAvatarMapTable()->getTotalUnread();
+    }
+    m_postalClient->setCount(totalCount);
+
     //Early bail-out: Telegram server just removes notification, message has been read elsewhere
     if (key == "" || key == "READ_HISTORY") {
-        QStringList tags = QStringList(tag);
-        mPushClient.clearPersistent(tags);
+        m_postalClient->clearPersistent(QStringList(tag));
         return QJsonObject();
     }
 
@@ -327,26 +319,6 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
         }
     }
 
-    //Display emblem counter correctly for unread messages
-    qint32 count = 0;
-    if (message.keys().contains("badge")) {
-        count = message["badge"].toInt(); // no-i18n
-    } else if (push.keys().contains("notification")) {
-        // Legacy. Notification section is only used to retrieve the unread count.
-        count = push["notification"] // no-i18n
-                        .toObject()["emblem-counter"] // no-i18n
-                        .toObject()["count"] // no-i18n
-                        .toInt();
-    }
-    emblemLookup[chatId] = count;
-    QJsonObject emblem;
-    QHash<qint64, qint64>::iterator i;
-    qint64 totalCount = 0;
-    for (i = emblemLookup.begin(); i != emblemLookup.end(); ++i)
-        totalCount += i.value();
-    emblem["count"] = totalCount; // no-i18n
-    emblem["visible"] = totalCount > 0; // no-i18n
-
     QJsonObject notification{
         { "card", QJsonObject{
                           { "summary", summary },
@@ -357,11 +329,9 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push, QString &ta
                           { "icon", avatar },
                   } },
         { "sound", true },
-        { "tag", tag },
-        { "vibrate", true },
-        { "emblem-counter", emblem }
+        { "tag", QString::number(chatId) },
+        { "vibrate", true }
     };
-    notification["emblem-counter"] = emblem;
     return QJsonObject{
         { "notification", notification }
     };

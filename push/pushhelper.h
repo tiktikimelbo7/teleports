@@ -4,8 +4,9 @@
 #include <QObject>
 #include <QJsonObject>
 #include <QHash>
-#include "pushclient.h"
+#include <QPointer>
 #include "../common/auxdb/auxdb.h"
+#include "../common/auxdb/postal-client.h"
 
 class PushHelper : public QObject
 {
@@ -18,23 +19,18 @@ public:
 
 Q_SIGNALS:
     void done();
-
-public Q_SLOTS:
-    void notificationDismissed();
-
+    
 protected:
     QJsonObject readPushMessage(const QString &filename);
     void writePostalMessage(const QJsonObject &postalMessage, const QString &filename);
-    void dismissNotification(const QString &tag);
-    QJsonObject pushToPostalMessage(const QJsonObject &push, QString &tag);
+    QJsonObject pushToPostalMessage(const QJsonObject &push);
 
 private:
-    PushClient mPushClient;
     QString mInfile;
     QString mOutfile;
     QJsonObject mPostalMessage;
-    QHash<qint64, qint64> emblemLookup;
     AuxDatabase m_auxdb;
+    QPointer<PostalClient> m_postalClient;
 };
 
 #endif

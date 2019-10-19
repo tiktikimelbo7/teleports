@@ -45,6 +45,7 @@ QTdClient::QTdClient(QObject *parent)
     , m_tagcounter(0)
     , m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
               QGuiApplication::applicationDirPath().append("/assets"), this)
+    , m_postalClient("teleports.ubports_teleports")
     , m_debug(false)
 {
     if (!m_debug) {
@@ -58,6 +59,7 @@ QTdClient::QTdClient(QObject *parent)
     connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
     connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
     m_worker->start();
+    qWarning() << "App Paths:" << QGuiApplication::applicationDirPath();
 }
 
 static QPointer<QTdClient> s_tdclient;
@@ -319,4 +321,16 @@ void QTdClient::setAvatarMapEntry(const qint64 id, const QString path)
 {
     if (path != "")
         m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
+}
+
+void QTdClient::setUnreadMapEntry(const qint64 id, const qint32 unread_count)
+{
+    m_auxdb.getAvatarMapTable()->setUnreadMapEntry(id, unread_count);
+    m_postalClient.setCount(m_auxdb.getAvatarMapTable()->getTotalUnread());
+}
+
+void QTdClient::clearNotificationFor(const qint64 id) {
+    QStringList tags;
+    tags = QStringList(QString::number(id));
+    m_postalClient.clearPersistent(tags);
 }

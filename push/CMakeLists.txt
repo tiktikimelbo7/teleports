@@ -5,7 +5,6 @@ find_package(Qt5Widgets REQUIRED)
 
 set(SOURCES
     push.cpp
-    pushclient.cpp
     pushhelper.cpp)
 
 add_executable(push ${SOURCES} )

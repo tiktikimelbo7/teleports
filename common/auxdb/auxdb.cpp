@@ -45,8 +45,6 @@ AuxDatabase::AuxDatabase(QString dbDirectory, QString schemaDirectory, QObject *
         return;
     }
 
-    query.exec("CREATE TABLE IF NOT EXISTS `avatarmap` (`id` INTEGER NOT NULL UNIQUE, `path` TEXT NOT NULL, PRIMARY KEY(id)) ");
-
     // Update if needed.
     upgradeSchema(schemaVersion());
 }
@@ -121,11 +119,13 @@ void AuxDatabase::setSchemaVersion(int version)
  */
 void AuxDatabase::upgradeSchema(int current_version)
 {
+    qWarning() << "auxdb: Schema migration, current version" << current_version;
     int version = current_version + 1;
     for (;; version++) {
         // Check for the existence of an updated db file.
         // Filename format is n.sql, where n is the schema version number.
         QFile file(getSqlDir() + QDir::separator() + QString::number(version) + ".sql");
+        qWarning() << "auxdb: Trying to execute the following migration file:" << file.fileName();
         if (!file.exists())
             return;
 
@@ -135,6 +135,7 @@ void AuxDatabase::upgradeSchema(int current_version)
         // Update version.
         setSchemaVersion(version);
     }
+    qWarning() << "auxdb: Schemaversion set to" << version - 1;
 }
 
 /*!
