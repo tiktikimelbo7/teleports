@@ -190,12 +190,14 @@ set(
     user/qtdlinkstatefactory.cpp
     user/qtdprofilephoto.cpp
     user/qtduser.cpp
+    user/qtduserfullinfo.cpp
     user/qtdusers.cpp
     user/qtduserstatus.cpp
     user/qtduserstatusfactory.cpp
     user/qtdusertype.cpp
     user/requests/qtdblockuserrequest.cpp
     user/requests/qtdgetuserrequest.cpp
+    user/requests/qtdgetuserfullinforequest.cpp
     utils/qtdtextformatter.cpp
 )
 
