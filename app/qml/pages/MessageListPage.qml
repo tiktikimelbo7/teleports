@@ -425,14 +425,16 @@ Page {
                     text = "";
                     d.chatState = ChatState.Default;
                 }
-
-                Keys.onReturnPressed: {
+                function sendIfEnter(event) {
                     if (event.modifiers & Qt.ShiftModifier) {
                         send();
                         return;
                     }
                     event.accepted = false;
                 }
+
+                Keys.onEnterPressed: sendIfEnter(event)
+                Keys.onReturnPressed: sendIfEnter(event)
 
                 onLengthChanged: {
                     if (!typing_timer.running) {

@@ -3,9 +3,12 @@
 #include "qtdlinkstatefactory.h"
 #include "common/qtdhelpers.h"
 #include "client/qtdclient.h"
+#include "requests/qtdgetuserfullinforequest.h"
+#include "utils/await.h"
 
 QTdUser::QTdUser(QObject *parent)
     : QAbstractInt32Id(parent)
+    , m_fullInfo(new QTdUserFullInfo)
     , m_status(Q_NULLPTR)
     , m_profilePhoto(new QTdProfilePhoto)
     , m_outgoingLink(Q_NULLPTR)
@@ -14,7 +17,7 @@ QTdUser::QTdUser(QObject *parent)
     , m_userType(Q_NULLPTR)
 {
     setType(USER);
-    m_my_id = QTdClient::instance()->getOption("my_id").toInt();
+    m_my_id = qint32(QTdClient::instance()->getOption("my_id").toInt());
 }
 
 void QTdUser::unmarshalJson(const QJsonObject &json)
@@ -96,8 +99,11 @@ bool QTdUser::isVerified() const
     return m_isVerified;
 }
 
-bool QTdUser::isMyself() const
+bool QTdUser::isMyself()
 {
+    if (m_my_id == 0) {
+        m_my_id = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    }
     return id() == m_my_id;
 }
 
@@ -114,6 +120,22 @@ QTdLinkState *QTdUser::incomingLink() const
 QTdProfilePhoto *QTdUser::profilePhoto() const
 {
     return m_profilePhoto.data();
+}
+
+QTdUserFullInfo *QTdUser::fullInfo() const
+{
+    if (m_fullInfo->bio().isEmpty()) {
+        QScopedPointer<QTdGetUserFullInfoRequest> req(new QTdGetUserFullInfoRequest);
+        req->setUserId(id());
+        QFuture<QTdResponse> resp = req->sendAsync();
+        await(resp, 2000);
+        if (resp.result().isError()) {
+            qWarning() << "Failed to get user full info with error: " << resp.result().errorString();
+        } else {
+            m_fullInfo->unmarshalJson(resp.result().json());
+        }
+    }
+    return m_fullInfo;
 }
 
 QTdUserStatus *QTdUser::status() const
@@ -155,6 +177,17 @@ void QTdUser::setPhoneNumber(QString phoneNumber)
 
     m_phoneNumber = phoneNumber;
     emit phoneNumberChanged(m_phoneNumber);
+}
+
+void QTdUser::setFullInfo(QTdUserFullInfo *fullInfo)
+{
+    if (m_fullInfo) {
+        delete m_fullInfo;
+        m_fullInfo = nullptr;
+    }
+
+    m_fullInfo = fullInfo;
+    emit fullInfoChanged(m_fullInfo);
 }
 
 void QTdUser::setStatus(QTdUserStatus *status)

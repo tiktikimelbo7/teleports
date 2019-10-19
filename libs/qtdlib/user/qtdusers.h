@@ -32,6 +32,7 @@ signals:
 private slots:
     void handleUpdateUser(const QJsonObject &user);
     void handleUpdateUserStatus(const QString &userId, const QJsonObject &status);
+    void handleUpdateUserFullInfo(const QString &userId, const QJsonObject &fullInfo);
 
 private:
     Q_DISABLE_COPY(QTdUsers)

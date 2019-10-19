@@ -6,6 +6,7 @@
 #include <QScopedPointer>
 #include <QList>
 #include "common/qabstractint32id.h"
+#include "qtduserfullinfo.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
 #include "qtdlinkstate.h"
@@ -24,6 +25,7 @@ class QTdUser : public QAbstractInt32Id
     Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
     Q_PROPERTY(QString phoneNumber READ phoneNumber WRITE setPhoneNumber NOTIFY phoneNumberChanged)
     Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
+    Q_PROPERTY(QTdUserFullInfo *fullInfo READ fullInfo WRITE setFullInfo NOTIFY fullInfoChanged)
     Q_PROPERTY(QTdUserStatus *status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(QTdProfilePhoto *profilePhoto READ profilePhoto NOTIFY profilePhotoChanged)
     Q_PROPERTY(QTdLinkState *outgoingLink READ outgoingLink NOTIFY outgoingLinkChanged)
@@ -42,12 +44,13 @@ public:
     QString phoneNumber() const;
     QString initials() const;
     Q_INVOKABLE QString avatarColor(unsigned int userId);
+    QTdUserFullInfo *fullInfo() const;
     QTdUserStatus *status() const;
     QTdProfilePhoto *profilePhoto() const;
     QTdLinkState *outgoingLink() const;
     QTdLinkState *incomingLink() const;
     bool isVerified() const;
-    bool isMyself() const;
+    bool isMyself();
     QString restrictionReason() const;
     QString languageCode() const;
     QTdUserType *userType() const;
@@ -60,6 +63,7 @@ signals:
     void usernameChanged(QString username);
     void phoneNumberChanged(QString phoneNumber);
     void initialsChanged(QString initials);
+    void fullInfoChanged(QTdUserFullInfo *fullInfo);
     void statusChanged(QTdUserStatus *status);
     void profilePhotoChanged(QTdProfilePhoto *profilePhoto);
     void outgoingLinkChanged(QTdLinkState *outgoingLink);
@@ -76,6 +80,7 @@ public slots:
     void setLastName(QString lastName);
     void setUsername(QString username);
     void setPhoneNumber(QString phoneNumber);
+    void setFullInfo(QTdUserFullInfo *fullInfo);
     void setStatus(QTdUserStatus *status);
 
 private:
@@ -84,7 +89,8 @@ private:
     QString m_lastName;
     QString m_username;
     QString m_phoneNumber;
-    qint64 m_my_id;
+    qint32 m_my_id;
+    QPointer<QTdUserFullInfo> m_fullInfo;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
     QPointer<QTdLinkState> m_outgoingLink;

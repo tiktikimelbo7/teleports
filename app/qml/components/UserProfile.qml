@@ -87,7 +87,7 @@ RowLayout {
 
                 padding {
                     top: 0
-                    bottom: 0
+                    bottom: units.gu(1)
                 }
 
                 UITK.Icon {
@@ -101,6 +101,85 @@ RowLayout {
                                              : i18n.tr("not available")
                 title.onLinkActivated: {
                     onClicked: Qt.openUrlExternally("tel:///+" + user.phoneNumber)
+                }
+            }
+        }
+
+        Item {
+            height: bioLayout.height
+            width: parent.width
+            visible: user.fullInfo.bio != "" && !user.isMyself
+
+            UITK.ListItemLayout {
+                id: bioLayout
+                width: parent.width
+                padding {
+                    top: 0
+                    bottom: units.gu(1)
+                }
+
+                UITK.Icon {
+                    height: parent.title.font.pixelSize
+                    width: height
+                    name: "note"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                }
+                title {
+                    text: user.fullInfo.bio
+                    wrapMode: Text.Wrap
+                    maximumLineCount: 10
+                }
+            }
+        }
+
+        Item {
+            height: groupInCommonLayout.height
+            width: groupInCommonLayout.width
+            visible: !user.isMyself
+
+            UITK.ListItemLayout {
+                id: groupInCommonLayout
+
+                padding {
+                    top: 0
+                    bottom: units.gu(1)
+                }
+
+                UITK.Icon {
+                    height: parent.title.height
+                    width: parent.title.height
+                    name: "contact-group"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                }
+
+                title.text: user.fullInfo.groupInCommonCount
+            }
+        }
+
+        Item {
+            height: shareInfoLayout.height
+            width: parent.width
+            visible: user.fullInfo.shareText != "" && !user.isMyself
+
+            UITK.ListItemLayout {
+                id: shareInfoLayout
+                width: parent.width
+                padding {
+                    top: 0
+                    bottom: 0
+                }
+
+                UITK.Icon {
+                    height: parent.title.font.pixelSize
+                    width: height
+                    name: "info"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                }
+
+                title {
+                    text: user.fullInfo.shareText
+                    wrapMode: Text.Wrap
+                    maximumLineCount: 5
                 }
             }
         }

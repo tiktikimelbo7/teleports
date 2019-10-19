@@ -63,11 +63,6 @@ Page {
                 fill: parent
             }
 
-            //UITK_ListItem.Header {
-            //    text: i18n.tr("Account")
-            //    visible: Telegram.users.currentUser == Telegram.users.me
-            //}
-
             UserProfile {
                 user: me
             }

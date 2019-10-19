@@ -197,7 +197,10 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateUser"), [=](const QJsonObject &data) {
         emit updateUser(data["user"].toObject());
     });
-
+    m_events.insert(QStringLiteral("updateUserFullInfo"), [=](const QJsonObject &data) {
+        const QString userId = QString::number(qint32(data["user_id"].toInt()));
+        emit updateUserFullInfo(userId, data["user_full_info"].toObject());
+    });
     m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data) {
         const QString userId = QString::number(qint32(data["user_id"].toInt()));
         emit updateUserStatus(userId, data["status"].toObject());
@@ -269,6 +272,9 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data) {
         emit updateUser(data);
         emit user(data);
+    });
+    m_events.insert(QStringLiteral("userFullInfo"), [=](const QJsonObject &data) {
+        emit userFullInfo(data);
     });
 }
 

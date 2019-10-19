@@ -115,6 +115,7 @@ signals:
     void connectionStateChanged(QTdConnectionState *state);
     void updateUser(QJsonObject user);
     void updateUserStatus(const QString &user_id, const QJsonObject &status);
+    void updateUserFullInfo(const QString &user_id, const QJsonObject &fullInfo);
     void updateFile(const QJsonObject &file);
     void updateNewChat(const QJsonObject &chat);
     void updateChatOrder(const QJsonObject &chat);
@@ -158,6 +159,7 @@ signals:
     void message(QJsonObject message);
     void file(QJsonObject file);
     void user(QJsonObject user);
+    void userFullInfo(QJsonObject userFullInfo);
 
 private slots:
     void handleRecv(const QJsonObject &data);

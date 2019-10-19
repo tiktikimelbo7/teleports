@@ -35,11 +35,16 @@ Page {
             width: parent.width
             height: 1
         }
+
         TextField {
             id: passwordField
             width: parent.width
             placeholderText: i18n.tr("Password")
+            onAccepted: sendPassword.run({
+                password: passwordField.text
+            })
             text: ""
+            focus: true
             echoMode: TextInput.Password // TODO Change to PasswordEchoOnEdit
         }
         Label {
