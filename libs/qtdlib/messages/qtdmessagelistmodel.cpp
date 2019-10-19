@@ -593,4 +593,7 @@ void QTdMessageListModel::setMessagesRead(QList<qint64> &messages)
     req->setChatId(m_chat->id());
     req->setMessageIds(messages);
     QTdClient::instance()->send(req.data());
+    if(messages.contains(m_chat->lastMessage()->id())) {
+        QTdClient::instance()->clearNotificationFor(m_chat->id());
+    }
 }

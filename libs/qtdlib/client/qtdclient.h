@@ -16,6 +16,7 @@
 #include "common/qtdrequest.h"
 #include "common/qtdresponse.h"
 #include "../../common/auxdb/auxdb.h"
+#include "../../common/auxdb/postal-client.h"
 
 // callback to trigger on received messages from tdlib.
 typedef std::function<void(QJsonObject)> ReceiveCallback;
@@ -109,6 +110,9 @@ public:
     QVariant getOption(const QString name);
 
     void setAvatarMapEntry(const qint64 id, const QString path);
+    void setUnreadMapEntry(const qint64 id, const qint32 unread_count);
+    void clearNotificationFor(const qint64 id);
+    
 
 signals:
     void authStateChanged(QTdAuthState *state);
@@ -178,6 +182,7 @@ private:
     QString getTag();
     int m_tagcounter;
     AuxDatabase m_auxdb;
+    PostalClient m_postalClient;
 };
 
 #endif // QTDCLIENT_H

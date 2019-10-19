@@ -439,7 +439,7 @@ void QTdChat::updateChatReadInbox(const QJsonObject &json)
 {
     m_unreadCount = json["unread_count"];
     emit unreadCountChanged();
-
+    QTdClient::instance()->setUnreadMapEntry(id(), unreadCount());
     m_lastReadInboxMsg = json["last_read_inbox_message_id"];
     emit lastReadInboxMessageIdChanged();
 }

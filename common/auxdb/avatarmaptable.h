@@ -15,6 +15,8 @@ public:
 
     QString getAvatarPathbyId(qint64 id);
     void setMapEntry(qint64 id, QString path);
+    void setUnreadMapEntry(qint64 id, qint32 unread_count);
+    qint32 getTotalUnread();
 
 private:
     AuxDatabase *m_db;
