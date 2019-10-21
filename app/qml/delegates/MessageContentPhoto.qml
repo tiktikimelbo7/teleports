@@ -10,9 +10,15 @@ import "../components"
 
 MessageContentBase {
     property QTdMessagePhoto photoContent: message.content
-    property QTdPhotoSize size: photoContent.photo.sizes.get(1)
+    property QTdPhotoSize size: {
+        var photoSize = photoContent.photo.sizes.get(1);
+        if (!photoSize)
+            photoSize = photoContent.photo.sizes.get(0);
+        return photoSize;
+    }
     property QTdFile photo: size.photo
     property QTdLocalFile photoLocal: photo.local
+    property QTdRemoteFile photoRemote: photo.remote
 
     property real maximumMediaHeight: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(24)
     property real minimumMediaHeight: message.isCollapsed ? Suru.units.gu(16/5) : Suru.units.gu(16)
@@ -23,12 +29,25 @@ MessageContentBase {
 
     Item {
         id: imgContainer
-        width: mediaWidth > mediaHeight?
-                   Math.min(mediaWidth, maximumMediaWidth):
-                   mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
-        height: mediaHeight >= mediaWidth?
+        width: {
+            if(size) {
+                var photoWidth = mediaWidth > mediaHeight?
+                    Math.min(mediaWidth, maximumMediaWidth):
+                    mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight);
+                return Math.max(photoWidth, units.gu(7));
+            }
+            return units.gu(7);
+        }
+        height: {
+            if(size) {
+                var photoHeight = mediaHeight >= mediaWidth?
                     Math.min(mediaHeight, maximumMediaHeight):
-                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
+                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight);
+                return Math.max(photoHeight, units.gu(7)); 
+            }
+            return units.gu(7);
+        }
+        
         Image {
             id: media_img
             anchors.fill: parent
@@ -38,12 +57,23 @@ MessageContentBase {
                 media_img.source = Qt.resolvedUrl();
                 media_img.source = localFileSource;
             }
-
             source: localFileSource
-            BusyIndicator {
-                anchors.centerIn: parent
-                running: media_img.status === Image.Loading
-                         || media_img.status === Image.Null
+
+        }
+        BusyPercentageIndicator {
+            width: units.gu(7)
+            height: units.gu(7)
+            id: busyIndicator
+            anchors.centerIn: parent
+            visible: photoLocal.isDownloadingActive || photoRemote.isUploadingActive
+            running: !photoLocal.isDownloadingCompleted || !photoRemote.isUploadingCompleted
+            percentage: {
+                if (photoLocal.isDownloadingActive) {
+                    return parseInt(photoLocal.downloadedSize) / parseInt(photo.size) * 100;
+                } else if (photoRemote.isUploadingActive) {
+                    return parseInt(photoRemote.uploadedSize) / parseInt(photo.size) * 100;
+                }
+                return 0.0;
             }
         }
 
@@ -76,11 +106,10 @@ MessageContentBase {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log("photo clicked")
             var largeSize = photoContent.photo.sizes.get(2);
-            if( largeSize === null)largeSize = photoContent.photo.sizes.get(1);
+            if( largeSize === null)
+                largeSize = photoContent.photo.sizes.get(1);
             var largePhoto = largeSize.photo;
-
             if (largePhoto.canBeDownloaded && !largePhoto.isDownloadingCompleted) {
                 largePhoto.downloadFile();
             }

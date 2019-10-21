@@ -24,7 +24,7 @@ public:
 
 private:
     Q_DISABLE_COPY(QTdInputMessageAudio)
-    QString m_photo;
+    QString m_audio;
     QString m_caption;
     QJsonArray m_captionEntities;
 };

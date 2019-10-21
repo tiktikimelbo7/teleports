@@ -15,55 +15,32 @@ License along with this program.  If not, see
 <http://www.gnu.org/licenses/>.
 */
 
-#include "pushclient.h"
+#include "postal-client.h"
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusPendingCall>
 #include <QtDBus/QDBusPendingReply>
 #include <QTimer>
 
-#define PUSH_SERVICE "com.ubuntu.PushNotifications"
 #define POSTAL_SERVICE "com.ubuntu.Postal"
-#define PUSH_PATH "/com/ubuntu/PushNotifications"
 #define POSTAL_PATH "/com/ubuntu/Postal"
-#define PUSH_IFACE "com.ubuntu.PushNotifications"
 #define POSTAL_IFACE "com.ubuntu.Postal"
 
-PushClient::PushClient(QObject *parent)
-    : QObject(parent)
+PostalClient::PostalClient(QString appId)
 {
+    this->m_appId = appId;
+    this->m_pkgName = appId.split("_").at(0);
+    this->m_pkgName = m_pkgName.replace(".", "_2e").replace("-", "_2d");
 }
 
-void PushClient::registerApp(const QString &appId)
-{
-    pkgname = appId.split("_").at(0);
-    pkgname = pkgname.replace(".", "_2e").replace("-", "_2d");
-    Q_EMIT appIdChanged(appId);
-}
-
-QString PushClient::getAppId()
-{
-    return appId;
-}
-
-QString PushClient::getToken()
-{
-    return token;
-}
-
-void PushClient::emitError()
-{
-    Q_EMIT error(status);
-}
-
-void PushClient::clearPersistent(const QStringList &tags)
+void PostalClient::clearPersistent(const QStringList &tags)
 {
     QDBusConnection bus = QDBusConnection::sessionBus();
     QString path(POSTAL_PATH);
-    path += "/" + pkgname;
+    path += "/" + m_pkgName;
     QDBusMessage message = QDBusMessage::createMethodCall(
             POSTAL_SERVICE, path, POSTAL_IFACE, "ClearPersistent"); // no-i18n
-    message << this->appId;
+    message << m_appId;
     for (int i = 0; i < tags.size(); ++i) {
         message << tags.at(i);
     }
@@ -75,50 +52,35 @@ void PushClient::clearPersistent(const QStringList &tags)
             this, SLOT(clearPersistentFinished(QDBusPendingCallWatcher *)));
 }
 
-void PushClient::clearPersistentFinished(QDBusPendingCallWatcher *watcher)
+void PostalClient::clearPersistentFinished(QDBusPendingCallWatcher *watcher)
 {
     QDBusPendingReply<void> reply = *watcher;
 
     if (reply.isError()) {
-        Q_EMIT error(reply.error().message());
-    } else {
-        Q_EMIT persistentCleared();
+        //qWarning() << reply.error().message();
     }
     watcher->deleteLater();
 }
 
-void PushClient::setCount(int count)
+void PostalClient::setCount(int count)
 {
     QDBusConnection bus = QDBusConnection::sessionBus();
     QString path(POSTAL_PATH);
     bool visible = count != 0;
-    counter = count;
-    path += "/" + pkgname;
-    QDBusMessage message = QDBusMessage::createMethodCall(POSTAL_SERVICE, path, POSTAL_IFACE, "setCounter"); // no-i18n
-    message << this->appId << count << visible;
+    path += "/" + m_pkgName;
+    QDBusMessage message = QDBusMessage::createMethodCall(POSTAL_SERVICE, path, POSTAL_IFACE, "SetCounter"); // no-i18n
+    message << m_appId << count << visible;
     QDBusPendingCall pcall = bus.asyncCall(message);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
     connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher *)),
-            this, SLOT(setCounterFinished(QDBusPendingCallWatcher *)));
+            this, SLOT(setCountFinished(QDBusPendingCallWatcher *)));
 }
 
-void PushClient::setCounterFinished(QDBusPendingCallWatcher *watcher)
+void PostalClient::setCountFinished(QDBusPendingCallWatcher *watcher)
 {
     QDBusPendingReply<void> reply = *watcher;
     if (reply.isError()) {
-        Q_EMIT error(reply.error().message());
-    } else {
-        Q_EMIT countChanged(counter);
+        //qWarning() << reply.error().message();
     }
     watcher->deleteLater();
-}
-
-int PushClient::getCount()
-{
-    return counter;
-}
-
-void PushClient::setAppId(const QString &appId)
-{
-    this->appId = appId;
 }

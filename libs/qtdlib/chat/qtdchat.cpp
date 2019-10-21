@@ -11,6 +11,7 @@
 #include "chat/requests/qtdsendchatactionrequest.h"
 #include "chat/requests/qtddeletechathistoryrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
+#include "chat/requests/qtdclosesecretchatrequest.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
 #include "messages/requests/qtdgetmessagerequest.h"
@@ -235,6 +236,16 @@ qint32 QTdChat::unreadMentionCount() const
     return m_unreadMentionCount.value();
 }
 
+QString QTdChat::qmlOnlineMemberCount() const
+{
+    return m_onlineMemberCount.toQmlValue();
+}
+
+qint32 QTdChat::onlineMemberCount() const
+{
+    return m_onlineMemberCount.value();
+}
+
 QString QTdChat::qmlReplyMarkupMessageId() const
 {
     return m_replyMarkupMessageId.toQmlValue();
@@ -375,6 +386,13 @@ void QTdChat::deleteChatHistory(const bool &removeFromChatlist)
         qWarning() << "Cannot delete chat history for supergroups or channels";
         return;
     }
+    if (isSecret()) {
+        auto secretChatType = qobject_cast<QTdChatTypeSecret *>(m_chatType);
+        QScopedPointer<QTdCloseSecretChatRequest>
+                req(new QTdCloseSecretChatRequest);
+        req->setSecretChatId(secretChatType->secretChatId());
+        QTdClient::instance()->send(req.data());
+    }
     QScopedPointer<QTdDeleteChatHistoryRequest> req(new QTdDeleteChatHistoryRequest);
     req->setChatId(id());
     req->setRemoveFromChatList(removeFromChatlist);
@@ -421,7 +439,7 @@ void QTdChat::updateChatReadInbox(const QJsonObject &json)
 {
     m_unreadCount = json["unread_count"];
     emit unreadCountChanged();
-
+    QTdClient::instance()->setUnreadMapEntry(id(), unreadCount());
     m_lastReadInboxMsg = json["last_read_inbox_message_id"];
     emit lastReadInboxMessageIdChanged();
 }
@@ -470,6 +488,12 @@ void QTdChat::updateChatUnreadMentionCount(const QJsonObject &json)
 {
     m_unreadMentionCount = json["unread_mention_count"];
     emit unreadMentionCountChanged();
+}
+
+void QTdChat::updateChatOnlineMemberCount(const QJsonObject &json)
+{
+    m_onlineMemberCount = json["online_member_count"];
+    emit onlineMemberCountChanged();
 }
 
 void QTdChat::updateChatNotificationSettings(const QJsonObject &json)

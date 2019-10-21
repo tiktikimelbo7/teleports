@@ -24,7 +24,7 @@ public:
 
 private:
     Q_DISABLE_COPY(QTdInputMessageVideo)
-    QString m_photo;
+    QString m_video;
     QString m_caption;
     QJsonArray m_captionEntities;
 };

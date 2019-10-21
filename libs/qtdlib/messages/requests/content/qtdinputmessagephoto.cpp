@@ -22,7 +22,6 @@ void QTdInputMessagePhoto::setCaptionEntities(const QJsonArray &entities)
 }
 QJsonObject QTdInputMessagePhoto::marshalJson()
 {
-    qDebug() << "inputMessagePhoto";
     return QJsonObject{
         { "@type", "inputMessagePhoto" },
         { "photo", QJsonObject{

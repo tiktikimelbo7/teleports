@@ -45,6 +45,7 @@ QTdClient::QTdClient(QObject *parent)
     , m_tagcounter(0)
     , m_auxdb(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).append("/auxdb"),
               QGuiApplication::applicationDirPath().append("/assets"), this)
+    , m_postalClient("teleports.ubports_teleports")
     , m_debug(false)
 {
     if (!m_debug) {
@@ -58,6 +59,7 @@ QTdClient::QTdClient(QObject *parent)
     connect(w, &QTdWorker::recv, this, &QTdClient::handleRecv);
     connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
     m_worker->start();
+    qWarning() << "App Paths:" << QGuiApplication::applicationDirPath();
 }
 
 static QPointer<QTdClient> s_tdclient;
@@ -197,7 +199,10 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateUser"), [=](const QJsonObject &data) {
         emit updateUser(data["user"].toObject());
     });
-
+    m_events.insert(QStringLiteral("updateUserFullInfo"), [=](const QJsonObject &data) {
+        const QString userId = QString::number(qint32(data["user_id"].toInt()));
+        emit updateUserFullInfo(userId, data["user_full_info"].toObject());
+    });
     m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data) {
         const QString userId = QString::number(qint32(data["user_id"].toInt()));
         emit updateUserStatus(userId, data["status"].toObject());
@@ -246,6 +251,7 @@ void QTdClient::init()
 
     m_events.insert(QStringLiteral("updateUserChatAction"), [=](const QJsonObject &data) { emit updateUserChatAction(data); });
     m_events.insert(QStringLiteral("updateChatNotificationSettings"), [=](const QJsonObject &data) { emit updateChatNotificationSettings(data); });
+    m_events.insert(QStringLiteral("updateChatOnlineMemberCount"), [=](const QJsonObject &data) { emit updateChatOnlineMemberCount(data); });
 
     m_events.insert(QStringLiteral("messages"), [=](const QJsonObject &data) { emit messages(data); });
     m_events.insert(QStringLiteral("message"), [=](const QJsonObject &data) { emit message(data); });
@@ -268,6 +274,9 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("user"), [=](const QJsonObject &data) {
         emit updateUser(data);
         emit user(data);
+    });
+    m_events.insert(QStringLiteral("userFullInfo"), [=](const QJsonObject &data) {
+        emit userFullInfo(data);
     });
 }
 
@@ -309,4 +318,16 @@ void QTdClient::setAvatarMapEntry(const qint64 id, const QString path)
 {
     if (path != "")
         m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
+}
+
+void QTdClient::setUnreadMapEntry(const qint64 id, const qint32 unread_count)
+{
+    m_auxdb.getAvatarMapTable()->setUnreadMapEntry(id, unread_count);
+    m_postalClient.setCount(m_auxdb.getAvatarMapTable()->getTotalUnread());
+}
+
+void QTdClient::clearNotificationFor(const qint64 id) {
+    QStringList tags;
+    tags = QStringList(QString::number(id));
+    m_postalClient.clearPersistent(tags);
 }

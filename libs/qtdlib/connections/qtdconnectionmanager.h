@@ -41,7 +41,7 @@ private:
     void setTdLibNetworkState();
     ConnectionState m_connectionState;
     bool m_connectivity_online;
-    bool m_application_active;
+    bool m_application_suspended;
 };
 
 #endif // CONNECTIONMANAGER_H

@@ -34,14 +34,19 @@ MessageContentBase
             anchors.centerIn: parent
             UITK.Icon {
                 visible: videoNoteLocal.isDownloadingCompleted
-                source: "qrc:/qml/icons/playMedia.svg"
+                source: "qrc:/qml/icons/play.svg"
                 anchors.fill: parent
             }
-
-            BusyIndicator {
-                visible: !videoNoteLocal.isDownloadingCompleted
-                anchors.centerIn: parent
+            UITK.Icon {
+                visible: !videoNoteLocal.isDownloadingCompleted && !videoNoteLocal.isDownloadingActive
+                source: "qrc:/qml/icons/download.svg"
+                anchors.fill: parent
+            }
+            BusyPercentageIndicator {
+                visible: videoNoteLocal.isDownloadingActive
+                anchors.fill: parent
                 running: !videoNoteLocal.isDownloadingCompleted
+                percentage: parseInt(videoNoteLocal.downloadedSize) / parseInt(videoNote.videoNote.video.size) * 100
             }
         }
         Connections {
@@ -51,10 +56,6 @@ MessageContentBase
             // }
         }
         Component.onCompleted: {
-            // console.log("c_reg",this,"\n")
-            if (videoNoteLocal.canBeDownloaded && !videoNoteLocal.isDownloadingCompleted) {
-                videoNote.videoNote.video.downloadFile();
-            }
             if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
                 thumbnail.downloadFile();
             }
@@ -64,11 +65,10 @@ MessageContentBase
     MouseArea {
         anchors.fill: parent
         onClicked: {
+            if (videoNoteLocal.canBeDownloaded && !videoNoteLocal.isDownloadingCompleted) {
+                videoNote.videoNote.video.downloadFile();
+            }
             if(videoNoteLocal.isDownloadingCompleted){
-                console.log("video note clicked")
-                //TODO crashes the app sometimes or dbus ;)
-                // if(media_video.isPlaying)media_video.pause()
-                // else media_video.play()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": videoNote.videoNote.fileName,
                                                 "videoPreviewSource": localFileSource

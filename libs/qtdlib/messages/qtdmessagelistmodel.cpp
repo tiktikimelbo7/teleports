@@ -13,6 +13,8 @@
 #include "requests/content/qtdinputmessagevideo.h"
 #include "requests/content/qtdinputmessageaudio.h"
 #include "requests/content/qtdinputmessagedocument.h"
+#include "requests/content/qtdinputmessageaudio.h"
+#include "requests/content/qtdinputmessagevideo.h"
 #include "requests/content/qtdinputmessagelocation.h"
 #include "requests/content/qtdinputmessagecontact.h"
 #include "qtdmessagecontentfactory.h"
@@ -519,13 +521,10 @@ void QTdMessageListModel::sendDocument(const QString &url, const QString &captio
 
 void QTdMessageListModel::sendLocation(const double latitude, const double longitude, const qint32 livePeriod)
 {
-    QScopedPointer<QTdSendMessageRequest> request(new QTdSendMessageRequest);
-    request->setChatId(m_chat->id());
-    QTdInputMessageLocation *messageContent = new QTdInputMessageLocation();
+    QScopedPointer<QTdInputMessageLocation> messageContent(new QTdInputMessageLocation);
     messageContent->setLocation(latitude, longitude);
     messageContent->setLivePeriod(livePeriod);
-    request->setContent(messageContent);
-    QTdClient::instance()->send(request.data());
+    prepareAndSendAttachmentMessage(messageContent.data(), 0);
 }
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
@@ -614,4 +613,7 @@ void QTdMessageListModel::setMessagesRead(QList<qint64> &messages)
     req->setChatId(m_chat->id());
     req->setMessageIds(messages);
     QTdClient::instance()->send(req.data());
+    if(messages.contains(m_chat->lastMessage()->id())) {
+        QTdClient::instance()->clearNotificationFor(m_chat->id());
+    }
 }

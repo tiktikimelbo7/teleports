@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `avatarmap` (
+CREATE TABLE `avatarmap` (
 	`id`	INTEGER NOT NULL UNIQUE,
 	`path`	TEXT NOT NULL,
 	PRIMARY KEY(id)

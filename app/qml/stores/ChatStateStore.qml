@@ -1,6 +1,7 @@
 import QtQuick 2.4
 import QuickFlux 1.1
 import QTelegram 1.0
+import Ubuntu.Content 1.1 as ContentHub
 import "../actions"
 
 Store {
@@ -178,7 +179,7 @@ Store {
         type: ChatKey.sendForwardMessage
         onDispatched: {
           chatList.listMode = ChatList.Idle
-          chatList.currentChat =  message.chat;
+          AppActions.chat.setCurrentChat(message.chat);
           chatList.sendForwardMessage(chatList.forwardingMessages,
                                            message.chat.id,
                                            chatList.forwardedFromChat.id,
@@ -188,38 +189,94 @@ Store {
     Filter {
         type: ChatKey.cancelForwardMessage
         onDispatched: {
-          chatList.currentChat =  chatList.forwardedFromChat
+          AppActions.chat.setCurrentChat(chatList.forwardedFromChat)
           chatList.listMode = ChatList.Idle
+        }
+    }
+
+    property var importedFiles: []
+    property var importedFileType
+
+    Filter {
+       type: ChatKey.importFromContentHub
+       onDispatched: {
+          chatList.forwardedFromChat = chatList.currentChat
+          chatList.listMode = ChatList.ImportingAttachments
+          importedFileType = message.contentType
+          importedFiles = message.filePaths
+          if(chatList.currentChat) {
+            chatList.currentChat.closeChat()
+            chatList.clearCurrentChat()
+          }
+          AppActions.view.popAllButOneFromStack()
+       }
+   }
+
+    Filter {
+        type: ChatKey.sendImportData
+        onDispatched: {
+            chatList.listMode = ChatList.Idle;
+            AppActions.chat.setCurrentChat(message.chat);
+            if (message.text.length > 0 && importedFiles.length > 1) {
+                AppActions.chat.sendMessage(message.text);
+                message.text = ""
+            }
+            for (var i = 0; i < importedFiles.length; i++) {
+                switch(importedFileType) {
+                    case ContentHub.ContentType.Pictures:
+                        AppActions.chat.sendPhoto(importedFiles[i], message.text);
+                    break;
+                    case ContentHub.ContentType.Videos:
+                        AppActions.chat.sendVideo(importedFiles[i], message.text);
+                    break;
+                    case ContentHub.ContentType.Music:
+                        AppActions.chat.sendAudio(importedFiles[i], message.text);
+                    break;
+                    case ContentHub.ContentType.Contacts:
+                        AppActions.chat.sendContact(importedFiles[i], message.text);
+                    break;
+                    default:
+                        AppActions.chat.sendDocument(importedFiles[i], message.text);
+                }
+            }
+            importedFiles = []
+            importedFileType = ""
         }
     }
 
     Filter {
         type: ChatKey.sendPhoto
         onDispatched: {
+            console.log("Send photo %1".arg(message.photoUrl));
             messageList.sendPhoto(message.photoUrl, message.text, 0);
+        }
+    }
+    
+    Filter {
+        type: ChatKey.sendAudio
+        onDispatched: {
+            console.log("Send audio %1".arg(message.photoUrl));
+            messageList.sendAudio(message.audioUrl, message.text, 0);
         }
     }
     Filter {
         type: ChatKey.sendVideo
         onDispatched: {
+            console.log("Send video %1".arg(message.photoUrl));
             messageList.sendVideo(message.videoUrl, message.text, 0);
-        }
-    }
-    Filter {
-        type: ChatKey.sendAudio
-        onDispatched: {
-            messageList.sendAudio(message.audioUrl, message.text, 0);
         }
     }
     Filter {
         type: ChatKey.sendContact
         onDispatched: {
+            console.log("Send contact %1".arg(message.photoUrl));
             messageList.sendContact(message.contactUrl, message.text, 0);
         }
     }
     Filter {
         type: ChatKey.sendDocument
         onDispatched: {
+            console.log("Send document %1".arg(message.photoUrl));
             messageList.sendDocument(message.documentUrl, message.text, 0);
         }
     }
@@ -231,6 +288,7 @@ Store {
             chatList.requestPositionInfo();
         }
     }
+
     Filter {
         type: ChatKey.sendLocation
         onDispatched: {
@@ -244,6 +302,7 @@ Store {
             chatList.cancelPositionInfo();
         }
     }
+
     Filter {
         type: ChatKey.sendReplyToMessage
         onDispatched: {

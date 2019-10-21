@@ -26,7 +26,11 @@ Page {
                 if (currentChat.action != "")
                     return currentChat.action;
                 if (currentChat.isGroup || currentChat.isChannel) {
-                    return i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
+                    var memberCountInfo = i18n.tr("%1 member", "%1 members", currentChat.memberCount).arg(currentChat.memberCount);
+                    if (currentChat.onlineMemberCount > 0) {
+                        memberCountInfo += i18n.tr(", %1 online", ", %1 online", currentChat.onlineMemberCount).arg(currentChat.onlineMemberCount);
+                    }
+                    return memberCountInfo;
                 }
                 return currentChat.chatType.user.status.string
             }
@@ -219,8 +223,7 @@ Page {
             left: parent.left
             top: parent.top
             right: parent.right
-            bottom: input.top
-            // bottom: infoBox.top
+            bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
 
         ListView {
@@ -274,7 +277,7 @@ Page {
         anchors {
             left: parent.left
             right: parent.right
-            bottom: input.top
+            bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
         enabled: editingMessage || replyingToMessage
         title: editingMessage ? i18n.tr("Edit") : i18n.tr("Reply")
@@ -297,15 +300,15 @@ Page {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         height: entry.height + Suru.units.gu(2)
-        visible: !Telegram.chats.currentChat.isWritable &&
-            (Telegram.chats.currentChat.isSecret || Telegram.chats.currentChat.isChannel)
+        visible: !currentChat.isWritable
         text: {
-            if (Telegram.chats.currentChat.isChannel)
+            if (currentChat.isChannel) {
                 return i18n.tr("You are not allowed to post in this channel");
-            else if (Telegram.chats.currentChat.isSecret) {
-                if (Telegram.chats.currentChat.isPending) {
+            }
+            else if (currentChat.isSecret) {
+                if (currentChat.isPending) {
                     return i18n.tr("Waiting for other party to accept the secret chat...");
-                } else if (Telegram.chats.currentChat.isClosed) {
+                } else if (currentChat.isClosed) {
                     return i18n.tr("Secret chat has been closed");
                 }
             }
@@ -322,7 +325,7 @@ Page {
         }
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
-        visible: Telegram.chats.currentChat.isWritable
+        visible: currentChat.isWritable
         Rectangle {
             anchors {
                 top: parent.top
@@ -356,22 +359,29 @@ Page {
             id: mediaImporter
 
             onMediaReceived: {
-                var filePath = String(mediaUrl).replace('file://', '');
-                switch(contentType) {
-                    case ContentHub.ContentType.Pictures:
-                        AppActions.chat.sendPhoto(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Videos:
-                        AppActions.chat.sendVideo(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Music:
-                        AppActions.chat.sendAudio(filePath, "");
-                    break;
-                    case ContentHub.ContentType.Contacts:
-                        AppActions.chat.sendContact(filePath, "");
-                    break;
-                    default:
-                        AppActions.chat.sendDocument(filePath, "");
+                var fileNames = [ ]
+                for ( var i = 0; i < importedFiles.length; i++ ) {
+                    var filePath = String(importedFiles[i].url).replace('file://', '')
+                    var fileName = filePath.split("/").pop();
+                    fileNames.push(filePath)
+                }
+                for (var i = 0; i < fileNames.length; i++) {
+                    switch(contentType) {
+                        case ContentHub.ContentType.Pictures:
+                            AppActions.chat.sendPhoto(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Videos:
+                            AppActions.chat.sendVideo(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Music:
+                            AppActions.chat.sendAudio(fileNames[i], "");
+                        break;
+                        case ContentHub.ContentType.Contacts:
+                            AppActions.chat.sendContact(fileNames[i], "");
+                        break;
+                        default:
+                            AppActions.chat.sendDocument(fileNames[i], "");
+                    }
                 }
             }
         }
@@ -415,14 +425,16 @@ Page {
                     text = "";
                     d.chatState = ChatState.Default;
                 }
-
-                Keys.onReturnPressed: {
+                function sendIfEnter(event) {
                     if (event.modifiers & Qt.ShiftModifier) {
                         send();
                         return;
                     }
                     event.accepted = false;
                 }
+
+                Keys.onEnterPressed: sendIfEnter(event)
+                Keys.onReturnPressed: sendIfEnter(event)
 
                 onLengthChanged: {
                     if (!typing_timer.running) {

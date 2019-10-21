@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 19:10+0000\n"
+"POT-Creation-Date: 2019-09-26 21:18+0000\n"
 "PO-Revision-Date: 2019-08-28 10:50+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -299,7 +299,7 @@ msgstr "in lìnia"
 msgid "Seen recently"
 msgstr "Bidu de reghente"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:80
+#: ../libs/qtdlib/chat/qtdchat.cpp:82
 msgid "Saved Messages"
 msgstr "Messàgios sarvados"
 
@@ -599,46 +599,54 @@ msgid_plural "%1 members"
 msgstr[0] "%1 membru"
 msgstr[1] "%1 membros"
 
-#: ../app/qml/pages/MessageListPage.qml:123
+#: ../app/qml/pages/MessageListPage.qml:31
+#, fuzzy
+#| msgid "Not online"
+msgid ", %1 online"
+msgid_plural ", %1 online"
+msgstr[0] "No est in lìnia"
+msgstr[1] "No est in lìnia"
+
+#: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Modìfica"
 
-#: ../app/qml/pages/MessageListPage.qml:280
+#: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Risponde"
 
-#: ../app/qml/pages/MessageListPage.qml:304
+#: ../app/qml/pages/MessageListPage.qml:308
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:307
+#: ../app/qml/pages/MessageListPage.qml:311
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:309
+#: ../app/qml/pages/MessageListPage.qml:313
 #, fuzzy
 msgid "Secret chat has been closed"
 msgstr "at acabadu sa mutida"
 
-#: ../app/qml/pages/MessageListPage.qml:390
+#: ../app/qml/pages/MessageListPage.qml:394
 msgid "Type a message..."
 msgstr "Iscrie unu messàgiu..."
 
-#: ../app/qml/pages/MessageListPage.qml:498
+#: ../app/qml/pages/MessageListPage.qml:502
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:500
+#: ../app/qml/pages/MessageListPage.qml:504
 msgid "Send"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:511
+#: ../app/qml/pages/MessageListPage.qml:515
 msgid "Requesting location from OS..."
 msgstr "Rechedende sa positzione a su SO..."
 
@@ -781,9 +789,6 @@ msgstr "Nota vocale"
 
 #~ msgid "sent an unknown message: %1"
 #~ msgstr "at imbiadu unu messàgiu disconnotu: %1"
-
-#~ msgid "Not online"
-#~ msgstr "No est in lìnia"
 
 #~ msgid "Status:"
 #~ msgstr "Istadu:"

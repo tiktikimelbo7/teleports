@@ -8,257 +8,247 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-26 21:18+0000\n"
-"PO-Revision-Date: 2019-08-05 22:49+0000\n"
-"Last-Translator: vokaliz <vokaliz@protonmail.com>\n"
-"Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
-"teleports/ru/>\n"
-"Language: ru\n"
+"PO-Revision-Date: 2019-10-07 15:53+0000\n"
+"Last-Translator: Sami Törmänen <tormanen.sami@gmail.com>\n"
+"Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
+"teleports/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:122 ../app/qml/pages/ChatListPage.qml:20
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr "TELEports"
+msgstr ""
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a message"
-msgstr "прислал вам сообщение"
+msgstr "lähetti sinulle viestin"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a photo"
-msgstr "прислал вам фото"
+msgstr "lähetti sinulle kuvan"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a sticker"
-msgstr "прислал вам стикер"
+msgstr "lähetti sinulle tarran"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you a video"
-msgstr "прислал вам видео"
+msgstr "lähetti sinulle videon"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a document"
-msgstr "прислал вам документ"
+msgstr "lähetti sinulle asiakirjan"
 
 #: ../push/pushhelper.cpp:152
-#, fuzzy
 msgid "sent you an audio message"
-msgstr "отправлено голосовое сообщение"
+msgstr "lähetti sinulle ääniviestin"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a voice message"
-msgstr "прислал вам голосовое сообщение"
+msgstr "lähetti sinulle puheviestin"
 
 #: ../push/pushhelper.cpp:160
 msgid "shared a contact with you"
-msgstr "поделился с вами контактом"
+msgstr "jakoi yhteystiedon kanssasi"
 
 #: ../push/pushhelper.cpp:164
 msgid "sent you a map"
-msgstr "прислал вам геопозицию"
+msgstr "lähetti sinulle kartan"
 
 #: ../push/pushhelper.cpp:169
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: ../push/pushhelper.cpp:174
 msgid "%1 sent a message to the group"
-msgstr "%1 прислал сообщение в группу"
+msgstr "%1 lähetti viestin ryhmään"
 
 #: ../push/pushhelper.cpp:179
 msgid "%1 sent a photo to the group"
-msgstr "%1 прислал фото в группу"
+msgstr "%1 lähetti kuvan ryhmään"
 
 #: ../push/pushhelper.cpp:184
 msgid "%1 sent a sticker to the group"
-msgstr "%1 прислал стикер в группу"
+msgstr "%1 lähetti tarran ryhmään"
 
 #: ../push/pushhelper.cpp:189
 msgid "%1 sent a video to the group"
-msgstr "%1 прислал видео в группу"
+msgstr "%1 lähetti videon ryhmään"
 
 #: ../push/pushhelper.cpp:194
 msgid "%1 sent a document to the group"
-msgstr "%1 прислал документ группе"
+msgstr "%1 lähetti asiakirjan ryhmään"
 
 #: ../push/pushhelper.cpp:199
 msgid "%1 sent a voice message to the group"
-msgstr "%1 прислал звуковое сообщение группе"
+msgstr "%1 lähetti puheviestin ryhmään"
 
 #: ../push/pushhelper.cpp:204
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 прислал карту группе"
+msgstr "%1 lähetti GIF-kuvan ryhmään"
 
 #: ../push/pushhelper.cpp:209
 msgid "%1 sent a contact to the group"
-msgstr "%1 прислал контакт группе"
+msgstr "%1 lähetti yhteystiedon ryhmään"
 
 #: ../push/pushhelper.cpp:214
 msgid "%1 sent a map to the group"
-msgstr "%1 прислал карту группе"
+msgstr "%1 lähetti kartan ryhmään"
 
 #: ../push/pushhelper.cpp:219 ../push/pushhelper.cpp:240
 msgid "%1 invited you to the group"
-msgstr "%1 пригласил вас в группу"
+msgstr "%1 kutsui sinut ryhmään"
 
 #: ../push/pushhelper.cpp:224
 msgid "%1 changed group name"
-msgstr "%1 изменил название группы"
+msgstr "%1 muutti ryhmän nimeä"
 
 #: ../push/pushhelper.cpp:229
 msgid "%1 changed group photo"
-msgstr "%1 изменил фото группы"
+msgstr "%1 muutti ryhmän kuvaa"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:235
 msgid "%1 invited %2"
-msgstr "%1 пригласил %2"
+msgstr "%1 kutsui henkilön %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:246
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
-msgstr "%1 исключил %2"
+msgstr "%1 poisti henkilön %2"
 
 #: ../push/pushhelper.cpp:251
 msgid "%1 removed you from the group"
-msgstr "%1 исключил вас из группы"
+msgstr "%1 poisti sinut ryhmästä"
 
 #: ../push/pushhelper.cpp:256
 msgid "%1 has left the group"
-msgstr "%1 вышел из группы"
+msgstr "%1 poistui ryhmästä"
 
 #: ../push/pushhelper.cpp:261
 msgid "%1 has returned to the group"
-msgstr "%1 вернулся в группу"
+msgstr "%1 palasi ryhmään"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:266
 msgid "@ %1"
-msgstr "@ %1"
+msgstr ""
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:268
 msgid "%1 has checked-in"
-msgstr "%1 зарегистрировался"
+msgstr ""
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:274
 msgid "%1 joined Telegram!"
-msgstr "%1 присоединился к Telegram!"
+msgstr "%1 liittyi Telegramiin!"
 
 #: ../push/pushhelper.cpp:279 ../push/pushhelper.cpp:285
 msgid "New login from unrecognized device"
-msgstr "Новый вход с неизвестного устройства"
+msgstr "Uusi kirjautuminen tuntemattomasta laitteesta"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:284
 msgid "%1 @ %2"
-msgstr "%1 @ %2"
+msgstr ""
 
 #: ../push/pushhelper.cpp:289
 msgid "updated profile photo"
-msgstr "обновил фото профиля"
+msgstr "päivitti profiilikuvan"
 
 #: ../push/pushhelper.cpp:294 ../push/pushhelper.cpp:299
 #: ../push/pushhelper.cpp:304
 msgid "You have a new message"
-msgstr "У вас новое сообщение"
+msgstr "Sinulle on uusi viesti"
 
 #: ../push/pushhelper.cpp:309
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Написать сообщение..."
+msgstr "%1 kiinnitti viestin"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:299
 msgid "Sticker"
-msgstr "Стикер"
+msgstr "Tarra"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:303
 msgid "Phone call"
-msgstr ""
+msgstr "Puhelu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:307
 msgid "sent an audio message"
-msgstr "отправлено голосовое сообщение"
+msgstr "lähetti ääniviestin"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:311
 msgid "sent a photo"
-msgstr "прислал фото"
+msgstr "lähetti kuvan"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:320
 msgid "Location"
-msgstr "Местоположение"
+msgstr "Sijainti"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:324
 msgid "sent a video"
-msgstr "отправлено видео"
+msgstr "lähetti videon"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:328
 msgid "sent a video note"
-msgstr "отправлено видео послание"
+msgstr "lähetti videoviestin"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:332
 msgid "sent a voice note"
-msgstr "отправлено звуковое послание"
+msgstr "lähetti puheviestin"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:336
 msgid "joined the group"
-msgstr "присоединился к группе"
+msgstr "liittyi ryhmään"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "changed the chat photo"
-msgstr "изменил фотографию беседы"
+msgstr "muutti keskustelun kuvaa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "changed the chat title"
-msgstr "изменил название беседы"
+msgstr "muutti keskustelun otsikkoa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined by invite link"
-msgstr "присоединился по ссылке-приглашению"
+msgstr "liittyi kutsulinkin kautta"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "removed a member"
-msgstr "удаленный участник"
+msgstr "poisti jäsenen"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "deleted the chat photo"
-msgstr "удалил фотографию беседы"
+msgstr "poisti keskustelun kuvan"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:361
 msgid "upgraded to supergroup"
-msgstr "повышен до супергруппы"
+msgstr "päivitettiin superryhmäksi"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "message TTL has been changed"
-msgstr "TTL сообщение было измененено"
+msgstr "viestin TTL on muutettu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:370
-#, fuzzy
 msgid "created this group"
-msgstr "присоединился к группе"
+msgstr "loi tämän ryhmän"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:379
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 присоединился к Telegram!"
+msgstr "liittyi Telegramiin!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:383
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "Сохраненное сообщение"
+msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "Unimplemented:"
@@ -266,227 +256,225 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:392
 msgid "Me"
-msgstr "Я"
+msgstr "Minä"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
 msgid "Message"
-msgstr "Сообщение"
+msgstr "Viesti"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:223
-#, fuzzy
 msgid "Unread Messages"
-msgstr "Сохраненное сообщение"
+msgstr "Lukemattomat viestit"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
-msgstr "Был в сети месяц назад"
+msgstr "Nähty viimeksi kuukausi sitten"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
-msgstr "Был в сети неделю назад"
+msgstr "Nähty viimeksi viikko sitten"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
-msgstr "Был в сети "
+msgstr "Nähty viimeksi "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr "дд.ММ.гг. чч:мм"
+msgstr ""
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr "В сети"
+msgstr "Paikalla"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
-msgstr "Был недавно"
+msgstr "Nähty hiljattain"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:82
 msgid "Saved Messages"
-msgstr "Сохраненное сообщение"
+msgstr "Tallennetut viestit"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr "не доступен"
+msgstr "ei saatavilla"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:29
 msgid "Choose a country"
-msgstr "Выберите страну"
+msgstr "Valitse maa"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr "Поиск по названию страны..."
+msgstr "Hae maan nimellä..."
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr "Одобряю"
+msgstr "Okay"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:30
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Peruuta"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr "Вы уверены, что хотите очистить историю?"
+msgstr "Oletko varma että haluat tyhjentää historian?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 #: ../app/qml/pages/ChatListPage.qml:81
 msgid "Clear history"
-msgstr "Очистить историю"
+msgstr "Tyhjennä historia"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr "Вы уверены, что хотите покинуть эту беседу?"
+msgstr "Oletko varma että haluat poistua tästä keskustelusta?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr "Покинуть"
+msgstr "Poistu"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr "Закрыть"
+msgstr "Sulje"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "Номер телефона"
+msgstr "Epäkelpo puhelinnumero!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Epäkelpo koodi!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Epäkelpo salasana!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
-msgstr "Код авторизации не ожидается в настоящее время"
+msgstr "Varmistuskoodia ei odotettu juuri nyt"
 
 #: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
-msgstr "Упс! Внутренняя ошибка."
+msgstr "Oops! Sisäinen virhe."
 
 #: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
-msgstr "Неверная длина кода авторизации."
+msgstr "Varmistuskoodi väärän pituinen."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr "Ошибка регистрации"
+msgstr "Push- rekisteröinti epäonnistui"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr "Отсутствует Ubuntu One"
+msgstr "Ei Ubuntu Onea"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "Чтобы получать уведомления, подключитесь к учетной записи Ubuntu One."
+msgstr ""
+"Ole hyvä ja kirjaudu Ubuntu One- palveluun saadaksesi push- ilmoituksia."
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "Error"
-msgstr ""
+msgstr "Virhe"
 
 #: ../app/qml/stores/ChatStateStore.qml:38
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Validia sijaintia ei vastaanotettu 180 sekunnissa!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
-msgstr "Введите код"
+msgstr "Syötä koodi"
 
 #: ../app/qml/pages/WaitCodePage.qml:43
 msgid "First Name"
-msgstr "Имя"
+msgstr "Etunimi"
 
 #: ../app/qml/pages/WaitCodePage.qml:51
 msgid "Last Name"
-msgstr "Фамилия"
+msgstr "Sukunimi"
 
 #: ../app/qml/pages/WaitCodePage.qml:58
 msgid "Code"
-msgstr "Код"
+msgstr "Koodi"
 
 #: ../app/qml/pages/WaitCodePage.qml:73
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
-"Мы отправили код через телеграмм на ваше устройство. Пожалуйста, введите код "
-"здесь."
+"Lähetimme koodin Telegramin kautta laitteeseesi. Ole hyvä ja syötä se tänne."
 
 #: ../app/qml/pages/ChatListPage.qml:19
 msgid "Select destination or cancel..."
-msgstr "Выберите адресата или отмените..."
+msgstr "Valitse määränpää tai keskeytä..."
 
 #: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
-msgstr "Настройки"
+msgstr "Asetukset"
 
 #: ../app/qml/pages/ChatListPage.qml:76
 msgid "Leave chat"
-msgstr "Выйти из беседы"
+msgstr "Poistu keskustelusta"
 
 #: ../app/qml/pages/ChatListPage.qml:92
 msgid "Info"
-msgstr "Информация"
+msgstr "Info"
 
 #: ../app/qml/pages/ChatListPage.qml:302
 msgid "Do you want to forward the selected messages to %1?"
-msgstr "Хотите перенаправить выбранные сообщения на% 1?"
+msgstr "Haluatko edelleenlähettää valitut viestit henkilölle %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:304
 #: ../app/qml/delegates/MessageBubbleItem.qml:86
 msgid "Forward"
-msgstr "Переслать"
+msgstr "Edelleenlähetä"
 
 #: ../app/qml/pages/ChatListPage.qml:318
 msgid "Enter optional message..."
-msgstr "Написать сообщение..."
+msgstr "Syötä vaihtoehtoinen viesti..."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:13
 msgid "Enter Phone Number"
-msgstr "Введите номер телефона"
+msgstr "Syötä puhelinnumero"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 msgid "Phone number"
-msgstr "Номер телефона"
+msgstr "Puhelinnumero"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:81
 msgid "Please confirm your country code and enter your phone number."
-msgstr "Пожалуйста, подтвердите код вашей страны и введите ваш номер телефона."
+msgstr "Ole hyvä ja varmista maakoodi ja syötä puhelinnumerosi."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:85
 #: ../app/qml/pages/WaitPasswordPage.qml:60
 msgid "Next..."
-msgstr "Далее..."
+msgstr "Seuraava..."
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr "Информация о группе"
+msgstr "Ryhmän tiedot"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
 msgid "Back"
-msgstr "Назад"
+msgstr "Palaa"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
-msgstr "Участники: %1"
+msgstr "Jäseniä: %1"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
 msgid "About"
-msgstr "О приложении"
+msgstr "Tietoja"
 
 #: ../app/qml/pages/AboutPage.qml:71
 msgid "Version %1"
-msgstr "Версия %1"
+msgstr "Versio %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
@@ -494,77 +482,78 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
-msgstr "Получить исходный код"
+msgstr "Hae lähdekoodi"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
-msgstr "Сообщить о проблемах"
+msgstr "Ilmoita ongelmista"
 
 #: ../app/qml/pages/AboutPage.qml:100
 msgid "Help translate"
-msgstr "Помочь с переводом"
+msgstr "Auta käännöksissä"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr "Не в сети"
+msgstr "Ei paikalla"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
-msgstr "Подключение"
+msgstr "Yhdistetään"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting To Proxy"
-msgstr "Подключение к прокси-серверу"
+msgstr "Yhdistetään välityspalvelimeen"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr "Обновление"
+msgstr "Päivitetään"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
-msgstr "Подключение"
+msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr "Статус подключения Телеграм:"
+msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr "Статус подключения Ubuntu Touch:"
+msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
-msgstr "Ubuntu Touch с ограниченной пропускной способностью"
+msgstr "Ubuntu Touchin kaistanleveys on rajoitettu"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "Пропускная способность Ubuntu Touch не ограничена"
+msgstr "Ubuntu Touchin kaistanleveyttä ei ole rajoitettu"
 
 #: ../app/qml/pages/SettingsPage.qml:82
 msgid "Night mode"
-msgstr "Ночной режим"
+msgstr "Yötila"
 
 #: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
 msgid "Logout"
-msgstr "Выйти"
+msgstr "Kirjaudu ulos"
 
 #: ../app/qml/pages/SettingsPage.qml:115
 msgid "Delete account"
-msgstr "Удалить аккаунт"
+msgstr "Poista käyttäjätili"
 
 #: ../app/qml/pages/SettingsPage.qml:128
 msgid "Connectivity status"
-msgstr "Статус соединения"
+msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:145
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
-"Предупреждение: Выход из системы удалит все локальные данные с этого "
-"устройства, включая секретные чаты. Вы все еще уверены, что хотите выйти?"
+"Varoitus: Uloskirjautuminen poistaa kaiken paikallisen datan tästä "
+"laitteesta, salaiset keskustelut mukaanlukien. Oletko varma että haluat "
+"kirjautua ulos?"
 
 #: ../app/qml/pages/SettingsPage.qml:155
 msgid ""
@@ -573,172 +562,158 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"Предупреждение: удаление учетной записи приведет к удалению всех данных, "
-"которые вы когда-либо получали или отправляли с помощью Telegram, за "
-"исключением данных, которые вы явно сохранили за пределами облака Telegram. "
-"Вы действительно уверены, что хотите удалить вашу учетную запись Telegram?"
+"Varoitus: Käyttäjätilin poistaminen poistaa kaiken datan, jonka olet "
+"vastaanottanut tai lähettänyt telegramia käyttäen, paitsi data, jonka olet "
+"tallettanut telegram pilven ulkopuolelle. Oletko todellakin varma, että "
+"haluat poistaa telegram käyttäjätilisi?"
 
 #: ../app/qml/pages/SettingsPage.qml:157
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
-msgstr "Удалить"
+msgstr "Poista"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr "Сборщик контента"
+msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr "Файл: "
+msgstr "Tiedosto: "
 
 #: ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Tallenna"
 
 #: ../app/qml/pages/MessageListPage.qml:29
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 участник"
-msgstr[1] "%1 участники"
-msgstr[2] "%1 участники"
+msgstr[0] "%1 jäsen"
+msgstr[1] "%1 jäsentä"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Not online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "Не в сети"
-msgstr[1] "Не в сети"
-msgstr[2] "Не в сети"
+msgstr[0] ", %1 paikalla"
+msgstr[1] ", %1 paikalla"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
-msgstr "Telegram"
+msgstr ""
 
 #: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
-msgstr "Редактировать"
+msgstr "Muokkaa"
 
 #: ../app/qml/pages/MessageListPage.qml:284
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
-msgstr "Ответить"
+msgstr "Vastaa"
 
 #: ../app/qml/pages/MessageListPage.qml:308
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Sinulla ei ole lupaa lähettää viestejä tälle kanavalle"
 
 #: ../app/qml/pages/MessageListPage.qml:311
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "Odotetaan, että toinen osapuoli hyväksyy salaisen keskustelun..."
 
 #: ../app/qml/pages/MessageListPage.qml:313
-#, fuzzy
 msgid "Secret chat has been closed"
-msgstr "вызов был закончен"
+msgstr "Salainen keskustelu on suljettu"
 
 #: ../app/qml/pages/MessageListPage.qml:394
 msgid "Type a message..."
-msgstr "Написать сообщение..."
+msgstr "Kirjoita viesti..."
 
 #: ../app/qml/pages/MessageListPage.qml:502
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Haluatko jakaa sijaintisi henkilön %1 kanssa?"
 
 #: ../app/qml/pages/MessageListPage.qml:504
 msgid "Send"
-msgstr ""
+msgstr "Lähetä"
 
 #: ../app/qml/pages/MessageListPage.qml:515
 msgid "Requesting location from OS..."
-msgstr "Запрос местоположения из ОС..."
+msgstr "Pyydetään sijaintia käyttöjärjestelmältä..."
 
 #: ../app/qml/pages/UserProfilePage.qml:19
 msgid "Profile"
-msgstr "Профиль"
+msgstr "Profiili"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
-msgstr "Введите пароль"
+msgstr "Syötä salasana"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:41
 msgid "Password"
-msgstr "Пароль"
+msgstr "Salasana"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr "%1 присоединился к группе"
+msgstr "%1 liittyi ryhmään"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-#, fuzzy
 msgid "%1 added %2"
-msgstr "%1 пригласил %2"
+msgstr "%1 lisäsi henkilön %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
-#, fuzzy
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] "%1 пользователей"
-msgstr[1] "%1 пользователей"
-msgstr[2] "%1 пользователей"
+msgstr[0] "%1 käyttäjä"
+msgstr[1] "%1 käyttäjää"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-#, fuzzy
 msgid "%1 left the group"
-msgstr "%1 вышел из группы"
+msgstr "%1 poistui ryhmästä"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "повышен до супергруппы"
+msgstr "Ryhmä on päivitetty superryhmäksi"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
-"Сообщение будет удалено для всех пользователей чата. Вы действительно хотите "
-"удалить?"
+"Viesti poistetaan kaikilta keskusteluun osallistuvilta. Haluatko todella "
+"poistaa sen?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:45
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
-msgstr ""
-"Сообщение будет удалено только для вас. Вы действительно хотите удалить?"
+msgstr "Viesti poistetaan vain sinulta. Haluatko todella poistaa sen?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:56
 msgid "Copy"
-msgstr "Копировать"
+msgstr "Kopioi"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:80
 msgid "Sticker Pack info"
-msgstr "Информация"
+msgstr "Tarrapaketin tietoja"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:239
 msgid "Edited"
-msgstr "Отредактировано"
+msgstr "Muokattu"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Kuvakaappaus otettu"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
 msgid "Forwarded from %1"
-msgstr "Переслать "
+msgstr "Edelleenlähetetty henkilöltä %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
-msgstr "%1 присоединился к Telegram!"
+msgstr "%1 liittyi Telegramiin!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr "Неизвестный тип сообщения, подробности смотрите в файле журнала..."
+msgstr "Tunnistamaton viestityyppi, katso tarkemmat tiedot lokitiedostosta..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -746,28 +721,27 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
-msgstr "Вызов отклонен"
+msgstr "Puhelu hylätty"
 
 #: ../app/qml/delegates/MessageContentCall.qml:53
 msgid "Call Disconnected"
-msgstr "Разговор прерван"
+msgstr "Puhelu katkaistu"
 
 #: ../app/qml/delegates/MessageContentCall.qml:56
 msgid "Call Ended"
-msgstr "Разговор окончен"
+msgstr "Puhelu päättyi"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Cancelled Call"
-msgstr "Вызов отменён"
+msgstr "Puhelu peruttu"
 
 #: ../app/qml/delegates/MessageContentCall.qml:58
 msgid "Missed Call"
-msgstr "Пропущенный вызов"
+msgstr "Vastaamaton puhelu"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "Длительность разговора: %1.%2"
+msgstr "Kesto: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
@@ -775,29 +749,16 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 loi ryhmän nimeltä << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr "дд ММММ"
+msgstr ""
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr "%1 присоединился по ссылке-приглашению"
+msgstr "%1 liittyi kutsulinkin kautta"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:67
-#, fuzzy
 msgid "Voice note"
-msgstr "отправлено звуковое послание"
-
-#~ msgid "Image"
-#~ msgstr "Фото"
-
-#~ msgid "File"
-#~ msgstr "Файл"
-
-#~ msgid "sent an unknown message: %1"
-#~ msgstr "отправлено неизвестное сообщение: %1"
-
-#~ msgid "Status:"
-#~ msgstr "Статус:"
+msgstr "Puheviesti"

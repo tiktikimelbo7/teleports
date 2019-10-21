@@ -27,6 +27,7 @@ UITK_Popups.Dialog {
         text: dialogue.confirmButtonText
         color: dialogue.confirmButtonColor
         onClicked: {
+            Qt.inputMethod.commit();
             dialogue.confirmed();
             UITK_Popups.PopupUtils.close(dialogue)
         }

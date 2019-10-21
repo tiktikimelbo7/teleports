@@ -88,6 +88,7 @@ set(
     chat/requests/qtdsetchattitlerequest.cpp
     chat/requests/qtdsetpinnedchatsrequest.cpp
     chat/requests/qtdforwardmessagesrequest.cpp
+    chat/requests/qtdclosesecretchatrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp
@@ -167,6 +168,8 @@ set(
     messages/requests/content/qtdinputmessagevideo.cpp
     messages/requests/content/qtdinputmessageaudio.cpp
     messages/requests/content/qtdinputmessagetext.cpp
+    messages/requests/content/qtdinputmessageaudio.cpp
+    messages/requests/content/qtdinputmessagevideo.cpp
     messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/content/qtdinputmessagecontact.cpp
     messages/requests/qtddeletemessagesrequest.cpp
@@ -190,12 +193,14 @@ set(
     user/qtdlinkstatefactory.cpp
     user/qtdprofilephoto.cpp
     user/qtduser.cpp
+    user/qtduserfullinfo.cpp
     user/qtdusers.cpp
     user/qtduserstatus.cpp
     user/qtduserstatusfactory.cpp
     user/qtdusertype.cpp
     user/requests/qtdblockuserrequest.cpp
     user/requests/qtdgetuserrequest.cpp
+    user/requests/qtdgetuserfullinforequest.cpp
     utils/qtdtextformatter.cpp
 )
 

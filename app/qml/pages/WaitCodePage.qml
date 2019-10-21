@@ -25,9 +25,10 @@ Page {
     }
     
     Column {
-        width: Math.min( Suru.units.gu(45), parent.width - units.gu(4) )
+        width: Math.min(Suru.units.gu(45), parent.width - units.gu(4))
         spacing: Suru.units.gu(2)
 
+        anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
         Rectangle {
@@ -59,7 +60,7 @@ Page {
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             inputMask: "99999"
             maximumLength: 5
-              
+            focus: true
             onDisplayTextChanged: {
               if( length === maximumLength ) {
                 sendCode.run({ firstname: firstNameField.text, lastname: lastNameField.text, code: text })

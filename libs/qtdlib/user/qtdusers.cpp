@@ -14,6 +14,7 @@ QTdUsers::QTdUsers(QObject *parent)
     m_meMyself = new QTdUser(this);
     connect(QTdClient::instance(), &QTdClient::updateUser, this, &QTdUsers::handleUpdateUser);
     connect(QTdClient::instance(), &QTdClient::updateUserStatus, this, &QTdUsers::handleUpdateUserStatus);
+    connect(QTdClient::instance(), &QTdClient::updateUserFullInfo, this, &QTdUsers::handleUpdateUserFullInfo);
 }
 
 QTdUsers::~QTdUsers()
@@ -77,6 +78,14 @@ void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &
     const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
     if (uid == myId) {
         m_meMyself->setStatus(QTdUserStatusFactory::create(status, m_meMyself));
+    }
+}
+
+void QTdUsers::handleUpdateUserFullInfo(const QString &userId, const QJsonObject &fullInfo)
+{
+    QTdUser *tduser = m_model->getByUid(userId);
+    if (tduser) {
+        tduser->fullInfo()->unmarshalJson(fullInfo);
     }
 }
 

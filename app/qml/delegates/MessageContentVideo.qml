@@ -11,32 +11,46 @@ import "../components"
 
 MessageContentBase
 {
-    property QTdMessageVideo video: message.content
-    property QTdLocalFile videoLocal: video.video.video.local
-    property QTdPhotoSize thumbnail: video.video.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local
+    property QTdMessageVideo videoContent: message.content
+    property QTdFile tdFile: videoContent.video.video
+    property QTdLocalFile localFile: tdFile.local
+    property QTdRemoteFile remoteFile: tdFile.remote
+    property QTdPhotoSize thumbnail: videoContent.video.thumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
     property real uniqeId: Math.floor(Math.random() * Math.floor(10000));
-    property real maximumMediaHeight: Suru.units.gu(24)
-    property real minimumMediaHeight: Suru.units.gu(16)
-    property real maximumMediaWidth: Suru.units.gu(30)
+
+    property real maximumMediaHeight: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(24)
+    property real minimumMediaHeight: message.isCollapsed ? Suru.units.gu(16/5) : Suru.units.gu(16)
+    property real maximumMediaWidth: message.isCollapsed ? Suru.units.gu(30/5) : Suru.units.gu(30)
     property real maximumMediaRatio: maximumMediaWidth / maximumMediaHeight
-    property real mediaWidth:video.video.width
-    property real mediaHeight:video.video.height
-    property url localFileSource: video && videoLocal.path ? Qt.resolvedUrl("file://" + videoLocal.path) : ""
+    property real mediaWidth:videoContent.video.width
+    property real mediaHeight:videoContent.video.height
+    property url localFileSource: videoContent && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
     Item {
         id: videoContainer
-        width: mediaWidth > mediaHeight?
-                   Math.min(mediaWidth, maximumMediaWidth):
-                   mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
-        height: mediaHeight >= mediaWidth?
+        width: {
+            if(videoContent.video) {
+                var photoWidth = mediaWidth > mediaHeight?
+                    Math.min(mediaWidth, maximumMediaWidth):
+                    mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight);
+                return Math.max(photoWidth, units.gu(7));
+            }
+            return units.gu(7);
+        }
+        height: {
+            if(videoContent.video) {
+                var photoHeight = mediaHeight >= mediaWidth?
                     Math.min(mediaHeight, maximumMediaHeight):
-                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
+                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight);
+                return Math.max(photoHeight, units.gu(7)); 
+            }
+            return units.gu(7);
+        }
 
         Image {
             id: thumbnailImg
-            // visible:!media_video.isPlaying
             anchors.fill: parent
-            source:video && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
+            source:videoContent && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
         }
         Item {
             id: fileIcon
@@ -44,28 +58,33 @@ MessageContentBase
             height: units.gu(7)
             anchors.centerIn: parent
             UITK.Icon {
-                visible: videoLocal.isDownloadingCompleted
-                source: "qrc:/qml/icons/playMedia.svg"
+                visible: localFile.isDownloadingCompleted
+                source: "qrc:/qml/icons/play.svg"
                 anchors.fill: parent
             }
-
-            BusyIndicator {
-                visible: !videoLocal.isDownloadingCompleted
-                anchors.centerIn: parent
-                running: !videoLocal.isDownloadingCompleted
+            UITK.Icon {
+                visible: !localFile.isDownloadingCompleted
+                    && !localFile.isDownloadingActive
+                    && !remoteFile.isDownloadingCompleted
+                    && !remoteFile.isDownloadingActive
+                source: "qrc:/qml/icons/download.svg"
+                anchors.fill: parent
             }
-        }
-        Connections {
-            target: video.video.video
-            // onFileChanged: {
-            //     media_video.reload();
-            // }
+            BusyPercentageIndicator {
+                anchors.fill: parent
+                visible: localFile.isDownloadingActive || remoteFile.isUploadingActive
+                running: !localFile.isDownloadingCompleted || !remoteFile.isUploadingCompleted
+                percentage: {
+                    if (localFile.isDownloadingActive) {
+                        return parseInt(localFile.downloadedSize) / parseInt(tdFile.size) * 100;
+                    } else if (remoteFile.isUploadingActive) {
+                        return parseInt(remoteFile.uploadedSize) / parseInt(tdFile.size) * 100;
+                    }
+                    return 0.0;
+                }
+            }
         }
         Component.onCompleted: {
-            // console.log("c_reg",this,"\n")
-            if (videoLocal.canBeDownloaded && !videoLocal.isDownloadingCompleted) {
-                video.video.video.downloadFile();
-            }
             if (thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
                 thumbnail.downloadFile();
             }
@@ -78,7 +97,7 @@ MessageContentBase
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
         }
 
-        formattedText: video.caption
+        formattedText: videoContent.caption
         maximumWidth: maximumAvailableContentWidth
         isPreview: message.isCollapsed
     }
@@ -86,13 +105,12 @@ MessageContentBase
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            if(videoLocal.isDownloadingCompleted){
-                console.log("video clicked")
-                //TODO crashes the app sometimes or dbus ;)
-                // if(media_video.isPlaying)media_video.pause()
-                // else media_video.play()
+            if (localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
+                tdFile.downloadFile();
+            }
+            if(localFile.isDownloadingCompleted){
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
-                                                "fileName": video.video.fileName,
+                                                "fileName": videoContent.video.fileName,
                                                 "videoPreviewSource": localFileSource
                                             });
             }

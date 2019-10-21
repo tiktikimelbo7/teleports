@@ -29,6 +29,8 @@ ActionCreator {
     signal forwardMessage(string id)
     signal sendForwardMessage(var chat,
                               string text)
+    signal importFromContentHub(var contentType, var filePaths)
+    signal sendImportData(var chat, string text)
     signal cancelForwardMessage()
     signal requestEditMessage(var message)
     signal sendEditMessageText(string id, string text)

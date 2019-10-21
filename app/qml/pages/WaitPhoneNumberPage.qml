@@ -8,16 +8,26 @@ import "../actions"
 Page {
     id: waitPhoneNumberPage
 
+    property color hf: Suru.foregroundColor
+    property color hb: Suru.backgroundColor
+    property color hd: Suru.neutralColor
+
     header: UITK.PageHeader {
         id: header
         title: i18n.tr("Enter Phone Number")
+
+        UITK.StyleHints {
+            foregroundColor: hf
+            backgroundColor: hb
+            dividerColor: hd
+        }
     }
 
     Column {
-        width: Math.min( Suru.units.gu(45), parent.width - units.gu(4) )
-
+        width: Math.min(Suru.units.gu(45), parent.width - units.gu(4))
         spacing: Suru.units.gu(2)
 
+        anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
 
         Rectangle {
@@ -43,7 +53,7 @@ Page {
                 width: Suru.units.gu(7)
                 text: "+"
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
-                Keys.onReturnPressed: phoneNumberTextField.focus = true
+                onAccepted: phoneNumberTextField.focus = true
                 placeholderText: i18n.tr("Phone number")
                 anchors.left: parent.left
             }
@@ -53,7 +63,7 @@ Page {
                 width: parent.width - countryCodeTextField.width
                 text: ""
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
-                Keys.onReturnPressed: setPhoneNumber ()
+                onAccepted: setPhoneNumber()
                 placeholderText: i18n.tr("Phone number")
                 anchors.right: parent.right
             }
@@ -85,7 +95,7 @@ Page {
             text: i18n.tr("Next...")
             width: parent.width
             enabled: countryCodeTextField.text !== "+" && countryCodeTextField.text.slice(0,1) === "+" && phoneNumberTextField.text !== ""
-            onClicked: setPhoneNumber ()
+            onClicked: setPhoneNumber()
         }
 
         Label {
