@@ -8,6 +8,7 @@ ActionCreator {
     signal replaceOnStack(string view, var properties)
     signal popFromStack()
     signal popAllButOneFromStack()
+    
     /**
      * Show error in popup dialog
      *

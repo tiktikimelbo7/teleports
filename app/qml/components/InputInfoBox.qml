@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.0
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import Ubuntu.Components 1.3 as UITK

@@ -6,8 +6,12 @@ ActionCreator {
     signal setTheme(int theme)
 
     function viewConnectivity(connectionManager) {
-    view.pushToStack("qrc:/pages/ConnectivityPage.qml", {
+        view.pushToStack("qrc:/pages/ConnectivityPage.qml", {
                          connectionManager: connectionManager
                      })
+    }
+
+    function viewUserList() {
+        view.pushToStack("qrc:/pages/UserListPage.qml", { })
     }
 }

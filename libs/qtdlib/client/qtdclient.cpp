@@ -275,6 +275,12 @@ void QTdClient::init()
         emit updateUser(data);
         emit user(data);
     });
+    m_events.insert(QStringLiteral("users"), [=](const QJsonObject &data) {
+        emit users(data);
+    });
+    m_events.insert(QStringLiteral("importedContacts"), [=](const QJsonObject &data) {
+        emit importedContacts(data);
+    });
     m_events.insert(QStringLiteral("userFullInfo"), [=](const QJsonObject &data) {
         emit userFullInfo(data);
     });

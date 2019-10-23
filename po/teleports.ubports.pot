@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-01 21:45+0000\n"
+"POT-Creation-Date: 2019-10-21 21:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,156 +19,156 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:139 ../app/qml/pages/ChatListPage.qml:20
+#: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
 #: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr ""
 
-#: ../push/pushhelper.cpp:149
+#: ../push/pushhelper.cpp:124
 msgid "sent you a message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:153
+#: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
 msgstr ""
 
-#: ../push/pushhelper.cpp:157
+#: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
 msgstr ""
 
-#: ../push/pushhelper.cpp:161
+#: ../push/pushhelper.cpp:136
 msgid "sent you a video"
 msgstr ""
 
-#: ../push/pushhelper.cpp:165
+#: ../push/pushhelper.cpp:140
 msgid "sent you a document"
 msgstr ""
 
-#: ../push/pushhelper.cpp:169
+#: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:173
+#: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:177
+#: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
 msgstr ""
 
-#: ../push/pushhelper.cpp:181
+#: ../push/pushhelper.cpp:156
 msgid "sent you a map"
 msgstr ""
 
-#: ../push/pushhelper.cpp:186
+#: ../push/pushhelper.cpp:161
 msgid "%1: %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:191
+#: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:196
+#: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:201
+#: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:206
+#: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:211
+#: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:216
+#: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:221
+#: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:226
+#: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:231
+#: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:236 ../push/pushhelper.cpp:257
+#: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:241
+#: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
 msgstr ""
 
-#: ../push/pushhelper.cpp:246
+#: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
-#: ../push/pushhelper.cpp:252
+#: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
 msgstr ""
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
-#: ../push/pushhelper.cpp:263
+#: ../push/pushhelper.cpp:238
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:268
+#: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:273
+#: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
 msgstr ""
 
-#: ../push/pushhelper.cpp:278
+#: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
 msgstr ""
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
-#: ../push/pushhelper.cpp:283
+#: ../push/pushhelper.cpp:258
 msgid "@ %1"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
-#: ../push/pushhelper.cpp:285
+#: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
 msgstr ""
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
-#: ../push/pushhelper.cpp:291
+#: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
 msgstr ""
 
-#: ../push/pushhelper.cpp:296 ../push/pushhelper.cpp:302
+#: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
 msgstr ""
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
-#: ../push/pushhelper.cpp:301
+#: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
 msgstr ""
 
-#: ../push/pushhelper.cpp:306
+#: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
 msgstr ""
 
-#: ../push/pushhelper.cpp:311 ../push/pushhelper.cpp:316
-#: ../push/pushhelper.cpp:321
+#: ../push/pushhelper.cpp:286 ../push/pushhelper.cpp:291
+#: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:326
+#: ../push/pushhelper.cpp:301
 msgid "%1 pinned a message"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Seen recently"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:82
+#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgid "not available"
 msgstr ""
 
 #: ../app/qml/components/CountryPicker.qml:21
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:29
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:39
 msgid "Choose a country"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:84
+#: ../app/qml/pages/ChatListPage.qml:129
 msgid "Clear history"
 msgstr ""
 
@@ -376,11 +376,11 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:38
+#: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:38
+#: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
 msgstr ""
 
@@ -388,19 +388,19 @@ msgstr ""
 msgid "Enter Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:43
+#: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:51
+#: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:58
+#: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
 msgstr ""
 
-#: ../app/qml/pages/WaitCodePage.qml:73
+#: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
 
@@ -408,74 +408,123 @@ msgstr ""
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:41 ../app/qml/pages/SettingsPage.qml:23
+#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
+#: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:79
+#: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
+msgid "Contacts"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:69
+msgid "Night mode"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
+msgid "About"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:124
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:95
+#: ../app/qml/pages/ChatListPage.qml:140 ../app/qml/pages/UserListPage.qml:122
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:305
+#: ../app/qml/pages/ChatListPage.qml:350
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:307
+#: ../app/qml/pages/ChatListPage.qml:352
 #: ../app/qml/delegates/MessageBubbleItem.qml:86
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:321 ../app/qml/pages/ChatListPage.qml:345
+#: ../app/qml/pages/ChatListPage.qml:366 ../app/qml/pages/ChatListPage.qml:390
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:329
+#: ../app/qml/pages/ChatListPage.qml:374
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:331
-#: ../app/qml/pages/MessageListPage.qml:500
+#: ../app/qml/pages/ChatListPage.qml:376
+#: ../app/qml/pages/MessageListPage.qml:512
 msgid "Send"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:13
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:47
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:67
 msgid "Phone number"
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:81
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:91
 msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:85
-#: ../app/qml/pages/WaitPasswordPage.qml:60
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:95
+#: ../app/qml/pages/WaitPasswordPage.qml:65
 msgid "Next..."
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:29
+#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:31
+msgid "Back"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:38
+msgid "Add Contact"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:47
+msgid "The contact will be added. First and last name are optional"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:49
+msgid "Add"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
+msgid "Phone no"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
+msgid "First name"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
+msgid "Last name"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
+#: ../app/qml/pages/SettingsPage.qml:120
+#: ../app/qml/delegates/MessageBubbleItem.qml:33
+#: ../app/qml/delegates/MessageBubbleItem.qml:47
+msgid "Delete"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:127
+msgid "Secret Chat"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:211
+msgid "The contact will be deleted. Are you sure?"
 msgstr ""
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
 msgstr ""
 
-#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
-#: ../app/qml/pages/ConnectivityPage.qml:47
-#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:30
-msgid "Back"
-msgstr ""
-
 #: ../app/qml/pages/GroupDetailsPage.qml:99
 msgid "Members: %1"
-msgstr ""
-
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/SettingsPage.qml:45
-msgid "About"
 msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:71
@@ -536,40 +585,30 @@ msgstr ""
 msgid "Ubuntu Touch bandwith not limited"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:82
-msgid "Night mode"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:102 ../app/qml/pages/SettingsPage.qml:147
+#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:110
 msgid "Logout"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:115
+#: ../app/qml/pages/SettingsPage.qml:78
 msgid "Delete account"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:128
+#: ../app/qml/pages/SettingsPage.qml:91
 msgid "Connectivity status"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:145
+#: ../app/qml/pages/SettingsPage.qml:108
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:155
+#: ../app/qml/pages/SettingsPage.qml:118
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
-msgstr ""
-
-#: ../app/qml/pages/SettingsPage.qml:157
-#: ../app/qml/delegates/MessageBubbleItem.qml:33
-#: ../app/qml/delegates/MessageBubbleItem.qml:47
-msgid "Delete"
 msgstr ""
 
 #: ../app/qml/pages/PickerPage.qml:16
@@ -580,7 +619,7 @@ msgstr ""
 msgid "File: "
 msgstr ""
 
-#: ../app/qml/pages/PreviewPage.qml:49
+#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
 msgid "Save"
 msgstr ""
 
@@ -600,53 +639,54 @@ msgstr[1] ""
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:284
+#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/UserProfilePage.qml:40
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:284
+#: ../app/qml/pages/MessageListPage.qml:283
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:308
+#: ../app/qml/pages/MessageListPage.qml:306
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:311
+#: ../app/qml/pages/MessageListPage.qml:310
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:313
+#: ../app/qml/pages/MessageListPage.qml:312
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:394
+#: ../app/qml/pages/MessageListPage.qml:400
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:502
+#: ../app/qml/pages/MessageListPage.qml:510
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:504
-msgid "Send"
-msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:515
+#: ../app/qml/pages/MessageListPage.qml:523
 msgid "Requesting location from OS..."
 msgstr ""
 
-#: ../app/qml/pages/UserProfilePage.qml:19
+#: ../app/qml/pages/UserProfilePage.qml:20
 msgid "Profile"
+msgstr ""
+
+#: ../app/qml/pages/UserProfilePage.qml:50
+msgid "Edit user data and press Save"
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
 msgstr ""
 
-#: ../app/qml/pages/WaitPasswordPage.qml:41
+#: ../app/qml/pages/WaitPasswordPage.qml:42
 msgid "Password"
 msgstr ""
 
@@ -756,6 +796,6 @@ msgstr ""
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:66
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
 msgstr ""

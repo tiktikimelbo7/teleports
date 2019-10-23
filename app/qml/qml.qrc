@@ -20,6 +20,7 @@
         <file>pages/AboutPage.qml</file>
         <file>pages/PreviewPage.qml</file>
         <file>pages/PickerPage.qml</file>
+        <file>pages/UserListPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
@@ -34,6 +35,7 @@
         <file>components/AttachPanelItem.qml</file>
         <file>delegates/MessageBubbleItem.qml</file>
         <file>components/GenericPhoto.qml</file>
+        <file>components/MenuPanelItem.qml</file>
         <file>components/ChatPhoto.qml</file>
         <file>components/CountryCodes.js</file>
         <file>components/CountryPicker.qml</file>

@@ -163,6 +163,8 @@ signals:
     void message(QJsonObject message);
     void file(QJsonObject file);
     void user(QJsonObject user);
+    void users(QJsonObject users);
+    void importedContacts(QJsonObject importedContacts);
     void userFullInfo(QJsonObject userFullInfo);
 
 private slots:

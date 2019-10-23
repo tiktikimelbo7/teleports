@@ -285,6 +285,8 @@ public:
      */
     Q_INVOKABLE void leaveChat();
 
+    Q_INVOKABLE void leaveSecretChat();
+    
     /**
      * @brief Leave chat and clear any history if possible
      */

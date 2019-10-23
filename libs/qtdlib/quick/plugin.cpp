@@ -5,6 +5,7 @@
 #include "auth/qtdauthmanager.h"
 #include "connections/qtdconnectionmanager.h"
 #include "users.h"
+#include "contacts.h"
 
 #include "auth/qtdauthstate.h"
 #include "call/qtdcalldiscardreason.h"
@@ -71,6 +72,7 @@ void QTdLib::registerQmlTypes()
     });
     qmlRegisterType<QTdAuthParams>(uri, 1, 0, "AuthParams");
     qmlRegisterType<Users>(uri, 1, 0, "Users");
+    qmlRegisterType<Contacts>(uri, 1, 0, "Contacts");
     qmlRegisterType<QTdChatListModel>(uri, 1, 0, "ChatList");
     qmlRegisterType<QTdChatListSortFilterModel>(uri, 1, 0, "SortedChatList");
     qmlRegisterType<QTdMessageListModel>(uri, 1, 0, "MessageList");

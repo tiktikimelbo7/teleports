@@ -16,6 +16,11 @@ public:
     QObject *model() const;
 
     QTdUser *meMyself() const;
+
+public slots:
+    void deleteUser(const int &userId);
+    void addUser(const QString &userName, const QString &firstName, const QString &lastName);
+
 signals:
     void modelChanged();
     void meChanged();

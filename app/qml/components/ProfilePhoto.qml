@@ -14,11 +14,7 @@ Item {
     property QTdProfilePhoto photo: null
     property string initials: ""
     property var avatarColor: "#000"
-    
-    onAvatarColorChanged: {
-        console.log("avatarColor", avatarColor);
-    }
-    
+        
     UITK.UbuntuShape {
         anchors.fill: parent
         aspect: UITK.UbuntuShape.Flat
@@ -29,7 +25,6 @@ Item {
             source: Qt.resolvedUrl("file://" + photo.small.local.path)
 
             onStatusChanged: { 
-                console.log("Status is " + avatarImg.status);
                 avatarImg.status == avatarImg.Error ? initialsLabel.visible = true : initialsLabel.visible = false;
             }
         }

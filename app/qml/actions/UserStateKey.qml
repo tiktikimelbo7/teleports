@@ -4,4 +4,7 @@ import QuickFlux 1.1
 
 KeyTable {
     property string showUserInfo
+    property string addUser
+    property string deleteUser
+    
 }

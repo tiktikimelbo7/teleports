@@ -36,6 +36,7 @@ public:
 
     QTdSecretChatState *state() const;
 
+    void getSecretChatData();
 
 signals:
     void secretChatChanged();
@@ -45,7 +46,6 @@ private:
     virtual void onChatOpened();
 
 private slots:
-    void getSecretChatData();
     void updateSecretChat(const QJsonObject &data);
 
 private:

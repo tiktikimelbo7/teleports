@@ -4,6 +4,9 @@ import QuickFlux 1.1
 
 KeyTable {
     property string setCurrentChat
+    property string createOrOpenPrivateChat
+    property string createOrOpenSavedMessages
+    property string createOrOpenSecretChat
     property string closeCurrentChat
     property string loadOlderMessages
     property string loadNewerMessages

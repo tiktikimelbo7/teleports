@@ -12,4 +12,5 @@ KeyTable {
     property string u1dialogShown
 
     property string viewConnectivity
+    property string viewUserList
 }
