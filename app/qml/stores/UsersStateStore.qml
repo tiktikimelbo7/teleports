@@ -7,8 +7,29 @@ Store {
 
     property alias me: usersStore.me
     property alias model: usersStore.model
+    property alias contactsmodel: contactsStore.model
 
     Users {
         id: usersStore
+    }
+
+    Contacts {
+        id: contactsStore
+    }
+
+    Filter {
+        type: UserStateKey.deleteUser
+        onDispatched: {
+            console.log("Deleting user with id " + message.userId)
+            usersStore.deleteUser(message.userId)
+        }
+    }
+
+        Filter {
+        type: UserStateKey.addUser
+        onDispatched: {
+            console.log("Adding user with name " + message.userName)
+            usersStore.addUser(message.userName, message.firstName, message.lastName)
+        }
     }
 }

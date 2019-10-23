@@ -5,40 +5,8 @@
 #include <QJsonObject>
 #include <QSortFilterProxyModel>
 #include "user/qtduser.h"
+#include "auth/qtdauthstate.h"
 #include "models/QmlObjectListModel.h"
-
-class QTdUsers : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(QObject *model READ qmlModel NOTIFY modelChanged)
-    Q_PROPERTY(QTdUser *me READ meMyself NOTIFY meMyselfChanged)
-
-public:
-    explicit QTdUsers(QObject *parent = nullptr);
-    ~QTdUsers();
-
-    static QTdUsers *instance();
-
-    QObject *qmlModel() const;
-    QTdUser *meMyself() const;
-
-    QQmlObjectListModel<QTdUser> *model() const;
-
-signals:
-    void modelChanged(QObject *model);
-    void userCreated(qint32 id);
-    void meMyselfChanged(QTdUser *meMyself);
-
-private slots:
-    void handleUpdateUser(const QJsonObject &user);
-    void handleUpdateUserStatus(const QString &userId, const QJsonObject &status);
-    void handleUpdateUserFullInfo(const QString &userId, const QJsonObject &fullInfo);
-
-private:
-    Q_DISABLE_COPY(QTdUsers)
-    QQmlObjectListModel<QTdUser> *m_model;
-    QPointer<QTdUser> m_meMyself;
-};
 
 /**
  * @brief The QTdUsersSortFilterModel class
@@ -67,9 +35,57 @@ signals:
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
 
 private:
     QList<qint32> m_uids;
+};
+
+class QTdUsers : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QObject* model READ qmlModel NOTIFY modelChanged)
+    Q_PROPERTY(QTdUser* me READ meMyself NOTIFY meMyselfChanged)
+    Q_PROPERTY(QObject *contactsmodel READ qmlContactsModel NOTIFY contactsChanged)
+
+public:
+    explicit QTdUsers(QObject *parent = nullptr);
+    ~QTdUsers();
+
+    static QTdUsers *instance();
+
+    QObject* qmlModel() const;
+    QObject *qmlContactsModel() const;
+    QTdUser* meMyself() const;
+
+    QQmlObjectListModel<QTdUser> *model() const;
+    QTdUsersSortFilterModel *contactsmodel() const; 
+
+public slots:
+    void deleteUser(const int &userId);
+    void addUser(const QString &userName, const QString &firstName, const QString &lastName);
+
+signals:
+    void modelChanged(QObject* model);
+    void userCreated(qint32 id);
+    void meMyselfChanged(QTdUser *meMyself);
+    void contactsChanged();
+    void contactsImported(int existingUsers, int importedContacts);
+
+private slots:
+    void handleUpdateUser(const QJsonObject &user);
+    void handleUpdateUserStatus(const QString &userId, const QJsonObject &status);
+    void handleAuthStateChanged(const QTdAuthState *state);
+    void handleContacts(const QJsonObject &contacts);
+    void handleUpdateUserFullInfo(const QString &userId, const QJsonObject &fullInfo);
+
+private:
+    Q_DISABLE_COPY(QTdUsers)
+    QQmlObjectListModel<QTdUser> *m_model;
+    QPointer<QTdUser> m_meMyself;
+    QTdUsersSortFilterModel *m_contactsmodel;
+    QList<qint32> m_contact_ids;
+    void getAllContacts();
 };
 
 #endif // QTDUSERS_H

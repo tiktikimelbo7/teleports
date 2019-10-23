@@ -74,6 +74,9 @@ set(
     chat/qtdsecretchatstate.cpp
     chat/qtdsupergroupchat.cpp
     chat/requests/qtdclosechatrequest.cpp
+    chat/requests/qtdclosesecretchatrequest.cpp
+    chat/requests/qtdcreateprivatechatrequest.cpp
+    chat/requests/qtdcreatenewsecretchatrequest.cpp
     chat/requests/qtddeletechathistoryrequest.cpp
     chat/requests/qtdgetbasicgrouprequest.cpp
     chat/requests/qtdgetchatrequest.cpp
@@ -186,10 +189,12 @@ set(
     notifications/qtdregisterdevicerequest.cpp
     quick/plugin.cpp
     quick/users.cpp
+    quick/contacts.cpp
     user/qtdlinkstate.cpp
     user/qtdlinkstatefactory.cpp
     user/qtdprofilephoto.cpp
     user/qtduser.cpp
+    user/qtdcontact.cpp
     user/qtduserfullinfo.cpp
     user/qtdusers.cpp
     user/qtduserstatus.cpp
@@ -197,6 +202,9 @@ set(
     user/qtdusertype.cpp
     user/requests/qtdblockuserrequest.cpp
     user/requests/qtdgetuserrequest.cpp
+    user/requests/qtdimportcontactsrequest.cpp
+    user/requests/qtdremovecontactsrequest.cpp
+    user/requests/qtdgetcontactsrequest.cpp
     user/requests/qtdgetuserfullinforequest.cpp
     utils/qtdtextformatter.cpp
 )

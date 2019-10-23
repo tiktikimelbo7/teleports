@@ -5,8 +5,10 @@
 #include "qtdchattypefactory.h"
 #include "qtdchatactionfactory.h"
 #include "client/qtdclient.h"
+#include "qtdsecretchat.h"
 #include "chat/requests/qtdopenchatrequest.h"
 #include "chat/requests/qtdclosechatrequest.h"
+#include "chat/requests/qtdclosesecretchatrequest.h"
 #include "chat/requests/qtdsetchattitlerequest.h"
 #include "chat/requests/qtdsendchatactionrequest.h"
 #include "chat/requests/qtddeletechathistoryrequest.h"
@@ -52,6 +54,10 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
 
+    if (isSecret()) {
+        auto c = static_cast<QTdSecretChat *>(this);
+        c->getSecretChatData();
+    }
     updateLastMessage(json["last_message"].toObject());
 
     updateChatOrder(json);
@@ -399,6 +405,15 @@ void QTdChat::deleteChatHistory(const bool &removeFromChatlist)
     QTdClient::instance()->send(req.data());
 }
 
+void QTdChat::leaveSecretChat() {
+    if (m_chatType->type() == QTdChat::CHAT_TYPE_SECRET) {
+        QScopedPointer<QTdCloseSecretChatRequest> req(new QTdCloseSecretChatRequest);
+        auto c = static_cast<QTdSecretChat *>(this);
+        req->setSecretChatId(c->secretChatId());
+        QTdClient::instance()->send(req.data());
+    }
+}
+
 void QTdChat::leaveChat()
 {
     /**
@@ -416,8 +431,11 @@ void QTdChat::leaveChat()
     QScopedPointer<QTdLeaveChatRequest> req(new QTdLeaveChatRequest);
     switch (m_chatType->type()) {
     case QTdChat::CHAT_TYPE_PRIVATE:
-    case QTdChat::CHAT_TYPE_SECRET:
         return deleteChatHistory(true);
+    case QTdChat::CHAT_TYPE_SECRET: {
+        leaveSecretChat();
+        return deleteChatHistory(true);
+    }
     case QTdChat::CHAT_TYPE_SUPERGROUP:
     case QTdChat::CHAT_TYPE_BASIC_GROUP: {
         req->setChatId(id());

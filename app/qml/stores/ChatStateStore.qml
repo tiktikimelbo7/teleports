@@ -96,6 +96,35 @@ Store {
     }
 
     Filter {
+        type: ChatKey.createOrOpenPrivateChat
+        onDispatched: {
+            if (message.user) {
+                AppActions.view.popAllButOneFromStack()
+                chatList.createOrOpenPrivateChat(message.user.id)
+            }
+        }
+    }
+
+    Filter {
+        type: ChatKey.createOrOpenSavedMessages
+        onDispatched: {
+            AppActions.view.popAllButOneFromStack()
+            chatList.createOrOpenSavedMessages()
+        }
+    }
+
+    Filter {
+        type: ChatKey.createOrOpenSecretChat
+        onDispatched: {
+            if (message.user) {
+                AppActions.view.popAllButOneFromStack()
+                chatList.createOrOpenSecretChat(message.user.id)
+            }
+        }
+    }
+
+
+    Filter {
         type: ChatKey.setCurrentChatById
         onDispatched: {
             var chatById = chatList.model.get(message.chatId)

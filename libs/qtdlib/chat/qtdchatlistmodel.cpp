@@ -2,6 +2,8 @@
 #include <QScopedPointer>
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
+#include "chat/requests/qtdcreatenewsecretchatrequest.h"
+#include "chat/requests/qtdcreateprivatechatrequest.h"
 #include "chat/requests/qtdgetchatrequest.h"
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
@@ -10,7 +12,9 @@
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
 
+#include "utils/await.h"
 #include "chat/qtdchattypefactory.h"
+#include "qtdsecretchat.h"
 
 QTdChatListModel::QTdChatListModel(QObject *parent)
     : QObject(parent)
@@ -58,6 +62,55 @@ QTdChat *QTdChatListModel::chatById(const qint64 &chatId) const
     return m_model->getByUid(QString::number(chatId));
 }
 
+void QTdChatListModel::createOrOpenSecretChat(const int &userId)
+{
+    qint64 chatId = 0;
+    foreach (QTdChat *chat, m_model->toList()) {
+        if (chat->isSecret()) {
+            auto c = static_cast<QTdSecretChat *>(chat);
+            if (c->userId() == userId) {
+                chatId = c->id();
+                break;
+            }
+        }
+    }
+    if (chatId == 0) {
+        QScopedPointer<QTdCreateNewSecretChatRequest> req(new QTdCreateNewSecretChatRequest);
+        req->setUserId(userId);
+        QFuture<QTdResponse> resp = req->sendAsync();
+        await(resp, 2000);
+        if (resp.result().isError()) {
+            return;
+        }
+        chatId = (qint64)resp.result().json()["id"].toDouble();
+        if (chatId == 0) {
+            return;
+        }
+    }
+    if (currentChat())
+        currentChat()->closeChat();
+    setCurrentChatById(chatId);
+}
+
+void QTdChatListModel::createOrOpenPrivateChat(const int &userId)
+{
+    QScopedPointer<QTdCreatePrivateChatRequest> req(new QTdCreatePrivateChatRequest);
+    req->setUserId(userId);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        return;
+    }
+    qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
+    if (currentChat())
+        currentChat()->closeChat();
+    setCurrentChatById(chatId);
+}
+
+void QTdChatListModel::createOrOpenSavedMessages() {
+    createOrOpenPrivateChat(QTdClient::instance()->getOption("my_id").toInt());
+}
+
 void QTdChatListModel::setCurrentChatById(const int &chatId)
 {
     QTdChat *currentChat = chatById(chatId);
@@ -87,7 +140,6 @@ void QTdChatListModel::setForwardedFromChat(QTdChat *forwardedFromChat)
     if (m_forwardedFromChat == forwardedFromChat)
         return;
     m_forwardedFromChat = forwardedFromChat;
-    // emit forwardedFromChatChanged(m_forwardedFromChat);
 }
 
 QStringList QTdChatListModel::forwardingMessages() const
@@ -136,7 +188,6 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     }
     auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
     if (!lastChat) {
-        qWarning() << "Last chat not yet loaded, cannot fetch more chats";
         return;
     }
     QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
@@ -193,7 +244,6 @@ void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
     switch (state->type()) {
     case QTdAuthState::Type::AUTHORIZATION_STATE_READY: {
         QTdClient::instance()->send(QJsonObject{ { "@type", "clearRecentlyFoundChats" } });
-        qWarning() << "Requesting initially 50 chats";
         m_receivedChatIds.clear();
         QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
         req->sendAsync();

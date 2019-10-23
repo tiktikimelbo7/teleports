@@ -18,3 +18,13 @@ QTdUser *Users::meMyself() const
 {
     return QTdUsers::instance()->meMyself();
 }
+
+void Users::deleteUser(const int &userId)
+{
+    QTdUsers::instance()->deleteUser(userId);
+}
+
+void Users::addUser(const QString &userName, const QString &firstName, const QString &lastName)
+{
+    QTdUsers::instance()->addUser(userName, firstName, lastName);
+}

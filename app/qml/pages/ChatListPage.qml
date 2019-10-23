@@ -32,17 +32,56 @@ Page {
                 iconName: "cancel"
                 onTriggered: AppActions.chat.cancelForwardMessage()
                 visible: Telegram.chats.listMode != ChatList.Idle
-            }
-        ]
-        trailingActionBar.actions: [
+            },
             UITK.Action {
-                id: settingsIcon
-                objectName: "settingsIcon"
                 text: i18n.tr("Settings")
-                iconName: "settings"
-                onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
+                iconName: "navigation-menu"
+                onTriggered: {
+                    mainMenuPanel.visible ? mainMenuPanel.close() : mainMenuPanel.open()
+                }
+                visible: Telegram.chats.listMode == ChatList.Idle
             }
         ]
+        trailingActionBar.actions: [ ]
+    }
+
+    Menu {
+        id: mainMenuPanel
+        width: parent.width * 0.75
+        MenuPanelItem {
+        icon: "inbox"
+        label: i18n.tr("Saved Messages")
+        onTriggered: AppActions.chat.createOrOpenSavedMessages()
+        }
+        MenuPanelItem {
+            icon: "address-book-app-symbolic"
+            label: i18n.tr("Contacts")
+        onTriggered: AppActions.settings.viewUserList()
+        }
+        MenuPanelItem {
+            icon: "settings"
+            label: i18n.tr("Settings")
+        onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
+        }
+        MenuPanelItem {
+            id: nightModeMenuItem
+            icon: "night-mode"
+            label: i18n.tr("Night mode")
+            Switch {
+                id: theme_switch
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                checked: Telegram.settings.theme === Suru.Dark
+                Suru.highlightType: Suru.PositiveHighlight
+                onCheckedChanged: AppActions.settings.setTheme(checked? Suru.Dark : Suru.Light)
+            }
+            onTriggered: AppActions.settings.setTheme(theme_switch.checked? Suru.Light : Suru.Dark)
+        }
+        MenuPanelItem {
+            icon: "help"
+            label: i18n.tr("About")
+        onTriggered: AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
+        }
     }
 
     WaitingBar {
@@ -52,6 +91,7 @@ Page {
     }
 
     ScrollView {
+        id: chatListScrollView
         anchors.fill: parent
         ListView {
             anchors{

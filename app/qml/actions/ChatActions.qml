@@ -4,6 +4,9 @@ import "./"
 
 ActionCreator {
     signal setCurrentChat(var chat)
+    signal createOrOpenPrivateChat(var user)
+    signal createOrOpenSecretChat(var user)
+    signal createOrOpenSavedMessages()
     signal setCurrentChatById(string chatId)
     signal closeCurrentChat()
 

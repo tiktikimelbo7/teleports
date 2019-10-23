@@ -37,18 +37,6 @@ Page {
                 }
             }
         ]
-
-        trailingActionBar.actions: [
-            UITK.Action {
-                id: infoIcon
-                objectName: "infoIcon"
-                text: i18n.tr("About")
-                iconName: "info"
-                onTriggered: {
-                    AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
-                }
-            }
-        ]
     }
 
     Flickable {
@@ -65,26 +53,6 @@ Page {
 
             UserProfile {
                 user: me
-            }
-
-            UITK.ListItem {
-               UITK.ListItemLayout {
-                  UITK.Icon {
-                     width: units.gu(2)
-                     name: "night-mode"
-                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                  }
-                  title.text : i18n.tr('Night mode')
-                  Switch {
-                     id: theme_switch
-                     checked: Telegram.settings.theme === Suru.Dark
-                     Suru.highlightType: Suru.PositiveHighlight
-                     UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
-                     onCheckedChanged: AppActions.settings.setTheme(checked?Suru.Dark:Suru.Light)
-                  }
-               }
-
-               onClicked: theme_switch.checked = !theme_switch.checked
             }
 
             UITK.ListItem {
