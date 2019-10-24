@@ -515,7 +515,7 @@ void QTdMessage::handleMessage(const QJsonObject &json)
     }
 
     auto *msgRepliedTo = messageRepliedTo();
-    msgRepliedTo->collapse();
+    //msgRepliedTo->collapse();
 
     if (!msgRepliedTo) {
         return;
