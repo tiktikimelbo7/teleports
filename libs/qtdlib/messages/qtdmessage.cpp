@@ -41,6 +41,7 @@ QTdMessage::QTdMessage(QObject *parent)
     , m_messageRepliedTo(Q_NULLPTR)
     , m_replyToMessageId(0)
     , m_isCollapsed(false)
+    , m_isReference(false)
 {
     setType(MESSAGE);
 }
@@ -515,7 +516,12 @@ void QTdMessage::handleMessage(const QJsonObject &json)
     }
 
     auto *msgRepliedTo = messageRepliedTo();
-    //msgRepliedTo->collapse();
+
+    if (m_isReference) {
+        msgRepliedTo->collapse();
+    }
+
+    msgRepliedTo->m_isReference = true;
 
     if (!msgRepliedTo) {
         return;

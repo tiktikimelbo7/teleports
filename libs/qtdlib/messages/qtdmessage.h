@@ -157,6 +157,7 @@ private:
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;
+    bool m_isReference;
 };
 
 #endif // QTDMESSAGE_H
