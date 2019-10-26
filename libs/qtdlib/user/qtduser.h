@@ -20,9 +20,10 @@
 class QTdUser : public QAbstractInt32Id
 {
     Q_OBJECT
-    Q_PROPERTY(QString firstName READ firstName WRITE setFirstName NOTIFY firstNameChanged)
-    Q_PROPERTY(QString lastName READ lastName WRITE setLastName NOTIFY lastNameChanged)
-    Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY usernameChanged)
+    Q_PROPERTY(QString firstName READ firstName WRITE setFirstName NOTIFY nameChanged)
+    Q_PROPERTY(QString lastName READ lastName WRITE setLastName NOTIFY nameChanged)
+    Q_PROPERTY(QString username READ username WRITE setUsername NOTIFY nameChanged)
+    Q_PROPERTY(QString fullName READ fullName NOTIFY nameChanged)
     Q_PROPERTY(QString phoneNumber READ phoneNumber WRITE setPhoneNumber NOTIFY phoneNumberChanged)
     Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
     Q_PROPERTY(QTdUserFullInfo *fullInfo READ fullInfo WRITE setFullInfo NOTIFY fullInfoChanged)
@@ -41,6 +42,7 @@ public:
     QString firstName() const;
     QString lastName() const;
     QString username() const;
+    QString fullName() const;
     QString phoneNumber() const;
     QString initials() const;
     Q_INVOKABLE QString avatarColor(unsigned int userId);
@@ -58,9 +60,7 @@ public:
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 
 signals:
-    void firstNameChanged(QString firstName);
-    void lastNameChanged(QString lastName);
-    void usernameChanged(QString username);
+    void nameChanged(QString name);
     void phoneNumberChanged(QString phoneNumber);
     void initialsChanged(QString initials);
     void fullInfoChanged(QTdUserFullInfo *fullInfo);

@@ -10,6 +10,8 @@
 #include "content/qtdmessagedocument.h"
 #include "content/qtdmessagelocation.h"
 #include "content/qtdmessagecustomserviceaction.h"
+#include "content/qtdmessagechatdeletemember.h"
+#include "content/qtdmessagechataddmembers.h"
 #include "common/qtdhelpers.h"
 #include "requests/qtdgetmessagerequest.h"
 #include "user/requests/qtdgetuserrequest.h"
@@ -333,6 +335,12 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
+        auto *c = qobject_cast<QTdMessageChatAddMembers *>(m_content);
+        if (senderUserId() == c->firstMemberId()) {
+            content = gettext("joined the group");
+        } else {
+            content = gettext("added one or more members");
+        }
         content = gettext("joined the group");
         break;
     }
@@ -349,7 +357,12 @@ QString QTdMessage::summary() const
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
-        content = gettext("removed a member");
+        auto *c = qobject_cast<QTdMessageChatDeleteMember *>(m_content);
+        if (qmlSenderUserId() == c->qmlUserId()) {
+            content = gettext("left the group");
+        } else {
+            content = gettext("removed a member");
+        }
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_PHOTO: {
