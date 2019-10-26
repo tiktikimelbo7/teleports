@@ -149,7 +149,7 @@ void QTdUser::setFirstName(QString firstName)
         return;
 
     m_firstName = firstName;
-    emit firstNameChanged(m_firstName);
+    emit nameChanged(m_firstName);
 }
 
 void QTdUser::setLastName(QString lastName)
@@ -158,7 +158,7 @@ void QTdUser::setLastName(QString lastName)
         return;
 
     m_lastName = lastName;
-    emit lastNameChanged(m_lastName);
+    emit nameChanged(m_lastName);
 }
 
 void QTdUser::setUsername(QString username)
@@ -167,7 +167,7 @@ void QTdUser::setUsername(QString username)
         return;
 
     m_username = username;
-    emit usernameChanged(m_username);
+    emit nameChanged(m_username);
 }
 
 void QTdUser::setPhoneNumber(QString phoneNumber)
@@ -221,6 +221,18 @@ QString QTdUser::lastName() const
 QString QTdUser::username() const
 {
     return m_username;
+}
+
+QString QTdUser::fullName() const
+{
+    if (m_firstName != "") {
+        auto fullName = m_firstName;
+        if (m_lastName != "")
+            fullName = fullName + " " + m_lastName;
+        return fullName;
+    } else {
+        return m_username;
+    }
 }
 
 QString QTdUser::phoneNumber() const
