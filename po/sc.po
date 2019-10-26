@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 21:57+0000\n"
+"POT-Creation-Date: 2019-10-24 20:29+0000\n"
 "PO-Revision-Date: 2019-08-28 10:50+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -177,91 +177,102 @@ msgstr "Tenes unu messàgiu nou"
 msgid "%1 pinned a message"
 msgstr "Iscrie unu messàgiu..."
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+#: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "Adesivu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+#: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+#: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
 msgstr "at imbiadu unu messàgiu de àudio"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+#: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "sent a photo"
 msgstr "at imbiadu una foto"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+#: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
 msgstr "Positzione"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+#: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
 msgstr "at imbiadu unu vìdeu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+#: ../libs/qtdlib/messages/qtdmessage.cpp:330
 msgid "sent a video note"
 msgstr "at imbiadu una nota de vìdeu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+#: ../libs/qtdlib/messages/qtdmessage.cpp:334
 msgid "sent a voice note"
 msgstr "at imbiadu unu messàgiu vocale"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "joined the group"
 msgstr "at aderidu a su grupu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+msgid "added one or more members"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
 msgstr "at mudadu sa fotografia de sa tzarrada"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat title"
 msgstr "at mudadu su tìtulu de sa tzarrada"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "joined by invite link"
 msgstr "at aderidu tràmite unu ligàmene de invitu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#, fuzzy
+#| msgid "%1 left the group"
+msgid "left the group"
+msgstr "%1 at lassadu su grupu"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
 msgstr "at bogadu unu membru"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "deleted the chat photo"
 msgstr "at cantzelladu sa foto de sa tzarrada"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+#: ../libs/qtdlib/messages/qtdmessage.cpp:375
 msgid "upgraded to supergroup"
 msgstr "at atualizadu a supergrupu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "message TTL has been changed"
 msgstr "TTL de su messàgiu modificadu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
 msgid "created this group"
 msgstr "at creadu custu grupu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 #, fuzzy
 #| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
 msgstr "%1 at aderidu a Telegram!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 #, fuzzy
 msgid "Unsupported message"
 msgstr "Messàgios non lèghidos"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:406
 msgid "Me"
 msgstr "Deo"
 
@@ -727,7 +738,7 @@ msgstr "%1 at aderidu a su grupu"
 msgid "%1 added %2"
 msgstr "%1 at agiuntu a %2"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] "%1 usuàriu(/-os)"

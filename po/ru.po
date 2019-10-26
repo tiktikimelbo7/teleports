@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 21:57+0000\n"
+"POT-Creation-Date: 2019-10-24 20:29+0000\n"
 "PO-Revision-Date: 2019-08-05 22:49+0000\n"
 "Last-Translator: vokaliz <vokaliz@protonmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
@@ -179,92 +179,102 @@ msgstr "У вас новое сообщение"
 msgid "%1 pinned a message"
 msgstr "Написать сообщение..."
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+#: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "Стикер"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+#: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+#: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
 msgstr "отправлено голосовое сообщение"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+#: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "sent a photo"
 msgstr "прислал фото"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+#: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
 msgstr "Местоположение"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+#: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
 msgstr "отправлено видео"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+#: ../libs/qtdlib/messages/qtdmessage.cpp:330
 msgid "sent a video note"
 msgstr "отправлено видео послание"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+#: ../libs/qtdlib/messages/qtdmessage.cpp:334
 msgid "sent a voice note"
 msgstr "отправлено звуковое послание"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "joined the group"
 msgstr "присоединился к группе"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+msgid "added one or more members"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
 msgstr "изменил фотографию беседы"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat title"
 msgstr "изменил название беседы"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "joined by invite link"
 msgstr "присоединился по ссылке-приглашению"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#, fuzzy
+msgid "left the group"
+msgstr "%1 вышел из группы"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
 msgstr "удаленный участник"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "deleted the chat photo"
 msgstr "удалил фотографию беседы"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+#: ../libs/qtdlib/messages/qtdmessage.cpp:375
 msgid "upgraded to supergroup"
 msgstr "повышен до супергруппы"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "message TTL has been changed"
 msgstr "TTL сообщение было измененено"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
 #, fuzzy
 msgid "created this group"
 msgstr "присоединился к группе"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 #, fuzzy
 #| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
 msgstr "%1 присоединился к Telegram!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 #, fuzzy
 msgid "Unsupported message"
 msgstr "Сохраненное сообщение"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:406
 msgid "Me"
 msgstr "Я"
 
@@ -733,7 +743,7 @@ msgstr "%1 присоединился к группе"
 msgid "%1 added %2"
 msgstr "%1 пригласил %2"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 #, fuzzy
 msgid "%1 user(s)"
 msgid_plural ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 21:57+0000\n"
+"POT-Creation-Date: 2019-10-24 20:29+0000\n"
 "PO-Revision-Date: 2019-07-07 22:07+0000\n"
 "Last-Translator: Aitzol Berasategi <aitzol@disroot.org>\n"
 "Language-Team: Basque <https://translate.ubports.com/projects/ubports/"
@@ -178,92 +178,102 @@ msgstr "Mezu berri bat daukazu"
 msgid "%1 pinned a message"
 msgstr "Mezu bat idatzi..."
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+#: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "Eranskailua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+#: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+#: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
 msgstr "audio mezu bat bidalia"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+#: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "sent a photo"
 msgstr "argazki bat bidalia"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+#: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+#: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
 msgstr "bideo bat bidalia"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+#: ../libs/qtdlib/messages/qtdmessage.cpp:330
 msgid "sent a video note"
 msgstr "bideo ohar bat bidalia"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+#: ../libs/qtdlib/messages/qtdmessage.cpp:334
 msgid "sent a voice note"
 msgstr "ahots ohar bat bidalia"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "joined the group"
 msgstr "taldera batu da"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+msgid "added one or more members"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
 msgstr "berriketa argazkia aldatua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat title"
 msgstr "berriketa izenburua aldatua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "joined by invite link"
 msgstr "gonbidapen esteka bidez batua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#, fuzzy
+msgid "left the group"
+msgstr "%1 (e)k taldea utzi du"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
 msgstr "kide bat ezabatua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "deleted the chat photo"
 msgstr "berriketa argazkia ezabatua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+#: ../libs/qtdlib/messages/qtdmessage.cpp:375
 msgid "upgraded to supergroup"
 msgstr "supertaldera eguneratua"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "message TTL has been changed"
 msgstr "TTL mezua aldatua izan da"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
 #, fuzzy
 msgid "created this group"
 msgstr "taldera batu da"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 #, fuzzy
 #| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
 msgstr "%1 Telegramera batu da!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 #, fuzzy
 msgid "Unsupported message"
 msgstr "Gordetako mezuak"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:406
 msgid "Me"
 msgstr "Ni"
 
@@ -731,7 +741,7 @@ msgstr "%1 taldera batu da"
 msgid "%1 added %2"
 msgstr "%1 (e)k %2 gonbidatu du"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 #, fuzzy
 msgid "%1 user(s)"
 msgid_plural ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 21:57+0000\n"
+"POT-Creation-Date: 2019-10-24 20:29+0000\n"
 "PO-Revision-Date: 2019-10-26 09:44+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
@@ -173,88 +173,99 @@ msgstr "Teniu un missatge nou"
 msgid "%1 pinned a message"
 msgstr "%1 ha fixat un missatge"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+#: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "Adhesiu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+#: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
 msgstr "Telefonada"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+#: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
 msgstr "s'ha enviat un missatge d'àudio"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+#: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "sent a photo"
 msgstr "s'ha enviat una foto"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+#: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
 msgstr "Posició"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+#: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
 msgstr "s'ha enviat un vídeo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+#: ../libs/qtdlib/messages/qtdmessage.cpp:330
 msgid "sent a video note"
 msgstr "s'ha enviat una nota de veu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+#: ../libs/qtdlib/messages/qtdmessage.cpp:334
 msgid "sent a voice note"
 msgstr "s'ha enviat una nota de veu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "joined the group"
 msgstr "s'ha unit al grup"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+msgid "added one or more members"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
 msgstr "ha canviat la foto del xat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat title"
 msgstr "s'ha canviat el títol del xat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "joined by invite link"
 msgstr "s'ha afegit via enllaç d'invitació"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#, fuzzy
+#| msgid "%1 left the group"
+msgid "left the group"
+msgstr "%1 ha marxat del grup"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
 msgstr "s'ha eliminat un membre"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "deleted the chat photo"
 msgstr "s'ha esborrat la foto del xat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+#: ../libs/qtdlib/messages/qtdmessage.cpp:375
 msgid "upgraded to supergroup"
 msgstr "actualitzat a supergrup"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "message TTL has been changed"
 msgstr "s'ha modficat el TTL del missatge"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
 msgid "created this group"
 msgstr "ha creat aquest grup"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "has joined Telegram!"
 msgstr "s'ha afegit al Telegram"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "Missatge no suportat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
 msgstr "Sense implementació:"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:406
 msgid "Me"
 msgstr "Jo"
 
@@ -706,7 +717,7 @@ msgstr "%1 s'ha afegit al grup"
 msgid "%1 added %2"
 msgstr "%1 ha afegit %2"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] "%1 usuari"

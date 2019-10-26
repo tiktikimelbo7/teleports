@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-21 21:57+0000\n"
+"POT-Creation-Date: 2019-10-24 20:29+0000\n"
 "PO-Revision-Date: 2019-10-04 12:53+0000\n"
 "Last-Translator: Sander <sander.k1007@kpnmail.nl>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
@@ -173,88 +173,99 @@ msgstr "Je hebt een nieuw bericht"
 msgid "%1 pinned a message"
 msgstr "%1 heeft een bericht vastgezet"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:299
+#: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "Sticker"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:303
+#: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
 msgstr "Telefoongesprek"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:307
+#: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
 msgstr "heeft een spraakbericht gestuurd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:311
+#: ../libs/qtdlib/messages/qtdmessage.cpp:313
 msgid "sent a photo"
 msgstr "heeft een foto gestuurd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:320
+#: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
 msgstr "Locatie"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:324
+#: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
 msgstr "heeft een video gestuurd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:328
+#: ../libs/qtdlib/messages/qtdmessage.cpp:330
 msgid "sent a video note"
 msgstr "heeft een video-notitie gestuurd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:332
+#: ../libs/qtdlib/messages/qtdmessage.cpp:334
 msgid "sent a voice note"
 msgstr "heeft een spraaknotitie gestuurd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:336
+#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "joined the group"
 msgstr "is lid geworden van de groep"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+msgid "added one or more members"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
 msgstr "heeft de chatfoto gewijzigd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat title"
 msgstr "heeft de chatnaam gewijzigd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "joined by invite link"
 msgstr "is lid geworden via een link met uitnodiging"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#, fuzzy
+#| msgid "%1 left the group"
+msgid "left the group"
+msgstr "%1 heeft de groep verlaten"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
 msgstr "heeft een lid verwijderd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "deleted the chat photo"
 msgstr "heeft de chatfoto verwijderd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:361
+#: ../libs/qtdlib/messages/qtdmessage.cpp:375
 msgid "upgraded to supergroup"
 msgstr "geüpgrade naar supergroep"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:379
 msgid "message TTL has been changed"
 msgstr "TTL-bericht is gewijzigd"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:384
 msgid "created this group"
 msgstr "heeft deze groep aangemaakt"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:393
 msgid "has joined Telegram!"
 msgstr "heeft nu ook Telegram!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "Niet-ondersteund bericht"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:387
+#: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
 msgstr "Niet geïmplementeerd:"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:406
 msgid "Me"
 msgstr "Ik"
 
@@ -714,7 +725,7 @@ msgstr "%1 is lid geworden van de groep"
 msgid "%1 added %2"
 msgstr "%1 heeft %2 toegevoegd"
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:49
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] "%1 gebruiker"
