@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-10-26 09:44+0000\n"
+"PO-Revision-Date: 2019-10-29 08:58+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -212,7 +212,7 @@ msgstr "se připojil ke skupině"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:342
 msgid "added one or more members"
-msgstr ""
+msgstr "přidán jeden nebo více členů"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
@@ -227,10 +227,8 @@ msgid "joined by invite link"
 msgstr "se připojil prostřednictvím zvacího odkazu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:362
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 opustil skupinu"
+msgstr "opustil skupinu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
