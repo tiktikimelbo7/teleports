@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-07-25 18:49+0000\n"
+"PO-Revision-Date: 2019-10-29 08:58+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
@@ -196,7 +196,7 @@ msgstr "發送了一張照片"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:322
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:326
 msgid "sent a video"
@@ -400,7 +400,7 @@ msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
@@ -437,7 +437,7 @@ msgstr "設定"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "聯絡人"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
@@ -514,7 +514,7 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "加入"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
 #, fuzzy
@@ -523,16 +523,12 @@ msgid "Phone no"
 msgstr "電話號碼"
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
-#, fuzzy
-#| msgid "First Name"
 msgid "First name"
-msgstr "名"
+msgstr "名字"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
-msgstr "姓"
+msgstr "姓氏"
 
 #: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
 #: ../app/qml/pages/SettingsPage.qml:120
