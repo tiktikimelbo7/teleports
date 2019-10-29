@@ -38,4 +38,5 @@ KeyTable {
     property string cancelForwardMessage
     property string viewGroupInfo
     property string setCurrentChatById
+    property string jumpToMessage
 }

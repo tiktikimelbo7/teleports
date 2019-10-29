@@ -226,6 +226,16 @@ Page {
             bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
 
+        FlyingButton {
+            id: scrollDownButton
+            onClicked: {
+                AppActions.chat.jumpToMessage(Telegram.chats.currentChat.lastMessage.id)
+            }
+            iconName: "toolkit_chevron-down_3gu"
+            anchors.bottom: msgList.bottom
+            visibleState: msgList.visibleArea.yPosition < 1.0 - msgList.visibleArea.heightRatio - 0.01 && !attach_panel_object.visible
+        }
+
         ListView {
             id: msgList
             anchors {
@@ -233,6 +243,7 @@ Page {
                 bottomMargin: Suru.units.gu(1)
             }
 
+            //highlightRangeMode: ListView.StrictlyEnforceRange
             highlightRangeMode: ListView.ApplyRange
 
             model: Telegram.chats.messageList
@@ -262,7 +273,8 @@ Page {
 
             onMovingChanged: {
                 if (moving && highlightRangeMode != ListView.NoHighlightRange) {
-                    highlightRangeMode = ListView.NoHighlightRange;
+                    // this would smooth scrolling maybe, but must not be set when jumping to messages
+                    // highlightRangeMode = ListView.NoHighlightRange;
                 }
             }
         }

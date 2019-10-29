@@ -7,7 +7,6 @@ import QTelegram 1.0
 import QTelegramStyles 1.0
 
 import "../components"
-import "../actions"
 import "../stores"
 
 Item {

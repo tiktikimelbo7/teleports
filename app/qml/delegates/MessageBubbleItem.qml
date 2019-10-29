@@ -258,4 +258,18 @@ UITK.ListItem {
             Layout.fillWidth: !message.isOutgoing
         }
     }
+
+    ColorAnimation {
+        id: highlightAnimation
+        target: base
+        property: "color"
+        easing.type: Easing.OutSine
+        from: base.highlightColor
+        to: "transparent"
+        duration: 750
+    }
+    function highlight() {
+        highlightAnimation.complete()
+        highlightAnimation.start()
+    }
 }
