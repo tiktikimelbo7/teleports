@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-10-29 08:58+0000\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
+"Language-Team: Asturian <https://translate.ubports.com/projects/ubports/"
+"teleports/ast/>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
@@ -325,7 +327,7 @@ msgstr ""
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr ""
+msgstr "Encaboxar"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -346,7 +348,7 @@ msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Zarrar"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
@@ -386,7 +388,7 @@ msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "Fallu"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
@@ -419,11 +421,11 @@ msgstr ""
 #: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Contautos"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
@@ -486,7 +488,7 @@ msgstr ""
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:31
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
@@ -506,18 +508,18 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
 msgid "First name"
-msgstr ""
+msgstr "Nome"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
 msgid "Last name"
-msgstr ""
+msgstr "Primer apellíu"
 
 #: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
 #: ../app/qml/pages/SettingsPage.qml:120
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
 msgid "Delete"
-msgstr ""
+msgstr "Desaniciar"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
@@ -629,7 +631,7 @@ msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: ../app/qml/pages/MessageListPage.qml:29
 msgid "%1 member"
@@ -734,7 +736,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:56
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:80
 msgid "Sticker Pack info"
