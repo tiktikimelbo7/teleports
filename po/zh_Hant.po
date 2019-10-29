@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-10-29 08:58+0000\n"
-"Last-Translator: louies0623 <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2019-10-30 07:48+0000\n"
+"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -46,9 +46,8 @@ msgid "sent you a document"
 msgstr "向您發送了一個文件"
 
 #: ../push/pushhelper.cpp:144
-#, fuzzy
 msgid "sent you an audio message"
-msgstr "發送了一則音訊訊息"
+msgstr "向您發送了一段音訊"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
@@ -91,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 向群組發送了一則語音訊息"
 
 #: ../push/pushhelper.cpp:196
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 向群組發送了一張地圖"
+msgstr "%1 向群組發送了一張動圖"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
@@ -173,10 +170,8 @@ msgid "You have a new message"
 msgstr "您有新的訊息"
 
 #: ../push/pushhelper.cpp:301
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "輸入訊息…"
+msgstr "%1 釘選了一則訊息"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
@@ -184,7 +179,7 @@ msgstr "貼紙"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
-msgstr ""
+msgstr "電話"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
@@ -217,7 +212,7 @@ msgstr "加入了群組"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:342
 msgid "added one or more members"
-msgstr ""
+msgstr "新增了一位或多位成員"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
@@ -232,9 +227,8 @@ msgid "joined by invite link"
 msgstr "已透過邀請連結加入"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:362
-#, fuzzy
 msgid "left the group"
-msgstr "%1 已經離開了群組"
+msgstr "%1 離開了群組"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
@@ -253,21 +247,17 @@ msgid "message TTL has been changed"
 msgstr "訊息 TTL 已變更"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:384
-#, fuzzy
 msgid "created this group"
-msgstr "加入了群組"
+msgstr "建立了此群組"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:393
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 加入了 Telegram！"
+msgstr "加入了 Telegram！"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:397
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "已儲存的訊息"
+msgstr "不支援的訊息"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:401
 msgid "Unimplemented:"
@@ -282,9 +272,8 @@ msgid "Message"
 msgstr "訊息"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:225
-#, fuzzy
 msgid "Unread Messages"
-msgstr "已儲存的訊息"
+msgstr "未讀的訊息"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
@@ -362,17 +351,16 @@ msgid "Close"
 msgstr "關閉"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "電話號碼"
+msgstr "無效的電話號碼！"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "無效的驗證碼！"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "無效的密碼！"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -469,15 +457,13 @@ msgid "Enter optional message..."
 msgstr "輸入可選擇的訊息…"
 
 #: ../app/qml/pages/ChatListPage.qml:374
-#, fuzzy
-#| msgid "Do you want to forward the selected messages to %1?"
 msgid "Do you want to send the imported files to %1?"
-msgstr "是否要將所選的訊息轉寄到 %1？"
+msgstr "您是否要將匯入的檔案傳給 %1？"
 
 #: ../app/qml/pages/ChatListPage.qml:376
 #: ../app/qml/pages/MessageListPage.qml:512
 msgid "Send"
-msgstr ""
+msgstr "傳送"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
@@ -506,19 +492,17 @@ msgstr "返回"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "新增聯絡人"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "將會新增此聯絡人。姓與名為選填"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
 msgstr "加入"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
-#, fuzzy
-#| msgid "Phone number"
 msgid "Phone no"
 msgstr "電話號碼"
 
@@ -543,7 +527,7 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:211
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "將會刪除此聯絡人，您確定嗎？"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -559,7 +543,7 @@ msgstr "版本 %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
@@ -584,9 +568,8 @@ msgid "Connecting"
 msgstr "連線中"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
-#, fuzzy
 msgid "Connecting To Proxy"
-msgstr "連線中"
+msgstr "連線至代理伺服器中"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
@@ -606,14 +589,12 @@ msgid "Ubuntu Touch connectivity status:"
 msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
 msgid "Ubuntu Touch bandwith limited"
-msgstr "有限的寬頻"
+msgstr "Ubuntu Touch 寬頻受限"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
-#, fuzzy
 msgid "Ubuntu Touch bandwith not limited"
-msgstr "不限的寬頻"
+msgstr "Ubuntu Touch 寬頻不受限"
 
 #: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:110
 msgid "Logout"
@@ -625,7 +606,7 @@ msgstr "刪除帳戶"
 
 #: ../app/qml/pages/SettingsPage.qml:91
 msgid "Connectivity status"
-msgstr ""
+msgstr "連線狀態"
 
 #: ../app/qml/pages/SettingsPage.qml:108
 msgid ""
@@ -663,11 +644,9 @@ msgid_plural "%1 members"
 msgstr[0] "%1 名成員"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Not online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "不在線上"
+msgstr[0] ",%1 在線上"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
@@ -686,16 +665,15 @@ msgstr "回覆"
 
 #: ../app/qml/pages/MessageListPage.qml:306
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "您沒有在此頻道貼文的權限"
 
 #: ../app/qml/pages/MessageListPage.qml:310
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
 #: ../app/qml/pages/MessageListPage.qml:312
-#, fuzzy
 msgid "Secret chat has been closed"
-msgstr "通話已結束"
+msgstr "私密聊天已結束"
 
 #: ../app/qml/pages/MessageListPage.qml:400
 msgid "Type a message..."
@@ -703,11 +681,11 @@ msgstr "輸入訊息…"
 
 #: ../app/qml/pages/MessageListPage.qml:510
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "您想要與 %1 分享您的位置資訊嗎？"
 
 #: ../app/qml/pages/MessageListPage.qml:523
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "從作業系統要求位置資訊中..."
 
 #: ../app/qml/pages/UserProfilePage.qml:20
 msgid "Profile"
@@ -730,26 +708,22 @@ msgid "%1 joined the group"
 msgstr "%1 加入了群組"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-#, fuzzy
 msgid "%1 added %2"
-msgstr "%1 邀請了 %2"
+msgstr "%1 新增了 %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
-#, fuzzy
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] "%1 名使用者"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-#, fuzzy
 msgid "%1 left the group"
-msgstr "%1 已經離開了群組"
+msgstr "%1 離開了群組"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "升級到超級群組"
+msgstr "群組被升級為超級群組"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -776,12 +750,11 @@ msgstr "已編輯"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "已擷取螢幕截圖"
 
 #: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
 msgid "Forwarded from %1"
-msgstr "轉寄 "
+msgstr "轉寄自 %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 #, fuzzy
