@@ -28,7 +28,7 @@ ActionCreator {
     signal leaveChat(string chatId);
     signal deleteChatHistory(string chatId);
 
-    signal pinMessage(string superGroupId, string messageId);
+    signal pinMessage(string chatId, string messageId);
 
     signal deleteMessage(string id)
     signal forwardMessage(string id)

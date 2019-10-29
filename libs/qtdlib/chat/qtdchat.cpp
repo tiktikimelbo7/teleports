@@ -35,6 +35,7 @@ QTdChat::QTdChat(QObject *parent)
     , m_messages(0)
     , m_chatOpen(false)
     , m_pinnedMessage(Q_NULLPTR)
+    , m_pinnedMessageId(0)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -83,7 +84,7 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatPhoto(json["photo"].toObject());
 
     onChatDeserialized();
-    updatePinnedMessage(json["pinned_message_id"].toDouble());
+    m_pinnedMessageId = json["pinned_message_id"].toDouble();
 }
 
 QString QTdChat::title() const
@@ -354,6 +355,7 @@ void QTdChat::openChat()
     QTdClient::instance()->send(req.data());
     onChatOpened();
     QTdChat::loadReplyMarkupMessage();
+    updatePinnedMessage();
 }
 
 void QTdChat::closeChat()
@@ -497,20 +499,19 @@ void QTdChat::handleUpdateChatPinnedMessage(const QJsonObject &json)
         return;
     }
 
-    const qint64 pinnedMessageId = qint64(json["pinned_message_id"].toDouble());
-
-    updatePinnedMessage(pinnedMessageId);
+    m_pinnedMessageId = qint64(json["pinned_message_id"].toDouble());
+    updatePinnedMessage();
 }
 
-void QTdChat::updatePinnedMessage(qint64 pinnedMessageId)
+void QTdChat::updatePinnedMessage()
 {
-    if (pinnedMessageId == 0) {
+    if (m_pinnedMessageId == 0) {
         return;
     }
 
     QScopedPointer<QTdGetMessageRequest> req(new QTdGetMessageRequest);
     req->setChatId(id());
-    req->setMessageId(pinnedMessageId);
+    req->setMessageId(m_pinnedMessageId);
     QFuture<QTdResponse> resp = req->sendAsync();
     await(resp, 2000);
     if (resp.result().isError()) {
@@ -524,6 +525,7 @@ void QTdChat::updatePinnedMessage(qint64 pinnedMessageId)
 
     m_pinnedMessage = new QTdMessage(this);
     m_pinnedMessage->unmarshalJson(resp.result().json());
+    m_pinnedMessage->collapse();
 
     emit chatPinnedMessageChanged(m_pinnedMessage);
 }

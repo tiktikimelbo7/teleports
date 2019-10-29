@@ -609,17 +609,17 @@ void QTdMessageListModel::jumpToMessage(const QString &messageId)
     m_jumpToMessageId = messageId;
     m_messageHandler = &jumpToWindowMessageHandler;
     loadMessages(messageId, MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
-
-void QTdMessageListModel::pinMessage(const QString &superGroupId, const QString &messageId)
-{
-    pinMessage(superGroupId.toInt(), messageId.toLongLong());
 }
 
-void QTdMessageListModel::pinMessage(const qint32 &superGroupId, const qint64 &messageId)
+void QTdMessageListModel::pinMessage(const QString &chatId, const QString &messageId)
+{
+    pinMessage(chatId.toLongLong(), messageId.toLongLong());
+}
+
+void QTdMessageListModel::pinMessage(const qint64 &chatId, const qint64 &messageId)
 {
     QScopedPointer<QTdPinMessageRequest> req(new QTdPinMessageRequest);
-    qDebug() << "pinning message with id: " << messageId << " in group with id: " << superGroupId;
-    req->setSuperGroupId(superGroupId);
+    req->setChatId(chatId);
     req->setMessageId(messageId);
     QTdClient::instance()->send(req.data());
 }

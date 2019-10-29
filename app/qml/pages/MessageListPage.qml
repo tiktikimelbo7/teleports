@@ -220,20 +220,34 @@ Page {
 
     UITK.ListItem {
         id: pinnedMessageItem
-        expansion.height: units.gu(6)
-        expansion.expanded: Telegram.chats.currentChat.hasPinnedMessage
+        visible: Telegram.chats.currentChat.hasPinnedMessage
+        height: units.gu(6)
+        width: parent.width
         divider.visible: Telegram.chats.currentChat.hasPinnedMessage
         anchors {
             left: parent.left
             top: parent.top
             right: parent.right
-            bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
+        z: 10
 
-        Loader {
-            id: citationLoader
-            active: Telegram.chats.currentChat.hasPinnedMessage
-            sourceComponent: pinnedMessage
+        Rectangle {
+            anchors.fill: parent
+            
+            Loader {
+                id: citationLoader
+                active: Telegram.chats.currentChat.hasPinnedMessage
+
+                anchors {
+                    topMargin: units.gu(0.5)
+                    leftMargin: units.gu(0.5)
+                    fill: parent
+                }
+
+                height: parent.height
+                width: parent.width
+                sourceComponent: pinnedMessage
+            }
         }
 
         Component {
@@ -252,6 +266,7 @@ Page {
             top: pinnedMessageItem.bottom
             right: parent.right
             bottom: input.top
+        }
 
         FlyingButton {
             id: scrollDownButton

@@ -382,7 +382,7 @@ Store {
     Filter {
         type: ChatKey.pinMessage
         onDispatched: {
-            messageList.pinMessage(message.superGroupId, message.messageId);
+            messageList.pinMessage(message.chatId, message.messageId);
         }
     }
 

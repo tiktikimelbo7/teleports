@@ -91,7 +91,7 @@ UITK.ListItem {
                 iconSource: "qrc:/qml/icons/pin.svg"
                 text: i18n.tr("Pin")
                 visible: (chat.status && chat.status.canPinMessages) ? chat.status.canPinMessages : false
-                onTriggered: AppActions.chat.pinMessage(chat.chatType.superGroupId, message.id)
+                onTriggered: AppActions.chat.pinMessage(chat.id, message.id)
             }
         ]
     }

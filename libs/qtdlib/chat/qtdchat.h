@@ -367,7 +367,7 @@ protected:
     QPointer<QQmlObjectListModel<QTdMessage>> m_messages;
 
 private:
-    void updatePinnedMessage(qint64 pinnedMessageId);
+    void updatePinnedMessage();
     Q_DISABLE_COPY(QTdChat)
     QPointer<QTdChatType> m_chatType;
     QString m_title;
@@ -405,6 +405,7 @@ private:
     QJsonObject m_lastMsgJson;
     int m_currentMessageIndex = -1;
     QPointer<QTdMessage> m_pinnedMessage;
+    qint64 m_pinnedMessageId;
 };
 
 #endif // QTDCHAT_H

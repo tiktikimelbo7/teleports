@@ -1,7 +1,7 @@
 #include "qtdpinmessagerequest.h"
 
 QTdPinMessageRequest::QTdPinMessageRequest(QObject *parent) : QTdOkRequest(parent),
-    m_messageId(0), m_superGroupId(0)
+    m_messageId(0), m_chatId(0)
 {
 }
 
@@ -10,16 +10,16 @@ void QTdPinMessageRequest::setMessageId(const qint64 &id)
     m_messageId = id;
 }
 
-void QTdPinMessageRequest::setSuperGroupId(const qint32 &id)
+void QTdPinMessageRequest::setChatId(const qint64 &id)
 {
-    m_superGroupId = id;
+    m_chatId = id;
 }
 
 QJsonObject QTdPinMessageRequest::marshalJson()
 {
     return QJsonObject{
-        {"@type", "pinSupergroupMessage"},
-        {"supergroup_id", m_superGroupId},
+        {"@type", "pinChatMessage"},
+        {"chat_id", m_chatId},
         {"message_id", m_messageId},
         {"disable_notification", false},
     };

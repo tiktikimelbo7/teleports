@@ -84,12 +84,9 @@ public slots:
     void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
     void deleteMessage(const qint64 messageId);
     void deleteMessages(const QList<qint64> &messageIds);
-<<<<<<< 82c85ea8909fb076aaca9a634fd850581f6f9fe5
     void jumpToMessage(const QString &messageId);
 
-=======
-    void pinMessage(const QString &superGroupId, const QString &messageId);
->>>>>>> Not yet functional draft of message pinning
+    void pinMessage(const QString &chatId, const QString &messageId);
 
 private slots:
     void cleanUp();
@@ -114,7 +111,7 @@ private:
     QTdJumpToWindowMessageHandler jumpToWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
     QString m_jumpToMessageId;
-    void pinMessage(const qint32 &superGroupId, const qint64 &messageId);
+    void pinMessage(const qint64 &chatId, const qint64 &messageId);
 
     QTdMessage *getDateLabelIfNeeded(QTdMessage *firstMessage, QTdMessage *secondMessage);
     void setMessagesRead(QList<qint64> &messages);
