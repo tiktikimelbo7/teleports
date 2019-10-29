@@ -105,5 +105,6 @@
         <file>components/WaitingBar.qml</file>
         <file>components/PopupWaitCancel.qml</file>
         <file>pages/ConnectivityPage.qml</file>
+        <file>components/FlyingButton.qml</file>
     </qresource>
 </RCC>

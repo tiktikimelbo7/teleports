@@ -6,6 +6,7 @@ import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
 import QTelegramStyles 1.0
 import "../stores"
+import "../actions"
 
 Item {
     property QTdMessage messageCited: null
@@ -56,6 +57,17 @@ Item {
             Component.onCompleted: (messageCited && messageCited.content) ?
                                         setSource(contentDelegateMap.findComponent(messageCited.content.type), {message: messageCited}) :
                                         setSource("qrc:///delegates/MessageUnavailable.qml")
+        }
+    }
+
+    MouseArea {
+        id: citationControl
+        anchors.fill: parent
+        enabled: parent.visible
+        onClicked: {
+            // Disable for 0.6.0, finish and reenable it for 0.7.0
+            //AppActions.chat.jumpToMessage(message.messageRepliedTo.id)
+            //message.messageRepliedTo.highlight()    //FIXME - this doesn't work
         }
     }
 }

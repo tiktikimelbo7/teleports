@@ -169,6 +169,12 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.jumpToMessage
+        onDispatched: {
+            messageList.jumpToMessage(message.id)
+        }
+    }
 
     Filter {
         type: ChatKey.sendEditMessageText

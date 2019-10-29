@@ -50,7 +50,7 @@ public:
         void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const;
     };
 
-    class QTdUnreadLabelWindowMessageHandler : public QTdAbstractMessageHandler
+    class QTdJumpToWindowMessageHandler : public QTdAbstractMessageHandler
     {
         void handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const;
     };
@@ -84,6 +84,8 @@ public slots:
     void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
     void deleteMessage(const qint64 messageId);
     void deleteMessages(const QList<qint64> &messageIds);
+    void jumpToMessage(const QString &messageId);
+
 
 private slots:
     void cleanUp();
@@ -105,8 +107,9 @@ private:
     QPointer<QTdAbstractMessageHandler> m_messageHandler;
     QTdNewerMessagesHandler newerMessagesHandler;
     QTdOlderMessagesHandler olderMessagesHandler;
-    QTdUnreadLabelWindowMessageHandler unreadLabelWindowMessageHandler;
+    QTdJumpToWindowMessageHandler jumpToWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
+    QString m_jumpToMessageId;
 
     QTdMessage *getDateLabelIfNeeded(QTdMessage *firstMessage, QTdMessage *secondMessage);
     void setMessagesRead(QList<qint64> &messages);

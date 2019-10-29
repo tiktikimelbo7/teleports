@@ -42,6 +42,7 @@ ActionCreator {
     signal sendReplyToMessage(string id, string text)
     signal showStickerPack(string stickerId)
 
+    signal jumpToMessage(string id)
 
     function viewGroupInfo(chat) {
         view.pushToStack("qrc:/pages/GroupDetailsPage.qml", {

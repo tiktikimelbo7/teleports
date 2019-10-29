@@ -31,6 +31,7 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     , m_model(Q_NULLPTR)
     , m_chat(Q_NULLPTR)
     , m_messageHandler(Q_NULLPTR)
+    , m_jumpToMessageId("") 
     , m_isHandleUpdateLastChatMessageConnected(false)
 {
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
@@ -97,7 +98,9 @@ void QTdMessageListModel::setChat(QTdChat *chat)
     if (m_chat) {
         connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
         if (m_chat->hasUnreadMessages()) {
-            m_messageHandler = &unreadLabelWindowMessageHandler;
+
+            m_jumpToMessageId = m_chat->qmlLastReadInboxMessageId();
+            m_messageHandler = &jumpToWindowMessageHandler;
             loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
         } else {
             m_messageHandler = &olderMessagesHandler;
@@ -212,26 +215,25 @@ void QTdMessageListModel::QTdNewerMessagesHandler::handle(QTdMessageListModel &m
     messageListModel.setMessagesRead(unreadMessages);
 }
 
-void QTdMessageListModel::QTdUnreadLabelWindowMessageHandler::handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const
+void QTdMessageListModel::QTdJumpToWindowMessageHandler::handle(QTdMessageListModel &messageListModel, const QJsonArray &messages) const
 {
     QList<qint64> unreadMessages;
-    unsigned int lastReadMessageIndex = 0;
-    auto lastReadMessageId = messageListModel.m_chat->lastReadInboxMessageId();
 
     for (unsigned int index = 0; index < messages.count(); index++) {
         auto *message = messageFromJson(messages[index]);
-        if (message->id() == lastReadMessageId) {
+        if (message->id() == messageListModel.m_chat->lastReadInboxMessageId() &&
+            message->id() != messageListModel.m_chat->lastMessage()->id()) {
             auto *unreadLabel = new QTdMessage;
             unreadLabel->unmarshalJson(QJsonObject{ { "unreadLabel", gettext("Unread Messages") } });
             messageListModel.m_model->append(unreadLabel);
-            lastReadMessageIndex = index;
         }
 
         messageListModel.appendMessage(message);
         unreadMessages << message->id();
     }
 
-    messageListModel.m_chat->positionMessageListViewAtIndex(lastReadMessageIndex + 1);
+    int jumpToMessageIndex = messageListModel.m_model->indexOf(messageListModel.m_jumpToMessageId); 
+    messageListModel.m_chat->positionMessageListViewAtIndex(jumpToMessageIndex+1);
     messageListModel.setMessagesRead(unreadMessages);
 }
 
@@ -597,3 +599,14 @@ void QTdMessageListModel::setMessagesRead(QList<qint64> &messages)
         QTdClient::instance()->clearNotificationFor(m_chat->id());
     }
 }
+
+void QTdMessageListModel::jumpToMessage(const QString &messageId)
+{
+    cleanUp();
+    m_chat->positionMessageListViewAtIndex(-1);
+    emit modelChanged();
+    m_jumpToMessageId = messageId;
+    m_messageHandler = &jumpToWindowMessageHandler;
+    loadMessages(messageId, MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
+}
+
