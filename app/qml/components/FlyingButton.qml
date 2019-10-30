@@ -17,7 +17,8 @@ UITK.UbuntuShape {
     anchors.right: parent.right
     anchors.margins: width / 2
     anchors.rightMargin: -(scrollDownButton.width * 2)
-    backgroundColor: Suru.secondaryBackgroundColor
+    property var bgColor: Suru.theme == Suru.Dark ? Suru.neutralColor : Suru.secondaryBackgroundColor
+    backgroundColor: bgColor
     aspect: UITK.UbuntuShape.DropShadow
     radius: "large"
     opacity: 0.9
@@ -28,8 +29,8 @@ UITK.UbuntuShape {
     z: 14
     MouseArea {
         id: mouseArea
-        onPressed: parent.backgroundColor = Qt.darker(Suru.secondaryBackgroundColor, 1.3)
-        onReleased: parent.backgroundColor = Suru.secondaryBackgroundColor
+        onPressed: parent.backgroundColor = Qt.darker(bgColor, 1.3)
+        onReleased: parent.backgroundColor = bgColor
         anchors.fill: parent
         enabled: parent.visible
         onClicked: parent.clicked()
