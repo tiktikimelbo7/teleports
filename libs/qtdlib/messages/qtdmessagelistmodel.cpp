@@ -446,8 +446,9 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
 void QTdMessageListModel::setCaptionProperties(IMessageCaptionContent *contentObj, const QString &caption) {
     if (contentObj != nullptr) {
         QString plainText;
+        qint32 maxCaptionLength = QTdClient::instance()->getOption("message_caption_length_max").toInt();
         QJsonArray formatEntities = QTdHelpers::formatPlainTextMessage(caption, plainText);
-        contentObj->setCaption(plainText);
+        contentObj->setCaption(plainText.left(maxCaptionLength));
         contentObj->setCaptionEntities(formatEntities);
     }
 }
