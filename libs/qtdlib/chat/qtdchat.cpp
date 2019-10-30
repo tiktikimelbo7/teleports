@@ -84,7 +84,9 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatPhoto(json["photo"].toObject());
 
     onChatDeserialized();
-    m_pinnedMessageId = json["pinned_message_id"].toDouble();
+    m_pinnedMessageId = qint64(json["pinned_message_id"].toDouble());
+    qDebug() << "QTdChat::unmarshalJson";
+    updatePinnedMessage();
 }
 
 QString QTdChat::title() const
@@ -355,7 +357,6 @@ void QTdChat::openChat()
     QTdClient::instance()->send(req.data());
     onChatOpened();
     QTdChat::loadReplyMarkupMessage();
-    updatePinnedMessage();
 }
 
 void QTdChat::closeChat()
@@ -500,6 +501,7 @@ void QTdChat::handleUpdateChatPinnedMessage(const QJsonObject &json)
     }
 
     m_pinnedMessageId = qint64(json["pinned_message_id"].toDouble());
+    qDebug() << "handleUpdateChatPinnedMessage " << m_pinnedMessageId;
     updatePinnedMessage();
 }
 
@@ -509,24 +511,31 @@ void QTdChat::updatePinnedMessage()
         return;
     }
 
-    QScopedPointer<QTdGetMessageRequest> req(new QTdGetMessageRequest);
-    req->setChatId(id());
-    req->setMessageId(m_pinnedMessageId);
-    QFuture<QTdResponse> resp = req->sendAsync();
-    await(resp, 2000);
-    if (resp.result().isError()) {
-        qWarning() << "Failed to get pinned message with error: " << resp.result().errorString();
+    qDebug() << "updatePinnedMessage";
+
+    QScopedPointer<QTdGetMessageRequest> request(new QTdGetMessageRequest);
+    request->setChatId(id());
+    request->setMessageId(m_pinnedMessageId);
+    connect(QTdClient::instance(), &QTdClient::message, this, &QTdChat::handlePinnedMessage);
+    QTdClient::instance()->send(request.data());
+}
+
+void QTdChat::handlePinnedMessage(const QJsonObject &json)
+{
+    if (json.isEmpty() || qint64(json["id"].toDouble()) != m_pinnedMessageId) {
         return;
     }
 
-    if (m_pinnedMessage) {
-        delete m_pinnedMessage;
+    disconnect(QTdClient::instance(), &QTdClient::message, this, &QTdChat::handlePinnedMessage);
+
+    qDebug() << "handlePinnedMessage " << json["id"] << " == " << m_pinnedMessageId;
+
+    if (!m_pinnedMessage) {
+        m_pinnedMessage = new QTdMessage();
     }
 
-    m_pinnedMessage = new QTdMessage(this);
-    m_pinnedMessage->unmarshalJson(resp.result().json());
     m_pinnedMessage->collapse();
-
+    m_pinnedMessage->unmarshalJson(json);
     emit chatPinnedMessageChanged(m_pinnedMessage);
 }
 

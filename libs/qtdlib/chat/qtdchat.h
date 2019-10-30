@@ -368,6 +368,7 @@ protected:
 
 private:
     void updatePinnedMessage();
+    void handlePinnedMessage(const QJsonObject &json);
     Q_DISABLE_COPY(QTdChat)
     QPointer<QTdChatType> m_chatType;
     QString m_title;
