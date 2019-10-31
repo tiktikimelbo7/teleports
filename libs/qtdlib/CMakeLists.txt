@@ -125,6 +125,7 @@ set(
     messages/content/qtdmessageunreadlabel.cpp
     messages/content/qtdmessageaudio.cpp
     messages/content/qtdmessagebasicgroupchatcreate.cpp
+    messages/content/qtdmessagepinmessage.cpp
     messages/content/qtdmessagecall.cpp
     messages/content/qtdmessagechatchangetitle.cpp
     messages/content/qtdmessagechataddmembers.cpp
