@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-10-26 09:44+0000\n"
+"PO-Revision-Date: 2019-11-02 12:36+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -212,7 +212,7 @@ msgstr "juntou-se ao grupo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:342
 msgid "added one or more members"
-msgstr ""
+msgstr "adicionou um ou mais membros"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "changed the chat photo"
@@ -227,10 +227,8 @@ msgid "joined by invite link"
 msgstr "juntou-se através de convite"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:362
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 saiu do grupo"
+msgstr "saiu do grupo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:365
 msgid "removed a member"
