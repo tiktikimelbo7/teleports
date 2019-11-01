@@ -618,7 +618,6 @@ void QTdMessageListModel::pinMessage(const QString &chatId, const QString &messa
 
 void QTdMessageListModel::pinMessage(const qint64 &chatId, const qint64 &messageId)
 {
-    qDebug() << "pinMessage with chatId " << chatId << " and messageId " << messageId;
     QScopedPointer<QTdPinMessageRequest> req(new QTdPinMessageRequest);
     req->setChatId(chatId);
     req->setMessageId(messageId);

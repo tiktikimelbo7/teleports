@@ -221,7 +221,7 @@ Page {
     UITK.ListItem {
         id: pinnedMessageItem
         visible: Telegram.chats.currentChat.hasPinnedMessage
-        height: units.gu(6)
+        height: citationLoader.height+units.gu(1)
         width: parent.width
         divider.visible: Telegram.chats.currentChat.hasPinnedMessage
         anchors {
@@ -232,6 +232,7 @@ Page {
         z: 10
 
         Rectangle {
+            id: aRect
             anchors.fill: parent
             
             Loader {
@@ -241,11 +242,12 @@ Page {
                 anchors {
                     topMargin: units.gu(0.5)
                     leftMargin: units.gu(0.5)
-                    fill: parent
+                    top: parent.top
+                    left: parent.left
                 }
 
-                height: parent.height
-                width: parent.width
+                height: childrenRect.height
+                width: pinnedMessageItem.width
                 sourceComponent: pinnedMessage
             }
         }
