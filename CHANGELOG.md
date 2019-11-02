@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+##0.6
+### Bugfix
+- Disabled account deletion due to reports of unwanted deleted accounts
+- Secret chats with negative IDs were set to read-only
+
+### Added
+- Button to return to the last message when viewing older messages ("Flying Button") - thx Krille!
+- Userprofile shows now more details (bio, number of groups in common)
+- Notification counter emblem on the icon now shows better values, notifications should disappear when messages are read on any device
+- Content sharing works now (incoming share requests from e.g. Gallery or file manager)
+- Attach more than one file
+- Contacts page! View your contacts, add, remove, edit, jump to chat with a person, start new secret chat
+
+### Changed
+- User joined/Left messages are now working as they should
+- During registration input boxes accept keyboard press on Enter key
+- Auto-download is now disabled for all attachments except pictures. This saves network bandwidth
+- Add online member count to group header
+- Show group details also when viewing them from the chat list
+
 ## 0.5
 ### Added
 - Message text can be copied to clipboard via left-swipe
