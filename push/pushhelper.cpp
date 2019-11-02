@@ -103,10 +103,10 @@ QJsonObject PushHelper::pushToPostalMessage(const QJsonObject &push)
         totalCount = m_auxdb.getAvatarMapTable()->getTotalUnread();
     }
     m_postalClient->setCount(totalCount);
+    m_postalClient->clearPersistent(QStringList(QString::number(chatId)));
 
     //Early bail-out: Telegram server just removes notification, message has been read elsewhere
     if (key == "" || key == "READ_HISTORY") {
-        m_postalClient->clearPersistent(QStringList(tag));
         return QJsonObject();
     }
 
