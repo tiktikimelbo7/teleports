@@ -68,7 +68,7 @@ void QTdChatListModel::createOrOpenSecretChat(const int &userId)
     foreach (QTdChat *chat, m_model->toList()) {
         if (chat->isSecret()) {
             auto c = static_cast<QTdSecretChat *>(chat);
-            if (c->userId() == userId) {
+            if (!c->isClosed() && c->userId() == userId) {
                 chatId = c->id();
                 break;
             }
@@ -80,6 +80,7 @@ void QTdChatListModel::createOrOpenSecretChat(const int &userId)
         QFuture<QTdResponse> resp = req->sendAsync();
         await(resp, 2000);
         if (resp.result().isError()) {
+            qWarning() << "Error during secret chat creation:" << resp.result().errorString();
             return;
         }
         chatId = (qint64)resp.result().json()["id"].toDouble();
@@ -99,6 +100,7 @@ void QTdChatListModel::createOrOpenPrivateChat(const int &userId)
     QFuture<QTdResponse> resp = req->sendAsync();
     await(resp, 2000);
     if (resp.result().isError()) {
+        qWarning() << "Error during private chat creation:" << resp.result().errorString();
         return;
     }
     qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
@@ -111,7 +113,7 @@ void QTdChatListModel::createOrOpenSavedMessages() {
     createOrOpenPrivateChat(QTdClient::instance()->getOption("my_id").toInt());
 }
 
-void QTdChatListModel::setCurrentChatById(const int &chatId)
+void QTdChatListModel::setCurrentChatById(const qint64 &chatId)
 {
     QTdChat *currentChat = chatById(chatId);
     setCurrentChat(currentChat);
