@@ -149,6 +149,7 @@ Page {
                         width: height
                         photoPath: user && user.profilePhoto.small.local.path ? user.profilePhoto.small.local.path : ""
                         initials: user ? user.initials : "N/A"
+                        avatarColor: user.avatarColor(user ? user.id : 0)
                         myself:  false
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         UITK.SlotsLayout.padding.trailing: 0
