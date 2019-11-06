@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <QStringList>
 #include <QTimer>
+#include <QLoggingCategory>
 
 #include "pushhelper.h"
 
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
 
+    QLoggingCategory::setFilterRules("auxdb=false");
     PushHelper pushHelper("teleports.ubports_teleports", // no-i18n
                           QString(args.at(1)), QString(args.at(2)), &app);
 
