@@ -6,6 +6,8 @@
 #include <QtSql>
 #include <QDir>
 
+Q_LOGGING_CATEGORY(auxdb, "auxdb")
+
 /*!
  * \brief Database::Database
  * \param databaseDir directory to load/store the database
@@ -22,7 +24,7 @@ AuxDatabase::AuxDatabase(QString dbDirectory, QString schemaDirectory, QObject *
         QDir dir;
         bool createOk = dir.mkpath(m_databaseDirectory);
         if (!createOk) {
-            qWarning() << "Unable to create DB directory" << m_databaseDirectory;
+            qWarning(auxdb) << "Unable to create DB directory" << m_databaseDirectory;
             return;
         }
     };
@@ -63,8 +65,8 @@ AuxDatabase::~AuxDatabase()
  */
 void AuxDatabase::logSqlError(QSqlQuery &q) const
 {
-    qDebug() << "SQLite error: " << q.lastError();
-    qDebug() << "SQLite string: " << q.lastQuery();
+    qDebug(auxdb) << "SQLite error: " << q.lastError();
+    qDebug(auxdb) << "SQLite string: " << q.lastQuery();
 }
 
 /*!
@@ -76,7 +78,7 @@ bool AuxDatabase::openDB()
     *m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db->setDatabaseName(getDBname());
     if (!m_db->open()) {
-        qDebug() << "Error opening DB: " << m_db->lastError().text();
+        qDebug(auxdb) << "Error opening DB: " << m_db->lastError().text();
         return false;
     }
 
@@ -119,13 +121,13 @@ void AuxDatabase::setSchemaVersion(int version)
  */
 void AuxDatabase::upgradeSchema(int current_version)
 {
-    qWarning() << "auxdb: Schema migration, current version" << current_version;
+    qWarning(auxdb) << "Schema migration, current version" << current_version;
     int version = current_version + 1;
     for (;; version++) {
         // Check for the existence of an updated db file.
         // Filename format is n.sql, where n is the schema version number.
         QFile file(getSqlDir() + QDir::separator() + QString::number(version) + ".sql");
-        qWarning() << "auxdb: Trying to execute the following migration file:" << file.fileName();
+        qWarning(auxdb) << "Trying to execute the following migration file:" << file.fileName();
         if (!file.exists())
             return;
 
@@ -135,7 +137,7 @@ void AuxDatabase::upgradeSchema(int current_version)
         // Update version.
         setSchemaVersion(version);
     }
-    qWarning() << "auxdb: Schemaversion set to" << version - 1;
+    qWarning(auxdb) << "Schemaversion set to" << version - 1;
 }
 
 /*!
@@ -146,7 +148,7 @@ void AuxDatabase::upgradeSchema(int current_version)
 bool AuxDatabase::executeSqlFile(QFile &file)
 {
     if (!file.open(QIODevice::ReadOnly)) {
-        qDebug() << "Could not open file: " << file.fileName();
+        qDebug(auxdb) << "Could not open file: " << file.fileName();
         return false;
     }
 
@@ -168,7 +170,7 @@ bool AuxDatabase::executeSqlFile(QFile &file)
         // Execute each statement.
         QSqlQuery query(*m_db);
         if (!query.exec(statement)) {
-            qDebug() << "Error executing database file: " << file.fileName();
+            qDebug(auxdb) << "Error executing database file: " << file.fileName();
             logSqlError(query);
         }
     }

@@ -5,6 +5,9 @@
 #include <QObject>
 #include <QString>
 #include <QtSql/QSqlQuery>
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(auxdb)
 
 class AvatarMapTable;
 
