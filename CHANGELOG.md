@@ -1,7 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-##0.6
+## 0.6.1
+### Bugfix
+- A logrotate issue again for the pushhelper. Lets hope its the last one!
+
+## 0.6
 ### Bugfix
 - Disabled account deletion due to reports of unwanted deleted accounts
 - Secret chats with negative IDs were set to read-only
