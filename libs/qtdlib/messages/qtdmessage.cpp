@@ -334,6 +334,10 @@ QString QTdMessage::summary() const
         content = gettext("sent a voice note");
         break;
     }
+    case QTdObject::MESSAGE_ANIMATION: {
+        content = gettext("GIF");
+        break;
+    }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
         auto *c = qobject_cast<QTdMessageChatAddMembers *>(m_content);
         if (senderUserId() == c->firstMemberId()) {
