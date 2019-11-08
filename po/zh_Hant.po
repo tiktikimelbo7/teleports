@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-03 13:25+0000\n"
+"POT-Creation-Date: 2019-11-06 21:54+0000\n"
 "PO-Revision-Date: 2019-10-30 07:48+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
-#: ../push/pushhelper.cpp:114 ../app/qml/pages/AboutPage.qml:65
-#: ../app/qml/pages/ChatListPage.qml:21 teleports.desktop.in.h:1
+#: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
+#: ../app/qml/pages/AboutPage.qml:65 teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
 
@@ -173,10 +173,6 @@ msgstr "您有新的訊息"
 msgid "%1 pinned a message"
 msgstr "%1 釘選了一則訊息"
 
-#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
-msgid "Message"
-msgstr "訊息"
-
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
 msgstr "貼紙"
@@ -209,75 +205,79 @@ msgstr "發送了一段影片"
 msgid "sent a voice note"
 msgstr "發送了一則語音訊息"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:338
+msgid "GIF"
+msgstr ""
+
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined the group"
 msgstr "加入了群組"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+#: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
 msgstr "新增了一位或多位成員"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
 msgstr "更改了聊天的圖片"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat title"
 msgstr "更改了聊天的標題"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "joined by invite link"
 msgstr "已透過邀請連結加入"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#: ../libs/qtdlib/messages/qtdmessage.cpp:366
 msgid "left the group"
 msgstr "%1 離開了群組"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:364
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
 msgstr "移除了一位成員"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:369
+#: ../libs/qtdlib/messages/qtdmessage.cpp:373
 msgid "deleted the chat photo"
 msgstr "刪除了聊天的圖片"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:374
+#: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "upgraded to supergroup"
 msgstr "升級到超級群組"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:378
+#: ../libs/qtdlib/messages/qtdmessage.cpp:382
 msgid "message TTL has been changed"
 msgstr "訊息 TTL 已變更"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:383
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "created this group"
 msgstr "建立了此群組"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:392
+#: ../libs/qtdlib/messages/qtdmessage.cpp:396
 msgid "has joined Telegram!"
 msgstr "加入了 Telegram！"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:396
+#: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "不支援的訊息"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:400
+#: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:405
+#: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
 msgstr "我"
+
+#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
+msgid "Message"
+msgstr "訊息"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:227
 msgid "Unread Messages"
 msgstr "未讀的訊息"
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
-msgid "Saved Messages"
-msgstr "已儲存的訊息"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
@@ -305,6 +305,34 @@ msgstr "上線"
 msgid "Seen recently"
 msgstr "最近看到"
 
+#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
+msgid "Saved Messages"
+msgstr "已儲存的訊息"
+
+#: ../app/qml/components/UserProfile.qml:77
+#: ../app/qml/components/UserProfile.qml:101
+msgid "not available"
+msgstr "無法使用"
+
+#: ../app/qml/components/CountryPicker.qml:21
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:39
+msgid "Choose a country"
+msgstr "選擇國家/地區"
+
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
+msgstr "搜尋國家/地區的名稱..."
+
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Okay"
+msgstr "好的"
+
+#: ../app/qml/components/PopupDialog.qml:15
+#: ../app/qml/components/PopupWaitCancel.qml:13
+#: ../app/qml/pages/ChatListPage.qml:31
+msgid "Cancel"
+msgstr "取消"
+
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
 msgstr "您確定要清除歷史記錄嗎？"
@@ -325,50 +353,6 @@ msgstr "離開"
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
 msgstr "關閉"
-
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "無法使用"
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Okay"
-msgstr "好的"
-
-#: ../app/qml/components/PopupDialog.qml:15
-#: ../app/qml/components/PopupWaitCancel.qml:13
-#: ../app/qml/pages/ChatListPage.qml:31
-msgid "Cancel"
-msgstr "取消"
-
-#: ../app/qml/components/CountryPicker.qml:21
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:39
-msgid "Choose a country"
-msgstr "選擇國家/地區"
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr "搜尋國家/地區的名稱..."
-
-#: ../app/qml/stores/ChatStateStore.qml:39
-msgid "Error"
-msgstr "錯誤"
-
-#: ../app/qml/stores/ChatStateStore.qml:39
-msgid "No valid location received after 180 seconds!"
-msgstr ""
-
-#: ../app/qml/stores/NotificationsStateStore.qml:12
-msgid "Push Registration Failed"
-msgstr "發送註冊時失敗"
-
-#: ../app/qml/stores/NotificationsStateStore.qml:23
-msgid "No Ubuntu One"
-msgstr "沒有 Ubuntu One"
-
-#: ../app/qml/stores/NotificationsStateStore.qml:24
-msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
@@ -394,203 +378,25 @@ msgstr "糟糕！內部網路出錯。"
 msgid "Incorrect auth code length."
 msgstr "驗證碼長度不正確。"
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
-#, fuzzy
-msgid "Voice note"
-msgstr "發送了一則語音訊息"
+#: ../app/qml/stores/NotificationsStateStore.qml:12
+msgid "Push Registration Failed"
+msgstr "發送註冊時失敗"
 
-#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
-msgid "%1 left the group"
-msgstr "%1 離開了群組"
+#: ../app/qml/stores/NotificationsStateStore.qml:23
+msgid "No Ubuntu One"
+msgstr "沒有 Ubuntu One"
 
-#: ../app/qml/delegates/MessageDateItem.qml:4
-msgid "dd MMMM"
-msgstr "MMMM dd"
+#: ../app/qml/stores/NotificationsStateStore.qml:24
+msgid "Please connect to Ubuntu One to receive push notifications."
+msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-msgid "Channel called << %1 >> created"
+#: ../app/qml/stores/ChatStateStore.qml:39
+msgid "Error"
+msgstr "錯誤"
+
+#: ../app/qml/stores/ChatStateStore.qml:39
+msgid "No valid location received after 180 seconds!"
 msgstr ""
-
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-msgid "%1 created a group called << %2 >>"
-msgstr ""
-
-#: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
-#: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-msgid "Group has been upgraded to Supergroup"
-msgstr "群組被升級為超級群組"
-
-#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
-msgid "A screenshot has been taken"
-msgstr "已擷取螢幕截圖"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
-msgid "%1 joined the group"
-msgstr "%1 加入了群組"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
-msgid "%1 added %2"
-msgstr "%1 新增了 %2"
-
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
-msgid "%1 user(s)"
-msgid_plural ""
-msgstr[0] "%1 名使用者"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:33
-#: ../app/qml/delegates/MessageBubbleItem.qml:47
-#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:214
-#: ../app/qml/pages/SettingsPage.qml:120
-msgid "Delete"
-msgstr "刪除"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:44
-msgid ""
-"The message will be deleted for all users in the chat. Do you really want to "
-"delete it?"
-msgstr "將會對此聊天中所有使用者刪除這則訊息。是否確實要刪除它？"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:45
-msgid ""
-"The message will be deleted only for you. Do you really want to delete it?"
-msgstr "該訊息將僅為您刪除。是否確實要刪除它？"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:56
-msgid "Copy"
-msgstr "複製"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:66
-#: ../app/qml/pages/UserProfilePage.qml:40
-#: ../app/qml/pages/MessageListPage.qml:296
-msgid "Edit"
-msgstr "編輯"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:74
-#: ../app/qml/pages/MessageListPage.qml:296
-msgid "Reply"
-msgstr "回覆"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:80
-msgid "Sticker Pack info"
-msgstr "貼圖資訊"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:86
-#: ../app/qml/pages/ChatListPage.qml:352
-msgid "Forward"
-msgstr "轉寄"
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:239
-msgid "Edited"
-msgstr "已編輯"
-
-#: ../app/qml/delegates/MessageContentBase.qml:34
-msgid "Forwarded from %1"
-msgstr "轉寄自 %1"
-
-#: ../app/qml/delegates/MessageJoinByLink.qml:5
-msgid "%1 joined by invite link"
-msgstr "%1 已透過邀請連結加入"
-
-#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
-msgid "Missing label..."
-msgstr ""
-
-#: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
-msgid "%1 has joined Telegram!"
-msgstr "%1 加入了 Telegram！"
-
-#: ../app/qml/delegates/MessageContentCall.qml:51
-msgid "Call Declined"
-msgstr "通話已拒絕"
-
-#: ../app/qml/delegates/MessageContentCall.qml:53
-msgid "Call Disconnected"
-msgstr "通話已斷線"
-
-#: ../app/qml/delegates/MessageContentCall.qml:56
-msgid "Call Ended"
-msgstr "通話結束"
-
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Cancelled Call"
-msgstr "取消的通話"
-
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Missed Call"
-msgstr "未接來電"
-
-#: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
-msgid "Duration: %1:%2"
-msgstr "持續時間：%1.%2"
-
-#: ../app/qml/delegates/NotImplementedYet.qml:12
-msgid "Unknown message type, see logfile for details..."
-msgstr ""
-
-#: ../app/qml/pages/PreviewPage.qml:35
-msgid "File: "
-msgstr "檔案： "
-
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
-msgid "Save"
-msgstr "儲存"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:17
-msgid "Enter Phone Number"
-msgstr "輸入電話號碼"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:67
-msgid "Phone number"
-msgstr "電話號碼"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:91
-msgid "Please confirm your country code and enter your phone number."
-msgstr "請先確認您的國家/地區代碼並輸入您的電話號碼。"
-
-#: ../app/qml/pages/WaitPhoneNumberPage.qml:95
-#: ../app/qml/pages/WaitPasswordPage.qml:65
-msgid "Next..."
-msgstr "下一步..."
-
-#: ../app/qml/pages/PickerPage.qml:16
-msgid "Content Picker"
-msgstr "內容選擇"
-
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:82
-msgid "About"
-msgstr "關於"
-
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/UserListPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:31
-#: ../app/qml/pages/GroupDetailsPage.qml:32
-#: ../app/qml/pages/SettingsPage.qml:34
-#: ../app/qml/pages/ConnectivityPage.qml:47
-msgid "Back"
-msgstr "返回"
-
-#: ../app/qml/pages/AboutPage.qml:71
-msgid "Version %1"
-msgstr "版本 %1"
-
-#: ../app/qml/pages/AboutPage.qml:73
-msgid " (git# %1)"
-msgstr " (git# %1)"
-
-#: ../app/qml/pages/AboutPage.qml:98
-msgid "Get the source"
-msgstr "取得原始碼"
-
-#: ../app/qml/pages/AboutPage.qml:99
-msgid "Report issues"
-msgstr "報告問題"
-
-#: ../app/qml/pages/AboutPage.qml:100
-msgid "Help translate"
-msgstr "協助翻譯"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
@@ -629,6 +435,10 @@ msgstr "聯絡人"
 msgid "Night mode"
 msgstr "夜間模式"
 
+#: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
+msgid "About"
+msgstr "關於"
+
 #: ../app/qml/pages/ChatListPage.qml:124
 msgid "Leave chat"
 msgstr "離開聊天"
@@ -640,6 +450,11 @@ msgstr "資訊"
 #: ../app/qml/pages/ChatListPage.qml:350
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "是否要將所選的訊息轉寄到 %1？"
+
+#: ../app/qml/pages/ChatListPage.qml:352
+#: ../app/qml/delegates/MessageBubbleItem.qml:86
+msgid "Forward"
+msgstr "轉寄"
 
 #: ../app/qml/pages/ChatListPage.qml:366 ../app/qml/pages/ChatListPage.qml:390
 msgid "Enter optional message..."
@@ -653,6 +468,31 @@ msgstr "您是否要將匯入的檔案傳給 %1？"
 #: ../app/qml/pages/MessageListPage.qml:525
 msgid "Send"
 msgstr "傳送"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:17
+msgid "Enter Phone Number"
+msgstr "輸入電話號碼"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:57
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:67
+msgid "Phone number"
+msgstr "電話號碼"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:91
+msgid "Please confirm your country code and enter your phone number."
+msgstr "請先確認您的國家/地區代碼並輸入您的電話號碼。"
+
+#: ../app/qml/pages/WaitPhoneNumberPage.qml:95
+#: ../app/qml/pages/WaitPasswordPage.qml:65
+msgid "Next..."
+msgstr "下一步..."
+
+#: ../app/qml/pages/UserListPage.qml:29
+#: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:31
+msgid "Back"
+msgstr "返回"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
@@ -678,6 +518,13 @@ msgstr "名字"
 msgid "Last name"
 msgstr "姓氏"
 
+#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:214
+#: ../app/qml/pages/SettingsPage.qml:120
+#: ../app/qml/delegates/MessageBubbleItem.qml:33
+#: ../app/qml/delegates/MessageBubbleItem.qml:47
+msgid "Delete"
+msgstr "刪除"
+
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
 msgstr ""
@@ -685,14 +532,6 @@ msgstr ""
 #: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
 msgstr "將會刪除此聯絡人，您確定嗎？"
-
-#: ../app/qml/pages/UserProfilePage.qml:20
-msgid "Profile"
-msgstr "配置檔"
-
-#: ../app/qml/pages/UserProfilePage.qml:50
-msgid "Edit user data and press Save"
-msgstr ""
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -702,73 +541,25 @@ msgstr "群組內容"
 msgid "Members: %1"
 msgstr "成員: %1"
 
-#: ../app/qml/pages/MessageListPage.qml:29
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] "%1 名成員"
+#: ../app/qml/pages/AboutPage.qml:71
+msgid "Version %1"
+msgstr "版本 %1"
 
-#: ../app/qml/pages/MessageListPage.qml:31
-msgid ", %1 online"
-msgid_plural ", %1 online"
-msgstr[0] ",%1 在線上"
+#: ../app/qml/pages/AboutPage.qml:73
+msgid " (git# %1)"
+msgstr " (git# %1)"
 
-#: ../app/qml/pages/MessageListPage.qml:127
-msgid "Telegram"
-msgstr "Telegram"
+#: ../app/qml/pages/AboutPage.qml:98
+msgid "Get the source"
+msgstr "取得原始碼"
 
-#: ../app/qml/pages/MessageListPage.qml:319
-msgid "You are not allowed to post in this channel"
-msgstr "您沒有在此頻道貼文的權限"
+#: ../app/qml/pages/AboutPage.qml:99
+msgid "Report issues"
+msgstr "報告問題"
 
-#: ../app/qml/pages/MessageListPage.qml:323
-msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:325
-msgid "Secret chat has been closed"
-msgstr "私密聊天已結束"
-
-#: ../app/qml/pages/MessageListPage.qml:413
-msgid "Type a message..."
-msgstr "輸入訊息…"
-
-#: ../app/qml/pages/MessageListPage.qml:523
-msgid "Do you want to share your location with %1?"
-msgstr "您想要與 %1 分享您的位置資訊嗎？"
-
-#: ../app/qml/pages/MessageListPage.qml:536
-msgid "Requesting location from OS..."
-msgstr "從作業系統要求位置資訊中..."
-
-#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:110
-msgid "Logout"
-msgstr "登出"
-
-#: ../app/qml/pages/SettingsPage.qml:78
-msgid "Delete account"
-msgstr "刪除帳戶"
-
-#: ../app/qml/pages/SettingsPage.qml:91
-msgid "Connectivity status"
-msgstr "連線狀態"
-
-#: ../app/qml/pages/SettingsPage.qml:108
-msgid ""
-"Warning: Logging out will delete all local data from this device, including "
-"secret chats. Are you still sure you want to log out?"
-msgstr ""
-"警告：登出時將會刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出"
-"嗎？"
-
-#: ../app/qml/pages/SettingsPage.qml:118
-msgid ""
-"Warning: Deleting the account will delete all the data you ever received or "
-"send using telegram except for data you have explicitly saved outside the "
-"telegram cloud. Are you really really sure you want to delete your telegram "
-"account?"
-msgstr ""
-"警告：刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確"
-"保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 Telegram 帳戶嗎？"
+#: ../app/qml/pages/AboutPage.qml:100
+msgid "Help translate"
+msgstr "協助翻譯"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
@@ -809,6 +600,105 @@ msgstr "Ubuntu Touch 寬頻受限"
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch 寬頻不受限"
 
+#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:110
+msgid "Logout"
+msgstr "登出"
+
+#: ../app/qml/pages/SettingsPage.qml:78
+msgid "Delete account"
+msgstr "刪除帳戶"
+
+#: ../app/qml/pages/SettingsPage.qml:91
+msgid "Connectivity status"
+msgstr "連線狀態"
+
+#: ../app/qml/pages/SettingsPage.qml:108
+msgid ""
+"Warning: Logging out will delete all local data from this device, including "
+"secret chats. Are you still sure you want to log out?"
+msgstr ""
+"警告：登出時將會刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出"
+"嗎？"
+
+#: ../app/qml/pages/SettingsPage.qml:118
+msgid ""
+"Warning: Deleting the account will delete all the data you ever received or "
+"send using telegram except for data you have explicitly saved outside the "
+"telegram cloud. Are you really really sure you want to delete your telegram "
+"account?"
+msgstr ""
+"警告：刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確"
+"保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 Telegram 帳戶嗎？"
+
+#: ../app/qml/pages/PickerPage.qml:16
+msgid "Content Picker"
+msgstr "內容選擇"
+
+#: ../app/qml/pages/PreviewPage.qml:35
+msgid "File: "
+msgstr "檔案： "
+
+#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
+msgid "Save"
+msgstr "儲存"
+
+#: ../app/qml/pages/MessageListPage.qml:29
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] "%1 名成員"
+
+#: ../app/qml/pages/MessageListPage.qml:31
+msgid ", %1 online"
+msgid_plural ", %1 online"
+msgstr[0] ",%1 在線上"
+
+#: ../app/qml/pages/MessageListPage.qml:127
+msgid "Telegram"
+msgstr "Telegram"
+
+#: ../app/qml/pages/MessageListPage.qml:296
+#: ../app/qml/pages/UserProfilePage.qml:40
+#: ../app/qml/delegates/MessageBubbleItem.qml:66
+msgid "Edit"
+msgstr "編輯"
+
+#: ../app/qml/pages/MessageListPage.qml:296
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
+msgid "Reply"
+msgstr "回覆"
+
+#: ../app/qml/pages/MessageListPage.qml:319
+msgid "You are not allowed to post in this channel"
+msgstr "您沒有在此頻道貼文的權限"
+
+#: ../app/qml/pages/MessageListPage.qml:323
+msgid "Waiting for other party to accept the secret chat..."
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:325
+msgid "Secret chat has been closed"
+msgstr "私密聊天已結束"
+
+#: ../app/qml/pages/MessageListPage.qml:413
+msgid "Type a message..."
+msgstr "輸入訊息…"
+
+#: ../app/qml/pages/MessageListPage.qml:523
+msgid "Do you want to share your location with %1?"
+msgstr "您想要與 %1 分享您的位置資訊嗎？"
+
+#: ../app/qml/pages/MessageListPage.qml:536
+msgid "Requesting location from OS..."
+msgstr "從作業系統要求位置資訊中..."
+
+#: ../app/qml/pages/UserProfilePage.qml:20
+msgid "Profile"
+msgstr "配置檔"
+
+#: ../app/qml/pages/UserProfilePage.qml:50
+msgid "Edit user data and press Save"
+msgstr ""
+
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
 msgstr "輸入密碼"
@@ -816,6 +706,119 @@ msgstr "輸入密碼"
 #: ../app/qml/pages/WaitPasswordPage.qml:42
 msgid "Password"
 msgstr "密碼"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
+msgid "%1 joined the group"
+msgstr "%1 加入了群組"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+msgid "%1 added %2"
+msgstr "%1 新增了 %2"
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
+msgid "%1 user(s)"
+msgid_plural ""
+msgstr[0] "%1 名使用者"
+
+#: ../app/qml/delegates/MessageChatDeleteMember.qml:6
+msgid "%1 left the group"
+msgstr "%1 離開了群組"
+
+#: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
+#: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
+msgid "Group has been upgraded to Supergroup"
+msgstr "群組被升級為超級群組"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:44
+msgid ""
+"The message will be deleted for all users in the chat. Do you really want to "
+"delete it?"
+msgstr "將會對此聊天中所有使用者刪除這則訊息。是否確實要刪除它？"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:45
+msgid ""
+"The message will be deleted only for you. Do you really want to delete it?"
+msgstr "該訊息將僅為您刪除。是否確實要刪除它？"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:56
+msgid "Copy"
+msgstr "複製"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
+msgid "Sticker Pack info"
+msgstr "貼圖資訊"
+
+#: ../app/qml/delegates/MessageBubbleItem.qml:239
+msgid "Edited"
+msgstr "已編輯"
+
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
+msgstr "已擷取螢幕截圖"
+
+#: ../app/qml/delegates/MessageContentBase.qml:34
+msgid "Forwarded from %1"
+msgstr "轉寄自 %1"
+
+#: ../app/qml/delegates/MessageContactRegistered.qml:5
+#, fuzzy
+#| msgid "%1 joined Telegram!"
+msgid "%1 has joined Telegram!"
+msgstr "%1 加入了 Telegram！"
+
+#: ../app/qml/delegates/NotImplementedYet.qml:12
+msgid "Unknown message type, see logfile for details..."
+msgstr ""
+
+#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
+msgid "Missing label..."
+msgstr ""
+
+#: ../app/qml/delegates/MessageContentCall.qml:51
+msgid "Call Declined"
+msgstr "通話已拒絕"
+
+#: ../app/qml/delegates/MessageContentCall.qml:53
+msgid "Call Disconnected"
+msgstr "通話已斷線"
+
+#: ../app/qml/delegates/MessageContentCall.qml:56
+msgid "Call Ended"
+msgstr "通話結束"
+
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Cancelled Call"
+msgstr "取消的通話"
+
+#: ../app/qml/delegates/MessageContentCall.qml:58
+msgid "Missed Call"
+msgstr "未接來電"
+
+#: ../app/qml/delegates/MessageContentCall.qml:71
+#, fuzzy
+msgid "Duration: %1:%2"
+msgstr "持續時間：%1.%2"
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
+msgid "Channel called << %1 >> created"
+msgstr ""
+
+#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
+msgid "%1 created a group called << %2 >>"
+msgstr ""
+
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "dd MMMM"
+msgstr "MMMM dd"
+
+#: ../app/qml/delegates/MessageJoinByLink.qml:5
+msgid "%1 joined by invite link"
+msgstr "%1 已透過邀請連結加入"
+
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
+#, fuzzy
+msgid "Voice note"
+msgstr "發送了一則語音訊息"
 
 #~ msgid "Image"
 #~ msgstr "圖片"
