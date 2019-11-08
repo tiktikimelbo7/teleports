@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-03 13:25+0000\n"
-"PO-Revision-Date: 2019-10-29 08:58+0000\n"
+"PO-Revision-Date: 2019-11-08 20:07+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -560,7 +560,7 @@ msgstr "Výběr obsahu"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:82
 msgid "About"
-msgstr "O aplikaci"
+msgstr "O systému"
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/UserListPage.qml:29
 #: ../app/qml/pages/UserProfilePage.qml:31
