@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-11-08 20:07+0000\n"
+"PO-Revision-Date: 2019-11-09 23:36+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -207,7 +207,7 @@ msgstr "zaslána hlasová zpráva"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
