@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-08-28 10:50+0000\n"
+"PO-Revision-Date: 2019-11-11 10:36+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
@@ -90,10 +90,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 at imbiadu unu messàgiu vocale a su grupu"
 
 #: ../push/pushhelper.cpp:196
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 at imbiadu una mapa a su grupu"
+msgstr "%1 at imbiadu una GIF a su grupu"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
@@ -172,10 +170,8 @@ msgid "You have a new message"
 msgstr "Tenes unu messàgiu nou"
 
 #: ../push/pushhelper.cpp:301
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Iscrie unu messàgiu..."
+msgstr "%1 at apicadu unu messàgiu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
@@ -183,7 +179,7 @@ msgstr "Adesivu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
-msgstr ""
+msgstr "Tzerriada de telèfonu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
@@ -211,7 +207,7 @@ msgstr "at imbiadu unu messàgiu vocale"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
@@ -220,7 +216,7 @@ msgstr "at aderidu a su grupu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
-msgstr ""
+msgstr "at agiuntu unu o prus membros"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
@@ -235,10 +231,8 @@ msgid "joined by invite link"
 msgstr "at aderidu tràmite unu ligàmene de invitu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:366
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 at lassadu su grupu"
+msgstr "at lassadu su grupu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
@@ -261,20 +255,17 @@ msgid "created this group"
 msgstr "at creadu custu grupu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:396
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 at aderidu a Telegram!"
+msgstr "at aderidu a Telegram"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "Messàgios non lèghidos"
+msgstr "Messàgiu no suportadu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
-msgstr ""
+msgstr "No implementadu:"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
@@ -308,7 +299,7 @@ msgstr "dd.MM.yy hh:mm"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr "in lìnia"
+msgstr "In lìnia"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
@@ -364,17 +355,16 @@ msgid "Close"
 msgstr "Serra"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "Nùmeru de telèfonu"
+msgstr "Nùmeru de telèfonu non vàlidu"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Còdighe non vàlidu"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Sa crae no est vàlida"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -402,11 +392,11 @@ msgstr "Collega·ti a Ubuntu One pro retzire notìficas Push."
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "Faddina"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Peruna positzione vàlida retzida a pustis de 180 segundos"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
@@ -441,7 +431,7 @@ msgstr "Cunfiguratziones"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Cuntatos"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
@@ -473,15 +463,13 @@ msgid "Enter optional message..."
 msgstr "Iscrie unu messàgiu optzionale..."
 
 #: ../app/qml/pages/ChatListPage.qml:374
-#, fuzzy
-#| msgid "Do you want to forward the selected messages to %1?"
 msgid "Do you want to send the imported files to %1?"
-msgstr "Boles torrare a imbiare is messàgios seletzionados a %1?"
+msgstr "Boles imbiare is archìvios importados a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:376
 #: ../app/qml/pages/MessageListPage.qml:525
 msgid "Send"
-msgstr ""
+msgstr "Imbia"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
@@ -511,31 +499,26 @@ msgstr "In segus"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Agiunghe cuntatu"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
 msgstr ""
+"Su cuntatu at a èssere agiuntu. Su nòmine e su sangunadu sunt optzionales"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Agiunghe"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
-#, fuzzy
-#| msgid "Phone number"
 msgid "Phone no"
 msgstr "Nùmeru de telèfonu"
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
-#, fuzzy
-#| msgid "First Name"
 msgid "First name"
 msgstr "Nòmine"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
 msgstr "Sangunadu"
 
@@ -548,11 +531,11 @@ msgstr "Cantzella"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
-msgstr ""
+msgstr "Tzarrada segreta"
 
 #: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Su cuntatu at a èssere cantzelladu. Boles sighire?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -568,7 +551,7 @@ msgstr "Versione %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
@@ -671,12 +654,10 @@ msgstr[0] "%1 membru"
 msgstr[1] "%1 membros"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Not online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "No est in lìnia"
-msgstr[1] "No est in lìnia"
+msgstr[0] ", %1 in lìnia"
+msgstr[1] ", %1 in lìnia"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
@@ -695,16 +676,15 @@ msgstr "Risponde"
 
 #: ../app/qml/pages/MessageListPage.qml:319
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Non podes publicare in custu canale"
 
 #: ../app/qml/pages/MessageListPage.qml:323
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "Isetende chi s'àtera parte atzetet sa tzarrada segreta..."
 
 #: ../app/qml/pages/MessageListPage.qml:325
-#, fuzzy
 msgid "Secret chat has been closed"
-msgstr "at acabadu sa mutida"
+msgstr "Tzarrada segreta serrada"
 
 #: ../app/qml/pages/MessageListPage.qml:413
 msgid "Type a message..."
@@ -712,7 +692,7 @@ msgstr "Iscrie unu messàgiu..."
 
 #: ../app/qml/pages/MessageListPage.qml:523
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Boles cumpartzire sa positzione tua cun %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:536
 msgid "Requesting location from OS..."
@@ -724,7 +704,7 @@ msgstr "Profilu"
 
 #: ../app/qml/pages/UserProfilePage.qml:50
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Modìfica is datos de s'usuàriu e preme Sarva"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -754,9 +734,8 @@ msgstr "%1 at lassadu su grupu"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "at atualizadu a supergrupu"
+msgstr "Grupu atualizadu a supergrupu"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -790,13 +769,10 @@ msgid "A screenshot has been taken"
 msgstr "Istantànea fata"
 
 #: ../app/qml/delegates/MessageContentBase.qml:34
-#, fuzzy
 msgid "Forwarded from %1"
-msgstr "Torradu a imbiare dae "
+msgstr "Torradu a imbiare dae %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
 msgstr "%1 at aderidu a Telegram!"
 
@@ -829,13 +805,12 @@ msgid "Missed Call"
 msgstr "Mutida pèrdida"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "Tempus: %1.%2"
+msgstr "Durada: %1.%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Canale <<%1>> creadu"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
