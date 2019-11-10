@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-11-02 14:53+0000\n"
-"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
+"PO-Revision-Date: 2019-11-11 10:36+0000\n"
+"Last-Translator: Kai Goldbeck <kaiuwe.goldbeck@mailbox.org>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -207,7 +207,7 @@ msgstr "hat eine Audio-Notiz geschickt"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
@@ -518,8 +518,6 @@ msgid "First name"
 msgstr "Vorname"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
 msgstr "Nachname"
 
