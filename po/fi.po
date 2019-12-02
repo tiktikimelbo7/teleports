@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-10-07 15:53+0000\n"
+"PO-Revision-Date: 2020-01-19 19:22+0000\n"
 "Last-Translator: Sami Törmänen <tormanen.sami@gmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "teleports/fi/>\n"
@@ -63,7 +63,7 @@ msgstr "lähetti sinulle kartan"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
@@ -139,12 +139,12 @@ msgstr "%1 palasi ryhmään"
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 on saapunut paikalle"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
@@ -158,7 +158,7 @@ msgstr "Uusi kirjautuminen tuntemattomasta laitteesta"
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
@@ -216,7 +216,7 @@ msgstr "liittyi ryhmään"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
-msgstr ""
+msgstr "lisäsi yhden tai useamman käyttäjän"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
@@ -231,10 +231,8 @@ msgid "joined by invite link"
 msgstr "liittyi kutsulinkin kautta"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:366
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 poistui ryhmästä"
+msgstr "poistui ryhmästä"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
@@ -263,7 +261,7 @@ msgstr "liittyi Telegramiin!"
 #: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
-msgstr ""
+msgstr "Ei tuettu viesti"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
@@ -333,7 +331,7 @@ msgstr "Okay"
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr "Peruuta"
+msgstr "Keskeytä"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -502,31 +500,25 @@ msgstr "Palaa"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Lisää yhteystieto"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "Lisätään yhteystieto. Etu- ja sukunimi ovat valinnaisia"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
-#, fuzzy
-#| msgid "Phone number"
 msgid "Phone no"
-msgstr "Puhelinnumero"
+msgstr "Puhelinnro"
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
-#, fuzzy
-#| msgid "First Name"
 msgid "First name"
 msgstr "Etunimi"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
 msgstr "Sukunimi"
 
@@ -539,11 +531,11 @@ msgstr "Poista"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
-msgstr ""
+msgstr "Salainen keskustelu"
 
 #: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Yhteystieto poistetaan. Oletko varma?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -593,15 +585,15 @@ msgstr "Päivitetään"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
-msgstr ""
+msgstr "Yhteyden tila"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Telegramin yhteyden tila:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Ubuntu Touchin yhteyden tila:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
@@ -621,7 +613,7 @@ msgstr "Poista käyttäjätili"
 
 #: ../app/qml/pages/SettingsPage.qml:91
 msgid "Connectivity status"
-msgstr ""
+msgstr "Yhteyden tila"
 
 #: ../app/qml/pages/SettingsPage.qml:108
 msgid ""
@@ -713,7 +705,7 @@ msgstr "Profiili"
 
 #: ../app/qml/pages/UserProfilePage.qml:50
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Muokkaa käyttäjän tietoja ja paina Tallenna"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
