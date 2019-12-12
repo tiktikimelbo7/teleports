@@ -7,22 +7,19 @@ import QTelegram 1.0
 import QuickFlux 1.1
 import "../actions"
 import "../components"
+import QtGraphicalEffects 1.0
 
 MessageContentBase {
     property QTdMessagePhoto photoContent: message.content
-    property QTdPhotoSize size: {
-        var photoSize = photoContent.photo.sizes.get(1);
-        if (!photoSize)
-            photoSize = photoContent.photo.sizes.get(0);
-        return photoSize;
-    }
+    property QTdPhotoSize size: photoContent.photo.sizes.size() > 1 ? photoContent.photo.sizes.get(1) : photoContent.photo.sizes.get(0)
     property QTdFile photo: size.photo
     property QTdLocalFile photoLocal: photo.local
+    property bool contentBeforeImage
     property QTdRemoteFile photoRemote: photo.remote
 
     property real maximumMediaHeight: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(24)
-    property real minimumMediaHeight: message.isCollapsed ? Suru.units.gu(16/5) : Suru.units.gu(16)
-    property real maximumMediaWidth: message.isCollapsed ? Suru.units.gu(30/5) : Suru.units.gu(30)
+    property real minimumMediaHeight: 0//message.isCollapsed ? Suru.units.gu(16/5) : Suru.units.gu(16)  //TODO
+    property real maximumMediaWidth: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(30)
     property real maximumMediaRatio: maximumMediaWidth / maximumMediaHeight
     property real mediaWidth:size.width
     property real mediaHeight:size.height
@@ -43,22 +40,42 @@ MessageContentBase {
                 var photoHeight = mediaHeight >= mediaWidth?
                     Math.min(mediaHeight, maximumMediaHeight):
                     Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight);
-                return Math.max(photoHeight, units.gu(7)); 
+                return Math.max(photoHeight, units.gu(7));
             }
             return units.gu(7);
         }
-        
+
         Image {
             id: media_img
             anchors.fill: parent
-            fillMode: Image.PreserveAspectFit
+            fillMode: message.isCollapsed ? Image.PreserveAspectCrop : Image.PreserveAspectFit
             property url localFileSource: photo && photoLocal.path ? Qt.resolvedUrl("file://" + photo.local.path) : ""
             function reload() {
                 media_img.source = Qt.resolvedUrl();
                 media_img.source = localFileSource;
             }
             source: localFileSource
+            visible: !radiusCornerMask.enabled
 
+            Rectangle {
+                color: "#77000000"
+                radius: Suru.units.dp(4)
+                width: message_status_comp.width + Suru.units.gu(1)
+                height: message_status_comp.height + Suru.units.gu(1)
+                visible: multimediaLayout && !message.isCollapsed
+                anchors {
+                    right: parent.right
+                    bottom: parent.bottom
+                    margins: Suru.units.dp(4)
+                }
+                MessageStatusRow {
+                    id: message_status_comp
+                    anchors.centerIn: parent
+                    Suru.theme: Suru.Dark
+                    textStyle: Suru.PrimaryText
+                    opacity: 1
+                }
+            }
         }
         BusyPercentageIndicator {
             width: units.gu(7)
@@ -77,6 +94,27 @@ MessageContentBase {
             }
         }
 
+        OpacityMask {
+            id: radiusCornerMask
+            anchors.fill: parent
+            source: media_img
+            enabled: !contentBeforeImage || photoContent.caption.text == ""
+            maskSource: Rectangle {
+                width: media_img.width
+                height: media_img.height
+                radius: message.isCollapsed ? Suru.units.dp(3) : Suru.units.dp(4)
+                visible: false // this also needs to be invisible or it will cover up the image
+                Rectangle {
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                        top: contentBeforeImage && !message.isCollapsed ? parent.top : parent.verticalCenter
+                        bottom: photoContent.caption.text != "" && !message.isCollapsed ? parent.bottom : parent.verticalCenter
+                    }
+                }
+            }
+        }
+
         Connections {
             target: photo
             onFileChanged: {
@@ -88,36 +126,46 @@ MessageContentBase {
             if (photo.canBeDownloaded && !photo.isDownloadingCompleted) {
                 photo.downloadFile();
             }
+            if (message.isCollapsed) {
+                imgContainer.width = Math.max(imgContainer.width, imgContainer.height)
+                imgContainer.height = Math.max(imgContainer.width, imgContainer.height)
+                //TODO
+            }
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("photo clicked")
+                var largeSize = photoContent.photo.sizes.get(photoContent.photo.sizes.size() - 1);
+                var largePhoto = largeSize.photo;
+
+                if (largePhoto.canBeDownloaded && !largePhoto.isDownloadingCompleted) {
+                    largePhoto.downloadFile();
+                }
+                AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
+                                                "senderName": message.sender.username,
+                                                "photoPreviewSource": Qt.resolvedUrl("file://" + largePhoto.local.path)
+                                            });
+
+            }
         }
     }
 
 
     FormattedText {
+        id: captionText
         anchors {
             top: imgContainer.bottom
-            topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
+            topMargin: formattedText.text == "" ? 0 : Suru.units.dp(5)
+            leftMargin: Suru.units.dp(5)
+            left: parent.left
+            rightMargin: Suru.units.dp(5)
+            right: parent.right
         }
 
         formattedText: photoContent.caption
         maximumWidth: imgContainer.width
         isPreview: message.isCollapsed
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        onClicked: {
-            var largeSize = photoContent.photo.sizes.get(2);
-            if( largeSize === null)
-                largeSize = photoContent.photo.sizes.get(1);
-            var largePhoto = largeSize.photo;
-            if (largePhoto.canBeDownloaded && !largePhoto.isDownloadingCompleted) {
-                largePhoto.downloadFile();
-            }
-            AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
-                                            "senderName": message.sender.username,
-                                            "photoPreviewSource": Qt.resolvedUrl("file://" + largePhoto.local.path)
-                                        });
-
-        }
     }
 }

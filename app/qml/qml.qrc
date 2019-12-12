@@ -43,6 +43,7 @@
         <file>components/MediaViewer.qml</file>
         <file>components/MediaImport.qml</file>
         <file>components/BusyPercentageIndicator.qml</file>
+        <file>components/MessageStatusRow.qml</file>
         <file>components/ReplyMarkupShowKeyboard.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
