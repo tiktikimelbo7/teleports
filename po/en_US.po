@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 20:29+0000\n"
+"POT-Creation-Date: 2019-11-06 21:54+0000\n"
 "PO-Revision-Date: 2019-06-22 15:04+0000\n"
 "Last-Translator: lxdb <dinia200719@gmail.com>\n"
 "Language-Team: English (United States) <https://translate.ubports.com/"
@@ -206,67 +206,71 @@ msgstr ""
 msgid "sent a voice note"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:338
+msgid "GIF"
+msgstr ""
+
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined the group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+#: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat title"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "joined by invite link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#: ../libs/qtdlib/messages/qtdmessage.cpp:366
 #, fuzzy
 #| msgid "Get the source"
 msgid "left the group"
 msgstr "Get the source"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:373
 msgid "deleted the chat photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
+#: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "upgraded to supergroup"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:382
 msgid "message TTL has been changed"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "created this group"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:393
+#: ../libs/qtdlib/messages/qtdmessage.cpp:396
 msgid "has joined Telegram!"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:397
+#: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:401
+#: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:406
+#: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
 msgstr ""
 
@@ -274,7 +278,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:225
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:227
 msgid "Unread Messages"
 msgstr ""
 
@@ -469,7 +473,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:512
+#: ../app/qml/pages/MessageListPage.qml:525
 msgid "Send"
 msgstr ""
 
@@ -528,7 +532,7 @@ msgstr "First Name"
 msgid "Last name"
 msgstr "Last Name"
 
-#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
+#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:214
 #: ../app/qml/pages/SettingsPage.qml:120
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
@@ -539,7 +543,7 @@ msgstr "Delete"
 msgid "Secret Chat"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:211
+#: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
 msgstr ""
 
@@ -665,38 +669,38 @@ msgstr[1] ""
 msgid "Telegram"
 msgstr "Telegram Plus"
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/pages/UserProfilePage.qml:40
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:306
+#: ../app/qml/pages/MessageListPage.qml:319
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:310
+#: ../app/qml/pages/MessageListPage.qml:323
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:312
+#: ../app/qml/pages/MessageListPage.qml:325
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:400
+#: ../app/qml/pages/MessageListPage.qml:413
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:510
+#: ../app/qml/pages/MessageListPage.qml:523
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:523
+#: ../app/qml/pages/MessageListPage.qml:536
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -767,7 +771,7 @@ msgstr ""
 msgid "A screenshot has been taken"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentBase.qml:35
+#: ../app/qml/delegates/MessageContentBase.qml:34
 msgid "Forwarded from %1"
 msgstr ""
 

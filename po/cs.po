@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-10-29 08:58+0000\n"
+"POT-Creation-Date: 2019-11-06 21:54+0000\n"
+"PO-Revision-Date: 2019-11-09 23:36+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -205,65 +205,69 @@ msgstr "zaslána video poznámka"
 msgid "sent a voice note"
 msgstr "zaslána hlasová zpráva"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:338
+msgid "GIF"
+msgstr "GIF"
+
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined the group"
 msgstr "se připojil ke skupině"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+#: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
 msgstr "přidán jeden nebo více členů"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
 msgstr "změnil fotografii skupiny"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat title"
 msgstr "změnil název skupiny"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "joined by invite link"
 msgstr "se připojil prostřednictvím zvacího odkazu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#: ../libs/qtdlib/messages/qtdmessage.cpp:366
 msgid "left the group"
 msgstr "opustil skupinu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
 msgstr "odstranil člena"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:373
 msgid "deleted the chat photo"
 msgstr "odstranil fotografii chatu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
+#: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "upgraded to supergroup"
 msgstr "povýšeno na supergroup"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:382
 msgid "message TTL has been changed"
 msgstr "TTL zpráva změněna"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "created this group"
 msgstr "vytvořil tuto skupinu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:393
+#: ../libs/qtdlib/messages/qtdmessage.cpp:396
 msgid "has joined Telegram!"
 msgstr "se připojil k Telegramu!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:397
+#: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "Nepodporovaná zpráva"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:401
+#: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
 msgstr "Neimplementováno:"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:406
+#: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
 msgstr "Já"
 
@@ -271,7 +275,7 @@ msgstr "Já"
 msgid "Message"
 msgstr "Zpráva"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:225
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:227
 msgid "Unread Messages"
 msgstr "Nepřečtené zprávy"
 
@@ -433,7 +437,7 @@ msgstr "Noční režim"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr "O aplikaci"
+msgstr "O systému"
 
 #: ../app/qml/pages/ChatListPage.qml:124
 msgid "Leave chat"
@@ -461,7 +465,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Přejete si stažené soubory odeslat 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:512
+#: ../app/qml/pages/MessageListPage.qml:525
 msgid "Send"
 msgstr "Odeslat"
 
@@ -514,7 +518,7 @@ msgstr "Jméno"
 msgid "Last name"
 msgstr "Příjmení"
 
-#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
+#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:214
 #: ../app/qml/pages/SettingsPage.qml:120
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
@@ -525,7 +529,7 @@ msgstr "Smazat"
 msgid "Secret Chat"
 msgstr "Utajený chat"
 
-#: ../app/qml/pages/UserListPage.qml:211
+#: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
 msgstr "Kontakt bude smazán. Jste si jistý?"
 
@@ -654,38 +658,38 @@ msgstr[1] ", %1 připojení"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/pages/UserProfilePage.qml:40
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Editovat"
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: ../app/qml/pages/MessageListPage.qml:306
+#: ../app/qml/pages/MessageListPage.qml:319
 msgid "You are not allowed to post in this channel"
 msgstr "Nemáte oprávněni k zasílání zpráv na tomto kanále"
 
-#: ../app/qml/pages/MessageListPage.qml:310
+#: ../app/qml/pages/MessageListPage.qml:323
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Čeká se na přijetí skrytého chatování příjemcem…"
 
-#: ../app/qml/pages/MessageListPage.qml:312
+#: ../app/qml/pages/MessageListPage.qml:325
 msgid "Secret chat has been closed"
 msgstr "Skrytý chat byl ukončen"
 
-#: ../app/qml/pages/MessageListPage.qml:400
+#: ../app/qml/pages/MessageListPage.qml:413
 msgid "Type a message..."
 msgstr "Napište zprávu..."
 
-#: ../app/qml/pages/MessageListPage.qml:510
+#: ../app/qml/pages/MessageListPage.qml:523
 msgid "Do you want to share your location with %1?"
 msgstr "Přejete si sdílet vaši polohu s %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:523
+#: ../app/qml/pages/MessageListPage.qml:536
 msgid "Requesting location from OS..."
 msgstr "Vyžadována poloha od OS..."
 
@@ -756,7 +760,7 @@ msgstr "Upraveno"
 msgid "A screenshot has been taken"
 msgstr "Snímek obrazovky vytvořen"
 
-#: ../app/qml/delegates/MessageContentBase.qml:35
+#: ../app/qml/delegates/MessageContentBase.qml:34
 msgid "Forwarded from %1"
 msgstr "Přeposláno z %1"
 

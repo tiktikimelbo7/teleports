@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 20:29+0000\n"
-"PO-Revision-Date: 2019-08-13 21:13+0000\n"
-"Last-Translator: Emanuele Sorce <emanuele.sorce@hotmail.com>\n"
+"POT-Creation-Date: 2019-11-06 21:54+0000\n"
+"PO-Revision-Date: 2019-11-05 23:36+0000\n"
+"Last-Translator: Michele Giacomoli <michele.giacomoli@gmail.com>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
@@ -91,10 +91,8 @@ msgid "%1 sent a voice message to the group"
 msgstr "%1 ha inviato un messaggio vocale al gruppo"
 
 #: ../push/pushhelper.cpp:196
-#, fuzzy
-#| msgid "%1 sent a map to the group"
 msgid "%1 sent a GIF to the group"
-msgstr "%1 ha inviato una mappa al gruppo"
+msgstr "%1 ha inviato una GIF al gruppo"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
@@ -210,70 +208,74 @@ msgstr "mandata una nota video"
 msgid "sent a voice note"
 msgstr "mandata una nota audio"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/qtdmessage.cpp:338
+msgid "GIF"
+msgstr ""
+
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
+#: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "joined the group"
 msgstr "entrato nel gruppo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:342
+#: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
+#: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
 msgstr "cambiata la foto della chat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
+#: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "changed the chat title"
 msgstr "cambiato il titolo della chat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
+#: ../libs/qtdlib/messages/qtdmessage.cpp:360
 msgid "joined by invite link"
 msgstr "unito tramite link invito"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:362
+#: ../libs/qtdlib/messages/qtdmessage.cpp:366
 #, fuzzy
 #| msgid "%1 left the group"
 msgid "left the group"
 msgstr "%1 ha lasciato il gruppo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:365
+#: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
 msgstr "rimosso un membro"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
+#: ../libs/qtdlib/messages/qtdmessage.cpp:373
 msgid "deleted the chat photo"
 msgstr "eliminata la foto della chat"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:375
+#: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "upgraded to supergroup"
 msgstr "potenziato a supergruppo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:379
+#: ../libs/qtdlib/messages/qtdmessage.cpp:382
 msgid "message TTL has been changed"
 msgstr "messaggio TTL é stato modificato"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
+#: ../libs/qtdlib/messages/qtdmessage.cpp:387
 msgid "created this group"
 msgstr "creato il gruppo"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:393
+#: ../libs/qtdlib/messages/qtdmessage.cpp:396
 #, fuzzy
 #| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
 msgstr "%1 é entrato in Telegram!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:397
+#: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 #, fuzzy
 msgid "Unsupported message"
 msgstr "Messaggi non letti"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:401
+#: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:406
+#: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
 msgstr "Io"
 
@@ -281,7 +283,7 @@ msgstr "Io"
 msgid "Message"
 msgstr "Messaggio"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:225
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:227
 msgid "Unread Messages"
 msgstr "Messaggi non letti"
 
@@ -438,7 +440,7 @@ msgstr "Impostazioni"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Contatti"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
@@ -470,15 +472,13 @@ msgid "Enter optional message..."
 msgstr "Scrivi un messaggio opzionale..."
 
 #: ../app/qml/pages/ChatListPage.qml:374
-#, fuzzy
-#| msgid "Do you want to forward the selected messages to %1?"
 msgid "Do you want to send the imported files to %1?"
-msgstr "Vuoi inoltrare il messaggio selezionato a %1?"
+msgstr "Vuoi inviare i file importati a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:512
+#: ../app/qml/pages/MessageListPage.qml:525
 msgid "Send"
-msgstr ""
+msgstr "Invia"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
@@ -508,35 +508,29 @@ msgstr "Indietro"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Aggiungi Contatto"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "Il contatto verrà aggiunto. Nome e cognome sono opzionali"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
-#, fuzzy
-#| msgid "Phone number"
 msgid "Phone no"
 msgstr "Numero di telefono"
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
-#, fuzzy
-#| msgid "First Name"
 msgid "First name"
 msgstr "Nome"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
 msgstr "Cognome"
 
-#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:213
+#: ../app/qml/pages/UserListPage.qml:112 ../app/qml/pages/UserListPage.qml:214
 #: ../app/qml/pages/SettingsPage.qml:120
 #: ../app/qml/delegates/MessageBubbleItem.qml:33
 #: ../app/qml/delegates/MessageBubbleItem.qml:47
@@ -545,11 +539,11 @@ msgstr "Elimina"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
-msgstr ""
+msgstr "Chat Segreta"
 
-#: ../app/qml/pages/UserListPage.qml:211
+#: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Il contatto verrà eliminato. Sei sicuro?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -569,7 +563,7 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
-msgstr "Prendi i sorgenti"
+msgstr "Ottieni i sorgenti"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
@@ -669,50 +663,47 @@ msgstr[0] "%1 membro"
 msgstr[1] "%1 membri"
 
 #: ../app/qml/pages/MessageListPage.qml:31
-#, fuzzy
-#| msgid "Online"
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] "in linea"
-msgstr[1] "in linea"
+msgstr[0] ", %1 in linea"
+msgstr[1] ", %1 in linea"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/pages/UserProfilePage.qml:40
 #: ../app/qml/delegates/MessageBubbleItem.qml:66
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../app/qml/pages/MessageListPage.qml:283
+#: ../app/qml/pages/MessageListPage.qml:296
 #: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Reply"
 msgstr "Rispondi"
 
-#: ../app/qml/pages/MessageListPage.qml:306
+#: ../app/qml/pages/MessageListPage.qml:319
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Non puoi postare in questo canale"
 
-#: ../app/qml/pages/MessageListPage.qml:310
+#: ../app/qml/pages/MessageListPage.qml:323
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "In attesa che l'altro partecipante accetti la chat segreta..."
 
-#: ../app/qml/pages/MessageListPage.qml:312
-#, fuzzy
+#: ../app/qml/pages/MessageListPage.qml:325
 msgid "Secret chat has been closed"
-msgstr "chiamata conclusa"
+msgstr "La chat segreta è stata chiusa"
 
-#: ../app/qml/pages/MessageListPage.qml:400
+#: ../app/qml/pages/MessageListPage.qml:413
 msgid "Type a message..."
 msgstr "Scrivi un messaggio..."
 
-#: ../app/qml/pages/MessageListPage.qml:510
-msgid "Do you want to share your location with %1?"
-msgstr ""
-
 #: ../app/qml/pages/MessageListPage.qml:523
+msgid "Do you want to share your location with %1?"
+msgstr "Vuoi condividere la tua posizione con %1?"
+
+#: ../app/qml/pages/MessageListPage.qml:536
 msgid "Requesting location from OS..."
 msgstr "Richiesta posizione al SO..."
 
@@ -722,7 +713,7 @@ msgstr "Profilo"
 
 #: ../app/qml/pages/UserProfilePage.qml:50
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Modifica i dati dell'utente e premi Salva"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -752,9 +743,8 @@ msgstr "%1 ha lasciato il gruppo"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
-#, fuzzy
 msgid "Group has been upgraded to Supergroup"
-msgstr "potenziato a supergruppo"
+msgstr "Il gruppo è stato potenziato a Supergruppo"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:44
 msgid ""
@@ -786,16 +776,13 @@ msgstr "Modificato"
 msgid "A screenshot has been taken"
 msgstr "Screenshot acquisito"
 
-#: ../app/qml/delegates/MessageContentBase.qml:35
-#, fuzzy
+#: ../app/qml/delegates/MessageContentBase.qml:34
 msgid "Forwarded from %1"
-msgstr "Inoltrato da "
+msgstr "Inoltrato da %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
-msgstr "%1 é entrato in Telegram!"
+msgstr "%1 si è unito a Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
@@ -832,7 +819,7 @@ msgstr "Durata: %1.%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Canale chiamato << %1 >> creato"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
@@ -844,7 +831,7 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr "%1 é entrato tramite link invito"
+msgstr "%1 è entrato tramite link invito"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
