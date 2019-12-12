@@ -20,8 +20,13 @@ UITK.ListItem {
     property QTdMessage message: null
     property QTdChat chat: null
     property bool transparentBackground: false
-    property real maximumAvailableContentWidth: Math.min(Suru.units.gu(45), width * (3/4))
-                                                - (mc.anchors.leftMargin + mc.anchors.rightMargin)
+    property bool multimediaLayout: false
+    property bool forwardVisible: message.isForwarded && !message.isReply
+    property bool citationVisible: message.isReply && !message.isCollapsed
+    property real mcMargins: Suru.units.dp(5)
+    property real maximumAvailableContentWidth: maxAvailableWidthNoMargins - mc.horizontalMargins
+    property real maxAvailableWidthNoMargins: Math.min(Suru.units.gu(45), width * (3/4))
+    property alias senderLabelVisible: senderLabel.visible
 
     default property alias content: mainContent.data
     highlightColor: Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)
@@ -122,7 +127,7 @@ UITK.ListItem {
             id: contentCol
             color: {
                 if (transparentBackground) {
-                    return "transparent";
+                    return "transparent"
                 }
                 if (message.isOutgoing) {
                     if (message.content.type === QTdObject.MESSAGE_CALL) {
@@ -141,11 +146,11 @@ UITK.ListItem {
                 return Suru.secondaryBackgroundColor
             }
 
-            radius: 4
+            radius: Suru.units.dp(4)
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
-            Layout.minimumWidth: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)), mc.width + mc.horizontalMargins)
+            Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
-            Layout.preferredHeight: mc.height + Suru.units.dp(5)
+            Layout.preferredHeight: mc.height
 
             Rectangle {
                width: contentCol.width
@@ -162,25 +167,25 @@ UITK.ListItem {
 
                 anchors {
                     top: parent.top
-                    topMargin: Suru.units.dp(5)
+                    topMargin: mcMargins
                     left: !message.isOutgoing ? parent.left : undefined
-                    leftMargin: Suru.units.dp(5)
+                    leftMargin: mcMargins
                     right: message.isOutgoing ? parent.right: undefined
-                    rightMargin: Suru.units.dp(5)
+                    rightMargin: mcMargins
                 }
 
                 property real horizontalMargins: mc.anchors.leftMargin + mc.anchors.rightMargin
 
-                width: Math.min(Math.min(Suru.units.gu(45), base.width * (3/4)) - mc.horizontalMargins,
+                width: Math.min(maximumAvailableContentWidth,
                                 Math.max(mainContent.width,
                                          senderLabel.contentWidth,
-                                         message_status_row.implicitWidth))
+                                         message_status_comp.implicitWidth))
                 height: childrenRect.height
 
                 Item {
                     visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameUserAsNextMessage
                     width: parent.width
-                    height: Suru.units.gu(2.5)
+                    height: Suru.units.gu(mcMargins == 0 ? 3 : 2.5)
 
                     RowLayout {
                         id: topBar
@@ -192,6 +197,7 @@ UITK.ListItem {
                             font.bold: false
                             color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                            Layout.leftMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
                         }
                     }
                 }
@@ -203,51 +209,15 @@ UITK.ListItem {
                 }
 
                 Item {
-                    height: Suru.units.gu(2.5)
+                    height: visible ? Suru.units.gu(2.5) : 0
                     width: parent.width
+                    visible: !multimediaLayout
 
-                    Row {
-                        id: message_status_row
-                        spacing: units.dp(4)
-                        anchors.right: parent.right
-                        opacity: message.isOutgoing ? 1 : 0.8
-
-                        Row {
-                            id: channel_views
-                            visible: message.isChannelPost
-                            anchors.verticalCenter: parent.verticalCenter
-                            UITK.Icon {
-                                anchors.verticalCenter: parent.verticalCenter
-                                width: units.gu(2)
-                                height: width
-                                source: Qt.resolvedUrl("qrc:/qml/icons/eye.svg")
-                                color: channel_views_count.color
-                            }
-
-                            Label {
-                                id: channel_views_count
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: message.views
-                                Suru.textLevel: Suru.Small
-                                Suru.textStyle: Suru.TertiaryText
-                            }
-                        }
-
-                        Label {
-                            anchors.verticalCenter: parent.verticalCenter
-                            id: editedLabel
-                            text: i18n.tr("Edited")
-                            visible: message.isEdited
-                            Suru.textLevel: Suru.Small
-                            Suru.textStyle: Suru.TertiaryText
-                        }
-
-                        Label {
-                            id: dateLabel
-                            text: message.formatDate(message.date)
-                            anchors.verticalCenter: parent.verticalCenter
-                            Suru.textLevel: Suru.Small
-                            Suru.textStyle: Suru.TertiaryText
+                    MessageStatusRow {
+                        id: message_status_comp
+                        anchors {
+                            right: parent.right
+                            rightMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
                         }
                     }
                 }
