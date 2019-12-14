@@ -2,72 +2,121 @@ stages:
     - deps-prepare
     - deps
     - build
+    - publish
 
 variables:
-    GIT_SUBMODULE_STRATEGY: "recursive"
+    GIT_SUBMODULE_STRATEGY: 'recursive'
     DOCKER_DRIVER: overlay2
-    
+
+cache: &tdlib_cache
+    key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.4'
+    untracked: true
+
+.armhf: &armhf
+    variables:
+        ARCH: "armhf"
+        ARCH_TRIPLET: "arm-linux-gnueabihf"
+
+.arm64: &arm64
+    variables:
+        ARCH: "arm64"
+        ARCH_TRIPLET: "aarch64-linux-gnu"
+
+.amd64: &amd64
+    variables:
+        ARCH: "amd64"
+        ARCH_TRIPLET: "x86_64-linux-gnu"
+
+
+.tdlib:
+    image: "clickable/ci-16.04-$ARCH"
+    stage: deps
+    dependencies:
+        - tdlib-prepare
+    script: 'clickable build-libs tdlib --arch $ARCH'
+    cache:
+        <<: *tdlib_cache
+        paths:
+            - "build/$ARCH_TRIPLET/tdlib"
+    artifacts:
+        paths:
+            - "build/$ARCH_TRIPLET/tdlib"
+        expire_in: 1 week
+
+
+.teleports:
+    image: "clickable/ci-16.04-$ARCH"
+    stage: build
+    script: 'clickable build --arch $ARCH'
+    artifacts:
+        paths:
+            - "build/$ARCH_TRIPLET/app/*.click"
+        expire_in: 1 week
+
+
 tdlib-prepare:
     stage: deps-prepare
     image: clickable/ci-16.04-amd64
-    script:
-        - clickable build-libs tdlib-prepare --arch amd64
+    script: 'clickable build-libs tdlib-prepare --arch amd64'
     cache:
-        key: deps-cache-1.4
+        <<: *tdlib_cache
         paths:
-            - build/arm-linux-gnueabihf/tdlib
-            - build/x86_64-linux-gnu/tdlib-prepare
-            - libs/vendor/tdlib
-
-tdlib:
-    stage: deps
-    image: clickable/ci-16.04-armhf
-    script:
-        - clickable build-libs tdlib --arch armhf
-    cache:
-        key: deps-cache-1.4
-        paths:
-            - build/arm-linux-gnueabihf/tdlib
-            - build/x86_64-linux-gnu/tdlib-prepare
-            - libs/vendor/tdlib
+            - "build/x86_64-linux-gnu/tdlib-prepare"
+            - "libs/vendor/tdlib"
     artifacts:
         paths:
-            - build/arm-linux-gnueabihf/tdlib
-            - build/x86_64-linux-gnu/tdlib-prepare
             - libs/vendor/tdlib
         expire_in: 1 week
 
-teleports:
-    stage: build
-    image: clickable/ci-16.04-armhf
-    except:
-        - tags
-    script:
-        - clickable clean build
+
+tdlib-armhf:
+    <<: *armhf
+    extends: .tdlib
+
+tdlib-arm64:
+    <<: *arm64
+    extends: .tdlib
+
+tdlib-amd64:
+    <<: *amd64
+    extends: .tdlib
+
+
+teleports-armhf:
+    <<: *armhf
     dependencies:
-        - tdlib
-    cache:
-        key: "$CI_COMMIT_REF_SLUG"
-        untracked: true
-    artifacts:
-        paths:
-            - build/arm-linux-gnueabihf/app/*.click
-        expire_in: 1 week
+        - tdlib-armhf
+    extends: .teleports
+
+teleports-arm64:
+    <<: *arm64
+    dependencies:
+        - tdlib-arm64
+    extends: .teleports
+
+teleports-amd64:
+    <<: *amd64
+    dependencies:
+        - tdlib-amd64
+    extends: .teleports
+
 
 publish:
-    stage: build
+    stage: publish
     image: clickable/ci-16.04-armhf
     only:
         - tags
     script:
-        - clickable clean build
-        - clickable publish "$CI_COMMIT_MESSAGE"
+        - 'clickable publish "$CI_COMMIT_MESSAGE" --arch armhf'
+        - 'clickable publish "$CI_COMMIT_MESSAGE" --arch arm64'
+        - 'clickable publish "$CI_COMMIT_MESSAGE" --arch amd64'
     dependencies:
-        - tdlib
-    cache:
-        key: "$CI_COMMIT_REF_SLUG"
-        untracked: true
+        - teleports-armhf
+        - teleports-arm64
+        - teleports-amd64
     artifacts:
         paths:
             - build/arm-linux-gnueabihf/app/*.click
-        expire_in: 1 week
+            - build/aarch64-linux-gnu/app/*.click
+            - build/x86_64-linux-gnu/app/*.click
+        expire_in: 30 days
