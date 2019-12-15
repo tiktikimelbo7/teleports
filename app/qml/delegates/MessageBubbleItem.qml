@@ -20,9 +20,8 @@ UITK.ListItem {
     property QTdMessage message: null
     property QTdChat chat: null
     property bool transparentBackground: false
+    // multimediaLayout: this property is used to display the date/time of sending inside a photo/video/etc... instead as another row at the bottom of the message.
     property bool multimediaLayout: false
-    property bool forwardVisible: message.isForwarded && !message.isReply
-    property bool citationVisible: message.isReply && !message.isCollapsed
     property real mcMargins: Suru.units.dp(5)
     property real maximumAvailableContentWidth: maxAvailableWidthNoMargins - mc.horizontalMargins
     property real maxAvailableWidthNoMargins: Math.min(Suru.units.gu(45), width * (3/4))
