@@ -8,7 +8,6 @@ import QuickFlux 1.1
 MessageBubbleItem {
     id: bubble
     multimediaLayout: message.content.caption.text == ""
-    transparentBackground: message.content.caption.text == "" && !senderLabelVisible && !forwardVisible && !citationVisible
     mcMargins: 0
     MessageContentPhoto {
         message: bubble.message

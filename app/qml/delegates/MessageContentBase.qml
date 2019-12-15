@@ -66,7 +66,7 @@ Item {
         width: Math.max(citationLoader.width, mainContent.width, forwardLoader.width)
         Loader {
             id: forwardLoader
-            active: forwardVisible
+            active: message.isForwarded && !message.isReply
             asynchronous: true
             sourceComponent: forward
         }
@@ -74,7 +74,7 @@ Item {
         // Show an icon on the right to expand/collapse the citation?
         Loader {
             id: citationLoader
-            active: citationVisible
+            active: message.isReply && !message.isCollapsed
             asynchronous: true
             sourceComponent: citation
             anchors {
