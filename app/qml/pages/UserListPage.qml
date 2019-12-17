@@ -48,37 +48,28 @@ Page {
             confirmButtonColor: UITK.UbuntuColors.green
             confirmButtonText: i18n.tr("Add")
             onConfirmed: AppActions.user.addUser(userName.text, firstName.text, lastName.text)
-            UITK.TextArea {
-                height: units.gu(4.5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: userName
                 text: "+"
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 placeholderText: i18n.tr("Phone no")
             }
-            UITK.TextArea {
-                height: units.gu(4.5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: firstName
                 placeholderText: i18n.tr("First name")
             }
-            UITK.TextArea {
-                height: units.gu(4.5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: lastName
                 placeholderText: i18n.tr("Last name")
@@ -175,7 +166,7 @@ Page {
                                 Row {
                                     spacing: units.dp(2)
                                     Layout.alignment: Qt.AlignTop
-                                    Layout.topMargin: units.dp(3)  
+                                    Layout.topMargin: units.dp(3)
                                 }
 
                                 Label {
@@ -202,7 +193,7 @@ Page {
                                     Suru.textStyle: Suru.TertiaryText
                                     text: user.status.string
                                     Layout.fillWidth: true
-                                } 
+                                }
                             }
                         }
                     }
@@ -216,7 +207,7 @@ Page {
                         }
                     }
                 }
-                
+
             }
         }
     }

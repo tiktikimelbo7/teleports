@@ -17,11 +17,18 @@ UITK_Popups.Dialog {
     property var confirmButtonColor: UITK.UbuntuColors.green
     //Only main action should be colored. Cancel should be no color or ash
     property var cancelButtonColor: UITK.UbuntuColors.ash
+    //place new Items before the Buttons
+    default property alias content: top_col.data
 
     signal confirmed();
     signal canceled();
 
     text: dialogue.text
+
+    Column {
+        id: top_col
+        spacing: Suru.units.gu(2)
+    }
 
     UITK.Button {
         text: dialogue.confirmButtonText
