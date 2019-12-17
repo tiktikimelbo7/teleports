@@ -50,7 +50,7 @@ cache: &tdlib_cache
     script: 'clickable build --arch $ARCH'
     artifacts:
         paths:
-            - "build/$ARCH_TRIPLET/app/*.click"
+            - "build/$ARCH_TRIPLET/app"
         expire_in: 1 week
 
 
