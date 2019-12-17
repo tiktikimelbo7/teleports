@@ -360,7 +360,6 @@ Page {
                                 anchors {
                                     left: parent.left
                                     right: parent.right
-                                    topMargin: units.gu(0.1)
                                 }
                                 id: optionalMessage
                                 placeholderText: i18n.tr("Enter optional message...")
