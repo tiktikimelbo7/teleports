@@ -132,9 +132,13 @@ UITK.ListItem {
                     if (message.content.type === QTdObject.MESSAGE_CALL) {
                         return Suru.secondaryBackgroundColor
                     }
-
-                    if (message.sendingState) { // unsent
-                        return Suru.neutralColor
+                    if (message.sendingState) {
+                        if (message.sendingState.type===QTdObject.MESSAGE_SENDING_STATE_PENDING) { // unsent
+                            return Suru.neutralColor
+                        } else if (message.sendingState.type===QTdObject.MESSAGE_SENDING_STATE_FAILED) {  //failed
+                            var failedcolor = Suru.theme == Suru.Dark ? Suru.lightNegative : Suru.darkNegative
+                            return Qt.tint(Suru.backgroundColor, Qt.rgba(failedcolor.r, failedcolor.g, failedcolor.b, 0.5))
+                        }
                     } else if (message.id > chat.lastReadOutboxMessageId) { //sent
                         var sentcolor = Suru.theme == Suru.Dark ? Suru.lightInformation : Suru.darkInformation
                         return Qt.tint(Suru.backgroundColor, Qt.rgba(sentcolor.r, sentcolor.g, sentcolor.b, 0.5))
