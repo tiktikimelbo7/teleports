@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-10-04 12:53+0000\n"
-"Last-Translator: Sander <sander.k1007@kpnmail.nl>\n"
+"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"Last-Translator: Tom Dom <thomas@patoel.nl>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
 "Language: nl\n"
@@ -207,7 +207,7 @@ msgstr "heeft een spraaknotitie gestuurd"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
@@ -216,7 +216,7 @@ msgstr "is lid geworden van de groep"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
-msgstr ""
+msgstr "heeft een of meer leden toegevoegd"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
@@ -231,10 +231,8 @@ msgid "joined by invite link"
 msgstr "is lid geworden via een link met uitnodiging"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:366
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 heeft de groep verlaten"
+msgstr "heeft de groep verlaten"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
@@ -432,7 +430,7 @@ msgstr "Instellingen"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Contacten"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
@@ -464,10 +462,8 @@ msgid "Enter optional message..."
 msgstr "Optioneel bericht invoeren..."
 
 #: ../app/qml/pages/ChatListPage.qml:374
-#, fuzzy
-#| msgid "Do you want to forward the selected messages to %1?"
 msgid "Do you want to send the imported files to %1?"
-msgstr "Wil je de geselecteerde berichten doorsturen naar %1?"
+msgstr "Wil je de geïmporteerde berichten naar %1 sturen?"
 
 #: ../app/qml/pages/ChatListPage.qml:376
 #: ../app/qml/pages/MessageListPage.qml:525
@@ -501,31 +497,25 @@ msgstr "Vorige"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Contact Toevoegen"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "Het contact wordt toegevoegd. Voor- en achternaam zijn optioneel"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Toevoegen"
 
 #: ../app/qml/pages/UserListPage.qml:62 ../app/qml/pages/UserProfilePage.qml:66
-#, fuzzy
-#| msgid "Phone number"
 msgid "Phone no"
-msgstr "Telefoonnummer"
+msgstr "Telefoonnr"
 
 #: ../app/qml/pages/UserListPage.qml:73 ../app/qml/pages/UserProfilePage.qml:78
-#, fuzzy
-#| msgid "First Name"
 msgid "First name"
 msgstr "Voornaam"
 
 #: ../app/qml/pages/UserListPage.qml:84 ../app/qml/pages/UserProfilePage.qml:90
-#, fuzzy
-#| msgid "Last Name"
 msgid "Last name"
 msgstr "Achternaam"
 
@@ -538,11 +528,11 @@ msgstr "Verwijder"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
-msgstr ""
+msgstr "Geheim Chat"
 
 #: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Het contact wordt verwijderd. Weet je het zeker?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -711,7 +701,7 @@ msgstr "Profiel"
 
 #: ../app/qml/pages/UserProfilePage.qml:50
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Bewerk gebruikergegevens en tik op Bewaren"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
