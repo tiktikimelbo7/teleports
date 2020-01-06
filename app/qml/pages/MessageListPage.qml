@@ -239,6 +239,7 @@ Page {
 
         ListView {
             id: msgList
+            clip: true
             anchors {
                 fill: parent
                 bottomMargin: Suru.units.gu(1)
