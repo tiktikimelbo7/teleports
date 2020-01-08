@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-10-30 07:48+0000\n"
-"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -207,7 +207,7 @@ msgstr "發送了一則語音訊息"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
@@ -265,7 +265,7 @@ msgstr "不支援的訊息"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
-msgstr ""
+msgstr "未執行："
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
@@ -420,7 +420,7 @@ msgstr "我們已經透過 Telegram 向您的裝置發送了驗證碼。請在�
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "選擇目的地或者取消..."
 
 #: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
@@ -527,7 +527,7 @@ msgstr "刪除"
 
 #: ../app/qml/pages/UserListPage.qml:127
 msgid "Secret Chat"
-msgstr ""
+msgstr "私密聊天"
 
 #: ../app/qml/pages/UserListPage.qml:212
 msgid "The contact will be deleted. Are you sure?"
@@ -580,17 +580,16 @@ msgid "Updating"
 msgstr "更新中"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
-#, fuzzy
 msgid "Connectivity"
-msgstr "連線中"
+msgstr "連線"
 
 #: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Telegram 連線狀態："
 
 #: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Ubuntu Touch 連線狀態："
 
 #: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
@@ -650,7 +649,7 @@ msgstr[0] "%1 名成員"
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ",%1 在線上"
+msgstr[0] ", %1 名上線中"
 
 #: ../app/qml/pages/MessageListPage.qml:127
 msgid "Telegram"
@@ -673,7 +672,7 @@ msgstr "您沒有在此頻道貼文的權限"
 
 #: ../app/qml/pages/MessageListPage.qml:323
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "正在等待對方接受私密聊天中..."
 
 #: ../app/qml/pages/MessageListPage.qml:325
 msgid "Secret chat has been closed"
@@ -697,7 +696,7 @@ msgstr "配置檔"
 
 #: ../app/qml/pages/UserProfilePage.qml:50
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "編輯使用者資料，然後按下保存"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -761,18 +760,16 @@ msgid "Forwarded from %1"
 msgstr "轉寄自 %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "%1 has joined Telegram!"
-msgstr "%1 加入了 Telegram！"
+msgstr "%1 已經加入了 Telegram！"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "未知訊息類型，請參考日誌文件來了解詳細內容..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "缺少標籤..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:51
 msgid "Call Declined"
@@ -795,9 +792,8 @@ msgid "Missed Call"
 msgstr "未接來電"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "持續時間：%1.%2"
+msgstr "持續時間：%1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
@@ -816,9 +812,8 @@ msgid "%1 joined by invite link"
 msgstr "%1 已透過邀請連結加入"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
-#, fuzzy
 msgid "Voice note"
-msgstr "發送了一則語音訊息"
+msgstr "語音訊息"
 
 #~ msgid "Image"
 #~ msgstr "圖片"
