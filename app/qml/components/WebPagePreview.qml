@@ -11,7 +11,7 @@ Item {
     property QTdWebPage preview: null
     property bool imageOnly: !(siteName.visible || title.visible || description.visible)
 
-    height: Math.max(previewImage.height, pageDescription.height)
+    height: pageDescription.height
     Rectangle {
         id: colorBlock
         anchors {
@@ -47,6 +47,7 @@ Item {
                 Suru.textStyle: Suru.SecondaryText
                 Suru.textLevel: Suru.Paragraph
                 font.weight: Font.DemiBold
+                elide: Text.ElideRight
                 visible: text != ""
             }
             Label {
@@ -78,10 +79,11 @@ Item {
             id: previewImage
             aspect: UITK.UbuntuShape.Flat
             sourceFillMode: UITK.UbuntuShape.PreserveAspectCrop
-            visible: preview.photo.sizes.count > 0
+            visible: preview.photo.sizes.count > 0 && parent.width > Suru.units.gu(20)
             Layout.preferredWidth: imageOnly ? parent.width : height
-            Layout.preferredHeight: imageOnly ? width * source.height / source.width : Math.max(pageDescription.height, implicitHeight)
+            Layout.preferredHeight: imageOnly ? width * source.height / source.width : implicitHeight
             Layout.maximumHeight: imageOnly ? parent.width : pageDescription.height
+            anchors.verticalCenter: parent.verticalCenter
 
             source: Image {
                 asynchronous: true
