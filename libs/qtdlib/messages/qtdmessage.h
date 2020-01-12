@@ -26,6 +26,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool canBeDeletedForAllUsers READ canBeDeletedForAllUsers NOTIFY messageChanged)
     Q_PROPERTY(bool isChannelPost READ isChannelPost NOTIFY messageChanged)
     Q_PROPERTY(QString views READ views NOTIFY messageChanged)
+    Q_PROPERTY(QString senderName READ senderName NOTIFY senderChanged)
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
@@ -57,6 +58,7 @@ public:
     QString qmlChatId() const;
     qint64 chatId() const;
     QString getSenderInitials() const;
+    QString senderName() const;
 
     QTdUser *sender() const;
 
