@@ -77,6 +77,24 @@ qint64 QTdMessage::chatId() const
     return m_chatId.value();
 }
 
+QString QTdMessage::senderName() const
+{
+    if (isOutgoing()) {
+        return gettext("Me");
+    }
+
+    if (!m_sender)
+        return QString();
+
+    QString name = m_sender->firstName();
+
+    if (name.isEmpty()) {
+        name = m_sender->username();
+    }
+
+    return name;
+}
+
 QTdUser *QTdMessage::sender() const
 {
     return m_sender;
@@ -405,16 +423,7 @@ QString QTdMessage::summary() const
         break;
     }
 
-    if (isOutgoing())
-        return QString("%1: %2").arg(gettext("Me"), content);
-    QString name;
-    if (m_sender) {
-        name = m_sender->firstName();
-        if (name.isEmpty()) {
-            name = m_sender->username();
-        }
-    }
-    return name.isEmpty() ? content : QString("%1: %2").arg(name, content);
+    return content;
 }
 
 QString QTdMessage::formatDate(const QDateTime &dt)
