@@ -18,7 +18,7 @@ Page {
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
-    
+
     property var connectionManager: null
     readonly property var tgConnectionState: connectionManager.connectionState
 
@@ -60,9 +60,7 @@ Page {
 
         ColumnLayout {
             id: connectivityColumn
-            anchors {
-                fill: parent
-            }
+            width: parent.width
 
             UITK.ListItem {
                 divider.visible: false
