@@ -45,7 +45,7 @@ Page {
 
         ColumnLayout {
             id: groupDetailsColumn
-            anchors.fill: parent
+            width: parent.width
 
             RowLayout {
                 anchors.fill: parent
