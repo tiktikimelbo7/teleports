@@ -335,7 +335,21 @@ QString QTdChat::summary() const
     if (action() != "") {
         return action();
     }
-    return m_lastMessage->isValid() ? m_lastMessage->summary() : QString();
+
+    if (!m_lastMessage->isValid()) {
+        return QString();
+    }
+
+    if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
+        return m_lastMessage->summary();
+    }
+
+    QString sendername = m_lastMessage->senderName();
+
+    if (sendername.isEmpty())
+        return m_lastMessage->summary();
+
+    return QString("%1: %2").arg(sendername, m_lastMessage->summary());
 }
 
 QObject *QTdChat::messages() const

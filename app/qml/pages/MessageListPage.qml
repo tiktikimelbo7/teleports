@@ -224,7 +224,7 @@ Page {
             AppActions.chat.jumpToMessage(Telegram.chats.currentChat.lastMessage.id)
         }
         iconName: "toolkit_chevron-down_3gu"
-        anchors.bottom: msgListScrollView.bottom
+        anchors.bottom: infoBox.enabled ? infoBox.top : msgListScrollView.bottom
         visibleState: msgList.visibleArea.yPosition < 1.0 - msgList.visibleArea.heightRatio - 0.01 && !attach_panel_object.visible
     }
 

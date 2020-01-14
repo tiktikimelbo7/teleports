@@ -33,16 +33,17 @@ Page {
         id: aboutFlickable
         anchors.fill: parent
         anchors.topMargin: units.gu(2)
+        contentHeight: aboutCloumn.height
 
         Column {
             id: aboutCloumn
-            anchors.top: header.bottom
             spacing: units.gu(2)
             width: parent.width
 
             UITK.UbuntuShape {
-                width: 120
-                height: 120
+                width: Suru.units.gu(15)
+                height: Suru.units.gu(15)
+                radius: "large"
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: Image {
                     mipmap: true
@@ -68,7 +69,7 @@ Page {
                     title.horizontalAlignment: Text.AlignHCenter
 
                     subtitle.text: {
-                        var versionString = i18n.tr("Version %1").arg(Qt.application.version);   
+                        var versionString = i18n.tr("Version %1").arg(Qt.application.version);
                         if (devBuildHash.length > 0) {
                             versionString = versionString + i18n.tr(" (git# %1)").arg(devBuildHash);
                         }
@@ -79,36 +80,31 @@ Page {
                     subtitle.horizontalAlignment: Text.AlignHCenter
                 }
             }
-        }
+            Column {
+                width: parent.width
+                Repeater {
+                    id: listViewAbout
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                    }
 
-        ListView {
-            id: listViewAbout
-            anchors {
-                top: aboutCloumn.bottom
-                bottom: parent.bottom
-                left: parent.left
-                right: parent.right
-                topMargin: units.gu(2)
-            }
+                    model: [
+                    { name: i18n.tr("Get the source"), url: "https://gitlab.com/ubports/apps/teleports" },
+                    { name: i18n.tr("Report issues"),  url: "https://gitlab.com/ubports/apps/teleports/issues" },
+                    { name: i18n.tr("Help translate"), url: "https://translate.ubports.com/projects/ubports/telegram-app" }
+                    ]
 
-            currentIndex: -1
-            interactive: false
-
-            model: [
-                { name: i18n.tr("Get the source"), url: "https://gitlab.com/ubports/apps/teleports" },
-                { name: i18n.tr("Report issues"),  url: "https://gitlab.com/ubports/apps/teleports/issues" },
-                { name: i18n.tr("Help translate"), url: "https://translate.ubports.com/projects/ubports/telegram-app" }
-            ]
-
-            delegate: UITK.ListItem {
-                UITK.ListItemLayout {
-                    title.text : modelData.name
-                    UITK.Icon {
-                        width:units.gu(2)
-                        name:"go-next"
+                    delegate: UITK.ListItem {
+                        UITK.ListItemLayout {
+                            title.text : modelData.name
+                            UITK.ProgressionSlot {
+                                width:units.gu(2)
+                            }
+                        }
+                        onClicked: Qt.openUrlExternally(modelData.url)
                     }
                 }
-                onClicked: Qt.openUrlExternally(modelData.url)
             }
         }
     }

@@ -104,7 +104,8 @@ Page {
                 property QTdChat userSelectedChat
                 width: parent.width
                 height: layout.height
-                color: chat.isSecret ? "lightgreen" : "transparent"
+                Suru.highlightType: Suru.PositiveHighlight
+                color: chat.isSecret ? Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4) : "transparent"
 
                 onClicked: {
                     if (Telegram.chats.listMode == ChatList.ForwardingMessages) {
@@ -360,7 +361,6 @@ Page {
                                 anchors {
                                     left: parent.left
                                     right: parent.right
-                                    topMargin: units.gu(0.1)
                                 }
                                 id: optionalMessage
                                 placeholderText: i18n.tr("Enter optional message...")

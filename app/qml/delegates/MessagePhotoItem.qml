@@ -7,7 +7,10 @@ import QuickFlux 1.1
 
 MessageBubbleItem {
     id: bubble
+    multimediaLayout: message.content.caption.text == ""
+    mcMargins: 0
     MessageContentPhoto {
         message: bubble.message
+        contentBeforeImage: senderLabelVisible || contentBeforeMain
     }
 }

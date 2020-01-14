@@ -47,9 +47,7 @@ Page {
 
         ColumnLayout {
             id: settingsColumn
-            anchors {
-                fill: parent
-            }
+            width: parent.width
 
             UserProfile {
                 user: me

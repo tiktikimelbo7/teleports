@@ -14,9 +14,10 @@ Item {
 
     default property alias content: mainContent.data
     property QTdMessage message: null
+    property bool contentBeforeMain: forwardLoader.active || citationLoader.active
 
     width: contentColumn.width
-    height: contentColumn.height
+    height: contentColumn.height + contentColumn.anchors.topMargin
 
     Component {
         id: citation
@@ -28,12 +29,18 @@ Item {
         id: forward
         Item {
             height: childrenRect.height
-            width: Math.min(maximumAvailableContentWidth, childrenRect.width)
-            TextEdit {
-                readOnly: true
+            width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*anchors.leftMargin : Math.min(maximumAvailableContentWidth, childrenRect.width)
+            anchors {
+                leftMargin: mcMargins == 0 && !message.isCollapsed ? Suru.units.dp(5) : 0
+                left: parent.left
+            }
+            Label {
                 text: i18n.tr("Forwarded from %1").arg(message.forwardInfo.displayedName)
                 color: "#FF335280" //Suru.Blue
                 font.weight: Font.Medium
+                wrapMode: Text.WrapAnywhere
+                width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*parent.anchors.leftMargin : implicitWidth
+                height: implicitHeight
             }
         }
     }
@@ -50,6 +57,11 @@ Item {
 
     Column {
         id: contentColumn
+        spacing: Suru.units.dp(5)
+        anchors {
+            topMargin: (forwardLoader.active || citationLoader.active) && mcMargins == 0 && !message.isCollapsed ? Suru.units.dp(5) : 0
+            top: parent.top
+        }
 
         width: Math.max(citationLoader.width, mainContent.width, forwardLoader.width)
         Loader {
@@ -65,6 +77,10 @@ Item {
             active: message.isReply && !message.isCollapsed
             asynchronous: true
             sourceComponent: citation
+            anchors {
+                leftMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
+                left: parent.left
+            }
         }
 
         Item {

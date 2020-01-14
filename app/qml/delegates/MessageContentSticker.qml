@@ -26,7 +26,7 @@ MessageContentBase {
         }
 
         width: Math.min(d.maxStickerSize, maximumAvailableContentWidth)
-        height: width
+        height: width * (stickerContent.sticker.height/stickerContent.sticker.width)
         source: localFileSource
 
         // TODO: Handle Image.Error

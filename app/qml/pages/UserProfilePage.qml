@@ -51,13 +51,10 @@ Page {
             confirmButtonColor: UITK.UbuntuColors.green
             confirmButtonText: i18n.tr("Save")
             onConfirmed: AppActions.user.addUser(userName.text, firstName.text, lastName.text)
-            UITK.TextArea {
-                height: units.gu(5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: userName
                 text: '+' + user.phoneNumber
@@ -65,25 +62,19 @@ Page {
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 placeholderText: i18n.tr("Phone no")
             }
-            UITK.TextArea {
-                height: units.gu(5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: firstName
                 text: user.firstName
                 placeholderText: i18n.tr("First name")
             }
-            UITK.TextArea {
-                height: units.gu(5)
-                autoSize: true
+            UITK.TextField {
                 anchors {
                     left: parent.left
                     right: parent.right
-                    topMargin: units.gu(0.1)
                 }
                 id: lastName
                 text: user.lastName

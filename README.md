@@ -7,22 +7,18 @@ You need to build the dependencies (tdlib) once:
 
     git submodule update --init
     clickable build-libs tdlib-prepare --arch amd64 # your host architecture (probably amd64)
-    clickable build-libs tdlib --arch armhf #if you want to build teleports for the device
+    clickable build-libs tdlib --arch armhf # or arm64 or amd64
     clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
 
 From now on building the app is as simple as:
 
-    clickable #for the phone
+    clickable --armhf # or arm64 for the phone
     clickable desktop #for desktop
 
 When commiting for the first time you need to apply two settings to your fork of TELEports:
 
     Settings -> CI/CD -> General pipelines -> Expand -> Timeout = 2h -> Save Changes
     Settings -> CI/CD -> Runners -> Expand -> Shared Runners -> Enable shared runners
-
-If you get a `teleports: error while loading shared libraries: libQt5QuickControls2.so.5: cannot open shared object file: No such file or directory`,
-remove the `.clickable` directory and try again. This may happen when
-switching between phone and desktop build.
 
 ## C++ Code Style/Formatting
 
