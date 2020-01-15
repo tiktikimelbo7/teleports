@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-06 21:54+0000\n"
-"PO-Revision-Date: 2019-11-05 23:36+0000\n"
-"Last-Translator: Michele Giacomoli <michele.giacomoli@gmail.com>\n"
+"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
 "Language: it\n"
@@ -62,7 +62,6 @@ msgid "sent you a map"
 msgstr "Ti ha inviato una mappa"
 
 #: ../push/pushhelper.cpp:161
-#, fuzzy
 msgid "%1: %2"
 msgstr "%1: %2"
 
@@ -171,10 +170,8 @@ msgid "You have a new message"
 msgstr "Hai un nuovo messaggio"
 
 #: ../push/pushhelper.cpp:301
-#, fuzzy
-#| msgid "Type a message..."
 msgid "%1 pinned a message"
-msgstr "Scrivi un messaggio..."
+msgstr "%1 ha fissato un messaggio"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:301
 msgid "Sticker"
@@ -182,7 +179,7 @@ msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:305
 msgid "Phone call"
-msgstr ""
+msgstr "Chiamata"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:309
 msgid "sent an audio message"
@@ -210,7 +207,7 @@ msgstr "mandata una nota audio"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:338
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
@@ -219,7 +216,7 @@ msgstr "entrato nel gruppo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:346
 msgid "added one or more members"
-msgstr ""
+msgstr "aggiunto uno o più membri"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "changed the chat photo"
@@ -234,10 +231,8 @@ msgid "joined by invite link"
 msgstr "unito tramite link invito"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:366
-#, fuzzy
-#| msgid "%1 left the group"
 msgid "left the group"
-msgstr "%1 ha lasciato il gruppo"
+msgstr "ha lasciato il gruppo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:368
 msgid "removed a member"
@@ -260,20 +255,17 @@ msgid "created this group"
 msgstr "creato il gruppo"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:396
-#, fuzzy
-#| msgid "%1 joined Telegram!"
 msgid "has joined Telegram!"
-msgstr "%1 é entrato in Telegram!"
+msgstr "si è unito a Telegram!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:400
 #: ../app/qml/delegates/MessageUnsupported.qml:4
-#, fuzzy
 msgid "Unsupported message"
-msgstr "Messaggi non letti"
+msgstr "Messaggio non supportato"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:404
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Non implementato:"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:409
 msgid "Me"
@@ -363,17 +355,16 @@ msgid "Close"
 msgstr "Chiudi"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
-#, fuzzy
 msgid "Invalid phone number!"
-msgstr "Numero di telefono"
+msgstr "Numero di telefono invalido!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Codice invalido!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Password invalida!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
@@ -401,11 +392,11 @@ msgstr "Per favore connettiti a Ubuntu One per ricevere notifiche push."
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "Errore"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Nessuna posizione valida ricevuta dopo 180 secondi!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
@@ -448,7 +439,7 @@ msgstr "Modalità notte"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr "Informazioni su"
+msgstr "Informazioni"
 
 #: ../app/qml/pages/ChatListPage.qml:124
 msgid "Leave chat"
@@ -559,7 +550,7 @@ msgstr "Versione %1"
 
 #: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:98
 msgid "Get the source"
@@ -567,7 +558,7 @@ msgstr "Ottieni i sorgenti"
 
 #: ../app/qml/pages/AboutPage.qml:99
 msgid "Report issues"
-msgstr "Segnala problemi"
+msgstr "Segnala errori"
 
 #: ../app/qml/pages/AboutPage.qml:100
 msgid "Help translate"
@@ -581,7 +572,7 @@ msgstr "Offline"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
-msgstr "Connessione"
+msgstr "Connessione in corso"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting To Proxy"
@@ -813,9 +804,8 @@ msgid "Missed Call"
 msgstr "Chiamata Persa"
 
 #: ../app/qml/delegates/MessageContentCall.qml:71
-#, fuzzy
 msgid "Duration: %1:%2"
-msgstr "Durata: %1.%2"
+msgstr "Durata: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
