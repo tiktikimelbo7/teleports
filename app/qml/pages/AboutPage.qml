@@ -75,7 +75,7 @@ Page {
                         }
                         return versionString;
                     }
-                    subtitle.color: UITK.UbuntuColors.ash
+                    subtitle.color: theme.palette.normal.backgroundTertiaryText
                     subtitle.font.pixelSize: units.gu(1.75)
                     subtitle.horizontalAlignment: Text.AlignHCenter
                 }

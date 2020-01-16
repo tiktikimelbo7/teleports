@@ -14,9 +14,9 @@ UITK_Popups.Dialog {
     property var confirmButtonText: i18n.tr("Okay")
     property var cancelButtonText: i18n.tr("Cancel")
     //confirmButtonColor should be green for positive/go actions, blue for neutral actios and red for destructive actions
-    property var confirmButtonColor: UITK.UbuntuColors.green
-    //Only main action should be colored. Cancel should be no color or ash
-    property var cancelButtonColor: UITK.UbuntuColors.ash
+    property var confirmButtonColor: theme.palette.normal.positive
+    //Only main action should be colored. Cancel should be no color or ash (SuruDark) or graphite (Ambiance)
+    property var cancelButtonColor: Suru.theme == Suru.Dark ? UITK.UbuntuColors.ash : UITK.UbuntuColors.graphite
     //place new Items before the Buttons
     default property alias content: top_col.data
 

@@ -64,7 +64,7 @@ MessageContentBase {
             y: qtMap.height / 2 - height
             x: (qtMap.width - width) / 2
             opacity: 0.8
-            color: UITK.UbuntuColors.orange
+            color: UITK.UbuntuColors.ash
             name: "location-active"
         }
         MouseArea {

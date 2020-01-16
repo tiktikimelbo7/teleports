@@ -11,7 +11,7 @@ Middleware {
     Component {
         id: confirmationDlg
         PopupDialog {
-            confirmButtonColor: UITK.UbuntuColors.red
+            confirmButtonColor: theme.palette.normal.negative
             onConfirmed: next(action, message)
         }
     }

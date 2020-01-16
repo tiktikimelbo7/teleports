@@ -48,7 +48,7 @@ Page {
         id: editUserDialog
         PopupDialog {
             text: i18n.tr("Edit user data and press Save")
-            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Save")
             onConfirmed: AppActions.user.addUser(userName.text, firstName.text, lastName.text)
             UITK.TextField {

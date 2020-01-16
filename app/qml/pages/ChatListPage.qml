@@ -289,7 +289,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: chat.isMuted ? Suru.neutralColor : UITK.UbuntuColors.blue
+                                color: chat.isMuted ? Suru.neutralColor : theme.palette.normal.focus
                                 visible: chat.hasUnreadMessages
 
                                 Label {
@@ -311,7 +311,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: UITK.UbuntuColors.blue
+                                color: theme.palette.normal.focus
                                 visible: chat.hasUnreadMentions
 
                                 Label {
@@ -349,7 +349,7 @@ Page {
                         id: forwardConfirmationDialog
                         PopupDialog {
                             text: i18n.tr("Do you want to forward the selected messages to %1?").arg(userSelectedChat.title)
-                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonColor: theme.palette.normal.focus
                             confirmButtonText: i18n.tr("Forward")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();
@@ -372,7 +372,7 @@ Page {
                         id: importConfirmationDialog
                         PopupDialog {
                             text: i18n.tr("Do you want to send the imported files to %1?").arg(userSelectedChat.title)
-                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonColor: theme.palette.normal.focus
                             confirmButtonText: i18n.tr("Send")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();

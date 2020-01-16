@@ -20,7 +20,5 @@
         <file>play.svg</file>
         <file>send.png</file>
         <file>send_disabled.png</file>
-        <file>telegram_background_dark.png</file>
-        <file>telegram_background.png</file>
     </qresource>
 </RCC>

@@ -11,7 +11,7 @@ UITK_Popups.Dialog {
 
     property var progress: -1
     property var cancelButtonText: i18n.tr("Cancel")
-    property var cancelButtonColor: UITK.UbuntuColors.ash
+    property var cancelButtonColor: Suru.theme == Suru.Dark ? UITK.UbuntuColors.ash : UITK.UbuntuColors.graphite
 
     signal finished();
     signal cancelled();
