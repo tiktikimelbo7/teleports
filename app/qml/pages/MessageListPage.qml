@@ -175,7 +175,7 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1
                 text: header.subtitle
-                color: header.isOnline ? UITK.UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
+                color: header.isOnline ? theme.palette.normal.focus : theme.palette.normal.backgroundTertiaryText
 
                 Connections {
                     target: header
@@ -522,7 +522,7 @@ Page {
         id: sendLocationConfirmationDialog
         PopupDialog {
             text: i18n.tr("Do you want to share your location with %1?").arg(currentChat.title)
-            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Send")
             onConfirmed: {
                 messageListPage.locationWaitDialog = UITK_Popups.PopupUtils.open(locationWaitDialog)

@@ -37,7 +37,7 @@ MessageContentBase {
             anchors.rightMargin: Suru.units.gu(2)
             UITK.Icon {
                 visible: localFile.isDownloadingCompleted
-                color: UITK.UbuntuColors.orange
+                color: UITK.UbuntuColors.ash
                 name: "document-open"
                 anchors.fill: parent
             }
@@ -45,6 +45,7 @@ MessageContentBase {
                 visible: !localFile.isDownloadingCompleted && !localFile.isDownloadingActive
                 source: "qrc:/qml/icons/download.svg"
                 anchors.fill: parent
+                color: UITK.UbuntuColors.ash
             }
             BusyPercentageIndicator {
                 anchors.fill: parent

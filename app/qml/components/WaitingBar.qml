@@ -32,7 +32,7 @@ Item {
         id: flyer
         width: parent.width / 4
         height: parent.height
-        color: UITK.UbuntuColors.blue
+        color: theme.palette.normal.activity
 
         property var xStart: 0
         property var xEnd: parent.width - width

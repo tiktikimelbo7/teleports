@@ -45,7 +45,7 @@ Page {
         id: addDialog
         PopupDialog {
             text: i18n.tr("The contact will be added. First and last name are optional")
-            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Add")
             onConfirmed: AppActions.user.addUser(userName.text, firstName.text, lastName.text)
             UITK.TextField {
@@ -201,7 +201,7 @@ Page {
                         id: deleteConfirmationDialog
                         PopupDialog {
                             text: i18n.tr("The contact will be deleted. Are you sure?")
-                            confirmButtonColor: UITK.UbuntuColors.red
+                            confirmButtonColor: theme.palette.normal.negative
                             confirmButtonText: i18n.tr("Delete")
                             onConfirmed: AppActions.user.deleteUser(user.id)
                         }
