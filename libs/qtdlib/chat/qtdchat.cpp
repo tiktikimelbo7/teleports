@@ -596,26 +596,26 @@ void QTdChat::updateChatAction(const QJsonObject &json)
         case QTdChatAction::Type::CHAT_ACTION_CANCEL:
             return;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_CONTACT:
-            singular_description = QStringLiteral("is choosing contact...");
-            plural_description = QStringLiteral("are choosing contact...");
+            singular_description = QString(gettext("is choosing contact..."));
+            plural_description = QString(gettext("are choosing contact..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_LOCATION:
-            singular_description = QStringLiteral("is choosing location...");
-            plural_description = QStringLiteral("are choosing location...");
+            singular_description = QString(gettext("is choosing location..."));
+            plural_description = QString(gettext("are choosing location..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO_NOTE:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VOICE_NOTE:
-            singular_description = QStringLiteral("is recording...");
-            plural_description = QStringLiteral("are recording...");
+            singular_description = QString(gettext("is recording..."));
+            plural_description = QString(gettext("are recording..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_TYPING:
-            singular_description = QStringLiteral("is typing...");
-            plural_description = QStringLiteral("are typing...");
+            singular_description = QString(gettext("is typing..."));
+            plural_description = QString(gettext("are typing..."));
             break;
         default:
-            singular_description = QStringLiteral("is doing something");
-            plural_description = QStringLiteral("are doing something");
+            singular_description = QString(gettext("is doing something"));
+            plural_description = QString(gettext("are doing something"));
             break;
         }
         m_chatActions.insert(user_id, useraction(user_id, singular_description,
