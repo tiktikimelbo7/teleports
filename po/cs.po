@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-19 20:09+0000\n"
-"PO-Revision-Date: 2019-11-09 23:36+0000\n"
+"PO-Revision-Date: 2020-01-21 06:34+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -311,47 +311,43 @@ msgstr "Uložené zprávy"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:599
 msgid "is choosing contact..."
-msgstr ""
+msgstr "vybírá kontakt…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:600
 msgid "are choosing contact..."
-msgstr ""
+msgstr "vybírají kontakt…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:603
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "Chybí značka..."
+msgstr "vybírá polohu…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:604
-#, fuzzy
-#| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "Vyžadována poloha od OS..."
+msgstr "vybírají polohu…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:609
 msgid "is recording..."
-msgstr ""
+msgstr "nahrává…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:610
 msgid "are recording..."
-msgstr ""
+msgstr "nahrávají…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is typing..."
-msgstr ""
+msgstr "píše…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are typing..."
-msgstr ""
+msgstr "píší…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is doing something"
-msgstr ""
+msgstr "něco dělá"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are doing something"
-msgstr ""
+msgstr "něco dělají"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
