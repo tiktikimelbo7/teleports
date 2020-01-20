@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-19 20:09+0000\n"
-"PO-Revision-Date: 2019-11-09 23:36+0000\n"
+"PO-Revision-Date: 2020-01-21 06:34+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -311,47 +311,43 @@ msgstr "Messages enregistrés"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:599
 msgid "is choosing contact..."
-msgstr ""
+msgstr "choisit le contact..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:600
 msgid "are choosing contact..."
-msgstr ""
+msgstr "choisissent le contact..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:603
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "Étiquette manquante..."
+msgstr "choisit l'emplacement..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:604
-#, fuzzy
-#| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "Demande de la position au système d'exploitation..."
+msgstr "choisissent l'emplacement..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:609
 msgid "is recording..."
-msgstr ""
+msgstr "enregistre..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:610
 msgid "are recording..."
-msgstr ""
+msgstr "enregistrent..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is typing..."
-msgstr ""
+msgstr "est en train d'écrire..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are typing..."
-msgstr ""
+msgstr "sont en train d'écrire..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is doing something"
-msgstr ""
+msgstr "fait quelque chose"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are doing something"
-msgstr ""
+msgstr "font quelque chose"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
