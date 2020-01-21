@@ -47,7 +47,7 @@ cache: &tdlib_cache
 .teleports:
     image: "clickable/ci-16.04-$ARCH"
     stage: build
-    script: 'clickable build --arch $ARCH'
+    script: 'clickable clean build --arch $ARCH'
     artifacts:
         paths:
             - "build/$ARCH_TRIPLET/app"
