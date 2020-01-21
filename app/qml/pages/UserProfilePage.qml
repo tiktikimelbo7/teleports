@@ -12,6 +12,7 @@ Page {
     id: userProfilePage
 
     property QTdUser user: null
+    property QTdChat chat: null
 
     property color hf: Suru.foregroundColor
     property color hb: Suru.backgroundColor
@@ -87,17 +88,11 @@ Page {
         id: userProfileFlickable
         anchors.fill: parent
         anchors.margins: units.gu(2)
-        contentHeight: userProfileColumn.height
-
-        ColumnLayout {
-            id: userProfileColumn
-            anchors {
-                fill: parent
-            }
-
-            UserProfile {
-                user: userProfilePage.user
-            }
+        contentHeight: userProfile.height
+        UserProfile {
+            id: userProfile
+            user: userProfilePage.user
+            chat: userProfilePage.chat
         }
     }
 }

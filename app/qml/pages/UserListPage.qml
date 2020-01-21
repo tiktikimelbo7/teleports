@@ -111,7 +111,7 @@ Page {
                         UITK.Action {
                             iconName: "info"
                             text: i18n.tr("Info")
-                            onTriggered: AppActions.user.showUserInfo(user)
+                            onTriggered: AppActions.user.showUserInfo(user, null)
                         },
                         UITK.Action {
                             iconName: "network-secure"

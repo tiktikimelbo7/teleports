@@ -14,6 +14,7 @@ QTdSecretChat::QTdSecretChat(QObject *parent)
 {
     connect(QTdClient::instance(), &QTdClient::secretChat, this, &QTdSecretChat::updateSecretChat);
     connect(QTdClient::instance(), &QTdClient::updateSecretChat, this, &QTdSecretChat::updateSecretChat);
+    m_hashMap = new QQmlObjectListModel<QTdHashRow>(this);
 }
 
 QString QTdSecretChat::qmlSecretChatId() const
@@ -64,9 +65,39 @@ qint32 QTdSecretChat::ttl() const
     return m_ttl;
 }
 
-QString QTdSecretChat::keyHash() const
+QString QTdSecretChat::keyHashString() const
 {
-    return m_keyHash;
+    QString hashString = m_keyHash.toUpper();
+    hashString = hashString.left(64);
+    for (int i = 62; i > 0; i-=2) {
+        if (i % 16 == 0) {
+            hashString = hashString.insert(i, "\n");
+        } else if (i % 8 == 0) {
+            hashString = hashString.insert(i, "    ");
+        } else
+            hashString = hashString.insert(i, " ");
+    }
+    return hashString;
+}
+QObject *QTdSecretChat::keyHashMap() const
+{
+    if (m_hashMap->isEmpty()) {
+        for (int i = 1; i <= 12; i++) {
+            QScopedPointer<QTdHashRow> hashRow(new QTdHashRow);
+            bool ok;
+            QByteArray stringRow = m_keyHash;
+            //subdivide the QByteArray in twelve parts of 6 hex char each (3 bytes)
+            stringRow.truncate(i * 6);
+            stringRow = stringRow.right(6);
+            //convert the QByteArray to binary (hex -> int -> binary)
+            stringRow = QByteArray::number(stringRow.toInt(&ok, 16), 2);
+            // prepend "0" to reach a length of 24 bits
+            stringRow.prepend(24 - stringRow.length(), *"0");
+            hashRow.data()->setRow(stringRow);
+            m_hashMap->append(hashRow.take());
+        }
+    }
+    return m_hashMap;
 }
 
 qint32 QTdSecretChat::layer() const
@@ -127,7 +158,60 @@ void QTdSecretChat::updateSecretChat(const QJsonObject &data)
     }
     m_isOutbound = data["is_outbound"].toBool();
     m_ttl = qint32(data["ttl"].toInt());
-    m_keyHash = data["key_hash"].toString();
+    m_keyHash = QByteArray::fromBase64(data["key_hash"].toString().toUtf8()).toHex();
     m_layer = qint32(data["layer"].toInt());
     emit secretChatChanged();
+}
+
+QTdHashRow::QTdHashRow(QObject *parent)
+    : QTdObject(parent)
+    , m_hashRow(Q_NULLPTR)
+{
+    m_hashRow = new QQmlObjectListModel<QTdHashPixel>(this);
+}
+QObject *QTdHashRow::hashRow() const
+{
+    return m_hashRow;
+}
+void QTdHashRow::setRow(QByteArray stringRow) const
+{
+    QVector<QColor> colors(4);
+    colors[0] = QColor("#ffffffff");
+    colors[1] = QColor("#ffd5e6f3");
+    colors[2] = QColor("#ff2d5775");
+    colors[3] = QColor("#ff2f99c9");
+    for (int i = 1; i <= 3; i++) {
+        QByteArray byte = stringRow;
+        byte.truncate(i * 8);
+        byte = byte.right(8);
+        for (int j = byte.length() / 2; j > 0; j--) {
+            QScopedPointer<QTdHashPixel> hashPixel(new QTdHashPixel);
+            bool ok;
+            // cut byte to get only 2 bits
+            byte.truncate(j * 2);
+            QByteArray pixel = byte.right(2);
+            //convert binary value into integer
+            int pixelInt = pixel.toInt(&ok, 2);
+            QColor pixelColor = colors[pixelInt];
+            hashPixel.data()->setHashPixelColor(pixelColor);
+            m_hashRow->append(hashPixel.take());
+        }
+    }
+}
+
+QTdHashPixel::QTdHashPixel(QObject *parent)
+    : QTdObject(parent)
+{
+    m_hashPixelColor = QColor("darkCyan");
+}
+QColor QTdHashPixel::hashPixelColor() const
+{
+    return m_hashPixelColor;
+}
+void QTdHashPixel::setHashPixelColor(QColor hashPixelColor)
+{
+    if (m_hashPixelColor == hashPixelColor)
+        return;
+
+    m_hashPixelColor = hashPixelColor;
 }

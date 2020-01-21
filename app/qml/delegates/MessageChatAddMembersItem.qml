@@ -19,7 +19,7 @@ MessageActionItem {
         // TODO DESIGN: Need design input on how to show multiple users
         // ... dialog or page?? etc
         if (content.members.count > 0) {
-            AppActions.user.showUserInfo(content.members.get(0));
+            AppActions.user.showUserInfo(content.members.get(0), null)
         }
     }
 

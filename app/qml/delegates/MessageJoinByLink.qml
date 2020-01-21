@@ -8,5 +8,5 @@ MessageActionItem {
               : message.sender.firstName
                 ? message.sender.firstName
                 : message.sender.username)
-    onClicked: AppActions.user.showUserInfo(message.sender)
+    onClicked: AppActions.user.showUserInfo(message.sender, null)
 }

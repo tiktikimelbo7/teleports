@@ -139,7 +139,7 @@ Page {
                         UITK.Action {
                             iconName: "info"
                             text: i18n.tr("Info")
-                            onTriggered: chat.isPrivate ? AppActions.user.showUserInfo(chat.chatType.user) : AppActions.chat.viewGroupInfo(chat)
+                            onTriggered: chat.isPrivate ? AppActions.user.showUserInfo(chat.chatType.user, chat) : AppActions.chat.viewGroupInfo(chat)
                         }
                     ]
                 }
