@@ -235,7 +235,7 @@ void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject &data)
     const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateLastMessage(data);
+        tdchat->updateLastMessage(data["last_message"].toObject());
         tdchat->updateChatOrder(data);
         emit contentsChanged();
     }

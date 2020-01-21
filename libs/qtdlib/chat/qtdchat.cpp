@@ -540,11 +540,10 @@ void QTdChat::updateChatNotificationSettings(const QJsonObject &json)
 void QTdChat::updateLastMessage(const QJsonObject &json)
 {
     if (json.isEmpty()) {
-        return;
+        m_lastMessage.reset(new QTdMessage);
+    } else {
+        m_lastMessage->unmarshalJson(json);
     }
-
-    m_lastMsgJson = json["last_message"].toObject();
-    m_lastMessage->unmarshalJson(m_lastMsgJson);
     emit lastMessageChanged(m_lastMessage.data());
     emit summaryChanged();
 }
