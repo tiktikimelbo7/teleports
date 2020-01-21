@@ -206,7 +206,7 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     mouse.accepted = true;
-                    currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user) : AppActions.chat.viewGroupInfo(currentChat)
+                    currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user, currentChat) : AppActions.chat.viewGroupInfo(currentChat)
                 }
             }
         }

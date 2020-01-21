@@ -8,7 +8,7 @@ MessageActionItem {
               ? ""
               : getAddingUserString()).arg(content.title)
 
-    onClicked: AppActions.user.showUserInfo(message.sender)
+    onClicked: AppActions.user.showUserInfo(message.sender, null)
 
         function getAddingUserString() {
         if (message.isCollapsed) {
