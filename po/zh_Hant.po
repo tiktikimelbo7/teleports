@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-19 20:09+0000\n"
-"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"PO-Revision-Date: 2020-01-24 03:21+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
@@ -311,47 +311,45 @@ msgstr "已儲存的訊息"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:599
 msgid "is choosing contact..."
-msgstr ""
+msgstr "正在選擇聯絡人..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:600
 msgid "are choosing contact..."
-msgstr ""
+msgstr "正在選擇聯絡人中..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:603
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "缺少標籤..."
+msgstr "正在選擇位置..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:604
-#, fuzzy
-#| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "從作業系統要求位置資訊中..."
+msgstr "正在選擇位置中..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:609
 msgid "is recording..."
-msgstr ""
+msgstr "正在錄製..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:610
 msgid "are recording..."
-msgstr ""
+msgstr "正在錄製中..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is typing..."
-msgstr ""
+msgstr "正在輸入..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are typing..."
-msgstr ""
+msgstr "正在輸入中…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
+#, fuzzy
 msgid "is doing something"
-msgstr ""
+msgstr "正在做一些事"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
+#, fuzzy
 msgid "are doing something"
-msgstr ""
+msgstr "正在做一些事中"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
