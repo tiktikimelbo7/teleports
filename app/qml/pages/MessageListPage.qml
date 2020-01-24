@@ -18,9 +18,11 @@ Page {
     property QTdChat currentChat: Telegram.chats.currentChat
     property int currentMessageIndex: currentChat.currentMessageIndex
     property var locationWaitDialog: null
+    Suru.highlightType: Suru.PositiveHighlight
 
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
+        Suru.highlightType: Suru.PositiveHighlight
         subtitle: {
             if (Telegram.chats && currentChat) {
                 if (currentChat.action != "")
@@ -209,6 +211,14 @@ Page {
                     currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user, currentChat) : AppActions.chat.viewGroupInfo(currentChat)
                 }
             }
+        }
+        UITK.StyleHints {
+            backgroundColor: dumb_color.color
+        }
+        Item {
+            id: dumb_color
+            Suru.highlightType: Suru.PositiveHighlight
+            property color color: currentChat.isSecret ? Qt.tint(Suru.backgroundColor, Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)) : "transparent"
         }
     }
 
