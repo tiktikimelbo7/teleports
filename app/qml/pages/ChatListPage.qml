@@ -239,12 +239,19 @@ Page {
                                 height: units.gu(2)
                                 width: parent.width
                                 Label {
+                                    visible: chat.summary[0] != ""
+                                    font.pixelSize: units.dp(15)
+                                    Suru.textStyle: Suru.TertiaryText
+                                    Suru.highlightType: Suru.NegativeHighlight
+                                    color: Suru.highlightColor
+                                    text: chat.summary[0]
+                                }
+                                Label {
                                     elide: Text.ElideRight
-                                    wrapMode: Text.WrapAnywhere
                                     maximumLineCount: 1
                                     font.pixelSize: units.dp(15)
                                     Suru.textStyle: Suru.TertiaryText
-                                    text: chat.summary
+                                    text: chat.summary[1]
                                     Layout.fillWidth: true
                                 }
                             }

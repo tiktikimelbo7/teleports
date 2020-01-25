@@ -39,4 +39,5 @@ KeyTable {
     property string viewGroupInfo
     property string setCurrentChatById
     property string jumpToMessage
+    property string setChatDraftMessage
 }
