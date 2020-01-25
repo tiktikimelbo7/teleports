@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-19 20:09+0000\n"
-"PO-Revision-Date: 2020-01-24 03:21+0000\n"
+"PO-Revision-Date: 2020-01-25 19:16+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
@@ -342,14 +342,12 @@ msgid "are typing..."
 msgstr "正在輸入中…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
-#, fuzzy
 msgid "is doing something"
-msgstr "正在做一些事"
+msgstr "正在做某些事"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
-#, fuzzy
 msgid "are doing something"
-msgstr "正在做一些事中"
+msgstr "正在做某些事中"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -414,7 +412,7 @@ msgstr "錯誤"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "180秒之後並未收到有效位置！"
 
 #: ../app/qml/pages/UserListPage.qml:18 ../app/qml/pages/ChatListPage.qml:58
 msgid "Contacts"
