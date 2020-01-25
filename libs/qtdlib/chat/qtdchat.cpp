@@ -34,6 +34,7 @@ QTdChat::QTdChat(QObject *parent)
     , m_notifySettings(new QTdNotificationSettings)
     , m_messages(0)
     , m_chatOpen(false)
+    , m_draftMessage(new QTdDraftMessage)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -73,6 +74,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatUnreadMentionCount(json);
 
     updateChatReplyMarkup(json);
+
+    updateChatDraftMessage(json["draft_message"].toObject());
 
     m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
     emit notificationSettingsChanged();
@@ -330,26 +333,27 @@ QString QTdChat::action() const
     return actionMessage;
 }
 
-QString QTdChat::summary() const
+QVariant QTdChat::summary()
 {
-    if (action() != "") {
-        return action();
+    QVariantList summary;
+    if (draftMessage()->inputMessageText()->text() != "") {
+        summary.insert(0, QString(gettext("Draft:")));
+        summary.insert(1, draftMessage()->inputMessageText()->text());
+    } else {
+        summary.insert(0, QString());
+        if (action() != "") {
+            summary.insert(1, action());
+        } else if (!m_lastMessage->isValid()) {
+            summary.insert(1, QString());
+        } else if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
+            summary.insert(1, m_lastMessage->summary());
+        } else if (!m_lastMessage->senderName().isEmpty()) {
+            summary.insert(1, QString("%1: %2").arg(m_lastMessage->senderName(), m_lastMessage->summary()));
+        } else {
+            summary.insert(1, m_lastMessage->summary());
+        }
     }
-
-    if (!m_lastMessage->isValid()) {
-        return QString();
-    }
-
-    if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
-        return m_lastMessage->summary();
-    }
-
-    QString sendername = m_lastMessage->senderName();
-
-    if (sendername.isEmpty())
-        return m_lastMessage->summary();
-
-    return QString("%1: %2").arg(sendername, m_lastMessage->summary());
+    return QVariant::fromValue(summary);
 }
 
 QObject *QTdChat::messages() const
@@ -510,6 +514,17 @@ void QTdChat::updateChatReplyMarkup(const QJsonObject &json)
     }
 }
 
+void QTdChat::updateChatDraftMessage(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        m_draftMessage.reset(new QTdDraftMessage);
+    } else {
+        m_draftMessage->unmarshalJson(json);
+    }
+    emit summaryChanged();
+    emit draftMessageChanged();
+}
+
 void QTdChat::updateChatTitle(const QJsonObject &json)
 {
     m_title = json["title"].toString();
@@ -649,4 +664,9 @@ void QTdChat::positionMessageListViewAtIndex(int index)
 {
     m_currentMessageIndex = index;
     currentMessageIndexChanged();
+}
+
+QTdDraftMessage *QTdChat::draftMessage() const
+{
+    return m_draftMessage.data();
 }

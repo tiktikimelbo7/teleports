@@ -43,6 +43,7 @@ Page {
                 iconName: "back"
                 text: "Back"
                 onTriggered: {
+                    entry.saveDraft()
                     AppActions.chat.closeCurrentChat()
                 }
             }
@@ -422,7 +423,7 @@ Page {
                 mouseSelectionMode: TextEdit.SelectWords
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
                 placeholderText: i18n.tr("Type a message...")
-
+                text: currentChat.draftMessage.inputMessageText.text
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
@@ -456,6 +457,10 @@ Page {
                     }
                     event.accepted = false;
                 }
+                function saveDraft() {
+                    Qt.inputMethod.commit()
+                    AppActions.chat.setChatDraftMessage(entry.text)
+                }
 
                 Keys.onEnterPressed: sendIfEnter(event)
                 Keys.onReturnPressed: sendIfEnter(event)
@@ -465,11 +470,22 @@ Page {
                         typing_timer.start()
                         AppActions.chat.sendChatAction();
                     }
+                    draft_timer.restart()
                 }
 
                 Timer {
                     id: typing_timer
                     interval: 5000
+                }
+                Timer {
+                    id: draft_timer
+                    interval: 15000
+                    onTriggered: entry.saveDraft()
+                }
+
+                Connections {
+                    target: Qt.application
+                    onStateChanged: if (Qt.application.state != Qt.ApplicationActive) {entry.saveDraft()}
                 }
             }
             UITK.StyledItem {

@@ -54,6 +54,8 @@ public slots:
                             const QString &message);
     void requestPositionInfo();
     void cancelPositionInfo();
+    void setChatDraftMessage(const QString &draftText,
+                             const qint64 &chatId);
 
 signals:
     void modelChanged(QObject *model);
@@ -76,6 +78,7 @@ private slots:
     void handleUpdateChatIsPinned(const QJsonObject &data);
     void handleUpdateChatPhoto(const QJsonObject &data);
     void handleUpdateChatReplyMarkup(const QJsonObject &data);
+    void handleUpdateChatDraftMessage(const QJsonObject &data);
     void handleUpdateChatTitle(const QJsonObject &data);
     void handleUpdateChatUnreadMentionCount(const QJsonObject &data);
     void handleUpdateChatNotificationSettings(const QJsonObject &data);

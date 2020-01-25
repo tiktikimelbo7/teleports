@@ -10,6 +10,7 @@
 #include "files/qtdphoto.h"
 #include "models/QmlObjectListModel.h"
 #include "notifications/qtdnotificationsettings.h"
+#include "messages/qtddraftmessage.h"
 
 class QTdChatPhoto : public QTdPhoto
 {
@@ -55,12 +56,12 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString replyMarkupMessageId READ qmlReplyMarkupMessageId NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdMessage *replyMarkupMessage READ replyMarkupMessage NOTIFY replyMarkupMessageChanged)
     Q_PROPERTY(QTdNotificationSettings *notificationSettings READ notificationSettings NOTIFY notificationSettingsChanged)
-    Q_PROPERTY(QString summary READ summary NOTIFY summaryChanged)
+    Q_PROPERTY(QVariant summary READ summary NOTIFY summaryChanged)
     Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
     Q_PROPERTY(int currentMessageIndex READ currentMessageIndex NOTIFY currentMessageIndexChanged)
+    Q_PROPERTY(QTdDraftMessage *draftMessage READ draftMessage NOTIFY draftMessageChanged)
 
     // TODO:
-    // draftMessage:draf_message && updateChatDraftMessage
     // string:client_data
     Q_PROPERTY(QObject *messages READ messages NOTIFY messagesChanged)
 
@@ -224,7 +225,7 @@ public:
      * This can be used to show a snippet of last message
      * or "User is typing..." type messages.
      */
-    virtual QString summary() const;
+    virtual QVariant summary();
 
     virtual QString action() const;
 
@@ -242,6 +243,11 @@ public:
      * @brief position message list view at index
      */
     void positionMessageListViewAtIndex(int index);
+
+    /**
+     * @brief A draft of a message in the chat; may be null.
+     */
+    QTdDraftMessage *draftMessage() const;
 
     /**
      * @brief Open chat
@@ -286,7 +292,7 @@ public:
     Q_INVOKABLE void leaveChat();
 
     Q_INVOKABLE void leaveSecretChat();
-    
+
     /**
      * @brief Leave chat and clear any history if possible
      */
@@ -330,6 +336,7 @@ signals:
     void chatUpdated();
     void forwardingMessagesAction(QStringList forwardingMessages, QTdChat *forwarded_from_chat);
     void currentMessageIndexChanged();
+    void draftMessageChanged();
 
 public slots:
     void updateChatOrder(const QJsonObject &json);
@@ -338,6 +345,7 @@ public slots:
     void updateChatIsPinned(const QJsonObject &json);
     void updateChatPhoto(const QJsonObject &photo);
     void updateChatReplyMarkup(const QJsonObject &json);
+    void updateChatDraftMessage(const QJsonObject &json);
     void updateChatTitle(const QJsonObject &json);
     void updateChatUnreadMentionCount(const QJsonObject &json);
     void updateChatOnlineMemberCount(const QJsonObject &json);
@@ -391,6 +399,7 @@ private:
     QMap<qint32, useraction> m_chatActions;
     QJsonObject m_lastMsgJson;
     int m_currentMessageIndex = -1;
+    QScopedPointer<QTdDraftMessage> m_draftMessage;
 };
 
 #endif // QTDCHAT_H
