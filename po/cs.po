@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-19 20:09+0000\n"
+"POT-Creation-Date: 2020-01-26 21:11+0000\n"
 "PO-Revision-Date: 2020-01-21 06:34+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -305,47 +305,51 @@ msgstr "Neimplementováno:"
 msgid "Message"
 msgstr "Zpráva"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr "Uložené zprávy"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:599
+#: ../libs/qtdlib/chat/qtdchat.cpp:340
+msgid "Draft:"
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
 msgstr "vybírá kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:600
+#: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
 msgstr "vybírají kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:603
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is choosing location..."
 msgstr "vybírá polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:604
+#: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are choosing location..."
 msgstr "vybírají polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:609
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
 msgstr "nahrává…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:610
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
 msgstr "nahrávají…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
 msgstr "píše…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
 msgstr "píší…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
 msgstr "něco dělá"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
 msgstr "něco dělají"
 
@@ -422,7 +426,7 @@ msgstr "Kontakty"
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34
 #: ../app/qml/pages/GroupDetailsPage.qml:32
-#: ../app/qml/pages/UserProfilePage.qml:31
+#: ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
 msgstr "Zpět"
 
@@ -438,20 +442,20 @@ msgstr "Kontakt bude přidán. První a poslední jméno je volitelné"
 msgid "Add"
 msgstr "Přidat"
 
-#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:63
+#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
 msgid "Phone no"
 msgstr "Telefonní číslo"
 
-#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:72
+#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
 msgid "First name"
 msgstr "Jméno"
 
-#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:81
+#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
 msgid "Last name"
 msgstr "Příjmení"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
-#: ../app/qml/pages/SettingsPage.qml:118
+#: ../app/qml/pages/SettingsPage.qml:121
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
@@ -519,19 +523,19 @@ msgstr "Aktualizuji"
 msgid "Connectivity"
 msgstr "Připojení"
 
-#: ../app/qml/pages/ConnectivityPage.qml:73
+#: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
 msgstr "Stav připojení Telegramu:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:80
+#: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
 msgstr "Stav připojení Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Ubuntu Touch omezený datový tok"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch neomezený datový tok"
 
@@ -539,7 +543,7 @@ msgstr "Ubuntu Touch neomezený datový tok"
 msgid "File: "
 msgstr "Soubor: "
 
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
+#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
 msgid "Save"
 msgstr "Uložit"
 
@@ -548,19 +552,19 @@ msgstr "Uložit"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: ../app/qml/pages/SettingsPage.qml:63 ../app/qml/pages/SettingsPage.qml:108
+#: ../app/qml/pages/SettingsPage.qml:64 ../app/qml/pages/SettingsPage.qml:111
 msgid "Logout"
 msgstr "Odhlásit"
 
-#: ../app/qml/pages/SettingsPage.qml:76
+#: ../app/qml/pages/SettingsPage.qml:78
 msgid "Delete account"
 msgstr "Smazat účet"
 
-#: ../app/qml/pages/SettingsPage.qml:89
+#: ../app/qml/pages/SettingsPage.qml:92
 msgid "Connectivity status"
 msgstr "Stav připojení"
 
-#: ../app/qml/pages/SettingsPage.qml:106
+#: ../app/qml/pages/SettingsPage.qml:109
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -568,7 +572,7 @@ msgstr ""
 "Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
 "soukormých chatů. Skutečně se chcete odhlásit?"
 
-#: ../app/qml/pages/SettingsPage.qml:116
+#: ../app/qml/pages/SettingsPage.qml:119
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -597,25 +601,25 @@ msgstr "Noční režim"
 msgid "Leave chat"
 msgstr "Opustit chat"
 
-#: ../app/qml/pages/ChatListPage.qml:351
+#: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Přejete si vybrané zprávy přeposlat 1%?"
 
-#: ../app/qml/pages/ChatListPage.qml:353
+#: ../app/qml/pages/ChatListPage.qml:360
 #: ../app/qml/delegates/MessageBubbleItem.qml:90
 msgid "Forward"
 msgstr "Přeposlat"
 
-#: ../app/qml/pages/ChatListPage.qml:366 ../app/qml/pages/ChatListPage.qml:390
+#: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
 msgstr "Napište fakultativní zprávu..."
 
-#: ../app/qml/pages/ChatListPage.qml:374
+#: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
 msgstr "Přejete si stažené soubory odeslat 1%?"
 
-#: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:525
+#: ../app/qml/pages/ChatListPage.qml:383
+#: ../app/qml/pages/MessageListPage.qml:552
 msgid "Send"
 msgstr "Odeslat"
 
@@ -632,54 +636,54 @@ msgstr "Heslo"
 msgid "Next..."
 msgstr "Další..."
 
-#: ../app/qml/pages/MessageListPage.qml:29
+#: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 člen"
 msgstr[1] "%1 členové"
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ", %1 připojen"
 msgstr[1] ", %1 připojení"
 
-#: ../app/qml/pages/MessageListPage.qml:127
+#: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:296
-#: ../app/qml/pages/UserProfilePage.qml:40
+#: ../app/qml/pages/MessageListPage.qml:308
+#: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
 msgstr "Editovat"
 
-#: ../app/qml/pages/MessageListPage.qml:296
+#: ../app/qml/pages/MessageListPage.qml:308
 #: ../app/qml/delegates/MessageBubbleItem.qml:78
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: ../app/qml/pages/MessageListPage.qml:319
+#: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
 msgstr "Nemáte oprávněni k zasílání zpráv na tomto kanále"
 
-#: ../app/qml/pages/MessageListPage.qml:323
+#: ../app/qml/pages/MessageListPage.qml:335
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Čeká se na přijetí skrytého chatování příjemcem…"
 
-#: ../app/qml/pages/MessageListPage.qml:325
+#: ../app/qml/pages/MessageListPage.qml:337
 msgid "Secret chat has been closed"
 msgstr "Skrytý chat byl ukončen"
 
-#: ../app/qml/pages/MessageListPage.qml:413
+#: ../app/qml/pages/MessageListPage.qml:425
 msgid "Type a message..."
 msgstr "Napište zprávu..."
 
-#: ../app/qml/pages/MessageListPage.qml:523
+#: ../app/qml/pages/MessageListPage.qml:550
 msgid "Do you want to share your location with %1?"
 msgstr "Přejete si sdílet vaši polohu s %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:536
+#: ../app/qml/pages/MessageListPage.qml:563
 msgid "Requesting location from OS..."
 msgstr "Vyžadována poloha od OS..."
 
@@ -687,7 +691,7 @@ msgstr "Vyžadována poloha od OS..."
 msgid "Group Details"
 msgstr "Informace o skupině"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:99
+#: ../app/qml/pages/GroupDetailsPage.qml:89
 msgid "Members: %1"
 msgstr "Členů: %1"
 
@@ -709,11 +713,11 @@ msgstr "Telefonní číslo"
 msgid "Please confirm your country code and enter your phone number."
 msgstr "Potvrďte kód vašeho státu a zadejte vaše telefonní číslo."
 
-#: ../app/qml/pages/UserProfilePage.qml:20
+#: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
 msgstr "Profil"
 
-#: ../app/qml/pages/UserProfilePage.qml:50
+#: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
 msgstr "Editovat údaje o uživateli a kliknout na uložit"
 
@@ -860,6 +864,12 @@ msgstr "Upraveno"
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
 msgstr "není dostupné"
+
+#: ../app/qml/components/UserProfile.qml:233
+msgid ""
+"Check the image or the text. If they match with the ones on <b>%1</b>'s "
+"device, end-to-end cryptography is granted."
+msgstr ""
 
 #~ msgid "Image"
 #~ msgstr "Obrázek"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-19 20:09+0000\n"
+"POT-Creation-Date: 2020-01-26 21:11+0000\n"
 "PO-Revision-Date: 2019-11-11 10:36+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -305,51 +305,55 @@ msgstr "No implementadu:"
 msgid "Message"
 msgstr "Messàgiu"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr "Messàgios sarvados"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:599
+#: ../libs/qtdlib/chat/qtdchat.cpp:340
+msgid "Draft:"
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:600
+#: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:603
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 #, fuzzy
 #| msgid "Missing label..."
 msgid "is choosing location..."
 msgstr "Ammancat s'eticheta..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:604
+#: ../libs/qtdlib/chat/qtdchat.cpp:618
 #, fuzzy
 #| msgid "Requesting location from OS..."
 msgid "are choosing location..."
 msgstr "Rechedende sa positzione a su SO..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:609
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:610
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
 msgstr ""
 
@@ -426,7 +430,7 @@ msgstr "Cuntatos"
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34
 #: ../app/qml/pages/GroupDetailsPage.qml:32
-#: ../app/qml/pages/UserProfilePage.qml:31
+#: ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
 msgstr "In segus"
 
@@ -443,20 +447,20 @@ msgstr ""
 msgid "Add"
 msgstr "Agiunghe"
 
-#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:63
+#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
 msgid "Phone no"
 msgstr "Nùmeru de telèfonu"
 
-#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:72
+#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
 msgid "First name"
 msgstr "Nòmine"
 
-#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:81
+#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
 msgid "Last name"
 msgstr "Sangunadu"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
-#: ../app/qml/pages/SettingsPage.qml:118
+#: ../app/qml/pages/SettingsPage.qml:121
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
@@ -524,19 +528,19 @@ msgstr "Atualizende"
 msgid "Connectivity"
 msgstr "Connessione"
 
-#: ../app/qml/pages/ConnectivityPage.qml:73
+#: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
 msgstr "Istadu de connessione de Telegram:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:80
+#: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
 msgstr "Istadu de connessione de Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Àmpiu de banda de Ubuntu Touch limitadu"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Àmpiu de banda de Ubuntu Touch non limitadu"
 
@@ -544,7 +548,7 @@ msgstr "Àmpiu de banda de Ubuntu Touch non limitadu"
 msgid "File: "
 msgstr "Archìviu: "
 
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
+#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
 msgid "Save"
 msgstr "Sarva"
 
@@ -553,19 +557,19 @@ msgstr "Sarva"
 msgid "Settings"
 msgstr "Cunfiguratziones"
 
-#: ../app/qml/pages/SettingsPage.qml:63 ../app/qml/pages/SettingsPage.qml:108
+#: ../app/qml/pages/SettingsPage.qml:64 ../app/qml/pages/SettingsPage.qml:111
 msgid "Logout"
 msgstr "Essi"
 
-#: ../app/qml/pages/SettingsPage.qml:76
+#: ../app/qml/pages/SettingsPage.qml:78
 msgid "Delete account"
 msgstr "Cantzella custu contu"
 
-#: ../app/qml/pages/SettingsPage.qml:89
+#: ../app/qml/pages/SettingsPage.qml:92
 msgid "Connectivity status"
 msgstr "Istadu de sa connessione"
 
-#: ../app/qml/pages/SettingsPage.qml:106
+#: ../app/qml/pages/SettingsPage.qml:109
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -573,7 +577,7 @@ msgstr ""
 "Atentzione: essende de sa sessione s'ant a cantzellare totu is datos locales "
 "de custu dispositivu, fintzas is tzarradas segretas. Seguru chi boles essire?"
 
-#: ../app/qml/pages/SettingsPage.qml:116
+#: ../app/qml/pages/SettingsPage.qml:119
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -603,25 +607,25 @@ msgstr "Modalidade noturna"
 msgid "Leave chat"
 msgstr "Essi·nche dae sa tzarrada"
 
-#: ../app/qml/pages/ChatListPage.qml:351
+#: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Boles torrare a imbiare is messàgios seletzionados a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:353
+#: ../app/qml/pages/ChatListPage.qml:360
 #: ../app/qml/delegates/MessageBubbleItem.qml:90
 msgid "Forward"
 msgstr "Torra a imbiare"
 
-#: ../app/qml/pages/ChatListPage.qml:366 ../app/qml/pages/ChatListPage.qml:390
+#: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
 msgstr "Iscrie unu messàgiu optzionale..."
 
-#: ../app/qml/pages/ChatListPage.qml:374
+#: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
 msgstr "Boles imbiare is archìvios importados a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:525
+#: ../app/qml/pages/ChatListPage.qml:383
+#: ../app/qml/pages/MessageListPage.qml:552
 msgid "Send"
 msgstr "Imbia"
 
@@ -638,54 +642,54 @@ msgstr "Crae"
 msgid "Next..."
 msgstr "Sighi..."
 
-#: ../app/qml/pages/MessageListPage.qml:29
+#: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membru"
 msgstr[1] "%1 membros"
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ", %1 in lìnia"
 msgstr[1] ", %1 in lìnia"
 
-#: ../app/qml/pages/MessageListPage.qml:127
+#: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:296
-#: ../app/qml/pages/UserProfilePage.qml:40
+#: ../app/qml/pages/MessageListPage.qml:308
+#: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
 msgstr "Modìfica"
 
-#: ../app/qml/pages/MessageListPage.qml:296
+#: ../app/qml/pages/MessageListPage.qml:308
 #: ../app/qml/delegates/MessageBubbleItem.qml:78
 msgid "Reply"
 msgstr "Risponde"
 
-#: ../app/qml/pages/MessageListPage.qml:319
+#: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
 msgstr "Non podes publicare in custu canale"
 
-#: ../app/qml/pages/MessageListPage.qml:323
+#: ../app/qml/pages/MessageListPage.qml:335
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Isetende chi s'àtera parte atzetet sa tzarrada segreta..."
 
-#: ../app/qml/pages/MessageListPage.qml:325
+#: ../app/qml/pages/MessageListPage.qml:337
 msgid "Secret chat has been closed"
 msgstr "Tzarrada segreta serrada"
 
-#: ../app/qml/pages/MessageListPage.qml:413
+#: ../app/qml/pages/MessageListPage.qml:425
 msgid "Type a message..."
 msgstr "Iscrie unu messàgiu..."
 
-#: ../app/qml/pages/MessageListPage.qml:523
+#: ../app/qml/pages/MessageListPage.qml:550
 msgid "Do you want to share your location with %1?"
 msgstr "Boles cumpartzire sa positzione tua cun %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:536
+#: ../app/qml/pages/MessageListPage.qml:563
 msgid "Requesting location from OS..."
 msgstr "Rechedende sa positzione a su SO..."
 
@@ -693,7 +697,7 @@ msgstr "Rechedende sa positzione a su SO..."
 msgid "Group Details"
 msgstr "Detàllios de su grupu"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:99
+#: ../app/qml/pages/GroupDetailsPage.qml:89
 msgid "Members: %1"
 msgstr "Membros: %1"
 
@@ -716,11 +720,11 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 "Cunfirma su còdighe de paisu tuo e inserta·nche su nùmeru de telèfonu tuo."
 
-#: ../app/qml/pages/UserProfilePage.qml:20
+#: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
 msgstr "Profilu"
 
-#: ../app/qml/pages/UserProfilePage.qml:50
+#: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
 msgstr "Modìfica is datos de s'usuàriu e preme Sarva"
 
@@ -872,6 +876,12 @@ msgstr "Modificadu"
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
 msgstr "no est a disponimentu"
+
+#: ../app/qml/components/UserProfile.qml:233
+msgid ""
+"Check the image or the text. If they match with the ones on <b>%1</b>'s "
+"device, end-to-end cryptography is granted."
+msgstr ""
 
 #~ msgid "Image"
 #~ msgstr "Immàgine"

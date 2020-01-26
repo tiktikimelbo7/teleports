@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-19 20:09+0000\n"
+"POT-Creation-Date: 2020-01-26 21:11+0000\n"
 "PO-Revision-Date: 2020-01-19 19:22+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
@@ -305,51 +305,55 @@ msgstr "Non implementato:"
 msgid "Message"
 msgstr "Messaggio"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr "Messaggi Salvati"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:599
+#: ../libs/qtdlib/chat/qtdchat.cpp:340
+msgid "Draft:"
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:600
+#: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:603
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 #, fuzzy
 #| msgid "Missing label..."
 msgid "is choosing location..."
 msgstr "Manca etichetta..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:604
+#: ../libs/qtdlib/chat/qtdchat.cpp:618
 #, fuzzy
 #| msgid "Requesting location from OS..."
 msgid "are choosing location..."
 msgstr "Richiesta posizione al SO..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:609
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:610
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
 msgstr ""
 
@@ -426,7 +430,7 @@ msgstr "Contatti"
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34
 #: ../app/qml/pages/GroupDetailsPage.qml:32
-#: ../app/qml/pages/UserProfilePage.qml:31
+#: ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
 msgstr "Indietro"
 
@@ -442,20 +446,20 @@ msgstr "Il contatto verrà aggiunto. Nome e cognome sono opzionali"
 msgid "Add"
 msgstr "Aggiungi"
 
-#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:63
+#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
 msgid "Phone no"
 msgstr "Numero di telefono"
 
-#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:72
+#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
 msgid "First name"
 msgstr "Nome"
 
-#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:81
+#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
 msgid "Last name"
 msgstr "Cognome"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
-#: ../app/qml/pages/SettingsPage.qml:118
+#: ../app/qml/pages/SettingsPage.qml:121
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
@@ -524,19 +528,19 @@ msgstr "Aggiornando"
 msgid "Connectivity"
 msgstr "Connettività"
 
-#: ../app/qml/pages/ConnectivityPage.qml:73
+#: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
 msgstr "Stato di connettività di Telegram:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:80
+#: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
 msgstr "stato di connettività di Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Potenza collegamento a internet di Ubuntu Touch limitata"
 
-#: ../app/qml/pages/ConnectivityPage.qml:87
+#: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Potenza collegamento a internet di Ubuntu Touch senza limiti"
 
@@ -544,7 +548,7 @@ msgstr "Potenza collegamento a internet di Ubuntu Touch senza limiti"
 msgid "File: "
 msgstr "File: "
 
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:52
+#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
 msgid "Save"
 msgstr "Salva"
 
@@ -553,19 +557,19 @@ msgstr "Salva"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: ../app/qml/pages/SettingsPage.qml:63 ../app/qml/pages/SettingsPage.qml:108
+#: ../app/qml/pages/SettingsPage.qml:64 ../app/qml/pages/SettingsPage.qml:111
 msgid "Logout"
 msgstr "Disconnetti"
 
-#: ../app/qml/pages/SettingsPage.qml:76
+#: ../app/qml/pages/SettingsPage.qml:78
 msgid "Delete account"
 msgstr "Elimina account"
 
-#: ../app/qml/pages/SettingsPage.qml:89
+#: ../app/qml/pages/SettingsPage.qml:92
 msgid "Connectivity status"
 msgstr "Stato di connessione"
 
-#: ../app/qml/pages/SettingsPage.qml:106
+#: ../app/qml/pages/SettingsPage.qml:109
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -573,7 +577,7 @@ msgstr ""
 "Attenzione: Disconnettendosi perderai tutti i dati di questo dispositivo, "
 "chat segrete incluse. Sei ancora sicuro di volerti disconnettere?"
 
-#: ../app/qml/pages/SettingsPage.qml:116
+#: ../app/qml/pages/SettingsPage.qml:119
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -603,25 +607,25 @@ msgstr "Modalità notte"
 msgid "Leave chat"
 msgstr "Lascia chat"
 
-#: ../app/qml/pages/ChatListPage.qml:351
+#: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Vuoi inoltrare il messaggio selezionato a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:353
+#: ../app/qml/pages/ChatListPage.qml:360
 #: ../app/qml/delegates/MessageBubbleItem.qml:90
 msgid "Forward"
 msgstr "Inoltra"
 
-#: ../app/qml/pages/ChatListPage.qml:366 ../app/qml/pages/ChatListPage.qml:390
+#: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
 msgstr "Scrivi un messaggio opzionale..."
 
-#: ../app/qml/pages/ChatListPage.qml:374
+#: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
 msgstr "Vuoi inviare i file importati a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:376
-#: ../app/qml/pages/MessageListPage.qml:525
+#: ../app/qml/pages/ChatListPage.qml:383
+#: ../app/qml/pages/MessageListPage.qml:552
 msgid "Send"
 msgstr "Invia"
 
@@ -638,54 +642,54 @@ msgstr "Password"
 msgid "Next..."
 msgstr "Avanti..."
 
-#: ../app/qml/pages/MessageListPage.qml:29
+#: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membri"
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ", %1 in linea"
 msgstr[1] ", %1 in linea"
 
-#: ../app/qml/pages/MessageListPage.qml:127
+#: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:296
-#: ../app/qml/pages/UserProfilePage.qml:40
+#: ../app/qml/pages/MessageListPage.qml:308
+#: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../app/qml/pages/MessageListPage.qml:296
+#: ../app/qml/pages/MessageListPage.qml:308
 #: ../app/qml/delegates/MessageBubbleItem.qml:78
 msgid "Reply"
 msgstr "Rispondi"
 
-#: ../app/qml/pages/MessageListPage.qml:319
+#: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
 msgstr "Non puoi postare in questo canale"
 
-#: ../app/qml/pages/MessageListPage.qml:323
+#: ../app/qml/pages/MessageListPage.qml:335
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "In attesa che l'altro partecipante accetti la chat segreta..."
 
-#: ../app/qml/pages/MessageListPage.qml:325
+#: ../app/qml/pages/MessageListPage.qml:337
 msgid "Secret chat has been closed"
 msgstr "La chat segreta è stata chiusa"
 
-#: ../app/qml/pages/MessageListPage.qml:413
+#: ../app/qml/pages/MessageListPage.qml:425
 msgid "Type a message..."
 msgstr "Scrivi un messaggio..."
 
-#: ../app/qml/pages/MessageListPage.qml:523
+#: ../app/qml/pages/MessageListPage.qml:550
 msgid "Do you want to share your location with %1?"
 msgstr "Vuoi condividere la tua posizione con %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:536
+#: ../app/qml/pages/MessageListPage.qml:563
 msgid "Requesting location from OS..."
 msgstr "Richiesta posizione al SO..."
 
@@ -693,7 +697,7 @@ msgstr "Richiesta posizione al SO..."
 msgid "Group Details"
 msgstr "Dettagli Gruppo"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:99
+#: ../app/qml/pages/GroupDetailsPage.qml:89
 msgid "Members: %1"
 msgstr "Membri: %1"
 
@@ -716,11 +720,11 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr ""
 "Conferma il codice del tuo Paese e inserisci il tuo numero di telefono."
 
-#: ../app/qml/pages/UserProfilePage.qml:20
+#: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
 msgstr "Profilo"
 
-#: ../app/qml/pages/UserProfilePage.qml:50
+#: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
 msgstr "Modifica i dati dell'utente e premi Salva"
 
@@ -871,6 +875,12 @@ msgstr "Modificato"
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
 msgstr "non disponibile"
+
+#: ../app/qml/components/UserProfile.qml:233
+msgid ""
+"Check the image or the text. If they match with the ones on <b>%1</b>'s "
+"device, end-to-end cryptography is granted."
+msgstr ""
 
 #~ msgid "Image"
 #~ msgstr "Immagine"
