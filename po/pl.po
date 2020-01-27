@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2020-01-21 06:34+0000\n"
+"PO-Revision-Date: 2020-01-29 12:21+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -312,7 +312,7 @@ msgstr "Zapisane wiadomości"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Wersja robocza:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
@@ -879,6 +879,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Sprawdź obraz lub tekst. Jeśli pasują do tych na urządzeniu <b>%1</b>, "
+"zapewnia się kompleksową kryptografię."
 
 #~ msgid "Image"
 #~ msgstr "Zdjęcie"
