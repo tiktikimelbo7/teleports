@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2020-01-21 06:34+0000\n"
+"PO-Revision-Date: 2020-01-29 12:21+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -311,7 +311,7 @@ msgstr "Missatges desats"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Esborrany:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
@@ -874,6 +874,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Comproveu la imatge o el text. Si es corresponen amb els del dispositiu de "
+"<b>%1</b> esteu usant criptografia punt a punt."
 
 #~ msgid "Image"
 #~ msgstr "Imatge"
