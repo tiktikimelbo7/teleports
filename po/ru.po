@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"PO-Revision-Date: 2020-02-04 10:21+0000\n"
 "Last-Translator: Dmitriy Pushkov <ezze@ezze.org>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
 "teleports/ru/>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
@@ -312,51 +312,47 @@ msgstr "Сохранённые сообщения"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Черновик:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
-msgstr ""
+msgstr "выбирает контакт..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
-msgstr ""
+msgstr "выбирают контакт..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "Название отсутствует..."
+msgstr "выбирает местоположение..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
-#, fuzzy
-#| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "Запрос местоположения у ОС..."
+msgstr "выбирают местоположение..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
-msgstr ""
+msgstr "записывает сообщение..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
-msgstr ""
+msgstr "записывают сообщения..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
-msgstr ""
+msgstr "пишет сообщение..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
-msgstr ""
+msgstr "пишут сообщения..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
-msgstr ""
+msgstr "что-то делает"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
-msgstr ""
+msgstr "что-то делают"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -887,6 +883,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Проверьте изображение или текст. Если они совпадают с изображением и текстом "
+"на устройстве <b>%1</b>, то зашифрованное соединение гарантированно."
 
 #~ msgid "Image"
 #~ msgstr "Фото"
