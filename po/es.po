@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2019-11-09 23:36+0000\n"
-"Last-Translator: advocatux <advocatux@airpost.net>\n"
+"PO-Revision-Date: 2020-02-05 23:21+0000\n"
+"Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
 "Language: es\n"
@@ -311,51 +311,58 @@ msgstr "Mensajes guardados"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Borrador:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
+#, fuzzy
 msgid "is choosing contact..."
-msgstr ""
+msgstr "está seleccionando un contacto..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
+#, fuzzy
 msgid "are choosing contact..."
-msgstr ""
+msgstr "están seleccionando un contacto..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
 #, fuzzy
 #| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "Falta la etiqueta..."
+msgstr "está eligiendo una localización..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
 #, fuzzy
 #| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "Solicitud de ubicación del SO..."
+msgstr "están seleccionando una localización..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
-msgstr ""
+msgstr "está grabando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:624
+#, fuzzy
 msgid "are recording..."
-msgstr ""
+msgstr "están grabando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
+#, fuzzy
 msgid "is typing..."
-msgstr ""
+msgstr "está escribiendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:628
+#, fuzzy
 msgid "are typing..."
-msgstr ""
+msgstr "están escribiendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:631
+#, fuzzy
 msgid "is doing something"
-msgstr ""
+msgstr "está haciendo algo"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
+#, fuzzy
 msgid "are doing something"
-msgstr ""
+msgstr "están haciendo algo"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -875,10 +882,13 @@ msgid "not available"
 msgstr "no disponible"
 
 #: ../app/qml/components/UserProfile.qml:233
+#, fuzzy
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Compruebe la imagen o el texto. Si coinciden con que están en el dispositivo "
+"de <b>%1</b>, el cifrado de extremo a extremo está garantizado."
 
 #~ msgid "Image"
 #~ msgstr "Imagen"
