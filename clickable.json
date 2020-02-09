@@ -1,12 +1,12 @@
 {
-  "clickable_minimum_required": "6",
+  "clickable_minimum_required": "6.9.1",
   "template": "cmake",
   "kill": "teleports",
   "dependencies_target": [
     "gperf",
     "libssl-dev"
   ],
-  "dependencies_build": [
+  "dependencies_host": [
     "ccache"
   ],
   "libraries": {
