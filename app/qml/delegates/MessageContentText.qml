@@ -10,8 +10,6 @@ MessageContentBase {
     id: item
 
     property QTdMessageText textContent: message.content
-    width: Math.min(implicitWidth, maximumAvailableContentWidth)
-    implicitWidth: webpage_loader.visible && textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), text.width) : text.width
 
     FormattedText {
         id: text
@@ -21,6 +19,7 @@ MessageContentBase {
 
         isPreview: message.isCollapsed
         maximumWidth: maximumAvailableContentWidth
+        width: webpage_loader.visible ? webpage_loader.width : implicitWidth
         formattedText: textContent.text
 
         // loading asynchronous with yet undefined height makes jumping
@@ -31,9 +30,9 @@ MessageContentBase {
             active: visible
             asynchronous: true
             height: childrenRect.height
-            width: item.width
             sourceComponent: Component {
                 WebPagePreview {
+                    width: Math.min(textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), implicitWidth) : implicitWidth, maximumAvailableContentWidth)
                     preview: textContent.webPage
                 }
             }
