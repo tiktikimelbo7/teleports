@@ -239,6 +239,7 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data) { emit updateChatPhoto(data); });
     m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data) { emit updateChatReadOutbox(data); });
     m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data) { emit updateChatReplyMarkup(data); });
+    m_events.insert(QStringLiteral("updateChatDraftMessage"), [=](const QJsonObject &data) { emit updateChatDraftMessage(data); });
     m_events.insert(QStringLiteral("updateChatTitle"), [=](const QJsonObject &data) { emit updateChatTitle(data); });
     m_events.insert(QStringLiteral("updateChatUnreadMentionCount"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });
     m_events.insert(QStringLiteral("updateMessageMentionRead"), [=](const QJsonObject &data) { emit updateChatUnreadMentionCount(data); });

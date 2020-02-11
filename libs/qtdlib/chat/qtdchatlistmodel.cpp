@@ -8,6 +8,7 @@
 #include "chat/requests/qtdsetpinnedchatsrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
+#include "chat/requests/qtdsetchatdraftrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -41,6 +42,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateChatIsPinned, this, &QTdChatListModel::handleUpdateChatIsPinned);
     connect(QTdClient::instance(), &QTdClient::updateChatPhoto, this, &QTdChatListModel::handleUpdateChatPhoto);
     connect(QTdClient::instance(), &QTdClient::updateChatReplyMarkup, this, &QTdChatListModel::handleUpdateChatReplyMarkup);
+    connect(QTdClient::instance(), &QTdClient::updateChatDraftMessage, this, &QTdChatListModel::handleUpdateChatDraftMessage);
     connect(QTdClient::instance(), &QTdClient::updateChatTitle, this, &QTdChatListModel::handleUpdateChatTitle);
     connect(QTdClient::instance(), &QTdClient::updateChatUnreadMentionCount, this, &QTdChatListModel::handleUpdateChatUnreadMentionCount);
     connect(QTdClient::instance(), &QTdClient::updateChatNotificationSettings, this, &QTdChatListModel::handleUpdateChatNotificationSettings);
@@ -235,7 +237,7 @@ void QTdChatListModel::handleUpdateChatLastMessage(const QJsonObject &data)
     const qint64 id = qint64(data["chat_id"].toDouble());
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
-        tdchat->updateLastMessage(data);
+        tdchat->updateLastMessage(data["last_message"].toObject());
         tdchat->updateChatOrder(data);
         emit contentsChanged();
     }
@@ -312,6 +314,17 @@ void QTdChatListModel::handleUpdateChatReplyMarkup(const QJsonObject &data)
     QTdChat *tdchat = chatById(id);
     if (tdchat) {
         tdchat->updateChatReplyMarkup(data);
+        emit contentsChanged();
+    }
+}
+
+void QTdChatListModel::handleUpdateChatDraftMessage(const QJsonObject &data)
+{
+    const qint64 id = qint64(data["chat_id"].toDouble());
+    QTdChat *tdchat = chatById(id);
+    if (tdchat) {
+        tdchat->updateChatDraftMessage(data["draft_message"].toObject());
+        tdchat->updateChatOrder(data);
         emit contentsChanged();
     }
 }
@@ -448,4 +461,18 @@ void QTdChatListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
 {
     cancelPositionInfo();
     emit positionInfoReceived(positionInfo.coordinate().latitude(), positionInfo.coordinate().longitude());
+}
+
+void QTdChatListModel::setChatDraftMessage(const QString &draftText,
+                                           const qint64 &chatId)
+{
+    QScopedPointer<QTdInputMessageText> messageText(new QTdInputMessageText);
+    messageText->setText(draftText);
+    messageText->setClearDraft(false);
+    QScopedPointer<QTdDraftMessage> draftMessage(new QTdDraftMessage);
+    draftMessage->setInputMessageText(messageText.take());
+    QScopedPointer<QTdSetChatDraftRequest> request(new QTdSetChatDraftRequest);
+    request->setChatId(chatId);
+    request->setDraftMessage(draftMessage.take());
+    QTdClient::instance()->send(request.data());
 }

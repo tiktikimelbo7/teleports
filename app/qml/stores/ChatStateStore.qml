@@ -286,7 +286,7 @@ Store {
             messageList.sendPhoto(message.photoUrl, message.text, 0);
         }
     }
-    
+
     Filter {
         type: ChatKey.sendAudio
         onDispatched: {
@@ -376,6 +376,14 @@ Store {
             if (chat) {
                 chat.deleteChatHistory()
             }
+        }
+    }
+
+    Filter {
+        type: ChatKey.setChatDraftMessage
+        onDispatched: {
+          chatList.setChatDraftMessage(message.draftText,
+                                      chatList.currentChat.id);
         }
     }
 

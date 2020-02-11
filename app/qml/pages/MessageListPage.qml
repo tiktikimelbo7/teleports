@@ -18,9 +18,11 @@ Page {
     property QTdChat currentChat: Telegram.chats.currentChat
     property int currentMessageIndex: currentChat.currentMessageIndex
     property var locationWaitDialog: null
+    Suru.highlightType: Suru.PositiveHighlight
 
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
+        Suru.highlightType: Suru.PositiveHighlight
         subtitle: {
             if (Telegram.chats && currentChat) {
                 if (currentChat.action != "")
@@ -41,6 +43,7 @@ Page {
                 iconName: "back"
                 text: "Back"
                 onTriggered: {
+                    entry.saveDraft()
                     AppActions.chat.closeCurrentChat()
                 }
             }
@@ -175,7 +178,7 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1
                 text: header.subtitle
-                color: header.isOnline ? UITK.UbuntuColors.blue : theme.palette.normal.backgroundTertiaryText
+                color: header.isOnline ? theme.palette.normal.focus : theme.palette.normal.backgroundTertiaryText
 
                 Connections {
                     target: header
@@ -206,9 +209,17 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                     mouse.accepted = true;
-                    currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user) : AppActions.chat.viewGroupInfo(currentChat)
+                    currentChat.isPrivate ? AppActions.user.showUserInfo(currentChat.chatType.user, currentChat) : AppActions.chat.viewGroupInfo(currentChat)
                 }
             }
+        }
+        UITK.StyleHints {
+            backgroundColor: dumb_color.color
+        }
+        Item {
+            id: dumb_color
+            Suru.highlightType: Suru.PositiveHighlight
+            property color color: currentChat.isSecret ? Qt.tint(Suru.backgroundColor, Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)) : "transparent"
         }
     }
 
@@ -239,6 +250,7 @@ Page {
 
         ListView {
             id: msgList
+            clip: true
             anchors {
                 fill: parent
                 bottomMargin: Suru.units.gu(1)
@@ -411,7 +423,7 @@ Page {
                 mouseSelectionMode: TextEdit.SelectWords
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
                 placeholderText: i18n.tr("Type a message...")
-
+                text: currentChat.draftMessage.inputMessageText.text
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
@@ -445,6 +457,10 @@ Page {
                     }
                     event.accepted = false;
                 }
+                function saveDraft() {
+                    Qt.inputMethod.commit()
+                    AppActions.chat.setChatDraftMessage(entry.text)
+                }
 
                 Keys.onEnterPressed: sendIfEnter(event)
                 Keys.onReturnPressed: sendIfEnter(event)
@@ -454,11 +470,22 @@ Page {
                         typing_timer.start()
                         AppActions.chat.sendChatAction();
                     }
+                    draft_timer.restart()
                 }
 
                 Timer {
                     id: typing_timer
                     interval: 5000
+                }
+                Timer {
+                    id: draft_timer
+                    interval: 15000
+                    onTriggered: entry.saveDraft()
+                }
+
+                Connections {
+                    target: Qt.application
+                    onStateChanged: if (Qt.application.state != Qt.ApplicationActive) {entry.saveDraft()}
                 }
             }
             UITK.StyledItem {
@@ -521,7 +548,7 @@ Page {
         id: sendLocationConfirmationDialog
         PopupDialog {
             text: i18n.tr("Do you want to share your location with %1?").arg(currentChat.title)
-            confirmButtonColor: UITK.UbuntuColors.green
+            confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Send")
             onConfirmed: {
                 messageListPage.locationWaitDialog = UITK_Popups.PopupUtils.open(locationWaitDialog)

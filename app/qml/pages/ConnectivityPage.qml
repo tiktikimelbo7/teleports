@@ -69,6 +69,7 @@ Page {
                         width: units.gu(2)
                         name: tgStatusMapImage[tgConnectionState]
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        color: theme.palette.normal.backgroundSecondaryText
                     }
                     title.text: i18n.tr('Telegram connectivity status:') + ' ' + tgStatusMapText[tgConnectionState]
                 }

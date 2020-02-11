@@ -55,16 +55,6 @@ Page {
                 GenericPhoto {
                     id: avatar
 
-                    /*anchors {
-                        top: parent.top
-                        topMargin: units.dp(4)
-                        left: parent.left
-                        leftMargin: units.gu(1)
-                        bottom: parent.bottom
-                        bottomMargin: units.dp(4)
-                        rightMargin: units.gu(2)
-                    }*/
-
                     height: units.gu(13)
                     width: height
                     photoPath: chat.chatPhoto.small.local.path ?
@@ -143,13 +133,6 @@ Page {
                                 top: 0
                                 bottom: 0
                             }
-
-                            /*UITK.Icon {
-                                height: parent.title.height
-                                width: parent.title.height
-                                name: "call-start"
-                                UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                            }*/
 
                             title {
                                 text: chat.description

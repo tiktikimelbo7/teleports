@@ -139,7 +139,7 @@ Page {
                         UITK.Action {
                             iconName: "info"
                             text: i18n.tr("Info")
-                            onTriggered: chat.isPrivate ? AppActions.user.showUserInfo(chat.chatType.user) : AppActions.chat.viewGroupInfo(chat)
+                            onTriggered: chat.isPrivate ? AppActions.user.showUserInfo(chat.chatType.user, chat) : AppActions.chat.viewGroupInfo(chat)
                         }
                     ]
                 }
@@ -239,12 +239,19 @@ Page {
                                 height: units.gu(2)
                                 width: parent.width
                                 Label {
+                                    visible: chat.summary[0] != ""
+                                    font.pixelSize: units.dp(15)
+                                    Suru.textStyle: Suru.TertiaryText
+                                    Suru.highlightType: Suru.NegativeHighlight
+                                    color: Suru.highlightColor
+                                    text: chat.summary[0]
+                                }
+                                Label {
                                     elide: Text.ElideRight
-                                    wrapMode: Text.WrapAnywhere
                                     maximumLineCount: 1
                                     font.pixelSize: units.dp(15)
                                     Suru.textStyle: Suru.TertiaryText
-                                    text: chat.summary
+                                    text: chat.summary[1]
                                     Layout.fillWidth: true
                                 }
                             }
@@ -289,7 +296,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: chat.isMuted ? Suru.neutralColor : UITK.UbuntuColors.blue
+                                color: chat.isMuted ? Suru.neutralColor : theme.palette.normal.focus
                                 visible: chat.hasUnreadMessages
 
                                 Label {
@@ -311,7 +318,7 @@ Page {
                                 width: Math.min(height, units.gu(4))
                                 height: units.gu(2.8)
                                 radius: width*0.5
-                                color: UITK.UbuntuColors.blue
+                                color: theme.palette.normal.focus
                                 visible: chat.hasUnreadMentions
 
                                 Label {
@@ -349,7 +356,7 @@ Page {
                         id: forwardConfirmationDialog
                         PopupDialog {
                             text: i18n.tr("Do you want to forward the selected messages to %1?").arg(userSelectedChat.title)
-                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonColor: theme.palette.normal.focus
                             confirmButtonText: i18n.tr("Forward")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();
@@ -372,7 +379,7 @@ Page {
                         id: importConfirmationDialog
                         PopupDialog {
                             text: i18n.tr("Do you want to send the imported files to %1?").arg(userSelectedChat.title)
-                            confirmButtonColor: UITK.UbuntuColors.blue
+                            confirmButtonColor: theme.palette.normal.focus
                             confirmButtonText: i18n.tr("Send")
                             onConfirmed: {
                                 var optionalMessageText = optionalMessage.text.trim();

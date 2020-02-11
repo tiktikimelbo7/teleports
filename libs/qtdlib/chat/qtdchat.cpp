@@ -34,6 +34,7 @@ QTdChat::QTdChat(QObject *parent)
     , m_notifySettings(new QTdNotificationSettings)
     , m_messages(0)
     , m_chatOpen(false)
+    , m_draftMessage(new QTdDraftMessage)
 {
     setType(CHAT);
     m_my_id = QTdClient::instance()->getOption("my_id").toInt();
@@ -73,6 +74,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatUnreadMentionCount(json);
 
     updateChatReplyMarkup(json);
+
+    updateChatDraftMessage(json["draft_message"].toObject());
 
     m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
     emit notificationSettingsChanged();
@@ -330,26 +333,27 @@ QString QTdChat::action() const
     return actionMessage;
 }
 
-QString QTdChat::summary() const
+QVariant QTdChat::summary()
 {
-    if (action() != "") {
-        return action();
+    QVariantList summary;
+    if (draftMessage()->inputMessageText()->text() != "") {
+        summary.insert(0, QString(gettext("Draft:")));
+        summary.insert(1, draftMessage()->inputMessageText()->text());
+    } else {
+        summary.insert(0, QString());
+        if (action() != "") {
+            summary.insert(1, action());
+        } else if (!m_lastMessage->isValid()) {
+            summary.insert(1, QString());
+        } else if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
+            summary.insert(1, m_lastMessage->summary());
+        } else if (!m_lastMessage->senderName().isEmpty()) {
+            summary.insert(1, QString("%1: %2").arg(m_lastMessage->senderName(), m_lastMessage->summary()));
+        } else {
+            summary.insert(1, m_lastMessage->summary());
+        }
     }
-
-    if (!m_lastMessage->isValid()) {
-        return QString();
-    }
-
-    if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
-        return m_lastMessage->summary();
-    }
-
-    QString sendername = m_lastMessage->senderName();
-
-    if (sendername.isEmpty())
-        return m_lastMessage->summary();
-
-    return QString("%1: %2").arg(sendername, m_lastMessage->summary());
+    return QVariant::fromValue(summary);
 }
 
 QObject *QTdChat::messages() const
@@ -510,6 +514,17 @@ void QTdChat::updateChatReplyMarkup(const QJsonObject &json)
     }
 }
 
+void QTdChat::updateChatDraftMessage(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        m_draftMessage.reset(new QTdDraftMessage);
+    } else {
+        m_draftMessage->unmarshalJson(json);
+    }
+    emit summaryChanged();
+    emit draftMessageChanged();
+}
+
 void QTdChat::updateChatTitle(const QJsonObject &json)
 {
     m_title = json["title"].toString();
@@ -540,11 +555,10 @@ void QTdChat::updateChatNotificationSettings(const QJsonObject &json)
 void QTdChat::updateLastMessage(const QJsonObject &json)
 {
     if (json.isEmpty()) {
-        return;
+        m_lastMessage.reset(new QTdMessage);
+    } else {
+        m_lastMessage->unmarshalJson(json);
     }
-
-    m_lastMsgJson = json["last_message"].toObject();
-    m_lastMessage->unmarshalJson(m_lastMsgJson);
     emit lastMessageChanged(m_lastMessage.data());
     emit summaryChanged();
 }
@@ -596,26 +610,26 @@ void QTdChat::updateChatAction(const QJsonObject &json)
         case QTdChatAction::Type::CHAT_ACTION_CANCEL:
             return;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_CONTACT:
-            singular_description = QStringLiteral("is choosing contact...");
-            plural_description = QStringLiteral("are choosing contact...");
+            singular_description = QString(gettext("is choosing contact..."));
+            plural_description = QString(gettext("are choosing contact..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_CHOOSING_LOCATION:
-            singular_description = QStringLiteral("is choosing location...");
-            plural_description = QStringLiteral("are choosing location...");
+            singular_description = QString(gettext("is choosing location..."));
+            plural_description = QString(gettext("are choosing location..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO_NOTE:
         case QTdChatAction::Type::CHAT_ACTION_RECORDING_VOICE_NOTE:
-            singular_description = QStringLiteral("is recording...");
-            plural_description = QStringLiteral("are recording...");
+            singular_description = QString(gettext("is recording..."));
+            plural_description = QString(gettext("are recording..."));
             break;
         case QTdChatAction::Type::CHAT_ACTION_TYPING:
-            singular_description = QStringLiteral("is typing...");
-            plural_description = QStringLiteral("are typing...");
+            singular_description = QString(gettext("is typing..."));
+            plural_description = QString(gettext("are typing..."));
             break;
         default:
-            singular_description = QStringLiteral("is doing something");
-            plural_description = QStringLiteral("are doing something");
+            singular_description = QString(gettext("is doing something"));
+            plural_description = QString(gettext("are doing something"));
             break;
         }
         m_chatActions.insert(user_id, useraction(user_id, singular_description,
@@ -650,4 +664,9 @@ void QTdChat::positionMessageListViewAtIndex(int index)
 {
     m_currentMessageIndex = index;
     currentMessageIndexChanged();
+}
+
+QTdDraftMessage *QTdChat::draftMessage() const
+{
+    return m_draftMessage.data();
 }

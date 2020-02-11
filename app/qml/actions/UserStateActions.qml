@@ -6,8 +6,8 @@ ActionCreator {
     signal addUser(string userName, string firstName, string lastName)
     signal deleteUser(int userId)
 
-    function showUserInfo(user) {
-        view.pushToStack("qrc:/pages/UserProfilePage.qml", {user: user})
+    function showUserInfo(user, chat) {
+        view.pushToStack("qrc:/pages/UserProfilePage.qml", {user: user, chat: chat})
     }
 
 }

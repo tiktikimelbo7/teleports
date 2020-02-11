@@ -88,6 +88,7 @@ set(
     chat/requests/qtdopenchatrequest.cpp
     chat/requests/qtdreportchatrequest.cpp
     chat/requests/qtdsendchatactionrequest.cpp
+    chat/requests/qtdsetchatdraftrequest.cpp
     chat/requests/qtdsetchattitlerequest.cpp
     chat/requests/qtdsetpinnedchatsrequest.cpp
     chat/requests/qtdforwardmessagesrequest.cpp
@@ -154,6 +155,7 @@ set(
     messages/content/qtdmessageunsupported.cpp
     messages/content/qtdmessagescreenshottaken.cpp
     messages/qtdchatstate.cpp
+    messages/qtddraftmessage.cpp
     messages/qtdmessage.cpp
     messages/qtdmessagecontent.cpp
     messages/qtdmessagecontentfactory.cpp

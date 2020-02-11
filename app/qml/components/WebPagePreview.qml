@@ -11,7 +11,7 @@ Item {
     property QTdWebPage preview: null
     property bool imageOnly: !(siteName.visible || title.visible || description.visible)
 
-    height: pageDescription.height
+    height: imageOnly ? previewImage.height : pageDescription.height
     Rectangle {
         id: colorBlock
         anchors {

@@ -59,11 +59,11 @@
   <path
      inkscape:connector-curvature="0"
      id="path4"
-     style="color:#000000;text-indent:0;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#e95420;color-rendering:auto;image-rendering:auto;shape-rendering:auto;fill-opacity:0.75294119"
+     style="color:#000000;text-indent:0;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#808080;color-rendering:auto;image-rendering:auto;shape-rendering:auto;fill-opacity:0.75294119"
      d="m 48.12,4.14 c -24.23,0 -43.91,19.68 -43.91,43.91 0,24.23 19.68,43.91 43.91,43.91 24.23,0 43.91,-19.68 43.91,-43.91 C 92.03,23.82 72.35,4.14 48.12,4.14 Z m 0,4.182 c 21.97,0 39.73,17.76 39.73,39.73 0,21.97 -17.76,39.73 -39.73,39.73 -21.97,0 -39.73,-17.76 -39.73,-39.73 0,-21.97 17.76,-39.73 39.73,-39.73 z" />
   <path
      inkscape:connector-curvature="0"
-     style="color:#000000;fill:#e95420;stroke-width:3.93392515;fill-opacity:0.75294119"
+     style="color:#000000;fill:#808080;stroke-width:3.93392515;fill-opacity:0.75294119"
      d="m 48.179694,73.422176 c 2.382212,0.003 21.00004,-32.340296 19.806346,-34.407834 -1.193692,-2.067536 -38.515435,-2.114095 -39.701231,-0.05112 -1.188516,2.06455 17.512675,34.455963 19.894885,34.458951 z"
      id="path6-3" />
 </svg>

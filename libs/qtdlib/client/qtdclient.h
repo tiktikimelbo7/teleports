@@ -112,7 +112,6 @@ public:
     void setAvatarMapEntry(const qint64 id, const QString path);
     void setUnreadMapEntry(const qint64 id, const qint32 unread_count);
     void clearNotificationFor(const qint64 id);
-    
 
 signals:
     void authStateChanged(QTdAuthState *state);
@@ -136,6 +135,7 @@ signals:
     void updateChatIsPinned(const QJsonObject &chat);
     void updateChatPhoto(const QJsonObject &photo);
     void updateChatReplyMarkup(const QJsonObject &chat);
+    void updateChatDraftMessage(const QJsonObject &chat);
     void updateChatTitle(const QJsonObject &chat);
     void updateChatUnreadMentionCount(const QJsonObject &chat);
     void updateUserChatAction(const QJsonObject &chat);
