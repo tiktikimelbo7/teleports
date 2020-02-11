@@ -16,7 +16,7 @@ Item {
     property QTdMessage message: null
     property bool contentBeforeMain: forwardLoader.active || citationLoader.active
 
-    width: contentColumn.width
+    width: Math.max(implicitWidth, contentColumn.width)
     height: contentColumn.height + contentColumn.anchors.topMargin
 
     Component {
