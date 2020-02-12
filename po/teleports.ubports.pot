@@ -356,6 +356,56 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+msgid "Photo"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
+msgid "Sticker"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
+msgid "changed the chat title"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
+msgid "created this group"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
+msgid "message TTL has been changed"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
+msgid "Voice message,"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
+msgid "Voice message"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
+msgid "changed the chat photo"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
+msgid "has joined Telegram!"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:98
+msgid "Unimplemented:"
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
+msgid "Saved Messages"
+msgstr ""
+
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr ""
+
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
 msgstr ""
@@ -778,28 +828,28 @@ msgstr ""
 msgid "%1 has joined Telegram!"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:51
-msgid "Call Declined"
+#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
+msgid "A screenshot has been taken"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:53
-msgid "Call Disconnected"
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
+msgid "Voice note"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:56
-msgid "Call Ended"
+#: ../app/qml/delegates/MessageContentBase.qml:38
+msgid "Forwarded from %1"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Cancelled Call"
+#: ../app/qml/components/CountryPicker.qml:38
+msgid "Search country name..."
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:58
-msgid "Missed Call"
+#: ../app/qml/components/PopupDialog.qml:14
+msgid "Okay"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentCall.qml:71
-msgid "Duration: %1:%2"
+#: ../app/qml/components/MessageStatusRow.qml:36
+msgid "Edited"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6

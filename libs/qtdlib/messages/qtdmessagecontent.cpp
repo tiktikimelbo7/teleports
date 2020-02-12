@@ -5,7 +5,8 @@
 QTdMessageContent::QTdMessageContent(QObject *parent)
     : QTdObject(parent)
 {
-    m_infoText = gettext("Message");
+    m_infoText = "";
+    m_typeText = "";
     m_infoImageUrl = QUrl();
 }
 
@@ -14,9 +15,24 @@ QString QTdMessageContent::infoText() const
     return m_infoText;
 }
 
+QString QTdMessageContent::typeText() const
+{
+    return m_typeText;
+}
+
 QUrl QTdMessageContent::infoImageUrl() const
 {
     return m_infoImageUrl;
+}
+
+void QTdMessageContent::setInfoText(const QString &infoText)
+{
+    m_infoText = infoText;
+}
+
+void QTdMessageContent::setTypeText(const QString &typeText)
+{
+    m_typeText = typeText;
 }
 
 QTdMessageAction::QTdMessageAction(QObject *parent)

@@ -3,6 +3,7 @@
 QTdWebPage::QTdWebPage(QObject *parent)
     : QTdObject(parent)
     , m_photo(new QTdPhotos)
+    , m_containsPhoto(false)
     , m_embedWidth(0)
     , m_embedheight(0)
     , m_duration(0)
@@ -50,6 +51,10 @@ QString QTdWebPage::description() const
 QTdPhotos *QTdWebPage::photo() const
 {
     return m_photo.data();
+}
+bool QTdWebPage::containsPhoto() const
+{
+    return m_containsPhoto;
 }
 
 QString QTdWebPage::embedUrl() const
@@ -125,6 +130,7 @@ void QTdWebPage::unmarshalJson(const QJsonObject &json)
     m_title = json["title"].toString();
     m_description = json["description"].toString();
     if (json.contains("photo")) {
+        m_containsPhoto = true;
         m_photo->unmarshalJson(json["photo"].toObject());
     }
     m_embedUrl = json["embed_url"].toString();

@@ -1,4 +1,5 @@
 #include "qtdmessagechatchangetitle.h"
+#include "utils/i18n.h"
 
 QTdMessageChatChangeTitle::QTdMessageChatChangeTitle(QObject *parent)
     : QTdMessageContent(parent)
@@ -15,5 +16,6 @@ void QTdMessageChatChangeTitle::unmarshalJson(const QJsonObject &json)
 {
     m_title = json["title"].toString();
     QTdMessageContent::unmarshalJson(json);
+    m_typeText = gettext("changed the chat title");
     emit contentChanged();
 }

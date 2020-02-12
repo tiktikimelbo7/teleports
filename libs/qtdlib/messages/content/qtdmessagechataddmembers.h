@@ -26,6 +26,7 @@ public:
 
     QList<qint32> memberUserIds() const;
     qint32 firstMemberId() const;
+    void setSenderUserId(const qint32 senderUserId);
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -35,6 +36,7 @@ signals:
 private:
     QScopedPointer<QTdUsersSortFilterModel> m_model;
     QList<qint32> m_member_user_ids;
+    qint32 m_senderUserId;
 };
 
 #endif // QTDMESSAGECHATADDMEMBERS_H

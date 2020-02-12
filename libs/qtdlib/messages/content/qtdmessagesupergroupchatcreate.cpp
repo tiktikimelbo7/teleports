@@ -4,6 +4,7 @@
 #include <QScopedPointer>
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
+#include "utils/i18n.h"
 
 QTdMessageSuperGroupChatCreate::QTdMessageSuperGroupChatCreate(QObject *parent)
     : QTdMessageContent(parent)
@@ -19,5 +20,6 @@ QString QTdMessageSuperGroupChatCreate::title() const
 void QTdMessageSuperGroupChatCreate::unmarshalJson(const QJsonObject &json)
 {
     m_title = json["title"].toString();
+    m_typeText = gettext("created this group");
     emit titleChanged();
 }

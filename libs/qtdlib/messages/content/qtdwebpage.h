@@ -22,6 +22,7 @@ class QTdWebPage : public QTdObject
     Q_PROPERTY(QString title READ title NOTIFY webPageChanged)
     Q_PROPERTY(QString description READ description NOTIFY webPageChanged)
     Q_PROPERTY(QTdPhotos *photo READ photo NOTIFY webPageChanged)
+    Q_PROPERTY(bool containsPhoto READ containsPhoto NOTIFY webPageChanged)
     Q_PROPERTY(QString embedUrl READ embedUrl NOTIFY webPageChanged)
     Q_PROPERTY(QString embedType READ embedType NOTIFY webPageChanged)
     Q_PROPERTY(qint32 embedWidth READ embedWidth NOTIFY webPageChanged)
@@ -54,6 +55,7 @@ public:
     QString description() const;
 
     QTdPhotos *photo() const;
+    bool containsPhoto() const;
 
     QString embedUrl() const;
 
@@ -94,6 +96,7 @@ private:
     QString m_title;
     QString m_description;
     QScopedPointer<QTdPhotos> m_photo;
+    bool m_containsPhoto;
     QString m_embedUrl;
     QString m_embedType;
     qint32 m_embedWidth;

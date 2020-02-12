@@ -24,6 +24,7 @@ public:
     QTdUser *user() const;
     QString qmlUserId() const;
     qint32 userId() const;
+    void setSenderUserId(const qint32 senderUserId);
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 
@@ -38,6 +39,7 @@ private:
     QPointer<QTdUser> m_user;
     QTdInt32 m_uid;
     QFutureWatcher<QTdResponse> m_watcher;
+    qint32 m_senderUserId;
 };
 
 #endif // QTDMESSAGECHATDELETEMEMBER_H
