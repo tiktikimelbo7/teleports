@@ -20,5 +20,6 @@ void QTdMessageCustomServiceAction::unmarshalJson(const QJsonObject &json)
     }
 
     m_text = json["text"].toString();
+    m_typeText = m_text;
     emit contentChanged();
 }

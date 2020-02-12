@@ -2,6 +2,7 @@
 #include <QScopedPointer>
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
+#include "utils/i18n.h"
 
 QTdMessageChatDeleteMember::QTdMessageChatDeleteMember(QObject *parent)
     : QTdMessageContent(parent)
@@ -26,12 +27,18 @@ qint32 QTdMessageChatDeleteMember::userId() const
     return m_uid.value();
 }
 
+void QTdMessageChatDeleteMember::setSenderUserId(const qint32 senderUserId)
+{
+    m_senderUserId = senderUserId;
+}
+
 void QTdMessageChatDeleteMember::unmarshalJson(const QJsonObject &json)
 {
     if (json.contains("user_id")) {
         m_uid = json["user_id"];
         emit contentChanged();
 
+        m_typeText = m_senderUserId == userId() ? gettext("left the group") : gettext("removed a member");
         auto *user = QTdUsers::instance()->model()->getByUid(m_uid.toQmlValue());
         if (user) {
             m_user = user;

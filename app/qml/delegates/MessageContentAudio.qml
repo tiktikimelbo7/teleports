@@ -71,7 +71,7 @@ MessageContentBase {
                 top: parent.top
                 leftMargin: Suru.units.gu(2)
             }
-            text: audioContent.audio.fileName
+            text: audioContent.audio.performer + " - " + audioContent.audio.title
             color: Suru.foregroundColor
         }
     }

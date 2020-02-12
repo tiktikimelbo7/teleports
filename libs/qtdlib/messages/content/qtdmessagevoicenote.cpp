@@ -1,4 +1,5 @@
 #include "qtdmessagevoicenote.h"
+#include "utils/i18n.h"
 
 QTdMessageVoiceNote::QTdMessageVoiceNote(QObject *parent)
     : QTdMessageContent(parent)
@@ -26,4 +27,6 @@ void QTdMessageVoiceNote::unmarshalJson(const QJsonObject &json)
     m_voiceNote->unmarshalJson(json["voice_note"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
     m_isListened = json["is_listened"].toBool();
+    m_infoText = m_caption->text() != "" ? m_caption->text() : "";
+    m_typeText = m_caption->text() != "" ? gettext("Voice message,") : gettext("Voice message");
 }

@@ -305,7 +305,7 @@ Page {
             bottom: writableChatInfo.visible? writableChatInfo.top : input.top
         }
         enabled: editingMessage || replyingToMessage
-        title: editingMessage ? i18n.tr("Edit") : i18n.tr("Reply")
+        editing: editingMessage
         message: d.messageOfInterest
         onCloseRequested: {
             if (editingMessage) {

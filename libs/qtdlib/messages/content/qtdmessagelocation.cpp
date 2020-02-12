@@ -1,4 +1,5 @@
 #include "qtdmessagelocation.h"
+#include "utils/i18n.h"
 
 QTdMessageLocation::QTdMessageLocation(QObject *parent)
     : QTdMessageContent(parent)
@@ -15,4 +16,5 @@ QTdLocation *QTdMessageLocation::location() const
 void QTdMessageLocation::unmarshalJson(const QJsonObject &json)
 {
     m_location->unmarshalJson(json["location"].toObject());
+    m_typeText = gettext("Location");
 }

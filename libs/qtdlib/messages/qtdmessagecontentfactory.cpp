@@ -26,6 +26,7 @@
 #include "content/qtdmessagecustomserviceaction.h"
 #include "content/qtdmessagecontactregistered.h"
 #include "content/qtdmessageunsupported.h"
+#include "utils/i18n.h"
 
 QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QObject *parent)
 {
@@ -87,5 +88,8 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageSuperGroupChatCreate(parent);
     }
     qWarning() << "Received unknown message type" << type << json;
-    return new QTdMessageContent(parent);
+    QScopedPointer<QTdMessageContent> uknMSg(new QTdMessageContent(parent));
+    uknMSg->setTypeText(gettext("Unimplemented:"));
+    uknMSg->setInfoText(type);
+    return uknMSg.take();
 }

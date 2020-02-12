@@ -4,6 +4,7 @@
 #include <QScopedPointer>
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
+#include "utils/i18n.h"
 
 QTdMessageChatAddMembers::QTdMessageChatAddMembers(QObject *parent)
     : QTdMessageContent(parent)
@@ -26,6 +27,11 @@ QList<qint32> QTdMessageChatAddMembers::memberUserIds() const
 qint32 QTdMessageChatAddMembers::firstMemberId() const
 {
     return m_member_user_ids.first();
+}
+
+void QTdMessageChatAddMembers::setSenderUserId(const qint32 senderUserId)
+{
+    m_senderUserId = senderUserId;
 }
 
 void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
@@ -52,4 +58,5 @@ void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
             req->send();
         }
     }
+    m_typeText = m_senderUserId == firstMemberId() ? gettext("joined the group") : gettext("added one or more members");
 }

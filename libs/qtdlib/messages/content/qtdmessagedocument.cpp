@@ -1,4 +1,5 @@
 #include "qtdmessagedocument.h"
+#include "utils/i18n.h"
 
 QTdMessageDocument::QTdMessageDocument(QObject *parent)
     : QTdMessageContent(parent)
@@ -20,4 +21,6 @@ void QTdMessageDocument::unmarshalJson(const QJsonObject &json)
 {
     m_document->unmarshalJson(json["document"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
+    m_infoText = m_caption->text() != "" ? m_caption->oneLineText() : "";
+    m_typeText = m_document->fileName() + (m_caption->text() != "" ? "," : "");
 }
