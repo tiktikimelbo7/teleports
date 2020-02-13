@@ -3,6 +3,7 @@
 #include "client/qtdclient.h"
 #include "user/qtdusers.h"
 #include "qtdmessagecontentfactory.h"
+#include "content/qtdmessagecall.h"
 #include "content/qtdmessagetext.h"
 #include "content/qtdmessagedate.h"
 #include "content/qtdmessageunreadlabel.h"
@@ -157,8 +158,29 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     }
 
     const QJsonObject content = json["content"].toObject();
-    m_content = QTdMessageContentFactory::create(content, this);
-    m_content->unmarshalJson(content);
+    auto temp_content = QTdMessageContentFactory::create(content, this);
+    temp_content->unmarshalJson(content);
+    switch (temp_content->type()) {
+    case QTdObject::MESSAGE_CALL: {
+        auto *c = qobject_cast<QTdMessageCall *>(temp_content);
+        c->setOutgoing(m_isOutgoing);
+        temp_content = qobject_cast<QTdMessageContent *>(c);
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
+        auto *c = qobject_cast<QTdMessageChatAddMembers *>(temp_content);
+        c->setSenderUserId(senderUserId());
+        temp_content = qobject_cast<QTdMessageContent *>(c);
+        break;
+    }
+    case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
+        auto *c = qobject_cast<QTdMessageChatDeleteMember *>(temp_content);
+        c->setSenderUserId(senderUserId());
+        temp_content = qobject_cast<QTdMessageContent *>(c);
+        break;
+    }
+    }
+    m_content = temp_content;
 
     if (m_replyMarkup) {
         delete m_replyMarkup;
@@ -307,120 +329,10 @@ bool QTdMessage::isForwarded() const
 QString QTdMessage::summary() const
 {
     QString content;
-
-    switch (m_content->type()) {
-    case QTdObject::MESSAGE_TEXT: {
-        auto *c = qobject_cast<QTdMessageText *>(m_content);
-        content = c->text()->text();
-        break;
-    }
-    case QTdObject::MESSAGE_STICKER: {
-        auto *c = qobject_cast<QTdMessageSticker *>(m_content);
-        content = c->sticker()->emoji() + " " + gettext("Sticker");
-        break;
-    }
-    case QTdObject::MESSAGE_CALL: {
-        content = gettext("Phone call");
-        break;
-    }
-    case QTdObject::MESSAGE_AUDIO: {
-        content = gettext("sent an audio message");
-        break;
-    }
-    case QTdObject::MESSAGE_PHOTO: {
-        content = gettext("sent a photo");
-        break;
-    }
-    case QTdObject::MESSAGE_DOCUMENT: {
-        auto *c = qobject_cast<QTdMessageDocument *>(m_content);
-        content = c->document()->fileName();
-        break;
-    }
-    case QTdObject::MESSAGE_LOCATION: {
-        content = gettext("Location");
-        break;
-    }
-    case QTdObject::MESSAGE_VIDEO: {
-        content = gettext("sent a video");
-        break;
-    }
-    case QTdObject::MESSAGE_VIDEO_NOTE: {
-        content = gettext("sent a video note");
-        break;
-    }
-    case QTdObject::MESSAGE_VOICE_NOTE: {
-        content = gettext("sent a voice note");
-        break;
-    }
-    case QTdObject::MESSAGE_ANIMATION: {
-        content = gettext("GIF");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
-        auto *c = qobject_cast<QTdMessageChatAddMembers *>(m_content);
-        if (senderUserId() == c->firstMemberId()) {
-            content = gettext("joined the group");
-        } else {
-            content = gettext("added one or more members");
-        }
-        content = gettext("joined the group");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_CHANGE_PHOTO: {
-        content = gettext("changed the chat photo");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_CHANGE_TITLE: {
-        content = gettext("changed the chat title");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_JOIN_BY_LINK: {
-        content = gettext("joined by invite link");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
-        auto *c = qobject_cast<QTdMessageChatDeleteMember *>(m_content);
-        if (qmlSenderUserId() == c->qmlUserId()) {
-            content = gettext("left the group");
-        } else {
-            content = gettext("removed a member");
-        }
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_DELETE_PHOTO: {
-        content = gettext("deleted the chat photo");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_UPGRADE_FROM:
-    case QTdObject::MESSAGE_CHAT_UPGRADE_TO: {
-        content = gettext("upgraded to supergroup");
-        break;
-    }
-    case QTdObject::MESSAGE_CHAT_SET_TTL: {
-        content = gettext("message TTL has been changed");
-        break;
-    }
-    case QTdObject::MESSAGE_BASIC_GROUP_CHAT_CREATE:
-    case QTdObject::MESSAGE_SUPER_GROUP_CHAT_CREATE: {
-        content = gettext("created this group");
-        break;
-    }
-    case QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION: {
-        auto *c = qobject_cast<QTdMessageCustomServiceAction *>(m_content);
-        content = c->text();
-        break;
-    }
-    case QTdObject::MESSAGE_CONTACT_REGISTERED: {
-        content = gettext("has joined Telegram!");
-        break;
-    }
-    case QTdObject::MESSAGE_UNSUPPORTED: {
-        content = gettext("Unsupported message");
-        break;
-    }
-    default:
-        content = QString("%1 %2").arg(gettext("Unimplemented:"), m_content->typeString());
-        break;
+    if (m_content->typeText() != "") {
+        content = QString("%1 %2").arg(m_content->typeText(), m_content->infoText());
+    } else {
+        content = m_content->infoText();
     }
 
     return content;

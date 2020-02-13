@@ -14,6 +14,11 @@ QString QTdFormattedText::text() const
     return m_text;
 }
 
+QString QTdFormattedText::oneLineText() const
+{
+    return m_oneLineText;
+}
+
 QQmlObjectListModel<QTdTextEntity> *QTdFormattedText::entities() const
 {
     return m_entities;
@@ -28,6 +33,8 @@ void QTdFormattedText::unmarshalJson(const QJsonObject &json)
 {
     m_text = json["text"].toString();
     emit textChanged();
+    m_oneLineText = m_text;
+    m_oneLineText.replace("\n", " ");
     const QJsonArray entities = json["entities"].toArray();
     for (const QJsonValue &value : entities) {
         auto *entity = new QTdTextEntity();

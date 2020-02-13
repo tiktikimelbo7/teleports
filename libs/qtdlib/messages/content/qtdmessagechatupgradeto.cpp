@@ -1,6 +1,7 @@
 #include "qtdmessagechatupgradeto.h"
 #include "chat/requests/qtdgetsupergrouprequest.h"
 #include "utils/await.h"
+#include "utils/i18n.h"
 
 QTdMessageChatUpgradeTo::QTdMessageChatUpgradeTo(QObject *parent)
     : QTdMessageContent(parent)
@@ -25,5 +26,6 @@ void QTdMessageChatUpgradeTo::unmarshalJson(const QJsonObject &json)
         return;
     }
     m_sgId = json["supergroup_id"];
+    m_typeText = gettext("upgraded to supergroup");
     emit contentChanged();
 }

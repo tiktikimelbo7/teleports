@@ -16,13 +16,20 @@ class QTdMessageCall : public QTdMessageContent
     Q_OBJECT
     Q_PROPERTY(QTdCallDiscardReason *discardReason READ discardReason NOTIFY contentChanged)
     Q_PROPERTY(qint32 duration READ duration NOTIFY contentChanged)
+    Q_PROPERTY(QString minutes READ minutes NOTIFY contentChanged)
+    Q_PROPERTY(QString seconds READ seconds NOTIFY contentChanged)
+    Q_PROPERTY(QString typeText READ typeText NOTIFY contentChanged)
 public:
     explicit QTdMessageCall(QObject *parent = nullptr);
 
     QTdCallDiscardReason *discardReason() const;
 
     qint32 duration() const;
+    QString minutes() const;
+    QString seconds() const;
+    QString typeText() const;
 
+    void setOutgoing(const bool isOutgoing);
     void unmarshalJson(const QJsonObject &json);
 
 signals:
@@ -31,6 +38,9 @@ signals:
 private:
     QPointer<QTdCallDiscardReason> m_discardReason;
     qint32 m_duration;
+    qint32 m_minutes;
+    qint32 m_seconds;
+    bool m_isOutgoing;
 };
 
 #endif // QTDMESSAGECALL_H

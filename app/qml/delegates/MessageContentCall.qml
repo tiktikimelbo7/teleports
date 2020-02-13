@@ -45,21 +45,7 @@ MessageContentBase {
                     Suru.textStyle: Suru.SecondaryText
                     color: Suru.highlightColor
 
-                    text: {
-                        switch(call.discardReason.type) {
-                        case QTdObject.CALL_DISCARD_REASON_DECLINED:
-                            return i18n.tr("Call Declined")
-                        case QTdObject.CALL_DISCARD_REASON_DISCONNECTED:
-                            return i18n.tr("Call Disconnected")
-                        case QTdObject.CALL_DISCARD_REASON_EMPTY:
-                        case QTdObject.CALL_DISCARD_REASON_HUNG_UP:
-                            return i18n.tr("Call Ended")
-                        case QTdObject.CALL_DISCARD_REASON_MISSED:
-                            return message.isOutgoing ? i18n.tr("Cancelled Call") : i18n.tr("Missed Call")
-                        default:
-                            return ""
-                        }
-                    }
+                    text: call.typeText.split("(")[0]
                 }
 
                 Label {

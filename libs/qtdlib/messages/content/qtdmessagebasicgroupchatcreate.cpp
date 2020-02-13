@@ -4,6 +4,7 @@
 #include <QScopedPointer>
 #include "user/requests/qtdgetuserrequest.h"
 #include "utils/await.h"
+#include "utils/i18n.h"
 
 QTdMessageBasicGroupChatCreate::QTdMessageBasicGroupChatCreate(QObject *parent)
     : QTdMessageChatAddMembers(parent)
@@ -21,5 +22,6 @@ void QTdMessageBasicGroupChatCreate::unmarshalJson(const QJsonObject &json)
     m_title = json["title"].toString();
     emit titleChanged();
     QTdMessageChatAddMembers::unmarshalJson(json);
+    m_typeText = gettext("created this group");
     emit membersChanged();
 }
