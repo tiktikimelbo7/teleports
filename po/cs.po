@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2020-01-21 06:34+0000\n"
+"PO-Revision-Date: 2020-02-14 19:23+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -311,7 +311,7 @@ msgstr "Uložené zprávy"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Koncept:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
@@ -479,7 +479,7 @@ msgstr "Výběr obsahu"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:82
 msgid "About"
-msgstr "O systému"
+msgstr "O aplikaci"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -870,6 +870,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení <b>% 1 "
+"</b>, je spuštěna kryptografie typu end-to-end."
 
 #~ msgid "Image"
 #~ msgstr "Obrázek"
