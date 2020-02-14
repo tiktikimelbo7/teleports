@@ -198,6 +198,13 @@ Store {
     }
 
     Filter {
+        type: ChatKey.sendSticker
+        onDispatched: {
+            messageList.sendSticker(message.sticker, message.replyId);
+        }
+    }
+
+    Filter {
        type: ChatKey.forwardMessage
        onDispatched: {
           chatList.forwardedFromChat = chatList.currentChat

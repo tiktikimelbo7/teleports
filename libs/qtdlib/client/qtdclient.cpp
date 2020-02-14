@@ -285,6 +285,15 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("userFullInfo"), [=](const QJsonObject &data) {
         emit userFullInfo(data);
     });
+    m_events.insert(QStringLiteral("stickerSets"), [=](const QJsonObject &data) {
+        emit stickerSets(data);
+    });
+    m_events.insert(QStringLiteral("stickerSet"), [=](const QJsonObject &data) {
+        emit stickerSet(data);
+    });
+    m_events.insert(QStringLiteral("updateInstalledStickerSets"), [=](const QJsonObject &data) {
+        emit updateInstalledStickerSets(data);
+    });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)

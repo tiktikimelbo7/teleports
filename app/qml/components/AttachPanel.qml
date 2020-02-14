@@ -95,14 +95,6 @@ Item {
                 }
                 visible: false
             }
-
-            AttachPanelItem {
-                icon: "down"
-                onClicked: {
-                    attach_panel.close()
-                }
-            }
-
         }
     }
 

@@ -16,6 +16,7 @@
 #include "requests/content/qtdinputmessageaudio.h"
 #include "requests/content/qtdinputmessagevideo.h"
 #include "requests/content/qtdinputmessagelocation.h"
+#include "requests/content/qtdinputmessagesticker.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -508,6 +509,13 @@ void QTdMessageListModel::sendLocation(const double latitude, const double longi
     messageContent->setLocation(latitude, longitude);
     messageContent->setLivePeriod(livePeriod);
     prepareAndSendAttachmentMessage(messageContent.data(), 0);
+}
+
+void QTdMessageListModel::sendSticker(QTdSticker *sticker, const QString &replyToMessageId)
+{
+    QScopedPointer<QTdInputMessageSticker> messageContent(new QTdInputMessageSticker);
+    messageContent->setSticker(sticker);
+    prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId.toLongLong());
 }
 
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)

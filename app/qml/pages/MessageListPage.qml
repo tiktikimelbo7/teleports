@@ -351,15 +351,6 @@ Page {
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
         visible: currentChat.isWritable
-        Rectangle {
-            anchors {
-                top: parent.top
-                right: parent.right
-                left: parent.left
-            }
-            height: Suru.units.dp(1)
-            color: Suru.neutralColor
-        }
 
         AttachPanel {
             id: attach_panel_object
@@ -378,6 +369,22 @@ Page {
             onAudioRequested: requestMedia(ContentHub.ContentType.Music)
             onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
             onLocationRequested: requestLocation()
+        }
+
+        StickerPanel {
+            id: sticker_panel_object
+
+            bottomMargin: input.height
+
+            onSendStickerRequested: {
+                if (infoBox.replyingToMessage) {
+                    AppActions.chat.sendSticker(sticker, d.messageOfInterest.id);
+                    d.chatState = ChatState.Default;
+                } else {
+                    AppActions.chat.sendSticker(sticker, 0);
+                }
+                sticker_panel_object.close();
+            }
         }
 
         MediaImport {
@@ -410,10 +417,40 @@ Page {
                 }
             }
         }
+
         RowLayout {
             anchors.fill: parent
             anchors.margins: Suru.units.gu(1)
             spacing: Suru.units.gu(1)
+
+            UITK.StyledItem {
+                height: entry.implicitHeight
+                width: height
+
+                UITK.Icon {
+                    anchors.fill: parent
+                    visible: !sticker_panel_object.visible
+                    source: "qrc:/qml/icons/msg_panel_stickers.svg"
+                    color: Suru.foregroundColor
+                }
+
+                UITK.Icon {
+                    anchors.fill: parent
+                    visible: sticker_panel_object.visible
+                    name: "down"
+                    color: Suru.foregroundColor
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        if (attach_panel_object.visible) {
+                            attach_panel_object.visible = false;
+                        }
+                        sticker_panel_object.visible = !sticker_panel_object.visible;
+                    }
+                }
+            }
 
             UITK.TextArea {
                 id: entry
@@ -488,23 +525,29 @@ Page {
                     onStateChanged: if (Qt.application.state != Qt.ApplicationActive) {entry.saveDraft()}
                 }
             }
+
             UITK.StyledItem {
                 height: entry.implicitHeight
                 width: height
+
                 UITK.Icon {
                     anchors.fill: parent
-                    name: "attachment"
+                    name: attach_panel_object.visible ? "down" : "attachment"
                     color: Suru.foregroundColor
                     Suru.textStyle: Suru.SecondaryText
 
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
+                            if (sticker_panel_object.visible) {
+                                sticker_panel_object.visible = false;
+                            }
                             attach_panel_object.visible = !attach_panel_object.visible;
                         }
                     }
                 }
             }
+
             UITK.StyledItem {
                 visible: showKeyboardLoader.active
                 height: entry.implicitHeight
@@ -529,6 +572,7 @@ Page {
                     }
                 }
             }
+
             Image {
                 visible: entry.displayText.trim() !== ""
                 sourceSize.height: height
@@ -541,6 +585,16 @@ Page {
                     }
                 }
             }
+        }
+
+        Rectangle {
+            anchors {
+                top: parent.top
+                right: parent.right
+                left: parent.left
+            }
+            height: Suru.units.dp(1)
+            color: Suru.neutralColor
         }
     }
 

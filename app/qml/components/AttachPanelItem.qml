@@ -16,9 +16,10 @@ Column {
 
         UITK.Icon {
             id: attach_icon
-            width: units.gu(5)
+            width: units.gu(4)
             height: width
         }
+
         MouseArea {
             anchors.fill: parent
             onClicked: attach_item.clicked(mouse)

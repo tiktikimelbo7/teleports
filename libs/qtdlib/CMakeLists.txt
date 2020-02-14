@@ -174,6 +174,7 @@ set(
     messages/requests/content/qtdinputmessageaudio.cpp
     messages/requests/content/qtdinputmessagevideo.cpp
     messages/requests/content/qtdinputmessagelocation.cpp
+    messages/requests/content/qtdinputmessagesticker.cpp
     messages/requests/qtddeletemessagesrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
@@ -192,6 +193,8 @@ set(
     quick/plugin.cpp
     quick/users.cpp
     quick/contacts.cpp
+    stickers/qtdstickersets.cpp
+    stickers/qtdstickerset.cpp
     user/qtdlinkstate.cpp
     user/qtdlinkstatefactory.cpp
     user/qtdprofilephoto.cpp
