@@ -4,3 +4,5 @@ singleton ChatKey 0.1 ChatKey.qml
 singleton UserStateKey 0.1 UserStateKey.qml
 singleton SettingsKey 0.1 SettingsKey.qml
 singleton ViewKey 0.1 ViewKeys.qml
+singleton StickerActions 0.1 StickerActions.qml
+singleton StickerKey 0.1 StickerKey.qml

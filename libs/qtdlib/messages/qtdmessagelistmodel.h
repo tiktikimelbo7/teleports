@@ -75,6 +75,7 @@ public slots:
     void sendVideo(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendAudio(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendLocation(const double latitude, const double longitude, const qint32 livePeriod);
+    void sendSticker(QTdSticker *sticker, const QString &replyToMessageId = "");
 
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);

@@ -16,6 +16,7 @@ KeyTable {
     property string sendAudio
     property string sendContact
     property string sendDocument
+    property string sendSticker
     property string requestLocation
     property string sendLocation
     property string cancelLocation
