@@ -57,6 +57,7 @@ Page {
                 UITK.ListItemLayout {
                     UITK.Icon {
                         width: units.gu(2)
+                        height: width
                         name: "system-log-out"
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         color: theme.palette.normal.backgroundSecondaryText
@@ -72,6 +73,7 @@ Page {
                     UITK.Icon {
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         width: units.gu(2)
+                        height: width
                         name: "delete"
                         color: theme.palette.normal.backgroundSecondaryText
                     }
@@ -86,6 +88,7 @@ Page {
                     UITK.Icon {
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         width: units.gu(2)
+                        height: width
                         name: "info"
                         color: theme.palette.normal.backgroundSecondaryText
                     }
