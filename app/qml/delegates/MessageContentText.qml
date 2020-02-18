@@ -11,17 +11,15 @@ MessageContentBase {
 
     property QTdMessageText textContent: message.content
 
+    ColumnLayout {
     FormattedText {
         id: text
-        anchors {
-            top: parent.top
-        }
 
         isPreview: message.isCollapsed
         maximumWidth: maximumAvailableContentWidth
-        width: webpage_loader.visible ? webpage_loader.width : implicitWidth
+            Layout.fillWidth: true
         formattedText: textContent.text
-
+        }
         // loading asynchronous with yet undefined height makes jumping
         // to the first unread message unpresice
         Loader {
@@ -29,10 +27,13 @@ MessageContentBase {
             visible: textContent.webPage && !message.isCollapsed
             active: visible
             asynchronous: true
-            height: childrenRect.height
+            Layout.preferredHeight: childrenRect.height
+            Layout.maximumWidth: maximumAvailableContentWidth
+            Layout.fillWidth: true
+            Layout.minimumWidth: Suru.units.gu(30)
             sourceComponent: Component {
                 WebPagePreview {
-                    width: Math.min(textContent.webPage.title != "" ? Math.max(Suru.units.gu(30), implicitWidth) : implicitWidth, maximumAvailableContentWidth)
+                    id: webPagePreview
                     preview: textContent.webPage
                 }
             }
