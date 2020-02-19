@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-26 21:11+0000\n"
-"PO-Revision-Date: 2020-01-19 19:22+0000\n"
+"PO-Revision-Date: 2020-02-20 10:21+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
@@ -311,7 +311,7 @@ msgstr "Messaggi Salvati"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Bozza:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
@@ -319,43 +319,39 @@ msgstr ""
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
-msgstr ""
+msgstr "stanno scegliendo contatti..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is choosing location..."
-msgstr "Manca etichetta..."
+msgstr "sta scegliendo la posizione..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
-#, fuzzy
-#| msgid "Requesting location from OS..."
 msgid "are choosing location..."
-msgstr "Richiesta posizione al SO..."
+msgstr "stanno scegliendo la posizione..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
-msgstr ""
+msgstr "sta registrando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
-msgstr ""
+msgstr "stanno registrando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
-msgstr ""
+msgstr "sta scrivendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
-msgstr ""
+msgstr "stanno scrivendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
-msgstr ""
+msgstr "sta facendo qualcosa"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
-msgstr ""
+msgstr "stanno facendo qualcosa"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -881,6 +877,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Controlla l'immagine o il testo. Se coincidono con quelli sul dispositivo di "
+"<b>%q</b>, la crittografia end-to-end è garantita."
 
 #~ msgid "Image"
 #~ msgstr "Immagine"
