@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-11 19:59+0000\n"
-"PO-Revision-Date: 2020-02-17 07:53+0000\n"
+"PO-Revision-Date: 2020-02-25 20:21+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -138,7 +138,6 @@ msgstr "%1 sa vrátil do skupiny"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
-#, fuzzy
 msgid "@ %1"
 msgstr "@ %1"
 
@@ -364,11 +363,13 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Skontrolujte obrázok alebo text. Pokiaľ sa zhodujú s tými na zariadení <b>% "
+"1 </b>, je spustená kryptografia typu end-to-end."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
 msgid "Choose a country"
-msgstr ""
+msgstr "Zvoľte krajinu"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
@@ -390,11 +391,11 @@ msgstr "Zrušiť"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Fotka"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
 msgid "Sticker"
-msgstr "Sticker"
+msgstr "Nálepka"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
@@ -412,11 +413,11 @@ msgstr "TTL správa zmenená"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
-msgstr ""
+msgstr "Hlasová správa,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message"
-msgstr ""
+msgstr "Hlasová správa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
@@ -440,287 +441,289 @@ msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Naozaj chcete zmazať históriu?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 #: ../app/qml/pages/ChatListPage.qml:130
 msgid "Clear history"
-msgstr ""
+msgstr "Vymazať históriu"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Naozaj chcete opustiť tento chat?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr ""
+msgstr "Opustiť chat"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
-msgstr ""
+msgstr "Neplatné telefónne číslo!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Neplatný kód!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Neplatné heslo!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "Práve teraz nie je očakávaný overovací kód"
 
 #: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Uff! Zaznamenaná vnútorná chyba."
 
 #: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
-msgstr ""
+msgstr "Nesprávna dĺžka overovacieho kódu."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Registrácia zasielania notifikácií zlyhala"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Chýba Ubuntu One účet"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Pre príjem oznámení sa pripojte k Ubuntu One účtu."
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "V časovom intervale 180 sekúnd nebola prijatá žiadna platná poloha!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
-msgstr ""
+msgstr "Zadajte kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
-msgstr ""
+msgstr "Meno"
 
 #: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
-msgstr ""
+msgstr "Priezvisko"
 
 #: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
-msgstr ""
+msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr ""
+msgstr "Na vaše zariadenie bol cez telegram odoslaný kód. Zadajte ho prosím tu."
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Vyberte cieľ alebo zrušte..."
 
 #: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakty"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
-msgstr ""
+msgstr "Nočný režim"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr ""
+msgstr "O Aplikácii"
 
 #: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
-msgstr ""
+msgstr "Opustiť chat"
 
 #: ../app/qml/pages/ChatListPage.qml:141 ../app/qml/pages/UserListPage.qml:113
 msgid "Info"
-msgstr ""
+msgstr "Informácie"
 
 #: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "Prajete si vybrané správy preposlať 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:360
 #: ../app/qml/delegates/MessageBubbleItem.qml:90
 msgid "Forward"
-msgstr ""
+msgstr "Preposlať"
 
 #: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
-msgstr ""
+msgstr "Napíšte voliteľnú správu..."
 
 #: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
-msgstr ""
+msgstr "Prajete si importované súbory odoslať 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
 #: ../app/qml/pages/MessageListPage.qml:579
 msgid "Send"
-msgstr ""
+msgstr "Odoslať"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "Zadajte telefónne číslo"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:67
 msgid "Phone number"
-msgstr ""
+msgstr "Telefónne číslo"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:91
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "Potvrďte kód vášho štátu a zadajte vaše telefónne číslo."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:95
 #: ../app/qml/pages/WaitPasswordPage.qml:65
 msgid "Next..."
-msgstr ""
+msgstr "Ďalej..."
 
 #: ../app/qml/pages/UserListPage.qml:29
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
-msgstr ""
+msgstr "Späť"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Pridať kontakt"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "Kontakt bude pridaný. Prvé a posledné meno je voliteľné"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Pridať"
 
 #: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
 msgid "Phone no"
-msgstr ""
+msgstr "Telefónne číslo"
 
 #: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
 msgid "First name"
-msgstr ""
+msgstr "Meno"
 
 #: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
 msgid "Last name"
-msgstr ""
+msgstr "Priezvisko"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
 #: ../app/qml/pages/SettingsPage.qml:121
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
-msgstr ""
+msgstr "Vymazať"
 
 #: ../app/qml/pages/UserListPage.qml:118
 msgid "Secret Chat"
-msgstr ""
+msgstr "Tajný chat"
 
 #: ../app/qml/pages/UserListPage.qml:203
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Kontakt bude vymazaný. Ste si istý?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr ""
+msgstr "Informácie o skupine"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:89
 msgid "Members: %1"
-msgstr ""
+msgstr "Členov: %1"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
-msgstr ""
+msgstr "Verzia %1"
 
 #: ../app/qml/pages/AboutPage.qml:74
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr ""
+msgstr "Získať zdrojový kód"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr ""
+msgstr "Nahlásiť problémy"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
-msgstr ""
+msgstr "Pomôžte s prekladom"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
-msgstr ""
+msgstr "Pripojovanie"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting To Proxy"
-msgstr ""
+msgstr "Pripájanie k proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "Aktualizovanie"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
-msgstr ""
+msgstr "Pripojenie"
 
 #: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Stav pripojenia Telegramu:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Stav pripojenia Ubuntu Touch:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
-msgstr ""
+msgstr "Ubuntu Touch má obmedzený dátový tok"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
-msgstr ""
+msgstr "Ubuntu Touch má neobmedzený dátový tok"
 
 #: ../app/qml/pages/SettingsPage.qml:64 ../app/qml/pages/SettingsPage.qml:111
 msgid "Logout"
-msgstr ""
+msgstr "Odhlásiť"
 
 #: ../app/qml/pages/SettingsPage.qml:78
 msgid "Delete account"
-msgstr ""
+msgstr "Zmazať účet"
 
 #: ../app/qml/pages/SettingsPage.qml:92
 msgid "Connectivity status"
-msgstr ""
+msgstr "Stav pripojenia"
 
 #: ../app/qml/pages/SettingsPage.qml:109
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"Varovanie: Odhlásenie zmaže všetky lokálne dáta z tohto zariadenia, vrátanie "
+"súkromných chatov. Skutočne sa chcete odhlásiť?"
 
 #: ../app/qml/pages/SettingsPage.qml:119
 msgid ""
@@ -729,130 +732,134 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"Varovanie: Súčasne so zmazaním účtu budú odstránené všetky dáta, ktoré ste "
+"prijali alebo odoslali cez službu Telegram, okrem dát, ktoré sú špecificky "
+"uložené mimo cloud Telegram. Naozaj chcete váš účet zmazať?"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr ""
+msgstr "Výber obsahu"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Súbor: "
 
 #: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 člen"
+msgstr[1] "%1 členovia"
+msgstr[2] "%1 členov"
 
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] ", %1 pripojený"
+msgstr[1] ", %1 pripojení"
+msgstr[2] ", %1 pripojení"
 
 #: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:308
 #: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
-msgstr ""
+msgstr "Upraviť"
 
 #: ../app/qml/pages/MessageListPage.qml:308
 #: ../app/qml/delegates/MessageBubbleItem.qml:78
 msgid "Reply"
-msgstr ""
+msgstr "Odpovedať"
 
 #: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Nemáte oprávnenie k zasielaniu správ v tomto kanáli"
 
 #: ../app/qml/pages/MessageListPage.qml:335
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "Čaká sa na prijatie tajného chatu príjemcom..."
 
 #: ../app/qml/pages/MessageListPage.qml:337
 msgid "Secret chat has been closed"
-msgstr ""
+msgstr "Tajný chat bol ukončený"
 
 #: ../app/qml/pages/MessageListPage.qml:452
 msgid "Type a message..."
-msgstr ""
+msgstr "Napíšte správu..."
 
 #: ../app/qml/pages/MessageListPage.qml:577
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Prajete si zdieľať vašu polohu s %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:590
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Vyžadovaná poloha od OS..."
 
 #: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Editovať údaje o užívateľovi a kliknúť na uložiť"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
-msgstr ""
+msgstr "Zadajte heslo"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:42
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 sa pripojil ku skupine"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
 msgid "%1 added %2"
-msgstr ""
+msgstr "%1 pridal %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 užívateľ"
+msgstr[1] "%1 užívatelia"
+msgstr[2] "%1 užívateľov"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
-msgstr ""
+msgstr "%1 opustil skupinu"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
 msgid "Group has been upgraded to Supergroup"
-msgstr ""
+msgstr "Skupina bola povýšená na supergroup"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:48
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Správa bude zmazaná pre všetkých členov chatu. Naozaj chcete správu vymazať?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
-msgstr ""
+msgstr "Správa bude zmazaná iba pre vás. Naozaj chcete správu vymazať?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:60
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:84
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Informácie o balíčku Stickers"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -864,19 +871,19 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
-msgstr ""
+msgstr "%1 sa pripojil k Telegramu!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Neznámy typ správy, pre podrobnosti pozri logfile..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Chýba značka..."
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Snímok obrazovky bol vytvorený"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
@@ -884,36 +891,36 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentBase.qml:38
 msgid "Forwarded from %1"
-msgstr ""
+msgstr "Preposlané od %1"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Hľadať názov štátu..."
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "OK"
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
-msgstr ""
+msgstr "Upravené"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Vytvorený kanál s názvom <<%1>>"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 vytvoril skupinu s názvom  << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr ""
+msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 sa pripojil pomocou pozývajúceho odkazu"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
+msgstr "Hlasová poznámka"
