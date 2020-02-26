@@ -165,7 +165,7 @@ MessageContentBase {
         }
 
         formattedText: photoContent.caption
-        maximumWidth: imgContainer.width
+        maximumWidth: imgContainer.width - 2 * anchors.leftMargin
         isPreview: message.isCollapsed
     }
 }
