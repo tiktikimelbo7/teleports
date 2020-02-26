@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-11 19:59+0000\n"
+"POT-Creation-Date: 2020-02-26 19:35+0000\n"
 "PO-Revision-Date: 2020-02-25 20:21+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
@@ -173,111 +173,152 @@ msgstr "Máte novú správu"
 msgid "%1 pinned a message"
 msgstr "%1 pripol správu"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:83
+#: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
 msgstr "Ja"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:319
-msgid "Sticker"
-msgstr "Nálepka"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:323
-msgid "Phone call"
-msgstr "Hovor"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:327
-msgid "sent an audio message"
-msgstr "zaslaná audio správa"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:331
-msgid "sent a photo"
-msgstr "zaslaná fotografia"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:340
+#: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
 msgstr "Poloha"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:344
-msgid "sent a video"
-msgstr "zaslané video"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:348
-msgid "sent a video note"
-msgstr "zaslaná video poznámka"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:352
-msgid "sent a voice note"
-msgstr "zaslaná hlasová správa"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:356
-msgid "GIF"
-msgstr "GIF"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:362
-#: ../libs/qtdlib/messages/qtdmessage.cpp:366
-msgid "joined the group"
-msgstr "sa pripojil k skupine"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:364
-msgid "added one or more members"
-msgstr "pridaný jeden alebo viac členov"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:370
-msgid "changed the chat photo"
-msgstr "zmenil fotografiu skupiny"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:374
-msgid "changed the chat title"
-msgstr "zmenil názov skupiny"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:378
-msgid "joined by invite link"
-msgstr "sa pripojil pomocou pozvánky"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:384
-msgid "left the group"
-msgstr "opustil skupinu"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:386
-msgid "removed a member"
-msgstr "odstránil člena"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:391
-msgid "deleted the chat photo"
-msgstr "odstránil fotografiu chatu"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:396
-msgid "upgraded to supergroup"
-msgstr "povýšená na supergroup"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:400
-msgid "message TTL has been changed"
-msgstr "TTL správa zmenená"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:405
-msgid "created this group"
-msgstr "vytvoril túto skupinu"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:414
+#: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "sa pripojil k Telegramu!"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:418
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#, fuzzy
+msgid "Photo,"
+msgstr "Fotka"
+
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+msgid "Photo"
+msgstr "Fotka"
+
+#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
+msgid "Voice message,"
+msgstr "Hlasová správa,"
+
+#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
+msgid "Voice message"
+msgstr "Hlasová správa"
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
+msgid "Call Declined"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
+msgid "Call Disconnected"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
+msgid "Call Ended"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
+msgid "%1 (%2:%3)"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
+msgid "Outgoing Call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
+msgid "Incoming Call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#, fuzzy
+msgid "Cancelled Call"
+msgstr "Zrušiť"
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+msgid "Missed Call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
+msgid "Call"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
+msgid "changed the chat title"
+msgstr "zmenil názov skupiny"
+
+#: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
+msgid "created this group"
+msgstr "vytvoril túto skupinu"
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
+msgid "message TTL has been changed"
+msgstr "TTL správa zmenená"
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
+#: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
+msgid "upgraded to supergroup"
+msgstr "povýšená na supergroup"
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
+msgid "changed the chat photo"
+msgstr "zmenil fotografiu skupiny"
+
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+msgid "joined the group"
+msgstr "sa pripojil k skupine"
+
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+msgid "added one or more members"
+msgstr "pridaný jeden alebo viac členov"
+
+#: ../libs/qtdlib/messages/content/qtdmessageunsupported.cpp:12
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
 msgstr "Nepodporovaná správa"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:422
-msgid "Unimplemented:"
-msgstr "Neimplementované:"
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+msgid "left the group"
+msgstr "opustil skupinu"
 
-#: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
-msgid "Message"
-msgstr "Správa"
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+msgid "removed a member"
+msgstr "odstránil člena"
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+msgid "GIF,"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+msgid "GIF"
+msgstr "GIF"
+
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#, fuzzy
+msgid "Video message"
+msgstr "Hlasová správa"
+
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+msgid "Video,"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+msgid "Video"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
+msgid "deleted the chat photo"
+msgstr "odstránil fotografiu chatu"
+
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
+msgid "Sticker"
+msgstr "Nálepka"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
 msgid "Unread Messages"
 msgstr "Neprečítané správy"
+
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
+msgid "Unimplemented:"
+msgstr "Neimplementované:"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
@@ -389,21 +430,10 @@ msgstr "OK"
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
-msgid "Photo"
-msgstr "Fotka"
-
-#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-msgid "Voice message,"
-msgstr "Hlasová správa,"
-
-#: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-msgid "Voice message"
+#: ../app/qml/components/InputInfoBox.qml:91
+#, fuzzy
+msgid "Edit message"
 msgstr "Hlasová správa"
-
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
-msgstr "Zavriet"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -421,6 +451,10 @@ msgstr "Naozaj chcete opustiť tento chat?"
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
 msgstr "Opustiť chat"
+
+#: ../app/qml/middleware/ErrorsMiddleware.qml:19
+msgid "Close"
+msgstr "Zavriet"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
@@ -484,7 +518,8 @@ msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr "Na vaše zariadenie bol cez telegram odoslaný kód. Zadajte ho prosím tu."
+msgstr ""
+"Na vaše zariadenie bol cez telegram odoslaný kód. Zadajte ho prosím tu."
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -533,7 +568,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Prajete si importované súbory odoslať 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#: ../app/qml/pages/MessageListPage.qml:579
+#: ../app/qml/pages/MessageListPage.qml:606
 msgid "Send"
 msgstr "Odoslať"
 
@@ -587,7 +622,7 @@ msgid "Last name"
 msgstr "Priezvisko"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
-#: ../app/qml/pages/SettingsPage.qml:121
+#: ../app/qml/pages/SettingsPage.qml:124
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
@@ -667,19 +702,19 @@ msgstr "Ubuntu Touch má obmedzený dátový tok"
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch má neobmedzený dátový tok"
 
-#: ../app/qml/pages/SettingsPage.qml:64 ../app/qml/pages/SettingsPage.qml:111
+#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:114
 msgid "Logout"
 msgstr "Odhlásiť"
 
-#: ../app/qml/pages/SettingsPage.qml:78
+#: ../app/qml/pages/SettingsPage.qml:80
 msgid "Delete account"
 msgstr "Zmazať účet"
 
-#: ../app/qml/pages/SettingsPage.qml:92
+#: ../app/qml/pages/SettingsPage.qml:95
 msgid "Connectivity status"
 msgstr "Stav pripojenia"
 
-#: ../app/qml/pages/SettingsPage.qml:109
+#: ../app/qml/pages/SettingsPage.qml:112
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -687,7 +722,7 @@ msgstr ""
 "Varovanie: Odhlásenie zmaže všetky lokálne dáta z tohto zariadenia, vrátanie "
 "súkromných chatov. Skutočne sa chcete odhlásiť?"
 
-#: ../app/qml/pages/SettingsPage.qml:119
+#: ../app/qml/pages/SettingsPage.qml:122
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -728,17 +763,6 @@ msgstr[2] ", %1 pripojení"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:308
-#: ../app/qml/pages/UserProfilePage.qml:41
-#: ../app/qml/delegates/MessageBubbleItem.qml:70
-msgid "Edit"
-msgstr "Upraviť"
-
-#: ../app/qml/pages/MessageListPage.qml:308
-#: ../app/qml/delegates/MessageBubbleItem.qml:78
-msgid "Reply"
-msgstr "Odpovedať"
-
 #: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
 msgstr "Nemáte oprávnenie k zasielaniu správ v tomto kanáli"
@@ -751,21 +775,26 @@ msgstr "Čaká sa na prijatie tajného chatu príjemcom..."
 msgid "Secret chat has been closed"
 msgstr "Tajný chat bol ukončený"
 
-#: ../app/qml/pages/MessageListPage.qml:452
+#: ../app/qml/pages/MessageListPage.qml:462
 msgid "Type a message..."
 msgstr "Napíšte správu..."
 
-#: ../app/qml/pages/MessageListPage.qml:577
+#: ../app/qml/pages/MessageListPage.qml:604
 msgid "Do you want to share your location with %1?"
 msgstr "Prajete si zdieľať vašu polohu s %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:590
+#: ../app/qml/pages/MessageListPage.qml:617
 msgid "Requesting location from OS..."
 msgstr "Vyžadovaná poloha od OS..."
 
 #: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
 msgstr "Profil"
+
+#: ../app/qml/pages/UserProfilePage.qml:41
+#: ../app/qml/delegates/MessageBubbleItem.qml:70
+msgid "Edit"
+msgstr "Upraviť"
 
 #: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
@@ -819,6 +848,10 @@ msgstr "Správa bude zmazaná iba pre vás. Naozaj chcete správu vymazať?"
 msgid "Copy"
 msgstr "Kopírovať"
 
+#: ../app/qml/delegates/MessageBubbleItem.qml:78
+msgid "Reply"
+msgstr "Odpovedať"
+
 #: ../app/qml/delegates/MessageBubbleItem.qml:84
 msgid "Sticker Pack info"
 msgstr "Informácie o balíčku Stickers"
@@ -843,9 +876,9 @@ msgstr "Neznámy typ správy, pre podrobnosti pozri logfile..."
 msgid "Missing label..."
 msgstr "Chýba značka..."
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
-msgid "Voice note"
-msgstr "Hlasová poznámka"
+#: ../app/qml/delegates/MessageContentCall.qml:57
+msgid "Duration: %1:%2"
+msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
@@ -863,3 +896,30 @@ msgstr "dd MMMM"
 msgid "%1 joined by invite link"
 msgstr "%1 sa pripojil pomocou pozývajúceho odkazu"
 
+#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
+msgid "Voice note"
+msgstr "Hlasová poznámka"
+
+#~ msgid "Phone call"
+#~ msgstr "Hovor"
+
+#~ msgid "sent an audio message"
+#~ msgstr "zaslaná audio správa"
+
+#~ msgid "sent a photo"
+#~ msgstr "zaslaná fotografia"
+
+#~ msgid "sent a video"
+#~ msgstr "zaslané video"
+
+#~ msgid "sent a video note"
+#~ msgstr "zaslaná video poznámka"
+
+#~ msgid "sent a voice note"
+#~ msgstr "zaslaná hlasová správa"
+
+#~ msgid "joined by invite link"
+#~ msgstr "sa pripojil pomocou pozvánky"
+
+#~ msgid "Message"
+#~ msgstr "Správa"
