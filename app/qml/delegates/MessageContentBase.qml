@@ -39,7 +39,9 @@ Item {
                 color: "#FF335280" //Suru.Blue
                 font.weight: Font.Medium
                 wrapMode: Text.WrapAnywhere
-                width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*parent.anchors.leftMargin : implicitWidth
+                elide: Text.ElideRight
+                maximumLineCount: 2
+                width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*parent.anchors.leftMargin : mainContent.width
                 height: implicitHeight
             }
         }
