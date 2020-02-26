@@ -166,6 +166,9 @@ signals:
     void users(QJsonObject users);
     void importedContacts(QJsonObject importedContacts);
     void userFullInfo(QJsonObject userFullInfo);
+    void stickerSets(QJsonObject stickerSets);
+    void stickerSet(QJsonObject stickerSet);
+    void updateInstalledStickerSets(QJsonObject stickerSetsUpdate);
 
 private slots:
     void handleRecv(const QJsonObject &data);

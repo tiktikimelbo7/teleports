@@ -33,6 +33,7 @@
         <file>actions/SettingsKey.qml</file>
         <file>components/AttachPanel.qml</file>
         <file>components/AttachPanelItem.qml</file>
+        <file>components/StickerPanel.qml</file>
         <file>delegates/MessageBubbleItem.qml</file>
         <file>components/GenericPhoto.qml</file>
         <file>components/MenuPanelItem.qml</file>
@@ -107,5 +108,9 @@
         <file>components/PopupWaitCancel.qml</file>
         <file>pages/ConnectivityPage.qml</file>
         <file>components/FlyingButton.qml</file>
+        <file>components/StickerSetsBox.qml</file>
+        <file>stores/StickersStore.qml</file>
+        <file>actions/StickerActions.qml</file>
+        <file>actions/StickerKey.qml</file>
     </qresource>
 </RCC>

@@ -24,6 +24,7 @@ ActionCreator {
     signal cancelLocation();
     signal stopWaitLocation();
     signal sendChatAction();
+    signal sendSticker(var sticker, string replyId);
 
     signal leaveChat(string chatId);
     signal deleteChatHistory(string chatId);

@@ -49,6 +49,7 @@
 #include "messages/content/qtdmessagevoicenote.h"
 #include "messages/content/qtdmessageunsupported.h"
 #include "notifications/qtdenablenotifications.h"
+#include "stickers/qtdstickersets.h"
 
 #include "utils/qtdtextformatter.h"
 
@@ -76,10 +77,13 @@ void QTdLib::registerQmlTypes()
     qmlRegisterType<QTdChatListModel>(uri, 1, 0, "ChatList");
     qmlRegisterType<QTdChatListSortFilterModel>(uri, 1, 0, "SortedChatList");
     qmlRegisterType<QTdMessageListModel>(uri, 1, 0, "MessageList");
+
     qmlRegisterUncreatableType<QTdChatState>(uri, 1, 0, "ChatState", "Enum type is uncreatable");
 
     qmlRegisterType<QTdTextFormatter>(uri, 1, 0, "TextFormatter");
     qmlRegisterType<QTdEnableNotifications>(uri, 1, 0, "EnableNotifications");
+
+    qmlRegisterType<QTdStickerSets>(uri, 1, 0, "StickerSets");
 
     // qtdlib call
     qmlRegisterUncreatableType<QTdCallDiscardReason>(uri, 1, 0, "QTdCallDiscardReason", "c++ class");
@@ -188,4 +192,7 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdMessageVoiceNote>(uri, 1, 0, "QTdMessageVoiceNote", "C++ class");
     qmlRegisterUncreatableType<QTdFormattedText>(uri, 1, 0, "QTdFormattedText", "C++ class");
     qmlRegisterUncreatableType<QTdWebPage>(uri, 1, 0, "QTdWebPage", "C++ class");
+
+    // stickers
+    qmlRegisterUncreatableType<QTdStickerSet>(uri, 1, 0, "QTdStickerSet", "C++ class");
 }

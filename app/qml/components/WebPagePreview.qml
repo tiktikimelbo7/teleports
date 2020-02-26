@@ -79,7 +79,7 @@ Item {
             id: previewImage
             aspect: UITK.UbuntuShape.Flat
             sourceFillMode: UITK.UbuntuShape.PreserveAspectCrop
-            visible: preview.photo.sizes.count > 0 && parent.width > Suru.units.gu(20)
+            visible: preview.photo.sizes.count > 0 &&  imageOnly ? true : parent.width > Suru.units.gu(20)
             Layout.preferredWidth: imageOnly ? parent.width : height
             Layout.preferredHeight: imageOnly ? width * source.height / source.width : implicitHeight
             Layout.maximumHeight: imageOnly ? parent.width : pageDescription.height

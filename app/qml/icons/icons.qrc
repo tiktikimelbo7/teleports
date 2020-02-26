@@ -20,5 +20,6 @@
         <file>play.svg</file>
         <file>send.png</file>
         <file>send_disabled.png</file>
+        <file>msg_panel_stickers.svg</file>
     </qresource>
 </RCC>

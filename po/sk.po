@@ -3,178 +3,180 @@
 # This file is distributed under the same license as the teleports.ubports package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-11 19:59+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-02-17 07:53+0000\n"
+"Last-Translator: dano6 <dano.kutka@gmail.com>\n"
+"Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
+"teleports/sk/>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
 #: ../app/qml/pages/AboutPage.qml:66 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr ""
+msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:124
 msgid "sent you a message"
-msgstr ""
+msgstr "vám poslal správu"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr ""
+msgstr "vám poslal fotografiu"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr ""
+msgstr "vam poslal sticker"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr ""
+msgstr "vam poslal video"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
-msgstr ""
+msgstr "vám poslal dokument"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr ""
+msgstr "vám poslal audio správu"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
-msgstr ""
+msgstr "vám poslal hlasovú správu"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr ""
+msgstr "zdieľal s vami kontakt"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
-msgstr ""
+msgstr "vám zaslal mapu"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 poslal skupine správu"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 poslal skupine fotografiu"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 poslal skupine sticker"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 poslal skupine video"
 
 #: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 poslal skupine dokument"
 
 #: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 poslal skupine hlasovú správu"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr ""
+msgstr "%1 poslal skupine GIF"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 poslal skupine kontakt"
 
 #: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1poslal skupine mapu"
 
 #: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 vás pozval do skupiny"
 
 #: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 zmenil názov skupiny"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 zmenil fotografiu skupiny"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 pozval %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:238
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 odstránil %2"
 
 #: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 vás odstránil zo skupiny"
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 opustil skupinu"
 
 #: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 sa vrátil do skupiny"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
+#, fuzzy
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 sa registroval"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 sa pripojil k Telegramu!"
 
 #: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Nové prihlásenie z neznámeho zariadenia"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
-msgstr ""
+msgstr "profilová fotografia aktualizovaná"
 
 #: ../push/pushhelper.cpp:286 ../push/pushhelper.cpp:291
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
-msgstr ""
+msgstr "Máte novú správu"
 
 #: ../push/pushhelper.cpp:301
 msgid "%1 pinned a message"
-msgstr ""
+msgstr "%1 pripol správu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:83
 msgid "Me"
-msgstr ""
+msgstr "Ja"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "Sticker"
@@ -182,44 +184,44 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "Phone call"
-msgstr ""
+msgstr "Hovor"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:327
 msgid "sent an audio message"
-msgstr ""
+msgstr "zaslaná audio správa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:331
 msgid "sent a photo"
-msgstr ""
+msgstr "zaslaná fotografia"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:340
 msgid "Location"
-msgstr ""
+msgstr "Poloha"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:344
 msgid "sent a video"
-msgstr ""
+msgstr "zaslané video"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:348
 msgid "sent a video note"
-msgstr ""
+msgstr "zaslaná video poznámka"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:352
 msgid "sent a voice note"
-msgstr ""
+msgstr "zaslaná hlasová správa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:356
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:362
 #: ../libs/qtdlib/messages/qtdmessage.cpp:366
 msgid "joined the group"
-msgstr ""
+msgstr "sa pripojil k skupine"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:364
 msgid "added one or more members"
-msgstr ""
+msgstr "pridaný jeden alebo viac členov"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "changed the chat photo"
@@ -231,23 +233,23 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "joined by invite link"
-msgstr ""
+msgstr "sa pripojil pomocou pozvánky"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:384
 msgid "left the group"
-msgstr ""
+msgstr "opustil skupinu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:386
 msgid "removed a member"
-msgstr ""
+msgstr "odstránil člena"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:391
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "odstránil fotografiu chatu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:396
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "povýšená na supergroup"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:400
 msgid "message TTL has been changed"
@@ -264,7 +266,7 @@ msgstr ""
 #: ../libs/qtdlib/messages/qtdmessage.cpp:418
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
-msgstr ""
+msgstr "Nepodporovaná správa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:422
 msgid "Unimplemented:"
@@ -272,37 +274,37 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
 msgid "Message"
-msgstr ""
+msgstr "Správa"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
 msgid "Unread Messages"
-msgstr ""
+msgstr "Neprečítané správy"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "Naposledy videné pred mesiacom"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "Naposledy videné pred týždňom"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
-msgstr ""
+msgstr "Naposledy videné "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
-msgstr ""
+msgstr "Videné nedávno"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
@@ -310,52 +312,52 @@ msgstr ""
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
-msgstr ""
+msgstr "Koncept:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
-msgstr ""
+msgstr "vyberá kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
-msgstr ""
+msgstr "vyberajú kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is choosing location..."
-msgstr ""
+msgstr "vyberá polohu..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are choosing location..."
-msgstr ""
+msgstr "vyberajú polohu..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
-msgstr ""
+msgstr "nahráva..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
-msgstr ""
+msgstr "nahrávajú..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
-msgstr ""
+msgstr "píše..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
-msgstr ""
+msgstr "píšu..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something"
-msgstr ""
+msgstr "niečo robí"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something"
-msgstr ""
+msgstr "niečo robia"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr ""
+msgstr "nie je dostupné"
 
 #: ../app/qml/components/UserProfile.qml:233
 msgid ""
@@ -384,7 +386,7 @@ msgstr ""
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
@@ -392,21 +394,21 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
 msgid "Sticker"
-msgstr ""
+msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
 msgid "changed the chat title"
-msgstr ""
+msgstr "zmenil názov skupiny"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
 msgid "created this group"
-msgstr ""
+msgstr "vytvoril túto skupinu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "TTL správa zmenená"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
@@ -418,19 +420,19 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
-msgstr ""
+msgstr "zmenil fotografiu skupiny"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
-msgstr ""
+msgstr "sa pripojil k Telegramu!"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:98
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Neimplementované:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
-msgstr ""
+msgstr "Uložené správy"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -745,12 +747,14 @@ msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
@@ -820,6 +824,7 @@ msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"

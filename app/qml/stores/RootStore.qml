@@ -31,4 +31,9 @@ Store {
     ConnectionsStore {
         id: connectionsStore
     }
+
+    property alias stickers: stickersStore
+    StickersStore {
+        id: stickersStore
+    }
 }
