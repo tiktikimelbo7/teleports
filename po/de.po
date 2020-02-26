@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-26 19:35+0000\n"
-"PO-Revision-Date: 2020-02-04 10:21+0000\n"
-"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
+"PO-Revision-Date: 2020-02-26 20:15+0000\n"
+"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -187,21 +187,19 @@ msgstr "ist Telegram beigetreten!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "Foto,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Foto"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message,"
-msgstr "hat Dir eine Sprachnachricht geschickt"
+msgstr "Sprachnachricht,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message"
-msgstr "hat Dir eine Sprachnachricht geschickt"
+msgstr "Sprachnachricht"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
 msgid "Call Declined"
@@ -221,11 +219,11 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
 msgid "Outgoing Call"
-msgstr ""
+msgstr "Ausgehender Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
 msgid "Incoming Call"
-msgstr ""
+msgstr "Eingehender Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
 msgid "Cancelled Call"
@@ -237,7 +235,7 @@ msgstr "Verpasster Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
 msgid "Call"
-msgstr ""
+msgstr "Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
@@ -285,21 +283,19 @@ msgstr "hat ein Mitglied entfernt"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
 msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
-#, fuzzy
 msgid "Video message"
-msgstr "hat Dir eine Nachricht geschickt"
+msgstr "Videonachricht"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
-#, fuzzy
 msgid "Video,"
-msgstr "Video"
+msgstr "Video,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
@@ -432,9 +428,8 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Nachricht"
+msgstr "Nachricht bearbeiten"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
