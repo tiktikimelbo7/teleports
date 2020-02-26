@@ -180,7 +180,7 @@ msgstr "Ja"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "Sticker"
-msgstr "Sticker"
+msgstr "Nálepka"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "Phone call"
@@ -372,15 +372,15 @@ msgstr ""
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Hladat názov tátu..."
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
-msgstr ""
+msgstr "Upravené"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "OK"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
@@ -402,7 +402,7 @@ msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Zavriet"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -818,11 +818,11 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Snímok obrazovky bol vytvorený"
 
 #: ../app/qml/delegates/MessageContentBase.qml:38
 msgid "Forwarded from %1"
-msgstr ""
+msgstr "Preposlané od %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
@@ -838,7 +838,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
+msgstr "Hlasová poznámka"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
