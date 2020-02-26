@@ -389,46 +389,12 @@ msgstr ""
 msgid "Photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
-msgid "Sticker"
-msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
-msgid "changed the chat title"
-msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
-#: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
-msgid "created this group"
-msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr ""
-
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message"
-msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
-msgid "changed the chat photo"
-msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
-msgid "has joined Telegram!"
-msgstr ""
-
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:98
-msgid "Unimplemented:"
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
-msgid "Saved Messages"
 msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
@@ -450,10 +416,6 @@ msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr ""
-
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
 msgstr ""
 
 #: ../app/qml/stores/AuthStateStore.qml:60
@@ -868,28 +830,8 @@ msgstr ""
 msgid "Missing label..."
 msgstr ""
 
-#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
-msgid "A screenshot has been taken"
-msgstr ""
-
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
-
-#: ../app/qml/delegates/MessageContentBase.qml:38
-msgid "Forwarded from %1"
-msgstr ""
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr ""
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Okay"
-msgstr ""
-
-#: ../app/qml/components/MessageStatusRow.qml:36
-msgid "Edited"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
@@ -908,6 +850,3 @@ msgstr ""
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
-msgid "Voice note"
-msgstr ""
