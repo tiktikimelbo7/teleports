@@ -180,7 +180,7 @@ msgstr "Ja"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:319
 msgid "Sticker"
-msgstr ""
+msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:323
 msgid "Phone call"
@@ -225,11 +225,11 @@ msgstr "pridaný jeden alebo viac členov"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:370
 msgid "changed the chat photo"
-msgstr ""
+msgstr "zmenil fotografiu skupiny"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:374
 msgid "changed the chat title"
-msgstr ""
+msgstr "zmenil názov skupiny"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:378
 msgid "joined by invite link"
@@ -253,15 +253,15 @@ msgstr "povýšená na supergroup"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:400
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "TTL správa zmenená"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:405
 msgid "created this group"
-msgstr ""
+msgstr "vytvoril túto skupinu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:414
 msgid "has joined Telegram!"
-msgstr ""
+msgstr "sa pripojil k Telegramu!"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:418
 #: ../app/qml/delegates/MessageUnsupported.qml:4
@@ -270,7 +270,7 @@ msgstr "Nepodporovaná správa"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:422
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Neimplementované:"
 
 #: ../libs/qtdlib/messages/qtdmessagecontent.cpp:8
 msgid "Message"
@@ -308,7 +308,7 @@ msgstr "Videné nedávno"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
-msgstr ""
+msgstr "Uložené správy"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:340
 msgid "Draft:"
@@ -392,24 +392,6 @@ msgstr "Zrušiť"
 msgid "Photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
-msgid "Sticker"
-msgstr "Sticker"
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
-msgid "changed the chat title"
-msgstr "zmenil názov skupiny"
-
-#: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
-#: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
-msgid "created this group"
-msgstr "vytvoril túto skupinu"
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr "TTL správa zmenená"
-
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
 msgstr ""
@@ -417,22 +399,6 @@ msgstr ""
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message"
 msgstr ""
-
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
-msgid "changed the chat photo"
-msgstr "zmenil fotografiu skupiny"
-
-#: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
-msgid "has joined Telegram!"
-msgstr "sa pripojil k Telegramu!"
-
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:98
-msgid "Unimplemented:"
-msgstr "Neimplementované:"
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:89 ../app/qml/pages/ChatListPage.qml:53
-msgid "Saved Messages"
-msgstr "Uložené správy"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -453,10 +419,6 @@ msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr ""
-
-#: ../app/qml/middleware/ErrorsMiddleware.qml:19
-msgid "Close"
 msgstr ""
 
 #: ../app/qml/stores/AuthStateStore.qml:60
@@ -874,28 +836,8 @@ msgstr ""
 msgid "Missing label..."
 msgstr ""
 
-#: ../app/qml/delegates/MessageScreenshotTaken.qml:4
-msgid "A screenshot has been taken"
-msgstr ""
-
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
-
-#: ../app/qml/delegates/MessageContentBase.qml:38
-msgid "Forwarded from %1"
-msgstr ""
-
-#: ../app/qml/components/CountryPicker.qml:38
-msgid "Search country name..."
-msgstr ""
-
-#: ../app/qml/components/PopupDialog.qml:14
-msgid "Okay"
-msgstr ""
-
-#: ../app/qml/components/MessageStatusRow.qml:36
-msgid "Edited"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
@@ -914,6 +856,3 @@ msgstr ""
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentVoiceNote.qml:56
-msgid "Voice note"
-msgstr ""
