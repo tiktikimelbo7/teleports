@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-26 19:35+0000\n"
-"PO-Revision-Date: 2020-02-26 22:47+0000\n"
-"Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
+"PO-Revision-Date: 2020-02-29 16:47+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
 "Language: cs\n"
@@ -179,7 +179,7 @@ msgstr "Já"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
-msgstr "Poloha"
+msgstr "Umístění"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
@@ -425,7 +425,7 @@ msgstr "Budiž"
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr "Storno"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
@@ -657,7 +657,7 @@ msgstr "Nahlásit problémy"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
-msgstr "Pomožte s překlady"
+msgstr "Pomozte s překlady"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
@@ -787,7 +787,7 @@ msgstr "Profil"
 #: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
-msgstr "Editovat"
+msgstr "Upravit"
 
 #: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
