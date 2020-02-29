@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-26 19:35+0000\n"
-"PO-Revision-Date: 2020-02-25 20:21+0000\n"
+"PO-Revision-Date: 2020-02-29 16:47+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -35,11 +35,11 @@ msgstr "vám poslal fotografiu"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr "vam poslal sticker"
+msgstr "vám poslal sticker"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr "vam poslal video"
+msgstr "vám poslal video"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
@@ -186,9 +186,8 @@ msgid "has joined Telegram!"
 msgstr "sa pripojil k Telegramu!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
-#, fuzzy
 msgid "Photo,"
-msgstr "Fotka"
+msgstr "Fotka,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
@@ -204,40 +203,39 @@ msgstr "Hlasová správa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
 msgid "Call Declined"
-msgstr ""
+msgstr "Hovor odmietnutý"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Hovor prerušený"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
 msgid "Call Ended"
-msgstr ""
+msgstr "Hovor ukončený"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
 msgid "%1 (%2:%3)"
-msgstr ""
+msgstr "%1 (%2:%3)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
 msgid "Outgoing Call"
-msgstr ""
+msgstr "Odchádzajúci hovor"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
 msgid "Incoming Call"
-msgstr ""
+msgstr "Prichádzajúci hovor"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
-#, fuzzy
 msgid "Cancelled Call"
-msgstr "Zrušiť"
+msgstr "Hovor zrušený"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
 msgid "Missed Call"
-msgstr ""
+msgstr "Zmeškaný hovor"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
 msgid "Call"
-msgstr ""
+msgstr "Volať"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
@@ -285,24 +283,23 @@ msgstr "odstránil člena"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF,"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
 msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
-#, fuzzy
 msgid "Video message"
-msgstr "Hlasová správa"
+msgstr "Video správa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "Video,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
@@ -414,7 +411,7 @@ msgstr "Zvoľte krajinu"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr "Hladat názov tátu..."
+msgstr "Hľadať názov štátu..."
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
@@ -431,9 +428,8 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Hlasová správa"
+msgstr "Editovať správu"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -454,7 +450,7 @@ msgstr "Opustiť chat"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr "Zavriet"
+msgstr "Zavrieť"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
@@ -540,7 +536,7 @@ msgstr "Nočný režim"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr "O Aplikácii"
+msgstr "O aplikácii"
 
 #: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
@@ -878,7 +874,7 @@ msgstr "Chýba značka..."
 
 #: ../app/qml/delegates/MessageContentCall.qml:57
 msgid "Duration: %1:%2"
-msgstr ""
+msgstr "Doba: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
