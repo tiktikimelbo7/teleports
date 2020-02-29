@@ -29,7 +29,6 @@ signals:
 private:
     bool m_hasStickers;
     QPointer<QQmlObjectListModel<QTdPhotoSize>> m_sizes;
-    bool m_hasSitckers;
 };
 
 #endif // QTDPHOTOS_H

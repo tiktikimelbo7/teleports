@@ -293,7 +293,6 @@ void QTdSuperGroupChat::superGroupFullInfo(const QJsonObject &info)
     m_historyAvailable = info["is_all_history_available"].toBool();
     m_stickerSet = info["sticker_set_id"];
     m_inviteLink = info["invite_link"].toString();
-    m_pinnedMessageId = info["pinned_message_id"];
     m_upgradeGroupId = info["upgraded_from_basic_group_id"];
     m_upgradeMaxMsgId = info["upgraded_from_max_message_id"];
     emit superGroupInfoChanged();

@@ -168,9 +168,6 @@ void QTdChatListModel::handleChat(const QJsonObject &data)
 {
     QScopedPointer<QTdChat> chat(new QTdChat);
     chat->unmarshalJson(data);
-    if (chat->isMyself()) {
-        qWarning() << "Chat with myself. Id:" << chat->id() << "Order:" << chat->order();
-    }
     handleUpdateNewChat(data);
 }
 
