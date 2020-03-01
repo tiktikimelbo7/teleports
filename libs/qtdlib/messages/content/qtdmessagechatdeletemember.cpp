@@ -27,9 +27,15 @@ qint32 QTdMessageChatDeleteMember::userId() const
     return m_uid.value();
 }
 
+void QTdMessageChatDeleteMember::updateTypeText()
+{
+    m_typeText = m_senderUserId == userId() ? gettext("left the group") : gettext("removed a member");
+}
+
 void QTdMessageChatDeleteMember::setSenderUserId(const qint32 senderUserId)
 {
     m_senderUserId = senderUserId;
+    updateTypeText();
 }
 
 void QTdMessageChatDeleteMember::unmarshalJson(const QJsonObject &json)
@@ -38,7 +44,7 @@ void QTdMessageChatDeleteMember::unmarshalJson(const QJsonObject &json)
         m_uid = json["user_id"];
         emit contentChanged();
 
-        m_typeText = m_senderUserId == userId() ? gettext("left the group") : gettext("removed a member");
+        updateTypeText();
         auto *user = QTdUsers::instance()->model()->getByUid(m_uid.toQmlValue());
         if (user) {
             m_user = user;
