@@ -84,11 +84,11 @@ Item {
 
             Column {
                 Layout.fillWidth: true
-                anchors.horizontalCenter: parent.verticalCenter
+                anchors.verticalCenter: parent.verticalCenter
                 spacing: units.dp(4)
 
                 Label {
-                    text: editing ? i18n.tr("Edit message") : message.sender.fullName
+                    text: editing ? i18n.tr("Edit message") : message ? message.sender.fullName : ""
                     font.bold: true
                     color: Suru.color(Suru.Blue)
                 }
