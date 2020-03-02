@@ -29,9 +29,15 @@ qint32 QTdMessageChatAddMembers::firstMemberId() const
     return m_member_user_ids.first();
 }
 
+void QTdMessageChatAddMembers::updateTypeText()
+{
+    m_typeText = m_senderUserId == firstMemberId() ? gettext("joined the group") : gettext("added one or more members");
+}
+
 void QTdMessageChatAddMembers::setSenderUserId(const qint32 senderUserId)
 {
     m_senderUserId = senderUserId;
+    updateTypeText();
 }
 
 void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
@@ -58,5 +64,5 @@ void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
             req->send();
         }
     }
-    m_typeText = m_senderUserId == firstMemberId() ? gettext("joined the group") : gettext("added one or more members");
+    updateTypeText();
 }

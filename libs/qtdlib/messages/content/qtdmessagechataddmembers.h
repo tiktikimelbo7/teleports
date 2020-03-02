@@ -34,6 +34,7 @@ signals:
     void membersChanged();
 
 private:
+    void updateTypeText();
     QScopedPointer<QTdUsersSortFilterModel> m_model;
     QList<qint32> m_member_user_ids;
     qint32 m_senderUserId;

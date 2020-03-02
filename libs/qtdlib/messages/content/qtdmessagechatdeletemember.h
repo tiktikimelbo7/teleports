@@ -36,6 +36,7 @@ private slots:
     void handleResponse();
 
 private:
+    void updateTypeText();
     QPointer<QTdUser> m_user;
     QTdInt32 m_uid;
     QFutureWatcher<QTdResponse> m_watcher;
