@@ -23,7 +23,7 @@ MessageContentBase {
         width: maximumAvailableContentWidth
         height:Math.max(fileNameLabel.height,fileIcon.height)
         Component.onCompleted: {
-            if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted) {
+            if (thumbnailLocal && thumbnailLocal.canBeDownloaded && !thumbnailLocal.isDownloadingCompleted && thumbnail) {
                 thumbnail.downloadFile();
             }
         }

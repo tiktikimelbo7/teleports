@@ -554,7 +554,7 @@ Page {
                 width: height
                 UITK.Icon {
                     anchors.fill: parent
-                    name: showKeyboardLoader.item.anchors.bottomMargin < 0 ? "input-dialpad-symbolic" : "down"
+                    name: showKeyboardLoader.active ? (showKeyboardLoader.item.anchors.bottomMargin < 0 ? "input-dialpad-symbolic" : "down") : ""
                     color: Suru.foregroundColor
                     Suru.textStyle: Suru.SecondaryText
                     MouseArea {
