@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 19:35+0000\n"
+"POT-Creation-Date: 2020-03-02 21:01+0000\n"
 "PO-Revision-Date: 2020-03-02 17:48+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -201,39 +201,46 @@ msgstr "Hlasová zpráva,"
 msgid "Voice message"
 msgstr "Hlasová zpráva"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
 msgstr "Hovor odmítnut"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
 msgstr "Hovor přerušen"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
 msgstr "Hovor ukončen"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "%1 (%2:%3)"
+#. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
+#, fuzzy
+#| msgid "%1 (%2:%3)"
+msgid "%1:%2:%3"
 msgstr "%1 (%2:%3)"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Outgoing Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
+#, fuzzy
+#| msgid "Outgoing Call"
+msgid "Outgoing Call (%1)"
 msgstr "Odchozí hovor"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Incoming Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
+#, fuzzy
+#| msgid "Incoming Call"
+msgid "Incoming Call (%1)"
 msgstr "Příchozí hovor"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
 msgstr "Hovor zrušen"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
 msgstr "Zmeškaný hovor"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
 msgstr "Hovor"
 
@@ -260,11 +267,11 @@ msgstr "povýšeno na supergroup"
 msgid "changed the chat photo"
 msgstr "změnil fotografii skupiny"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
 msgstr "se připojil ke skupině"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
 msgstr "přidán jeden nebo více členů"
 
@@ -273,11 +280,11 @@ msgstr "přidán jeden nebo více členů"
 msgid "Unsupported message"
 msgstr "Nepodporovaná zpráva"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
 msgstr "opustil skupinu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
 msgstr "odstranil člena"
 
@@ -868,8 +875,11 @@ msgstr "Neznámý typ zprávy, podrobnosti viz logfile..."
 msgid "Missing label..."
 msgstr "Chybí značka..."
 
-#: ../app/qml/delegates/MessageContentCall.qml:57
-msgid "Duration: %1:%2"
+#. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
+#: ../app/qml/delegates/MessageContentCall.qml:60
+#, fuzzy
+#| msgid "Duration: %1:%2"
+msgid "Duration: %1:%2:%3"
 msgstr "Doba: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 19:35+0000\n"
+"POT-Creation-Date: 2020-03-02 21:01+0000\n"
 "PO-Revision-Date: 2020-02-05 23:21+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -203,39 +203,40 @@ msgstr "le envió un mensaje de voz"
 msgid "Voice message"
 msgstr "le envió un mensaje de voz"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
 msgstr "Llamada rechazada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
 msgstr "Llamada desconectada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
 msgstr "Llamada finalizada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "%1 (%2:%3)"
+#. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
+msgid "%1:%2:%3"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Outgoing Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
+msgid "Outgoing Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Incoming Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
+msgid "Incoming Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
 msgstr "Llamada cancelada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
 msgstr "Llamada perdida"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
 msgstr ""
 
@@ -262,11 +263,11 @@ msgstr "actualizado a supergrupo"
 msgid "changed the chat photo"
 msgstr "cambió la foto del chat"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
 msgstr "se unió al grupo"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
 msgstr "Añadido uno o más miembros"
 
@@ -275,11 +276,11 @@ msgstr "Añadido uno o más miembros"
 msgid "Unsupported message"
 msgstr "Mensaje no compatible"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
 msgstr "dejó el grupo"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
 msgstr "eliminó a un miembro"
 
@@ -888,8 +889,11 @@ msgstr ""
 msgid "Missing label..."
 msgstr "Falta la etiqueta..."
 
-#: ../app/qml/delegates/MessageContentCall.qml:57
-msgid "Duration: %1:%2"
+#. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
+#: ../app/qml/delegates/MessageContentCall.qml:60
+#, fuzzy
+#| msgid "Duration: %1:%2"
+msgid "Duration: %1:%2:%3"
 msgstr "Duración: %1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6

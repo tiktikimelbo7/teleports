@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 19:35+0000\n"
+"POT-Creation-Date: 2020-03-02 21:01+0000\n"
 "PO-Revision-Date: 2019-11-11 10:36+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -203,39 +203,40 @@ msgstr "t'at imbiadu unu messàgiu vocale"
 msgid "Voice message"
 msgstr "t'at imbiadu unu messàgiu vocale"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
 msgstr "Mutida refudada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
 msgstr "Mutida disconnètida"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
 msgstr "Mutida acabbada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "%1 (%2:%3)"
+#. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
+msgid "%1:%2:%3"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Outgoing Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
+msgid "Outgoing Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Incoming Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
+msgid "Incoming Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
 msgstr "Mutida cantzellada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
 msgstr "Mutida pèrdida"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
 msgstr ""
 
@@ -262,11 +263,11 @@ msgstr "at atualizadu a supergrupu"
 msgid "changed the chat photo"
 msgstr "at mudadu sa fotografia de sa tzarrada"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
 msgstr "at aderidu a su grupu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
 msgstr "at agiuntu unu o prus membros"
 
@@ -275,11 +276,11 @@ msgstr "at agiuntu unu o prus membros"
 msgid "Unsupported message"
 msgstr "Messàgiu no suportadu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
 msgstr "at lassadu su grupu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
 msgstr "at bogadu unu membru"
 
@@ -880,8 +881,11 @@ msgstr "Genia de messàgiu disconnota. Leghe is detàllios in su registru..."
 msgid "Missing label..."
 msgstr "Ammancat s'eticheta..."
 
-#: ../app/qml/delegates/MessageContentCall.qml:57
-msgid "Duration: %1:%2"
+#. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
+#: ../app/qml/delegates/MessageContentCall.qml:60
+#, fuzzy
+#| msgid "Duration: %1:%2"
+msgid "Duration: %1:%2:%3"
 msgstr "Durada: %1.%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6

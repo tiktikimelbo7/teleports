@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-26 19:35+0000\n"
+"POT-Creation-Date: 2020-03-02 21:01+0000\n"
 "PO-Revision-Date: 2020-01-30 19:54+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -203,39 +203,40 @@ msgstr "向您發送了一則語音訊息"
 msgid "Voice message"
 msgstr "向您發送了一則語音訊息"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:54
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
 msgstr "通話已拒絕"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:57
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
 msgstr "通話已斷線"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:60
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
 msgstr "通話結束"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "%1 (%2:%3)"
+#. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
+msgid "%1:%2:%3"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Outgoing Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
+msgid "Outgoing Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:63
-msgid "Incoming Call"
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
+msgid "Incoming Call (%1)"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
 msgstr "取消的通話"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:66
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
 msgstr "未接來電"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:69
+#: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
 msgstr ""
 
@@ -262,11 +263,11 @@ msgstr "升級到超級群組"
 msgid "changed the chat photo"
 msgstr "更改了聊天的圖片"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
 msgstr "加入了群組"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:61
+#: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
 msgstr "新增了一位或多位成員"
 
@@ -275,11 +276,11 @@ msgstr "新增了一位或多位成員"
 msgid "Unsupported message"
 msgstr "不支援的訊息"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
 msgstr "%1 離開了群組"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:41
+#: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
 msgstr "移除了一位成員"
 
@@ -865,8 +866,11 @@ msgstr "未知訊息類型，請參考日誌文件來了解詳細內容..."
 msgid "Missing label..."
 msgstr "缺少標籤..."
 
-#: ../app/qml/delegates/MessageContentCall.qml:57
-msgid "Duration: %1:%2"
+#. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
+#: ../app/qml/delegates/MessageContentCall.qml:60
+#, fuzzy
+#| msgid "Duration: %1:%2"
+msgid "Duration: %1:%2:%3"
 msgstr "持續時間：%1:%2"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
