@@ -50,11 +50,14 @@ MessageContentBase {
 
                 Label {
                     visible: call.duration > 0
-                    readonly property int minutes: Math.floor(call.duration / 60)
+                    readonly property int hours: Math.floor(call.duration / 3600)
+                    readonly property string hoursString: (hours < 10 ? "0%1" : "%1").arg(hours)
+                    readonly property int minutes: Math.floor(call.duration / 60 - hours * 60)
                     readonly property string minutesString: (minutes < 10 ? "0%1" : "%1").arg(minutes)
-                    readonly property int seconds: call.duration - minutes * 60
+                    readonly property int seconds: call.duration - hours * 3600 - minutes * 60
                     readonly property string secondsString: (seconds < 10 ? "0%1" : "%1").arg(seconds)
-                    text: i18n.tr("Duration: %1:%2").arg(minutesString).arg(secondsString)
+                    //TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
+                    text: i18n.tr("Duration: %1:%2:%3").arg(hoursString).arg(minutesString).arg(secondsString)
                     Suru.textLevel: Suru.Small
                     Suru.textStyle: Suru.TertiaryText
                 }
