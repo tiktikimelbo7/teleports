@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-02 21:01+0000\n"
-"PO-Revision-Date: 2020-02-29 16:47+0000\n"
+"PO-Revision-Date: 2020-03-04 23:25+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -215,22 +215,16 @@ msgstr "Appel terminé"
 
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
-#, fuzzy
-#| msgid "%1 (%2:%3)"
 msgid "%1:%2:%3"
-msgstr "%1 (%2:%3)"
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
-#, fuzzy
-#| msgid "Outgoing Call"
 msgid "Outgoing Call (%1)"
-msgstr "Appel sortant"
+msgstr "Appel sortant (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
-#, fuzzy
-#| msgid "Incoming Call"
 msgid "Incoming Call (%1)"
-msgstr "Appel entrant"
+msgstr "Appel entrant (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -888,10 +882,8 @@ msgstr "Étiquette manquante..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Durée : %1:%2"
+msgstr "Durée : %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
