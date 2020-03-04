@@ -41,7 +41,7 @@ Item {
                 wrapMode: Text.WrapAnywhere
                 elide: Text.ElideRight
                 maximumLineCount: 2
-                width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*parent.anchors.leftMargin : mainContent.width
+                width: multimediaLayout || mcMargins == 0 ? mainContent.width-2*parent.anchors.leftMargin : implicitWidth
                 height: implicitHeight
             }
         }
