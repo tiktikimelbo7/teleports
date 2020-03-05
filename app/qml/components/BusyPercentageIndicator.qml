@@ -9,7 +9,7 @@ Item {
     property real percentage: 0.0
     visible: false
     BusyIndicator {
-        anchors.centerIn: parent
+        anchors.fill: parent
         running: parent.running
         UITK.Label {
             anchors.centerIn: parent

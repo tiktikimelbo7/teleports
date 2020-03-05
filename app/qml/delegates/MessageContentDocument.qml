@@ -18,6 +18,7 @@ MessageContentBase {
     property QTdPhotoSize thumbnail: documentContent.document.thumbnail
     property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
     property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
+    property url thumbnailLocalSource: thumbnail && thumbnailLocal.path ? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
 
     Item {
         id: documentContainer
@@ -30,25 +31,50 @@ MessageContentBase {
                 thumbnail.downloadFile();
             }
         }
+        UITK.UbuntuShape {
+            id: thumbnailBg
+            visible: thumbnailLocalSource != ""
+            anchors.fill: fileIcon
+            source: Image { source: thumbnailLocalSource }
+            sourceFillMode: UITK.UbuntuShape.PreserveAspectCrop
+        }
         Item {
             id: fileIcon
             width: units.gu(7)
             height: units.gu(7)
             anchors.rightMargin: Suru.units.gu(2)
+            Item {
+                id: overlay_content
+                width: parent.width * 0.64
+                height: width
+                anchors.centerIn: parent
+            }
             UITK.Icon {
-                visible: localFile.isDownloadingCompleted
+                visible: localFile.isDownloadingCompleted && !thumbnailBg.visible
                 color: UITK.UbuntuColors.ash
                 name: "document-open"
                 anchors.fill: parent
             }
+            Rectangle {
+                id: circle_overlay
+                radius: width / 2
+                color: UITK.UbuntuColors.porcelain
+                opacity: 0.5
+                width: parent.width * 0.8
+                height: width
+                visible: (percentage_spinner.visible || download_icon.visible) && thumbnailBg.visible
+                anchors.centerIn: parent
+            }
             UITK.Icon {
+                id: download_icon
                 visible: !localFile.isDownloadingCompleted && !localFile.isDownloadingActive
                 source: "qrc:/qml/icons/download.svg"
-                anchors.fill: parent
-                color: UITK.UbuntuColors.ash
+                anchors.fill: thumbnailBg.visible ? overlay_content : parent
+                color: UITK.UbuntuColors.inkstone
             }
             BusyPercentageIndicator {
-                anchors.fill: parent
+                id: percentage_spinner
+                anchors.fill: thumbnailBg.visible ? overlay_content : parent
                 visible: localFile.isDownloadingActive || remoteFile.isUploadingActive
                 running: !localFile.isDownloadingCompleted || !remoteFile.isUploadingCompleted
                 percentage: {
