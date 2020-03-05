@@ -15,7 +15,7 @@ class QTdStickerSet : public QTdObject
     Q_PROPERTY(QString name READ name NOTIFY stickerSetChanged)
     Q_PROPERTY(QString title READ title NOTIFY stickerSetChanged)
     Q_PROPERTY(QTdFile *thumbnail READ thumbnail NOTIFY stickerSetChanged)
-    Q_PROPERTY(QObject *model READ qmlModel NOTIFY stickerSetChanged)
+    Q_PROPERTY(QObject *stickers READ qmlModel NOTIFY stickerSetChanged)
 public:
     explicit QTdStickerSet(QObject *parent = nullptr);
 
@@ -35,7 +35,7 @@ signals:
     void stickerSetChanged();
 
 private:
-    QPointer<QQmlObjectListModel<QTdSticker>> m_model;
+    QPointer<QQmlObjectListModel<QTdSticker>> m_stickers;
     QTdInt64 m_id;
     QString m_title;
     QString m_name;

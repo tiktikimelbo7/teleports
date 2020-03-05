@@ -14,6 +14,7 @@
 #include "chat/requests/qtddeletechathistoryrequest.h"
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdclosesecretchatrequest.h"
+#include "chat/requests/qtdsetchatnotificationsettings.h"
 #include "user/qtdusers.h"
 #include "common/qtdhelpers.h"
 #include "messages/requests/qtdgetmessagerequest.h"
@@ -577,8 +578,8 @@ void QTdChat::handleChatPhotoDownloaded()
     QTdClient::instance()->setAvatarMapEntry(id(), m_chatPhoto->small()->local()->path());
 }
 
-void QTdChat::onChatOpened()
-{
+void QTdChat::onChatOpened() {
+
 }
 
 void QTdChat::onChatClosed()
@@ -593,6 +594,15 @@ void QTdChat::forwardMessage(const QString &messageId)
 {
     QStringList forwardingMessages = QStringList(messageId);
     emit forwardingMessagesAction(forwardingMessages, this);
+}
+
+void QTdChat::mute(const qint32 &duration) {
+    QScopedPointer<QTdSetChatNotificationSettings>
+            req(new QTdSetChatNotificationSettings);
+    req->setNotificationSettings(m_notifySettings.data());
+    req->setChatId(id());
+    m_notifySettings->setMuteFor(duration);
+    QTdClient::instance()->send(req.data());
 }
 
 void QTdChat::updateChatAction(const QJsonObject &json)

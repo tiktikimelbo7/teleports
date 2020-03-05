@@ -9,7 +9,7 @@ QTdStickerSet::QTdStickerSet(QObject *parent)
     , m_thumbnail(new QTdFile(this))
     , m_detailsLoaded(false)
 {
-    m_model = new QQmlObjectListModel<QTdSticker>(this, "", "id");
+    m_stickers = new QQmlObjectListModel<QTdSticker>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::stickerSet, this, &QTdStickerSet::handleDetails);
 }
 
@@ -30,7 +30,7 @@ QTdFile *QTdStickerSet::thumbnail() const
 
 QObject *QTdStickerSet::qmlModel() const
 {
-    return m_model;
+    return m_stickers;
 }
 
 void QTdStickerSet::loadDetails() const
@@ -72,7 +72,7 @@ void QTdStickerSet::unmarshalJson(const QJsonObject &json)
         for (auto stickerJSON : stickersArray) {
             QTdSticker *sticker = new QTdSticker(this);
             sticker->unmarshalJson(stickerJSON.toObject());
-            m_model->append(sticker);
+            m_stickers->append(sticker);
         }
     }
     emit stickerSetChanged();

@@ -6,13 +6,13 @@
 QTdStickerSets::QTdStickerSets(QObject *parent)
     : QTdObject(parent)
 {
-    m_model = new QQmlObjectListModel<QTdStickerSet>(this, "", "id");
+    m_stickerSets = new QQmlObjectListModel<QTdStickerSet>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::stickerSets, this, &QTdStickerSets::handleStickerSets);
 }
 
 QObject *QTdStickerSets::qmlModel() const
 {
-    return m_model;
+    return m_stickerSets;
 }
 
 void QTdStickerSets::loadStickerSets()
@@ -25,11 +25,11 @@ void QTdStickerSets::loadStickerSets()
 
 void QTdStickerSets::handleStickerSets(const QJsonObject &json)
 {
-    m_model->clear();
+    m_stickerSets->clear();
     auto array = json["sets"].toArray();
     for (auto value : array) {
         auto newSet = new QTdStickerSet(this);
         newSet->unmarshalJson(value.toObject());
-        m_model->append(newSet);
+        m_stickerSets->append(newSet);
     }
 }

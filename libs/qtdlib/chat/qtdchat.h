@@ -298,6 +298,11 @@ public:
      */
     Q_INVOKABLE void forwardMessage(const QString &messageId);
 
+    /**
+     * @brief Mute chat for x minutes or unmute chat (x == 0)
+     */
+    Q_INVOKABLE void mute(const qint32 &duration);
+
     QJsonObject lastMessageJson() const
     {
         return m_lastMsgJson;

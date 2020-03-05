@@ -67,7 +67,6 @@ Page {
                 Column {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    Layout.maximumHeight: units.gu(13)
 
                     Item {
                         height: titleAndMemberCount.height
@@ -135,11 +134,46 @@ Page {
                             }
 
                             title {
-                                text: chat.description
+                                text: chat.description ? chat.description : ""
                                 wrapMode: Text.Wrap
                                 maximumLineCount: 15
                             }
                         }
+                    }
+                }
+            }
+            Item {
+                height: notificationLayout.height
+                width: parent.width
+
+                UITK.ListItemLayout {
+                    id: notificationLayout
+                    width: parent.width
+
+                    padding {
+                        top: 0
+                        bottom: 0
+                    }
+
+                    title {
+                        text: i18n.tr("Notifications")
+                        elide: Text.ElideRight
+                    }
+
+                    UITK.Icon {
+                        height: parent.title.font.pixelSize * 2
+                        width: height
+                        name: "notification"
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                    }
+
+                    Switch {
+                        id: notification_switch
+                        anchors.verticalCenter: parent.verticalCenter
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Last
+                        checked: !chat.isMuted
+                        Suru.highlightType: Suru.PositiveHighlight
+                        onCheckedChanged: AppActions.chat.muteChat(chat, checked? 0 : 574410023)
                     }
                 }
             }

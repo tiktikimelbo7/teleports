@@ -93,6 +93,7 @@ set(
     chat/requests/qtdsetpinnedchatsrequest.cpp
     chat/requests/qtdforwardmessagesrequest.cpp
     chat/requests/qtdclosesecretchatrequest.cpp
+    chat/requests/qtdsetchatnotificationsettings.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp
