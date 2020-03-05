@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:01+0000\n"
+"POT-Creation-Date: 2020-03-03 23:30+0000\n"
 "PO-Revision-Date: 2020-02-20 10:21+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
@@ -241,9 +241,10 @@ msgid "Call"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
-msgid "changed the chat title"
-msgstr "cambiato il titolo della chat"
+#, fuzzy
+#| msgid "joined the group"
+msgid "joined the group via the public link"
+msgstr "entrato nel gruppo"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -305,6 +306,10 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
+msgid "changed the chat title"
+msgstr "cambiato il titolo della chat"
+
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
 msgstr "eliminata la foto della chat"
@@ -347,51 +352,51 @@ msgstr "in linea"
 msgid "Seen recently"
 msgstr "Ultimo accesso"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:93 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr "Messaggi Salvati"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:340
+#: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
 msgstr "Bozza:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are choosing contact..."
 msgstr "stanno scegliendo contatti..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is choosing location..."
 msgstr "sta scegliendo la posizione..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are choosing location..."
 msgstr "stanno scegliendo la posizione..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "is recording..."
 msgstr "sta registrando..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:634
 msgid "are recording..."
 msgstr "stanno registrando..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "is typing..."
 msgstr "sta scrivendo..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:638
 msgid "are typing..."
 msgstr "stanno scrivendo..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "is doing something"
 msgstr "sta facendo qualcosa"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:642
 msgid "are doing something"
 msgstr "stanno facendo qualcosa"
 
@@ -643,9 +648,15 @@ msgstr "Il contatto verrà eliminato. Sei sicuro?"
 msgid "Group Details"
 msgstr "Dettagli Gruppo"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:89
+#: ../app/qml/pages/GroupDetailsPage.qml:88
 msgid "Members: %1"
 msgstr "Membri: %1"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:159
+#, fuzzy
+#| msgid "Location"
+msgid "Notifications"
+msgstr "Posizione"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"

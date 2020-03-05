@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:01+0000\n"
+"POT-Creation-Date: 2020-03-03 23:30+0000\n"
 "PO-Revision-Date: 2020-02-26 20:15+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
@@ -243,9 +243,10 @@ msgid "Call"
 msgstr "Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
-msgid "changed the chat title"
-msgstr "hat den Chat-Titel geändert"
+#, fuzzy
+#| msgid "joined the group"
+msgid "joined the group via the public link"
+msgstr "ist der Gruppe beigetreten"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -306,6 +307,10 @@ msgstr "Video,"
 msgid "Video"
 msgstr "Video"
 
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
+msgid "changed the chat title"
+msgstr "hat den Chat-Titel geändert"
+
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
 msgstr "Hat das Chat-Foto gelöscht"
@@ -348,51 +353,51 @@ msgstr "Verbunden"
 msgid "Seen recently"
 msgstr "Vor Kurzem gesehen"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:93 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr "Gespeicherte Nachrichten"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:340
+#: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
 msgstr "Entwurf:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is choosing contact..."
 msgstr "wählt einen Kontakt aus..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are choosing contact..."
 msgstr "wählen einen Kontakt aus..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is choosing location..."
 msgstr "wählt einen Standort aus..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are choosing location..."
 msgstr "wählen einen Standort aus..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "is recording..."
 msgstr "nimmt auf..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:634
 msgid "are recording..."
 msgstr "nehmen auf..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "is typing..."
 msgstr "tippt..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:638
 msgid "are typing..."
 msgstr "tippen..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "is doing something"
 msgstr "macht etwas"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:642
 msgid "are doing something"
 msgstr "machen etwas"
 
@@ -643,9 +648,15 @@ msgstr "Der Kontakt wird gelöscht. Bist du sicher?"
 msgid "Group Details"
 msgstr "Gruppendetails"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:89
+#: ../app/qml/pages/GroupDetailsPage.qml:88
 msgid "Members: %1"
 msgstr "Mitglieder: %1"
+
+#: ../app/qml/pages/GroupDetailsPage.qml:159
+#, fuzzy
+#| msgid "Location"
+msgid "Notifications"
+msgstr "Standort"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"

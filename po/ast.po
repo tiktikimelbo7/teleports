@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 21:01+0000\n"
+"POT-Creation-Date: 2020-03-03 23:30+0000\n"
 "PO-Revision-Date: 2019-10-29 08:58+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian <https://translate.ubports.com/projects/ubports/"
@@ -239,8 +239,7 @@ msgid "Call"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
-msgid "changed the chat title"
+msgid "joined the group via the public link"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
@@ -302,6 +301,10 @@ msgstr ""
 msgid "Video"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
+msgid "changed the chat title"
+msgstr ""
+
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
 msgstr ""
@@ -344,51 +347,51 @@ msgstr ""
 msgid "Seen recently"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:92 ../app/qml/pages/ChatListPage.qml:53
+#: ../libs/qtdlib/chat/qtdchat.cpp:93 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:340
+#: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:634
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:638
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "is doing something"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:642
 msgid "are doing something"
 msgstr ""
 
@@ -634,8 +637,12 @@ msgstr ""
 msgid "Group Details"
 msgstr ""
 
-#: ../app/qml/pages/GroupDetailsPage.qml:89
+#: ../app/qml/pages/GroupDetailsPage.qml:88
 msgid "Members: %1"
+msgstr ""
+
+#: ../app/qml/pages/GroupDetailsPage.qml:159
+msgid "Notifications"
 msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:72
