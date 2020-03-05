@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 23:30+0000\n"
-"PO-Revision-Date: 2020-03-04 23:25+0000\n"
+"PO-Revision-Date: 2020-03-05 17:41+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -239,10 +239,8 @@ msgid "Call"
 msgstr "Volať"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
-msgstr "sa pripojil k skupine"
+msgstr "sa pripojil ku skupine prostredníctvom verejného odkazu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -647,10 +645,8 @@ msgid "Members: %1"
 msgstr "Členov: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Poloha"
+msgstr "Notifikácia"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
