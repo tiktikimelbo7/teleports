@@ -4,7 +4,7 @@ import QTelegram 1.0
 import "../actions"
 
 Store {
-    property alias stickerSets: stickerSets.model
+    property alias stickerSets: stickerSets.stickerSets
 
     StickerSets {
         id: stickerSets

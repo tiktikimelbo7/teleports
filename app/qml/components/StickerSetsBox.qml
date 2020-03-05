@@ -139,7 +139,7 @@ Item {
 
                 clip: true
 
-                model: currentStickerSet !== null ? currentStickerSet.model : []
+                model: currentStickerSet !== null ? currentStickerSet.stickers : []
 
                 cellWidth: units.gu(8) + d.stickerSpacing
                 cellHeight: units.gu(8) + d.stickerSpacing
@@ -158,7 +158,7 @@ Item {
 
                         clip: true
 
-                        property QTdSticker sticker: currentStickerSet.model.get(index)
+                        property QTdSticker sticker: currentStickerSet.stickers.get(index)
                         property QTdFile file: sticker.sticker
                         property QTdLocalFile localFile: file.local
 

@@ -393,6 +393,13 @@ Store {
                                       chatList.currentChat.id);
         }
     }
+    
+    Filter {
+        type: ChatKey.muteChat
+        onDispatched: {
+            message.chat.mute(message.duration)
+        }
+    }
 
 
     Timer {

@@ -31,8 +31,7 @@ ActionCreator {
 
     signal deleteMessage(string id)
     signal forwardMessage(string id)
-    signal sendForwardMessage(var chat,
-                              string text)
+    signal sendForwardMessage(var chat, string text)
     signal importFromContentHub(var contentType, var filePaths)
     signal sendImportData(var chat, string text)
     signal cancelForwardMessage()
@@ -43,6 +42,8 @@ ActionCreator {
     signal sendReplyToMessage(string id, string text)
     signal showStickerPack(string stickerId)
     signal setChatDraftMessage(string draftText)
+
+    signal muteChat(var chat, int duration)
 
     signal jumpToMessage(string id)
 

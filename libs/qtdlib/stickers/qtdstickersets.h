@@ -10,7 +10,7 @@
 class QTdStickerSets : public QTdObject
 {
     Q_OBJECT
-    Q_PROPERTY(QObject *model READ qmlModel)
+    Q_PROPERTY(QObject *stickerSets READ qmlModel)
 
 public:
     explicit QTdStickerSets(QObject *parent = nullptr);
@@ -24,7 +24,7 @@ public:
 signals:
 
 private:
-    QPointer<QQmlObjectListModel<QTdStickerSet>> m_model;
+    QPointer<QQmlObjectListModel<QTdStickerSet>> m_stickerSets;
 };
 
 #endif // QTDSTICKERSETS_H

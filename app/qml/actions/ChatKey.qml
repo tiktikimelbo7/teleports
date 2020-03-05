@@ -41,4 +41,5 @@ KeyTable {
     property string setCurrentChatById
     property string jumpToMessage
     property string setChatDraftMessage
+    property string muteChat
 }
