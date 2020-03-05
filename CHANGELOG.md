@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.7
+### Added
+- TELEports is now available also for 64bit devices
+- Secret chats: Show fingerprint picture in chat details
+- Draft support: load and store drafts when leaving a chat or suspend the App
+- Show sender name, message and thumbnail when replying/editing a message
+- Red background color in case a message failed to send
+- Stickers: Basic selection of stickers for sending from the new stickerpanel
+- Notifications: Mute/unmute chat notifications from chat details (user mute will follow)
+- Thumbnail preview for documents when available
+- Added Slovak and Norwegian languages
+
+### Bugfix
+- Summary texts in the chatlist for member actions were messed up
+- Various issues with sizing the message bubbles
+- Performance bugs due to excessive logging
+- Channel messages do not overflow the bottom info box
+- Non-square stickers are no longer distorted
+- Buttons in popup dialogs are now at the end of the box as expected
+- Incoming/Outgoing call info was swapped in some cases
+
 ## 0.6
 ### Bugfix
 - Disabled account deletion due to reports of unwanted deleted accounts
