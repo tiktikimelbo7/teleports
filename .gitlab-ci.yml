@@ -107,7 +107,7 @@ publish:
     only:
         - tags
     script:
-        - 'clickable publish --arch armhf "$CI_COMMIT_MESSAGE"'
+        - 'clickable publish "$CI_COMMIT_MESSAGE" --arch armhf'
         - 'clickable publish --arch arm64'
         - 'clickable publish --arch amd64'
     dependencies:
