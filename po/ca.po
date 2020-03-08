@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 23:30+0000\n"
-"PO-Revision-Date: 2020-03-05 09:36+0000\n"
+"PO-Revision-Date: 2020-03-09 02:22+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -239,10 +239,8 @@ msgid "Call"
 msgstr "Telefona"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
-msgstr "s'ha unit al grup"
+msgstr "s'ha unit al grup via l'enllaç públic"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -647,10 +645,8 @@ msgid "Members: %1"
 msgstr "Membres: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Posició"
+msgstr "Notificacions"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
