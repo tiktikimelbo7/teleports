@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 23:30+0000\n"
-"PO-Revision-Date: 2020-02-04 10:21+0000\n"
-"Last-Translator: Dmitriy Pushkov <ezze@ezze.org>\n"
+"PO-Revision-Date: 2020-03-15 11:22+0000\n"
+"Last-Translator: Eugene Markoff <uralhistory@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
 "teleports/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
@@ -223,11 +223,11 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "Исходящий вызов (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "Входящий вызов (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -238,8 +238,9 @@ msgid "Missed Call"
 msgstr "Пропущенный вызов"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
+#, fuzzy
 msgid "Call"
-msgstr ""
+msgstr "Вызов"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 #, fuzzy
@@ -438,9 +439,8 @@ msgid "Cancel"
 msgstr "Отменить"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Сообщение"
+msgstr "Отредактировать сообщение"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -656,10 +656,8 @@ msgid "Members: %1"
 msgstr "Участники: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Местоположение"
+msgstr "Уведомления"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -899,10 +897,8 @@ msgstr "Название отсутствует..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Продолжительность разговора: %1:%2"
+msgstr "Продолжительность разговора: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
