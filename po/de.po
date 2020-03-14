@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 23:30+0000\n"
-"PO-Revision-Date: 2020-02-26 20:15+0000\n"
-"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
+"PO-Revision-Date: 2020-03-15 11:22+0000\n"
+"Last-Translator: Otto Hakstetter <otto@hakstetter.de>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -216,19 +216,15 @@ msgstr "Anruf beendet"
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
 msgid "%1:%2:%3"
-msgstr ""
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
-#, fuzzy
-#| msgid "Outgoing Call"
 msgid "Outgoing Call (%1)"
-msgstr "Ausgehender Anruf"
+msgstr "Ausgehender Anruf (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
-#, fuzzy
-#| msgid "Incoming Call"
 msgid "Incoming Call (%1)"
-msgstr "Eingehender Anruf"
+msgstr "Eingehender Anruf (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -243,8 +239,6 @@ msgid "Call"
 msgstr "Anruf"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
 msgstr "ist der Gruppe beigetreten"
 
@@ -653,10 +647,8 @@ msgid "Members: %1"
 msgstr "Mitglieder: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Standort"
+msgstr "Benachrichtigungen"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -892,10 +884,8 @@ msgstr "Fehlendes Label..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Dauer: %1:%2"
+msgstr "Dauer: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
