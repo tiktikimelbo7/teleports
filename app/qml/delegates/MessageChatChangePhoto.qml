@@ -9,14 +9,12 @@ import "../actions"
 import "../components"
 
 ColumnLayout {
-    spacing: units.gu(1)
-    anchors {
-        fill: parent
-    }
+    anchors.fill: parent
     property alias message: actionItem.message
+    spacing: units.gu(1)
+    Layout.alignment: Qt.AlignHCenter
     MessageActionItem {
         id: actionItem
-        Layout.alignment: Qt.AlignHCenter
         text:  message.isChannelPost
             ? i18n.tr("Channel photo has been changed")
             : i18n.tr("%1 changed the chat photo").arg(message.isCollapsed
@@ -39,54 +37,32 @@ ColumnLayout {
             }
         }
     }
-
-    Item {
-        id: photoContainer
-        Layout.alignment: Qt.AlignHCenter
-        property QTdMessageChatChangePhoto photoContent: actionItem.message.content
+    Image {
+        id: thumbnailImg
+        width: actionItem.maximumAvailableContentWidth
+        property QTdMessageChatChangePhoto photoContent: message.content
         property QTdPhotoSize size: photoContent.photo.sizes.get(1)
         property QTdFile photo: size.photo
         property QTdLocalFile photoLocal: photo.local
+        fillMode: Image.PreserveAspectFit
+        property url localFileSource: photo && photoLocal.path ? Qt.resolvedUrl("file://" + photo.local.path) : ""
 
-        property real maximumMediaHeight: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(12)
-        property real minimumMediaHeight: message.isCollapsed ? Suru.units.gu(16/5) : Suru.units.gu(8)
-        property real maximumMediaWidth: message.isCollapsed ? Suru.units.gu(30/5) : Suru.units.gu(15)
-        property real maximumMediaRatio: maximumMediaWidth / maximumMediaHeight
-        property real mediaWidth:size.width
-        property real mediaHeight:size.height
-
-        width: mediaWidth > mediaHeight?
-                   Math.min(mediaWidth, maximumMediaWidth):
-                   mediaWidth * Math.min(1, maximumMediaHeight / mediaHeight)
-        height: mediaHeight >= mediaWidth?
-                    Math.min(mediaHeight, maximumMediaHeight):
-                    Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight)
-        Image {
-            id: media_img
-            fillMode: Image.PreserveAspectFit
-            property url localFileSource: photoContainer.photo && photoContainer.photoLocal.path ? Qt.resolvedUrl("file://" + photoContainer.photo.local.path) : ""
-            function reload() {
-                media_img.source = Qt.resolvedUrl();
-                media_img.source = localFileSource;
-            }
-
-            source: localFileSource
-            BusyIndicator {
-                anchors.centerIn: parent
-                running: media_img.status === Image.Loading
-                            || media_img.status === Image.Null
-            }
+        function reload() {
+            thumbnailImg.source = Qt.resolvedUrl();
+            thumbnailImg.source = localFileSource;
         }
-        Connections {
-            target: photoContainer.photo
-            onFileChanged: {
-                media_img.reload();
-            }
-        }
-        Component.onCompleted: {
-        if (photoContainer.photo.canBeDownloaded && !photo.isDownloadingCompleted) {
-            photoContainer.photo.downloadFile();
+        source: localFileSource
+    }
+    Connections {
+        target: thumbnailImg.photo
+        onFileChanged: {
+            thumbnailImg.reload();
         }
     }
+    Component.onCompleted: {
+        if (thumbnailImg.photo.canBeDownloaded && !thumbnailImg.photo.isDownloadingCompleted) {
+            thumbnailImg.photo.downloadFile();
+        }
     }
+
 }
