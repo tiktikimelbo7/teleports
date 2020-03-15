@@ -116,4 +116,12 @@ public:
     explicit QTdChatActionUploadingVoiceNote(QObject *parent = nullptr);
 };
 
+class QTdChatActionUnknown : public QTdChatAction
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdChatActionUnknown)
+public:
+    explicit QTdChatActionUnknown(QObject *parent = nullptr);
+};
+
 #endif // QTDCHATACTION_H
