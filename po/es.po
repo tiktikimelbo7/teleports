@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 23:30+0000\n"
+"POT-Creation-Date: 2020-03-14 13:14+0000\n"
 "PO-Revision-Date: 2020-03-04 23:25+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -364,53 +364,53 @@ msgstr "Mensajes guardados"
 msgid "Draft:"
 msgstr "Borrador:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 #, fuzzy
 msgid "is choosing contact..."
 msgstr "está seleccionando un contacto..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 #, fuzzy
 msgid "are choosing contact..."
 msgstr "están seleccionando un contacto..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 #, fuzzy
 msgid "is choosing location..."
 msgstr "está eligiendo una localización..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 #, fuzzy
 msgid "are choosing location..."
 msgstr "están seleccionando una localización..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr "está grabando..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:634
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 #, fuzzy
 msgid "are recording..."
 msgstr "están grabando..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 #, fuzzy
 msgid "is typing..."
 msgstr "está escribiendo..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:638
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 #, fuzzy
 msgid "are typing..."
 msgstr "están escribiendo..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
 #, fuzzy
-msgid "is doing something"
+msgid "is doing something..."
 msgstr "está haciendo algo"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:642
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 #, fuzzy
-msgid "are doing something"
+msgid "are doing something..."
 msgstr "están haciendo algo"
 
 #: ../app/qml/components/UserProfile.qml:77

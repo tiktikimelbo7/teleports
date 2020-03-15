@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 23:30+0000\n"
+"POT-Creation-Date: 2020-03-14 13:14+0000\n"
 "PO-Revision-Date: 2020-03-06 16:43+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
@@ -356,44 +356,48 @@ msgstr "Zapisane wiadomości"
 msgid "Draft:"
 msgstr "Wersja robocza:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
 msgstr "wybiera kontakt..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
 msgstr "wybieramy kontakt..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
 msgstr "wybiera lokalizację..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
 msgstr "wybierają lokalizację..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr "nagrywa..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:634
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
 msgstr "nagrywamy..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
 msgstr "pisze..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:638
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
 msgstr "piszą..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
-msgid "is doing something"
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#, fuzzy
+#| msgid "is doing something"
+msgid "is doing something..."
 msgstr "coś robi"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:642
-msgid "are doing something"
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#, fuzzy
+#| msgid "are doing something"
+msgid "are doing something..."
 msgstr "coś robią"
 
 #: ../app/qml/components/UserProfile.qml:77

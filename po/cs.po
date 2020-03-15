@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 23:30+0000\n"
+"POT-Creation-Date: 2020-03-14 13:14+0000\n"
 "PO-Revision-Date: 2020-03-06 16:43+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -355,44 +355,48 @@ msgstr "Uložené zprávy"
 msgid "Draft:"
 msgstr "Koncept:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
 msgstr "vybírá kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
 msgstr "vybírají kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
 msgstr "vybírá polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
 msgstr "vybírají polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr "nahrává…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:634
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
 msgstr "nahrávají…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
 msgstr "píše…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:638
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
 msgstr "píší…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
-msgid "is doing something"
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#, fuzzy
+#| msgid "is doing something"
+msgid "is doing something..."
 msgstr "něco dělá"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:642
-msgid "are doing something"
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#, fuzzy
+#| msgid "are doing something"
+msgid "are doing something..."
 msgstr "něco dělají"
 
 #: ../app/qml/components/UserProfile.qml:77
@@ -405,8 +409,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
-"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení \"><b>%"
-"1check\"></b>' je spuštěna kryptografie typu end-to-end."
+"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení \"><b>"
+"%1check\"></b>' je spuštěna kryptografie typu end-to-end."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
