@@ -1,4 +1,5 @@
 #include "qtdchatactionfactory.h"
+#include <QDebug>
 
 QTdChatAction *QTdChatActionFactory::create(const QJsonObject &json, QObject *parent)
 {
@@ -27,8 +28,9 @@ QTdChatAction *QTdChatActionFactory::create(const QJsonObject &json, QObject *pa
         return new QTdChatActionUploadingVideo(parent);
     } else if (type == "chatActionUploadingVideoNote") {
         return new QTdChatActionUploadingVideoNote(parent);
-    } else if (type == "chatActionUpdloadingVoiceNote") {
+    } else if (type == "chatActionUploadingVoiceNote") {
         return new QTdChatActionUploadingVoiceNote(parent);
     }
-    return Q_NULLPTR;
+    qWarning() << "Received unknown chat action" << type;
+    return new QTdChatActionUnknown(parent);
 }

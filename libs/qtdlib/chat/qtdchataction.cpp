@@ -82,3 +82,9 @@ QTdChatActionUploadingVoiceNote::QTdChatActionUploadingVoiceNote(QObject *parent
 {
     setType(CHAT_ACTION_UPLOADING_VOICE_NOTE);
 }
+
+QTdChatActionUnknown::QTdChatActionUnknown(QObject *parent)
+    : QTdChatAction(parent)
+{
+    setType(CHAT_ACTION_UNKNOWN);
+}

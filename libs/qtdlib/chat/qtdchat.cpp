@@ -615,7 +615,6 @@ void QTdChat::updateChatAction(const QJsonObject &json)
     } else if (action->type() != QTdChatAction::Type::CHAT_ACTION_CANCEL && !m_chatActions.contains(user_id)) {
         QString singular_description;
         QString plural_description;
-        // TODO: i18n these strings
         switch (action->type()) {
         case QTdChatAction::Type::CHAT_ACTION_CANCEL:
             return;
@@ -638,8 +637,8 @@ void QTdChat::updateChatAction(const QJsonObject &json)
             plural_description = QString(gettext("are typing..."));
             break;
         default:
-            singular_description = QString(gettext("is doing something"));
-            plural_description = QString(gettext("are doing something"));
+            singular_description = QString(gettext("is doing something..."));
+            plural_description = QString(gettext("are doing something..."));
             break;
         }
         m_chatActions.insert(user_id, useraction(user_id, singular_description,
