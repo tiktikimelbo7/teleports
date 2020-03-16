@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-09 02:22+0000\n"
+"PO-Revision-Date: 2020-03-17 21:22+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -388,16 +388,12 @@ msgid "are typing..."
 msgstr "estan teclejant…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
-#, fuzzy
-#| msgid "is doing something"
 msgid "is doing something..."
-msgstr "està fent qualque cosa"
+msgstr "està fent qualque cosa…"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
-#, fuzzy
-#| msgid "are doing something"
 msgid "are doing something..."
-msgstr "estan fent qualque cosa"
+msgstr "estan fent qualque cosa…"
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
