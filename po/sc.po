@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2019-11-11 10:36+0000\n"
+"PO-Revision-Date: 2020-03-23 11:22+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -187,21 +187,19 @@ msgstr "at aderidu a Telegram"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "Fotografias,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Fotografias"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message,"
-msgstr "t'at imbiadu unu messàgiu vocale"
+msgstr "Messàgiu vocale,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message"
-msgstr "t'at imbiadu unu messàgiu vocale"
+msgstr "Messàgiu vocale"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
@@ -218,15 +216,15 @@ msgstr "Mutida acabbada"
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
 msgid "%1:%2:%3"
-msgstr ""
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "Mutida in essida (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "Mutida in intrada (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -238,13 +236,11 @@ msgstr "Mutida pèrdida"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
-msgstr ""
+msgstr "Muti"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
-msgstr "at aderidu a su grupu"
+msgstr "at aderidu a su grupu tràmite su ligàmene pùblicu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -287,24 +283,23 @@ msgstr "at bogadu unu membru"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF,"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
 msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
-#, fuzzy
 msgid "Video message"
-msgstr "t'at imbiadu unu messàgiu"
+msgstr "Messàgiu de vìdeu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "Vìdeu,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "Vìdeu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
 msgid "changed the chat title"
@@ -358,51 +353,47 @@ msgstr "Messàgios sarvados"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
-msgstr ""
+msgstr "Abbotzu:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
-msgstr ""
+msgstr "est seberende unu cuntatu..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
-msgstr ""
+msgstr "sunt seberende unu cuntatu..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:626
-#, fuzzy
 msgid "is choosing location..."
-msgstr "Ammancat s'eticheta..."
+msgstr "est seberende una positzione..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
-#, fuzzy
 msgid "are choosing location..."
-msgstr "Rechedende sa positzione a su SO..."
+msgstr "sunt seberende una positzione..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
-msgstr ""
+msgstr "est registrende..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
-msgstr ""
+msgstr "sunt registrende..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
-msgstr ""
+msgstr "est iscriende..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
-msgstr ""
+msgstr "sunt iscriende..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
-#, fuzzy
 msgid "is doing something..."
-msgstr "Ammancat s'eticheta..."
+msgstr "est faghende carchi cosa..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
-#, fuzzy
 msgid "are doing something..."
-msgstr "Rechedende sa positzione a su SO..."
+msgstr "sunt faghende carchi cosa..."
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -414,6 +405,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Controlla s'immàgine o su testu. Si cointzident cun cussas de su dispositivu "
+"de <b>%1</b>, sa critografia de puntu a puntu est garantida."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
@@ -439,9 +432,8 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Messàgiu"
+msgstr "Modifica su messàgiu"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -656,10 +648,8 @@ msgid "Members: %1"
 msgstr "Membros: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Positzione"
+msgstr "Notìficas"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -896,10 +886,8 @@ msgstr "Ammancat s'eticheta..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Durada: %1.%2"
+msgstr "Durada: %1.%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
