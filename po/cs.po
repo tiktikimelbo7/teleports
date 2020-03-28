@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-16 20:22+0000\n"
-"Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
+"PO-Revision-Date: 2020-03-29 09:22+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
 "Language: cs\n"
@@ -27,39 +27,39 @@ msgstr "TELEports"
 
 #: ../push/pushhelper.cpp:124
 msgid "sent you a message"
-msgstr "vám zaslal zprávu"
+msgstr "vám zaslal(a) zprávu"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr "vám zaslal fotografii"
+msgstr "vám zaslal(a) fotografii"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr "vám zaslal sticker"
+msgstr "vám zaslal(a) sticker"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr "vám zaslal video"
+msgstr "vám zaslal(a) video"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
-msgstr "vám zaslal dokument"
+msgstr "vám zaslal(a) dokument"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr "vám zaslal audio zprávu"
+msgstr "vám zaslal(a) audio zprávu"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
-msgstr "vám zaslal hlasovou zprávu"
+msgstr "vám zaslal(a) hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr "s vámi sdílel kontakt"
+msgstr "s vámi sdílel(a) kontakt"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
-msgstr "vám zaslal mapu"
+msgstr "vám zaslal(a) mapu"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
@@ -67,74 +67,74 @@ msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
-msgstr "%1 zaslal skupině zprávu"
+msgstr "%1 zaslal(a) skupině zprávu"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr "%1 zaslal skupině fotografii"
+msgstr "%1 zaslal(a) skupině fotografii"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr "%1 zaslal skupině sticker"
+msgstr "%1 zaslal(a) skupině sticker"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
-msgstr "%1 zaslal skupině video"
+msgstr "%1 zaslal(a) skupině video"
 
 #: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
-msgstr "%1 zaslal skupině dokument"
+msgstr "%1 zaslal(a) skupině dokument"
 
 #: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
-msgstr "%1 zaslal skupině hlasovou zprávu"
+msgstr "%1 zaslal(a) skupině hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr "%1 zaslal skupině GIF"
+msgstr "%1 zaslal(a) skupině GIF"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
-msgstr "%1 zaslal skupině kontakt"
+msgstr "%1 zaslal(a) skupině kontakt"
 
 #: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
-msgstr "%1 zaslal skupině mapu"
+msgstr "%1 zaslal(a) skupině mapu"
 
 #: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
-msgstr "%1 vás pozval do skupiny"
+msgstr "%1 vás pozval(a) do skupiny"
 
 #: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
-msgstr "%1 změnil název skupiny"
+msgstr "%1 změnil(a) název skupiny"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr "%1 změnil fotografii skupiny"
+msgstr "%1 změnil(a) fotografii skupiny"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
-msgstr "%1 pozval %2"
+msgstr "%1 pozval(a) %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:238
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
-msgstr "%1 odstranil %2"
+msgstr "%1 odstranil(a) %2"
 
 #: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
-msgstr "%1 vás odstranil ze skupiny"
+msgstr "%1 vás odstranil(a) ze skupiny"
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr "%1 opustil skupinu"
+msgstr "%1 opustil(a) skupinu"
 
 #: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
-msgstr "%1 se vrátil do skupiny"
+msgstr "%1 se vrátil(a) do skupiny"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
@@ -149,7 +149,7 @@ msgstr "%1 se registroval"
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
-msgstr "%1 se připojil k Telegramu!"
+msgstr "%1 se připojil(a) k Telegramu!"
 
 #: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
@@ -171,7 +171,7 @@ msgstr "Máte novou zprávu"
 
 #: ../push/pushhelper.cpp:301
 msgid "%1 pinned a message"
-msgstr "%1 připnul zprávu"
+msgstr "%1 připnul(a) zprávu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
@@ -183,7 +183,7 @@ msgstr "Poloha"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
-msgstr "se připojil k Telegramu!"
+msgstr "se připojil(a) k Telegramu!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
@@ -240,16 +240,16 @@ msgstr "Hovor"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 msgid "joined the group via the public link"
-msgstr "se připojil ke skupině prostřednictvím veřejně dostupného odkazu"
+msgstr "se připojil(a) ke skupině prostřednictvím veřejně dostupného odkazu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
 msgid "created this group"
-msgstr "vytvořil tuto skupinu"
+msgstr "vytvořil(a) tuto skupinu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
 msgid "message TTL has been changed"
-msgstr "TTL zpráva změněna"
+msgstr "TTL zprávy bylo změněno"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
@@ -258,11 +258,11 @@ msgstr "povýšeno na supergroup"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
-msgstr "změnil fotografii skupiny"
+msgstr "změnil(a) fotografii skupiny"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
-msgstr "se připojil ke skupině"
+msgstr "se připojil(a) ke skupině"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
