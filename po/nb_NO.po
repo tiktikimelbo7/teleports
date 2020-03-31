@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-04-02 14:22+0000\n"
+"Last-Translator: Ari Börde Kröyer <ari.kroyer@online.no>\n"
+"Language-Team: Norwegian Bokmål <https://translate.ubports.com/projects/"
+"ubports/teleports/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. TRANSLATORS: Application name.
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
@@ -25,699 +27,704 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:124
 msgid "sent you a message"
-msgstr ""
+msgstr "sendte deg en melding"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr ""
+msgstr "sendte deg et bilde"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr ""
+msgstr "sendte deg et klistermerke"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr ""
+msgstr "sendte deg en video"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
-msgstr ""
+msgstr "sendte deg et dokument"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr ""
+msgstr "sendte deg en lydmelding"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
-msgstr ""
+msgstr "sendte deg et stemmeopptak"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr ""
+msgstr "delte en kontakt med deg"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
-msgstr ""
+msgstr "sendte deg et kart"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 sendte en melding til gruppa"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 sendte et bilde til gruppa"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 sendte et klistermerke til gruppa"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 sendte en video til gruppa"
 
 #: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 sendte et dokument til gruppa"
 
 #: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 sendte et stemmeopptak til gruppa"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr ""
+msgstr "%1 sendte en GIF til gruppa"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 sendte en kontakt til gruppa"
 
 #: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 sendte et kart til gruppa"
 
 #: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 inviterte deg til gruppa"
 
 #: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 endret navnet på gruppa"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 endret gruppebildet"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 inviterte %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:238
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
-msgstr ""
+msgstr "%1 fjernet %2"
 
 #: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 fjernet deg fra gruppa"
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 har forlatt gruppa"
 
 #: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 har returnert til gruppa"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 har sjekket inn"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 er nå på Telegram!"
 
 #: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "Ny innlogging fra ukjent enhet"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
-msgstr ""
+msgstr "oppdatert profilbilde"
 
 #: ../push/pushhelper.cpp:286 ../push/pushhelper.cpp:291
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
-msgstr ""
+msgstr "Du har en ny melding"
 
 #: ../push/pushhelper.cpp:301
 msgid "%1 pinned a message"
-msgstr ""
+msgstr "%1 festet en melding"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
-msgstr ""
+msgstr "Jeg"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
-msgstr ""
+msgstr "Posisjon"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
-msgstr ""
+msgstr "har blitt med på Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "Bilde,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Bilde"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
-msgstr ""
+msgstr "Stemmeopptak,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message"
-msgstr ""
+msgstr "Stemmeopptak"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
-msgstr ""
+msgstr "Anrop avslått"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
-msgstr ""
+msgstr "Anrop avbrutt"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
-msgstr ""
+msgstr "Anrop avsluttet"
 
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
 msgid "%1:%2:%3"
-msgstr ""
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "Utgående anrop (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "Innkommende anrop (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
-msgstr ""
+msgstr "Avbrutt anrop"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
-msgstr ""
+msgstr "Mislykket anrop"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
-msgstr ""
+msgstr "Anrop"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 msgid "joined the group via the public link"
-msgstr ""
+msgstr "ble med i gruppa via åpen lenke"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
 msgid "created this group"
-msgstr ""
+msgstr "opprettet gruppa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "meldings-TTL har blitt endret"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "opoogradert til supergruppe"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
-msgstr ""
+msgstr "endret chat bildet"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
-msgstr ""
+msgstr "ble med i gruppa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
-msgstr ""
+msgstr "la til et eller flere medlemmer"
 
 #: ../libs/qtdlib/messages/content/qtdmessageunsupported.cpp:12
 #: ../app/qml/delegates/MessageUnsupported.qml:4
 msgid "Unsupported message"
-msgstr ""
+msgstr "Ikke-støttet melding"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
-msgstr ""
+msgstr "forlot gruppa"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
-msgstr ""
+msgstr "fjernet et medlem"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF,"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
 msgid "Video message"
-msgstr ""
+msgstr "Videomelding"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "Video,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
 msgid "changed the chat title"
-msgstr ""
+msgstr "endret navnet på chat-en"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "slettet chatbildet"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
 msgid "Sticker"
-msgstr ""
+msgstr "Klistermerke"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
 msgid "Unread Messages"
-msgstr ""
+msgstr "Uleste meldinger"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
 msgid "Unimplemented:"
-msgstr ""
+msgstr "Ikke implementert:"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "Sist sett for en måned siden"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "Sist sett for en uke siden"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
-msgstr ""
+msgstr "Sist sett "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "dd.MM.yy hh.mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr ""
+msgstr "På nett"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
-msgstr ""
+msgstr "Sett nylig"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:93 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
-msgstr ""
+msgstr "Lagrede meldinger"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
-msgstr ""
+msgstr "Utkast:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
-msgstr ""
+msgstr "velger kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
-msgstr ""
+msgstr "velger kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
-msgstr ""
+msgstr "velger posisjon..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
-msgstr ""
+msgstr "velger posisjon..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
-msgstr ""
+msgstr "tar opp..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
-msgstr ""
+msgstr "tar opp..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
-msgstr ""
+msgstr "skriver..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
-msgstr ""
+msgstr "skriver..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
 msgid "is doing something..."
-msgstr ""
+msgstr "gjør noe..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "are doing something..."
-msgstr ""
+msgstr "gjør noe..."
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
 msgid "not available"
-msgstr ""
+msgstr "ikke tilgjengelig"
 
 #: ../app/qml/components/UserProfile.qml:233
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"Kontrollér bildet eller teksten. Hvis de samsvarer med de som er på <b>%1</b>"
+"s enhet betyr det at ende-til-ende kryptografi er godkjent."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
 msgid "Choose a country"
-msgstr ""
+msgstr "Velg land"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "Søk etter land..."
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
-msgstr ""
+msgstr "Endret"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "OK"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
-msgstr ""
+msgstr "Rediger melding"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette loggen?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
 #: ../app/qml/pages/ChatListPage.qml:130
 msgid "Clear history"
-msgstr ""
+msgstr "Slett logg"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr ""
+msgstr "Er du sikker på at du vil forlate denne chat-en?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr ""
+msgstr "Forlat"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
-msgstr ""
+msgstr "Ugyldig telefonnummer!"
 
 #: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
-msgstr ""
+msgstr "Ugyldig kode!"
 
 #: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
-msgstr ""
+msgstr "Ugyldig passord!"
 
 #: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "Autentiseringskode ikke forventet akkurat nå"
 
 #: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "Oops! Intern feil."
 
 #: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
-msgstr ""
+msgstr "Feil lengde på autentiseringskode."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "Push registrering feilet"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "Intet Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "Vennligst koble til Ubuntu One for å motta pushvarlser."
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "Feilmelding"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "Ingen gyldig posisjon mottatt etter 180 sekunder!"
 
 #: ../app/qml/pages/WaitCodePage.qml:18
 msgid "Enter Code"
-msgstr ""
+msgstr "Angi kode"
 
 #: ../app/qml/pages/WaitCodePage.qml:44
 msgid "First Name"
-msgstr ""
+msgstr "Fornavn"
 
 #: ../app/qml/pages/WaitCodePage.qml:52
 msgid "Last Name"
-msgstr ""
+msgstr "Etternavvn"
 
 #: ../app/qml/pages/WaitCodePage.qml:59
 msgid "Code"
-msgstr ""
+msgstr "Kode"
 
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
+"Vi har sendt en kode via Telegram til din enhet. Vennligst angi den her."
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
-msgstr ""
+msgstr "Velg destinasjon eller avbryt..."
 
 #: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
-msgstr ""
+msgstr "Innstillinger"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakter"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
-msgstr ""
+msgstr "Nattmodus"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
-msgstr ""
+msgstr "Forlat chat"
 
 #: ../app/qml/pages/ChatListPage.qml:141 ../app/qml/pages/UserListPage.qml:113
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "Ønsker du å videresende de valgte meldingene til %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:360
 #: ../app/qml/delegates/MessageBubbleItem.qml:90
 msgid "Forward"
-msgstr ""
+msgstr "Videresend"
 
 #: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
-msgstr ""
+msgstr "Angi valgfri melding..."
 
 #: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
-msgstr ""
+msgstr "Ønsker du å sende de importerte filene til %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
 #: ../app/qml/pages/MessageListPage.qml:606
 msgid "Send"
-msgstr ""
+msgstr "Send"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "Angi telefonnummer"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:57
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:67
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:91
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "Vennligst bekreft landskoden og telefonnummeret ditt."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:95
 #: ../app/qml/pages/WaitPasswordPage.qml:65
 msgid "Next..."
-msgstr ""
+msgstr "Neste..."
 
 #: ../app/qml/pages/UserListPage.qml:29
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:47
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
-msgstr ""
+msgstr "Tilbake"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "Legg til kontakt"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "Kontakten vil bli lagt til. For- og etternavn er valgfrie"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 #: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
 msgid "Phone no"
-msgstr ""
+msgstr "Tlf nr"
 
 #: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
 msgid "First name"
-msgstr ""
+msgstr "Fornavn"
 
 #: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
 msgid "Last name"
-msgstr ""
+msgstr "Etternavn"
 
 #: ../app/qml/pages/UserListPage.qml:103 ../app/qml/pages/UserListPage.qml:205
 #: ../app/qml/pages/SettingsPage.qml:124
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
 #: ../app/qml/delegates/MessageBubbleItem.qml:51
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 #: ../app/qml/pages/UserListPage.qml:118
 msgid "Secret Chat"
-msgstr ""
+msgstr "Lukket chat"
 
 #: ../app/qml/pages/UserListPage.qml:203
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "Kontakten vil bli slettet. Er du sikker?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
-msgstr ""
+msgstr "Gruppedetaljer"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:88
 msgid "Members: %1"
-msgstr ""
+msgstr "Medlemmer: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
 msgid "Notifications"
-msgstr ""
+msgstr "Varsler"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
-msgstr ""
+msgstr "Versjon %1"
 
 #: ../app/qml/pages/AboutPage.qml:74
 msgid " (git# %1)"
-msgstr ""
+msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr ""
+msgstr "Få kildekoden"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr ""
+msgstr "Rapportere feil"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
-msgstr ""
+msgstr "Oversette"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Offline"
-msgstr ""
+msgstr "Ikke på nett"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Connecting"
-msgstr ""
+msgstr "Kobler opp"
 
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting To Proxy"
-msgstr ""
+msgstr "Kobler til mellomtjener"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr ""
+msgstr "Oppdaterer"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
-msgstr ""
+msgstr "Forbindelse"
 
 #: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "Telegram forbindelsesstatus:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "Ubuntu Touch forbindelsesstatus:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
-msgstr ""
+msgstr "Begrenset Ubuntu Touch båndbredde"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
-msgstr ""
+msgstr "Ubuntu Touch båndbredde ikke begrenset"
 
 #: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:114
 msgid "Logout"
-msgstr ""
+msgstr "Logg ut"
 
 #: ../app/qml/pages/SettingsPage.qml:80
 msgid "Delete account"
-msgstr ""
+msgstr "Slett konto"
 
 #: ../app/qml/pages/SettingsPage.qml:95
 msgid "Connectivity status"
-msgstr ""
+msgstr "Forbindelsesstatus"
 
 #: ../app/qml/pages/SettingsPage.qml:112
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"Advarsel:  Å logge ut vil slette alle lokale data fra denne enheten, "
+"inkluderte lukkede chat-er. Er du sikker på at du vil logge ut?"
 
 #: ../app/qml/pages/SettingsPage.qml:122
 msgid ""
@@ -726,167 +733,172 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"Advarsel: Å slette kontoen vil slette alle data du noen gang har mottatt "
+"eller sendt med Telegram, unntatt data du har lagret utenfor Telegram skyen. "
+"Er du sikker på at du vil slette Telegram kontoen din?"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr ""
+msgstr "Innholdsvelger"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "Fil: "
 
 #: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 meldem"
+msgstr[1] "%1 medlemmer"
 
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", %1 pålogget"
+msgstr[1] ", %1 pålogget"
 
 #: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
-msgstr ""
+msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:331
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "Du har ikke tillatelse til å skrive i denne kanalen"
 
 #: ../app/qml/pages/MessageListPage.qml:335
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "Venter på at en motpart skal godta lukket chat..."
 
 #: ../app/qml/pages/MessageListPage.qml:337
 msgid "Secret chat has been closed"
-msgstr ""
+msgstr "Lukket chat har blitt avsluttet"
 
 #: ../app/qml/pages/MessageListPage.qml:462
 msgid "Type a message..."
-msgstr ""
+msgstr "Skriv en melding..."
 
 #: ../app/qml/pages/MessageListPage.qml:604
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "Vil du dele din posisjon med %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:617
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "Forespør posisjon fra operativsystemet..."
 
 #: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: ../app/qml/pages/UserProfilePage.qml:41
 #: ../app/qml/delegates/MessageBubbleItem.qml:70
 msgid "Edit"
-msgstr ""
+msgstr "Redigere"
 
 #: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
-msgstr ""
+msgstr "Redigér brukerinfo og trykk Lagre"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
-msgstr ""
+msgstr "Angi passord"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:42
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr ""
+msgstr "%1 ble med i gruppa"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
 msgid "%1 added %2"
-msgstr ""
+msgstr "%1 la til %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 bruker"
+msgstr[1] "%1 brukere"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
-msgstr ""
+msgstr "%1 forlot gruppa"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
 msgid "Group has been upgraded to Supergroup"
-msgstr ""
+msgstr "Gruppa har blitt oppjustert til supergruppe"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:48
 msgid ""
 "The message will be deleted for all users in the chat. Do you really want to "
 "delete it?"
 msgstr ""
+"Denne meldingen blir slettet for alle medlemmer av chat-en. Vil du virkelig "
+"slette den?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid ""
 "The message will be deleted only for you. Do you really want to delete it?"
-msgstr ""
+msgstr "Meldingen blir slettet kun for deg. Vil du virkelig slette den?"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:60
 msgid "Copy"
-msgstr ""
+msgstr "Kopiér"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:78
 msgid "Reply"
-msgstr ""
+msgstr "Svar"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:84
 msgid "Sticker Pack info"
-msgstr ""
+msgstr "Klistermerke-pakkeinfo"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
-msgstr ""
+msgstr "Det ble tatt bilde av skjermen"
 
 #: ../app/qml/delegates/MessageContentBase.qml:38
 msgid "Forwarded from %1"
-msgstr ""
+msgstr "Videresendt fra %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
-msgstr ""
+msgstr "%1 har blitt med på Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr ""
+msgstr "Ukjent meldingstype. Se loggfil for detaljer..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr ""
+msgstr "Mangler merkelapp..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
 msgid "Duration: %1:%2:%3"
-msgstr ""
+msgstr "Varighet: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
-msgstr ""
+msgstr "Kanal med navnet << %1 >> ble opprettet"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
-msgstr ""
+msgstr "%1 opprettet en gruppe med navnet << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr ""
+msgstr "dd MMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr ""
+msgstr "%1 ble med via invitasjonslenke"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
+msgstr "Stemmenotat"
