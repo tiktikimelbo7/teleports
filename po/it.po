@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-02-20 10:21+0000\n"
-"Last-Translator: Mike <miguel2000@livecom.it>\n"
+"PO-Revision-Date: 2020-04-07 17:23+0000\n"
+"Last-Translator: Federico Turbino <bisio.97@gmail.com>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
 "Language: it\n"
@@ -187,21 +187,19 @@ msgstr "si è unito a Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "Foto,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Foto"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message,"
-msgstr "Ti ha inviato un messaggio vocale"
+msgstr "Messaggio vocale,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message"
-msgstr "Ti ha inviato un messaggio vocale"
+msgstr "Messaggio vocale"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
@@ -222,11 +220,11 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "Chiamata in uscita (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "Chiamata in entrata (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -393,16 +391,12 @@ msgid "are typing..."
 msgstr "stanno scrivendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
-#, fuzzy
-#| msgid "is doing something"
 msgid "is doing something..."
-msgstr "sta facendo qualcosa"
+msgstr "sta facendo qualcosa..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
-#, fuzzy
-#| msgid "are doing something"
 msgid "are doing something..."
-msgstr "stanno facendo qualcosa"
+msgstr "stanno facendo qualcosa..."
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -441,9 +435,8 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Messaggio"
+msgstr "Modifica messaggio"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -657,10 +650,8 @@ msgid "Members: %1"
 msgstr "Membri: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Posizione"
+msgstr "Notifiche"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -897,10 +888,8 @@ msgstr "Manca etichetta..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Durata: %1:%2"
+msgstr "Durata: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
