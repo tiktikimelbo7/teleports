@@ -42,11 +42,11 @@ Item {
             // loops: Animation.Infinite
             onStopped: start() // Workaround for animation length to be updated on screen rotation (width change)
 
-            NumberAnimation {
+            XAnimator {
                 from: flyer.xStart; to: flyer.xEnd
                 easing.type: Easing.InOutCubic; duration: 1000
             }
-            NumberAnimation {
+            XAnimator {
                 from: flyer.xEnd; to: flyer.xStart
                 easing.type: Easing.InOutCubic; duration: 1400
             }
