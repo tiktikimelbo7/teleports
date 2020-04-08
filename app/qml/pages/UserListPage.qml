@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Suru 2.2
@@ -24,20 +24,20 @@ Page {
         }
 
         leadingActionBar.actions: [
-            UITK.Action {
-                iconName: "back"
-                text: i18n.tr('Back')
-                onTriggered: {
-                    AppActions.view.popFromStack()
-                }
+        UITK.Action {
+            iconName: "back"
+            text: i18n.tr('Back')
+            onTriggered: {
+                AppActions.view.popFromStack()
             }
+        }
         ]
         trailingActionBar.actions: [
-            UITK.Action {
-                iconName: "add"
-                text: i18n.tr('Add Contact')
-                onTriggered: UITK_Popups.PopupUtils.open(addDialog)
-            }
+        UITK.Action {
+            iconName: "add"
+            text: i18n.tr('Add Contact')
+            onTriggered: UITK_Popups.PopupUtils.open(addDialog)
+        }
         ]
     }
 
@@ -77,138 +77,158 @@ Page {
         }
     }
 
-    ScrollView {
-        anchors.fill: parent
-        ListView {
-            anchors{
-                fill: parent
+    ListView {
+        id: userListView
+        anchors{
+            fill: parent
+        }
+        clip: true
+        currentIndex: -1
+        model: Telegram.users.contactsmodel
+        delegate: UITK.ListItem {
+
+            readonly property QTdUser user: modelData
+
+            width: parent.width
+            height: layout.height
+            color: "transparent"
+
+            onClicked: {
+                AppActions.chat.createOrOpenPrivateChat(user)
             }
-            model: Telegram.users.contactsmodel
-            delegate: UITK.ListItem {
 
-                readonly property QTdUser user: modelData
-
-                width: parent.width
-                height: layout.height
-                color: "transparent"
-
-                onClicked: {
-                    AppActions.chat.createOrOpenPrivateChat(user)
+            leadingActions: UITK.ListItemActions {
+                actions: [
+                UITK.Action {
+                    iconName: "edit-clear"
+                    text: i18n.tr("Delete")
+                    onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
                 }
+                ]
+            }
 
-                leadingActions: UITK.ListItemActions {
-                    actions: [
-                        UITK.Action {
-                            iconName: "edit-clear"
-                            text: i18n.tr("Delete")
-                            onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
-                        }
-                    ]
-                }
-
-                trailingActions: UITK.ListItemActions {
-                    actions: [
-                        UITK.Action {
-                            iconName: "info"
-                            text: i18n.tr("Info")
-                            onTriggered: AppActions.user.showUserInfo(user, null)
-                        },
-                        UITK.Action {
-                            iconName: "network-secure"
-                            text: i18n.tr("Secret Chat")
-                            onTriggered: {
-                                AppActions.chat.createOrOpenSecretChat(user)
-                            }
-                        }
-/*                         UITK.Action {
-                            iconName: "share"
-                            text: i18n.tr("Share")
-                            visible: false
-                            onTriggered: {
-                                AppActions.chat.shareContact(user)
-                            }
-                        } */
-                    ]
-                }
-
-                UITK.SlotsLayout {
-                    id: layout
-
-                    GenericPhoto {
-                        id: avatar
-                        height: units.gu(6)
-                        width: height
-                        photoPath: user && user.profilePhoto.small.local.path ? user.profilePhoto.small.local.path : ""
-                        initials: user ? user.initials : "N/A"
-                        avatarColor: user.avatarColor(user ? user.id : 0)
-                        myself:  false
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                        UITK.SlotsLayout.padding.trailing: 0
+            trailingActions: UITK.ListItemActions {
+                actions: [
+                UITK.Action {
+                    iconName: "info"
+                    text: i18n.tr("Info")
+                    onTriggered: AppActions.user.showUserInfo(user)
+                },
+                UITK.Action {
+                    iconName: "network-secure"
+                    text: i18n.tr("Secret Chat")
+                    onTriggered: {
+                        AppActions.chat.createOrOpenSecretChat(user)
                     }
+                }
+                ]
+            }
 
-                    mainSlot: Item {
-                        height: col.height
+            UITK.SlotsLayout {
+                id: layout
 
-                        Column {
-                            id: col
-                            anchors {
-                                left: parent.left
-                                right: parent.right
-                                top: parent.top
-                            }
-                            spacing: units.gu(1)
+                GenericPhoto {
+                    id: avatar
+                    height: units.gu(6)
+                    width: height
+                    photoPath: user && user.profilePhoto.small.local.path ? user.profilePhoto.small.local.path : ""
+                    initials: user ? user.initials : "N/A"
+                    avatarColor: user.avatarColor(user ? user.id : 0)
+                    myself:  false
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                    UITK.SlotsLayout.padding.trailing: 0
+                }
 
-                            RowLayout {
-                                height: units.dp(17)
-                                width: parent.width
+                mainSlot: Item {
+                    height: col.height
+
+                    Column {
+                        id: col
+                        anchors {
+                            left: parent.left
+                            right: parent.right
+                            top: parent.top
+                        }
+                        spacing: units.gu(1)
+
+                        RowLayout {
+                            height: units.dp(17)
+                            width: parent.width
+                            spacing: units.dp(2)
+
+                            Row {
                                 spacing: units.dp(2)
-
-                                Row {
-                                    spacing: units.dp(2)
-                                    Layout.alignment: Qt.AlignTop
-                                    Layout.topMargin: units.dp(3)
-                                }
-
-                                Label {
-                                    id: name
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.WrapAnywhere
-                                    maximumLineCount: 1
-                                    font.weight: Font.DemiBold
-                                    font.pixelSize: units.dp(17)
-                                    text: user.firstName + " " + user.lastName
-                                    Layout.fillWidth: true
-                                    Layout.alignment: Qt.AlignBottom
-                                }
+                                Layout.alignment: Qt.AlignTop
+                                Layout.topMargin: units.dp(3)
                             }
 
-                            RowLayout {
-                                height: units.gu(2)
-                                width: parent.width
-                                Label {
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.WrapAnywhere
-                                    maximumLineCount: 1
-                                    font.pixelSize: units.dp(15)
-                                    Suru.textStyle: Suru.TertiaryText
-                                    text: user.status.string
-                                    Layout.fillWidth: true
-                                }
+                            Label {
+                                id: name
+                                elide: Text.ElideRight
+                                wrapMode: Text.WrapAnywhere
+                                maximumLineCount: 1
+                                font.weight: Font.DemiBold
+                                font.pixelSize: units.dp(17)
+                                text: user.firstName + " " + user.lastName
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignBottom
                             }
                         }
-                    }
-                    Component {
-                        id: deleteConfirmationDialog
-                        PopupDialog {
-                            text: i18n.tr("The contact will be deleted. Are you sure?")
-                            confirmButtonColor: theme.palette.normal.negative
-                            confirmButtonText: i18n.tr("Delete")
-                            onConfirmed: AppActions.user.deleteUser(user.id)
+
+                        RowLayout {
+                            height: units.gu(2)
+                            width: parent.width
+                            Label {
+                                elide: Text.ElideRight
+                                wrapMode: Text.WrapAnywhere
+                                maximumLineCount: 1
+                                font.pixelSize: units.dp(15)
+                                Suru.textStyle: Suru.TertiaryText
+                                text: user.status.string
+                                Layout.fillWidth: true
+                            }
                         }
                     }
                 }
-
+                Component {
+                    id: deleteConfirmationDialog
+                    PopupDialog {
+                        text: i18n.tr("The contact will be deleted. Are you sure?")
+                        confirmButtonColor: UITK.UbuntuColors.red
+                        confirmButtonText: i18n.tr("Delete")
+                        onConfirmed: AppActions.user.deleteUser(user.id)
+                    }
+                }
             }
+
+        }
+        function getSectionText(index) {
+            return Telegram.users.contactsmodel.get(index).firstName.substring(0,1)
+        }
+        section {
+            property: "firstName"
+            criteria: ViewSection.FirstCharacter
+            labelPositioning: ViewSection.InlineLabels
+            delegate: UITK.ListItem {
+                height: Suru.units.gu(4)
+                Label {
+                    text: section
+                    anchors.fill: parent
+                    anchors.leftMargin: Suru.units.gu(2)
+                    verticalAlignment: Text.AlignVCenter
+                    height: Suru.units.gu(3)
+                }
+            }
+        }
+    }
+
+    FastScroll {
+        id: fastScroll
+        listView: userListView
+        enabled: userListView.height >= minimumHeight
+        anchors {
+            right: parent.right
+            verticalCenter: parent.verticalCenter
         }
     }
 }

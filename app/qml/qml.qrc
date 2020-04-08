@@ -40,6 +40,8 @@
         <file>components/ChatPhoto.qml</file>
         <file>components/CountryCodes.js</file>
         <file>components/CountryPicker.qml</file>
+        <file>components/FastScroll.js</file>
+        <file>components/FastScroll.qml</file>
         <file>components/ProfilePhoto.qml</file>
         <file>components/MediaViewer.qml</file>
         <file>components/MediaImport.qml</file>
