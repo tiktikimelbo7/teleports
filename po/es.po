@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-04 23:25+0000\n"
+"PO-Revision-Date: 2020-04-17 07:23+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -198,7 +198,6 @@ msgid "Voice message,"
 msgstr "Mensaje de voz,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message"
 msgstr "Mensaje de voz"
 
@@ -220,12 +219,10 @@ msgid "%1:%2:%3"
 msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
-#, fuzzy
 msgid "Outgoing Call (%1)"
 msgstr "Llamada saliente (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
-#, fuzzy
 msgid "Incoming Call (%1)"
 msgstr "Llamada entrante (%1)"
 
@@ -238,15 +235,12 @@ msgid "Missed Call"
 msgstr "Llamada perdida"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
-#, fuzzy
 msgid "Call"
 msgstr "Llamada"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
-msgstr "se unió al grupo"
+msgstr "se unió al grupo a través del enlace público"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -288,7 +282,6 @@ msgid "removed a member"
 msgstr "eliminó a un miembro"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
-#, fuzzy
 msgid "GIF,"
 msgstr "GIF,"
 
@@ -297,12 +290,10 @@ msgid "GIF"
 msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
-#, fuzzy
 msgid "Video message"
 msgstr "Mensaje de vídeo"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
-#, fuzzy
 msgid "Video,"
 msgstr "Vídeo,"
 
@@ -389,29 +380,24 @@ msgid "is recording..."
 msgstr "está grabando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:633
-#, fuzzy
 msgid "are recording..."
 msgstr "están grabando..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:636
-#, fuzzy
 msgid "is typing..."
 msgstr "está escribiendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:637
-#, fuzzy
 msgid "are typing..."
 msgstr "están escribiendo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
-#, fuzzy
 msgid "is doing something..."
-msgstr "está haciendo algo"
+msgstr "está haciendo algo..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
-#, fuzzy
 msgid "are doing something..."
-msgstr "están haciendo algo"
+msgstr "están haciendo algo..."
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -419,13 +405,12 @@ msgid "not available"
 msgstr "no disponible"
 
 #: ../app/qml/components/UserProfile.qml:233
-#, fuzzy
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
-"Compruebe la imagen o el texto. Si coinciden con que están en el dispositivo "
-"de <b>%1</b>, el cifrado de extremo a extremo está garantizado."
+"Compruebe la imagen o el texto. Si coinciden con las del dispositivo de "
+"<b>%1</b>, el cifrado de extremo a extremo está garantizado."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
@@ -451,7 +436,6 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
 msgstr "Editar mensaje"
 
@@ -665,10 +649,8 @@ msgid "Members: %1"
 msgstr "Miembros: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Ubicación"
+msgstr "Notificaciones"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -905,8 +887,6 @@ msgstr "Falta la etiqueta..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
 msgstr "Duración: %1:%2:%3"
 
