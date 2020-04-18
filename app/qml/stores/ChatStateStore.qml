@@ -193,7 +193,7 @@ Store {
     Filter {
         type: ChatKey.sendMessage
         onDispatched: {
-            messageList.sendMessage(message.text);
+            messageList.sendMessage(message.text, false);
         }
     }
 
@@ -393,7 +393,7 @@ Store {
                                       chatList.currentChat.id);
         }
     }
-    
+
     Filter {
         type: ChatKey.muteChat
         onDispatched: {

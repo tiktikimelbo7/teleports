@@ -32,7 +32,7 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     , m_model(Q_NULLPTR)
     , m_chat(Q_NULLPTR)
     , m_messageHandler(Q_NULLPTR)
-    , m_jumpToMessageId("") 
+    , m_jumpToMessageId("")
     , m_isHandleUpdateLastChatMessageConnected(false)
 {
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
@@ -233,7 +233,7 @@ void QTdMessageListModel::QTdJumpToWindowMessageHandler::handle(QTdMessageListMo
         unreadMessages << message->id();
     }
 
-    int jumpToMessageIndex = messageListModel.m_model->indexOf(messageListModel.m_jumpToMessageId); 
+    int jumpToMessageIndex = messageListModel.m_model->indexOf(messageListModel.m_jumpToMessageId);
     messageListModel.m_chat->positionMessageListViewAtIndex(jumpToMessageIndex+1);
     messageListModel.setMessagesRead(unreadMessages);
 }
@@ -415,7 +415,7 @@ void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
     message->unmarshalUpdateContent(newContent);
 }
 
-void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &replyToMessageId)
+void QTdMessageListModel::sendMessage(const QString &fullmessage, const bool clearDraft, const qint64 &replyToMessageId)
 {
     if (!m_chat) {
         return;
@@ -433,6 +433,7 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const qint64 &
         QTdInputMessageText *messageText = new QTdInputMessageText();
         messageText->setText(message);
         messageText->setEntities(formatEntities);
+        messageText->setClearDraft(clearDraft);
         request->setContent(messageText);
         if (isFirstMessage) {
             request->setReplyToMessageId(replyToMessageId);
@@ -618,4 +619,3 @@ void QTdMessageListModel::jumpToMessage(const QString &messageId)
     m_messageHandler = &jumpToWindowMessageHandler;
     loadMessages(messageId, MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
 }
-
