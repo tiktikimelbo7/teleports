@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-23 11:22+0000\n"
+"PO-Revision-Date: 2020-04-23 15:23+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -240,7 +240,7 @@ msgstr "Muti"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 msgid "joined the group via the public link"
-msgstr "at aderidu a su grupu tràmite su ligàmene pùblicu"
+msgstr "at aderidu a su grupu pro mèdiu de su ligàmene pùblicu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -490,7 +490,7 @@ msgstr "Perunu Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr "Collega·ti a Ubuntu One pro retzire notìficas Push."
+msgstr "Connete·ti a Ubuntu One pro retzire notìficas Push."
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
@@ -519,7 +519,7 @@ msgstr "Còdighe"
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
 msgstr ""
-"T'amus imbiadu unu còdighe tràmite Telegram a su dispositivu tuo. "
+"Amus imbiadu pro mèdiu de Telegram unu còdighe a su dispositivu tuo. "
 "Inserta·nche·ddu inoghe."
 
 #: ../app/qml/pages/ChatListPage.qml:20
@@ -736,10 +736,10 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"Atentzione: cantzellende custu contu s'ant a cantzellare totu is datos chi "
-"as retzidu o imbiadu tràmite Telegram francu cussos chi apas sarvadu in "
-"foras de sa nue de Telegram. Seguru chi boles a beru cantzellare su contu de "
-"Telegram tuo?"
+"Atentzione: cantzellende custu contu ant a èssere cantzellados totu is datos "
+"chi as retzidu o imbiadu pro mèdiu de Telegram francu cussos chi apas "
+"sarvadu in foras de sa nue de Telegram. Seguru chi boles a beru cantzellare "
+"su contu de Telegram tuo?"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -903,7 +903,7 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr "%1 at aderidu tràmite unu ligàmene de invitu"
+msgstr "%1 at aderidu pro mèdiu de unu ligàmene de invitu"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
