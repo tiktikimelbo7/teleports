@@ -8,6 +8,7 @@ import "../components"
 MessageBubbleItem {
     id: bubble
     textLastCharX: msgText.textLastCharX
+    textFullWidth: msgText.width
     inlineFitEnabled: !msgText.webpageVisible
     MessageContentText {
         id: msgText

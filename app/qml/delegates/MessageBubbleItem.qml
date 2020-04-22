@@ -31,6 +31,7 @@ UITK.ListItem {
     highlightColor: Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)
     property var textLastCharX: undefined
     property var inlineFitEnabled: false
+    property var textFullWidth: undefined
 
     leadingActions: UITK.ListItemActions {
         actions: [
@@ -142,7 +143,7 @@ UITK.ListItem {
 
             radius: Suru.units.dp(4)
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
-            Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins)
+            Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins + (message_status_item.extend_bubble ? -message_status_item.anchors.rightMargin : 0))
             Layout.maximumWidth: Layout.minimumWidth
             Layout.preferredHeight: mc.height + 2*mcMargins + (message_status_item.inlineFit ? - message_status_item.anchors.bottomMargin : message_status_item.height)
 
@@ -206,6 +207,7 @@ UITK.ListItem {
             Item {
                 id: message_status_item
                 property bool inlineFit: message_status_comp.x > textLastCharX + Suru.units.gu(1) && inlineFitEnabled
+                property bool extend_bubble: textFullWidth + Suru.units.gu(1) + message_status_comp.width < maximumAvailableContentWidth && inlineFitEnabled
                 height: visible ? message_status_comp.height : 0
                 visible: !multimediaLayout
                 anchors {
@@ -213,6 +215,7 @@ UITK.ListItem {
                     bottomMargin: inlineFit ? Suru.units.dp(-2) : -height
                     left: mc.left
                     right: mc.right
+                    rightMargin: extend_bubble ? -message_status_comp.width - 2*mcMargins : 0
                 }
 
                     MessageStatusRow {
