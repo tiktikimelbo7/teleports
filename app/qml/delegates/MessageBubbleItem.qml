@@ -163,9 +163,8 @@ UITK.ListItem {
                 anchors {
                     top: parent.top
                     topMargin: mcMargins
-                    left: !message.isOutgoing ? parent.left : undefined
+                    left: parent.left
                     leftMargin: mcMargins
-                    right: message.isOutgoing ? parent.right: undefined
                     rightMargin: mcMargins
                 }
 
