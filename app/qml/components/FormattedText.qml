@@ -8,6 +8,7 @@ Column {
     property var isPreview: false
     property var maximumWidth: 0
     property QTdFormattedText formattedText: null
+    property alias textLastCharX: textEdit.textLastCharX
 
     spacing: Suru.units.gu(2)
 
@@ -27,6 +28,9 @@ Column {
         onLinkActivated: {
             Qt.openUrlExternally(link)
         }
+        property var textLastCharX
+        onWidthChanged: textLastCharX = positionToRectangle(length).x
+        Component.onCompleted: textLastCharX = positionToRectangle(length).x
     }
 
     TextMetrics {

@@ -7,7 +7,10 @@ import "../components"
 
 MessageBubbleItem {
     id: bubble
+    textLastCharX: msgText.textLastCharX
+    inlineFitEnabled: !msgText.webpageVisible
     MessageContentText {
+        id: msgText
         message: bubble.message
     }
 }

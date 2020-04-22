@@ -29,6 +29,8 @@ UITK.ListItem {
 
     default property alias content: mainContent.data
     highlightColor: Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4)
+    property var textLastCharX: undefined
+    property var inlineFitEnabled: false
 
     leadingActions: UITK.ListItemActions {
         actions: [
@@ -142,7 +144,7 @@ UITK.ListItem {
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
             Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins)
             Layout.maximumWidth: Layout.minimumWidth
-            Layout.preferredHeight: mc.height
+            Layout.preferredHeight: mc.height + 2*mcMargins + (message_status_item.inlineFit ? - message_status_item.anchors.bottomMargin : message_status_item.height)
 
             Rectangle {
                width: contentCol.width
@@ -199,11 +201,19 @@ UITK.ListItem {
                     height: children ? childrenRect.height : 0
                     width: childrenRect.width
                 }
+            }
 
-                Item {
-                    height: visible ? Suru.units.gu(2.5) : 0
-                    width: parent.width
-                    visible: !multimediaLayout
+            Item {
+                id: message_status_item
+                property bool inlineFit: message_status_comp.x > textLastCharX + Suru.units.gu(1) && inlineFitEnabled
+                height: visible ? message_status_comp.height : 0
+                visible: !multimediaLayout
+                anchors {
+                    bottom: mc.bottom
+                    bottomMargin: inlineFit ? Suru.units.dp(-2) : -height
+                    left: mc.left
+                    right: mc.right
+                }
 
                     MessageStatusRow {
                         id: message_status_comp

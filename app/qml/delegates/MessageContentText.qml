@@ -9,6 +9,8 @@ MessageContentBase {
     id: item
 
     property QTdMessageText textContent: message.content
+    property alias textLastCharX: text.textLastCharX
+    property alias webpageVisible: webpage_loader.visible
 
     ColumnLayout {
         FormattedText {
