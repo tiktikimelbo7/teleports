@@ -145,7 +145,7 @@ UITK.ListItem {
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
             Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins + (message_status_item.extend_bubble ? -message_status_item.anchors.rightMargin : 0))
             Layout.maximumWidth: Layout.minimumWidth
-            Layout.preferredHeight: mc.height + 2*mcMargins + (message_status_item.inlineFit ? - message_status_item.anchors.bottomMargin : message_status_item.height)
+            Layout.preferredHeight: mc.height + 2*mcMargins - message_status_item.anchors.bottomMargin
 
             Rectangle {
                width: contentCol.width
@@ -206,7 +206,8 @@ UITK.ListItem {
             Item {
                 id: message_status_item
                 property bool inlineFit: message_status_comp.x > textLastCharX + Suru.units.gu(1) && inlineFitEnabled
-                property bool extend_bubble: textFullWidth + Suru.units.gu(1) + message_status_comp.width < maximumAvailableContentWidth && inlineFitEnabled
+                property real inlineLength: textLastCharX + Suru.units.gu(1) + message_status_comp.width
+                property bool extend_bubble: inlineLength > textFullWidth && inlineLength < maximumAvailableContentWidth && inlineFitEnabled
                 height: visible ? message_status_comp.height : 0
                 visible: !multimediaLayout
                 anchors {
