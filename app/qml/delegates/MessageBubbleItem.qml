@@ -172,8 +172,7 @@ UITK.ListItem {
 
                 width: Math.min(maximumAvailableContentWidth,
                                 Math.max(mainContent.width,
-                                         senderLabel.contentWidth,
-                                         message_status_comp.implicitWidth))
+                                         senderLabel.visible ? senderLabel.contentWidth : 0))
                 height: childrenRect.height
 
                 Item {
