@@ -97,11 +97,12 @@ UITK.ListItem {
 
         Item {
             width: Suru.units.gu(4.5)
-            height: Suru.units.gu(4.5)
+            height: genericPhoto.visible ? width : Suru.units.dp(1)
             Layout.alignment: Qt.AlignBottom | Qt.AlignLeft
             visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret || chat.isChannel)
 
             GenericPhoto {
+                id: genericPhoto
                 visible: !message.sameUserAsPreviousMessage
                 anchors.fill: parent
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
