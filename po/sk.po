@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-16 20:22+0000\n"
+"PO-Revision-Date: 2020-04-24 19:23+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -31,35 +31,35 @@ msgstr "vám poslal správu"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr "vám poslal fotografiu"
+msgstr "Vám poslal(a) fotografiu"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr "vám poslal sticker"
+msgstr "Vám poslal(a) sticker"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr "vám poslal video"
+msgstr "Vám poslal(a) video"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
-msgstr "vám poslal dokument"
+msgstr "Vám poslal(a) dokument"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr "vám poslal audio správu"
+msgstr "Vám poslal(a) audio správu"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
-msgstr "vám poslal hlasovú správu"
+msgstr "Vám poslal(a) hlasovú správu"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr "zdieľal s vami kontakt"
+msgstr "zdieľal(a) s vami kontakt"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
-msgstr "vám zaslal mapu"
+msgstr "Vám zaslal(a) mapu"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
@@ -67,70 +67,70 @@ msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
-msgstr "%1 poslal skupine správu"
+msgstr "%1 poslal(a) skupine správu"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr "%1 poslal skupine fotografiu"
+msgstr "%1 poslal(a) skupine fotografiu"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr "%1 poslal skupine sticker"
+msgstr "%1 poslal(a) skupine sticker"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
-msgstr "%1 poslal skupine video"
+msgstr "%1 poslal(a) skupine video"
 
 #: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
-msgstr "%1 poslal skupine dokument"
+msgstr "%1 poslal(a) skupine dokument"
 
 #: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
-msgstr "%1 poslal skupine hlasovú správu"
+msgstr "%1 poslal(a) skupine hlasovú správu"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr "%1 poslal skupine GIF"
+msgstr "%1 poslal(a) skupine GIF"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
-msgstr "%1 poslal skupine kontakt"
+msgstr "%1 poslal(a) skupine kontakt"
 
 #: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
-msgstr "%1poslal skupine mapu"
+msgstr "%1poslal(a) skupine mapu"
 
 #: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
-msgstr "%1 vás pozval do skupiny"
+msgstr "%1 Vás pozval(a) do skupiny"
 
 #: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
-msgstr "%1 zmenil názov skupiny"
+msgstr "%1 zmenil(a) názov skupiny"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr "%1 zmenil fotografiu skupiny"
+msgstr "%1 zmenil(a) fotografiu skupiny"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
-msgstr "%1 pozval %2"
+msgstr "%1 pozval(a) %2"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../push/pushhelper.cpp:238
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
 msgid "%1 removed %2"
-msgstr "%1 odstránil %2"
+msgstr "%1 odstránil(a) %2"
 
 #: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
-msgstr "%1 vás odstránil zo skupiny"
+msgstr "%1 Vás odstránil(a) zo skupiny"
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr "%1 opustil skupinu"
+msgstr "%1 opustil(a) skupinu"
 
 #: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
