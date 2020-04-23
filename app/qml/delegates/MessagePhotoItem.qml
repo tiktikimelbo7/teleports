@@ -9,7 +9,12 @@ MessageBubbleItem {
     id: bubble
     multimediaLayout: message.content.caption.text == ""
     mcMargins: 0
+    textLastCharX: msgPhoto.caption.textLastCharX
+    textFullWidth: msgPhoto.caption.width
+    inlineFitEnabled: !multimediaLayout
+    inlineFitCanEnlargeBubble: false
     MessageContentPhoto {
+        id: msgPhoto
         message: bubble.message
         contentBeforeImage: senderLabelVisible || contentBeforeMain
     }

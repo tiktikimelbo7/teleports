@@ -26,6 +26,7 @@ MessageContentBase
     property real mediaWidth:videoContent.video.width
     property real mediaHeight:videoContent.video.height
     property url localFileSource: videoContent && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
+    property alias caption: captionText
     Item {
         id: videoContainer
         width: {
@@ -42,7 +43,7 @@ MessageContentBase
                 var photoHeight = mediaHeight >= mediaWidth?
                     Math.min(mediaHeight, maximumMediaHeight):
                     Math.max(mediaHeight * Math.min(1, maximumMediaWidth / mediaWidth), minimumMediaHeight);
-                return Math.max(photoHeight, units.gu(7)); 
+                return Math.max(photoHeight, units.gu(7));
             }
             return units.gu(7);
         }
@@ -92,6 +93,7 @@ MessageContentBase
     }
 
     FormattedText {
+        id: captionText
         anchors {
             top: videoContainer.bottom
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)

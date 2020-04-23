@@ -7,7 +7,12 @@ import QuickFlux 1.1
 
 MessageBubbleItem {
     id: bubble
+    textLastCharX: msgVideo.caption.textLastCharX
+    textFullWidth: msgVideo.caption.width
+    inlineFitEnabled:  message.content.caption.text != ""
+    inlineFitCanEnlargeBubble: false
     MessageContentVideo {
+        id: msgVideo
         message: bubble.message
     }
 }

@@ -23,6 +23,7 @@ MessageContentBase {
     property real maximumMediaRatio: maximumMediaWidth / maximumMediaHeight
     property real mediaWidth:size.width
     property real mediaHeight:size.height
+    property alias caption: captionText
 
     Item {
         id: imgContainer

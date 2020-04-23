@@ -17,6 +17,7 @@ MessageContentBase {
     property QTdPhotoSize thumbnail: audioContent.audio.albumCoverThumbnail
     property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
     property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
+    property alias caption: captionText
 
     Item {
         id: audioContainer
@@ -77,6 +78,7 @@ MessageContentBase {
     }
 
     FormattedText {
+        id: captionText
         anchors {
             top: audioContainer.bottom
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)

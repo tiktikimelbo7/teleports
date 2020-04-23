@@ -7,7 +7,12 @@ import QuickFlux 1.1
 
 MessageBubbleItem {
     id: bubble
+    textLastCharX: msgAnim.caption.textLastCharX
+    textFullWidth: msgAnim.caption.width
+    inlineFitEnabled: message.content.caption.text != ""
+    inlineFitCanEnlargeBubble: false
     MessageContentAnimation {
+        id: msgAnim
         message: bubble.message
     }
 }

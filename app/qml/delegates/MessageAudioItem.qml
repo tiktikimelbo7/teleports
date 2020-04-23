@@ -7,7 +7,11 @@ import QuickFlux 1.1
 
 MessageBubbleItem {
     id: bubble
+    textLastCharX: msgAudio.caption.textLastCharX
+    textFullWidth: msgAudio.caption.width
+    inlineFitEnabled: message.content.caption.text != ""
     MessageContentAudio {
+        id: msgAudio
         message: bubble.message
     }
 }

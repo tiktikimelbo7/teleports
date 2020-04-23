@@ -19,6 +19,7 @@ MessageContentBase {
     property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
     property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
     property url thumbnailLocalSource: thumbnail && thumbnailLocal.path ? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
+    property alias caption: captionText
 
     Item {
         id: documentContainer
@@ -104,6 +105,7 @@ MessageContentBase {
     }
 
     FormattedText {
+        id: captionText
         anchors {
             top: documentContainer.bottom
         }

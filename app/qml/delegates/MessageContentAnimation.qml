@@ -22,6 +22,7 @@ MessageContentBase {
     property real mediaWidth:animation.animation.width
     property real mediaHeight:animation.animation.height
     property url localFileSource: animation && animationLocal.path ? Qt.resolvedUrl("file://" + animationLocal.path) : ""
+    property alias caption: captionText
 
     Item {
         id: animationContainer
@@ -74,6 +75,7 @@ MessageContentBase {
     }
 
     FormattedText {
+        id: captionText
         anchors {
             top: animationContainer.bottom
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)

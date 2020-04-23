@@ -13,6 +13,7 @@ MessageContentBase {
     property QTdMessageVoiceNote voiceNote: message.content
     property QTdLocalFile voiceLocal: voiceNote.voiceNote.voice.local
     property url localFileSource: voiceNote && voiceLocal.path ? Qt.resolvedUrl("file://" + voiceLocal.path) : ""
+    property alias caption: captionText
 
     Item {
         id: voiceNoteContainer
@@ -59,6 +60,7 @@ MessageContentBase {
     }
 
     FormattedText {
+        id: captionText
         anchors {
             top: voiceNoteContainer.bottom
             topMargin: message.isOutgoing ? Suru.units.dp(10) : Suru.units.dp(5)
