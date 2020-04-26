@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-17 21:22+0000\n"
+"PO-Revision-Date: 2020-04-27 04:23+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -658,11 +658,11 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr "Aconseguiu el codi font"
+msgstr "Aconseguiu-ne el codi font"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr "Informeu d'un problema"
+msgstr "Informeu d'un error"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
