@@ -217,7 +217,7 @@ UITK.ListItem {
                     bottomMargin: inlineFit ? Suru.units.dp(-2) : -height
                     left: mc.left
                     right: mc.right
-                    rightMargin: extend_bubble ? -message_status_comp.width - 2*mcMargins : 0
+                    rightMargin: extend_bubble ? -message_status_comp.width + (textFullWidth - textLastCharX) - 2*mcMargins : 0
                 }
 
                     MessageStatusRow {
