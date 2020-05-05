@@ -15,6 +15,7 @@ UITK.ListItem {
     width: parent.width
     height: contentCol.height + row.anchors.topMargin + row.anchors.bottomMargin
     divider.visible: false
+    contentItem.clip: false
 
     property QTdMessage message: null
     property QTdChat chat: null
@@ -98,14 +99,16 @@ UITK.ListItem {
 
         Item {
             width: Suru.units.gu(4.5)
-            height: genericPhoto.visible ? width : Suru.units.dp(1)
+            height: genericPhoto.visible ? contentCol.height : Suru.units.dp(1)
             Layout.alignment: Qt.AlignBottom | Qt.AlignLeft
             visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret || chat.isChannel)
 
             GenericPhoto {
                 id: genericPhoto
                 visible: !message.sameUserAsPreviousMessage
-                anchors.fill: parent
+                width: parent.width
+                height: width
+                anchors.bottom: parent.bottom
                 photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
                 avatarColor: message.sender ? message.sender.avatarColor(message.sender.id) : ""
@@ -147,8 +150,7 @@ UITK.ListItem {
             Layout.alignment: message.isOutgoing ? Qt.AlignRight : Qt.AlignLeft
             Layout.minimumWidth: Math.min(maxAvailableWidthNoMargins, mc.width + mc.horizontalMargins + (message_status_item.extend_bubble ? -message_status_item.anchors.rightMargin : 0))
             Layout.maximumWidth: Layout.minimumWidth
-            //Suru.units.dp(5) is to force bottom margin when mcMargins is zero. mcMargins is for top margin.
-            Layout.preferredHeight: mc.height + mcMargins + Suru.units.dp(5) - message_status_item.anchors.bottomMargin
+            Layout.preferredHeight: mc.height + mcMargins + (base.multimediaLayout ? 0 : Suru.units.dp(5)) - message_status_item.anchors.bottomMargin
 
             Rectangle {
                width: contentCol.width
