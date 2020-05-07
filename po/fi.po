@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-02-09 14:42+0000\n"
-"Last-Translator: Oi Suomi On! <oisuomion@protonmail.com>\n"
+"PO-Revision-Date: 2020-05-08 21:23+0000\n"
+"Last-Translator: Ville Vainionpaa <ville.vainionpaa@protonmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "teleports/fi/>\n"
 "Language: fi\n"
@@ -187,11 +187,11 @@ msgstr "liittyi Telegramiin!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "Kuva,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "Valokuva"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 #, fuzzy
@@ -218,15 +218,15 @@ msgstr "Puhelu päättyi"
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
 msgid "%1:%2:%3"
-msgstr ""
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "Lähtevä puhelu (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "Saapuva puhelu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
@@ -238,13 +238,11 @@ msgstr "Vastaamaton puhelu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
-msgstr ""
+msgstr "Soita"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
-#, fuzzy
-#| msgid "joined the group"
 msgid "joined the group via the public link"
-msgstr "liittyi ryhmään"
+msgstr "liittyi ryhmään julkisen linkin kautta"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
@@ -287,24 +285,23 @@ msgstr "poisti jäsenen"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF,"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
 msgstr "GIF-muoto"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
-#, fuzzy
 msgid "Video message"
-msgstr "lähetti sinulle viestin"
+msgstr "Videoviesti"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "Video,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
 msgid "changed the chat title"
@@ -393,16 +390,12 @@ msgid "are typing..."
 msgstr "ovat kirjoittamassa..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:640
-#, fuzzy
-#| msgid "is doing something"
 msgid "is doing something..."
-msgstr "tekee jotakin"
+msgstr "tekee jotakin..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:641
-#, fuzzy
-#| msgid "are doing something"
 msgid "are doing something..."
-msgstr "tekevät jotakin"
+msgstr "tekevät jotakin..."
 
 #: ../app/qml/components/UserProfile.qml:77
 #: ../app/qml/components/UserProfile.qml:101
@@ -441,9 +434,8 @@ msgid "Cancel"
 msgstr "Keskeytä"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Viesti"
+msgstr "Muokkaa viestiä"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -551,7 +543,7 @@ msgstr "Yötila"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr "Tietoja"
+msgstr "Yleistä"
 
 #: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
@@ -656,10 +648,8 @@ msgid "Members: %1"
 msgstr "Jäseniä: %1"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Sijainti"
+msgstr "Ilmoitukset"
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
@@ -671,15 +661,15 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr "Hae lähdekoodi"
+msgstr "Lähdekoodi"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr "Ilmoita ongelmista"
+msgstr "Ilmoita ongelmasta"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
-msgstr "Auta käännöksissä"
+msgstr "Auta käännöksessä"
 
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:27
@@ -895,10 +885,8 @@ msgstr "Nimiöinti puuttuu..."
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
-#, fuzzy
-#| msgid "Duration: %1:%2"
 msgid "Duration: %1:%2:%3"
-msgstr "Kesto: %1:%2"
+msgstr "Kesto: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
