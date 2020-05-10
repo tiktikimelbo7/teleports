@@ -16,8 +16,8 @@
 
 import QtQuick 2.9
 import Ubuntu.Components 1.3 as UITK
-import Ubuntu.Components.Popups 1.0 as Popups
-import Ubuntu.Content 1.1 as ContentHub
+import Ubuntu.Components.Popups 1.3 as Popups
+import Ubuntu.Content 1.3 as ContentHub
 
 Item {
     id: root
