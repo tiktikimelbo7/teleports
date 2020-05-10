@@ -68,7 +68,7 @@ public slots:
     void setCaptionProperties(IMessageCaptionContent *contentObj, const QString &caption);
     void setAttachmentProperties(IMessageAttachmentContent *contentObj, const QString &attachmentUrl);
     void prepareAndSendAttachmentMessage(QTdInputMessageContent *contentObj, const qint64 &replyToMessageId);
-    void sendMessage(const QString &message, const qint64 &replyToMessageId = 0);
+    void sendMessage(const QString &message, const bool clearDraft = false, const qint64 &replyToMessageId = 0);
 
     void sendPhoto(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendDocument(const QString &url, const QString &message, const qint64 &replyToMessageId);

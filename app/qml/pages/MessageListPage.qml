@@ -481,7 +481,7 @@ Page {
                     } else if (d.chatState === ChatState.ReplyingToMessage) {
                         AppActions.chat.sendReplyToMessage(d.messageOfInterest.id, text.trim());
                     } else {
-                        AppActions.chat.sendMessage(text.trim());
+                        AppActions.chat.sendMessage(text.trim(), true);
                     }
 
                     text = "";

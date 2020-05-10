@@ -6,7 +6,7 @@ QTdInputMessageText::QTdInputMessageText(QObject *parent)
     , m_text(QString())
     , m_entities(QJsonArray())
     , m_disable_web_page_preview(new bool)
-    , m_clear_draft(true)
+    , m_clear_draft(false)
 {
 }
 
