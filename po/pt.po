@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-03-25 12:22+0000\n"
+"PO-Revision-Date: 2020-05-11 21:24+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -541,7 +541,7 @@ msgstr "Modo noturno"
 
 #: ../app/qml/pages/ChatListPage.qml:82 ../app/qml/pages/AboutPage.qml:13
 msgid "About"
-msgstr "Sobre"
+msgstr "Acerca"
 
 #: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
@@ -661,11 +661,11 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr "Obter o código-fonte"
+msgstr "Obter o código fonte"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr "Reportar falhas"
+msgstr "Reportar problemas"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
