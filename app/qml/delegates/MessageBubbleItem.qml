@@ -177,7 +177,7 @@ UITK.ListItem {
 
                 width: Math.min(maximumAvailableContentWidth,
                                 Math.max(mainContent.width,
-                                         senderLabel.visible ? senderLabel.contentWidth : 0))
+                                         senderLabel.width))
                 height: childrenRect.height
 
                 Item {
@@ -191,6 +191,7 @@ UITK.ListItem {
 
                         Label {
                             id: senderLabel
+                            Layout.preferredWidth: visible ? implicitWidth : 0
                             text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
                             font.bold: false
                             color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
@@ -211,7 +212,7 @@ UITK.ListItem {
                 id: message_status_item
                 property bool inlineFit: message_status_comp.x > textLastCharX + Suru.units.gu(1) && inlineFitEnabled
                 property real inlineLength: textLastCharX + Suru.units.gu(1) + message_status_comp.width
-                property bool extend_bubble: inlineLength > textFullWidth && inlineLength < maximumAvailableContentWidth && inlineFitEnabled && base.inlineFitCanEnlargeBubble
+                property bool extend_bubble: inlineLength > Math.max(mainContent.width, senderLabel.width) && inlineLength < maximumAvailableContentWidth && inlineFitEnabled && base.inlineFitCanEnlargeBubble
                 height: visible ? message_status_comp.height : 0
                 visible: !multimediaLayout
                 anchors {
