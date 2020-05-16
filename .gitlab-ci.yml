@@ -7,7 +7,7 @@ stages:
 variables:
     GIT_SUBMODULE_STRATEGY: 'recursive'
     DOCKER_DRIVER: overlay2
-    CLICKABLE_VERSION: "6.10.1"
+    CLICKABLE_VERSION: "6.12.2"
 
 cache: &tdlib_cache
     key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.4'

@@ -1,6 +1,6 @@
 {
-  "clickable_minimum_required": "6.9.1",
-  "template": "cmake",
+  "clickable_minimum_required": "6.12.2",
+  "builder": "cmake",
   "kill": "teleports",
   "dependencies_target": [
     "gperf",
@@ -11,7 +11,7 @@
   ],
   "libraries": {
     "tdlib-prepare": {
-      "template": "cmake",
+      "builder": "cmake",
       "src_dir": "libs/vendor/tdlib",
       "make_args": "prepare_cross_compiling",
       "dependencies_target": [
@@ -19,7 +19,7 @@
       ]
     },
     "tdlib": {
-      "template": "cmake",
+      "builder": "cmake",
       "src_dir": "libs/vendor/tdlib",
       "make_args": "tdjson",
       "make_jobs": 1,
@@ -30,8 +30,7 @@
       ],
       "build_args": [
         "-DTHREADS_PTHREAD_ARG=0",
-        "-DCMAKE_CROSSCOMPILING=ON",
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_CROSSCOMPILING=ON"
       ]
     }
   }
