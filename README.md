@@ -12,13 +12,26 @@ You need to build the dependencies (tdlib) once:
 
 From now on building the app is as simple as:
 
-    clickable --armhf # or arm64 for the phone
+    clickable --arch armhf # or arm64 for the phone
     clickable desktop #for desktop
 
 When commiting for the first time you need to apply two settings to your fork of TELEports:
 
     Settings -> CI/CD -> General pipelines -> Expand -> Timeout = 2h -> Save Changes
     Settings -> CI/CD -> Runners -> Expand -> Shared Runners -> Enable shared runners
+
+## Debugging
+Make sure to build teleports clean and with `--debug`:
+
+    clickable --arch armhf --debug clean-build
+    clickable --arch armhf install
+    clickable --arch armhf gdbserver
+
+In a second terminal:
+
+    clickable --arch armhf gdb
+
+Replace `armhf` by `arm64` as needed. See [Debugging Documentation](https://clickable-ut.dev/en/latest/debugging.html) for details.
 
 ## C++ Code Style/Formatting
 
