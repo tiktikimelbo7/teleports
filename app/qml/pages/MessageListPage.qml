@@ -470,9 +470,17 @@ Page {
                     if (d.chatState === ChatState.EditingMessage) {
                         switch (d.messageOfInterest.content.type) {
                             case QTdObject.MESSAGE_TEXT:
-                                AppActions.chat.sendEditMessageText(d.messageOfInterest.id, text.trim())
+                                if(text.trim() == "")
+                                    UITK_Popups.PopupUtils.open("qrc:/components/DeleteDialog.qml", entry, {message:d.messageOfInterest})
+                                else
+                                    AppActions.chat.sendEditMessageText(d.messageOfInterest.id, text.trim())
                                 break;
+                            case QTdObject.MESSAGE_ANIMATION:
+                            case QTdObject.MESSAGE_AUDIO:
+                            case QTdObject.MESSAGE_DOCUMENT:
                             case QTdObject.MESSAGE_PHOTO:
+                            case QTdObject.MESSAGE_VIDEO:
+                            case QTdObject.MESSAGE_VOICE_NOTE:
                                 AppActions.chat.sendEditMessageCaption(d.messageOfInterest.id, text.trim())
                                 break;
                             default:
@@ -574,7 +582,7 @@ Page {
             }
 
             Image {
-                visible: entry.displayText.trim() !== ""
+                visible: entry.displayText.trim() !== "" || d.chatState == ChatState.EditingMessage
                 sourceSize.height: height
                 source: "qrc:/qml/icons/send.png"
                 height: entry.implicitHeight
@@ -666,7 +674,12 @@ Page {
                     case QTdObject.MESSAGE_TEXT:
                         entry.text = message.message.content.text.text;
                         break;
+                    case QTdObject.MESSAGE_ANIMATION:
+                    case QTdObject.MESSAGE_AUDIO:
+                    case QTdObject.MESSAGE_DOCUMENT:
                     case QTdObject.MESSAGE_PHOTO:
+                    case QTdObject.MESSAGE_VIDEO:
+                    case QTdObject.MESSAGE_VOICE_NOTE:
                         entry.text = message.message.content.caption.text;
                         break;
                 }
