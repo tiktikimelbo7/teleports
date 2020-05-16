@@ -35,22 +35,11 @@ UITK.ListItem {
             UITK.Action {
                 iconName: "delete"
                 text: i18n.tr("Delete")
-                onTriggered: UITK_Popups.PopupUtils.open(deleteConfirmationDialog)
+                onTriggered: UITK_Popups.PopupUtils.open("qrc:/components/DeleteDialog.qml", base, {message:base.message})
+
                 visible: message.canBeDeletedOnlyForSelf || message.canBeDeletedForAllUsers
             }
         ]
-    }
-
-    Component {
-        id: deleteConfirmationDialog
-        PopupDialog {
-            text: message.canBeDeletedForAllUsers ?
-                    i18n.tr("The message will be deleted for all users in the chat. Do you really want to delete it?") :
-                    i18n.tr("The message will be deleted only for you. Do you really want to delete it?")
-            confirmButtonColor: theme.palette.normal.negative
-            confirmButtonText: i18n.tr("Delete")
-            onConfirmed: AppActions.chat.deleteMessage(message.id)
-        }
     }
 
     trailingActions: UITK.ListItemActions {
