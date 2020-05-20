@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-05-19 20:24+0000\n"
+"PO-Revision-Date: 2020-05-21 07:24+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../push/pushhelper.cpp:114 ../app/qml/pages/ChatListPage.qml:21
 #: ../app/qml/pages/AboutPage.qml:66 teleports.desktop.in.h:1
 msgid "TELEports"
-msgstr "TELEports"
+msgstr "TELEporty"
 
 #: ../push/pushhelper.cpp:124
 msgid "sent you a message"
@@ -31,11 +31,11 @@ msgstr "vám zaslal(a) zprávu"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr "vám zaslal(a) fotografii"
+msgstr "vám zaslal(a) fotku"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr "vám zaslal(a) sticker"
+msgstr "vám zaslal(a) nálepku"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
@@ -47,7 +47,7 @@ msgstr "vám zaslal(a) dokument"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr "vám zaslal(a) audio zprávu"
+msgstr "vám zaslal(a) zvukovou zprávu"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
@@ -55,7 +55,7 @@ msgstr "vám zaslal(a) hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr "s vámi sdílel(a) kontakt"
+msgstr "vám nasdílel(a) kontakt"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
@@ -71,11 +71,11 @@ msgstr "%1 zaslal(a) skupině zprávu"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr "%1 zaslal(a) skupině fotografii"
+msgstr "%1 zaslal(a) skupině fotku"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr "%1 zaslal(a) skupině sticker"
+msgstr "%1 zaslal(a) skupině nálepku"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
@@ -91,7 +91,7 @@ msgstr "%1 zaslal(a) skupině hlasovou zprávu"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr "%1 zaslal(a) skupině GIF"
+msgstr "%1 zaslal(a) skupině GIF animaci"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
@@ -111,7 +111,7 @@ msgstr "%1 změnil(a) název skupiny"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr "%1 změnil(a) fotografii skupiny"
+msgstr "%1 změnil(a) fotku skupiny"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
@@ -144,12 +144,12 @@ msgstr "@ %1"
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
-msgstr "%1 se registroval"
+msgstr "%1 se zaregistroval(a)"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
-msgstr "%1 se připojil(a) k Telegramu!"
+msgstr "%1 se připojil(a) ke službě Telegram!"
 
 #: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
@@ -162,7 +162,7 @@ msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
-msgstr "profilová fotografie aktualizována"
+msgstr "profilová fotka aktualizována"
 
 #: ../push/pushhelper.cpp:286 ../push/pushhelper.cpp:291
 #: ../push/pushhelper.cpp:296
@@ -183,7 +183,7 @@ msgstr "Umístění"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
-msgstr "se připojil(a) k Telegramu!"
+msgstr "se připojil(a) ke službě Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
@@ -254,11 +254,11 @@ msgstr "TTL zprávy bylo změněno"
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 msgid "upgraded to supergroup"
-msgstr "povýšeno na supergroup"
+msgstr "povýšeno na superskupinu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
-msgstr "změnil(a) fotografii skupiny"
+msgstr "změnil(a) fotku skupiny"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
@@ -275,11 +275,11 @@ msgstr "Nepodporovaná zpráva"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
-msgstr "opustil skupinu"
+msgstr "opustil(a) skupinu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
-msgstr "odstranil člena"
+msgstr "odstranil(a) člena"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
@@ -307,7 +307,7 @@ msgstr "změnil název skupiny"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
-msgstr "odstranil fotografii chatu"
+msgstr "odstranil(a) fotku chatu"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:21
 msgid "Sticker"
@@ -323,15 +323,15 @@ msgstr "Neimplementováno:"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
-msgstr "Naposledy viděno před měsícem"
+msgstr "Naposledy viděn(a) před měsícem"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
-msgstr "Naposledy viděno před týdnem"
+msgstr "Naposledy viděn(a) před týdnem"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
-msgstr "Naposledy viděno "
+msgstr "Naposledy viděn(a) "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
@@ -341,11 +341,11 @@ msgstr "dd.MM.yy hh:mm"
 #: ../app/qml/pages/ConnectivityPage.qml:25
 #: ../app/qml/pages/ConnectivityPage.qml:31
 msgid "Online"
-msgstr "Připojen"
+msgstr "Připojen(a)"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
-msgstr "Viděn nedávno"
+msgstr "Viděn(a) nedávno"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:93 ../app/qml/pages/ChatListPage.qml:53
 msgid "Saved Messages"
@@ -405,8 +405,8 @@ msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
-"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení \"><b>"
-"%1check\"></b>' je spuštěna kryptografie typu end-to-end."
+"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení <b>%1</b>"
+" je zajištěno šifrování typu end-to-end."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
@@ -423,7 +423,7 @@ msgstr "Upraveno"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr "Budiž"
+msgstr "OK"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
@@ -433,7 +433,7 @@ msgstr "Storno"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
-msgstr "Editovat zprávu"
+msgstr "Upravit zprávu"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -450,7 +450,7 @@ msgstr "Skutečně chcete opustit tento chat?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr "Opustit chat"
+msgstr "Opustit"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -482,7 +482,7 @@ msgstr "Nesprávná délka ověřovacího kódu."
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr "Registrace zasílání oznámení selhala"
+msgstr "Registrace zasílání oznámení se nezdařila"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
@@ -518,7 +518,7 @@ msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:74
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr "Na Vaše zařízení byl přes telegram odeslán kód. Zadejte ho prosím zde."
+msgstr "Na Vaše zařízení byl přes telegram odeslán kód. Zadejte ho prosím sem."
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -560,7 +560,7 @@ msgstr "Přeposlat"
 
 #: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
-msgstr "Napište fakultativní zprávu..."
+msgstr "Napište volitelnou zprávu…"
 
 #: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
@@ -587,7 +587,7 @@ msgstr "Potvrďte kód vašeho státu a zadejte vaše telefonní číslo."
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:95
 #: ../app/qml/pages/WaitPasswordPage.qml:65
 msgid "Next..."
-msgstr "Další..."
+msgstr "Další…"
 
 #: ../app/qml/pages/UserListPage.qml:29
 #: ../app/qml/pages/GroupDetailsPage.qml:32 ../app/qml/pages/AboutPage.qml:24
@@ -602,7 +602,7 @@ msgstr "Přidat kontakt"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr "Kontakt bude přidán. První a poslední jméno je volitelné"
+msgstr "Kontakt bude přidán. Jméno a příjmení jsou volitelné"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
@@ -629,11 +629,11 @@ msgstr "Smazat"
 
 #: ../app/qml/pages/UserListPage.qml:118
 msgid "Secret Chat"
-msgstr "Utajený chat"
+msgstr "Tajný chat"
 
 #: ../app/qml/pages/UserListPage.qml:203
 msgid "The contact will be deleted. Are you sure?"
-msgstr "Kontakt bude smazán. Jste si jistý?"
+msgstr "Kontakt bude smazán. Opravdu to chcete?"
 
 #: ../app/qml/pages/GroupDetailsPage.qml:21
 msgid "Group Details"
@@ -683,7 +683,7 @@ msgstr "Připojování k proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:30
 msgid "Updating"
-msgstr "Aktualizuji"
+msgstr "Aktualizuje se"
 
 #: ../app/qml/pages/ConnectivityPage.qml:36
 msgid "Connectivity"
@@ -691,7 +691,7 @@ msgstr "Připojení"
 
 #: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
-msgstr "Stav připojení Telegramu:"
+msgstr "Stav připojení ke službě Telegram:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
@@ -723,7 +723,7 @@ msgid ""
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
 "Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
-"soukormých chatů. Skutečně se chcete odhlásit?"
+"soukromých chatů. Opravdu se chcete odhlásit?"
 
 #: ../app/qml/pages/SettingsPage.qml:122
 msgid ""
@@ -732,9 +732,9 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"Varování: Současně se smazáním účtu budou odstraněna také veškerá data,která "
-"jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat,jež jsou "
-"specificky uložena mimo cloud Telegram. Skutečně chcete váš účet smazat?"
+"Varování: Současně se smazáním účtu budou odstraněna také veškerá data, "
+"která jste kdy přijali nebo odeslali skrze službu Telegram, vyjma dat, která "
+"jsou specificky uložena mimo cloud Telegram. Opravdu chcete váš účet smazat?"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -757,7 +757,7 @@ msgstr[1] "%1 členové"
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ", %1 připojen"
+msgstr[0] ", %1 připojen(a)"
 msgstr[1] ", %1 připojení"
 
 #: ../app/qml/pages/MessageListPage.qml:130
@@ -778,7 +778,7 @@ msgstr "Skrytý chat byl ukončen"
 
 #: ../app/qml/pages/MessageListPage.qml:462
 msgid "Type a message..."
-msgstr "Napište zprávu..."
+msgstr "Napište zprávu…"
 
 #: ../app/qml/pages/MessageListPage.qml:604
 msgid "Do you want to share your location with %1?"
@@ -786,7 +786,7 @@ msgstr "Přejete si sdílet vaši polohu s %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:617
 msgid "Requesting location from OS..."
-msgstr "Vyžadována poloha od OS..."
+msgstr "Vyžadována poloha od operačního systému…"
 
 #: ../app/qml/pages/UserProfilePage.qml:21
 msgid "Profile"
@@ -799,7 +799,7 @@ msgstr "Upravit"
 
 #: ../app/qml/pages/UserProfilePage.qml:51
 msgid "Edit user data and press Save"
-msgstr "Editovat údaje o uživateli a kliknout na uložit"
+msgstr "Upravit údaje o uživateli a kliknout na uložit"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -811,26 +811,26 @@ msgstr "Heslo"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr "%1 se připojil ke skupině"
+msgstr "%1 se připojil(a) ke skupině"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
 msgid "%1 added %2"
-msgstr "%1 přidal %2"
+msgstr "%1 přidal(a) %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] "%1 uživatel"
-msgstr[1] "%1 uživatel(é)"
+msgstr[1] "%1 uživatelé"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
-msgstr "%1 opustil skupinu"
+msgstr "%1 opustil(a) skupinu"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
 msgid "Group has been upgraded to Supergroup"
-msgstr "Skupina byla povýšena na supergroup"
+msgstr "Skupina byla povýšena na superskupinu"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:48
 msgid ""
@@ -854,7 +854,7 @@ msgstr "Odpovědět"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:84
 msgid "Sticker Pack info"
-msgstr "Informace o balíčku Stickers"
+msgstr "Informace o balíčku nálepek"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -866,15 +866,15 @@ msgstr "Přeposláno z %1"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
-msgstr "%1 se připojil k Telegramu!"
+msgstr "%1 se připojil(a) ke službě Telegram!"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr "Neznámý typ zprávy, podrobnosti viz logfile..."
+msgstr "Neznámý typ zprávy, podrobnosti viz soubor se záznamem událostí…"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
-msgstr "Chybí značka..."
+msgstr "Chybí značka…"
 
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:60
@@ -887,7 +887,7 @@ msgstr "Vytvořen kanál s názvem <<%1>>"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
 msgid "%1 created a group called << %2 >>"
-msgstr "%1 vytvořil skupinu s názvem  << %2 >>"
+msgstr "%1 vytvořil(a) skupinu s názvem  << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
@@ -895,7 +895,7 @@ msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr "%1 se připojil prostřednictvím zvacího odkazu"
+msgstr "%1 se připojil(a) prostřednictvím zvacího odkazu"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
