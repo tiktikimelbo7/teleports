@@ -41,7 +41,7 @@ cache: &tdlib_cache
             - "build/$ARCH_TRIPLET/tdlib"
     artifacts:
         paths:
-            - "build/$ARCH_TRIPLET/tdlib"
+            - "build/$ARCH_TRIPLET/tdlib/install"
         expire_in: 1 week
 
 
@@ -66,7 +66,7 @@ tdlib-prepare:
             - "libs/vendor/tdlib"
     artifacts:
         paths:
-            - libs/vendor/tdlib
+            - "libs/vendor/tdlib"
         expire_in: 1 week
 
 
