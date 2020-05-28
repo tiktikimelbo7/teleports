@@ -689,6 +689,7 @@ Page {
         Filter {
             type: ChatKey.requestReplyToMessage
             onDispatched: {
+                entry.forceActiveFocus()
                 d.chatState = ChatState.ReplyingToMessage
                 d.messageOfInterest = message.message;
             }
