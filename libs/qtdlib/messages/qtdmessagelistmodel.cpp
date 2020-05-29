@@ -575,12 +575,12 @@ void QTdMessageListModel::editMessageCaption(const QString &messageId, const QSt
 
 void QTdMessageListModel::sendReplyToMessage(const qint64 &replyToMessageId, const QString &message)
 {
-    sendMessage(message, replyToMessageId);
+    sendMessage(message, true, replyToMessageId);
 }
 
 void QTdMessageListModel::sendReplyToMessage(const QString &replyToMessageId, const QString &message)
 {
-    sendMessage(message, replyToMessageId.toLongLong());
+    sendMessage(message, true, replyToMessageId.toLongLong());
 }
 
 void QTdMessageListModel::deleteMessage(const qint64 messageId)
