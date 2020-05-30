@@ -36,11 +36,6 @@ set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
-set(TDLIB_INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build/${ARCH_TRIPLET}/tdlib/install)
-set(TDLIB_LIB_DIR ${TDLIB_INSTALL_DIR}/lib)
-set(TDLIB_INCLUDE_DIR ${TDLIB_INSTALL_DIR}/include)
-
-link_directories(${TDLIB_LIB_DIR})
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -84,7 +79,7 @@ install(FILES ${PROJECT_NAME}.content-hub DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
-file(GLOB TDLIB_SO_FILES "${TDLIB_LIB_DIR}/libtdjson.so*")
+file(GLOB TDLIB_SO_FILES "$ENV{TDLIB_LIB_INSTALL_DIR}/lib/libtdjson.so*")
 install(PROGRAMS ${CURRENT_LIBRARY_DIR}/qtdlib/libQTdlib.so DESTINATION ${QT_IMPORTS_DIR})
 install(FILES ${TDLIB_SO_FILES} DESTINATION ${QT_IMPORTS_DIR})
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/app/${PROJECT_NAME} DESTINATION ${DATA_DIR})
