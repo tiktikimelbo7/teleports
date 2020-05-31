@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-05-08 21:23+0000\n"
-"Last-Translator: Ville Vainionpaa <ville.vainionpaa@protonmail.com>\n"
+"PO-Revision-Date: 2020-06-01 16:24+0000\n"
+"Last-Translator: Pekka Kärkkäinen <pakarkka@gmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "teleports/fi/>\n"
 "Language: fi\n"
@@ -194,14 +194,12 @@ msgid "Photo"
 msgstr "Valokuva"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message,"
-msgstr "lähetti sinulle puheviestin"
+msgstr "Ääniviesti,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
-#, fuzzy
 msgid "Voice message"
-msgstr "lähetti sinulle puheviestin"
+msgstr "Ääniviesti"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
@@ -337,7 +335,7 @@ msgstr "Nähty viimeksi "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr "pä.KK.vu tu:mi"
+msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 #: ../app/qml/pages/ConnectivityPage.qml:25
@@ -425,7 +423,7 @@ msgstr "Muokattu"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr "Okay"
+msgstr "OK"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
@@ -476,7 +474,7 @@ msgstr "Varmistuskoodia ei odotettu juuri nyt"
 
 #: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
-msgstr "Oops! Sisäinen virhe."
+msgstr "Ups! Sisäinen virhe."
 
 #: ../app/qml/stores/AuthStateStore.qml:106
 msgid "Incorrect auth code length."
@@ -898,7 +896,7 @@ msgstr "%1 loi ryhmän nimeltä << %2 >>"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "dd MMMM"
-msgstr "pä VUOSI"
+msgstr "dd MMMM"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
