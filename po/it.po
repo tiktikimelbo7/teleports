@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-14 13:14+0000\n"
-"PO-Revision-Date: 2020-05-14 16:24+0000\n"
+"PO-Revision-Date: 2020-06-04 13:24+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
@@ -406,7 +406,7 @@ msgid ""
 "device, end-to-end cryptography is granted."
 msgstr ""
 "Controlla l'immagine o il testo. Se coincidono con quelli sul dispositivo di "
-"<b>%q</b>, la crittografia end-to-end è garantita."
+"<b>%1</b>, la crittografia end-to-end è garantita."
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:39
