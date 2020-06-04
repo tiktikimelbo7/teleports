@@ -23,6 +23,7 @@
 QTdChat::QTdChat(QObject *parent)
     : QAbstractInt64Id(parent)
     , m_chatType(0)
+    , m_chatList(0)
     , m_chatPhoto(new QTdChatPhoto)
     , m_lastMessage(new QTdMessage)
     , m_order(0)
@@ -57,6 +58,13 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     }
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
+
+    const QString chatList = json["chat_list"].toObject()["@type"].toString();
+    if (chatList == "chatListMain") {
+        m_chatList = new QTdChatListMain(this);
+    } else if (chatList == "chatListArchive") {
+        m_chatList = new QTdChatListArchive(this);
+    }
 
     if (isSecret()) {
         auto c = static_cast<QTdSecretChat *>(this);
@@ -628,6 +636,11 @@ void QTdChat::updateChatAction(const QJsonObject &json)
 QTdChatType *QTdChat::chatType() const
 {
     return m_chatType;
+}
+
+QTdChatList *QTdChat::chatList() const
+{
+    return m_chatList;
 }
 
 QTdChatPhoto::QTdChatPhoto(QObject *parent)

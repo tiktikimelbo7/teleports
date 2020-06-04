@@ -71,6 +71,7 @@ set(
     chat/qtdchatmemberstatus.cpp
     chat/qtdchattype.cpp
     chat/qtdchattypefactory.cpp
+    chat/qtdchatlist.cpp
     chat/qtdsecretchat.cpp
     chat/qtdsecretchatstate.cpp
     chat/qtdsupergroupchat.cpp
