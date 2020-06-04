@@ -83,10 +83,13 @@ Store {
      * see qtdchatlistsortfiltermodel.h for all filter types.
      */
     property alias sortedList: sortedChatList
+    property alias chatList: sortedChatList.chatList
+
     SortedChatList {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
+        chatList: SortedChatList.Main
     }
 
     /**
