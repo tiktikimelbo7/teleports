@@ -47,6 +47,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateChatUnreadMentionCount, this, &QTdChatListModel::handleUpdateChatUnreadMentionCount);
     connect(QTdClient::instance(), &QTdClient::updateChatNotificationSettings, this, &QTdChatListModel::handleUpdateChatNotificationSettings);
     connect(QTdClient::instance(), &QTdClient::updateChatOnlineMemberCount, this, &QTdChatListModel::handleUpdateChatOnlineMemberCount);
+    connect(QTdClient::instance(), &QTdClient::updateChatChatList, this, &QTdChatListModel::handleUpdateChatChatList);
 }
 
 QObject *QTdChatListModel::model() const
@@ -474,4 +475,14 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
     request->sendAsync();
+}
+
+void QTdChatListModel::handleUpdateChatChatList(const QJsonObject &data)
+{
+    const qint64 id = qint64(data["chat_id"].toDouble());
+    QTdChat *tdchat = chatById(id);
+    if (tdchat) {
+        tdchat->updateChatChatList(data["chat_list"].toObject());
+        emit contentsChanged();
+    }
 }
