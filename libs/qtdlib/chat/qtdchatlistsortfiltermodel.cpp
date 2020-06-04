@@ -76,6 +76,18 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     if (!chat) {
         return false;
     }
+    if (chat->chatList() != Q_NULLPTR) {
+        int chatList_type;
+        if (chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_MAIN) {
+            chatList_type = 1;
+        } else if (chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_ARCHIVE) {
+            chatList_type = 2;
+        }
+
+        if (m_chatList_type != chatList_type) {
+            return false;
+        }
+    }
 
     switch (chat->chatType()->type()) {
     case QTdChatType::Type::CHAT_TYPE_BASIC_GROUP: {
@@ -111,7 +123,7 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     default:
         // Secret and Private groups get their order set to 0 after leaving
         // a chat
-        // Archived chats have order set to
+        // Archived chats have order set to 0
         if (!chat->order() && m_chatList_type == ChatList::Main) {
             return false;
         }
@@ -139,13 +151,6 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
         allow = chat->isPinned();
     }
 
-    if (chat->chatList() != Q_NULLPTR) {
-        if (m_chatList_type & ChatList::Main) {
-            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_MAIN;
-        } else if (m_chatList_type & ChatList::Archive) {
-            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_ARCHIVE;
-        }
-    }
     return allow;
 }
 
