@@ -63,14 +63,13 @@ Store {
      * see qtdchatlistsortfiltermodel.h for all filter types.
      */
     property alias sortedList: sortedChatList
-    property alias chatList_type: sortedChatList.chatList
+    property alias chatList: sortedChatList.chatList
 
     SortedChatList {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        property bool archivedChatList: false
-        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
+        chatList: SortedChatList.Main
     }
 
     /**
