@@ -87,6 +87,7 @@ private slots:
     void handleUpdateChatNotificationSettings(const QJsonObject &data);
     void handleUpdateChatOnlineMemberCount(const QJsonObject &data);
     void handleForwardingMessagesAction();
+    void handleUpdateChatChatList(const QJsonObject &data);
     void positionUpdated(const QGeoPositionInfo &info);
     void onPositionInfoTimeout();
 
