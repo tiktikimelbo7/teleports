@@ -534,6 +534,16 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     QTdClient::instance()->send(request.data());
 }
 
+void QTdChatListModel::handleUpdateChatChatList(const QJsonObject &data)
+{
+    const qint64 id = qint64(data["chat_id"].toDouble());
+    QTdChat *tdchat = chatById(id);
+    if (tdchat) {
+        tdchat->updateChatChatList(data["chat_list"].toObject());
+        emit contentsChanged();
+    }
+}
+
 void QTdChatListModel::joinChat(const qint64 &chatId) const
 {
     QScopedPointer<QTdJoinChatRequest> req(new QTdJoinChatRequest);
