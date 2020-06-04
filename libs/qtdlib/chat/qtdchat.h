@@ -365,6 +365,7 @@ public slots:
     void updateLastMessage(const QJsonObject &json);
     void handleUpdateChatAction(const QJsonObject &json);
     void handleChatPhotoDownloaded();
+    void updateChatChatList(const QJsonObject &json);
 
 protected:
     virtual void onChatOpened();

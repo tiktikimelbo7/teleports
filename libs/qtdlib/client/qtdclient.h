@@ -151,6 +151,7 @@ signals:
     void updateChatOnlineMemberCount(const QJsonObject &data);
     void updateFileGenerationStart(const QJsonObject &data);
     void updateFileGenerationStop(const QJsonObject &data);
+    void updateChatChatList(const QJsonObject &data);
 
     // Response signals
     void error(QJsonObject error);

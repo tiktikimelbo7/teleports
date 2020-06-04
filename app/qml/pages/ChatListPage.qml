@@ -42,7 +42,13 @@ Page {
                 visible: Telegram.chats.listMode == ChatList.Idle
             }
         ]
-        trailingActionBar.actions: [ ]
+        trailingActionBar.actions: [
+        UITK.Action {
+            text: i18n.tr("Archived chats")
+            iconName: "user-switch"
+            onTriggered: Telegram.chats.chatList == SortedChatList.Main ? Telegram.chats.chatList = SortedChatList.Archive : Telegram.chats.chatList = SortedChatList.Main
+        }
+        ]
     }
 
     Menu {

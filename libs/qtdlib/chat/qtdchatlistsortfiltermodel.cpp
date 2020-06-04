@@ -36,6 +36,11 @@ int QTdChatListSortFilterModel::chatFilters() const
     return m_chatFilters;
 }
 
+int QTdChatListSortFilterModel::chatList() const
+{
+    return m_chatList_type;
+}
+
 void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
 {
     if (m_chatFilters == chatFilters)
@@ -43,6 +48,16 @@ void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
 
     m_chatFilters = chatFilters;
     emit chatFiltersChanged(m_chatFilters);
+    invalidateFilter();
+}
+
+void QTdChatListSortFilterModel::setChatList(int chatList)
+{
+    if (m_chatList_type == chatList)
+        return;
+
+    m_chatList_type = chatList;
+    emit chatListChanged(m_chatList_type);
     invalidateFilter();
 }
 
@@ -96,7 +111,8 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     default:
         // Secret and Private groups get their order set to 0 after leaving
         // a chat
-        if (!chat->order()) {
+        // Archived chats have order set to
+        if (!chat->order() && m_chatList_type == ChatList::Main) {
             return false;
         }
     }
@@ -121,6 +137,14 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     // This allows us to only show pinned chats for each type above
     if (m_chatFilters & ChatFilters::PinnedChats) {
         allow = chat->isPinned();
+    }
+
+    if (chat->chatList() != Q_NULLPTR) {
+        if (m_chatList_type & ChatList::Main) {
+            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_MAIN;
+        } else if (m_chatList_type & ChatList::Archive) {
+            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_ARCHIVE;
+        }
     }
     return allow;
 }
