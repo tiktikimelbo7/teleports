@@ -152,6 +152,13 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
         allow = chat->isPinned();
     }
 
+    if (chat->chatList() != Q_NULLPTR) {
+        if (m_chatList_type & ChatList::Main) {
+            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_MAIN;
+        } else if (m_chatList_type & ChatList::Archive) {
+            allow = chat->chatList()->type() == QTdChatList::Type::CHAT_LIST_ARCHIVE;
+        }
+    }
     return allow;
 }
 

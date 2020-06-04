@@ -90,8 +90,7 @@ Store {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        property bool archivedChatList: false
-        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
+        chatList: SortedChatList.Main
     }
 
     SortedChatList {
