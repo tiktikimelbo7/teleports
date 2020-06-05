@@ -21,17 +21,19 @@ When commiting for the first time you need to apply two settings to your fork of
     Settings -> CI/CD -> Runners -> Expand -> Shared Runners -> Enable shared runners
 
 ## Debugging
-Make sure to build teleports clean and with `--debug`:
+Make sure to build teleports clean and with `--debug`. In a first terminal run the following commands:
 
     clickable --arch armhf --debug clean-build
     clickable --arch armhf install
     clickable --arch armhf gdbserver
 
-In a second terminal:
+After gdbserver has started, open a second terminal and start a gdb session with:
 
     clickable --arch armhf gdb
 
-Replace `armhf` by `arm64` as needed. See [Debugging Documentation](https://clickable-ut.dev/en/latest/debugging.html) for details.
+Replace `armhf` by `arm64` as needed. See clickable [Debugging Documentation](https://clickable-ut.dev/en/latest/debugging.html) for details.
+
+Once you see the `<gdb>` prompt in the second terminal, you can start TELEports by running the gdb-command `continue`. For detailed instructions on how to use gdb check out [gdb documentation](https://sourceware.org/gdb/current/onlinedocs/gdb/).  
 
 ## C++ Code Style/Formatting
 
