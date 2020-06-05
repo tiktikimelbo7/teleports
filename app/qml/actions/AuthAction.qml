@@ -48,10 +48,14 @@ ActionCreator {
      * }
      * Button { onClicked: sendCode.run() }
      */
-    signal setCode(string code, string firstname, string lastname)
+    signal setCode(string code)
     signal authCodeAccepted()
     signal authCodeError(string error, bool isLengthWarning)
 
+    signal registerUser(string firstname, string lastname)
+    signal authRegistrationAccepted()
+    signal authRegistrationError(string error)
+    
     /**
      * Auth password actions
      *

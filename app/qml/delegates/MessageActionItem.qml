@@ -36,6 +36,7 @@ Item {
             radius: 4
             width: dl.contentWidth + Suru.units.gu(2)
             height: units.gu(3)
+            anchors.horizontalCenter: parent.horizontalCenter
             AbstractButton {
                 height: parent.height
                 width: dl.contentWidth

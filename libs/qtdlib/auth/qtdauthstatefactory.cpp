@@ -11,6 +11,8 @@ QTdAuthState *QTdAuthStateFactory::create(const QJsonObject &data, QObject *pare
         stateObj = new QTdAuthStateWaitParams(parent);
     } else if (type == "authorizationStateWaitEncryptionKey") {
         stateObj = new QTdAuthStateWaitEncryptionKey(parent);
+    } else if (type == "authorizationStateWaitRegistration") {
+        stateObj = new QTdAuthStateWaitRegistration(parent);
     } else if (type == "authorizationStateWaitPhoneNumber") {
         stateObj = new QTdAuthStateWaitPhoneNumber(parent);
     } else if (type == "authorizationStateWaitCode") {

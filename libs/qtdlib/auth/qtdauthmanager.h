@@ -18,6 +18,7 @@ public:
         Invalid,
         WaitTdParams,
         WaitEncryptionKey,
+        WaitRegistration,
         WaitPhoneNumber,
         WaitCode,
         WaitPassword,
@@ -37,7 +38,8 @@ public slots:
     void sendParams();
     void setEncryptionKey(const QString &key);
     void sendPhoneNumber(const QString &number);
-    void sendCode(const QString &code, const QString &firstname = "", const QString &lastname = "");
+    void sendCode(const QString &code);
+    void registerUser(const QString &firstname, const QString &lastname = "");
     void sendPassword(const QString &password);
     void logOut();
     void deleteAccount(const QString &reason);
@@ -46,8 +48,9 @@ signals:
     void stateChanged(State state);
     void waitingForTdParams();
     void waitingForEncryptionKey();
+    void waitingForRegistration();
     void waitingForPhoneNumber();
-    void waitingForCode(bool isRegistered);
+    void waitingForCode();
     void waitingForPassword(QString passwordHint, bool hasRecoveryEmailAddress, QString recoveryEmailAddressPattern);
     void phoneNumberError(QString message);
     void codeError(QString message);

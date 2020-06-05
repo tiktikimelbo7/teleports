@@ -34,6 +34,12 @@ void QTdAuthStateWaitEncryptionKey::unmarshalJson(const QJsonObject &json)
     QTdAuthState::unmarshalJson(json);
 }
 
+QTdAuthStateWaitRegistration::QTdAuthStateWaitRegistration(QObject *parent)
+    : QTdAuthState(parent)
+{
+    setType(AUTHORIZATION_STATE_WAIT_REGISTRATION);
+}
+
 QTdAuthStateWaitPhoneNumber::QTdAuthStateWaitPhoneNumber(QObject *parent)
     : QTdAuthState(parent)
 {
@@ -42,15 +48,9 @@ QTdAuthStateWaitPhoneNumber::QTdAuthStateWaitPhoneNumber(QObject *parent)
 
 QTdAuthStateWaitCode::QTdAuthStateWaitCode(QObject *parent)
     : QTdAuthState(parent)
-    , m_isRegistered(false)
     , m_info(0)
 {
     setType(AUTHORIZATION_STATE_WAIT_CODE);
-}
-
-bool QTdAuthStateWaitCode::isRegistered() const
-{
-    return m_isRegistered;
 }
 
 QTdAuthCodeInfo *QTdAuthStateWaitCode::info() const
@@ -60,9 +60,7 @@ QTdAuthCodeInfo *QTdAuthStateWaitCode::info() const
 
 void QTdAuthStateWaitCode::unmarshalJson(const QJsonObject &json)
 {
-    m_isRegistered = json["is_registered"].toBool();
     m_info = new QTdAuthCodeInfo(this);
-    m_info->unmarshalJson(json["code_info"].toObject());
     emit infoChanged();
 }
 

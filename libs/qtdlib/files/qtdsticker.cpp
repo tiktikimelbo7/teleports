@@ -48,6 +48,7 @@ void QTdSticker::unmarshalJson(const QJsonObject &json)
     m_width = qint32(json["width"].toInt());
     m_height = qint32(json["height"].toInt());
     m_emoji = json["emoji"].toString();
+    m_isAnimated = json["is_animated"].toBool();
     m_isMask = json["is_mask"].toBool();
     if (json.contains("thumbnail")) {
         m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
@@ -64,4 +65,9 @@ QTdPhotoSize *QTdSticker::thumbnail() const
 bool QTdSticker::isMask() const
 {
     return m_isMask;
+}
+
+bool QTdSticker::isAnimated() const
+{
+    return m_isAnimated;
 }

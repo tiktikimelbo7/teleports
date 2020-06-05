@@ -14,4 +14,6 @@ KeyTable {
     property string authPasswordError
     property string logOut
     property string deleteAccount
+    property string registerUser
+    property string authRegistrationError
 }

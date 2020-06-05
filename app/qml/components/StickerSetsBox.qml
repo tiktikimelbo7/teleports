@@ -41,7 +41,7 @@ Item {
                 Image {
                     id: img
 
-                    property QTdFile thumbnailFile: stickerSet.thumbnail
+                    property QTdFile thumbnailFile: stickerSet.thumbnail.photo
                     property QTdLocalFile localFile: thumbnailFile.local
 
                     property url localFileSource: localFile.path !== "" ? Qt.resolvedUrl("file://" + localFile.path)
@@ -159,7 +159,7 @@ Item {
                         clip: true
 
                         property QTdSticker sticker: currentStickerSet.stickers.get(index)
-                        property QTdFile file: sticker.sticker
+                        property QTdFile file: sticker.thumbnail.photo
                         property QTdLocalFile localFile: file.local
 
                         property url localFileSource: localFile.path !== ""

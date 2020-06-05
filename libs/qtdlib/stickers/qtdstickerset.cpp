@@ -6,7 +6,9 @@ QTdStickerSet::QTdStickerSet(QObject *parent)
     , m_id(0)
     , m_title("")
     , m_name("")
-    , m_thumbnail(new QTdFile(this))
+    , m_thumbnail(new QTdPhotoSize(this))
+    , m_hasThumbnail(false)
+    , m_isAnimated(false)
     , m_detailsLoaded(false)
 {
     m_stickers = new QQmlObjectListModel<QTdSticker>(this, "", "id");
@@ -23,9 +25,19 @@ QString QTdStickerSet::name() const
     return m_name;
 }
 
-QTdFile *QTdStickerSet::thumbnail() const
+QTdPhotoSize *QTdStickerSet::thumbnail() const
 {
     return m_thumbnail.data();
+}
+
+bool QTdStickerSet::hasThumbnail() const
+{
+    return m_hasThumbnail;
+}
+
+bool QTdStickerSet::isAnimated() const
+{
+    return m_isAnimated;
 }
 
 QObject *QTdStickerSet::qmlModel() const
@@ -60,11 +72,18 @@ void QTdStickerSet::unmarshalJson(const QJsonObject &json)
     m_id = json["id"];
     m_title = json["title"].toString();
     m_name = json["name"].toString();
-    if (json.contains("covers")) {
+    if (json.contains("thumbnail")) {
+        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+        m_hasThumbnail = true;
+    } else {
+        m_hasThumbnail = false;
+    }
+    m_isAnimated = json["is_animated"].toBool();
+    if (json.contains("covers") && !m_hasThumbnail) {
         auto coversArray = json["covers"].toArray();
         if (!coversArray.isEmpty()) {
             auto coverSticker = coversArray[0].toObject();
-            m_thumbnail->unmarshalJson(coverSticker["sticker"].toObject());
+            m_thumbnail->unmarshalJson(coverSticker["thumbnail"].toObject());
         }
     }
     if (json.contains("stickers")) {

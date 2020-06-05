@@ -14,14 +14,18 @@ class QTdStickerSet : public QTdObject
 
     Q_PROPERTY(QString name READ name NOTIFY stickerSetChanged)
     Q_PROPERTY(QString title READ title NOTIFY stickerSetChanged)
-    Q_PROPERTY(QTdFile *thumbnail READ thumbnail NOTIFY stickerSetChanged)
+    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY stickerSetChanged)
+    Q_PROPERTY(bool hasThumbnail READ hasThumbnail NOTIFY stickerSetChanged)
+    Q_PROPERTY(bool isAnimated READ isAnimated NOTIFY stickerSetChanged)
     Q_PROPERTY(QObject *stickers READ qmlModel NOTIFY stickerSetChanged)
 public:
     explicit QTdStickerSet(QObject *parent = nullptr);
 
     QString title() const;
     QString name() const;
-    QTdFile *thumbnail() const;
+    QTdPhotoSize *thumbnail() const;
+    bool hasThumbnail() const;
+    bool isAnimated() const;
 
     QObject *qmlModel() const;
 
@@ -39,7 +43,9 @@ private:
     QTdInt64 m_id;
     QString m_title;
     QString m_name;
-    QPointer<QTdFile> m_thumbnail;
+    QPointer<QTdPhotoSize> m_thumbnail;
+    bool m_hasThumbnail;
+    bool m_isAnimated;
     bool m_detailsLoaded;
 };
 

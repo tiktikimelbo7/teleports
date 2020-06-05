@@ -31,8 +31,6 @@ QJsonObject QTdSendMessageRequest::marshalJson()
         { "@type", "sendMessage" },
         { "chat_id", m_chatId },
         { "reply_to_message_id", m_replyMessageId },
-        { "disable_notification", false },
-        { "from_background", false },
         { "input_message_content", m_content->marshalJson() }
     };
 }

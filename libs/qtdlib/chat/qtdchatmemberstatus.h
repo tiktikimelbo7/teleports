@@ -154,20 +154,12 @@ class QTdChatMemberStatusRestricted : public QTdChatMemberStatus
     Q_OBJECT
     Q_PROPERTY(bool isMember READ isMember NOTIFY statusChanged)
     Q_PROPERTY(QDateTime restrictedUntil READ qmlRestrictedUntil NOTIFY statusChanged)
-    Q_PROPERTY(bool canSendMessages READ canSendMessages NOTIFY statusChanged)
-    Q_PROPERTY(bool canSendMediaMessages READ canSendMediaMessages NOTIFY statusChanged)
-    Q_PROPERTY(bool canSendOtherMessages READ canSendOtherMessages NOTIFY statusChanged)
-    Q_PROPERTY(bool canAddWebPagePreviews READ canAddWebPagePreviews NOTIFY statusChanged)
 public:
     explicit QTdChatMemberStatusRestricted(QObject *parent = Q_NULLPTR);
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
     bool isMember() const;
     QDateTime qmlRestrictedUntil() const;
     qint32 restrictedUntil() const;
-    bool canSendMessages() const;
-    bool canSendMediaMessages() const;
-    bool canSendOtherMessages() const;
-    bool canAddWebPagePreviews() const;
 
 signals:
     void statusChanged();
@@ -176,10 +168,6 @@ private:
     Q_DISABLE_COPY(QTdChatMemberStatusRestricted)
     bool m_isMember;
     qint32 m_restrictedUntil;
-    bool m_canSendMessages;
-    bool m_canSendMediaMessages;
-    bool m_canSendOtherMessages;
-    bool m_canAddWebPagePreviews;
 };
 
 #endif // QTDCHATMEMBERSTATUS_H

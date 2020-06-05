@@ -9,7 +9,6 @@
 #include "qtduserfullinfo.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
-#include "qtdlinkstate.h"
 #include "qtdusertype.h"
 
 /**
@@ -29,8 +28,6 @@ class QTdUser : public QAbstractInt32Id
     Q_PROPERTY(QTdUserFullInfo *fullInfo READ fullInfo WRITE setFullInfo NOTIFY fullInfoChanged)
     Q_PROPERTY(QTdUserStatus *status READ status WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(QTdProfilePhoto *profilePhoto READ profilePhoto NOTIFY profilePhotoChanged)
-    Q_PROPERTY(QTdLinkState *outgoingLink READ outgoingLink NOTIFY outgoingLinkChanged)
-    Q_PROPERTY(QTdLinkState *incomingLink READ incomingLink NOTIFY incomingLinkChanged)
     Q_PROPERTY(bool isVerified READ isVerified NOTIFY isVerifiedChanged)
     Q_PROPERTY(bool isMyself READ isMyself NOTIFY isMyselfChanged)
     Q_PROPERTY(QString restrictionReason READ restrictionReason NOTIFY restrictionReasonChanged)
@@ -49,8 +46,6 @@ public:
     QTdUserFullInfo *fullInfo() const;
     QTdUserStatus *status() const;
     QTdProfilePhoto *profilePhoto() const;
-    QTdLinkState *outgoingLink() const;
-    QTdLinkState *incomingLink() const;
     bool isVerified() const;
     bool isMyself();
     QString restrictionReason() const;
@@ -66,8 +61,6 @@ signals:
     void fullInfoChanged(QTdUserFullInfo *fullInfo);
     void statusChanged(QTdUserStatus *status);
     void profilePhotoChanged(QTdProfilePhoto *profilePhoto);
-    void outgoingLinkChanged(QTdLinkState *outgoingLink);
-    void incomingLinkChanged(QTdLinkState *incomingLink);
     void isVerifiedChanged(bool isVerified);
     void isMyselfChanged(bool isMyself);
     void restrictionReasonChanged(QString restrictionReason);
@@ -93,8 +86,6 @@ private:
     QPointer<QTdUserFullInfo> m_fullInfo;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
-    QPointer<QTdLinkState> m_outgoingLink;
-    QPointer<QTdLinkState> m_incomingLink;
     bool m_isVerified;
     QString m_restrictionReason;
     QString m_languageCode;

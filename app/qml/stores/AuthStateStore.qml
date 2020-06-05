@@ -46,7 +46,10 @@ Store {
         }
 
         onWaitingForCode: {
-            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitCodePage.qml", properties: {"registered": isRegistered}})
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitCodePage.qml"})
+        }
+        onWaitingForRegistration: {
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/WaitRegistrationPage.qml"})
         }
 
         onReady: {
@@ -102,13 +105,32 @@ Store {
                 return
             }
 
-            if (message.code.length !== parseInt(info.type.length)) {
+/*             if (message.code.length !== parseInt(info.type.length)) {
                 AppActions.auth.authCodeError(i18n.tr('Incorrect auth code length.'), true);
                 console.log("setCode: Incorrect auth code length.")
                 return;
-            }
-            authState.sendCode(message.code, message.firstname, message.lastname)
+            } */
+            authState.sendCode(message.code)
             AppActions.auth.authCodeAccepted()
+        }
+    }
+
+    Filter {
+        type: AuthKey.registerUser
+        onDispatched: {
+            if (authState.state !== AuthState.WaitRegistration) {
+                AppActions.auth.authCodeError(i18n.tr('Registration not expected right now'), false)
+                console.log("registerUser: Registration not expected right now")
+                return
+            }
+            // var info = authState.type.info;
+            // if (!info) {
+            //     AppActions.auth.authCodeError(i18n.tr('Oops! Internal error.'), false)
+            //     console.log("setCode: Oops! Internal error.")
+            //     return
+            // }
+            authState.registerUser(message.firstname, message.lastname)
+            AppActions.auth.authRegistrationAccepted()
         }
     }
 

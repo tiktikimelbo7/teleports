@@ -10,7 +10,6 @@ QTdBasicGroupChat::QTdBasicGroupChat(QObject *parent)
     , m_groupId(0)
     , m_memberCount(0)
     , m_status(Q_NULLPTR)
-    , m_everyoneIsAdmin(false)
     , m_isActive(false)
     , m_upgradedSGID(0)
     , m_creatorId(0)
@@ -45,11 +44,6 @@ qint32 QTdBasicGroupChat::memberCount() const
 QTdChatMemberStatus *QTdBasicGroupChat::status() const
 {
     return m_status;
-}
-
-bool QTdBasicGroupChat::everyoneIsAdmin() const
-{
-    return m_everyoneIsAdmin;
 }
 
 bool QTdBasicGroupChat::isActive() const
@@ -148,7 +142,6 @@ void QTdBasicGroupChat::updateGroupData(const QJsonObject &json)
         m_status->unmarshalJson(status);
     }
 
-    m_everyoneIsAdmin = json["everyone_is_administrator"].toBool();
     m_isActive = json["is_active"].toBool();
     m_upgradedSGID = json["upgraded_to_supergroup_id"];
     emit groupChanged();

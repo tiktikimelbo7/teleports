@@ -10,5 +10,14 @@ MessageBubbleItem {
     transparentBackground: true
     MessageContentSticker {
         message: bubble.message
+        visible: !message.content.sticker.isAnimated
+        height: visible ? childrenRect.height : 0
+        width: visible ? childrenRect.width : 0
+    }
+    MessageActionItem {
+        visible: message.content.sticker.isAnimated
+        message: bubble.message
+        text: i18n.tr("Animated stickers not supported yet :(")
+        width: visible ? childrenRect.width : 0
     }
 }

@@ -10,7 +10,7 @@ variables:
     CLICKABLE_VERSION: "6.12.2"
 
 cache: &tdlib_cache
-    key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.4'
+    key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.6'
     untracked: true
 
 .armhf: &armhf
