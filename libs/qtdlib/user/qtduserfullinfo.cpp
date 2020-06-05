@@ -1,6 +1,5 @@
 #include "qtduserfullinfo.h"
 #include "qtduserstatusfactory.h"
-#include "qtdlinkstatefactory.h"
 #include "common/qtdhelpers.h"
 #include "client/qtdclient.h"
 

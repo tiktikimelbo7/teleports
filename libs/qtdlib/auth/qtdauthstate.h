@@ -61,6 +61,19 @@ public:
 };
 
 /**
+ * @brief The QTdAuthStateWaitRegistration class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_wait_registration.html
+ */
+class QTdAuthStateWaitRegistration : public QTdAuthState
+{
+    Q_OBJECT
+    // TODO termsOfService
+public:
+    explicit QTdAuthStateWaitRegistration(QObject *parent = Q_NULLPTR);
+};
+
+/**
  * @brief The QTdAuthStateWaitPhoneNumber class
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1authorization_state_wait_phone_number.html
@@ -80,12 +93,10 @@ public:
 class QTdAuthStateWaitCode : public QTdAuthState
 {
     Q_OBJECT
-    Q_PROPERTY(bool isRegistered READ isRegistered NOTIFY infoChanged)
     Q_PROPERTY(QTdAuthCodeInfo *info READ info NOTIFY infoChanged)
 public:
     explicit QTdAuthStateWaitCode(QObject *parent = Q_NULLPTR);
 
-    bool isRegistered() const;
     QTdAuthCodeInfo *info() const;
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 

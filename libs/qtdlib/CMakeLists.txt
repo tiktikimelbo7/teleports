@@ -55,6 +55,7 @@ set(
     auth/qtdauthstate.cpp
     auth/qtdauthstatefactory.cpp
     auth/requests/qtdauthcoderesponse.cpp
+    auth/requests/qtdauthregistrationresponse.cpp
     auth/requests/qtdauthdeleteaccountresponse.cpp
     auth/requests/qtdauthencryptionkeyresponse.cpp
     auth/requests/qtdauthlogoutresponse.cpp
@@ -198,8 +199,6 @@ set(
     quick/contacts.cpp
     stickers/qtdstickersets.cpp
     stickers/qtdstickerset.cpp
-    user/qtdlinkstate.cpp
-    user/qtdlinkstatefactory.cpp
     user/qtdprofilephoto.cpp
     user/qtduser.cpp
     user/qtdcontact.cpp

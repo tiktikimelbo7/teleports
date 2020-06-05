@@ -14,7 +14,7 @@ Page {
 
     header: UITK.PageHeader {
         id: header
-        title: i18n.tr('Enter Code')
+        title: i18n.tr('Enter your Name')
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -32,26 +32,16 @@ Page {
             top: parent.top
             topMargin: Suru.units.gu(2)
         }
-        UITK.TextField {
-            id: codeField
+        TextField {
+            id: firstNameField
             width: parent.width
-
-            placeholderText: i18n.tr('Code')
-            inputMethodHints: Qt.ImhFormattedNumbersOnly
-            inputMask: "99999"
-            maximumLength: 5
-            focus: true
-            onDisplayTextChanged: {
-              if( text.length === maximumLength ) {
-                sendCode.run({ code: text })
-              }
-            }
+            placeholderText: i18n.tr('First Name')
         }
 
-        Label {
+        TextField {
+            id: lastNameField
             width: parent.width
-            wrapMode: Text.Wrap
-            text: i18n.tr("We've send a code via telegram to your device. Please enter it here.")
+            placeholderText: i18n.tr('Last Name')
         }
 
         Label {
@@ -62,28 +52,30 @@ Page {
             visible: text != ''
             color: "red"
         }
+        Button {
+            width: parent.width
+            text: i18n.tr("Next...")
+            onClicked: sendRegistration.run({ firstname: firstNameField.text, lastname: lastNameField.text })
+        }
     }
 
     AppListener {
         Filter {
-            type: AuthKey.authCodeError
+            type: AuthKey.authRegistrationError
             onDispatched: {
                 errorLabel.text = message.error
-                if(!message.isLengthWarning)
-                    codeField.text = ""
             }
         }
     }
 
     AppScript {
-       id: sendCode
+       id: sendRegistration
        script: {
-           // Enter number including dial code
-           AppActions.auth.setCode(message.code);
-            once(AuthKey.authCodeError, function(message) {
+           AppActions.auth.registerUser(message.firstname, message.lastname);
+            once(AuthKey.authRegistrationError, function(message) {
                exit(1);
            })
-           once(AuthKey.authCodeAccepted, exit.bind(this,0))
+           once(AuthKey.authRegistrationAccepted, exit.bind(this,0))
        }
     }
 }

@@ -25,26 +25,6 @@ public:
     void setCode(const QString &code);
 
     /**
-     * @brief setFirstName
-     * @param firstname
-     *
-     * If user is not registered; the first name of the user
-     *
-     * no more than 255 characters
-     */
-    void setFirstName(const QString &firstname);
-
-    /**
-     * @brief setLastName
-     * @param lastname
-     *
-     * If user is not registered; the last name of the user
-     *
-     * no more than 255 characters
-     */
-    void setLastName(const QString &lastname);
-
-    /**
      * @brief marshalJson
      * @return QJsonObject of the request suitable for sending to tdlib
      */
@@ -52,8 +32,6 @@ public:
 
 private:
     QString m_code;
-    QString m_firstname;
-    QString m_lastname;
 };
 
 #endif // QTDAUTHCODERESPONSE_H

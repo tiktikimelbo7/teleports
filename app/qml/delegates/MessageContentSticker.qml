@@ -16,7 +16,7 @@ MessageContentBase {
     Image {
         id: image
 
-        property url localFileSource: localFile.path !== ""
+        property url localFileSource: localFile.path !== "" && !stickerContent.sticker.isAnimated
                                       ? Qt.resolvedUrl("file://" + localFile.path)
                                       : Qt.resolvedUrl("")
 

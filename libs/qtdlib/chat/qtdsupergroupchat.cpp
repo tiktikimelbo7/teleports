@@ -11,7 +11,6 @@ QTdSuperGroupChat::QTdSuperGroupChat(QObject *parent)
     , m_date(0)
     , m_status(Q_NULLPTR)
     , m_memberCount(0)
-    , m_canInvite(false)
     , m_signMessages(false)
     , m_isChannel(false)
     , m_isVerified(false)
@@ -71,11 +70,6 @@ QString QTdSuperGroupChat::qmlMemberCount() const
 qint32 QTdSuperGroupChat::memberCount() const
 {
     return m_memberCount.value();
-}
-
-bool QTdSuperGroupChat::anyoneCanInvite() const
-{
-    return m_canInvite;
 }
 
 bool QTdSuperGroupChat::signMessages() const
@@ -252,7 +246,6 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
         m_status->unmarshalJson(status);
     }
 
-    m_canInvite = json["anyone_can_invite"].toBool();
     m_signMessages = json["sign_messages"].toBool();
     m_isChannel = json["is_channel"].toBool();
     m_isVerified = json["is_verified"].toBool();

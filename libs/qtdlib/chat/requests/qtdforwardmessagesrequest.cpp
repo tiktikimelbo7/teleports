@@ -35,8 +35,6 @@ QJsonObject QTdForwardMessagesRequest::marshalJson()
         { "chat_id", m_chatId },
         { "from_chat_id", m_fromChatId },
         { "message_ids", ids },
-        { "disable_notification", false },
-        { "from_background", false },
         { "as_album", false },
     };
 }

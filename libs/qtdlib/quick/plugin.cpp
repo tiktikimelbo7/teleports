@@ -137,10 +137,6 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdUserStatusOnline>(uri, 1, 0, "QTdUserStatusOnline", "c++ class");
     qmlRegisterUncreatableType<QTdUserStatusRecently>(uri, 1, 0, "QTdUserStatusRecently", "c++ class");
     qmlRegisterUncreatableType<QTdProfilePhoto>(uri, 1, 0, "QTdProfilePhoto", "c++ class");
-    qmlRegisterUncreatableType<QTdLinkState>(uri, 1, 0, "QTdLinkState", "Abstract class");
-    qmlRegisterUncreatableType<QTdLinkStateIsContact>(uri, 1, 0, "QTdLinkStateIsContact", "c++ class");
-    qmlRegisterUncreatableType<QTdLinkStateKnowsPhoneNumber>(uri, 1, 0, "QTdLinkStateKnowsPhoneNumber", "c++ class");
-    qmlRegisterUncreatableType<QTdLinkStateNone>(uri, 1, 0, "QTdLinkStateNone", "c++ class");
     qmlRegisterUncreatableType<QTdUserType>(uri, 1, 0, "QTdUserType", "Abstract class");
     qmlRegisterUncreatableType<QTdUserTypeBot>(uri, 1, 0, "QTdUserTypeBot", "c++ class");
     qmlRegisterUncreatableType<QTdUserTypeDeleted>(uri, 1, 0, "QTdUserTypeDeleted", "c++ class");

@@ -16,7 +16,6 @@ QTdSticker *QTdMessageSticker::sticker() const
 void QTdMessageSticker::unmarshalJson(const QJsonObject &json)
 {
     m_sticker->unmarshalJson(json["sticker"].toObject());
-    //FIXME - TDLib 1.5.0 - use sticker thumbnail
-    m_infoImageUrl = QUrl("file://" + m_sticker->sticker()->local()->path());
+    m_infoImageUrl = QUrl("file://" + m_sticker->thumbnail()->photo()->local()->path());
     m_typeText = m_sticker->emoji() + " " + gettext("Sticker");
 }

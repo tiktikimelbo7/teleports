@@ -13,7 +13,6 @@ class QTdSuperGroupChat : public QTdChat
     Q_PROPERTY(QString userName READ userName NOTIFY superGroupChanged)
     Q_PROPERTY(QDateTime date READ qmlDate NOTIFY superGroupChanged)
     Q_PROPERTY(QTdChatMemberStatus *status READ status NOTIFY superGroupChanged)
-    Q_PROPERTY(bool anyoneCanInvite READ anyoneCanInvite NOTIFY superGroupChanged)
     Q_PROPERTY(bool signMessages READ signMessages NOTIFY superGroupChanged)
     Q_PROPERTY(bool isChannel READ isChannel NOTIFY superGroupChanged)
     Q_PROPERTY(bool isVerified READ isVerified NOTIFY superGroupChanged)
@@ -42,7 +41,6 @@ public:
     QTdChatMemberStatus *status() const;
     QString qmlMemberCount() const;
     qint32 memberCount() const;
-    bool anyoneCanInvite() const;
     bool signMessages() const;
     bool isChannel() const;
     bool isVerified() const;
@@ -89,7 +87,6 @@ private:
     qint32 m_date;
     QPointer<QTdChatMemberStatus> m_status;
     QTdInt32 m_memberCount;
-    bool m_canInvite;
     bool m_signMessages;
     bool m_isChannel;
     bool m_isVerified;

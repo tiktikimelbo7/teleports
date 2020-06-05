@@ -28,14 +28,11 @@ Page {
         width: Math.min(Suru.units.gu(45), parent.width - units.gu(4))
         spacing: Suru.units.gu(2)
 
-        anchors.top: header.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        Rectangle {
-            width: parent.width
-            height: 1
+        anchors {
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
+            topMargin: Suru.units.gu(2)
         }
-
         TextField {
             id: passwordField
             width: parent.width

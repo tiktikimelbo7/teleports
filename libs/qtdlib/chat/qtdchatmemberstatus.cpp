@@ -136,10 +136,6 @@ QTdChatMemberStatusRestricted::QTdChatMemberStatusRestricted(QObject *parent)
     : QTdChatMemberStatus(parent)
     , m_isMember(false)
     , m_restrictedUntil(0)
-    , m_canSendMessages(false)
-    , m_canSendMediaMessages(false)
-    , m_canSendOtherMessages(false)
-    , m_canAddWebPagePreviews(false)
 {
     setType(CHAT_MEMBER_STATUS_RESTRICTED);
 }
@@ -148,10 +144,6 @@ void QTdChatMemberStatusRestricted::unmarshalJson(const QJsonObject &json)
 {
     m_isMember = json["is_member"].toBool();
     m_restrictedUntil = qint32(json["restricted_until_date"].toInt());
-    m_canSendMessages = json["can_send_messages"].toBool();
-    m_canSendMediaMessages = json["can_send_media_messages"].toBool();
-    m_canSendOtherMessages = json["can_send_other_messages"].toBool();
-    m_canAddWebPagePreviews = json["can_add_web_page_previews"].toBool();
     emit statusChanged();
 }
 
@@ -168,24 +160,4 @@ QDateTime QTdChatMemberStatusRestricted::qmlRestrictedUntil() const
 qint32 QTdChatMemberStatusRestricted::restrictedUntil() const
 {
     return m_restrictedUntil;
-}
-
-bool QTdChatMemberStatusRestricted::canSendMessages() const
-{
-    return m_canSendMessages;
-}
-
-bool QTdChatMemberStatusRestricted::canSendMediaMessages() const
-{
-    return m_canSendMediaMessages;
-}
-
-bool QTdChatMemberStatusRestricted::canSendOtherMessages() const
-{
-    return m_canSendOtherMessages;
-}
-
-bool QTdChatMemberStatusRestricted::canAddWebPagePreviews() const
-{
-    return m_canAddWebPagePreviews;
 }

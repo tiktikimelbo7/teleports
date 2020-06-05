@@ -14,6 +14,7 @@ class QTdSticker : public QTdObject
     Q_PROPERTY(qint32 width READ width NOTIFY stickerChanged)
     Q_PROPERTY(qint32 height READ height NOTIFY stickerChanged)
     Q_PROPERTY(QString emoji READ emoji NOTIFY stickerChanged)
+    Q_PROPERTY(bool isAnimated READ isAnimated NOTIFY stickerChanged)
     Q_PROPERTY(bool isMask READ isMask NOTIFY stickerChanged)
     // TODO: Q_PROPERTY(QTdMaskPosition maskPosition READ maskPosition NOTIFY stickerChanged)
     Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY stickerChanged)
@@ -29,6 +30,8 @@ public:
     qint32 height() const;
 
     QString emoji() const;
+
+    bool isAnimated() const;
 
     bool isMask() const;
 
@@ -46,6 +49,7 @@ private:
     qint32 m_width;
     qint32 m_height;
     QString m_emoji;
+    bool m_isAnimated;
     bool m_isMask;
     QScopedPointer<QTdPhotoSize> m_thumbnail;
     QScopedPointer<QTdFile> m_sticker;

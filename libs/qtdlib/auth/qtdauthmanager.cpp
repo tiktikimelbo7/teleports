@@ -6,6 +6,7 @@
 #include "requests/qtdauthparametersresponse.h"
 #include "requests/qtdauthphonenumberresponse.h"
 #include "requests/qtdauthcoderesponse.h"
+#include "requests/qtdauthregistrationresponse.h"
 #include "requests/qtdauthlogoutresponse.h"
 #include "requests/qtdauthpasswordresponse.h"
 #include "requests/qtdauthdeleteaccountresponse.h"
@@ -109,7 +110,7 @@ void QTdAuthManager::deleteAccount(const QString &reason)
     //QTdClient::instance()->send(resp.data());
 }
 
-void QTdAuthManager::sendCode(const QString &code, const QString &firstname, const QString &lastname)
+void QTdAuthManager::sendCode(const QString &code)
 {
     if (m_state != WaitCode) {
         qWarning() << "TDLib isn't waiting for a code";
@@ -117,9 +118,24 @@ void QTdAuthManager::sendCode(const QString &code, const QString &firstname, con
     }
     QScopedPointer<QTdAuthCodeResponse> authCodeResp(new QTdAuthCodeResponse);
     authCodeResp->setCode(code);
-    authCodeResp->setFirstName(firstname);
-    authCodeResp->setLastName(lastname);
     QFuture<QTdResponse> resp = authCodeResp.data()->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        emit codeError(resp.result().errorString());
+        return;
+    }
+}
+
+void QTdAuthManager::registerUser(const QString &firstname, const QString &lastname)
+{
+    if (m_state != WaitRegistration) {
+        qWarning() << "TDLib isn't waiting for registration";
+        return;
+    }
+    QScopedPointer<QTdAuthRegistrationResponse> authRegistrationResp(new QTdAuthRegistrationResponse);
+    authRegistrationResp->setFirstName(firstname);
+    authRegistrationResp->setLastName(lastname);
+    QFuture<QTdResponse> resp = authRegistrationResp.data()->sendAsync();
     await(resp, 2000);
     if (resp.result().isError()) {
         emit codeError(resp.result().errorString());
@@ -158,6 +174,11 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
         emit waitingForEncryptionKey();
         break;
     }
+    case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_REGISTRATION: {
+        m_state = WaitRegistration;
+        emit waitingForRegistration();
+        break;
+    }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_PHONE_NUMBER: {
         m_state = WaitPhoneNumber;
         emit waitingForPhoneNumber();
@@ -165,7 +186,7 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_WAIT_CODE: {
         auto currentState = (QTdAuthStateWaitCode *)state;
-        emit waitingForCode(currentState->isRegistered());
+        emit waitingForCode();
         m_state = WaitCode;
         break;
     }

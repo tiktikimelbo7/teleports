@@ -8,7 +8,6 @@
 #include "common/qabstractint32id.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
-#include "qtdlinkstate.h"
 #include "qtdusertype.h"
 
 /**

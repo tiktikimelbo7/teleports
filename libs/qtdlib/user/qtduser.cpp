@@ -1,6 +1,5 @@
 #include "qtduser.h"
 #include "qtduserstatusfactory.h"
-#include "qtdlinkstatefactory.h"
 #include "common/qtdhelpers.h"
 #include "client/qtdclient.h"
 #include "requests/qtdgetuserfullinforequest.h"
@@ -11,8 +10,6 @@ QTdUser::QTdUser(QObject *parent)
     , m_fullInfo(new QTdUserFullInfo)
     , m_status(Q_NULLPTR)
     , m_profilePhoto(new QTdProfilePhoto)
-    , m_outgoingLink(Q_NULLPTR)
-    , m_incomingLink(Q_NULLPTR)
     , m_isVerified(false)
     , m_userType(Q_NULLPTR)
 {
@@ -62,20 +59,6 @@ void QTdUser::unmarshalJson(const QJsonObject &json)
         m_profilePhoto->small()->downloadFile();
     }
 
-    if (m_outgoingLink) {
-        delete m_outgoingLink;
-        m_outgoingLink = nullptr;
-    }
-    m_outgoingLink = QTdLinkStateFactory::create(json["outgoing_link"].toObject(), this);
-    emit outgoingLinkChanged(m_outgoingLink);
-
-    if (m_incomingLink) {
-        delete m_incomingLink;
-        m_incomingLink = nullptr;
-    }
-    m_incomingLink = QTdLinkStateFactory::create(json["incoming_link"].toObject(), this);
-    emit incomingLinkChanged(m_incomingLink);
-
     QAbstractInt32Id::unmarshalJson(json);
 }
 
@@ -105,16 +88,6 @@ bool QTdUser::isMyself()
         m_my_id = qint32(QTdClient::instance()->getOption("my_id").toInt());
     }
     return id() == m_my_id;
-}
-
-QTdLinkState *QTdUser::outgoingLink() const
-{
-    return m_outgoingLink;
-}
-
-QTdLinkState *QTdUser::incomingLink() const
-{
-    return m_incomingLink;
 }
 
 QTdProfilePhoto *QTdUser::profilePhoto() const
