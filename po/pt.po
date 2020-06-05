@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-05 13:35+0000\n"
-"PO-Revision-Date: 2020-05-11 21:24+0000\n"
+"PO-Revision-Date: 2020-06-05 20:33+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -165,7 +165,7 @@ msgstr "Uma captura de ecrã foi tirada"
 
 #: ../app/qml/delegates/MessageStickerItem.qml:20
 msgid "Animated stickers not supported yet :("
-msgstr ""
+msgstr "Autocolantes animados ainda não suportados :("
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -250,7 +250,7 @@ msgstr "Definições"
 
 #: ../app/qml/pages/ChatListPage.qml:47
 msgid "Archived chats"
-msgstr ""
+msgstr "Conversas arquivadas"
 
 #: ../app/qml/pages/ChatListPage.qml:59 ../libs/qtdlib/chat/qtdchat.cpp:96
 msgid "Saved Messages"
@@ -513,10 +513,8 @@ msgstr ""
 "telefone."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
-#, fuzzy
-#| msgid "Enter Phone Number"
 msgid "Enter your Name"
-msgstr "Introduza o número de telefone"
+msgstr "Introduza o seu nome"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:38
 msgid "First Name"
@@ -547,10 +545,8 @@ msgid "Oops! Internal error."
 msgstr "Oops! Erro interno."
 
 #: ../app/qml/stores/AuthStateStore.qml:122
-#, fuzzy
-#| msgid "Auth code not expected right now"
 msgid "Registration not expected right now"
-msgstr "Código de autenticação não esperado agora"
+msgstr "Código de registo não esperado"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
@@ -713,26 +709,26 @@ msgstr "juntou-se ao Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Hoje"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontem"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
 msgid "dddd"
-msgstr ""
+msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
 msgid "MMMM dd, yyyy"
-msgstr ""
+msgstr "MMMM dd, yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
 msgid "MMMM dd"
-msgstr ""
+msgstr "MMMM dd"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
