@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-05 13:35+0000\n"
-"PO-Revision-Date: 2020-06-01 16:24+0000\n"
+"PO-Revision-Date: 2020-06-07 20:24+0000\n"
 "Last-Translator: Pekka Kärkkäinen <pakarkka@gmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "teleports/fi/>\n"
@@ -165,7 +165,7 @@ msgstr "Kuvakaappaus otettu"
 
 #: ../app/qml/delegates/MessageStickerItem.qml:20
 msgid "Animated stickers not supported yet :("
-msgstr ""
+msgstr "Animoituja tarroja ei vielä tueta :("
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -249,7 +249,7 @@ msgstr "Asetukset"
 
 #: ../app/qml/pages/ChatListPage.qml:47
 msgid "Archived chats"
-msgstr ""
+msgstr "Tallennetut keskustelut"
 
 #: ../app/qml/pages/ChatListPage.qml:59 ../libs/qtdlib/chat/qtdchat.cpp:96
 msgid "Saved Messages"
@@ -711,11 +711,11 @@ msgstr "liittyi Telegramiin!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Tänään"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "Eilen"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
@@ -725,12 +725,12 @@ msgstr ""
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
 msgid "MMMM dd, yyyy"
-msgstr ""
+msgstr "dd. MM yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
 msgid "MMMM dd"
-msgstr ""
+msgstr "dd. MMMMta"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
