@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-05 13:35+0000\n"
-"PO-Revision-Date: 2020-03-25 12:22+0000\n"
-"Last-Translator: gupi <c.thiess@web.de>\n"
+"PO-Revision-Date: 2020-06-10 18:24+0000\n"
+"Last-Translator: Marco H <myx00r@gmail.com>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -166,7 +166,7 @@ msgstr "Ein Screenshot wurde gemacht"
 
 #: ../app/qml/delegates/MessageStickerItem.qml:20
 msgid "Animated stickers not supported yet :("
-msgstr ""
+msgstr "Animierte Sticker werden noch nicht unterstützt :("
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -250,7 +250,7 @@ msgstr "Einstellungen"
 
 #: ../app/qml/pages/ChatListPage.qml:47
 msgid "Archived chats"
-msgstr ""
+msgstr "Archivierte Chats"
 
 #: ../app/qml/pages/ChatListPage.qml:59 ../libs/qtdlib/chat/qtdchat.cpp:96
 msgid "Saved Messages"
@@ -511,10 +511,8 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr "Bitte bestätige Deinen Ländercode und gib Deine Telefonnummer ein."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
-#, fuzzy
-#| msgid "Enter Phone Number"
 msgid "Enter your Name"
-msgstr "Telefonnummer eingeben"
+msgstr "Name eingeben"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:38
 msgid "First Name"
@@ -545,10 +543,8 @@ msgid "Oops! Internal error."
 msgstr "Uups. Interner Fehler."
 
 #: ../app/qml/stores/AuthStateStore.qml:122
-#, fuzzy
-#| msgid "Auth code not expected right now"
 msgid "Registration not expected right now"
-msgstr "Authentifizierungscode hier nicht erwartet"
+msgstr "Registrierung hier nicht erwartet"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
@@ -712,11 +708,11 @@ msgstr "ist Telegram beigetreten!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "Gestern"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
