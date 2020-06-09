@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-05 13:35+0000\n"
-"PO-Revision-Date: 2020-06-07 20:24+0000\n"
-"Last-Translator: Pekka Kärkkäinen <pakarkka@gmail.com>\n"
+"PO-Revision-Date: 2020-06-10 18:24+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "teleports/fi/>\n"
 "Language: fi\n"
@@ -510,10 +510,8 @@ msgid "Please confirm your country code and enter your phone number."
 msgstr "Ole hyvä ja varmista maakoodi ja syötä puhelinnumerosi."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
-#, fuzzy
-#| msgid "Enter Phone Number"
 msgid "Enter your Name"
-msgstr "Syötä puhelinnumero"
+msgstr "Kirjoita nimesi"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:38
 msgid "First Name"
