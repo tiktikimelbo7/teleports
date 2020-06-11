@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-05 13:35+0000\n"
-"PO-Revision-Date: 2020-04-24 19:23+0000\n"
-"Last-Translator: dano6 <dano.kutka@gmail.com>\n"
+"PO-Revision-Date: 2020-06-12 15:24+0000\n"
+"Last-Translator: Marek Lach Bc <mareklachbc@tutanota.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
 "Language: sk\n"
@@ -710,7 +710,7 @@ msgstr "sa pripojil k Telegramu!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Dnes"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
