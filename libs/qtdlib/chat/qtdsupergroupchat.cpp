@@ -250,6 +250,7 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
     m_isChannel = json["is_channel"].toBool();
     m_isVerified = json["is_verified"].toBool();
     m_restrictionReason = json["restriction_reason"].toString();
+    m_username = json["username"].toString();
     emit superGroupChanged();
     emit chatStatusChanged();
 }

@@ -10,7 +10,7 @@ Item {
     property string avatarColor: "#000"
     property bool myself: false
     property bool photoExists: photoPath != "" ? true : false
-    
+
     ShaderEffectSource {
         id: effectSource
         anchors.centerIn: parent
@@ -18,18 +18,18 @@ Item {
         height: 0
         sourceItem: imageContent
     }
-    
+
     Item {
         id: imageContent
         anchors.fill: parent
         visible: false
-        
+
         Rectangle {
             id: bgColorFill
             anchors.fill: parent
             color: myself ? "#65aadd" : (photoExists ? "transparent" : avatarColor)
         }
-        
+
         Image {
             id: itemPicture
             anchors.centerIn: parent
@@ -41,14 +41,15 @@ Item {
             asynchronous: true
         }
     }
-    
+
     UITK.Shape {
         id: imgShape
         image: effectSource
         anchors.fill: parent
         aspect: UITK.UbuntuShape.DropShadow
+        radius: width > Suru.units.gu(7) ? "medium" : "small"
     }
-    
+
     UITK.Label {
         id: initialsLabel
         anchors.centerIn: parent

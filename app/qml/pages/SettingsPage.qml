@@ -48,61 +48,35 @@ Page {
         ColumnLayout {
             id: settingsColumn
             width: parent.width
+            spacing: 0
 
             UserProfile {
+                Layout.fillWidth: true
                 user: me
-            }
-
-            UITK.ListItem {
-                UITK.ListItemLayout {
-                    UITK.Icon {
-                        width: units.gu(2)
-                        height: width
-                        name: "system-log-out"
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                        color: theme.palette.normal.backgroundSecondaryText
-                    }
-                    title.text : i18n.tr('Logout')
+                parentMargins: settingsFlickable.anchors.margins
+                isSettings: true
+                itemList: [
+                {
+                    iconName: "system-log-out",
+                    titleText: i18n.tr('Logout'),
+                    delegateState: "popup",
+                    popup: logoutConfirmationDialog
+                },
+                {
+                    iconName: "delete",
+                    titleText: i18n.tr("Delete account"),
+                    delegateState: "popup",
+                    popup: deleteAccountConfirmationDialog
+                },
+                {
+                    iconName: "info",
+                    titleText: i18n.tr("Connectivity status"),
+                    delegateState: "new-page",
+                    newPage: "qrc:/pages/ConnectivityPage.qml",
+                    newPageParams: {connectionManager: Telegram.connections}
                 }
-
-                onClicked: UITK_Popups.PopupUtils.open(logoutConfirmationDialog)
+                ]
             }
-
-            UITK.ListItem {
-                UITK.ListItemLayout {
-                    UITK.Icon {
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                        width: units.gu(2)
-                        height: width
-                        name: "delete"
-                        color: theme.palette.normal.backgroundSecondaryText
-                    }
-                    title.text : i18n.tr("Delete account")
-                }
-
-                onClicked: UITK_Popups.PopupUtils.open(deleteAccountConfirmationDialog)
-            }
-
-            UITK.ListItem {
-                UITK.ListItemLayout {
-                    UITK.Icon {
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                        width: units.gu(2)
-                        height: width
-                        name: "info"
-                        color: theme.palette.normal.backgroundSecondaryText
-                    }
-                    title.text : i18n.tr("Connectivity status")
-                }
-
-                onClicked: {
-                    AppActions.settings.viewConnectivity(Telegram.connections)
-                }
-            }
-
-//            UITK_ListItem.Header {
-//                text: i18n.tr("Whatever")
-//            }
         }
     }
 

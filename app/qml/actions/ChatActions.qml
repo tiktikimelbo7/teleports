@@ -48,8 +48,9 @@ ActionCreator {
     signal jumpToMessage(string id)
 
     function viewGroupInfo(chat) {
-        view.pushToStack("qrc:/pages/GroupDetailsPage.qml", {
-                             chat: chat
+        view.pushToStack("qrc:/pages/ChatInfoPage.qml", {
+                             chat: chat,
+                             isGroup: true
                          })
     }
 }

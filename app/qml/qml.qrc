@@ -21,6 +21,8 @@
         <file>pages/PreviewPage.qml</file>
         <file>pages/PickerPage.qml</file>
         <file>pages/UserListPage.qml</file>
+        <file>pages/ChatInfoPage.qml</file>
+        <file>pages/SecretChatKeyHashPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
@@ -42,7 +44,6 @@
         <file>components/CountryPicker.qml</file>
         <file>components/FastScroll.js</file>
         <file>components/FastScroll.qml</file>
-        <file>components/ProfilePhoto.qml</file>
         <file>components/MediaViewer.qml</file>
         <file>components/MediaImport.qml</file>
         <file>components/BusyPercentageIndicator.qml</file>
@@ -65,14 +66,12 @@
         <file>delegates/MessageStickerItem.qml</file>
         <file>delegates/MessagePhotoItem.qml</file>
         <file>delegates/MessageHiddenItem.qml</file>
-        <file>pages/UserProfilePage.qml</file>
         <file>plugins/QTelegramStyles/ColorsBright.qml</file>
         <file>plugins/QTelegramStyles/ColorsDark.qml</file>
         <file>plugins/QTelegramStyles/TColors.qml</file>
         <file>plugins/QTelegramStyles/qmldir</file>
         <file>components/PopupDialog.qml</file>
         <file>components/UserProfile.qml</file>
-        <file>pages/GroupDetailsPage.qml</file>
         <file>delegates/MessageDateItem.qml</file>
         <file>components/InputInfoBox.qml</file>
         <file>actions/ViewActions.qml</file>
