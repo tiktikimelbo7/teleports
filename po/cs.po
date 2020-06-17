@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-05 13:35+0000\n"
+"POT-Creation-Date: 2020-06-06 22:09+0000\n"
 "PO-Revision-Date: 2020-06-17 15:04+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -42,7 +42,7 @@ msgstr "Zpráva bude smazána pouze pro vás. Opravdu chcete zprávu smazat?"
 
 #: ../app/qml/components/DeleteDialog.qml:12
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:124 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "Smazat"
@@ -65,18 +65,9 @@ msgstr "OK"
 msgid "Cancel"
 msgstr "Storno"
 
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "není dostupné"
-
-#: ../app/qml/components/UserProfile.qml:233
-msgid ""
-"Check the image or the text. If they match with the ones on <b>%1</b>'s "
-"device, end-to-end cryptography is granted."
-msgstr ""
-"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení <b>%1</"
-"b> je zajištěno šifrování typu end-to-end."
+#: ../app/qml/components/UserProfile.qml:73
+msgid "Members: %1"
+msgstr "Členů: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
@@ -91,7 +82,7 @@ msgid "Copy"
 msgstr "Kopírovat"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
-#: ../app/qml/pages/UserProfilePage.qml:41
+#: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "Upravit"
 
@@ -104,7 +95,7 @@ msgid "Sticker Pack info"
 msgstr "Informace o balíčku nálepek"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:366
+#: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "Přeposlat"
 
@@ -184,7 +175,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "Skutečně chcete smazat historii?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:136
+#: ../app/qml/pages/ChatListPage.qml:130
 msgid "Clear history"
 msgstr "Vymazat historii"
 
@@ -200,14 +191,14 @@ msgstr "Opustit"
 msgid "Close"
 msgstr "Ukončit"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:88
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:82
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ConnectivityPage.qml:47
-#: ../app/qml/pages/GroupDetailsPage.qml:32
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:18
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserListPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
 msgstr "Zpět"
 
@@ -237,52 +228,95 @@ msgstr "Nahlásit problémy"
 msgid "Help translate"
 msgstr "Pomozte s překladem"
 
+#: ../app/qml/pages/ChatInfoPage.qml:21
+msgid "Group Details"
+msgstr "Informace o skupině"
+
+#: ../app/qml/pages/ChatInfoPage.qml:21
+msgid "Profile"
+msgstr "Profil"
+
+#: ../app/qml/pages/ChatInfoPage.qml:41
+#, fuzzy
+#| msgid "Saved Messages"
+msgid "Send message"
+msgstr "Uložené zprávy"
+
+#: ../app/qml/pages/ChatInfoPage.qml:61
+msgid "Edit user data and press Save"
+msgstr "Upravit údaje o uživateli a kliknout na uložit"
+
+#: ../app/qml/pages/ChatInfoPage.qml:63 ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "Uložit"
+
+#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
+msgid "Phone no"
+msgstr "Telefonní číslo"
+
+#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
+msgid "First name"
+msgstr "Jméno"
+
+#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
+msgid "Last name"
+msgstr "Příjmení"
+
+#: ../app/qml/pages/ChatInfoPage.qml:119
+msgid "Notifications"
+msgstr "Oznámení"
+
+#: ../app/qml/pages/ChatInfoPage.qml:131
+msgid "%1 groups in common"
+msgstr ""
+
+#: ../app/qml/pages/ChatInfoPage.qml:143
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:13
+msgid "Encryption Key"
+msgstr ""
+
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
 msgstr "Vyberte cíl anebo zrušte…"
 
-#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:69
+#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr "Nastavení"
 
-#: ../app/qml/pages/ChatListPage.qml:47
-msgid "Archived chats"
-msgstr "Archivované chaty"
-
-#: ../app/qml/pages/ChatListPage.qml:59 ../libs/qtdlib/chat/qtdchat.cpp:96
+#: ../app/qml/pages/ChatListPage.qml:53 ../libs/qtdlib/chat/qtdchat.cpp:93
 msgid "Saved Messages"
 msgstr "Uložené zprávy"
 
-#: ../app/qml/pages/ChatListPage.qml:64 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: ../app/qml/pages/ChatListPage.qml:75
+#: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
 msgstr "Noční režim"
 
-#: ../app/qml/pages/ChatListPage.qml:131
+#: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
 msgstr "Opustit chat"
 
-#: ../app/qml/pages/ChatListPage.qml:147 ../app/qml/pages/UserListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:141 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
 msgstr "Informace"
 
-#: ../app/qml/pages/ChatListPage.qml:364
+#: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Přejete si vybrané zprávy přeposlat 1%?"
 
-#: ../app/qml/pages/ChatListPage.qml:379 ../app/qml/pages/ChatListPage.qml:403
+#: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
 msgstr "Napište volitelnou zprávu…"
 
-#: ../app/qml/pages/ChatListPage.qml:387
+#: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
 msgstr "Přejete si stažené soubory odeslat 1%?"
 
-#: ../app/qml/pages/ChatListPage.qml:389
+#: ../app/qml/pages/ChatListPage.qml:383
 #: ../app/qml/pages/MessageListPage.qml:614
 msgid "Send"
 msgstr "Odeslat"
@@ -330,18 +364,6 @@ msgstr "Ubuntu Touch omezený datový tok"
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch neomezený datový tok"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:21
-msgid "Group Details"
-msgstr "Informace o skupině"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:88
-msgid "Members: %1"
-msgstr "Členů: %1"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:159
-msgid "Notifications"
-msgstr "Oznámení"
 
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
@@ -391,23 +413,27 @@ msgstr "Výběr obsahu"
 msgid "File: "
 msgstr "Soubor: "
 
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
-msgid "Save"
-msgstr "Uložit"
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:65
+msgid ""
+"Check the image or the text. If they match with the ones on <b>%1</b>'s "
+"device, end-to-end cryptography is granted."
+msgstr ""
+"Zkontrolujte obrázek nebo text. Pokud se shodují s těmi na zařízení <b>%1</"
+"b> je zajištěno šifrování typu end-to-end."
 
-#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:114
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
 msgid "Logout"
 msgstr "Odhlásit"
 
-#: ../app/qml/pages/SettingsPage.qml:80
+#: ../app/qml/pages/SettingsPage.qml:67
 msgid "Delete account"
 msgstr "Smazat účet"
 
-#: ../app/qml/pages/SettingsPage.qml:95
+#: ../app/qml/pages/SettingsPage.qml:73
 msgid "Connectivity status"
 msgstr "Stav připojení"
 
-#: ../app/qml/pages/SettingsPage.qml:112
+#: ../app/qml/pages/SettingsPage.qml:86
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -415,7 +441,7 @@ msgstr ""
 "Varování: Odhlášení smaže veškerá lokální data z tohoto zařízení, včetně "
 "soukromých chatů. Opravdu se chcete odhlásit?"
 
-#: ../app/qml/pages/SettingsPage.qml:122
+#: ../app/qml/pages/SettingsPage.qml:96
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -438,18 +464,6 @@ msgstr "Kontakt bude přidán. Jméno a příjmení jsou volitelné"
 msgid "Add"
 msgstr "Přidat"
 
-#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
-msgid "Phone no"
-msgstr "Telefonní číslo"
-
-#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
-msgid "First name"
-msgstr "Jméno"
-
-#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
-msgid "Last name"
-msgstr "Příjmení"
-
 #: ../app/qml/pages/UserListPage.qml:119
 msgid "Secret Chat"
 msgstr "Tajný chat"
@@ -457,14 +471,6 @@ msgstr "Tajný chat"
 #: ../app/qml/pages/UserListPage.qml:196
 msgid "The contact will be deleted. Are you sure?"
 msgstr "Kontakt bude smazán. Opravdu to chcete?"
-
-#: ../app/qml/pages/UserProfilePage.qml:21
-msgid "Profile"
-msgstr "Profil"
-
-#: ../app/qml/pages/UserProfilePage.qml:51
-msgid "Edit user data and press Save"
-msgstr "Upravit údaje o uživateli a kliknout na uložit"
 
 #: ../app/qml/pages/WaitCodePage.qml:17
 msgid "Enter Code"
@@ -561,47 +567,47 @@ msgstr "Chybí Ubuntu One účet"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Pro příjem oznámení se připojte k Ubuntu One účtu."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:344
+#: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
 msgstr "Koncept:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:625
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
 msgstr "vybírá kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
 msgstr "vybírají kontakt…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:629
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
 msgstr "vybírá polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:630
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
 msgstr "vybírají polohu…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:635
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr "nahrává…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
 msgstr "nahrávají…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:639
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
 msgstr "píše…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
 msgstr "píší…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:643
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
 msgid "is doing something..."
 msgstr "něco dělá..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:644
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "are doing something..."
 msgstr "něco dělají..."
 
@@ -715,13 +721,15 @@ msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
-msgid "MMMM dd, yyyy"
-msgstr "MMMM dd, yyyy"
+#, fuzzy
+#| msgid "dd MMMM"
+msgid "dd MMMM yyyy"
+msgstr "dd MMMM"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
-msgid "MMMM dd"
-msgstr "MMMM dd"
+msgid "dd MMMM"
+msgstr "dd MMMM"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
@@ -933,11 +941,20 @@ msgstr "Máte novou zprávu"
 msgid "%1 pinned a message"
 msgstr "%1 připnul(a) zprávu"
 
+#~ msgid "not available"
+#~ msgstr "není dostupné"
+
+#~ msgid "Archived chats"
+#~ msgstr "Archivované chaty"
+
+#~ msgid "MMMM dd, yyyy"
+#~ msgstr "MMMM dd, yyyy"
+
+#~ msgid "MMMM dd"
+#~ msgstr "MMMM dd"
+
 #~ msgid "Incorrect auth code length."
 #~ msgstr "Nesprávná délka ověřovacího kódu."
-
-#~ msgid "dd MMMM"
-#~ msgstr "dd MMMM"
 
 #~ msgid "Phone call"
 #~ msgstr "Hovor"

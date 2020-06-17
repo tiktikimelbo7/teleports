@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-05 13:35+0000\n"
+"POT-Creation-Date: 2020-06-06 22:09+0000\n"
 "PO-Revision-Date: 2020-01-30 19:54+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -41,7 +41,7 @@ msgstr "該訊息將僅為您刪除。是否確實要刪除它？"
 
 #: ../app/qml/components/DeleteDialog.qml:12
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:124 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "刪除"
@@ -65,16 +65,9 @@ msgstr "好的"
 msgid "Cancel"
 msgstr "取消"
 
-#: ../app/qml/components/UserProfile.qml:77
-#: ../app/qml/components/UserProfile.qml:101
-msgid "not available"
-msgstr "無法使用"
-
-#: ../app/qml/components/UserProfile.qml:233
-msgid ""
-"Check the image or the text. If they match with the ones on <b>%1</b>'s "
-"device, end-to-end cryptography is granted."
-msgstr ""
+#: ../app/qml/components/UserProfile.qml:73
+msgid "Members: %1"
+msgstr "成員: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
 msgid "Channel called << %1 >> created"
@@ -89,7 +82,7 @@ msgid "Copy"
 msgstr "複製"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
-#: ../app/qml/pages/UserProfilePage.qml:41
+#: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "編輯"
 
@@ -102,7 +95,7 @@ msgid "Sticker Pack info"
 msgstr "貼圖資訊"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:366
+#: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "轉寄"
 
@@ -183,7 +176,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "您確定要清除歷史記錄嗎？"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:136
+#: ../app/qml/pages/ChatListPage.qml:130
 msgid "Clear history"
 msgstr "清除歷史記錄"
 
@@ -199,14 +192,14 @@ msgstr "離開"
 msgid "Close"
 msgstr "關閉"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:88
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:82
 msgid "About"
 msgstr "關於"
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ConnectivityPage.qml:47
-#: ../app/qml/pages/GroupDetailsPage.qml:32
+#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
+#: ../app/qml/pages/ConnectivityPage.qml:47
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:18
 #: ../app/qml/pages/SettingsPage.qml:34 ../app/qml/pages/UserListPage.qml:29
-#: ../app/qml/pages/UserProfilePage.qml:32
 msgid "Back"
 msgstr "返回"
 
@@ -236,52 +229,97 @@ msgstr "報告問題"
 msgid "Help translate"
 msgstr "協助翻譯"
 
+#: ../app/qml/pages/ChatInfoPage.qml:21
+msgid "Group Details"
+msgstr "群組內容"
+
+#: ../app/qml/pages/ChatInfoPage.qml:21
+msgid "Profile"
+msgstr "配置檔"
+
+#: ../app/qml/pages/ChatInfoPage.qml:41
+#, fuzzy
+#| msgid "Saved Messages"
+msgid "Send message"
+msgstr "已儲存的訊息"
+
+#: ../app/qml/pages/ChatInfoPage.qml:61
+msgid "Edit user data and press Save"
+msgstr "編輯使用者資料，然後按下保存"
+
+#: ../app/qml/pages/ChatInfoPage.qml:63 ../app/qml/pages/PreviewPage.qml:49
+msgid "Save"
+msgstr "儲存"
+
+#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
+msgid "Phone no"
+msgstr "電話號碼"
+
+#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
+msgid "First name"
+msgstr "名字"
+
+#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
+msgid "Last name"
+msgstr "姓氏"
+
+#: ../app/qml/pages/ChatInfoPage.qml:119
+#, fuzzy
+#| msgid "Location"
+msgid "Notifications"
+msgstr "位置"
+
+#: ../app/qml/pages/ChatInfoPage.qml:131
+msgid "%1 groups in common"
+msgstr ""
+
+#: ../app/qml/pages/ChatInfoPage.qml:143
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:13
+msgid "Encryption Key"
+msgstr ""
+
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
 msgstr "選擇目的地或者取消..."
 
-#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:69
+#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:63
 #: ../app/qml/pages/SettingsPage.qml:23
 msgid "Settings"
 msgstr "設定"
 
-#: ../app/qml/pages/ChatListPage.qml:47
-msgid "Archived chats"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:59 ../libs/qtdlib/chat/qtdchat.cpp:96
+#: ../app/qml/pages/ChatListPage.qml:53 ../libs/qtdlib/chat/qtdchat.cpp:93
 msgid "Saved Messages"
 msgstr "已儲存的訊息"
 
-#: ../app/qml/pages/ChatListPage.qml:64 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr "聯絡人"
 
-#: ../app/qml/pages/ChatListPage.qml:75
+#: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
 msgstr "夜間模式"
 
-#: ../app/qml/pages/ChatListPage.qml:131
+#: ../app/qml/pages/ChatListPage.qml:125
 msgid "Leave chat"
 msgstr "離開聊天"
 
-#: ../app/qml/pages/ChatListPage.qml:147 ../app/qml/pages/UserListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:141 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
 msgstr "資訊"
 
-#: ../app/qml/pages/ChatListPage.qml:364
+#: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "是否要將所選的訊息轉寄到 %1？"
 
-#: ../app/qml/pages/ChatListPage.qml:379 ../app/qml/pages/ChatListPage.qml:403
+#: ../app/qml/pages/ChatListPage.qml:373 ../app/qml/pages/ChatListPage.qml:397
 msgid "Enter optional message..."
 msgstr "輸入可選擇的訊息…"
 
-#: ../app/qml/pages/ChatListPage.qml:387
+#: ../app/qml/pages/ChatListPage.qml:381
 msgid "Do you want to send the imported files to %1?"
 msgstr "您是否要將匯入的檔案傳給 %1？"
 
-#: ../app/qml/pages/ChatListPage.qml:389
+#: ../app/qml/pages/ChatListPage.qml:383
 #: ../app/qml/pages/MessageListPage.qml:614
 msgid "Send"
 msgstr "傳送"
@@ -330,20 +368,6 @@ msgstr "Ubuntu Touch 寬頻受限"
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch 寬頻不受限"
 
-#: ../app/qml/pages/GroupDetailsPage.qml:21
-msgid "Group Details"
-msgstr "群組內容"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:88
-msgid "Members: %1"
-msgstr "成員: %1"
-
-#: ../app/qml/pages/GroupDetailsPage.qml:159
-#, fuzzy
-#| msgid "Location"
-msgid "Notifications"
-msgstr "位置"
-
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -390,23 +414,25 @@ msgstr "內容選擇"
 msgid "File: "
 msgstr "檔案： "
 
-#: ../app/qml/pages/PreviewPage.qml:49 ../app/qml/pages/UserProfilePage.qml:53
-msgid "Save"
-msgstr "儲存"
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:65
+msgid ""
+"Check the image or the text. If they match with the ones on <b>%1</b>'s "
+"device, end-to-end cryptography is granted."
+msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:65 ../app/qml/pages/SettingsPage.qml:114
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
 msgid "Logout"
 msgstr "登出"
 
-#: ../app/qml/pages/SettingsPage.qml:80
+#: ../app/qml/pages/SettingsPage.qml:67
 msgid "Delete account"
 msgstr "刪除帳戶"
 
-#: ../app/qml/pages/SettingsPage.qml:95
+#: ../app/qml/pages/SettingsPage.qml:73
 msgid "Connectivity status"
 msgstr "連線狀態"
 
-#: ../app/qml/pages/SettingsPage.qml:112
+#: ../app/qml/pages/SettingsPage.qml:86
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -414,7 +440,7 @@ msgstr ""
 "警告：登出時將會刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出"
 "嗎？"
 
-#: ../app/qml/pages/SettingsPage.qml:122
+#: ../app/qml/pages/SettingsPage.qml:96
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
@@ -436,18 +462,6 @@ msgstr "將會新增此聯絡人。姓與名為選填"
 msgid "Add"
 msgstr "加入"
 
-#: ../app/qml/pages/UserListPage.qml:59 ../app/qml/pages/UserProfilePage.qml:64
-msgid "Phone no"
-msgstr "電話號碼"
-
-#: ../app/qml/pages/UserListPage.qml:67 ../app/qml/pages/UserProfilePage.qml:73
-msgid "First name"
-msgstr "名字"
-
-#: ../app/qml/pages/UserListPage.qml:75 ../app/qml/pages/UserProfilePage.qml:82
-msgid "Last name"
-msgstr "姓氏"
-
 #: ../app/qml/pages/UserListPage.qml:119
 msgid "Secret Chat"
 msgstr "私密聊天"
@@ -455,14 +469,6 @@ msgstr "私密聊天"
 #: ../app/qml/pages/UserListPage.qml:196
 msgid "The contact will be deleted. Are you sure?"
 msgstr "將會刪除此聯絡人，您確定嗎？"
-
-#: ../app/qml/pages/UserProfilePage.qml:21
-msgid "Profile"
-msgstr "配置檔"
-
-#: ../app/qml/pages/UserProfilePage.qml:51
-msgid "Edit user data and press Save"
-msgstr "編輯使用者資料，然後按下保存"
 
 #: ../app/qml/pages/WaitCodePage.qml:17
 msgid "Enter Code"
@@ -563,49 +569,49 @@ msgstr "沒有 Ubuntu One"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:344
+#: ../libs/qtdlib/chat/qtdchat.cpp:341
 msgid "Draft:"
 msgstr "草稿："
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:625
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
 msgstr "正在選擇聯絡人..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
 msgstr "正在選擇聯絡人中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:629
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
 msgstr "正在選擇位置..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:630
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
 msgstr "正在選擇位置中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:635
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr "正在錄製..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
 msgstr "正在錄製中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:639
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
 msgstr "正在輸入..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
 msgstr "正在輸入中…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:643
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
 #, fuzzy
 #| msgid "is doing something"
 msgid "is doing something..."
 msgstr "正在做某些事"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:644
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 #, fuzzy
 #| msgid "are doing something"
 msgid "are doing something..."
@@ -723,13 +729,15 @@ msgstr ""
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
-msgid "MMMM dd, yyyy"
-msgstr ""
+#, fuzzy
+#| msgid "dd MMMM"
+msgid "dd MMMM yyyy"
+msgstr "MMMM dd"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
-msgid "MMMM dd"
-msgstr ""
+msgid "dd MMMM"
+msgstr "MMMM dd"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
@@ -944,11 +952,11 @@ msgstr "您有新的訊息"
 msgid "%1 pinned a message"
 msgstr "%1 釘選了一則訊息"
 
+#~ msgid "not available"
+#~ msgstr "無法使用"
+
 #~ msgid "Incorrect auth code length."
 #~ msgstr "驗證碼長度不正確。"
-
-#~ msgid "dd MMMM"
-#~ msgstr "MMMM dd"
 
 #~ msgid "Phone call"
 #~ msgstr "電話"
