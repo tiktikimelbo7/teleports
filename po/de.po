@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-06 22:09+0000\n"
-"PO-Revision-Date: 2020-06-10 18:24+0000\n"
-"Last-Translator: Marco H <myx00r@gmail.com>\n"
+"PO-Revision-Date: 2020-06-18 21:25+0000\n"
+"Last-Translator: Alexander Lewandowski <bbarblexi@gmail.com>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -239,10 +239,8 @@ msgid "Profile"
 msgstr "Profil"
 
 #: ../app/qml/pages/ChatInfoPage.qml:41
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Send message"
-msgstr "Gespeicherte Nachrichten"
+msgstr "Nachricht senden"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
@@ -269,13 +267,14 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
+#, fuzzy
 msgid "%1 groups in common"
-msgstr ""
+msgstr "%1 Gruppen gemeinsam"
 
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr ""
+msgstr "Verschlüsselungsschlüssel"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -722,15 +721,14 @@ msgstr "Gestern"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
+#, fuzzy
 msgid "dddd"
-msgstr ""
+msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
-#, fuzzy
-#| msgid "dd MMMM"
 msgid "dd MMMM yyyy"
-msgstr "d. MMMM"
+msgstr "dd. MMMM yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
