@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-06 22:09+0000\n"
-"PO-Revision-Date: 2020-06-17 15:04+0000\n"
-"Last-Translator: dano6 <dano.kutka@gmail.com>\n"
+"PO-Revision-Date: 2020-06-18 21:25+0000\n"
+"Last-Translator: Marek Ľach <graweeld@googlemail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
 "Language: sk\n"
@@ -238,10 +238,8 @@ msgid "Profile"
 msgstr "Profil"
 
 #: ../app/qml/pages/ChatInfoPage.qml:41
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Send message"
-msgstr "Uložené správy"
+msgstr "Poslať správu"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
@@ -274,7 +272,7 @@ msgstr ""
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr ""
+msgstr "Enkryptovaný kľúč"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -725,10 +723,8 @@ msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
-#, fuzzy
-#| msgid "dd MMMM"
 msgid "dd MMMM yyyy"
-msgstr "dd MMMM"
+msgstr "dd MMMM rrrr"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
