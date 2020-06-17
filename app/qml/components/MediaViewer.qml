@@ -197,7 +197,6 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     value: audioOutput.position/audioOutput.duration
                     visible: audioOutput.isPlaying
-                    onValueChanged: console.log(value)
                 }
 
                 Audio {
