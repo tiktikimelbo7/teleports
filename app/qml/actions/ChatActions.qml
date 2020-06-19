@@ -41,7 +41,7 @@ ActionCreator {
     signal requestReplyToMessage(var message)
     signal sendReplyToMessage(string id, string text)
     signal showStickerPack(string stickerId)
-    signal setChatDraftMessage(string draftText)
+    signal setChatDraftMessage(string draftText, string replyToMessageId)
 
     signal muteChat(var chat, int duration)
 

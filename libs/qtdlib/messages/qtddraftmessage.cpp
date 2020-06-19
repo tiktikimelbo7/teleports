@@ -26,7 +26,7 @@ QTdInputMessageText *QTdDraftMessage::inputMessageText() const
 
 void QTdDraftMessage::unmarshalJson(const QJsonObject &json)
 {
-    m_replyToMessageId = json["reply_to_message_id"].toInt();
+    m_replyToMessageId = qint64(json["reply_to_message_id"].toDouble());
     emit replyToMessageIdChanged();
     const QJsonObject inputMessageText = json["input_message_text"].toObject();
     if (inputMessageText.isEmpty()) {
@@ -42,7 +42,7 @@ void QTdDraftMessage::unmarshalJson(const QJsonObject &json)
     }
 }
 
-void QTdDraftMessage::setReplyToMessageId(const QString &replyToMessageId)
+void QTdDraftMessage::setReplyToMessageId(const qint64 &replyToMessageId)
 {
     m_replyToMessageId = replyToMessageId;
     emit replyToMessageIdChanged();

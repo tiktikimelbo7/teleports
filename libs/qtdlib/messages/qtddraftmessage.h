@@ -23,7 +23,7 @@ public:
     qint64 replyToMessageId() const;
     QTdInputMessageText *inputMessageText() const;
     void unmarshalJson(const QJsonObject &json);
-    void setReplyToMessageId(const QString &replyToMessageId);
+    void setReplyToMessageId(const qint64 &replyToMessageId);
     void setInputMessageText(QTdInputMessageText *inputMessageText);
     QJsonObject marshalJson() Q_DECL_FINAL;
 

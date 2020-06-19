@@ -55,6 +55,7 @@ public slots:
     void requestPositionInfo();
     void cancelPositionInfo();
     void setChatDraftMessage(const QString &draftText,
+                             const qint64 &replyToMessageId,
                              const qint64 &chatId);
 
 signals:
