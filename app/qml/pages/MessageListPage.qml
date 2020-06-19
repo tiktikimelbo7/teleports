@@ -16,6 +16,9 @@ import "../stores"
 Page {
     id: messageListPage
     property QTdChat currentChat: Telegram.chats.currentChat
+    property var draftText: currentChat.draftMessage ? currentChat.draftMessage.inputMessageText.text : ""
+    property var draftReplyId: currentChat.draftMessage ? currentChat.draftMessage.replyToMessageId : 0
+    onDraftReplyIdChanged: d.messageOfInterest = draftReplyId != 0 ? Telegram.chats.messageList.get(draftReplyId) : null
     property int currentMessageIndex: currentChat.currentMessageIndex
     property var locationWaitDialog: null
     Suru.highlightType: Suru.PositiveHighlight
@@ -311,6 +314,7 @@ Page {
             if (editingMessage) {
                 entry.text = "";
             }
+            d.messageOfInterest = null
             d.chatState = ChatState.Default
         }
     }
@@ -460,7 +464,7 @@ Page {
                 mouseSelectionMode: TextEdit.SelectWords
                 wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere
                 placeholderText: i18n.tr("Type a message...")
-                text: currentChat.draftMessage.inputMessageText.text
+                text: draftText
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
@@ -504,7 +508,9 @@ Page {
                 }
                 function saveDraft() {
                     Qt.inputMethod.commit()
-                    AppActions.chat.setChatDraftMessage(entry.text)
+                    if (draftText != entry.text || draftReplyId != d.messageOfInterestId) {
+                        AppActions.chat.setChatDraftMessage(entry.text, d.messageOfInterestId)
+                    }
                 }
 
                 Keys.onEnterPressed: sendIfEnter(event)
@@ -659,9 +665,9 @@ Page {
     QtObject {
         id: d
 
-        property int chatState: ChatState.Default
-        property
-        var messageOfInterest: null
+        property int chatState: draftReplyId == 0 ? ChatState.Default : ChatState.ReplyingToMessage
+        property var messageOfInterest: draftReplyId != 0 ? Telegram.chats.messageList.get(draftReplyId) : null
+        property var messageOfInterestId: messageOfInterest ? messageOfInterest.id : 0
     }
 
     AppListener {

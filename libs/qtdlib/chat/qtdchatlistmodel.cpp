@@ -461,6 +461,7 @@ void QTdChatListModel::positionUpdated(const QGeoPositionInfo &positionInfo)
 }
 
 void QTdChatListModel::setChatDraftMessage(const QString &draftText,
+                                           const qint64 &replyToMessageId,
                                            const qint64 &chatId)
 {
     QScopedPointer<QTdInputMessageText> messageText(new QTdInputMessageText);
@@ -468,8 +469,9 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     messageText->setClearDraft(false);
     QScopedPointer<QTdDraftMessage> draftMessage(new QTdDraftMessage);
     draftMessage->setInputMessageText(messageText.take());
+    draftMessage->setReplyToMessageId(replyToMessageId);
     QScopedPointer<QTdSetChatDraftRequest> request(new QTdSetChatDraftRequest);
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
-    QTdClient::instance()->send(request.data());
+    request->sendAsync();
 }

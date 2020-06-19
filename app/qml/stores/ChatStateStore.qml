@@ -390,7 +390,8 @@ Store {
         type: ChatKey.setChatDraftMessage
         onDispatched: {
           chatList.setChatDraftMessage(message.draftText,
-                                      chatList.currentChat.id);
+                                       message.replyToMessageId,
+                                       chatList.currentChat.id);
         }
     }
 

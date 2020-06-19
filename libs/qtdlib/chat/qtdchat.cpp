@@ -337,7 +337,7 @@ QString QTdChat::action() const
 QVariant QTdChat::summary()
 {
     QVariantList summary;
-    if (draftMessage()->inputMessageText()->text() != "") {
+    if (draftMessage()->inputMessageText()->text() != "" || draftMessage()->replyToMessageId() != 0) {
         summary.insert(0, QString(gettext("Draft:")));
         summary.insert(1, draftMessage()->inputMessageText()->text());
     } else {
