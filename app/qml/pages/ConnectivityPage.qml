@@ -7,7 +7,6 @@ import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import QtQuick.Controls.Suru 2.2
 import QtQuick.Layouts 1.1
 import QTelegram 1.0
-import QTelegramStyles 1.0
 import "../actions"
 import "../components"
 import "../stores"

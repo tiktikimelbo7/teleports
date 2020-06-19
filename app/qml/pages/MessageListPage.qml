@@ -7,7 +7,6 @@ import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import Ubuntu.Content 1.1 as ContentHub
 import QuickFlux 1.1
 import QTelegram 1.0
-import QTelegramStyles 1.0
 import "../components"
 import "../actions"
 import "../delegates"

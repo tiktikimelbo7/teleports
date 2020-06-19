@@ -4,7 +4,6 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import QTelegram 1.0
-import QTelegramStyles 1.0
 
 import "../components"
 import "../stores"
