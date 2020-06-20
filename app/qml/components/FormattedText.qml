@@ -57,7 +57,7 @@ Column {
                     linkColor: Suru.highlightColor
                     textDocument: textEdit.textDocument
                     content: formattedText
-                    Suru.theme: root.Suru.theme
+                    Suru.theme: rootItem.Suru.theme
                     Suru.textStyle: Suru.TertiaryText
                 }
 

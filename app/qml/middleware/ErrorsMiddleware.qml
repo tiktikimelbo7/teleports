@@ -28,7 +28,7 @@ Middleware {
     }
 
     function showError(message) {
-        PopupUtils.open(errorDlg, rootItem, {
+        PopupUtils.open(errorDlg, root, {
                         title: message.title,
                         text: message.description,
                         callback: message.callback ? message.callback : ""

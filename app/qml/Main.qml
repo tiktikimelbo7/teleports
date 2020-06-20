@@ -9,7 +9,7 @@ import "./components"
 import "./middleware"
 import "./stores"
 
-ApplicationWindow {
+UITK.MainView {
     id: root
     /**
      * Only show the window once we have reached a state
@@ -23,24 +23,19 @@ ApplicationWindow {
     height: Suru.units.gu(75)
     property bool landscape: width > height
     readonly property bool tablet: landscape ? width >= units.gu(90) : height >= units.gu(90)
-    Suru.theme: Telegram.settings.theme
+    theme.name: Telegram.settings.uitkTheme
+    anchorToKeyboard: true
+    applicationName: "teleports.ubports"
 
-    UITK.StyledItem {
+    Item {
         id: rootItem
-        theme.name: Telegram.settings.uitkTheme
+        Suru.theme: Telegram.settings.theme
         anchors.fill: parent
 
         StackView {
             id: pageStack
             anchors {
                 fill: parent
-                bottomMargin: UbuntuApplication.inputMethod.visible ? UbuntuApplication.inputMethod.keyboardRectangle.height/(units.gridUnit / 8) : 0
-                Behavior on bottomMargin {
-                    NumberAnimation {
-                        duration: 175
-                        easing.type: Easing.OutQuad
-                    }
-                }
             }
         }
 

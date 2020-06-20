@@ -48,10 +48,11 @@ Page {
     Menu {
         id: mainMenuPanel
         width: parent.width * 0.75
+        Suru.theme: rootItem.Suru.theme
         MenuPanelItem {
-        icon: "inbox"
-        label: i18n.tr("Saved Messages")
-        onTriggered: AppActions.chat.createOrOpenSavedMessages()
+            icon: "inbox"
+            label: i18n.tr("Saved Messages")
+            onTriggered: AppActions.chat.createOrOpenSavedMessages()
         }
         MenuPanelItem {
             icon: "address-book-app-symbolic"
