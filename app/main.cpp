@@ -11,12 +11,12 @@
 #include <libintl.h>
 #include <locale.h>
 #include <utils/i18n.h>
+#include <QQuickView>
 
 #define QUICK_FLUX_DISABLE_AUTO_QML_REGISTER
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
     QQuickStyle::setStyle("Suru");
@@ -36,17 +36,19 @@ int main(int argc, char *argv[])
     MessageDelegateMap delegateMap;
     MessageContentDelegateMap contentDelegateMap;
 
-    QQmlApplicationEngine engine;
+    QQuickView *view = new QQuickView();
 
-    engine.rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
-    engine.rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
-    engine.rootContext()->setContextProperty(QStringLiteral("contentDelegateMap"), &contentDelegateMap);
+    view->rootContext()->setContextProperty("applicationDirPath", QGuiApplication::applicationDirPath());
+    view->rootContext()->setContextProperty(QStringLiteral("delegateMap"), &delegateMap);
+    view->rootContext()->setContextProperty(QStringLiteral("contentDelegateMap"), &contentDelegateMap);
 
     //Inject versioning strings from CI
     QCoreApplication::setApplicationVersion(QStringLiteral(BUILD_VERSION));
-    engine.rootContext()->setContextProperty(QStringLiteral("devBuildHash"), QStringLiteral(GIT_HASH));
+    view->rootContext()->setContextProperty(QStringLiteral("devBuildHash"), QStringLiteral(GIT_HASH));
 
-    engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
+    view->setSource(QUrl(QStringLiteral("qrc:/Main.qml")));
+    view->setResizeMode(QQuickView::SizeRootObjectToView);
+    view->show();
 
     return app.exec();
 }

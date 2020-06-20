@@ -17,7 +17,7 @@ Middleware {
     }
 
     function deleteChatHistory(message) {
-        var dlg = PopupUtils.open(confirmationDlg, rootItem, {
+        var dlg = PopupUtils.open(confirmationDlg, root, {
                         title: i18n.tr("Are you sure you want to clear the history?"),
                         confirmButtonText: i18n.tr("Clear history"),
                         })
@@ -27,7 +27,7 @@ Middleware {
     }
 
     function leaveChat(message) {
-        var dlg = PopupUtils.open(confirmationDlg, rootItem, {
+        var dlg = PopupUtils.open(confirmationDlg, root, {
                         title: i18n.tr("Are you sure you want to leave this chat?"),
                         confirmButtonText: i18n.tr("Leave"),
                         })
