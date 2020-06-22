@@ -66,6 +66,7 @@ Page {
                 UITK.ListItemLayout {
                     UITK.Icon {
                         width: units.gu(2)
+                        height: width
                         name: tgStatusMapImage[tgConnectionState]
                         UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                         color: theme.palette.normal.backgroundSecondaryText

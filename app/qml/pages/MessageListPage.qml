@@ -270,7 +270,8 @@ Page {
                     height: childrenRect.height
                     Component.onCompleted: setSource(delegateMap.findComponent(modelData.content.type), {
                         message: modelData,
-                        chat: Telegram.chats.chat
+                        chat: Telegram.chats.chat,
+                        indicatorsEnabled: Telegram.settings.indicators
                     })
                     asynchronous: false
                 }
