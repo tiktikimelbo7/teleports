@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 22:09+0000\n"
+"POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-06-18 21:25+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
@@ -43,8 +43,8 @@ msgstr ""
 "Il messaggio sarà eliminato solo per te. Sei sicuro di volerlo eliminare?"
 
 #: ../app/qml/components/DeleteDialog.qml:12
-#: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/delegates/MessageBubbleItem.qml:38
+#: ../app/qml/pages/SettingsPage.qml:132 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "Elimina"
@@ -79,24 +79,24 @@ msgstr "Canale chiamato << %1 >> creato"
 msgid "%1 created a group called << %2 >>"
 msgstr "%1 ha creato un gruppo chiamato <<%2>>"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:49
+#: ../app/qml/delegates/MessageBubbleItem.qml:50
 msgid "Copy"
 msgstr "Copia"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:59
+#: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "Modifica"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:67
+#: ../app/qml/delegates/MessageBubbleItem.qml:68
 msgid "Reply"
 msgstr "Rispondi"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:73
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Sticker Pack info"
 msgstr "Info pacchetto di sticker"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:79
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
 #: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "Inoltra"
@@ -317,7 +317,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Vuoi inviare i file importati a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#: ../app/qml/pages/MessageListPage.qml:614
+#: ../app/qml/pages/MessageListPage.qml:615
 msgid "Send"
 msgstr "Invia"
 
@@ -349,19 +349,19 @@ msgstr "Aggiornando"
 msgid "Connectivity"
 msgstr "Connettività"
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
 msgstr "Stato di connettività di Telegram:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
 msgstr "stato di connettività di Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Potenza collegamento a internet di Ubuntu Touch limitata"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Potenza collegamento a internet di Ubuntu Touch senza limiti"
 
@@ -381,27 +381,27 @@ msgstr[1] ", %1 in linea"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:331
+#: ../app/qml/pages/MessageListPage.qml:332
 msgid "You are not allowed to post in this channel"
 msgstr "Non puoi postare in questo canale"
 
-#: ../app/qml/pages/MessageListPage.qml:335
+#: ../app/qml/pages/MessageListPage.qml:336
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "In attesa che l'altro partecipante accetti la chat segreta..."
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Secret chat has been closed"
 msgstr "La chat segreta è stata chiusa"
 
-#: ../app/qml/pages/MessageListPage.qml:462
+#: ../app/qml/pages/MessageListPage.qml:463
 msgid "Type a message..."
 msgstr "Scrivi un messaggio..."
 
-#: ../app/qml/pages/MessageListPage.qml:612
+#: ../app/qml/pages/MessageListPage.qml:613
 msgid "Do you want to share your location with %1?"
 msgstr "Vuoi condividere la tua posizione con %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:625
+#: ../app/qml/pages/MessageListPage.qml:626
 msgid "Requesting location from OS..."
 msgstr "Richiesta posizione al SO..."
 
@@ -421,7 +421,7 @@ msgstr ""
 "Controlla l'immagine o il testo. Se coincidono con quelli sul dispositivo di "
 "<b>%1</b>, la crittografia end-to-end è garantita."
 
-#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:122
 msgid "Logout"
 msgstr "Disconnetti"
 
@@ -433,7 +433,11 @@ msgstr "Elimina account"
 msgid "Connectivity status"
 msgstr "Stato di connessione"
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:90
+msgid "Toggle message status indicators"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -441,7 +445,7 @@ msgstr ""
 "Attenzione: Disconnettendosi perderai tutti i dati di questo dispositivo, "
 "chat segrete incluse. Sei ancora sicuro di volerti disconnettere?"
 
-#: ../app/qml/pages/SettingsPage.qml:96
+#: ../app/qml/pages/SettingsPage.qml:130
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "

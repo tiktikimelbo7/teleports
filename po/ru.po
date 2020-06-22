@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 22:09+0000\n"
+"POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-06-21 10:54+0000\n"
 "Last-Translator: Eugene Markoff <uralhistory@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
@@ -44,8 +44,8 @@ msgstr ""
 "Сообщение будет удалено только для Вас. Вы действительно хотите удалить его?"
 
 #: ../app/qml/components/DeleteDialog.qml:12
-#: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/delegates/MessageBubbleItem.qml:38
+#: ../app/qml/pages/SettingsPage.qml:132 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "Удалить"
@@ -80,24 +80,24 @@ msgstr "Создан канал << %1 >>"
 msgid "%1 created a group called << %2 >>"
 msgstr "%1 создал(а) группу << %2 >>"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:49
+#: ../app/qml/delegates/MessageBubbleItem.qml:50
 msgid "Copy"
 msgstr "Копировать"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:59
+#: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "Редактировать"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:67
+#: ../app/qml/delegates/MessageBubbleItem.qml:68
 msgid "Reply"
 msgstr "Ответить"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:73
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Sticker Pack info"
 msgstr "Информация о наборе стикеров"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:79
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
 #: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "Переслать"
@@ -321,7 +321,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Хотите отправить импортированные файлы % 1?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#: ../app/qml/pages/MessageListPage.qml:614
+#: ../app/qml/pages/MessageListPage.qml:615
 msgid "Send"
 msgstr "Отправить"
 
@@ -353,19 +353,19 @@ msgstr "Обновление"
 msgid "Connectivity"
 msgstr "Подключение"
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
 msgstr "Состояние подключения Telegram:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
 msgstr "Состояние подключения Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Пропускная способность Ubuntu Touch ограничена"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Пропускная способность Ubuntu Touch не ограничена"
 
@@ -387,27 +387,27 @@ msgstr[2] ", %1 в сети"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:331
+#: ../app/qml/pages/MessageListPage.qml:332
 msgid "You are not allowed to post in this channel"
 msgstr "У Вас нет прав для отправки сообщений в этом канале"
 
-#: ../app/qml/pages/MessageListPage.qml:335
+#: ../app/qml/pages/MessageListPage.qml:336
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Ожидайте, когда другой участник присоединится к приватной беседе..."
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Secret chat has been closed"
 msgstr "Приватная беседа была закрыта"
 
-#: ../app/qml/pages/MessageListPage.qml:462
+#: ../app/qml/pages/MessageListPage.qml:463
 msgid "Type a message..."
 msgstr "Написать сообщение..."
 
-#: ../app/qml/pages/MessageListPage.qml:612
+#: ../app/qml/pages/MessageListPage.qml:613
 msgid "Do you want to share your location with %1?"
 msgstr "Вы хотите поделиться своим местоположением с %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:625
+#: ../app/qml/pages/MessageListPage.qml:626
 msgid "Requesting location from OS..."
 msgstr "Запрос местоположения у ОС..."
 
@@ -427,7 +427,7 @@ msgstr ""
 "Проверьте изображение или текст. Если они совпадают с изображением и текстом "
 "на устройстве <b>%1</b>, то зашифрованное соединение гарантированно."
 
-#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:122
 msgid "Logout"
 msgstr "Выйти"
 
@@ -439,7 +439,11 @@ msgstr "Удалить аккаунт"
 msgid "Connectivity status"
 msgstr "Состояние соединения"
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:90
+msgid "Toggle message status indicators"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -447,7 +451,7 @@ msgstr ""
 "Предупреждение: Выход из системы удалит все локальные данные с этого "
 "устройства, включая приватные беседы. Вы всё ещё уверены, что хотите выйти?"
 
-#: ../app/qml/pages/SettingsPage.qml:96
+#: ../app/qml/pages/SettingsPage.qml:130
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "

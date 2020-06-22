@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 22:09+0000\n"
+"POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-06-21 10:54+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
@@ -43,8 +43,8 @@ msgstr ""
 "Aquest missatge s'eliminarà només per a vós. Segur que el voleu eliminar?"
 
 #: ../app/qml/components/DeleteDialog.qml:12
-#: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/delegates/MessageBubbleItem.qml:38
+#: ../app/qml/pages/SettingsPage.qml:132 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "Elimina"
@@ -79,24 +79,24 @@ msgstr "S'ha creat el canal anomenat «%1»"
 msgid "%1 created a group called << %2 >>"
 msgstr "%1 ha creat el grup anomenat «%2»"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:49
+#: ../app/qml/delegates/MessageBubbleItem.qml:50
 msgid "Copy"
 msgstr "Copia"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:59
+#: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "Edita"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:67
+#: ../app/qml/delegates/MessageBubbleItem.qml:68
 msgid "Reply"
 msgstr "Respon"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:73
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Sticker Pack info"
 msgstr "Info del paquet d'adhesius"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:79
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
 #: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "Reenvia"
@@ -317,7 +317,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Voleu enviar els fitxers importats a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#: ../app/qml/pages/MessageListPage.qml:614
+#: ../app/qml/pages/MessageListPage.qml:615
 msgid "Send"
 msgstr "Envia"
 
@@ -349,19 +349,19 @@ msgstr "Actualitzant"
 msgid "Connectivity"
 msgstr "Connectivitat"
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
 msgstr "Estat de connexió del Telegram:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
 msgstr "Estat de connexió de l'Ubuntu Touch:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Ample de  banda limitat de l'Ubuntu Touch"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ample de  banda no limitat de l'Ubuntu Touch"
 
@@ -381,27 +381,27 @@ msgstr[1] ", %1 en línia"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:331
+#: ../app/qml/pages/MessageListPage.qml:332
 msgid "You are not allowed to post in this channel"
 msgstr "No podeu publicar a aquest canal"
 
-#: ../app/qml/pages/MessageListPage.qml:335
+#: ../app/qml/pages/MessageListPage.qml:336
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "S'està esperant que l'altra part accepti el xat secret…"
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Secret chat has been closed"
 msgstr "S'ha tancat el xat secret"
 
-#: ../app/qml/pages/MessageListPage.qml:462
+#: ../app/qml/pages/MessageListPage.qml:463
 msgid "Type a message..."
 msgstr "Escriviu un missatge…"
 
-#: ../app/qml/pages/MessageListPage.qml:612
+#: ../app/qml/pages/MessageListPage.qml:613
 msgid "Do you want to share your location with %1?"
 msgstr "Voleu compartir la vostra posició amb %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:625
+#: ../app/qml/pages/MessageListPage.qml:626
 msgid "Requesting location from OS..."
 msgstr "S'està demanant la vostra posició al SO..."
 
@@ -421,7 +421,7 @@ msgstr ""
 "Comproveu la imatge o el text. Si es corresponen amb els del dispositiu de "
 "<b>%1</b> esteu usant criptografia punt a punt."
 
-#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:122
 msgid "Logout"
 msgstr "Surt"
 
@@ -433,7 +433,11 @@ msgstr "Elimina el compte"
 msgid "Connectivity status"
 msgstr "Estat de la connexió"
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:90
+msgid "Toggle message status indicators"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -441,7 +445,7 @@ msgstr ""
 "Atenció: Sortir de la sessió eliminarà totes les dades local del dispositiu "
 "incloent els xats secrets. Segur que voleu sortir?"
 
-#: ../app/qml/pages/SettingsPage.qml:96
+#: ../app/qml/pages/SettingsPage.qml:130
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-06 22:09+0000\n"
+"POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-01-30 19:54+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -40,8 +40,8 @@ msgid ""
 msgstr "該訊息將僅為您刪除。是否確實要刪除它？"
 
 #: ../app/qml/components/DeleteDialog.qml:12
-#: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:98 ../app/qml/pages/UserListPage.qml:104
+#: ../app/qml/delegates/MessageBubbleItem.qml:38
+#: ../app/qml/pages/SettingsPage.qml:132 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
 msgstr "刪除"
@@ -77,24 +77,24 @@ msgstr ""
 msgid "%1 created a group called << %2 >>"
 msgstr ""
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:49
+#: ../app/qml/delegates/MessageBubbleItem.qml:50
 msgid "Copy"
 msgstr "複製"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:59
+#: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
 msgstr "編輯"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:67
+#: ../app/qml/delegates/MessageBubbleItem.qml:68
 msgid "Reply"
 msgstr "回覆"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:73
+#: ../app/qml/delegates/MessageBubbleItem.qml:74
 msgid "Sticker Pack info"
 msgstr "貼圖資訊"
 
-#: ../app/qml/delegates/MessageBubbleItem.qml:79
+#: ../app/qml/delegates/MessageBubbleItem.qml:80
 #: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
 msgstr "轉寄"
@@ -320,7 +320,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "您是否要將匯入的檔案傳給 %1？"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#: ../app/qml/pages/MessageListPage.qml:614
+#: ../app/qml/pages/MessageListPage.qml:615
 msgid "Send"
 msgstr "傳送"
 
@@ -352,19 +352,19 @@ msgstr "更新中"
 msgid "Connectivity"
 msgstr "連線"
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:75
 msgid "Telegram connectivity status:"
 msgstr "Telegram 連線狀態："
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:82
 msgid "Ubuntu Touch connectivity status:"
 msgstr "Ubuntu Touch 連線狀態："
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith limited"
 msgstr "Ubuntu Touch 寬頻受限"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:89
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch 寬頻不受限"
 
@@ -382,27 +382,27 @@ msgstr[0] ", %1 名上線中"
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:331
+#: ../app/qml/pages/MessageListPage.qml:332
 msgid "You are not allowed to post in this channel"
 msgstr "您沒有在此頻道貼文的權限"
 
-#: ../app/qml/pages/MessageListPage.qml:335
+#: ../app/qml/pages/MessageListPage.qml:336
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "正在等待對方接受私密聊天中..."
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Secret chat has been closed"
 msgstr "私密聊天已結束"
 
-#: ../app/qml/pages/MessageListPage.qml:462
+#: ../app/qml/pages/MessageListPage.qml:463
 msgid "Type a message..."
 msgstr "輸入訊息…"
 
-#: ../app/qml/pages/MessageListPage.qml:612
+#: ../app/qml/pages/MessageListPage.qml:613
 msgid "Do you want to share your location with %1?"
 msgstr "您想要與 %1 分享您的位置資訊嗎？"
 
-#: ../app/qml/pages/MessageListPage.qml:625
+#: ../app/qml/pages/MessageListPage.qml:626
 msgid "Requesting location from OS..."
 msgstr "從作業系統要求位置資訊中..."
 
@@ -420,7 +420,7 @@ msgid ""
 "device, end-to-end cryptography is granted."
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:88
+#: ../app/qml/pages/SettingsPage.qml:61 ../app/qml/pages/SettingsPage.qml:122
 msgid "Logout"
 msgstr "登出"
 
@@ -432,7 +432,11 @@ msgstr "刪除帳戶"
 msgid "Connectivity status"
 msgstr "連線狀態"
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:90
+msgid "Toggle message status indicators"
+msgstr ""
+
+#: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -440,7 +444,7 @@ msgstr ""
 "警告：登出時將會刪除此裝置中的所有個人資料，包括私密聊天。您仍然確定要登出"
 "嗎？"
 
-#: ../app/qml/pages/SettingsPage.qml:96
+#: ../app/qml/pages/SettingsPage.qml:130
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "send using telegram except for data you have explicitly saved outside the "
