@@ -32,7 +32,7 @@ void QTdMessageText::unmarshalJson(const QJsonObject &json)
         m_hasWebPage = true;
         if (m_webPage->containsPhoto()) {
             m_infoImageUrl = QUrl("file://" + webPage()->photo()->sizes()->at(0)->photo()->local()->path());
-    }
+        }
     }
     emit dataChanged();
 }
