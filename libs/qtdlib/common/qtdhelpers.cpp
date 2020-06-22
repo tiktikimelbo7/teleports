@@ -41,43 +41,74 @@ QRegExp QTdHelpers::rxLinebreaks;
 void QTdHelpers::getEntitiesFromMessage(const QString &messageText, QString &plainText, QJsonArray &entities)
 {
     if (rxEntity.isEmpty()) {
-        rxEntity = QRegExp("\\*\\*.+\\*\\*|__.+__|```.+```|`.+`");
+        rxEntity = QRegExp("\\*\\*.+\\*\\*|__.+__|```[^`].+```|`[^`\\n\\r]+`");
         rxEntity.setMinimal(true);
         rxLinebreaks = QRegExp("\\n|\\r");
     }
     int offsetCorrection = 0;
     int pos = 0;
-    plainText = "";
+    int actualPos = pos - offsetCorrection;
+    plainText = messageText;
     while ((pos = rxEntity.indexIn(messageText, pos)) != -1) {
         auto match = rxEntity.cap(0);
         QJsonObject entity;
         entity["@type"] = "textEntity";
-        entity["offset"] = (pos - offsetCorrection);
+        actualPos = pos - offsetCorrection;
+        entity["offset"] = actualPos;
         QJsonObject entityType;
         if (match.startsWith("*")) {
+            int contentLength = rxEntity.matchedLength() - 4;
             entityType["@type"] = "textEntityTypeBold";
-            entity["length"] = (rxEntity.matchedLength() - 4);
+            entity["length"] = contentLength;
+            plainText = plainText.replace(actualPos, 2, "");
+            plainText = plainText.replace(actualPos + contentLength, 2, "");
             offsetCorrection += 4;
         } else if (match.startsWith("_")) {
+            int contentLength = rxEntity.matchedLength() - 4;
             entityType["@type"] = "textEntityTypeItalic";
-            entity["length"] = (rxEntity.matchedLength() - 4);
+            entity["length"] = contentLength;
+            plainText = plainText.replace(actualPos, 2, "");
+            plainText = plainText.replace(actualPos + contentLength, 2, "");
             offsetCorrection += 4;
-        } else if (match.startsWith("`") && !match.startsWith("``")) {
-            entityType["@type"] = "textEntityTypeCode";
-            entity["length"] = (rxEntity.matchedLength() - 2);
-            offsetCorrection += 2;
         } else if (match.startsWith("```")) {
+            if (messageText.at(pos - 1) == "`") {
+                pos += rxEntity.matchedLength();
+                continue;
+            }
+            qDebug() << "rxEntity.matchedLength()" << rxEntity.matchedLength();
+            int contentLength = rxEntity.matchedLength() - 6;
             entityType["@type"] = "textEntityTypePre";
-            entity["length"] = (rxEntity.matchedLength() - 6);
+            entity["length"] = contentLength;
+            plainText = plainText.replace(actualPos, 3, "");
+            if (plainText.at(actualPos - 1) != "\n") {
+                plainText = plainText.insert(actualPos, "\n");
+                entity["offset"] = actualPos + 1;
+                offsetCorrection--;
+            }
+            actualPos = pos - offsetCorrection;
+            plainText = plainText.replace(actualPos + contentLength, 3, "");
+            if (plainText.at(actualPos + contentLength) != "\n") {
+                plainText = plainText.insert(actualPos + contentLength, "\n");
+                offsetCorrection--;
+            }
             offsetCorrection += 6;
+        } else if (match.startsWith("`")) {
+            if (messageText.at(pos - 1) == "`") {
+                pos += rxEntity.matchedLength();
+                continue;
+            }
+            qDebug() << (messageText.at(pos-1) != "`");
+            int contentLength = rxEntity.matchedLength() - 2;
+            entityType["@type"] = "textEntityTypeCode";
+            entity["length"] = contentLength;
+            plainText = plainText.replace(actualPos, 1, "");
+            plainText = plainText.replace(actualPos + contentLength, 1, "");
+            offsetCorrection += 2;
         }
         entity["type"] = entityType;
         entities << entity;
         pos += rxEntity.matchedLength();
     }
-
-    plainText = messageText;
-    plainText = plainText.replace("**", "").replace("__", "").replace("`", "");
 }
 
 QJsonArray QTdHelpers::formatPlainTextMessage(const QString &message, QString &plainText)

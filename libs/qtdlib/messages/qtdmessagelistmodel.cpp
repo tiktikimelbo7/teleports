@@ -440,7 +440,7 @@ void QTdMessageListModel::sendMessage(const QString &fullmessage, const bool cle
             isFirstMessage = false;
         }
         currentMessageLength = message.length();
-        QTdClient::instance()->send(request.data());
+        request->sendAsync();
         currentMessagePos += maxMessageLength;
     } while (currentMessagePos < plainText.length());
 }
