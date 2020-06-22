@@ -18,6 +18,7 @@ UITK.ListItem {
 
     property QTdMessage message: null
     property QTdChat chat: null
+    property bool indicatorsEnabled: false
     property bool transparentBackground: false
     // multimediaLayout: this property is used to display the date/time of sending inside a photo/video/etc... instead as another row at the bottom of the message.
     property bool multimediaLayout: false
@@ -209,6 +210,27 @@ UITK.ListItem {
                         anchors {
                             right: parent.right
                             rightMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
+                        }
+
+                        MessageStatusIndicator {
+                            bgColor: contentCol.color
+                            enabled: base.indicatorsEnabled
+
+                            state: {
+                                if(message.isOutgoing) {
+                                    if(message.content.type === QTdObject.MESSAGE_CALL) {
+                                        return "new";
+                                    }
+                                    if(message.sendingState) {
+                                        return "outgoing";
+                                    }
+                                    if(message.id > chat.lastReadOutboxMessageId) {
+                                        return "sent";
+                                    }
+                                    return "read";
+                                }
+                                return "incoming";
+                            }
                         }
                     }
                 }

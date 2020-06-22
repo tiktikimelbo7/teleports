@@ -4,6 +4,7 @@ import QuickFlux 1.1
 
 KeyTable {
     property string setTheme
+    property string toggleIndicators
 
     /**
      * Callback key to dispatch after prompting

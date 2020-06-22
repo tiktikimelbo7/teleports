@@ -110,5 +110,6 @@
         <file>stores/StickersStore.qml</file>
         <file>actions/StickerActions.qml</file>
         <file>actions/StickerKey.qml</file>
+        <file>components/MessageStatusIndicator.qml</file>
     </qresource>
 </RCC>

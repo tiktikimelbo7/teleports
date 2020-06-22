@@ -76,6 +76,40 @@ Page {
                 }
                 ]
             }
+
+            UITK.ListItem {
+                UITK.ListItemLayout {
+                    UITK.Icon {
+                        width: units.gu(2)
+                        height: width
+                        name: "accessibility-directory"
+                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        color: theme.palette.normal.backgroundSecondaryText
+                    }
+                    title.text : i18n.tr('Toggle message status indicators')
+                }
+                
+                Switch {
+                    id: indicators_switch
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    checked: false
+                    Suru.highlightType: Suru.PositiveHighlight
+                    onCheckedChanged: enabled && AppActions.settings.toggleIndicators(checked)
+                    
+                    Component.onCompleted: {
+                        enabled = false;
+                        checked = Telegram.settings.indicators || false;
+                        enabled = true;
+                    }
+                }
+                
+                onClicked: {
+                    indicators_switch.enabled = false;
+                    AppActions.settings.toggleIndicators(!indicators_switch.checked);
+                    indicators_switch.enabled = true;
+                }
+            }
         }
     }
 

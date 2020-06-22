@@ -21,5 +21,8 @@
         <file>send.png</file>
         <file>send_disabled.png</file>
         <file>msg_panel_stickers.svg</file>
+        <file>status/clock-white.svg</file>
+        <file>status/check-single-white.svg</file>
+        <file>status/check-double-white.svg</file>
     </qresource>
 </RCC>

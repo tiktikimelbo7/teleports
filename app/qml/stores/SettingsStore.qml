@@ -7,6 +7,7 @@ Store {
     readonly property alias theme: s.theme
     readonly property alias uitkTheme: s.uitkTheme
     readonly property alias u1DialogShown: s.onceDialog
+    readonly property alias indicators: s.indicators
 
     Settings {
         id: s
@@ -14,6 +15,7 @@ Store {
         property var uitkTheme: "Ubuntu.Components.Themes.Ambiance"
         // Dialog shown for U1 account needed for push notifications
         property bool onceDialog: false
+        property bool indicators: false
     }
 
     Filter {
@@ -32,6 +34,17 @@ Store {
         onDispatched: {
             if (!s.onceDialog) {
                 s.onceDialog = true
+            }
+        }
+    }
+
+    Filter {
+        type: SettingsKey.toggleIndicators
+        onDispatched: {
+            switch(message.indicators) {
+                case true: s.indicators = true; break;
+                case false: s.indicators = false; break;
+                default: s.indicators = !s.indicators;
             }
         }
     }
