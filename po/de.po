@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-06-18 21:25+0000\n"
-"Last-Translator: Alexander Lewandowski <bbarblexi@gmail.com>\n"
+"PO-Revision-Date: 2020-06-22 21:36+0000\n"
+"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -267,9 +267,8 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
-#, fuzzy
 msgid "%1 groups in common"
-msgstr "%1 Gruppen gemeinsam"
+msgstr "%1 gemeinsame Gruppen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
@@ -436,7 +435,7 @@ msgstr "Konnektivitätsstatus"
 
 #: ../app/qml/pages/SettingsPage.qml:90
 msgid "Toggle message status indicators"
-msgstr ""
+msgstr "Nachrichtenstatus-Indikatoren"
 
 #: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
