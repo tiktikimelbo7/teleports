@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-06-24 17:47+0000\n"
-"Last-Translator: Eugene Markoff <uralhistory@gmail.com>\n"
+"Last-Translator: Moshe Lazar <wersewikkov@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
 "teleports/ru/>\n"
 "Language: ru\n"
@@ -185,7 +185,7 @@ msgstr "Очистить историю"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
-msgstr "Вы уверены, что хотите покинуть эту беседу?"
+msgstr "Вы уверены, что хотите покинуть этот чат?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
@@ -288,7 +288,7 @@ msgstr "Настройки"
 
 #: ../app/qml/pages/ChatListPage.qml:53 ../libs/qtdlib/chat/qtdchat.cpp:93
 msgid "Saved Messages"
-msgstr "Сохранённые сообщения"
+msgstr "Сохраненные сообщения"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
@@ -415,7 +415,7 @@ msgstr "Сборщик контента"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr "Файл: "
+msgstr "Файл:"
 
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:65
 msgid ""
@@ -578,7 +578,7 @@ msgstr "Ошибка регистрации"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr "Отсутствует Ubuntu One"
+msgstr "Отсутствует аккаунт в Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
