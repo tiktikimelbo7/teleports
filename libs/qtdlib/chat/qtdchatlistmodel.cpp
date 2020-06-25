@@ -1,5 +1,6 @@
 #include "qtdchatlistmodel.h"
 #include <QScopedPointer>
+#include <QString>
 #include "client/qtdclient.h"
 #include "chat/requests/qtdgetchatsrequest.h"
 #include "chat/requests/qtdcreatenewsecretchatrequest.h"
@@ -30,6 +31,8 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     , m_forwardingMessages(QStringList())
     , m_listMode(ListMode::Idle)
     , m_positionWaitTimer(new QTimer(this))
+    , m_requestChatListMain(true)
+    , m_requestChatListArchive(true)
     , m_chatToOpenOnUpdate(0)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
@@ -209,14 +212,18 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
 {
     QJsonArray chats = data["chat_ids"].toArray();
     if (chats.count() == 0) {
-        if (m_receivedChatIds.count() > 0) {
+        if (m_requestChatListMain) {
+            m_requestChatListMain = false;
+        } else if (m_requestChatListArchive) {
+            m_requestChatListArchive = false;
+        } else if (m_receivedChatIds.count() > 0) {
             QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
             foreach (qint64 chatToRequest, m_receivedChatIds) {
                 chatReq->setChatId(chatToRequest);
                 chatReq->sendAsync();
             }
+            return;
         }
-        return;
     }
     foreach (QJsonValue chatToRequest, chats) {
         m_receivedChatIds.append((qint64)chatToRequest.toDouble());
@@ -233,6 +240,11 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
     req->setOffsetChatId(lastChat->id());
     req->setOffsetOrder(lastChat->order());
+    if (m_requestChatListMain) {
+        req->setChatList(QStringLiteral("chatListMain"));
+    } else if (m_requestChatListArchive) {
+        req->setChatList(QStringLiteral("chatListArchive"));
+    }
     req->sendAsync();
 }
 

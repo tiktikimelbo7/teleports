@@ -119,6 +119,8 @@ private:
     QStringList m_forwardingMessages;
     QPointer<QTdChat> m_forwardedFromChat;
     QList<qint64> m_receivedChatIds;
+    bool m_requestChatListMain;
+    bool m_requestChatListArchive;
     QPointer<QGeoPositionInfoSource> m_positionInfoSource;
     QTimer *m_positionWaitTimer;
 };
