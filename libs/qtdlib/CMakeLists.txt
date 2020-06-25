@@ -5,12 +5,12 @@ cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-find_package(Td)
-find_package(Qt5Core)
-find_package(Qt5Qml)
-find_package(Qt5Quick)
-find_package(Qt5Concurrent)
-find_package(Qt5Positioning)
+find_package(Td REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Qml REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5Concurrent REQUIRED)
+find_package(Qt5Positioning REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
 
