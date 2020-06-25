@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtConcurrent>
+#include <QString>
 #include "common/qtdrequest.h"
 #include "common/qtdresponse.h"
 
@@ -21,6 +22,8 @@ public:
 
     void setOffsetChatId(const qint64 value);
 
+    void setChatList(const QString chatList);
+
     QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
@@ -28,6 +31,7 @@ public:
 private:
     qint64 m_offset_order;
     qint64 m_offset_chat_id;
+    QString m_chatList;
 };
 
 #endif // QTDGETCHATSREQUEST_H
