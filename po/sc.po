@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-06-17 15:04+0000\n"
+"PO-Revision-Date: 2020-06-25 09:46+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -240,10 +240,8 @@ msgid "Profile"
 msgstr "Profilu"
 
 #: ../app/qml/pages/ChatInfoPage.qml:41
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Send message"
-msgstr "Messàgios sarvados"
+msgstr "Imbia su messàgiu"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
@@ -271,12 +269,12 @@ msgstr "Notìficas"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "%1 groups in common"
-msgstr ""
+msgstr "grupos a cumone: %1"
 
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr ""
+msgstr "Crae de tzifradura"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -733,10 +731,8 @@ msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
-#, fuzzy
-#| msgid "dd MMMM"
 msgid "dd MMMM yyyy"
-msgstr "dd MMMM"
+msgstr "dd MMMM yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
