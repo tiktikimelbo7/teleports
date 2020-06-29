@@ -9,6 +9,7 @@ QTdChatListSortFilterModel::QTdChatListSortFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
     , m_chatList(0)
     , m_chatFilters(CurrentChats)
+    , m_chatList_type(Main)
 {
 }
 

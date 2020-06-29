@@ -63,7 +63,7 @@ Store {
      * see qtdchatlistsortfiltermodel.h for all filter types.
      */
     property alias sortedList: sortedChatList
-    property alias chatList: sortedChatList.chatList
+    property alias chatList_type: sortedChatList.chatList
 
     SortedChatList {
         id: sortedChatList
