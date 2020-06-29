@@ -51,13 +51,6 @@ Page {
                 visible: Telegram.chats.chatList_type == SortedChatList.Archive
             }
         ]
-        trailingActionBar.actions: [
-        UITK.Action {
-            text: i18n.tr("Archived chats")
-            iconName: "user-switch"
-            onTriggered: Telegram.chats.chatList == SortedChatList.Main ? Telegram.chats.chatList = SortedChatList.Archive : Telegram.chats.chatList = SortedChatList.Main
-        }
-        ]
     }
 
     Menu {
@@ -114,6 +107,17 @@ Page {
             anchors{
                 fill: parent
             }
+            model: Telegram.chats.sortedList
+            header: UITK.ListItem {
+                height: visible ? archivedLayout.height : 0
+                UITK.ListItemLayout {
+                    id: archivedLayout
+                    title.text: i18n.tr("Archived chats")
+                }
+                onClicked: Telegram.chats.chatList_type = SortedChatList.Archive
+                visible: Telegram.chats.chatList_type == SortedChatList.Main
+            }
+            delegate: UITK.ListItem {
 
             // WORKAROUND: Fix for wrong grid unit size
             Component.onCompleted: root.flickable_responsive_scroll_fix(chatList)
