@@ -45,18 +45,11 @@ Page {
                 text: i18n.tr("Back")
                 iconName: "back"
                 onTriggered: {
-                    AppActions.chat.toggleArchivedChats()
+                    Telegram.chats.chatList_type = SortedChatList.Main
                     chatListListView.positionViewAtBeginning()
                 }
                 visible: Telegram.chats.chatList_type == SortedChatList.Archive
             }
-        ]
-        trailingActionBar.actions: [
-        UITK.Action {
-            text: i18n.tr("Archived chats")
-            iconName: "user-switch"
-            onTriggered: Telegram.chats.chatList == SortedChatList.Main ? Telegram.chats.chatList = SortedChatList.Archive : Telegram.chats.chatList = SortedChatList.Main
-        }
         ]
     }
 
@@ -119,12 +112,9 @@ Page {
                 height: visible ? archivedLayout.height : 0
                 UITK.ListItemLayout {
                     id: archivedLayout
-                    title {
-                        text: i18n.tr("Archived chats")
-                        font.weight: Font.DemiBold
-                    }
+                    title.text: i18n.tr("Archived chats")
                 }
-                onClicked: AppActions.chat.toggleArchivedChats()
+                onClicked: Telegram.chats.chatList_type = SortedChatList.Archive
                 visible: Telegram.chats.chatList_type == SortedChatList.Main
             }
             delegate: UITK.ListItem {
