@@ -477,6 +477,13 @@ Store {
             messageList.deleteVoiceNote(message.filename)
         }
     }
+    
+    Filter {
+        type: ChatKey.toggleArchivedChats
+        onDispatched: {
+            sortedList.archivedChatList = !sortedList.archivedChatList
+        }
+    }
 
     Filter {
         type: ChatKey.joinChat
