@@ -44,6 +44,7 @@ KeyTable {
     property string jumpToMessage
     property string setChatDraftMessage
     property string muteChat
+    property string toggleArchivedChats
     property string registerVoiceNote
     property string stopVoiceNote
     property string deleteVoiceNote
