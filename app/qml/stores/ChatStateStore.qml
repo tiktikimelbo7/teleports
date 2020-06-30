@@ -69,7 +69,8 @@ Store {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        chatList: SortedChatList.Main
+        property bool archivedChatList: false
+        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
     }
 
     /**
@@ -402,6 +403,13 @@ Store {
         type: ChatKey.muteChat
         onDispatched: {
             message.chat.mute(message.duration)
+        }
+    }
+
+    Filter {
+        type: ChatKey.toggleArchivedChats
+        onDispatched: {
+            sortedList.archivedChatList = !sortedList.archivedChatList
         }
     }
 

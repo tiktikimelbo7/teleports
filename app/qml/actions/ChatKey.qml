@@ -42,4 +42,5 @@ KeyTable {
     property string jumpToMessage
     property string setChatDraftMessage
     property string muteChat
+    property string toggleArchivedChats
 }

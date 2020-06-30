@@ -44,6 +44,7 @@ ActionCreator {
     signal setChatDraftMessage(string draftText, string replyToMessageId)
 
     signal muteChat(var chat, int duration)
+    signal toggleArchivedChats()
 
     signal jumpToMessage(string id)
 
