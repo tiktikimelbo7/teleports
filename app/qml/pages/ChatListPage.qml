@@ -45,7 +45,7 @@ Page {
                 text: i18n.tr("Back")
                 iconName: "back"
                 onTriggered: {
-                    Telegram.chats.chatList_type = SortedChatList.Main
+                    AppActions.chat.toggleArchivedChats()
                     chatListListView.positionViewAtBeginning()
                 }
                 visible: Telegram.chats.chatList_type == SortedChatList.Archive
@@ -112,9 +112,12 @@ Page {
                 height: visible ? archivedLayout.height : 0
                 UITK.ListItemLayout {
                     id: archivedLayout
-                    title.text: i18n.tr("Archived chats")
+                    title {
+                        text: i18n.tr("Archived chats")
+                        font.weight: Font.DemiBold
+                    }
                 }
-                onClicked: Telegram.chats.chatList_type = SortedChatList.Archive
+                onClicked: AppActions.chat.toggleArchivedChats()
                 visible: Telegram.chats.chatList_type == SortedChatList.Main
             }
             delegate: UITK.ListItem {
