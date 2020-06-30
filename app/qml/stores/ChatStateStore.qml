@@ -69,7 +69,8 @@ Store {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        chatList: SortedChatList.Main
+        property bool archivedChatList: false
+        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
     }
 
     /**
@@ -429,6 +430,13 @@ Store {
         type: ChatKey.deleteVoiceNote
         onDispatched: {
             messageList.deleteVoiceNote(message.filename)
+        }
+    }
+    
+    Filter {
+        type: ChatKey.toggleArchivedChats
+        onDispatched: {
+            sortedList.archivedChatList = !sortedList.archivedChatList
         }
     }
 

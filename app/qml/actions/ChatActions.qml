@@ -48,6 +48,7 @@ ActionCreator {
     signal registerVoiceNote(string filename)
     signal stopVoiceNote()
     signal deleteVoiceNote(string filename)
+    signal toggleArchivedChats()
 
     signal jumpToMessage(string id)
 
