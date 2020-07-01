@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=TELEports
-Exec=teleports
+Exec=teleports %U
 Icon=assets/icon.svg
 Terminal=false
 Type=Application

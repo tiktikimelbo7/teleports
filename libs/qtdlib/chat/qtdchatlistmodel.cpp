@@ -127,6 +127,22 @@ void QTdChatListModel::setCurrentChatById(const qint64 &chatId)
     setCurrentChat(currentChat);
 }
 
+void QTdChatListModel::setCurrentChatByUsername(const QString &username)
+{
+    QScopedPointer<QTdSearchPublicChatRequest> req(new QTdSearchPublicChatRequest);
+    req->setChatUsername(username);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Error during public chat search:" << resp.result().errorString();
+        return;
+    }
+    qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
+    if (currentChat())
+        currentChat()->closeChat();
+    setCurrentChatById(chatId);
+}
+
 qint32 QTdChatListModel::forwardingMessagesCount() const
 {
     return m_forwardingMessages.length();

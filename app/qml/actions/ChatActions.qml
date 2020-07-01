@@ -8,6 +8,7 @@ ActionCreator {
     signal createOrOpenSecretChat(var user)
     signal createOrOpenSavedMessages()
     signal setCurrentChatById(string chatId)
+    signal setCurrentChatByUsername(string username)
     signal closeCurrentChat()
 
     signal loadNewerMessages();

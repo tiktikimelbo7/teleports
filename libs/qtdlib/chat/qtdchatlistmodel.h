@@ -43,6 +43,7 @@ public:
 public slots:
     void setCurrentChat(QTdChat *currentChat);
     void setCurrentChatById(const qint64 &chatId);
+    void setCurrentChatByUsername(const QString &username);
     void createOrOpenPrivateChat(const int &userId);
     void createOrOpenSavedMessages();
     void createOrOpenSecretChat(const int &userId);

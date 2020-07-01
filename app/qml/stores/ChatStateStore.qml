@@ -136,6 +136,14 @@ Store {
         }
     }
 
+
+    Filter {
+        type: ChatKey.setCurrentChatByUsername
+        onDispatched: {
+            chatList.setCurrentChatByUsername(message.username)
+        }
+    }
+
     Filter {
         type: ChatKey.closeCurrentChat
         onDispatched: {
