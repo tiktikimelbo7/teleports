@@ -213,6 +213,7 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     foreach (QJsonValue chatToRequest, chats) {
         m_receivedChatIds.append((qint64)chatToRequest.toDouble());
     }
+    emit modelPolulatedCompleted();
     auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
     if (!lastChat) {
         return;

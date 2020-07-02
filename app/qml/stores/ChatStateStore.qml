@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QuickFlux 1.1
 import QTelegram 1.0
 import Ubuntu.Content 1.1 as ContentHub
+import Ubuntu.Components 1.3 as UITK
 import "../actions"
 
 Store {
@@ -20,6 +21,7 @@ Store {
     property alias list: chatList.model
     property alias currentChat: chatList.currentChat
     property alias forwardChatId: chatList.forwardedFromChat
+    property bool uriHaveBeenProcessed: false
 
     ChatList {
         id: chatList
@@ -40,6 +42,18 @@ Store {
         }
         onInvalidChatUsername: {
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
+        }
+        onModelPolulatedCompleted: {
+            // habdle URIs only the first time this signal is emitted
+            if (uriHaveBeenProcessed) {
+                return
+            }
+            if (Qt.application.arguments && Qt.application.arguments.length > 0) {
+                for (var i = 1; i < Qt.application.arguments.length; i++) {
+                    processUri(Qt.application.arguments[i]);
+                }
+            }
+            uriHaveBeenProcessed = true
         }
     }
 
@@ -132,7 +146,9 @@ Store {
         onDispatched: {
             var chatById = chatList.model.get(message.chatId)
             if (chatById) {
-                AppActions.chat.closeCurrentChat()
+                if (chatList.currentChat) {
+                    AppActions.chat.closeCurrentChat()
+                }
                 AppActions.chat.setCurrentChat(chatById)
             } else
                 console.log("Could not find chat by id")
@@ -451,5 +467,86 @@ Store {
     QtObject {
         id: d
         property bool canLoadMoreMessages: true
+    }
+
+
+    Connections {
+        target: UITK.UriHandler
+        onOpened: {
+            console.log('Open from UriHandler: '+uris)
+            processUri(uris[0]);
+        }
+    }
+    function processUri(uri) {
+        if (typeof uri === "undefined") {
+            return;
+        }
+        var protocol = uri.split(":")[0]
+        switch (protocol) {
+        case "teleports":
+            // User clicked a notification
+            var commands = uri.split("://")[1].split("/");
+            if (commands) {
+                switch(commands[0].toLowerCase()) {
+                case "chat":
+                    var chatId = parseInt(commands[1]);
+                    if (isNaN(chatId) || chatId === 0) {
+                        console.warn("Cannot parse chat id to open!");
+                    } else {
+                        console.info("Opening chat: " + chatId);
+                        AppActions.chat.setCurrentChatById(chatId)
+                    }
+                    break;
+                case "launch":
+                    //userTapBackHome = true;
+                    // Nothing to do.
+                    break
+                default:
+                    console.warn("Unmanaged URI: " + commands)
+                }
+            }
+            break
+        case "https":
+            // convert https URI into tg format
+            uri = "tg://resolve?domain=" + uri.split("https://t.me/")[1]
+            console.log("new uri "+uri)
+        case "tg":
+            // User opened a deep link to a chat or something
+            var command
+            if (uri.startsWith("tg://")) {
+                command = uri.substr(5)
+            } else if (uri.startsWith("tg:")) {
+                command = uri.substr(3)
+            } else {
+                return
+            }
+            command = command.split("?")
+            switch (command[0]) {
+            case "resolve":
+                var args = command[1].split("&")
+                for (var i = 0; i < args.length; i++) {
+                    var param = args[i].split("=")[0]
+                    var value = args[i].split("=")[1]
+                    console.log(param)
+                    switch(param) {
+                    case "domain":
+                        AppActions.chat.setCurrentChatByUsername(value)
+                        break;
+                    default:
+                        console.log("undhandled argument: " + args[i])
+                        break
+                    }
+                }
+                break
+            // case "join":
+            //     // tg:join?invite=XXXXXXXXXX
+            //     break
+            default:
+                console.log("Unhandled command: " + command)
+            }
+            break
+        default:
+            console.log("Unhandled protocol: "+protocol+"\nPayload: "+uri.split(":")[1])
+        }
     }
 }
