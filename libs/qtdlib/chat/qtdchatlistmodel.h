@@ -69,6 +69,7 @@ signals:
     void listModeChanged();
     void positionInfoReceived(double latitude, double longitude);
     void positionInfoTimeout();
+    void invalidChatUsername(const QString &username);
 
 private slots:
     void handleChats(const QJsonObject &data);

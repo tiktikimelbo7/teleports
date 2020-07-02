@@ -9,6 +9,7 @@
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
 #include "chat/requests/qtdsetchatdraftrequest.h"
+#include "chat/requests/qtdsearchpublicchatrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -129,17 +130,18 @@ void QTdChatListModel::setCurrentChatById(const qint64 &chatId)
 
 void QTdChatListModel::setCurrentChatByUsername(const QString &username)
 {
+    qDebug() << "OPENING CHAT" << username;
     QScopedPointer<QTdSearchPublicChatRequest> req(new QTdSearchPublicChatRequest);
     req->setChatUsername(username);
     QFuture<QTdResponse> resp = req->sendAsync();
     await(resp, 2000);
     if (resp.result().isError()) {
         qWarning() << "Error during public chat search:" << resp.result().errorString();
+        if (resp.result().errorCode() == 400)
+            emit invalidChatUsername(username);
         return;
     }
     qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
-    if (currentChat())
-        currentChat()->closeChat();
     setCurrentChatById(chatId);
 }
 

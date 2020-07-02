@@ -565,11 +565,16 @@ msgid "Registration not expected right now"
 msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:39
+#: ../app/qml/stores/ChatStateStore.qml:42
 msgid "Error"
 msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:42
+msgid "Username <b>@%1</b> not found"
 msgstr ""
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12

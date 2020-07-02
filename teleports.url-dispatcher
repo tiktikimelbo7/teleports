@@ -4,6 +4,9 @@
     },
     {
         "protocol": "https",
-        "domain-suffix": "t.me/#"
+        "domain-suffix": "t.me"
+    },
+    {
+        "protocol": "tg"
     }
 ]

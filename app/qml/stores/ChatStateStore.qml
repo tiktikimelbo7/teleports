@@ -38,6 +38,9 @@ Store {
             AppActions.chat.stopWaitLocation();
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("No valid location received after 180 seconds!"), "");
         }
+        onInvalidChatUsername: {
+            AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
+        }
     }
 
     /**
