@@ -297,6 +297,10 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateInstalledStickerSets"), [=](const QJsonObject &data) {
         emit updateInstalledStickerSets(data);
     });
+    m_events.insert(QStringLiteral("chatMember"), [=](const QJsonObject &data) {
+        qDebug() << "chatMember" << data;
+        emit chatMember(data);
+    });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)

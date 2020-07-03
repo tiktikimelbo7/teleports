@@ -216,6 +216,7 @@ set(
     user/requests/qtdremovecontactsrequest.cpp
     user/requests/qtdgetcontactsrequest.cpp
     user/requests/qtdgetuserfullinforequest.cpp
+    user/requests/qtdgetchatmemberrequest.cpp
     utils/qtdtextformatter.cpp
 )
 

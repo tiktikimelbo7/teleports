@@ -12,14 +12,15 @@
 class QTdSearchPublicChatRequest : public QTdRequest
 {
     Q_OBJECT
-    QString m_username;
-
 public:
     explicit QTdSearchPublicChatRequest(QObject *parent = nullptr);
 
     void setChatUsername(const QString &username);
     QJsonObject marshalJson() Q_DECL_FINAL;
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
+
+private:
+    QString m_username;
 };
 
 #endif // QTDSEARCHPUBLICCHATREQUEST_H

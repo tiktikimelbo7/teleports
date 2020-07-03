@@ -345,6 +345,16 @@ Page {
         }
     }
 
+    Button {
+        id: joinChatButton
+        anchors {
+            fill: input
+            margins: Suru.units.gu(1)
+        }
+        visible: !currentChat.doIJoined
+        text: i18n.tr("Join")
+    }
+
     AttachPanel {
         id: attach_panel_object
         anchors {
