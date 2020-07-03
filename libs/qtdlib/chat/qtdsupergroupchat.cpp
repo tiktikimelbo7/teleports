@@ -91,7 +91,40 @@ bool QTdSuperGroupChat::isWritable() const
 {
     auto atLeastAdmin = m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_ADMIN
             || m_status.data()->type() == QTdObject::Type::CHAT_MEMBER_STATUS_CREATOR;
-    return !m_isChannel || m_isChannel && atLeastAdmin;
+    switch (m_status->type()) {
+        case QTdObject::Type::CHAT_MEMBER_STATUS_ADMIN: {
+            auto adminStatus = qobject_cast<QTdChatMemberStatusAdmin *>(m_status);
+            if (m_isChannel) {
+                return adminStatus->canPostMessages();
+            }
+            return true;
+            break;
+        }
+        case QTdObject::Type::CHAT_MEMBER_STATUS_CREATOR: {
+            auto creatorStatus = qobject_cast<QTdChatMemberStatusCreator *>(m_status);
+            return creatorStatus->isMember();
+            break;
+        }
+        case QTdObject::Type::CHAT_MEMBER_STATUS_BANNED:
+        case QTdObject::Type::CHAT_MEMBER_STATUS_LEFT: {
+            return false;
+            break;
+        }
+        case QTdObject::Type::CHAT_MEMBER_STATUS_MEMBER: {
+            return !m_isChannel;
+            break;
+        }
+        case QTdObject::Type::CHAT_MEMBER_STATUS_RESTRICTED: {
+            auto restrictedStatus = qobject_cast<QTdChatMemberStatusRestricted *>(m_status);
+            if (restrictedStatus->isMember()) {
+                // TODO implement chatPermission in QTdChatMemberStatusRestricted and read canSendMessages
+                // until them return always true as the message sending will just fail if canSendMessages == false
+                return true;
+            }
+            return false;
+            break;
+        }
+    }
 }
 
 QString QTdSuperGroupChat::restrictionReason() const

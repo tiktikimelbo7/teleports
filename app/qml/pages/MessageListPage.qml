@@ -341,19 +341,36 @@ Page {
                     return i18n.tr("Secret chat has been closed");
                 }
             }
-            return "";
+            else if (currentChat.isGroup) {
+                switch (currentChat.status.type) {
+                    // return i18n.tr("You are not allowed to post in this group")
+                    // break
+                case QTdObject.CHAT_MEMBER_STATUS_CREATOR:
+                    // if you are the creator and isWritable == false is because you left the group
+                case QTdObject.CHAT_MEMBER_STATUS_LEFT:
+                    return i18n.tr("You left this group")
+                    break
+                case QTdObject.CHAT_MEMBER_STATUS_BANNED:
+                    return i18n.tr("You have been banned")
+                    break
+                default:
+                    return i18n.tr("You are not allowed to post in this group")
+                    break
+                }
+            }
+            return i18n.tr("You can't write here. Reason unkown")
         }
     }
 
-    Button {
-        id: joinChatButton
-        anchors {
-            fill: input
-            margins: Suru.units.gu(1)
-        }
-        visible: !currentChat.doIJoined
-        text: i18n.tr("Join")
-    }
+    // Button {
+    //     id: joinChatButton
+    //     anchors {
+    //         fill: input
+    //         margins: Suru.units.gu(1)
+    //     }
+    //     visible: !currentChat.doIJoined
+    //     text: i18n.tr("Join")
+    // }
 
     AttachPanel {
         id: attach_panel_object

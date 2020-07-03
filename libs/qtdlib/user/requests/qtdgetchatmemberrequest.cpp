@@ -39,5 +39,5 @@ QJsonObject QTdGetChatMemberRequest::marshalJson()
 
 QFuture<QTdResponse> QTdGetChatMemberRequest::sendAsync()
 {
-    return QTdClient::instance()->sendAsync(this, &QTdClient::chat);
+    return QTdClient::instance()->sendAsync(this, &QTdClient::chatMember);
 }
