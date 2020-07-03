@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-01-19 19:22+0000\n"
-"Last-Translator: Tom Dom <thomas@patoel.nl>\n"
+"PO-Revision-Date: 2020-07-03 12:44+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -48,7 +48,7 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:132 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 #, fuzzy
@@ -83,7 +83,7 @@ msgstr "%1 heeft een groep aangemaakt met de naam << %2 >>"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:50
 msgid "Copy"
-msgstr "Kopieer"
+msgstr "Kopiëren"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
@@ -101,7 +101,7 @@ msgstr "Stickerpaketinfo"
 #: ../app/qml/delegates/MessageBubbleItem.qml:80
 #: ../app/qml/pages/ChatListPage.qml:360
 msgid "Forward"
-msgstr "Doorsturen"
+msgstr "Vooruit"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
@@ -191,7 +191,7 @@ msgstr "Weet je zeker dat je deze chat wilt verlaten?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr "Verlaat"
+msgstr "Verlaten"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -730,11 +730,11 @@ msgstr "heeft nu ook Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
