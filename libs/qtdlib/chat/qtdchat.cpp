@@ -670,22 +670,3 @@ QTdDraftMessage *QTdChat::draftMessage() const
 {
     return m_draftMessage.data();
 }
-
-bool QTdChat::doIJoined() const
-{
-    qint32 myId = QTdClient::instance()->getOption("my_id").toInt();
-
-    QScopedPointer<QTdGetChatMemberRequest> req(new QTdGetChatMemberRequest);
-    req->setUserId(myId);
-    req->setChatId(id());
-    qDebug() << "request" << req->marshalJson();
-    QFuture<QTdResponse> resp = req->sendAsync();
-    await(resp, 2000);
-    qDebug() << resp.result().json();
-    if (resp.result().isError()) {
-        qWarning() << "You didn't joined this chat:" << resp.result().errorString();
-        return false;
-    } else {
-        return true;
-    }
-}

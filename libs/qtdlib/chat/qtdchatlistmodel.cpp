@@ -10,6 +10,7 @@
 #include "chat/requests/qtdforwardmessagesrequest.h"
 #include "chat/requests/qtdsetchatdraftrequest.h"
 #include "chat/requests/qtdsearchpublicchatrequest.h"
+#include "chat/requests/qtdjoinchatrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -505,4 +506,17 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
     QTdClient::instance()->send(request.data());
+}
+
+void QTdChatListModel::joinChat(const qint64 &chatId) const
+{
+    QScopedPointer<QTdJoinChatRequest> req(new QTdJoinChatRequest);
+    req->setChatId(chatId);
+    qDebug() << "request" << req->marshalJson();
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during chat joining:" << resp.result().errorString();
+    }
 }

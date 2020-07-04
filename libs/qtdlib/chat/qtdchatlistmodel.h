@@ -60,6 +60,7 @@ public slots:
     void setChatDraftMessage(const QString &draftText,
                              const qint64 &replyToMessageId,
                              const qint64 &chatId);
+    void joinChat(const qint64 &chatId) const;
 
 signals:
     void modelChanged(QObject *model);

@@ -60,7 +60,6 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(QString action READ action NOTIFY summaryChanged)
     Q_PROPERTY(int currentMessageIndex READ currentMessageIndex NOTIFY currentMessageIndexChanged)
     Q_PROPERTY(QTdDraftMessage *draftMessage READ draftMessage NOTIFY draftMessageChanged)
-    Q_PROPERTY(bool doIJoined READ doIJoined NOTIFY doIJoinedChanged)
 
     // TODO:
     // string:client_data
@@ -251,11 +250,6 @@ public:
     QTdDraftMessage *draftMessage() const;
 
     /**
-     * @brief Says if the user joined this chat.
-     */
-    bool doIJoined() const;
-
-    /**
      * @brief Open chat
      *
      * This method should be called if the chat is opened by the user.
@@ -348,7 +342,6 @@ signals:
     void forwardingMessagesAction(QStringList forwardingMessages, QTdChat *forwarded_from_chat);
     void currentMessageIndexChanged();
     void draftMessageChanged();
-    void doIJoinedChanged();
 
 public slots:
     void updateChatOrder(const QJsonObject &json);

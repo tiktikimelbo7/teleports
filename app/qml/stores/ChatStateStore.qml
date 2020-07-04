@@ -455,6 +455,13 @@ Store {
             messageList.deleteVoiceNote(message.filename)
         }
     }
+    
+    Filter {
+        type: ChatKey.joinChat
+        onDispatched: {
+            chatList.joinChat(chatList.currentChat.id);
+        }
+    }
 
 
     Timer {

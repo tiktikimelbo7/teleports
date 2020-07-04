@@ -343,8 +343,6 @@ Page {
             }
             else if (currentChat.isGroup) {
                 switch (currentChat.status.type) {
-                    // return i18n.tr("You are not allowed to post in this group")
-                    // break
                 case QTdObject.CHAT_MEMBER_STATUS_CREATOR:
                     // if you are the creator and isWritable == false is because you left the group
                 case QTdObject.CHAT_MEMBER_STATUS_LEFT:
@@ -362,15 +360,26 @@ Page {
         }
     }
 
-    // Button {
-    //     id: joinChatButton
-    //     anchors {
-    //         fill: input
-    //         margins: Suru.units.gu(1)
-    //     }
-    //     visible: !currentChat.doIJoined
-    //     text: i18n.tr("Join")
-    // }
+    Button {
+        id: joinChatButton
+        anchors {
+            fill: input
+            margins: Suru.units.gu(1)
+        }
+        visible: {
+            if (currentChat.isGroup || currentChat.isChannel) {
+                switch (currentChat.status.type) {
+                case QTdObject.CHAT_MEMBER_STATUS_CREATOR:
+                    return !currentChat.status.isMember
+                    break
+                case QTdObject.CHAT_MEMBER_STATUS_LEFT:
+                    return true
+                }
+            }
+        }
+        text: i18n.tr("Join")
+        onClicked: AppActions.chat.joinChat(currentChat.id)
+    }
 
     AttachPanel {
         id: attach_panel_object

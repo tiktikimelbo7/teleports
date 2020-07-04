@@ -433,7 +433,11 @@ msgstr ""
 msgid "You can't write here. Reason unkown"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:493
+#: ../app/qml/pages/MessageListPage.qml:380
+msgid "Join"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:502
 msgid "Type a message..."
 msgstr ""
 

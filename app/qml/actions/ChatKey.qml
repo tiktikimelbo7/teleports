@@ -47,4 +47,5 @@ KeyTable {
     property string registerVoiceNote
     property string stopVoiceNote
     property string deleteVoiceNote
+    property string joinChat
 }
