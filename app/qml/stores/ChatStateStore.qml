@@ -463,6 +463,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.checkChatInviteLink
+        onDispatched: {
+            chatList.checkChatInviteLink(message.inviteLink);
+        }
+    }
+
 
     Timer {
         id: enableLoadTimer

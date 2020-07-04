@@ -301,6 +301,10 @@ void QTdClient::init()
         qDebug() << "chatMember" << data;
         emit chatMember(data);
     });
+    m_events.insert(QStringLiteral("chatMember"), [=](const QJsonObject &data) {
+        qDebug() << "chatInviteLinkInfo" << data;
+        emit chatInviteLinkInfo(data);
+    });
 }
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)

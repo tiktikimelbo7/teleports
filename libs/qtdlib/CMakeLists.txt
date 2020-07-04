@@ -75,6 +75,7 @@ set(
     chat/qtdsecretchat.cpp
     chat/qtdsecretchatstate.cpp
     chat/qtdsupergroupchat.cpp
+    chat/qtdchatinvitelinkinfo.cpp
     chat/requests/qtdclosechatrequest.cpp
     chat/requests/qtdclosesecretchatrequest.cpp
     chat/requests/qtdcreateprivatechatrequest.cpp
@@ -98,6 +99,7 @@ set(
     chat/requests/qtdsetchatnotificationsettings.cpp
     chat/requests/qtdsearchpublicchatrequest.cpp
     chat/requests/qtdjoinchatrequest.cpp
+    chat/requests/qtdcheckchatinvitelinkrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp

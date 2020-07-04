@@ -19,6 +19,7 @@ public:
     void setChatId(const QString &chatId);
     void setChatId(const qint64 &chatId);
     QJsonObject marshalJson() Q_DECL_FINAL;
+
 private:
     QTdInt64 m_chatId;
 };

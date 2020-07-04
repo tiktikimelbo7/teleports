@@ -172,6 +172,7 @@ signals:
     void stickerSet(QJsonObject stickerSet);
     void updateInstalledStickerSets(QJsonObject stickerSetsUpdate);
     void chatMember(QJsonObject chatMember);
+    void chatInviteLinkInfo(QJsonObject chatInviteLinkInfo);
 
 private slots:
     void handleRecv(const QJsonObject &data);

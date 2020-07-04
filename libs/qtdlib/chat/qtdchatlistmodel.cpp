@@ -11,6 +11,7 @@
 #include "chat/requests/qtdsetchatdraftrequest.h"
 #include "chat/requests/qtdsearchpublicchatrequest.h"
 #include "chat/requests/qtdjoinchatrequest.h"
+#include "chat/requests/qtdcheckchatinvitelinkrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -519,4 +520,21 @@ void QTdChatListModel::joinChat(const qint64 &chatId) const
     if (resp.result().isError()) {
         qWarning() << "Error during chat joining:" << resp.result().errorString();
     }
+}
+
+void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
+{
+    QScopedPointer<QTdCheckChatInviteLinkRequest> req(new QTdCheckChatInviteLinkRequest);
+    req->setInviteLink(inviteLink);
+    // qDebug() << "request" << req->marshalJson();
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during checking invite link:" << resp.result().errorString();
+    }
+    QPointer<QTdChatInviteLinkInfo> info(new QTdChatInviteLinkInfo);
+    QJsonObject json = resp.result().json();
+    info->unmarshalJson(json);
+    emit chatInviteLinkInfo(info);
 }
