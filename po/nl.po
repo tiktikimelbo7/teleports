@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-03 12:44+0000\n"
+"PO-Revision-Date: 2020-07-04 11:35+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
@@ -310,7 +310,7 @@ msgstr "Chat verlaten"
 
 #: ../app/qml/pages/ChatListPage.qml:141 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
-msgstr "Info"
+msgstr "Informatie"
 
 #: ../app/qml/pages/ChatListPage.qml:358
 msgid "Do you want to forward the selected messages to %1?"
@@ -679,7 +679,7 @@ msgstr "Gemiste Oproepen"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
-msgstr ""
+msgstr "Bellen"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
@@ -771,7 +771,7 @@ msgstr "Sticker"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
