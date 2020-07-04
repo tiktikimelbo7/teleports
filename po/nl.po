@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-04 11:35+0000\n"
+"PO-Revision-Date: 2020-07-04 19:31+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
@@ -88,7 +88,7 @@ msgstr "Kopiëren"
 #: ../app/qml/delegates/MessageBubbleItem.qml:60
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
-msgstr "Bewerken"
+msgstr "Aanpassen"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:68
 msgid "Reply"
@@ -269,10 +269,8 @@ msgid "Last name"
 msgstr "Achternaam"
 
 #: ../app/qml/pages/ChatInfoPage.qml:119
-#, fuzzy
-#| msgid "Location"
 msgid "Notifications"
-msgstr "Locatie"
+msgstr "Meldingen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "%1 groups in common"
