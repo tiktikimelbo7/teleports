@@ -43,6 +43,9 @@ Store {
         onInvalidChatUsername: {
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
         }
+        onShowChatInviteLinkInfo: {
+            AppActions.view.showChatInviteLinkInfo(info, inviteLink);
+        }
         onModelPolulatedCompleted: {
             // habdle URIs only the first time this signal is emitted
             if (uriHaveBeenProcessed) {

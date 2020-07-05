@@ -53,12 +53,12 @@ bool QTdChatInviteLinkInfo::isPublic() const
 
 void QTdChatInviteLinkInfo::unmarshalJson(QJsonObject &json)
 {
-    qDebug() << json;
     m_inviteLink = json["invite_link"].toString();
-    m_chatId = json["chat_id"].toInt();
+    m_chatId = json["chat_id"].toDouble();
     // m_type = json["type"].toObject()->unmarshalJson();
     m_title = json["title"].toString();
     // m_photo = json["photo"].toObject();
     m_memberCount = json["member_count"].toInt();
     m_isPublic = json["is_public"].toBool();
+    emit chatInviteLinkInfoChanged();
 }

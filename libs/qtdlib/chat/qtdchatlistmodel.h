@@ -74,7 +74,7 @@ signals:
     void positionInfoTimeout();
     void invalidChatUsername(const QString &username);
     void modelPolulatedCompleted();
-    void chatInviteLinkInfo(QTdChatInviteLinkInfo *info);
+    void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
 
 private slots:
     void handleChats(const QJsonObject &data);

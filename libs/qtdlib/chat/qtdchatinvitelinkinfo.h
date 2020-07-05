@@ -14,6 +14,11 @@
 class QTdChatInviteLinkInfo : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString inviteLink READ inviteLink NOTIFY chatInviteLinkInfoChanged)
+    Q_PROPERTY(QString chatId READ qmlChatId NOTIFY chatInviteLinkInfoChanged)
+    Q_PROPERTY(QString title READ title NOTIFY chatInviteLinkInfoChanged)
+    Q_PROPERTY(QString memberCount READ qmlMemberCount NOTIFY chatInviteLinkInfoChanged)
+    Q_PROPERTY(bool isPublic READ isPublic NOTIFY chatInviteLinkInfoChanged)
 public:
     explicit QTdChatInviteLinkInfo(QObject *parent = nullptr);
 
@@ -29,6 +34,9 @@ public:
     bool isPublic() const;
 
     void unmarshalJson(QJsonObject &json);
+
+signals:
+    void chatInviteLinkInfoChanged();
 
 private:
     QString m_inviteLink;

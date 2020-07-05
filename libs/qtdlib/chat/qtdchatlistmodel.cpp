@@ -513,7 +513,6 @@ void QTdChatListModel::joinChat(const qint64 &chatId) const
 {
     QScopedPointer<QTdJoinChatRequest> req(new QTdJoinChatRequest);
     req->setChatId(chatId);
-    qDebug() << "request" << req->marshalJson();
     QFuture<QTdResponse> resp = req->sendAsync();
     await(resp, 2000);
     qDebug() << resp.result().json();
@@ -526,7 +525,6 @@ void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
 {
     QScopedPointer<QTdCheckChatInviteLinkRequest> req(new QTdCheckChatInviteLinkRequest);
     req->setInviteLink(inviteLink);
-    // qDebug() << "request" << req->marshalJson();
     QFuture<QTdResponse> resp = req->sendAsync();
     await(resp, 2000);
     qDebug() << resp.result().json();
@@ -536,5 +534,9 @@ void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
     QPointer<QTdChatInviteLinkInfo> info(new QTdChatInviteLinkInfo);
     QJsonObject json = resp.result().json();
     info->unmarshalJson(json);
-    emit chatInviteLinkInfo(info);
+    if (info->chatId() != 0) {
+        setCurrentChatById(info->chatId());
+    } else {
+        emit showChatInviteLinkInfo(info, inviteLink);
+    }
 }

@@ -298,11 +298,9 @@ void QTdClient::init()
         emit updateInstalledStickerSets(data);
     });
     m_events.insert(QStringLiteral("chatMember"), [=](const QJsonObject &data) {
-        qDebug() << "chatMember" << data;
         emit chatMember(data);
     });
-    m_events.insert(QStringLiteral("chatMember"), [=](const QJsonObject &data) {
-        qDebug() << "chatInviteLinkInfo" << data;
+    m_events.insert(QStringLiteral("chatInviteLinkInfo"), [=](const QJsonObject &data) {
         emit chatInviteLinkInfo(data);
     });
 }
