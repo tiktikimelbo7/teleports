@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-06 18:41+0000\n"
+"PO-Revision-Date: 2020-07-07 12:16+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
@@ -296,7 +296,7 @@ msgstr "Opgeslagen Berichten"
 
 #: ../app/qml/pages/ChatListPage.qml:58 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr "Contacten"
+msgstr "Contactpersonen"
 
 #: ../app/qml/pages/ChatListPage.qml:69
 msgid "Night mode"
