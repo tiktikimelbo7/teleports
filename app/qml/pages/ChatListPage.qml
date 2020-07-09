@@ -74,14 +74,14 @@ Page {
                 anchors.right: parent.right
                 checked: Telegram.settings.theme === Suru.Dark
                 Suru.highlightType: Suru.PositiveHighlight
-                onCheckedChanged: AppActions.settings.setTheme(checked? Suru.Dark : Suru.Light)
+                onCheckedChanged: AppActions.settings.setTheme(checked ? Suru.Dark : Suru.Light)
             }
-            onTriggered: AppActions.settings.setTheme(theme_switch.checked? Suru.Light : Suru.Dark)
+            onTriggered: AppActions.settings.setTheme(theme_switch.checked ? Suru.Light : Suru.Dark)
         }
         MenuPanelItem {
             icon: "help"
             label: i18n.tr("About")
-        onTriggered: AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
+            onTriggered: AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
         }
     }
 

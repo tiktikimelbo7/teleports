@@ -1,13 +1,13 @@
-#include "qtdcheckchatinvitelinkrequest.h"
+#include "qtdjoinchatbyinvitelinkrequest.h"
 #include "client/qtdclient.h"
 
-QTdCheckChatInviteLinkRequest::QTdCheckChatInviteLinkRequest(QObject *parent)
+QTdJoinChatByInviteLinkRequest::QTdJoinChatByInviteLinkRequest(QObject *parent)
     : QTdRequest(parent)
     , m_inviteLink("")
 {
 }
 
-void QTdCheckChatInviteLinkRequest::setInviteLink(const QString &inviteLink)
+void QTdJoinChatByInviteLinkRequest::setInviteLink(const QString &inviteLink)
 {
     if (inviteLink.startsWith("https://t.me/joinchat/") || inviteLink.startsWith("https://telegram.me/joinchat/") || inviteLink.startsWith("https://telegram.dog/joinchat/")) {
         m_inviteLink = inviteLink;
@@ -16,15 +16,15 @@ void QTdCheckChatInviteLinkRequest::setInviteLink(const QString &inviteLink)
     }
 }
 
-QJsonObject QTdCheckChatInviteLinkRequest::marshalJson()
+QJsonObject QTdJoinChatByInviteLinkRequest::marshalJson()
 {
     return QJsonObject {
-        { "@type", "checkChatInviteLink" },
+        { "@type", "joinChatByInviteLink" },
         { "invite_link", m_inviteLink }
     };
 }
 
-QFuture<QTdResponse> QTdCheckChatInviteLinkRequest::sendAsync()
+QFuture<QTdResponse> QTdJoinChatByInviteLinkRequest::sendAsync()
 {
-    return QTdClient::instance()->sendAsync(this, &QTdClient::chatInviteLinkInfo);
+    return QTdClient::instance()->sendAsync(this, &QTdClient::chat);
 }

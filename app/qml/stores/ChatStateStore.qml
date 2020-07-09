@@ -473,6 +473,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.joinChatByInviteLink
+        onDispatched: {
+            chatList.joinChatByInviteLink(message.inviteLink);
+        }
+    }
+
 
     Timer {
         id: enableLoadTimer
@@ -525,7 +532,31 @@ Store {
             break
         case "https":
             // convert https URI into tg format
-            uri = "tg://resolve?domain=" + uri.split("https://t.me/")[1]
+            var command = uri
+            if (command.startsWith("https://")) {
+                command = command.substr(8)
+            }
+            if (command.startsWith("www.")) {
+                command = command.substr(4)
+            }
+            if (command.startsWith("t.me/")) {
+                command = command.substr(5)
+            } else if (command.startsWith("telegram.me/")) {
+                command = command.substr(12)
+            } else if (command.startsWith("telegram.dog/")) {
+                command = command.substr(13)
+            } else {
+                return
+            }
+            command = command.split("/")
+            switch (command[0]) {
+            case "joinchat":
+                uri = "tg://join?invite=" + command[1]
+                break
+            default:
+                uri = "tg://resolve?domain=" + command[1]
+                break
+            }
             console.log("new uri "+uri)
         case "tg":
             // User opened a deep link to a chat or something
@@ -540,11 +571,12 @@ Store {
             command = command.split("?")
             switch (command[0]) {
             case "resolve":
+                // tg:resolve?domain=XXXXXXXXXX
                 var args = command[1].split("&")
                 for (var i = 0; i < args.length; i++) {
                     var param = args[i].split("=")[0]
                     var value = args[i].split("=")[1]
-                    console.log(param)
+                    // console.log(param)
                     switch(param) {
                     case "domain":
                         AppActions.chat.setCurrentChatByUsername(value)
@@ -555,9 +587,12 @@ Store {
                     }
                 }
                 break
-            // case "join":
-            //     // tg:join?invite=XXXXXXXXXX
-            //     break
+            case "join":
+                // tg:join?invite=XXXXXXXXXX
+                var args = command[1].split("&")
+                var inviteId = args[0].split("=")[1]
+                AppActions.chat.checkChatInviteLink(inviteId)
+                break
             default:
                 console.log("Unhandled command: " + command)
             }

@@ -63,6 +63,7 @@ public slots:
                              const qint64 &chatId);
     void joinChat(const qint64 &chatId) const;
     void checkChatInviteLink(const QString &inviteLink);
+    void joinChatByInviteLink(const QString &inviteLink);
 
 signals:
     void modelChanged(QObject *model);

@@ -51,6 +51,7 @@ ActionCreator {
     signal deleteVoiceNote(string filename)
     signal joinChat()
     signal checkChatInviteLink(var inviteLink)
+    signal joinChatByInviteLink(var inviteLink)
 
     signal jumpToMessage(string id)
 

@@ -46,13 +46,13 @@ Middleware {
 
     function showChatInviteLinkInfo(message) {
         console.log(message.info.title)
-        var dlg = PopupUtils.open(inviteLinkDialog, root, {
+        var dlg = PopupUtils.open(inviteLinkDialog, null, {
                         title: message.info.title,
                         text: i18n.tr("%1 member", "%1 members", message.info.memberCount).arg(message.info.memberCount),
                         confirmButtonText: i18n.tr("Join"),
                         })
         dlg.confirmed.connect(function(){
-            next(ChatKey.joinChatByInviteLink, message.inviteLink)
+            next(ChatKey.joinChatByInviteLink, message)
         })
     }
 }
