@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-06-20 12:15+0000\n"
+"PO-Revision-Date: 2020-07-11 21:01+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
@@ -435,7 +435,7 @@ msgstr "Estado de conetividade"
 
 #: ../app/qml/pages/SettingsPage.qml:90
 msgid "Toggle message status indicators"
-msgstr ""
+msgstr "Alternar estado de indicador de estado de mensagens"
 
 #: ../app/qml/pages/SettingsPage.qml:120
 msgid ""
