@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-07 16:32+0000\n"
+"PO-Revision-Date: 2020-07-14 19:09+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
@@ -51,9 +51,8 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 #: ../app/qml/components/InputInfoBox.qml:91
-#, fuzzy
 msgid "Edit message"
-msgstr "Bericht"
+msgstr "Bericht aanpassen"
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
