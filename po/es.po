@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-16 19:45+0000\n"
-"Last-Translator: pietre <pietre.linux@gmail.com>\n"
+"PO-Revision-Date: 2020-07-17 17:33+0000\n"
+"Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
 "Language: es\n"
@@ -157,7 +157,7 @@ msgstr "Captura de pantalla realizada"
 
 #: ../app/qml/delegates/MessageStickerItem.qml:20
 msgid "Animated stickers not supported yet :("
-msgstr ""
+msgstr "Aún no hay soporte para las pegatinas animadas :("
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -240,10 +240,8 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: ../app/qml/pages/ChatInfoPage.qml:41
-#, fuzzy
-#| msgid "Saved Messages"
 msgid "Send message"
-msgstr "Mensajes guardados"
+msgstr "Enviar mensaje"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
@@ -725,7 +723,7 @@ msgstr "¡Se ha unido a Telegram!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
