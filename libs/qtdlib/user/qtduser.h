@@ -43,7 +43,7 @@ public:
     QString phoneNumber() const;
     QString initials() const;
     Q_INVOKABLE QString avatarColor(unsigned int userId);
-    QTdUserFullInfo *fullInfo() const;
+    QTdUserFullInfo *fullInfo();
     QTdUserStatus *status() const;
     QTdProfilePhoto *profilePhoto() const;
     bool isVerified() const;
@@ -83,7 +83,7 @@ private:
     QString m_username;
     QString m_phoneNumber;
     qint32 m_my_id;
-    QPointer<QTdUserFullInfo> m_fullInfo;
+    QScopedPointer<QTdUserFullInfo> m_fullInfo;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
     bool m_isVerified;
