@@ -4,7 +4,7 @@ import "./"
 
 ActionCreator {
     signal setTheme(int theme)
-    signal toggleIndicators(bool accessibility)
+    signal toggleIndicators(bool indicators)
 
     function viewConnectivity(connectionManager) {
         view.pushToStack("qrc:/pages/ConnectivityPage.qml", {

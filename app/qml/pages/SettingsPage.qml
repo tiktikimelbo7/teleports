@@ -54,60 +54,81 @@ Page {
                 user: me
                 parentMargins: settingsFlickable.anchors.margins
                 isSettings: true
-                itemList: [
-                {
-                    iconName: "system-log-out",
-                    titleText: i18n.tr('Logout'),
-                    delegateState: "popup",
-                    popup: logoutConfirmationDialog
-                },
-                {
-                    iconName: "delete",
-                    titleText: i18n.tr("Delete account"),
-                    delegateState: "popup",
-                    popup: deleteAccountConfirmationDialog
-                },
-                {
-                    iconName: "info",
-                    titleText: i18n.tr("Connectivity status"),
-                    delegateState: "new-page",
-                    newPage: "qrc:/pages/ConnectivityPage.qml",
-                    newPageParams: {connectionManager: Telegram.connections}
-                }
-                ]
-            }
-
-            UITK.ListItem {
-                UITK.ListItemLayout {
-                    UITK.Icon {
-                        width: units.gu(2)
-                        height: width
-                        name: "accessibility-directory"
-                        UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
-                        color: theme.palette.normal.backgroundSecondaryText
-                    }
-                    title.text : i18n.tr('Toggle message status indicators')
-                }
-                
-                Switch {
-                    id: indicators_switch
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    checked: false
-                    Suru.highlightType: Suru.PositiveHighlight
-                    onCheckedChanged: enabled && AppActions.settings.toggleIndicators(checked)
-                    
-                    Component.onCompleted: {
-                        enabled = false;
-                        checked = Telegram.settings.indicators || false;
-                        enabled = true;
+                UITK.ListItem {
+                    width: parent.width
+                    height: logOut.height
+                    onClicked: UITK_Popups.PopupUtils.open(logoutConfirmationDialog)
+                    UITK.ListItemLayout {
+                        id: logOut
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "system-log-out"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title.text: i18n.tr('Logout')
                     }
                 }
-                
-                onClicked: {
-                    indicators_switch.enabled = false;
-                    AppActions.settings.toggleIndicators(!indicators_switch.checked);
-                    indicators_switch.enabled = true;
+                UITK.ListItem {
+                    width: parent.width
+                    height: deleteAccount.height
+                    onClicked: UITK_Popups.PopupUtils.open(deleteAccountConfirmationDialog)
+                    UITK.ListItemLayout {
+                        id: deleteAccount
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "delete"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title.text: i18n.tr("Delete account")
+                    }
+                }
+                UITK.ListItem {
+                    width: parent.width
+                    height: connectivityStatus.height
+                    onClicked: AppActions.view.pushToStack("qrc:/pages/ConnectivityPage.qml", {connectionManager: Telegram.connections})
+                    UITK.ListItemLayout {
+                        id: connectivityStatus
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "info"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title.text: i18n.tr("Connectivity status")
+                    }
+                }
+                UITK.ListItem {
+                    width: parent.width
+                    height: indicatorsDelegate.height
+                    onClicked: switchDelegate.toggle()
+                    UITK.ListItemLayout {
+                        id: indicatorsDelegate
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "preferences-desktop-accessibility-symbolic"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title {
+                            text: i18n.tr('Toggle message status indicators')
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 3
+                            elide: Text.ElideRight
+                        }
+                        Switch {
+                            id: switchDelegate
+                            checked: Telegram.settings.indicators
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                            Suru.highlightType: Suru.PositiveHighlight
+                            onCheckedChanged: AppActions.settings.toggleIndicators(checked)
+                        }
+                    }
                 }
             }
         }

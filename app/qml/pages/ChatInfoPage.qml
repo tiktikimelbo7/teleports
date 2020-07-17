@@ -112,46 +112,78 @@ Page {
                 chat: chatInfoPage.chat
                 isGroup: chatInfoPage.isGroup
                 parentMargins: chatInfoFlickable.anchors.margins
-                Component.onCompleted: {
-                    if (chat && !chat.isMyself) {
-                        itemList.push({
-                            iconName: "notification",
-                            titleText: i18n.tr("Notifications"),
-                            maxLine: 2,
-                            fullDivider: false,
-                            delegateState: "switch",
-                            switchChecked: !chat.isMuted,
-                            newPage: "",
-                            newPageParams: {}
-                        })
+
+                UITK.ListItem {
+                    width: parent.width
+                    height: notificationDelegate.height
+                    visible: chat && !chat.isMyself
+                    onClicked: switchDelegate.toggle()
+                    UITK.ListItemLayout {
+                        id: notificationDelegate
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "notification"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title {
+                            text: i18n.tr("Notifications")
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 2
+                            elide: Text.ElideRight
+                        }
+                        Switch {
+                            id: switchDelegate
+                            checked: isMuted
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                            Suru.highlightType: Suru.PositiveHighlight
+                            onCheckedChanged: if (visible) {AppActions.chat.muteChat(chat, checked ? 0 : 574410023)}
+                            property bool isMuted: visible ? !chat.isMuted : true
+                        }
                     }
-                    if (!isGroup && (chat ? !chat.isMyself : true)) {
-                        itemList.push({
-                            iconName: "contact-group",
-                            titleText: i18n.tr("%1 groups in common").arg(user.fullInfo.groupInCommonCount),
-                            maxLine: 2,
-                            fullDivider: false,
-                            delegateState: "",
-                            switchChecked: false,
-                            newPage: "",
-                            newPageParams: {}
-                        })
+                }
+                UITK.ListItem {
+                    width: parent.width
+                    height: commonGroups.height
+                    visible: !isGroup && (chat ? !chat.isMyself : true)
+                    UITK.ListItemLayout {
+                        id: commonGroups
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "contact-group"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title {
+                            text: visible ? i18n.tr("%1 group in common", "%1 groups in common", user.fullInfo.groupInCommonCount).arg(user.fullInfo.groupInCommonCount) : ""
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 2
+                            elide: Text.ElideRight
+                        }
                     }
-                    if (chat && chat.isSecret) {
-                        itemList.push({
-                            iconName: "system-lock-screen",
-                            titleText: i18n.tr("Encryption Key"),
-                            maxLine: 1,
-                            fullDivider: false,
-                            delegateState: "new-page",
-                            switchChecked: false,
-                            newPage: "qrc:///pages/SecretChatKeyHashPage.qml",
-                            newPageParams: {
-                                "keyHashMap": chat.keyHashMap,
-                                "keyHashString": chat.keyHashString,
-                                "userFirstName": user.firstName
-                            }
-                        })
+                }
+                UITK.ListItem {
+                    width: parent.width
+                    height: secretHashLink.height
+                    visible: chat && chat.isSecret
+                    onClicked: AppActions.view.pushToStack("qrc:///pages/SecretChatKeyHashPage.qml", {
+                        "keyHashMap": chat.keyHashMap,
+                        "keyHashString": chat.keyHashString,
+                        "userFirstName": user.firstName
+                    })
+                    UITK.ListItemLayout {
+                        id: secretHashLink
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "system-lock-screen"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title.text: i18n.tr("Encryption Key")
+                        UITK.ProgressionSlot {}
                     }
                 }
             }

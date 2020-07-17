@@ -7,7 +7,7 @@
 
 QTdUser::QTdUser(QObject *parent)
     : QAbstractInt32Id(parent)
-    , m_fullInfo(new QTdUserFullInfo)
+    , m_fullInfo(Q_NULLPTR)
     , m_status(Q_NULLPTR)
     , m_profilePhoto(new QTdProfilePhoto)
     , m_isVerified(false)
@@ -95,9 +95,9 @@ QTdProfilePhoto *QTdUser::profilePhoto() const
     return m_profilePhoto.data();
 }
 
-QTdUserFullInfo *QTdUser::fullInfo() const
+QTdUserFullInfo *QTdUser::fullInfo()
 {
-    if (m_fullInfo->bio().isEmpty()) {
+    if (m_fullInfo.isNull()) {
         QScopedPointer<QTdGetUserFullInfoRequest> req(new QTdGetUserFullInfoRequest);
         req->setUserId(id());
         QFuture<QTdResponse> resp = req->sendAsync();
@@ -105,10 +105,11 @@ QTdUserFullInfo *QTdUser::fullInfo() const
         if (resp.result().isError()) {
             qWarning() << "Failed to get user full info with error: " << resp.result().errorString();
         } else {
+            m_fullInfo.reset(new QTdUserFullInfo);
             m_fullInfo->unmarshalJson(resp.result().json());
         }
     }
-    return m_fullInfo;
+    return m_fullInfo.data();
 }
 
 QTdUserStatus *QTdUser::status() const
@@ -154,13 +155,8 @@ void QTdUser::setPhoneNumber(QString phoneNumber)
 
 void QTdUser::setFullInfo(QTdUserFullInfo *fullInfo)
 {
-    if (m_fullInfo) {
-        delete m_fullInfo;
-        m_fullInfo = nullptr;
-    }
-
-    m_fullInfo = fullInfo;
-    emit fullInfoChanged(m_fullInfo);
+    m_fullInfo.reset(fullInfo);
+    emit fullInfoChanged(m_fullInfo.data());
 }
 
 void QTdUser::setStatus(QTdUserStatus *status)
