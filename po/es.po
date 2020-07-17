@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
 "PO-Revision-Date: 2020-07-17 17:33+0000\n"
-"Last-Translator: Josué <j2g2rp@gmail.com>\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
 "Language: es\n"
@@ -269,7 +269,7 @@ msgstr "Notificaciones"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "%1 groups in common"
-msgstr ""
+msgstr "%1 grupos en commun"
 
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
