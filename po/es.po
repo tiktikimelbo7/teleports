@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-17 19:29+0000\n"
-"Last-Translator: Josué <j2g2rp@gmail.com>\n"
+"PO-Revision-Date: 2020-07-17 21:04+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
 "Language: es\n"
@@ -225,7 +225,7 @@ msgstr "Obtener el código"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr "Informar fallos"
+msgstr "Reportar Problemas"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
@@ -274,7 +274,7 @@ msgstr "%1 grupos en común"
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr ""
+msgstr "Clave de encriptación"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -719,7 +719,7 @@ msgstr "Hoy"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
