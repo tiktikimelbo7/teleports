@@ -191,6 +191,10 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     if (!lastChat) {
         return;
     }
+    //TODO: Make loading of chats really asyncrhonous and load only visible chats at a time
+    QTime sleepTime = QTime::currentTime().addMSecs(500);
+    while (QTime::currentTime() < sleepTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
     QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
     req->setOffsetChatId(lastChat->id());
     req->setOffsetOrder(lastChat->order());

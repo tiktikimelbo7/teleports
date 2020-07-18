@@ -47,6 +47,8 @@ QTdChat::QTdChat(QObject *parent)
 
 void QTdChat::unmarshalJson(const QJsonObject &json)
 {
+    updateChatReadInbox(json);
+    updateChatReadOutbox(json);
     updateChatTitle(json);
 
     if (m_chatType) {
@@ -61,29 +63,18 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
         c->getSecretChatData();
     }
     updateLastMessage(json["last_message"].toObject());
-
     updateChatOrder(json);
     updateChatIsPinned(json);
 
     m_canBeReported = json["can_be_reported"].toBool();
     emit canBeReportedChanged();
-
-    updateChatReadInbox(json);
-
-    updateChatReadOutbox(json);
-
     updateChatUnreadMentionCount(json);
-
     updateChatReplyMarkup(json);
-
     updateChatDraftMessage(json["draft_message"].toObject());
-
     m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
     emit notificationSettingsChanged();
-
     QAbstractInt64Id::unmarshalJson(json);
     updateChatPhoto(json["photo"].toObject());
-
     onChatDeserialized();
 }
 
@@ -474,11 +465,11 @@ void QTdChat::updateChatOrder(const QJsonObject &json)
 
 void QTdChat::updateChatReadInbox(const QJsonObject &json)
 {
+    m_lastReadInboxMsg = json["last_read_inbox_message_id"];
+    emit lastReadInboxMessageIdChanged();
     m_unreadCount = json["unread_count"];
     emit unreadCountChanged();
     QTdClient::instance()->setUnreadMapEntry(id(), unreadCount());
-    m_lastReadInboxMsg = json["last_read_inbox_message_id"];
-    emit lastReadInboxMessageIdChanged();
 }
 
 void QTdChat::updateChatReadOutbox(const QJsonObject &json)
