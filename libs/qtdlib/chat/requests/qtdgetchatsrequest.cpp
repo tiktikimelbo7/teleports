@@ -14,7 +14,7 @@ QJsonObject QTdGetChatsRequest::marshalJson()
         { "@type", "getChats" },
         { "offset_order", QString::number(m_offset_order) },
         { "offset_chat_id", m_offset_chat_id },
-        { "limit", 50 },
+        { "limit", 25 },
     };
 }
 
