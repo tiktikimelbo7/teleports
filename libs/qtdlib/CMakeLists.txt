@@ -5,12 +5,12 @@ cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-find_package(Td)
-find_package(Qt5Core)
-find_package(Qt5Qml)
-find_package(Qt5Quick)
-find_package(Qt5Concurrent)
-find_package(Qt5Positioning)
+find_package(Td 1.6.0 REQUIRED)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Qml REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5Concurrent REQUIRED)
+find_package(Qt5Positioning REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 
 
@@ -220,11 +220,9 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 add_library(${QTDLIB} SHARED ${SRC})
-link_directories(${TDLIB_LIB_DIR})
 target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Td::tdjson auxdb)
 target_include_directories(${QTDLIB} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
-#set_property(TARGET ${QTDLIB} PROPERTY INTERFACE_INCLUDE_DIRECTORIES ${QTDLIB_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
 execute_process(
     COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH
