@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-17 20:29+0000\n"
-"PO-Revision-Date: 2020-07-17 21:04+0000\n"
-"Last-Translator: anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2020-07-18 12:32+0000\n"
+"Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
 "Language: es\n"
@@ -225,7 +225,7 @@ msgstr "Obtener el código"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
-msgstr "Reportar Problemas"
+msgstr "Reportar problemas"
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
@@ -274,7 +274,7 @@ msgstr "%1 grupos en común"
 #: ../app/qml/pages/ChatInfoPage.qml:143
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr "Clave de encriptación"
+msgstr "Clave de cifrado"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
