@@ -32,10 +32,14 @@ QTdTextEntityType *QTdTextEntityFactory::create(const QJsonObject &json, QObject
         return new QTdTextEntityTypePre(parent);
     } else if (type == "textEntityTypePreCode") {
         return new QTdTextEntityTypePreCode(parent);
+    } else if (type == "textEntityTypeStrikethrough") {
+        return new QTdTextEntityTypeStrikethrough(parent);
+    } else if (type == "textEntityTypeUnderline") {
+        return new QTdTextEntityTypeUnderline(parent);
     } else if (type == "textEntityTypeTextUrl") {
         return new QTdTextEntityTypeTextUrl(parent);
     } else if (type == "textEntityTypeUrl") {
         return new QTdTextEntityTypeUrl(parent);
     }
-    return Q_NULLPTR;
+    return new QTdTextEntityType(parent);
 }
