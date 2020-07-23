@@ -102,6 +102,18 @@ void QTdTextFormatter::doFormat()
             cursor.mergeCharFormat(format);
             break;
         }
+        case QTdTextEntity::TEXT_ENTITY_TYPE_STRIKETHROUGH: {
+            QTextCharFormat format;
+            format.setFontStrikeOut(true);
+            cursor.mergeCharFormat(format);
+            break;
+        }
+        case QTdTextEntity::TEXT_ENTITY_TYPE_UNDERLINE: {
+            QTextCharFormat format;
+            format.setFontUnderline(true);
+            cursor.mergeCharFormat(format);
+            break;
+        }
         case QTdTextEntity::TEXT_ENTITY_TYPE_BOT_COMMAND:
         case QTdTextEntity::TEXT_ENTITY_TYPE_CASHTAG:
             break;
