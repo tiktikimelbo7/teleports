@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-06-22 21:36+0000\n"
+"PO-Revision-Date: 2020-07-23 19:02+0000\n"
 "Last-Translator: Florian Leeber <flori@bin.org.in>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
@@ -267,11 +267,9 @@ msgid "Notifications"
 msgstr "Benachrichtigungen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
-#, fuzzy
-#| msgid "%1 groups in common"
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
-msgstr[0] "%1 gemeinsame Gruppen"
+msgstr[0] "%1 gemeinsame Gruppe"
 msgstr[1] "%1 gemeinsame Gruppen"
 
 #: ../app/qml/pages/ChatInfoPage.qml:185
@@ -728,7 +726,6 @@ msgstr "Gestern"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
-#, fuzzy
 msgid "dddd"
 msgstr "dddd"
 
