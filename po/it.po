@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-07 12:16+0000\n"
+"PO-Revision-Date: 2020-07-25 15:24+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
@@ -267,11 +267,9 @@ msgid "Notifications"
 msgstr "Notifiche"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
-#, fuzzy
-#| msgid "%1 groups in common"
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
-msgstr[0] "%1 gruppi in comune"
+msgstr[0] "%1 gruppo in comune"
 msgstr[1] "%1 gruppi in comune"
 
 #: ../app/qml/pages/ChatInfoPage.qml:185
@@ -729,7 +727,7 @@ msgstr "Ieri"
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
 msgid "dddd"
-msgstr "gggg"
+msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
