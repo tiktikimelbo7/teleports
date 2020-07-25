@@ -79,7 +79,6 @@ Item {
       profile:webProfile
       url: videoPreviewSource? videoPreviewSource : audioPreviewSource
       visible: viewer.isAudio || viewer.isVideo
-      // url: "https://google.de"
       settings.showScrollBars: false
       anchors {
         left: parent.left
