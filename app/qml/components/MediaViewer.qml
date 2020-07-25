@@ -19,6 +19,7 @@ import QtMultimedia 5.0
 import Ubuntu.Components 1.3 as UITK
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Suru 2.2
+import QtWebEngine 1.7
 
 Item {
     id: viewer
@@ -29,6 +30,7 @@ Item {
 
     property bool isVideo: videoPreviewSource !== ""
     property bool isAudio: audioPreviewSource !== ""
+    property bool isImage: photoPreviewSource !== ""
     property bool userInteracting: pinchInProgress || flickable.sizeScale != 1.0
     property bool fullyZoomed: flickable.sizeScale == zoomPinchArea.maximumZoom
     property bool fullyUnzoomed: flickable.sizeScale == zoomPinchArea.minimumZoom
@@ -69,11 +71,27 @@ Item {
         visible: running && !viewer.isVideo && !viewer.isAudio
         running: image.status != Image.Ready
     }
-
+    WebEngineProfile{
+      id:webProfile
+    }
+    WebEngineView {
+      id: webView
+      profile:webProfile
+      url: videoPreviewSource? videoPreviewSource : audioPreviewSource
+      visible: viewer.isAudio || viewer.isVideo
+      // url: "https://google.de"
+      settings.showScrollBars: false
+      anchors {
+        left: parent.left
+        top: parent.top
+        right: parent.right
+        bottom: parent.bottom
+      }
+    }
     PinchArea {
         id: zoomPinchArea
         anchors.fill: parent
-
+        visible: viewer.isImage
         property real initialZoom
         property real maximumScale: 3.0
         property real minimumZoom: 1.0
@@ -164,47 +182,6 @@ Item {
                     }
                     fillMode: Image.PreserveAspectFit
                 }
-
-                MediaPlayer {
-                    id: videoPreview
-
-                    property bool isPlaying: playbackState === MediaPlayer.PlayingState
-
-                    autoLoad: false
-                    autoPlay: false
-                    source: videoPreviewSource
-                    onStopped: playIcon.name = "media-playback-start"
-                }
-
-                VideoOutput {
-                    id: videoOutput
-                    anchors.fill: parent
-                    visible: videoPreviewSource !== ""
-                    source: videoPreview
-                }
-
-                UITK.Icon {
-                    id: background
-                    visible: isAudio
-                    width: parent.width
-                    height: width
-                    anchors.centerIn: parent
-                    name: "audio-speakers-symbolic"
-                }
-                ProgressBar {
-                    id: progressBar
-                    anchors.bottom: background.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    value: audioOutput.position/audioOutput.duration
-                    visible: audioOutput.isPlaying
-                }
-
-                Audio {
-                    id: audioOutput
-                    property bool isPlaying: playbackState === MediaPlayer.PlayingState
-                    source: audioPreviewSource
-                    onStopped: playIcon.name = "media-playback-start"
-                }
             }
 
             UITK.Icon {
@@ -221,60 +198,10 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 onDoubleClicked: {
-                    clickTimer.stop();
-
-                    if (viewer.isAudio) {
-                        // Rewind.
-                        audioOutput.stop();
-                        audioOutput.play();
-                        return;
-                    }
-                    if (viewer.isVideo) {
-                        // Rewind.
-                        videoPreview.stop();
-                        videoPreview.play();
-                        return;
-                    }
                     if (flickable.sizeScale < zoomPinchArea.maximumZoom) {
                         zoomIn(mouse.x, mouse.y, zoomPinchArea.maximumZoom);
                     } else {
                         zoomOut();
-                    }
-                }
-                onClicked: {
-                    clickTimer.start();
-                }
-                Timer {
-                    id: videoSinkTimer
-                    interval: 1000
-                    onTriggered: {
-                      console.log("mediaviewer timer")
-                      videoPreview.stop();
-                      videoPreview.play();
-                      playIcon.name = "media-playback-pause"
-                      // videoSinkTimer.stop();
-                    }
-                  }
-                Timer {
-                    id: clickTimer
-                    interval: 150
-                    onTriggered: {
-                        if (viewer.isAudio) {
-                            audioOutput.isPlaying ? audioOutput.pause() : audioOutput.play();
-                        }
-                        if (viewer.isVideo) {
-                            if(videoPreview.isPlaying)videoPreview.pause()
-                            else {
-                              videoPreview.play();
-                              videoSinkTimer.start();
-                            }
-                        }
-                        if (videoPreview.isPlaying || audioOutput.isPlaying) {
-                                playIcon.name = "media-playback-pause"
-                        } else {
-                                playIcon.name = "media-playback-start"
-                        }
-                        viewer.clicked();
                     }
                 }
             }
