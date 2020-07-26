@@ -9,7 +9,7 @@
         "networking",
         "push-notification-client",
         "video",
-        "webview",
+        "webview"
     ],
     "policy_version": 16.04
 }
