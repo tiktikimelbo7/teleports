@@ -8,7 +8,8 @@
         "location",
         "networking",
         "push-notification-client",
-        "video"
+        "video",
+        "webview",
     ],
     "policy_version": 16.04
 }
