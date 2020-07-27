@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-06-30 20:25+0000\n"
+"PO-Revision-Date: 2020-07-27 10:45+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -266,12 +266,10 @@ msgid "Notifications"
 msgstr "Notifikácia"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
-#, fuzzy
-#| msgid "%1 groups in common"
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
-msgstr[0] "%1 spoločných skupín"
-msgstr[1] "%1 spoločných skupín"
+msgstr[0] "%1 spoločná skupina"
+msgstr[1] "%1 spoločné skupiny"
 msgstr[2] "%1 spoločných skupín"
 
 #: ../app/qml/pages/ChatInfoPage.qml:185
