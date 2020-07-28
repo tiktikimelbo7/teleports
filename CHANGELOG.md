@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.8
+### Added
+- Option to turn notifications on and off per group or user
+- Fastscroll and sorting added to contact list. When starting to scroll the letters can be clicked to jump
+- Added a new option to also show single, double check marks and clock icon as message status indicators. How retro!
+- Incoming messages can now be displayed with underlined and strike-through formatting
+
+### Changed
+- Upgrade to tdlib 1.6 - Thank You Telegram!
+- Caption of all possible message types can now be edited
+- User and group info have been unified to use the same UI elements, secret chat key fingerprint relocated
+
+### Bugfix
+- Replying to a message with a sticker works now
+- Pinephone users s could not see the message input box
+- Forwarding messages does not delete any draft in the same chat
+- Formatting of code was inconsistent when used with 2 backticks
+- Message draft remembers also if its a reply to another message
+- Incoming voice note recording info does not crash the App anymore
+- Audio files could not be shared to other apps
+
 ## 0.7
 ### Added
 - TELEports is now available also for 64bit devices
