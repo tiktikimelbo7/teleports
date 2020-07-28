@@ -54,7 +54,9 @@ Page {
     }
 
     function saveAndShareVisible() {
-        return (photoPreviewSource !== "" || videoPreviewSource !== "");
+        return (photoPreviewSource !== "" ||
+                videoPreviewSource !== "" || 
+                audioPreviewSource !== "");
     }
 
     function save() {
@@ -71,6 +73,12 @@ Page {
                                             "url": videoPreviewSource,
                                             "handler": ContentHandler.Destination,
                                             "contentType": ContentType.Videos
+                                        });
+        }  else if (audioPreviewSource !== "") {
+            AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
+                                            "url": audioPreviewSource,
+                                            "handler": ContentHandler.Destination,
+                                            "contentType": ContentType.Music
                                         });
         }
     }
