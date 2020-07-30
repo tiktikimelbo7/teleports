@@ -8,23 +8,25 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2020-07-30 23:33+0000\n"
+"Last-Translator: Young Kim <rsyh93@gmail.com>\n"
+"Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
+"teleports/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
 msgid "Choose a country"
-msgstr ""
+msgstr "나라 선택"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr ""
+msgstr "나라 이름 검색..."
 
 #: ../app/qml/components/DeleteDialog.qml:9
 msgid ""
@@ -42,11 +44,11 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
-msgstr ""
+msgstr "메세지 편집"
 
 #: ../app/qml/components/MessageStatusRow.qml:36
 msgid "Edited"
@@ -54,13 +56,13 @@ msgstr ""
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr ""
+msgstr "확인"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:31
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: ../app/qml/components/UserProfile.qml:72
 msgid "Members: %1"
@@ -76,16 +78,16 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:67
 msgid "Reply"
-msgstr ""
+msgstr "답장"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:73
 msgid "Sticker Pack info"
@@ -94,7 +96,7 @@ msgstr ""
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
 #: ../app/qml/pages/ChatListPage.qml:361
 msgid "Forward"
-msgstr ""
+msgstr "전달"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
@@ -444,7 +446,7 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "연락처 추가"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
@@ -452,7 +454,7 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 #: ../app/qml/pages/UserListPage.qml:119
 msgid "Secret Chat"
@@ -476,42 +478,42 @@ msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
-msgstr ""
+msgstr "비밀번호 입력"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:39
 msgid "Password"
-msgstr ""
+msgstr "비밀번호"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92
 #: ../app/qml/pages/WaitRegistrationPage.qml:57
 msgid "Next..."
-msgstr ""
+msgstr "다음..."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "전화번호 입력"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:54
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:64
 msgid "Phone number"
-msgstr ""
+msgstr "전화번호"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:88
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "국가번호를 확인하시고 전화번호를 입력하십시오."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
 msgid "Enter your Name"
-msgstr ""
+msgstr "이름을 입력하십시오"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:38
 msgid "First Name"
-msgstr ""
+msgstr "이름"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:44
 msgid "Last Name"
-msgstr ""
+msgstr "성"
 
 #: ../app/qml/stores/AuthStateStore.qml:63
 msgid "Invalid phone number!"
