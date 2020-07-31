@@ -326,13 +326,13 @@ msgstr ""
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:26
 msgid "Offline"
-msgstr ""
+msgstr "오프라인"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:30
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 msgid "Online"
-msgstr ""
+msgstr "온라인"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Connecting To Proxy"
