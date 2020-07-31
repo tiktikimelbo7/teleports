@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:30+0000\n"
+"PO-Revision-Date: 2020-07-31 09:55+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -541,7 +541,7 @@ msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
