@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 18:52+0000\n"
+"PO-Revision-Date: 2020-07-31 22:11+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -232,11 +232,11 @@ msgstr ""
 
 #: ../app/qml/pages/ChatInfoPage.qml:21
 msgid "Profile"
-msgstr ""
+msgstr "프로파일"
 
 #: ../app/qml/pages/ChatInfoPage.qml:41
 msgid "Send message"
-msgstr ""
+msgstr "메시지 전송"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
@@ -248,7 +248,7 @@ msgstr "저장"
 
 #: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
 msgid "Phone no"
-msgstr ""
+msgstr "전화번호"
 
 #: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
 msgid "First name"
@@ -316,12 +316,12 @@ msgstr ""
 #: ../app/qml/pages/ChatListPage.qml:384
 #: ../app/qml/pages/MessageListPage.qml:628
 msgid "Send"
-msgstr ""
+msgstr "전송"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting"
-msgstr ""
+msgstr "연결 중"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:26
