@@ -252,11 +252,11 @@ msgstr ""
 
 #: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
 msgid "First name"
-msgstr ""
+msgstr "이름"
 
 #: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
 msgid "Last name"
-msgstr ""
+msgstr "성"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "Notifications"
