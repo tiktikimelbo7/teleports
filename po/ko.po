@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:16+0000\n"
+"PO-Revision-Date: 2020-07-31 09:17+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -416,7 +416,7 @@ msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:70 ../app/qml/pages/SettingsPage.qml:142
 msgid "Logout"
-msgstr ""
+msgstr "로그아웃"
 
 #: ../app/qml/pages/SettingsPage.qml:86
 msgid "Delete account"
