@@ -299,7 +299,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:142 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
-msgstr ""
+msgstr "정보"
 
 #: ../app/qml/pages/ChatListPage.qml:359
 msgid "Do you want to forward the selected messages to %1?"
