@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:29+0000\n"
+"PO-Revision-Date: 2020-07-31 09:30+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -783,7 +783,7 @@ msgstr ""
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "yy.MM.dd hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
