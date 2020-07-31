@@ -260,7 +260,7 @@ msgstr "성"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "Notifications"
-msgstr ""
+msgstr "알림"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
 msgid "%1 group in common"
