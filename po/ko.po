@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 08:04+0000\n"
+"PO-Revision-Date: 2020-07-31 09:10+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -187,18 +187,18 @@ msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:83
 msgid "About"
-msgstr ""
+msgstr "정보"
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
 #: ../app/qml/pages/ConnectivityPage.qml:46
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:18
 #: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
 msgid "Back"
-msgstr ""
+msgstr "뒤로"
 
 #. TRANSLATORS: Application name.
 #: ../app/qml/pages/AboutPage.qml:66 ../app/qml/pages/ChatListPage.qml:21
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:72
 msgid "Version %1"
-msgstr ""
+msgstr "버전 %1"
 
 #: ../app/qml/pages/AboutPage.qml:74
 msgid " (git# %1)"
