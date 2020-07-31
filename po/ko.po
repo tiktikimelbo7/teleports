@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:11+0000\n"
+"PO-Revision-Date: 2020-07-31 09:12+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -279,7 +279,7 @@ msgstr ""
 #: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:64
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:84
 msgid "Saved Messages"
@@ -287,7 +287,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:59 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
-msgstr ""
+msgstr "연락처"
 
 #: ../app/qml/pages/ChatListPage.qml:70
 msgid "Night mode"
