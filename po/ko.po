@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:27+0000\n"
+"PO-Revision-Date: 2020-07-31 09:29+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -714,12 +714,12 @@ msgstr ""
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
 msgid "dd MMMM yyyy"
-msgstr ""
+msgstr "yyyy MMMM dd"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
 msgid "dd MMMM"
-msgstr ""
+msgstr "MMMM dd"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
@@ -727,11 +727,11 @@ msgstr "위치"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "사진"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "사진,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
@@ -739,11 +739,11 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "동영상"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "동영상,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
 msgid "Video message"
