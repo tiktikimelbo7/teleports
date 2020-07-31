@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 10:50+0000\n"
+"PO-Revision-Date: 2020-07-31 18:52+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
-msgstr ""
+msgstr "음성 메모"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
