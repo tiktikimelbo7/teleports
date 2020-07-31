@@ -759,7 +759,7 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
-msgstr ""
+msgstr "나"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
 msgid "Unimplemented:"
