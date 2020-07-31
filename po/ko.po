@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:13+0000\n"
+"PO-Revision-Date: 2020-07-31 09:15+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -370,11 +370,11 @@ msgstr[0] ""
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ""
+msgstr[0] ",%1명 온라인"
 
 #: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
-msgstr ""
+msgstr "텔레그램"
 
 #: ../app/qml/pages/MessageListPage.qml:333
 msgid "You are not allowed to post in this channel"
