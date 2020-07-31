@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-31 09:15+0000\n"
+"PO-Revision-Date: 2020-07-31 09:16+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
 "teleports/ko/>\n"
@@ -406,7 +406,7 @@ msgstr ""
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "파일: "
 
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:65
 msgid ""
