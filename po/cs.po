@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-29 07:28+0000\n"
-"Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
+"PO-Revision-Date: 2020-08-02 05:03+0000\n"
+"Last-Translator: c4pp4 <c4pp4@seznam.cz>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
 "Language: cs\n"
@@ -726,12 +726,12 @@ msgstr "dddd"
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
 msgid "dd MMMM yyyy"
-msgstr "dd MMMM yyyy"
+msgstr "dd. MMMM yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
 msgid "dd MMMM"
-msgstr "dd MMMM"
+msgstr "dd. MMMM"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
