@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-27 10:45+0000\n"
+"PO-Revision-Date: 2020-08-05 18:43+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "teleports/sk/>\n"
@@ -92,7 +92,7 @@ msgstr "Odpovedať"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:73
 msgid "Sticker Pack info"
-msgstr "Informácie o balíčku Stickers"
+msgstr "Informácie o balíčku nálepiek"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
 #: ../app/qml/pages/ChatListPage.qml:361
@@ -101,11 +101,11 @@ msgstr "Preposlať"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 joined the group"
-msgstr "%1 sa pripojil ku skupine"
+msgstr "%1 sa pripojil(a) ku skupine"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
 msgid "%1 added %2"
-msgstr "%1 pridal %2"
+msgstr "%1 pridal(a) %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
 msgid "%1 user(s)"
@@ -116,7 +116,7 @@ msgstr[2] "%1 užívateľov"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
-msgstr "%1 opustil skupinu"
+msgstr "%1 opustil(a) skupinu"
 
 #. TRANSLATORS: Notification message saying: person A removed person B (from a group)
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:7
@@ -127,11 +127,11 @@ msgstr "%1 odstránil(a) %2"
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
 msgid "Group has been upgraded to Supergroup"
-msgstr "Skupina bola povýšená na supergroup"
+msgstr "Skupina bola povýšená na superskupinu"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
-msgstr "%1 sa pripojil k Telegramu!"
+msgstr "%1 sa pripojil(a) k Telegramu!"
 
 #: ../app/qml/delegates/MessageContentBase.qml:37
 msgid "Forwarded from %1"
@@ -140,7 +140,7 @@ msgstr "Preposlané od %1"
 #. TRANSLATORS: This is the duration of a phone call in hours:minutes:seconds format
 #: ../app/qml/delegates/MessageContentCall.qml:59
 msgid "Duration: %1:%2:%3"
-msgstr "Doba hovoru: %1:%2:%3"
+msgstr "Dĺžka hovoru: %1:%2:%3"
 
 #: ../app/qml/delegates/MessageContentVoiceNote.qml:56
 msgid "Voice note"
@@ -148,7 +148,7 @@ msgstr "Hlasová poznámka"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
-msgstr "%1 sa pripojil pomocou pozývajúceho odkazu"
+msgstr "%1 sa pripojil(a) pomocou pozývajúceho odkazu"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -169,7 +169,7 @@ msgstr "Nepodporovaná správa"
 
 #: ../app/qml/delegates/NotImplementedYet.qml:12
 msgid "Unknown message type, see logfile for details..."
-msgstr "Neznámy typ správy, pre podrobnosti pozri logfile..."
+msgstr "Neznámy typ správy, pre podrobnosti pozrite logfile..."
 
 #: ../app/qml/middleware/ChatMiddleware.qml:21
 msgid "Are you sure you want to clear the history?"
@@ -186,7 +186,7 @@ msgstr "Naozaj chcete opustiť tento chat?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Leave"
-msgstr "Opustiť chat"
+msgstr "Opustiť"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -219,7 +219,7 @@ msgstr " (git# %1)"
 
 #: ../app/qml/pages/AboutPage.qml:93
 msgid "Get the source"
-msgstr "Získať zdrojový kód"
+msgstr "Získať zdrojové kódy"
 
 #: ../app/qml/pages/AboutPage.qml:94
 msgid "Report issues"
@@ -243,7 +243,7 @@ msgstr "Poslať správu"
 
 #: ../app/qml/pages/ChatInfoPage.qml:61
 msgid "Edit user data and press Save"
-msgstr "Editovať údaje o užívateľovi a kliknúť na uložiť"
+msgstr "Upraviť údaje o používateľovi a kliknúť na uložiť"
 
 #: ../app/qml/pages/ChatInfoPage.qml:63 ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
@@ -263,7 +263,7 @@ msgstr "Priezvisko"
 
 #: ../app/qml/pages/ChatInfoPage.qml:131
 msgid "Notifications"
-msgstr "Notifikácia"
+msgstr "Notifikácie"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
 msgid "%1 group in common"
@@ -275,7 +275,7 @@ msgstr[2] "%1 spoločných skupín"
 #: ../app/qml/pages/ChatInfoPage.qml:185
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
 msgid "Encryption Key"
-msgstr "Enkryptovaný kľúč"
+msgstr "Šifrovaný kľúč"
 
 #: ../app/qml/pages/ChatListPage.qml:20
 msgid "Select destination or cancel..."
@@ -316,7 +316,7 @@ msgstr "Napíšte voliteľnú správu..."
 
 #: ../app/qml/pages/ChatListPage.qml:382
 msgid "Do you want to send the imported files to %1?"
-msgstr "Prajete si importované súbory odoslať 1%?"
+msgstr "Prajete si stiahnuté súbory odoslať 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:384
 #: ../app/qml/pages/MessageListPage.qml:628
@@ -331,13 +331,13 @@ msgstr "Pripojovanie"
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:26
 msgid "Offline"
-msgstr "Offline"
+msgstr "Nepripojený"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:30
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 msgid "Online"
-msgstr "Online"
+msgstr "Pripojený(á)"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Connecting To Proxy"
@@ -345,7 +345,7 @@ msgstr "Pripájanie k proxy"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
-msgstr "Aktualizovanie"
+msgstr "Aktualizuje sa"
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
 msgid "Connectivity"
@@ -377,7 +377,7 @@ msgstr[2] "%1 členov"
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ", %1 pripojený"
+msgstr[0] ", %1 pripojený(á)"
 msgstr[1] ", %1 pripojení"
 msgstr[2] ", %1 pripojení"
 
@@ -387,7 +387,7 @@ msgstr "Telegram"
 
 #: ../app/qml/pages/MessageListPage.qml:333
 msgid "You are not allowed to post in this channel"
-msgstr "Nemáte oprávnenie k zasielaniu správ v tomto kanáli"
+msgstr "Nemáte oprávnenie k zasielaniu správ na tomto kanáli"
 
 #: ../app/qml/pages/MessageListPage.qml:337
 msgid "Waiting for other party to accept the secret chat..."
@@ -407,7 +407,7 @@ msgstr "Prajete si zdieľať vašu polohu s %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:639
 msgid "Requesting location from OS..."
-msgstr "Vyžadovaná poloha od OS..."
+msgstr "Vyžadovaná poloha od operačného systému..."
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -466,7 +466,7 @@ msgstr "Pridať kontakt"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr "Kontakt bude pridaný. Prvé a posledné meno je voliteľné"
+msgstr "Kontakt bude pridaný. Meno a priezvisko sú voliteľné"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
@@ -490,8 +490,7 @@ msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr ""
-"Na vaše zariadenie bol cez telegram odoslaný kód. Zadajte ho prosím tu."
+msgstr "Na vaše zariadenie bol cez Telegram odoslaný kód. Zadajte ho prosím tu."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -518,7 +517,7 @@ msgstr "Telefónne číslo"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:88
 msgid "Please confirm your country code and enter your phone number."
-msgstr "Potvrďte kód vášho štátu a zadajte vaše telefónne číslo."
+msgstr "Potvrďte kód vášho štátu a zadajte Vaše telefónne číslo."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
 msgid "Enter your Name"
