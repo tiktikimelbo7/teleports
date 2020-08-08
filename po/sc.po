@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-23 16:33+0000\n"
-"PO-Revision-Date: 2020-07-17 13:49+0000\n"
+"PO-Revision-Date: 2020-08-08 07:58+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -268,12 +268,10 @@ msgid "Notifications"
 msgstr "Notìficas"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
-#, fuzzy
-#| msgid "%1 groups in common"
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
-msgstr[0] "grupos a cumone: %1"
-msgstr[1] "grupos a cumone: %1"
+msgstr[0] "%1 grupu a cumone"
+msgstr[1] "%1 grupos a cumone"
 
 #: ../app/qml/pages/ChatInfoPage.qml:185
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:13
