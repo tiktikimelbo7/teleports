@@ -144,7 +144,6 @@ MessageContentBase {
                     largePhoto.downloadFile();
                 }
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
-                                                "senderName": message.sender.username,
                                                 "photoPreviewSource": Qt.resolvedUrl("file://" + largePhoto.local.path)
                                             });
 
