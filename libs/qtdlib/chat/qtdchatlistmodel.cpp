@@ -477,5 +477,5 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     QScopedPointer<QTdSetChatDraftRequest> request(new QTdSetChatDraftRequest);
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
-    request->sendAsync();
+    QTdClient::instance()->send(request.data());
 }
