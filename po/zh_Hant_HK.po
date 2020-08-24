@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 16:33+0000\n"
+"POT-Creation-Date: 2020-08-23 22:06+0000\n"
 "PO-Revision-Date: 2019-05-16 22:03+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <https://translate.ubports.com/projects/"
@@ -695,6 +695,10 @@ msgstr ""
 msgid "upgraded to supergroup"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+msgid "Contact"
+msgstr ""
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr ""
@@ -762,7 +766,7 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
 msgid "Unimplemented:"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 16:33+0000\n"
+"POT-Creation-Date: 2020-08-23 22:06+0000\n"
 "PO-Revision-Date: 2020-08-17 12:51+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
@@ -717,6 +717,12 @@ msgstr "la date d'expiration du message a été modifiée"
 msgid "upgraded to supergroup"
 msgstr "transformé en supergroupe"
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+#, fuzzy
+#| msgid "Contacts"
+msgid "Contact"
+msgstr "Contacts"
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "a rejoint Telegram !"
@@ -784,7 +790,7 @@ msgstr "Message vocal,"
 msgid "Me"
 msgstr "Moi"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
 msgid "Unimplemented:"
 msgstr "Non implémenté :"
 

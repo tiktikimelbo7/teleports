@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 16:33+0000\n"
+"POT-Creation-Date: 2020-08-23 22:06+0000\n"
 "PO-Revision-Date: 2020-08-02 05:03+0000\n"
 "Last-Translator: c4pp4 <c4pp4@seznam.cz>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -706,6 +706,12 @@ msgstr "TTL zprávy bylo změněno"
 msgid "upgraded to supergroup"
 msgstr "povýšeno na superskupinu"
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+#, fuzzy
+#| msgid "Contacts"
+msgid "Contact"
+msgstr "Kontakty"
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "se připojil(a) ke službě Telegram!"
@@ -773,7 +779,7 @@ msgstr "Hlasová zpráva,"
 msgid "Me"
 msgstr "Já"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
 msgid "Unimplemented:"
 msgstr "Neimplementováno:"
 

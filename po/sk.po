@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 16:33+0000\n"
+"POT-Creation-Date: 2020-08-23 22:06+0000\n"
 "PO-Revision-Date: 2020-08-05 18:43+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
@@ -490,7 +490,8 @@ msgstr "Kód"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr "Na vaše zariadenie bol cez Telegram odoslaný kód. Zadajte ho prosím tu."
+msgstr ""
+"Na vaše zariadenie bol cez Telegram odoslaný kód. Zadajte ho prosím tu."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -710,6 +711,12 @@ msgstr "TTL správa zmenená"
 msgid "upgraded to supergroup"
 msgstr "povýšená na supergroup"
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+#, fuzzy
+#| msgid "Contacts"
+msgid "Contact"
+msgstr "Kontakty"
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "sa pripojil k Telegramu!"
@@ -777,7 +784,7 @@ msgstr "Hlasová správa,"
 msgid "Me"
 msgstr "Ja"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:92
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
 msgid "Unimplemented:"
 msgstr "Neimplementované:"
 
