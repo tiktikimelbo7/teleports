@@ -99,6 +99,8 @@
         <file>delegates/MessageChatUpgradeTo.qml</file>
         <file>delegates/MessageBasicGroupChatCreate.qml</file>
         <file>delegates/MessageChatDeleteMember.qml</file>
+        <file>delegates/MessageContactItem.qml</file>
+        <file>delegates/MessageContentContact.qml</file>
         <file>components/Citation.qml</file>
         <file>components/FormattedText.qml</file>
         <file>components/WaitingBar.qml</file>

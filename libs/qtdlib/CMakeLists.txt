@@ -22,7 +22,6 @@ set(QTDLIB "QTdlib")
 set(
     SRC
     # todo
-    # messages/content/qtdmessagecontact.cpp
     # messages/content/qtdmessagecontactregistered.cpp
     # messages/content/qtdmessageexpiredphoto.cpp
     # messages/content/qtdmessageexpiredvideo.cpp
@@ -156,6 +155,7 @@ set(
     messages/content/qtdtextentitytype.cpp
     messages/content/qtdlocation.cpp
     messages/content/qtdwebpage.cpp
+    messages/content/qtdmessagecontact.cpp
     messages/content/qtdmessageunsupported.cpp
     messages/content/qtdmessagescreenshottaken.cpp
     messages/qtdchatstate.cpp
