@@ -299,9 +299,6 @@ void QTdClient::init()
 void QTdClient::handleUpdateOption(const QJsonObject &json)
 {
 
-    QJsonDocument doc(json);
-    QString strJson(doc.toJson(QJsonDocument::Compact));
-
     QString option_name = json["name"].toString();
     auto option_value = QVariant();
     auto value_obj = json["value"].toObject();
