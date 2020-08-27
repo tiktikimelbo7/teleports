@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-23 22:06+0000\n"
-"PO-Revision-Date: 2020-07-24 18:08+0000\n"
+"PO-Revision-Date: 2020-08-27 23:58+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -711,10 +711,8 @@ msgid "upgraded to supergroup"
 msgstr "actualitzat a supergrup"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-#, fuzzy
-#| msgid "Contacts"
 msgid "Contact"
-msgstr "Contactes"
+msgstr "Contacte"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
