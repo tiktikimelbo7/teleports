@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-23 22:06+0000\n"
-"PO-Revision-Date: 2020-08-30 20:47+0000\n"
+"PO-Revision-Date: 2020-08-30 21:40+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -268,11 +268,9 @@ msgid "Notifications"
 msgstr "Notificaciones"
 
 #: ../app/qml/pages/ChatInfoPage.qml:160
-#, fuzzy
-#| msgid "%1 groups in common"
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
-msgstr[0] "%1 grupos en común"
+msgstr[0] "%1 grupo en común"
 msgstr[1] "%1 grupos en común"
 
 #: ../app/qml/pages/ChatInfoPage.qml:185
