@@ -23,8 +23,6 @@ set(
     SRC
     # todo
     # messages/content/qtdmessagecontactregistered.cpp
-    # messages/content/qtdmessageexpiredphoto.cpp
-    # messages/content/qtdmessageexpiredvideo.cpp
     # messages/content/qtdmessagegame.cpp
     # messages/content/qtdmessagegamescore.cpp
     # messages/content/qtdmessageinvoice.cpp
@@ -34,7 +32,6 @@ set(
     # messages/content/qtdmessagepaymentsuccessfulbot.cpp
     # messages/content/qtdmessagepinmessage.cpp
     # messages/content/qtdmessagevenue.cpp
-    # messages/content/qtdmessagewebsiteconnected.cpp
     # messages/requests/content/qtdinputmessageanimation.cpp
     # messages/requests/content/qtdinputmessageaudio.cpp
     # messages/requests/content/qtdinputmessagecontact.cpp
@@ -143,8 +140,11 @@ set(
     messages/content/qtdmessagecontactregistered.cpp
     messages/content/qtdmessagedate.cpp
     messages/content/qtdmessagedocument.cpp
+    messages/content/qtdmessageexpiredphoto.cpp
+    messages/content/qtdmessageexpiredvideo.cpp
     messages/content/qtdmessagelocation.cpp
     messages/content/qtdmessagephoto.cpp
+    messages/content/qtdmessagepoll.cpp
     messages/content/qtdmessagesticker.cpp
     messages/content/qtdmessagesupergroupchatcreate.cpp
     messages/content/qtdmessagetext.cpp
@@ -158,6 +158,7 @@ set(
     messages/content/qtdmessagecontact.cpp
     messages/content/qtdmessageunsupported.cpp
     messages/content/qtdmessagescreenshottaken.cpp
+    messages/content/qtdmessagewebsiteconnected.cpp
     messages/qtdchatstate.cpp
     messages/qtddraftmessage.cpp
     messages/qtdmessage.cpp

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-30 20:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -728,6 +728,14 @@ msgstr ""
 msgid "dd MMMM"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessageexpiredphoto.cpp:12
+msgid "Expired photo"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessageexpiredvideo.cpp:12
+msgid "Expired video"
+msgstr ""
+
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
 msgstr ""
@@ -738,6 +746,10 @@ msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagepoll.cpp:12
+msgid "Poll"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
@@ -764,11 +776,15 @@ msgstr ""
 msgid "Voice message,"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagewebsiteconnected.cpp:13
+msgid "Connected Website"
+msgstr ""
+
 #: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:108
 msgid "Unimplemented:"
 msgstr ""
 
