@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-23 22:06+0000\n"
-"PO-Revision-Date: 2020-08-24 21:35+0000\n"
+"PO-Revision-Date: 2020-08-31 13:15+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -57,7 +57,7 @@ msgstr "Upraveno"
 
 #: ../app/qml/components/PopupDialog.qml:14
 msgid "Okay"
-msgstr "OK"
+msgstr "Přijmout"
 
 #: ../app/qml/components/PopupDialog.qml:15
 #: ../app/qml/components/PopupWaitCancel.qml:13
