@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-24 19:15+0000\n"
-"PO-Revision-Date: 2020-08-31 10:00+0000\n"
+"PO-Revision-Date: 2020-09-02 18:30+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "teleports/fr/>\n"
@@ -761,10 +761,8 @@ msgid "Photo,"
 msgstr "Photo,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
-#, fuzzy
-#| msgid "Unread Messages"
 msgid "Pinned Message"
-msgstr "Messages non lus"
+msgstr "Message épinglé"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
