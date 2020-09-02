@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-31 10:00+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
@@ -151,6 +151,10 @@ msgstr "Note vocale"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 vous a rejoint via un lien d'invitation"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 a épinglé un message"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -717,10 +721,6 @@ msgstr "la date d'expiration du message a été modifiée"
 msgid "upgraded to supergroup"
 msgstr "transformé en supergroupe"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Contact"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "a rejoint Telegram !"
@@ -760,6 +760,12 @@ msgstr "Photo"
 msgid "Photo,"
 msgstr "Photo,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Messages non lus"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Autocollant"
@@ -788,7 +794,7 @@ msgstr "Message vocal,"
 msgid "Me"
 msgstr "Moi"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Non implémenté :"
 
@@ -954,9 +960,8 @@ msgstr "photo de profil mise à jour"
 msgid "You have a new message"
 msgstr "Vous avez un nouveau message"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 a épinglé un message"
+#~ msgid "Contact"
+#~ msgstr "Contact"
 
 #~ msgid "not available"
 #~ msgstr "indisponible"

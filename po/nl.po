@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-31 10:00+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
@@ -151,6 +151,10 @@ msgstr "Spraaknotitie"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 is lid geworden via een uitnodigingslink"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 heeft een bericht vastgezet"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -711,10 +715,6 @@ msgstr "Het TTL-bericht is gewijzigd"
 msgid "upgraded to supergroup"
 msgstr "opgewaardeerd naar supergroep"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Contactpersoon"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "heeft nu ook Telegram!"
@@ -754,6 +754,12 @@ msgstr "Foto"
 msgid "Photo,"
 msgstr "Foto,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Ongelezen berichten"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Sticker"
@@ -782,7 +788,7 @@ msgstr "Spraakbericht,"
 msgid "Me"
 msgstr "Ik"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Niet geïmplementeerd:"
 
@@ -948,9 +954,8 @@ msgstr "bijgewerkte profielfoto"
 msgid "You have a new message"
 msgstr "Je hebt een nieuw bericht"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 heeft een bericht vastgezet"
+#~ msgid "Contact"
+#~ msgstr "Contactpersoon"
 
 #~ msgid "not available"
 #~ msgstr "niet beschikbaar"

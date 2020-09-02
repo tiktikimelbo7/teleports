@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-25 09:39+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
@@ -149,6 +149,10 @@ msgstr "Hlasová poznámka"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 sa pripojil(a) pomocou pozývajúceho odkazu"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 pripol správu"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -711,10 +715,6 @@ msgstr "TTL správa zmenená"
 msgid "upgraded to supergroup"
 msgstr "povýšená na supergroup"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Kontakt"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "sa pripojil k Telegramu!"
@@ -754,6 +754,12 @@ msgstr "Fotka"
 msgid "Photo,"
 msgstr "Fotka,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Neprečítané správy"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Nálepka"
@@ -782,7 +788,7 @@ msgstr "Hlasová správa,"
 msgid "Me"
 msgstr "Ja"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Neimplementované:"
 
@@ -948,9 +954,8 @@ msgstr "profilová fotografia aktualizovaná"
 msgid "You have a new message"
 msgstr "Máte novú správu"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 pripol správu"
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
 
 #~ msgid "not available"
 #~ msgstr "nie je dostupné"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2019-10-29 08:58+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian <https://translate.ubports.com/projects/ubports/"
@@ -146,6 +146,10 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
+msgstr ""
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
 msgstr ""
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
@@ -698,12 +702,6 @@ msgstr ""
 msgid "upgraded to supergroup"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-#, fuzzy
-#| msgid "Contacts"
-msgid "Contact"
-msgstr "Contautos"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr ""
@@ -743,6 +741,10 @@ msgstr ""
 msgid "Photo,"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+msgid "Pinned Message"
+msgstr ""
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr ""
@@ -771,7 +773,7 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr ""
 
@@ -937,6 +939,7 @@ msgstr ""
 msgid "You have a new message"
 msgstr ""
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr ""
+#, fuzzy
+#~| msgid "Contacts"
+#~ msgid "Contact"
+#~ msgstr "Contautos"

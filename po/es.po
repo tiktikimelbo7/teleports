@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-30 21:40+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -150,6 +150,10 @@ msgstr "Nota de voz"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 se unió con un enlace de invitación"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 ancló un mensaje"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -711,10 +715,6 @@ msgstr "se ha modificado el mensaje TTL"
 msgid "upgraded to supergroup"
 msgstr "actualizado a supergrupo"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Contacto"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "¡Se ha unido a Telegram!"
@@ -754,6 +754,12 @@ msgstr "Foto"
 msgid "Photo,"
 msgstr "Foto,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Mensajes no leídos"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Pegatina"
@@ -782,7 +788,7 @@ msgstr "Mensaje de voz,"
 msgid "Me"
 msgstr "Yo"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "No implementado:"
 
@@ -948,9 +954,8 @@ msgstr "Foto de perfil actualizada"
 msgid "You have a new message"
 msgstr "Tiene un nuevo mensaje"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 ancló un mensaje"
+#~ msgid "Contact"
+#~ msgstr "Contacto"
 
 #~ msgid "not available"
 #~ msgstr "no disponible"

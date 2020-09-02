@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-06-24 19:17+0000\n"
 "Last-Translator: Eugene Markoff <uralhistory@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
@@ -152,6 +152,10 @@ msgstr "Голосовое послание"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 присоединился(лась) по ссылке-приглашению"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 прикрепил(а) сообщение"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -731,12 +735,6 @@ msgstr "TTL-сообщение было измененено"
 msgid "upgraded to supergroup"
 msgstr "преобразована в супергруппу"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-#, fuzzy
-#| msgid "Contacts"
-msgid "Contact"
-msgstr "Контакты"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "присоединился(лась) к Telegram!"
@@ -776,6 +774,12 @@ msgstr "Фото"
 msgid "Photo,"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Непрочитанные сообщения"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Стикер"
@@ -806,7 +810,7 @@ msgstr "отправил(а) Вам голосовое сообщение"
 msgid "Me"
 msgstr "Я"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Не реализовано:"
 
@@ -972,9 +976,10 @@ msgstr "обновил(а) изображение профиля"
 msgid "You have a new message"
 msgstr "У Вас новое сообщение"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 прикрепил(а) сообщение"
+#, fuzzy
+#~| msgid "Contacts"
+#~ msgid "Contact"
+#~ msgstr "Контакты"
 
 #~ msgid "not available"
 #~ msgstr "не доступен(на)"

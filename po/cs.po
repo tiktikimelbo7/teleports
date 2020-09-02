@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-31 13:15+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
@@ -148,6 +148,10 @@ msgstr "Hlasová poznámka"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 se připojil(a) prostřednictvím zvacího odkazu"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 připnul(a) zprávu"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -706,10 +710,6 @@ msgstr "TTL zprávy bylo změněno"
 msgid "upgraded to supergroup"
 msgstr "povýšeno na superskupinu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Kontakt"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "se připojil(a) ke službě Telegram!"
@@ -749,6 +749,12 @@ msgstr "Fotka"
 msgid "Photo,"
 msgstr "Fotka,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Nepřečtené zprávy"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Nálepka"
@@ -777,7 +783,7 @@ msgstr "Hlasová zpráva,"
 msgid "Me"
 msgstr "Já"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Neimplementováno:"
 
@@ -943,9 +949,8 @@ msgstr "profilová fotka aktualizována"
 msgid "You have a new message"
 msgstr "Máte novou zprávu"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 připnul(a) zprávu"
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
 
 #~ msgid "not available"
 #~ msgstr "není dostupné"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-31 21:09+0000\n"
 "Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
@@ -150,6 +150,10 @@ msgstr "Audio-Notiz"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 ist per Einladungslink beigetreten"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 hat eine Nachricht angeheftet"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -712,10 +716,6 @@ msgstr "Nachrichten-TTL wurde geändert"
 msgid "upgraded to supergroup"
 msgstr "zur Supergruppe umgewandelt"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Kontakt"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "ist Telegram beigetreten!"
@@ -755,6 +755,12 @@ msgstr "Foto"
 msgid "Photo,"
 msgstr "Foto,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Ungelesene Nachrichten"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Sticker"
@@ -783,7 +789,7 @@ msgstr "Sprachnachricht,"
 msgid "Me"
 msgstr "Ich"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Nicht implementiert:"
 
@@ -949,9 +955,8 @@ msgstr "Profilfoto aktualisiert"
 msgid "You have a new message"
 msgstr "Du hast eine neue Nachricht"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 hat eine Nachricht angeheftet"
+#~ msgid "Contact"
+#~ msgstr "Kontakt"
 
 #~ msgid "not available"
 #~ msgstr "nicht verfügbar"

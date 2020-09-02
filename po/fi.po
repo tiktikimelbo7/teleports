@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-07-29 18:11+0000\n"
 "Last-Translator: Pekka Kärkkäinen <pakarkka@gmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
@@ -149,6 +149,10 @@ msgstr "Puheviesti"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 liittyi kutsulinkin kautta"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 kiinnitti viestin"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -713,12 +717,6 @@ msgstr "viestin TTL on muutettu"
 msgid "upgraded to supergroup"
 msgstr "päivitettiin superryhmäksi"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-#, fuzzy
-#| msgid "Contacts"
-msgid "Contact"
-msgstr "Yhteystiedot"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "liittyi Telegramiin!"
@@ -758,6 +756,12 @@ msgstr "Valokuva"
 msgid "Photo,"
 msgstr "Kuva,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Lukemattomat viestit"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Tarra"
@@ -786,7 +790,7 @@ msgstr "Ääniviesti,"
 msgid "Me"
 msgstr "Minä"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Istuttamaton:"
 
@@ -952,9 +956,10 @@ msgstr "päivitti profiilikuvan"
 msgid "You have a new message"
 msgstr "Sinulle on uusi viesti"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 kiinnitti viestin"
+#, fuzzy
+#~| msgid "Contacts"
+#~ msgid "Contact"
+#~ msgstr "Yhteystiedot"
 
 #~ msgid "not available"
 #~ msgstr "ei saatavilla"

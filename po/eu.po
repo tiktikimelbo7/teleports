@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2019-07-07 22:07+0000\n"
 "Last-Translator: Aitzol Berasategi <aitzol@disroot.org>\n"
 "Language-Team: Basque <https://translate.ubports.com/projects/ubports/"
@@ -159,6 +159,11 @@ msgstr "ahots ohar bat bidalia"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 gonbidapen esteka bidez batu da"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+#, fuzzy
+msgid "%1 pinned a message"
+msgstr "Mezu bat idatzi..."
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -738,10 +743,6 @@ msgstr "TTL mezua aldatua izan da"
 msgid "upgraded to supergroup"
 msgstr "supertaldera eguneratua"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr ""
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 #, fuzzy
 msgid "has joined Telegram!"
@@ -784,6 +785,11 @@ msgstr ""
 msgid "Photo,"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+msgid "Pinned Message"
+msgstr "Gordetako mezuak"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Eranskailua"
@@ -815,7 +821,7 @@ msgstr "ahots mezu bat bidali dizu"
 msgid "Me"
 msgstr "Ni"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr ""
 
@@ -983,11 +989,6 @@ msgstr "profileko argazkia eguneratua"
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr "Mezu berri bat daukazu"
-
-#: ../push/pushhelper.cpp:301
-#, fuzzy
-msgid "%1 pinned a message"
-msgstr "Mezu bat idatzi..."
 
 #~ msgid "not available"
 #~ msgstr "ez dago eskuragarri"

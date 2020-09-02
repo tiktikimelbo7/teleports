@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 22:06+0000\n"
+"POT-Creation-Date: 2020-08-24 19:15+0000\n"
 "PO-Revision-Date: 2020-08-27 23:58+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
@@ -150,6 +150,10 @@ msgstr "Nota de veu"
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr "%1 s'ha afegit via enllaç d'invitació"
+
+#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+msgid "%1 pinned a message"
+msgstr "%1 ha fixat un missatge"
 
 #: ../app/qml/delegates/MessageScreenshotTaken.qml:4
 msgid "A screenshot has been taken"
@@ -710,10 +714,6 @@ msgstr "s'ha modficat el TTL del missatge"
 msgid "upgraded to supergroup"
 msgstr "actualitzat a supergrup"
 
-#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
-msgid "Contact"
-msgstr "Contacte"
-
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "s'ha afegit al Telegram"
@@ -753,6 +753,12 @@ msgstr "Foto"
 msgid "Photo,"
 msgstr "Foto,"
 
+#: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
+#, fuzzy
+#| msgid "Unread Messages"
+msgid "Pinned Message"
+msgstr "Missatges sense llegir"
+
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
 msgstr "Adhesiu"
@@ -781,7 +787,7 @@ msgstr "Missatge de veu,"
 msgid "Me"
 msgstr "Jo"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:96
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
 msgstr "Sense implementació:"
 
@@ -947,9 +953,8 @@ msgstr "ha actualitzat la seva imatge de perfil"
 msgid "You have a new message"
 msgstr "Teniu un missatge nou"
 
-#: ../push/pushhelper.cpp:301
-msgid "%1 pinned a message"
-msgstr "%1 ha fixat un missatge"
+#~ msgid "Contact"
+#~ msgstr "Contacte"
 
 #~ msgid "not available"
 #~ msgstr "no disponible"
