@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-24 19:15+0000\n"
-"PO-Revision-Date: 2020-08-24 21:35+0000\n"
+"PO-Revision-Date: 2020-09-02 22:45+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -760,10 +760,8 @@ msgid "Photo,"
 msgstr "Zdjęcie,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
-#, fuzzy
-#| msgid "Unread Messages"
 msgid "Pinned Message"
-msgstr "Nieprzeczytane wiadomości"
+msgstr "Przypięta wiadomość"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
