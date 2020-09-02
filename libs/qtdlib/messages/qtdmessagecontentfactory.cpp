@@ -11,6 +11,7 @@
 #include "content/qtdmessagechatdeletephoto.h"
 #include "content/qtdmessagechatjoinbylink.h"
 #include "content/qtdmessagechatsetttl.h"
+#include "content/qtdmessagepinmessage.h"
 #include "content/qtdmessagechatupgradefrom.h"
 #include "content/qtdmessagechatupgradeto.h"
 #include "content/qtdmessagescreenshottaken.h"
@@ -87,8 +88,44 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageUnsupported(parent);
     } else if (type == "messageSupergroupChatCreate") {
         return new QTdMessageSuperGroupChatCreate(parent);
+    } else if (type == "messagePinMessage") {
+        return new QTdMessagePinMessage(parent);
     } else if (type == "messageContact") {
         return new QTdMessageContact(parent);
+/*
+      else if (type == "messageWebsiteConnected") {
+        return new QTdMessageWebsiteConnected(parent);
+    } else if (type == "messageVenue") {
+        return new QTdMessageVenue(parent);
+    } else if (type == "messagePoll") {
+        return new QTdMessagePoll(parent);
+    } else if (type == "messagePassportDataReceived") {
+        return new QTdMessagePassportDataReceived(parent);
+    } else if (type == "messagePassportDataSent") {
+        return new QTdMessagePassportDataSent(parent);
+    } else if (type == "messagePaymentSuccessful") {
+        return new QTdMessagePaymentSuccesssful(parent);
+    } else if (type == "messagePaymentSuccessfulBot") {
+        return new QTdMessagePaymentSuccessfulBot"(parent);
+    } else if (type == "messageLinkInfo") {
+        return new QTdMessageLinkInfo(parent);
+    } else if (type == "messageInvoice") {
+        return new QTdMessageInvoice(parent);
+    } else if (type == "messageGame") {
+        return new QTdMessageGame(parent);
+    } else if (type == "messageGameScore") {
+        return new QTdMessageGameScore(parent);
+    } else if (type == "message") {
+        return new QTdMessage(parent);
+    } else if (type == "message") {
+        return new QTdMessage(parent);
+    } else if (type == "message") {
+        return new QTdMessage(parent);
+    } else if (type == "message") {
+        return new QTdMessage(parent);
+    }
+
+*/
     }
 
     qWarning() << "Received unknown message type" << type << json;

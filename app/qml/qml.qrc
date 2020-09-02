@@ -75,6 +75,7 @@
         <file>middleware/ErrorsMiddleware.qml</file>
         <file>delegates/MessageCallItem.qml</file>
         <file>delegates/MessageJoinByLink.qml</file>
+        <file>delegates/MessagePinMessage.qml</file>
         <file>delegates/MessageChatAddMembersItem.qml</file>
         <file>middleware/ChatMiddleware.qml</file>
         <file>middleware/StackMiddleware.qml</file>

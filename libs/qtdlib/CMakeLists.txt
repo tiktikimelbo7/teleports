@@ -32,7 +32,6 @@ set(
     # messages/content/qtdmessagepassportdatasent.cpp
     # messages/content/qtdmessagepaymentsuccessful.cpp
     # messages/content/qtdmessagepaymentsuccessfulbot.cpp
-    # messages/content/qtdmessagepinmessage.cpp
     # messages/content/qtdmessagevenue.cpp
     # messages/content/qtdmessagewebsiteconnected.cpp
     # messages/requests/content/qtdinputmessageanimation.cpp
@@ -158,6 +157,7 @@ set(
     messages/content/qtdmessagecontact.cpp
     messages/content/qtdmessageunsupported.cpp
     messages/content/qtdmessagescreenshottaken.cpp
+    messages/content/qtdmessagepinmessage.cpp
     messages/qtdchatstate.cpp
     messages/qtddraftmessage.cpp
     messages/qtdmessage.cpp

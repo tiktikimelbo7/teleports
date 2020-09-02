@@ -17,6 +17,7 @@ MessageDelegateMap::MessageDelegateMap(QObject *parent)
     m_delegates.insert(QTdObject::MESSAGE_DATE, QStringLiteral("qrc:///delegates/MessageDateItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_UNREAD_LABEL, QStringLiteral("qrc:///delegates/MessageUnreadLabelItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_JOIN_BY_LINK, QStringLiteral("qrc:///delegates/MessageJoinByLink.qml"));
+    m_delegates.insert(QTdObject::MESSAGE_PIN_MESSAGE, QStringLiteral("qrc:///delegates/MessagePinMessage.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CHAT_ADD_MEMBERS, QStringLiteral("qrc:///delegates/MessageChatAddMembersItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CALL, QStringLiteral("qrc:///delegates/MessageCallItem.qml"));
     m_delegates.insert(QTdObject::MESSAGE_CUSTOM_SERVICE_ACTION, QStringLiteral("qrc:///delegates/MessageCustomServiceAction.qml"));
