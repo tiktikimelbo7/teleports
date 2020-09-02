@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-24 19:15+0000\n"
-"PO-Revision-Date: 2020-08-31 10:00+0000\n"
+"PO-Revision-Date: 2020-09-02 19:12+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "teleports/nl/>\n"
@@ -755,10 +755,8 @@ msgid "Photo,"
 msgstr "Foto,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
-#, fuzzy
-#| msgid "Unread Messages"
 msgid "Pinned Message"
-msgstr "Ongelezen berichten"
+msgstr "Vastgemaakt berichten"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
