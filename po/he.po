@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-24 19:15+0000\n"
-"PO-Revision-Date: 2020-09-06 17:16+0000\n"
+"PO-Revision-Date: 2020-09-07 02:32+0000\n"
 "Last-Translator: tamer dab <dabsantamer@yahoo.com>\n"
 "Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
 "teleports/he/>\n"
@@ -310,148 +310,152 @@ msgstr "צא מהצ'אט"
 
 #: ../app/qml/pages/ChatListPage.qml:142 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
-msgstr ""
+msgstr "מידע"
 
 #: ../app/qml/pages/ChatListPage.qml:359
 msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
+msgstr "האם ברצונך להעביר את ההודעות שנבחרו אל %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:374 ../app/qml/pages/ChatListPage.qml:398
 msgid "Enter optional message..."
-msgstr ""
+msgstr "הזן הודעה אופציונלית ..."
 
 #: ../app/qml/pages/ChatListPage.qml:382
 msgid "Do you want to send the imported files to %1?"
-msgstr ""
+msgstr "האם ברצונך לשלוח את הקבצים המיובאים ל %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:384
 #: ../app/qml/pages/MessageListPage.qml:628
 msgid "Send"
-msgstr ""
+msgstr "שלח"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting"
-msgstr ""
+msgstr "מתחבר"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:26
 msgid "Offline"
-msgstr ""
+msgstr "לא מקוון"
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:30
 #: ../libs/qtdlib/user/qtduserstatus.cpp:78
 msgid "Online"
-msgstr ""
+msgstr "מקוון"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Connecting To Proxy"
-msgstr ""
+msgstr "מתחבר לפרוקסי"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
-msgstr ""
+msgstr "מעדכן"
 
 #: ../app/qml/pages/ConnectivityPage.qml:35
 msgid "Connectivity"
-msgstr ""
+msgstr "קישוריות"
 
 #: ../app/qml/pages/ConnectivityPage.qml:74
 msgid "Telegram connectivity status:"
-msgstr ""
+msgstr "מצב קישוריות טליגרם:"
 
 #: ../app/qml/pages/ConnectivityPage.qml:81
 msgid "Ubuntu Touch connectivity status:"
-msgstr ""
+msgstr "מצב קישוריות של אובונטו טאץ ':"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith limited"
-msgstr ""
+msgstr "רוחב הפס של אובונטו טאץ' מוגבל"
 
 #: ../app/qml/pages/ConnectivityPage.qml:88
 msgid "Ubuntu Touch bandwith not limited"
-msgstr ""
+msgstr "רוחב הפס של אובונטו טאץ' לא מוגבל"
 
 #: ../app/qml/pages/MessageListPage.qml:31
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חבר %1"
+msgstr[1] "חברים %1"
+msgstr[2] "חברים %1"
+msgstr[3] "חברים %1"
 
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid ", %1 online"
 msgid_plural ", %1 online"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "מחובר %1"
+msgstr[1] "מחוברים %1"
+msgstr[2] "מחוברים %1"
+msgstr[3] "מחוברים %1"
 
 #: ../app/qml/pages/MessageListPage.qml:130
 msgid "Telegram"
-msgstr ""
+msgstr "טליגרם"
 
 #: ../app/qml/pages/MessageListPage.qml:333
 msgid "You are not allowed to post in this channel"
-msgstr ""
+msgstr "אינך רשאי לפרסם בערוץ זה"
 
 #: ../app/qml/pages/MessageListPage.qml:337
 msgid "Waiting for other party to accept the secret chat..."
-msgstr ""
+msgstr "מחכה שהצד השני יאשר את הצ'אט הסודי ..."
 
 #: ../app/qml/pages/MessageListPage.qml:339
 msgid "Secret chat has been closed"
-msgstr ""
+msgstr "הצ'אט הסודי נסגר"
 
 #: ../app/qml/pages/MessageListPage.qml:464
 msgid "Type a message..."
-msgstr ""
+msgstr "הקלד הודעה..."
 
 #: ../app/qml/pages/MessageListPage.qml:626
 msgid "Do you want to share your location with %1?"
-msgstr ""
+msgstr "האם אתה רוצה לשתף את המיקום שלך עם %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:639
 msgid "Requesting location from OS..."
-msgstr ""
+msgstr "מבקש מיקום ממערכת ההפעלה ..."
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
-msgstr ""
+msgstr "בוחר תוכן"
 
 #: ../app/qml/pages/PreviewPage.qml:35
 msgid "File: "
-msgstr ""
+msgstr "קובץ: "
 
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:65
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
+"בדוק את התמונה או את הטקסט. אם הם תואמים את אלה במכשירים של <b>%1</b>, "
+"הוענקה הצפנה מקצה לקצה."
 
 #: ../app/qml/pages/SettingsPage.qml:70 ../app/qml/pages/SettingsPage.qml:142
 msgid "Logout"
-msgstr ""
+msgstr "להתנתק"
 
 #: ../app/qml/pages/SettingsPage.qml:86
 msgid "Delete account"
-msgstr ""
+msgstr "מחק חשבון"
 
 #: ../app/qml/pages/SettingsPage.qml:102
 msgid "Connectivity status"
-msgstr ""
+msgstr "מצב קישוריות"
 
 #: ../app/qml/pages/SettingsPage.qml:119
 msgid "Toggle message status indicators"
-msgstr ""
+msgstr "החלף מחוון מצב ההודעה"
 
 #: ../app/qml/pages/SettingsPage.qml:140
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
+"אזהרה: התנתקות תמחק את כל הנתונים המקומיים מהתקן זה, כולל צ'אטים סודיים. האם "
+"את/ה עדיין רוצה להתנתק?"
 
 #: ../app/qml/pages/SettingsPage.qml:150
 msgid ""
@@ -460,490 +464,493 @@ msgid ""
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
+"אזהרה: מחיקת החשבון תמחק את כל הנתונים שקיבלת אי פעם או תשלח באמצעות מברק "
+"למעט נתונים ששמרת במפורש מחוץ לענן המברק. האם את/ה רוצה למחוק את חשבון "
+"הטליגרם שלך?"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr ""
+msgstr "הוסף איש קשר"
 
 #: ../app/qml/pages/UserListPage.qml:47
 msgid "The contact will be added. First and last name are optional"
-msgstr ""
+msgstr "איש הקשר יתווסף. שם פרטי ושם משפחה הם אופציונליים"
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr ""
+msgstr "הוספה"
 
 #: ../app/qml/pages/UserListPage.qml:119
 msgid "Secret Chat"
-msgstr ""
+msgstr "צ'אט סודי"
 
 #: ../app/qml/pages/UserListPage.qml:196
 msgid "The contact will be deleted. Are you sure?"
-msgstr ""
+msgstr "איש הקשר יימחק. האם את/ה בטוח/ה?"
 
 #: ../app/qml/pages/WaitCodePage.qml:17
 msgid "Enter Code"
-msgstr ""
+msgstr "הזין קוד"
 
 #: ../app/qml/pages/WaitCodePage.qml:39
 msgid "Code"
-msgstr ""
+msgstr "קוד"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
 msgid "We've send a code via telegram to your device. Please enter it here."
-msgstr ""
+msgstr "שלחנו קוד למכשירך באמצעות טליגרם. אנא הכנס/י אותו לכאן."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
-msgstr ""
+msgstr "הזן ססמה"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:39
 msgid "Password"
-msgstr ""
+msgstr "ססמה"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92
 #: ../app/qml/pages/WaitRegistrationPage.qml:57
 msgid "Next..."
-msgstr ""
+msgstr "הבא..."
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:17
 msgid "Enter Phone Number"
-msgstr ""
+msgstr "הזן מספר טלפון"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:54
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:64
 msgid "Phone number"
-msgstr ""
+msgstr "מספר טלפון"
 
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:88
 msgid "Please confirm your country code and enter your phone number."
-msgstr ""
+msgstr "אנא אשר את קוד המדינה שלך והזן את מספר הטלפון שלך."
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:17
 msgid "Enter your Name"
-msgstr ""
+msgstr "הזן את שמך"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:38
 msgid "First Name"
-msgstr ""
+msgstr "שם פרטי"
 
 #: ../app/qml/pages/WaitRegistrationPage.qml:44
 msgid "Last Name"
-msgstr ""
+msgstr "שם משפחה"
 
 #: ../app/qml/stores/AuthStateStore.qml:63
 msgid "Invalid phone number!"
-msgstr ""
+msgstr "מספר טלפון לא תקין!"
 
 #: ../app/qml/stores/AuthStateStore.qml:70
 msgid "Invalid code!"
-msgstr ""
+msgstr "קוד לא תקין!"
 
 #: ../app/qml/stores/AuthStateStore.qml:77
 msgid "Invalid password!"
-msgstr ""
+msgstr "סיסמה שגויה!"
 
 #: ../app/qml/stores/AuthStateStore.qml:97
 msgid "Auth code not expected right now"
-msgstr ""
+msgstr "קוד האימות לא צפוי כרגע"
 
 #: ../app/qml/stores/AuthStateStore.qml:103
 msgid "Oops! Internal error."
-msgstr ""
+msgstr "אופס! שגיאה פנימית."
 
 #: ../app/qml/stores/AuthStateStore.qml:122
 msgid "Registration not expected right now"
-msgstr ""
+msgstr "ההרשמה לא צפויה כעת"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: ../app/qml/stores/ChatStateStore.qml:39
 msgid "No valid location received after 180 seconds!"
-msgstr ""
+msgstr "לא התקבל מיקום תקין לאחר 180 שניות!"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
-msgstr ""
+msgstr "רישום נכשל"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr ""
+msgstr "אין Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
-msgstr ""
+msgstr "אנא התחבר ל- Ubuntu One כדי לקבל התראות."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:332
 msgid "Draft:"
-msgstr ""
+msgstr "טיוטה:"
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is choosing contact..."
-msgstr ""
+msgstr "בוחר איש קשר ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are choosing contact..."
-msgstr ""
+msgstr "בוחרים איש קשר ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is choosing location..."
-msgstr ""
+msgstr "בוחר מיקום ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are choosing location..."
-msgstr ""
+msgstr "בוחרים מיקום ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "is recording..."
-msgstr ""
+msgstr "מקליט ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:624
 msgid "are recording..."
-msgstr ""
+msgstr "מקליטים ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "is typing..."
-msgstr ""
+msgstr "מקליד..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:628
 msgid "are typing..."
-msgstr ""
+msgstr "מקלידים ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:631
 msgid "is doing something..."
-msgstr ""
+msgstr "עושה משהו ..."
 
 #: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "are doing something..."
-msgstr ""
+msgstr "עושים משהו ..."
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF"
-msgstr ""
+msgstr "GIF"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
 msgid "GIF,"
-msgstr ""
+msgstr "GIF,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagebasicgroupchatcreate.cpp:25
 #: ../libs/qtdlib/messages/content/qtdmessagesupergroupchatcreate.cpp:23
 msgid "created this group"
-msgstr ""
+msgstr "יצר קבוצה זו"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:68
 msgid "Call Declined"
-msgstr ""
+msgstr "השיחה נדחתה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:71
 msgid "Call Disconnected"
-msgstr ""
+msgstr "שיחה מנותקת"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:74
 msgid "Call Ended"
-msgstr ""
+msgstr "השיחה הסתיימה"
 
 #. TRANSLATORS: This is a duration in hours:minutes:seconds format - only arrange the order, do not translate!
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:78
 msgid "%1:%2:%3"
-msgstr ""
+msgstr "%1:%2:%3"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:79
 msgid "Outgoing Call (%1)"
-msgstr ""
+msgstr "שיחה יוצאת (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:80
 msgid "Incoming Call (%1)"
-msgstr ""
+msgstr "שיחה נכנסת (%1)"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Cancelled Call"
-msgstr ""
+msgstr "בוטלה השיחה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:83
 msgid "Missed Call"
-msgstr ""
+msgstr "שיחה שלא נענתה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecall.cpp:86
 msgid "Call"
-msgstr ""
+msgstr "להתקשר"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "added one or more members"
-msgstr ""
+msgstr "הוסיף חבר אחד או יותר"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechataddmembers.cpp:34
 msgid "joined the group"
-msgstr ""
+msgstr "הצטרף לקבוצה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangephoto.cpp:20
 msgid "changed the chat photo"
-msgstr ""
+msgstr "שינה את תמונת הצ'אט"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatchangetitle.cpp:19
 msgid "changed the chat title"
-msgstr ""
+msgstr "שינה את כותרת הצ'אט"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "left the group"
-msgstr ""
+msgstr "עזב את הקבוצה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletemember.cpp:32
 msgid "removed a member"
-msgstr ""
+msgstr "הסיר חבר"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatdeletephoto.cpp:8
 msgid "deleted the chat photo"
-msgstr ""
+msgstr "מחק את תמונת הצ'אט"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatjoinbylink.cpp:8
 msgid "joined the group via the public link"
-msgstr ""
+msgstr "הצטרף לקבוצה דרך קישור ציבורי"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
 msgid "message TTL has been changed"
-msgstr ""
+msgstr "ההודעה TTL שונתה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
 msgid "upgraded to supergroup"
-msgstr ""
+msgstr "משודרג ל SuperGroup"
 
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
-msgstr ""
+msgstr "הצטרף לטלגרם!"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:19
 msgid "Today"
-msgstr ""
+msgstr "היום"
 
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:21
 msgid "Yesterday"
-msgstr ""
+msgstr "אתמול"
 
 #. TRANSLATORS: String in date separator label. For messages within a week: full weekday name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:24
 msgid "dddd"
-msgstr ""
+msgstr "dddd"
 
 #. TRANSLATORS: String in date separator label. For messages of pas years: date number, month name and year
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:27
 msgid "dd MMMM yyyy"
-msgstr ""
+msgstr "dd MMMM yyyy"
 
 #. TRANSLATORS: String in date separator label. For messages older that a week but within the current year: date number and month name
 #: ../libs/qtdlib/messages/content/qtdmessagedate.cpp:30
 msgid "dd MMMM"
-msgstr ""
+msgstr "dd MMMM"
 
 #: ../libs/qtdlib/messages/content/qtdmessagelocation.cpp:19
 msgid "Location"
-msgstr ""
+msgstr "מיקום"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo"
-msgstr ""
+msgstr "תמונה"
 
 #: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
 msgid "Photo,"
-msgstr ""
+msgstr "תמונה,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
 msgid "Pinned Message"
-msgstr ""
+msgstr "הודעה מוצמדת"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
-msgstr ""
+msgstr "סטיקיר"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video"
-msgstr ""
+msgstr "וידאו"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
 msgid "Video,"
-msgstr ""
+msgstr "וידאו,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
 msgid "Video message"
-msgstr ""
+msgstr "הודעת וידאו"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message"
-msgstr ""
+msgstr "הודעה קולית"
 
 #: ../libs/qtdlib/messages/content/qtdmessagevoicenote.cpp:31
 msgid "Voice message,"
-msgstr ""
+msgstr "הודעה קולית,"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:84
 msgid "Me"
-msgstr ""
+msgstr "אני"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
 msgid "Unimplemented:"
-msgstr ""
+msgstr "לא מיושם:"
 
 #: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
 msgid "Unread Messages"
-msgstr ""
+msgstr "הודעות שלא נקראו"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:28
 msgid "Last seen one month ago"
-msgstr ""
+msgstr "נראה לאחרונה לפני חודש"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:39
 msgid "Last seen one week ago"
-msgstr ""
+msgstr "נראה לאחרונה לפני שבוע"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "Last seen "
-msgstr ""
+msgstr "נראה לאחרונה "
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:55
 msgid "dd.MM.yy hh:mm"
-msgstr ""
+msgstr "dd.MM.yy hh:mm"
 
 #: ../libs/qtdlib/user/qtduserstatus.cpp:96
 msgid "Seen recently"
-msgstr ""
+msgstr "נראה לאחרונה"
 
 #: ../push/pushhelper.cpp:124
 msgid "sent you a message"
-msgstr ""
+msgstr "שלח לך הודעה"
 
 #: ../push/pushhelper.cpp:128
 msgid "sent you a photo"
-msgstr ""
+msgstr "שלח לך תמונה"
 
 #: ../push/pushhelper.cpp:132
 msgid "sent you a sticker"
-msgstr ""
+msgstr "שלח לך סטיקיר"
 
 #: ../push/pushhelper.cpp:136
 msgid "sent you a video"
-msgstr ""
+msgstr "שלח לך סרטון"
 
 #: ../push/pushhelper.cpp:140
 msgid "sent you a document"
-msgstr ""
+msgstr "שלח לך מסמך"
 
 #: ../push/pushhelper.cpp:144
 msgid "sent you an audio message"
-msgstr ""
+msgstr "שלח לך הודעת אודיו"
 
 #: ../push/pushhelper.cpp:148
 msgid "sent you a voice message"
-msgstr ""
+msgstr "שלח לך הודעה קולית"
 
 #: ../push/pushhelper.cpp:152
 msgid "shared a contact with you"
-msgstr ""
+msgstr "שיתף איתך איש קשר"
 
 #: ../push/pushhelper.cpp:156
 msgid "sent you a map"
-msgstr ""
+msgstr "שלח לך מפה"
 
 #: ../push/pushhelper.cpp:161
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: ../push/pushhelper.cpp:166
 msgid "%1 sent a message to the group"
-msgstr ""
+msgstr "%1 שלח הודעה לקבוצה"
 
 #: ../push/pushhelper.cpp:171
 msgid "%1 sent a photo to the group"
-msgstr ""
+msgstr "%1 שלח תמונה לקבוצה"
 
 #: ../push/pushhelper.cpp:176
 msgid "%1 sent a sticker to the group"
-msgstr ""
+msgstr "%1 שלח סטיקיר לקבוצה"
 
 #: ../push/pushhelper.cpp:181
 msgid "%1 sent a video to the group"
-msgstr ""
+msgstr "%1 שלח סרטון לקבוצה"
 
 #: ../push/pushhelper.cpp:186
 msgid "%1 sent a document to the group"
-msgstr ""
+msgstr "%1 שלח מסמך לקבוצה"
 
 #: ../push/pushhelper.cpp:191
 msgid "%1 sent a voice message to the group"
-msgstr ""
+msgstr "%1 שלח הודעה קולית לקבוצה"
 
 #: ../push/pushhelper.cpp:196
 msgid "%1 sent a GIF to the group"
-msgstr ""
+msgstr "%1 שלח קובץ GIF לקבוצה"
 
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
-msgstr ""
+msgstr "%1 שלח איש קשר לקבוצה"
 
 #: ../push/pushhelper.cpp:206
 msgid "%1 sent a map to the group"
-msgstr ""
+msgstr "%1 שלח מפה לקבוצה"
 
 #: ../push/pushhelper.cpp:211 ../push/pushhelper.cpp:232
 msgid "%1 invited you to the group"
-msgstr ""
+msgstr "%1 הזמין אותך לקבוצה"
 
 #: ../push/pushhelper.cpp:216
 msgid "%1 changed group name"
-msgstr ""
+msgstr "%1 שינה את שם הקבוצה"
 
 #: ../push/pushhelper.cpp:221
 msgid "%1 changed group photo"
-msgstr ""
+msgstr "%1 שינה את תמונת הקבוצה"
 
 #. TRANSLATORS: Notification message saying: person A invited person B (to a group)
 #: ../push/pushhelper.cpp:227
 msgid "%1 invited %2"
-msgstr ""
+msgstr "%1 הזמין את %2"
 
 #: ../push/pushhelper.cpp:243
 msgid "%1 removed you from the group"
-msgstr ""
+msgstr "%1 הוציא אותך מהקבוצה"
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr ""
+msgstr "%1 עזב את הקבוצה"
 
 #: ../push/pushhelper.cpp:253
 msgid "%1 has returned to the group"
-msgstr ""
+msgstr "%1 חזר לקבוצה"
 
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
 msgid "%1 has checked-in"
-msgstr ""
+msgstr "%1 בצע צ'ק-אין"
 
 #. TRANSLATORS: This format string tells who has just joined Telegram.
 #: ../push/pushhelper.cpp:266
 msgid "%1 joined Telegram!"
-msgstr ""
+msgstr "%1 הצטרף לטלגרם!"
 
 #: ../push/pushhelper.cpp:271 ../push/pushhelper.cpp:277
 msgid "New login from unrecognized device"
-msgstr ""
+msgstr "כניסה חדשה ממכשיר לא מזוהה"
 
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"
-msgstr ""
+msgstr "תמונת פרופיל מעודכנת"
 
 #: ../push/pushhelper.cpp:286 ../push/pushhelper.cpp:291
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
-msgstr ""
+msgstr "יש לך הודעה חדשה"
