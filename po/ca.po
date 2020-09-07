@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-08-24 19:15+0000\n"
-"PO-Revision-Date: 2020-08-27 23:58+0000\n"
+"PO-Revision-Date: 2020-09-07 10:57+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -754,10 +754,8 @@ msgid "Photo,"
 msgstr "Foto,"
 
 #: ../libs/qtdlib/messages/content/qtdmessagepinmessage.cpp:19
-#, fuzzy
-#| msgid "Unread Messages"
 msgid "Pinned Message"
-msgstr "Missatges sense llegir"
+msgstr "Missatge fixat"
 
 #: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
 msgid "Sticker"
