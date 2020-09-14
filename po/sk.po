@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 19:15+0000\n"
+"POT-Creation-Date: 2020-09-13 15:16+0000\n"
 "PO-Revision-Date: 2020-09-02 18:30+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
@@ -290,7 +290,7 @@ msgstr "Vyberte cieľ alebo zrušte..."
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:84
+#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:85
 msgid "Saved Messages"
 msgstr "Uložené správy"
 
@@ -323,7 +323,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Prajete si stiahnuté súbory odoslať 1%?"
 
 #: ../app/qml/pages/ChatListPage.qml:384
-#: ../app/qml/pages/MessageListPage.qml:628
+#: ../app/qml/pages/MessageListPage.qml:804
 msgid "Send"
 msgstr "Odoslať"
 
@@ -371,45 +371,49 @@ msgstr "Ubuntu Touch má obmedzený dátový tok"
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch má neobmedzený dátový tok"
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:32
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 člen"
 msgstr[1] "%1 členovia"
 msgstr[2] "%1 členov"
 
-#: ../app/qml/pages/MessageListPage.qml:33
+#: ../app/qml/pages/MessageListPage.qml:34
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ", %1 pripojený(á)"
 msgstr[1] ", %1 pripojení"
 msgstr[2] ", %1 pripojení"
 
-#: ../app/qml/pages/MessageListPage.qml:130
+#: ../app/qml/pages/MessageListPage.qml:131
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:333
+#: ../app/qml/pages/MessageListPage.qml:334
 msgid "You are not allowed to post in this channel"
 msgstr "Nemáte oprávnenie k zasielaniu správ na tomto kanáli"
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Čaká sa na prijatie tajného chatu príjemcom..."
 
-#: ../app/qml/pages/MessageListPage.qml:339
+#: ../app/qml/pages/MessageListPage.qml:340
 msgid "Secret chat has been closed"
 msgstr "Tajný chat bol ukončený"
 
-#: ../app/qml/pages/MessageListPage.qml:464
+#: ../app/qml/pages/MessageListPage.qml:474
 msgid "Type a message..."
 msgstr "Napíšte správu..."
 
-#: ../app/qml/pages/MessageListPage.qml:626
+#: ../app/qml/pages/MessageListPage.qml:692
+msgid "<<< Swipe to cancel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:802
 msgid "Do you want to share your location with %1?"
 msgstr "Prajete si zdieľať vašu polohu s %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:639
+#: ../app/qml/pages/MessageListPage.qml:815
 msgid "Requesting location from OS..."
 msgstr "Vyžadovaná poloha od operačného systému..."
 
@@ -580,7 +584,7 @@ msgstr "Chýba Ubuntu One účet"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Pre príjem oznámení sa pripojte k Ubuntu One účtu."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:332
+#: ../libs/qtdlib/chat/qtdchat.cpp:333
 msgid "Draft:"
 msgstr "Koncept:"
 
@@ -715,6 +719,10 @@ msgstr "TTL správa zmenená"
 msgid "upgraded to supergroup"
 msgstr "povýšená na supergroup"
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+msgid "Contact"
+msgstr "Kontakt"
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "sa pripojil k Telegramu!"
@@ -786,11 +794,11 @@ msgstr "Hlasová správa,"
 msgid "Me"
 msgstr "Ja"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"
 msgstr "Neimplementované:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
 msgid "Unread Messages"
 msgstr "Neprečítané správy"
 
@@ -951,9 +959,6 @@ msgstr "profilová fotografia aktualizovaná"
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr "Máte novú správu"
-
-#~ msgid "Contact"
-#~ msgstr "Kontakt"
 
 #~ msgid "not available"
 #~ msgstr "nie je dostupné"

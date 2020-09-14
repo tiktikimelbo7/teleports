@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 19:15+0000\n"
+"POT-Creation-Date: 2020-09-13 15:16+0000\n"
 "PO-Revision-Date: 2019-01-08 20:21+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Settings"
 msgstr "Settings"
 
-#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:84
+#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:85
 msgid "Saved Messages"
 msgstr ""
 
@@ -326,7 +326,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:384
-#: ../app/qml/pages/MessageListPage.qml:628
+#: ../app/qml/pages/MessageListPage.qml:804
 msgid "Send"
 msgstr ""
 
@@ -374,44 +374,48 @@ msgstr ""
 msgid "Ubuntu Touch bandwith not limited"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:32
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:33
+#: ../app/qml/pages/MessageListPage.qml:34
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:130
+#: ../app/qml/pages/MessageListPage.qml:131
 #, fuzzy
 msgid "Telegram"
 msgstr "Telegram Plus"
 
-#: ../app/qml/pages/MessageListPage.qml:333
+#: ../app/qml/pages/MessageListPage.qml:334
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:339
+#: ../app/qml/pages/MessageListPage.qml:340
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:464
+#: ../app/qml/pages/MessageListPage.qml:474
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:626
+#: ../app/qml/pages/MessageListPage.qml:692
+msgid "<<< Swipe to cancel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:802
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:639
+#: ../app/qml/pages/MessageListPage.qml:815
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -579,7 +583,7 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:332
+#: ../libs/qtdlib/chat/qtdchat.cpp:333
 msgid "Draft:"
 msgstr ""
 
@@ -715,6 +719,10 @@ msgstr ""
 msgid "upgraded to supergroup"
 msgstr ""
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+msgid "Contact"
+msgstr ""
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr ""
@@ -789,11 +797,11 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
 msgid "Unread Messages"
 msgstr ""
 

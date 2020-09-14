@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 19:15+0000\n"
+"POT-Creation-Date: 2020-09-13 15:16+0000\n"
 "PO-Revision-Date: 2020-09-05 20:55+0000\n"
 "Last-Translator: Rüdiger Kupper <ruediger.kupper+launchpad@gmail.com>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
@@ -290,7 +290,7 @@ msgstr "Ziel eingeben oder abbrechen..."
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:84
+#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:85
 msgid "Saved Messages"
 msgstr "Gespeicherte Nachrichten"
 
@@ -323,7 +323,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Möchtest du die importierten Dateien an %1 senden?"
 
 #: ../app/qml/pages/ChatListPage.qml:384
-#: ../app/qml/pages/MessageListPage.qml:628
+#: ../app/qml/pages/MessageListPage.qml:804
 msgid "Send"
 msgstr "Senden"
 
@@ -371,43 +371,47 @@ msgstr "Ubuntu Touch Bandbreite beschränkt"
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "Ubuntu Touch Bandbreite nicht beschränkt"
 
-#: ../app/qml/pages/MessageListPage.qml:31
+#: ../app/qml/pages/MessageListPage.qml:32
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: ../app/qml/pages/MessageListPage.qml:33
+#: ../app/qml/pages/MessageListPage.qml:34
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ", %1 online"
 msgstr[1] ", %1 online"
 
-#: ../app/qml/pages/MessageListPage.qml:130
+#: ../app/qml/pages/MessageListPage.qml:131
 msgid "Telegram"
 msgstr "Telegram"
 
-#: ../app/qml/pages/MessageListPage.qml:333
+#: ../app/qml/pages/MessageListPage.qml:334
 msgid "You are not allowed to post in this channel"
 msgstr "Du darfst in diesem Channel nicht schreiben"
 
-#: ../app/qml/pages/MessageListPage.qml:337
+#: ../app/qml/pages/MessageListPage.qml:338
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "Warte auf das Gegenüber um den geheimen Chat anzunehmen..."
 
-#: ../app/qml/pages/MessageListPage.qml:339
+#: ../app/qml/pages/MessageListPage.qml:340
 msgid "Secret chat has been closed"
 msgstr "Geheimer Chat wurde beendet"
 
-#: ../app/qml/pages/MessageListPage.qml:464
+#: ../app/qml/pages/MessageListPage.qml:474
 msgid "Type a message..."
 msgstr "Tippe eine Nachricht..."
 
-#: ../app/qml/pages/MessageListPage.qml:626
+#: ../app/qml/pages/MessageListPage.qml:692
+msgid "<<< Swipe to cancel"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:802
 msgid "Do you want to share your location with %1?"
 msgstr "Willst Du Deinen Standort mit %1 teilen?"
 
-#: ../app/qml/pages/MessageListPage.qml:639
+#: ../app/qml/pages/MessageListPage.qml:815
 msgid "Requesting location from OS..."
 msgstr "Fordere Standort vom OS an..."
 
@@ -581,7 +585,7 @@ msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 "Bitte mit Ubuntu One Konto verbinden um Push-Benachrichtigungen zu erhalten."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:332
+#: ../libs/qtdlib/chat/qtdchat.cpp:333
 msgid "Draft:"
 msgstr "Entwurf:"
 
@@ -716,6 +720,10 @@ msgstr "Nachrichten-TTL wurde geändert"
 msgid "upgraded to supergroup"
 msgstr "zur Supergruppe umgewandelt"
 
+#: ../libs/qtdlib/messages/content/qtdmessagecontact.cpp:18
+msgid "Contact"
+msgstr "Kontakt"
+
 #: ../libs/qtdlib/messages/content/qtdmessagecontactregistered.cpp:9
 msgid "has joined Telegram!"
 msgstr "ist Telegram beigetreten!"
@@ -787,11 +795,11 @@ msgstr "Sprachnachricht,"
 msgid "Me"
 msgstr "Ich"
 
-#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:129
+#: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"
 msgstr "Nicht implementiert:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:228
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
 msgid "Unread Messages"
 msgstr "Ungelesene Nachrichten"
 
@@ -952,9 +960,6 @@ msgstr "Profilfoto aktualisiert"
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr "Du hast eine neue Nachricht"
-
-#~ msgid "Contact"
-#~ msgstr "Kontakt"
 
 #~ msgid "not available"
 #~ msgstr "nicht verfügbar"
