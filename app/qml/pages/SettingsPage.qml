@@ -147,7 +147,7 @@ Page {
     Component {
         id: deleteAccountConfirmationDialog
         PopupDialog {
-            text: i18n.tr("Warning: Deleting the account will delete all the data you ever received or send using telegram except for data you have explicitly saved outside the telegram cloud. Are you really really sure you want to delete your telegram account?")
+            text: i18n.tr("Warning: Deleting the account will delete all the data you ever received or sent using telegram except for data you have explicitly saved outside the telegram cloud. Are you really really sure you want to delete your telegram account?")
             confirmButtonColor: theme.palette.normal.negative
             confirmButtonText: i18n.tr("Delete")
             onConfirmed: AppActions.auth.deleteAccount()
