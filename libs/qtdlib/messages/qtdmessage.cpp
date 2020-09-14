@@ -329,12 +329,14 @@ bool QTdMessage::isForwarded() const
 QString QTdMessage::summary() const
 {
     QString content;
-    if (m_content->typeText() != "") {
-        content = QString("%1 %2").arg(m_content->typeText(), m_content->infoText());
-    } else {
-        content = m_content->infoText();
+    if (!m_content.isNull())
+    {
+        if (m_content->typeText() != "") {
+            content = QString("%1 %2").arg(m_content->typeText(), m_content->infoText());
+        } else {
+            content = m_content->infoText();
+        }
     }
-
     return content;
 }
 
