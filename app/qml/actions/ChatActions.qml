@@ -19,12 +19,13 @@ ActionCreator {
     signal sendAudio(string audioUrl, string text);
     signal sendContact(string contactUrl, string text);
     signal sendDocument(string documentUrl, string text);
-    signal requestLocation();
+    signal sendSticker(var sticker, string replyId);
+    signal sendVoiceNote(string filename);
     signal sendLocation(double latitude, double longitude, int livePeriod);
+    signal requestLocation();
     signal cancelLocation();
     signal stopWaitLocation();
     signal sendChatAction();
-    signal sendSticker(var sticker, string replyId);
 
     signal leaveChat(string chatId);
     signal deleteChatHistory(string chatId);
@@ -44,6 +45,9 @@ ActionCreator {
     signal setChatDraftMessage(string draftText, string replyToMessageId)
 
     signal muteChat(var chat, int duration)
+    signal registerVoiceNote(string filename)
+    signal stopVoiceNote()
+    signal deleteVoiceNote(string filename)
 
     signal jumpToMessage(string id)
 

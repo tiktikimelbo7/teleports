@@ -76,6 +76,7 @@ public slots:
     void sendAudio(const QString &url, const QString &message, const qint64 &replyToMessageId);
     void sendLocation(const double latitude, const double longitude, const qint32 livePeriod);
     void sendSticker(QTdSticker *sticker, const QString &replyToMessageId = "");
+    void sendVoiceNote(const QString &filename, const qint64 &replyToMessageId);
 
     void editMessageText(qint64 messageId, const QString &message);
     void editMessageText(const QString &messageId, const QString &message);
@@ -86,6 +87,11 @@ public slots:
     void deleteMessage(const qint64 messageId);
     void deleteMessages(const QList<qint64> &messageIds);
     void jumpToMessage(const QString &messageId);
+    void registerVoiceNote(const QString &filename);
+    void stopVoiceNote();
+    void deleteVoiceNote(const QString &filename);
+    void handleUpdateFileGenerationStart(const QJsonObject &json);
+    void handleUpdateFileGenerationStop(const QJsonObject &json);
 
 
 private slots:
@@ -111,6 +117,8 @@ private:
     QTdJumpToWindowMessageHandler jumpToWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
     QString m_jumpToMessageId;
+    QString m_fileGenerationId;
+    QString m_tempVoiceNotePath;
 
     QTdMessage *getDateLabelIfNeeded(QTdMessage *firstMessage, QTdMessage *secondMessage);
     void setMessagesRead(QList<qint64> &messages);
@@ -118,6 +126,7 @@ private:
     void prependMessage(QTdMessage *message);
     bool isUpToDateAndFollowing() const;
     bool hasNewer() const;
+
 };
 
 #endif // QTDMESSAGELISTMODEL_H

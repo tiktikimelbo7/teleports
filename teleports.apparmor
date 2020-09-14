@@ -1,6 +1,7 @@
 {
     "policy_groups": [
         "audio",
+        "microphone",
         "connectivity",
         "content_exchange",
         "content_exchange_source",
