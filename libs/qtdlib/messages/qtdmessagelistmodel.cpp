@@ -4,6 +4,7 @@
 #include <QScopedPointer>
 #include <QtPositioning/QGeoCoordinate>
 #include <QTimer>
+#include <QAudioRecorder>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
@@ -17,6 +18,7 @@
 #include "requests/content/qtdinputmessagevideo.h"
 #include "requests/content/qtdinputmessagelocation.h"
 #include "requests/content/qtdinputmessagesticker.h"
+#include "requests/content/qtdinputmessagevoicenote.h"
 #include "qtdmessagecontentfactory.h"
 #include "qtdmessagecontent.h"
 #include "messages/requests/qtdviewmessagesrequest.h"
@@ -26,6 +28,8 @@
 #include "utils/await.h"
 #include "requests/content/imessageattachmentcontent.h"
 #include "requests/content/imessagecaptioncontent.h"
+
+Q_GLOBAL_STATIC(QAudioRecorder, m_voiceNoteRecorder)
 
 QTdMessageListModel::QTdMessageListModel(QObject *parent)
     : QObject(parent)
@@ -42,6 +46,26 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateDeleteMessages, this, &QTdMessageListModel::handleUpdateDeleteMessages);
     connect(QTdClient::instance(), &QTdClient::updateMessageEdited, this, &QTdMessageListModel::handleUpdateMessageEdited);
     connect(QTdClient::instance(), &QTdClient::updateMessageViews, this, &QTdMessageListModel::handleUpdateMessageViews);
+    connect(QTdClient::instance(), &QTdClient::updateFileGenerationStart, this, &QTdMessageListModel::handleUpdateFileGenerationStart);
+    connect(QTdClient::instance(), &QTdClient::updateFileGenerationStop, this, &QTdMessageListModel::handleUpdateFileGenerationStop);
+
+    // check if m_voiceNoteRecorder has already been setup
+    if (m_voiceNoteRecorder->outputLocation() == QUrl("")) {
+        //QAudioRecorder setup
+        QScopedPointer<QAudioEncoderSettings> audioSettings(new QAudioEncoderSettings);
+        audioSettings->setQuality(QMultimedia::HighQuality);
+        audioSettings->setCodec("audio/x-opus");
+        audioSettings->setSampleRate(16000);
+        audioSettings->setEncodingMode(QMultimedia::ConstantQualityEncoding);
+        audioSettings->setChannelCount(1);
+
+        m_voiceNoteRecorder->setEncodingSettings(*audioSettings.take(), QVideoEncoderSettings(), "audio/ogg");
+        m_voiceNoteRecorder->setVolume(1.0);
+
+        QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/ok.ogg";
+        m_voiceNoteRecorder->setOutputLocation(QUrl(path));
+    }
+
 }
 
 QTdChat *QTdMessageListModel::chat() const
@@ -519,6 +543,15 @@ void QTdMessageListModel::sendSticker(QTdSticker *sticker, const QString &replyT
     prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId.toLongLong());
 }
 
+void QTdMessageListModel::sendVoiceNote(const QString &filename, const qint64 &replyToMessageId)
+{
+    if (m_voiceNoteRecorder->duration() > 0) {
+        QScopedPointer<QTdInputMessageVoiceNote> messageContent(new QTdInputMessageVoiceNote);
+        setAttachmentProperties(messageContent.data(), filename);
+        prepareAndSendAttachmentMessage(messageContent.data(), replyToMessageId);
+    }
+}
+
 void QTdMessageListModel::editMessageText(qint64 messageId, const QString &message)
 {
     if (!m_chat) {
@@ -618,4 +651,55 @@ void QTdMessageListModel::jumpToMessage(const QString &messageId)
     m_jumpToMessageId = messageId;
     m_messageHandler = &jumpToWindowMessageHandler;
     loadMessages(messageId, MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
+}
+
+void QTdMessageListModel::handleUpdateFileGenerationStart(const QJsonObject &json)
+{
+    m_fileGenerationId = json["generation_id"].toString();
+    QString destinationPath = json["destination_path"].toString();
+    QJsonObject finishReq = QJsonObject {
+        { "@type", "finishFileGeneration" },
+        { "generation_id", m_fileGenerationId }
+    };
+    if (QFile::exists(destinationPath))
+    {
+        QFile::remove(destinationPath);
+    }
+    if (!QFile::rename(m_tempVoiceNotePath, destinationPath))
+    {
+        qWarning() << "Could not move" << m_tempVoiceNotePath << "to" << destinationPath;
+        QJsonObject error = QJsonObject {
+            { "@type", "error" },
+            { "code", "500" }
+        };
+        finishReq.insert("error", error);
+    }
+    QTdClient::instance()->send(finishReq);
+}
+
+void QTdMessageListModel::handleUpdateFileGenerationStop(const QJsonObject &json)
+{
+    m_fileGenerationId = "";
+}
+
+void QTdMessageListModel::registerVoiceNote(const QString &filename)
+{
+    m_tempVoiceNotePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/" + filename + ".ogg";
+    m_voiceNoteRecorder->setOutputLocation(QUrl(m_tempVoiceNotePath));
+    m_voiceNoteRecorder->record();
+}
+
+void QTdMessageListModel::stopVoiceNote()
+{
+   qWarning() << "Stopping voice note recording";
+    m_voiceNoteRecorder->stop();
+}
+
+void QTdMessageListModel::deleteVoiceNote(const QString &filename)
+{
+    QFile file(m_tempVoiceNotePath);
+    if (!file.remove())
+    {
+        qWarning() << "Could not delete temp voice note:" << m_tempVoiceNotePath;
+    }
 }

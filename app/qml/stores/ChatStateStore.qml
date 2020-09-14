@@ -367,6 +367,14 @@ Store {
     }
 
     Filter {
+        type: ChatKey.sendVoiceNote
+        onDispatched: {
+            console.log("Send voice note");
+            messageList.sendVoiceNote(message.filename, 0);
+        }
+    }
+
+    Filter {
         type: ChatKey.leaveChat
         onDispatched: {
             var chat = chatList.model.get(message.chatId)
@@ -399,6 +407,25 @@ Store {
         type: ChatKey.muteChat
         onDispatched: {
             message.chat.mute(message.duration)
+        }
+    }
+
+    Filter {
+        type: ChatKey.registerVoiceNote
+        onDispatched: {
+            messageList.registerVoiceNote(message.filename)
+        }
+    }
+    Filter {
+        type: ChatKey.stopVoiceNote
+        onDispatched: {
+            messageList.stopVoiceNote()
+        }
+    }
+    Filter {
+        type: ChatKey.deleteVoiceNote
+        onDispatched: {
+            messageList.deleteVoiceNote(message.filename)
         }
     }
 

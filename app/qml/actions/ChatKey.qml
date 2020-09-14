@@ -22,6 +22,7 @@ KeyTable {
     property string cancelLocation
     property string stopWaitLocation
     property string sendChatAction
+    property string sendVoiceNote
     property string leaveChat
     property string deleteChatHistory
     property string deleteMessage
@@ -42,4 +43,7 @@ KeyTable {
     property string jumpToMessage
     property string setChatDraftMessage
     property string muteChat
+    property string registerVoiceNote
+    property string stopVoiceNote
+    property string deleteVoiceNote
 }

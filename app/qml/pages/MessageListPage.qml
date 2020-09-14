@@ -7,6 +7,7 @@ import Ubuntu.Components.Popups 1.3 as UITK_Popups
 import Ubuntu.Content 1.1 as ContentHub
 import QuickFlux 1.1
 import QTelegram 1.0
+import QtFeedback 5.0
 import "../components"
 import "../actions"
 import "../delegates"
@@ -353,6 +354,15 @@ Page {
         height: entry.height + Suru.units.gu(2)
         color: Suru.backgroundColor
         visible: currentChat.isWritable
+        Rectangle {
+            anchors {
+                top: parent.top
+                right: parent.right
+                left: parent.left
+            }
+            height: Suru.units.dp(1)
+            color: Suru.neutralColor
+        }
 
         AttachPanel {
             id: attach_panel_object
@@ -595,7 +605,65 @@ Page {
                 }
             }
 
+            UITK.StyledItem {
+                id: voiceNoteItem
+                property bool recording: false
+                property var filename: ""
+                height: entry.implicitHeight
+                width: height
+                visible: !sendIcon.visible
+                UITK.Icon {
+                    anchors.fill: parent
+                    name: "audio-input-microphone-symbolic"
+                    color: Suru.foregroundColor
+                    Suru.textStyle: Suru.SecondaryText
+                    MouseArea {
+                        id: voiceNoteMouseArea
+                        anchors.fill: parent
+                        hoverEnabled: false
+                        property var mouseXstart
+                        onPressed: {
+                            var now = new Date()
+                            voiceNoteItem.filename = now.getTime()
+                            AppActions.chat.registerVoiceNote(voiceNoteItem.filename)
+                            voiceNoteItem.recording = true
+                            mouseXstart = mouse.x
+                            pressEffect.start()
+                        }
+                        onReleased: {
+                            if (voiceNoteItem.recording) {
+                                AppActions.chat.stopVoiceNote()
+                                voiceNoteItem.recording = false
+                                pressEffect.start()
+                                AppActions.chat.sendVoiceNote(voiceNoteItem.filename)
+                            }
+                        }
+                        onCanceled: {
+                            AppActions.chat.stopVoiceNote()
+                            AppActions.chat.deleteVoiceNote(voiceNoteItem.filename)
+                            voiceNoteItem.recording = false
+                            pressEffect.start()
+                        }
+                        onPositionChanged: {
+                            if (voiceNoteItem.recording)
+                                if (Math.abs(mouse.x - mouseXstart) > input.width * 0.4)
+                                    voiceNoteMouseArea.canceled()
+                        }
+                        HapticsEffect {
+                            id: pressEffect
+                            attackIntensity: 0.0
+                            attackTime: 50
+                            intensity: 1.0
+                            duration: 10
+                            fadeTime: 50
+                            fadeIntensity: 0.0
+                        }
+                    }
+                }
+            }
+
             Image {
+                id: sendIcon
                 visible: entry.displayText.trim() !== "" || d.chatState == ChatState.EditingMessage
                 sourceSize.height: height
                 source: "qrc:/qml/icons/send.png"
@@ -608,16 +676,124 @@ Page {
                 }
             }
         }
-
         Rectangle {
-            anchors {
-                top: parent.top
-                right: parent.right
-                left: parent.left
+            id: voiceNoteLabelRect
+            anchors.fill: parent
+            anchors.margins: Suru.units.gu(1)
+            color: Suru.backgroundColor
+            property var offset: width/4
+            visible: opacity > 0.0
+            opacity: 0.0
+            Behavior on opacity { NumberAnimation {duration: UITK.UbuntuAnimation.FastDuration} }
+            Label {
+                id: voiceNoteLabel
+                anchors.verticalCenter: parent.verticalCenter
+                horizontalAlignment: Text.AlignHCenter
+                text: i18n.tr("<<< Swipe to cancel")
+                x: (parent.width - width) / 2 + parent.offset
+                Behavior on x { NumberAnimation {duration: UITK.UbuntuAnimation.FastDuration} }
             }
-            height: Suru.units.dp(1)
-            color: Suru.neutralColor
+            Rectangle {
+                id: blueCircle
+                radius: width/2
+                anchors.centerIn: voiceNoteWhite
+                width: 0
+                height: width
+                color: Suru.highlightColor
+                visible: voiceNoteItem.recording
+                Behavior on width { NumberAnimation {duration: UITK.UbuntuAnimation.FastDuration} }
+            }
+            UITK.Icon {
+                id: voiceNoteWhite
+                height: entry.implicitHeight
+                width: height
+                anchors.right: parent.right
+                name: "audio-input-microphone-symbolic"
+                color: Suru.backgroundColor
+                Suru.textStyle: Suru.SecondaryText
+            }
+            Item {
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    bottom: parent.bottom
+                    topMargin: Suru.units.dp(1)-Suru.units.gu(1)
+                    margins: -Suru.units.gu(1)
+                }
+                width: 2 * recRow.width
+                clip: true
+                Rectangle {
+                    rotation: 90
+                    anchors.centerIn: parent
+                    width: Math.max(parent.width, parent.height)
+                    height: width
+                    gradient: Gradient {
+                        GradientStop { position: 1.0; color: voiceNoteLabelRect.color }
+                        GradientStop { position: 0.4; color: voiceNoteLabelRect.color }
+                        GradientStop { position: 0.0; color: "transparent" }
+                    }
+                }
+            }
+            Row {
+                id: recRow
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: Suru.units.gu(1)
+                Rectangle {
+                    id: recDot
+                    height: voiceNoteStopWatch.height * 2 / 3
+                    width: height
+                    radius: height/2
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: Suru.highlightColor
+                    Suru.highlightType: Suru.NegativeHighlight
+                    onVisibleChanged: visible ? recAnim.start() : recAnim.stop()
+                    SequentialAnimation {
+                        id: recAnim
+                        loops: Animation.Infinite
+                        PropertyAnimation { to: 0.0; target: recDot; property: "opacity"; duration: 400 }
+                        PropertyAnimation { to: 1.0; target: recDot; property: "opacity"; duration: 400 }
+                    }
+                }
+                Label {
+                    id: voiceNoteStopWatch
+                    text: elapsedTimer.minutes+":"+(elapsedTimer.seconds < 10 ? "0" : "")+elapsedTimer.seconds
+                    Suru.textLevel: Suru.HeadingTwo
+                    Timer {
+                        id: elapsedTimer
+                        property date startTime: new Date()
+                        property date snapshot: startTime
+                        property int seconds: elapsed - 60 * minutes
+                        property int minutes: elapsed / 60
+                        property int elapsed: (snapshot - startTime) / 1000
+                        interval: 500
+                        repeat: true
+                        running: voiceNoteStopWatch.visible
+                        triggeredOnStart: true
+                        onRunningChanged: startTime = new Date()
+                        onTriggered: snapshot = new Date()
+                    }
+                }
+            }
         }
+
+        states: [
+        State {
+            name: "recording"
+            when: voiceNoteItem.recording
+            PropertyChanges {target: voiceNoteLabelRect; opacity: 1.0}
+            PropertyChanges {target: voiceNoteLabelRect; offset: voiceNoteMouseArea.mouseX/3;}
+            PropertyChanges {target: voiceNoteLabel; opacity: 1+(voiceNoteMouseArea.mouseX / input.width)}
+            PropertyChanges {target: blueCircle; width: entry.implicitHeight * 2}
+        },
+        State {
+            name: "default"
+            when: !voiceNoteItem.recording
+            PropertyChanges {target: voiceNoteLabelRect; offset: voiceNoteLabelRect.width/4}
+            PropertyChanges {target: voiceNoteLabelRect; opacity: 0.0}
+            PropertyChanges {target: blueCircle; width: 0}
+        }
+        ]
     }
 
     Component {

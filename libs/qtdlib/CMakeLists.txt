@@ -12,6 +12,7 @@ find_package(Qt5Quick REQUIRED)
 find_package(Qt5Concurrent REQUIRED)
 find_package(Qt5Positioning REQUIRED)
 find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Multimedia REQUIRED)
 
 
 set(CMAKE_AUTOMOC ON)
@@ -177,6 +178,7 @@ set(
     messages/requests/content/qtdinputmessagetext.cpp
     messages/requests/content/qtdinputmessageaudio.cpp
     messages/requests/content/qtdinputmessagevideo.cpp
+    messages/requests/content/qtdinputmessagevoicenote.cpp
     messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/content/qtdinputmessagesticker.cpp
     messages/requests/qtddeletemessagesrequest.cpp
@@ -220,7 +222,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 add_library(${QTDLIB} SHARED ${SRC})
-target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Td::tdjson auxdb)
+target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Qt5::Multimedia Td::tdjson auxdb)
 target_include_directories(${QTDLIB} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 

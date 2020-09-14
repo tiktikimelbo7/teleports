@@ -588,8 +588,7 @@ void QTdChat::forwardMessage(const QString &messageId)
 }
 
 void QTdChat::mute(const qint32 &duration) {
-    QScopedPointer<QTdSetChatNotificationSettings>
-            req(new QTdSetChatNotificationSettings);
+    QScopedPointer<QTdSetChatNotificationSettings> req(new QTdSetChatNotificationSettings);
     req->setNotificationSettings(m_notifySettings.data());
     req->setChatId(id());
     m_notifySettings->setMuteFor(duration);
