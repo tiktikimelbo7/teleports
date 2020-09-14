@@ -3,6 +3,7 @@ stages:
     - deps
     - build
     - publish
+    - debug
 
 variables:
     GIT_SUBMODULE_STRATEGY: 'recursive'
@@ -12,6 +13,12 @@ variables:
 cache: &tdlib_cache
     key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.6'
     untracked: true
+
+.debug: &debug
+    stage: debug
+    variables:
+        CLICKABLE_DEBUG_BUILD: "1"
+    when: manual
 
 .armhf: &armhf
     variables:
@@ -100,6 +107,25 @@ teleports-amd64:
     dependencies:
         - tdlib-amd64
     extends: .teleports
+
+
+teleports-armhf-debug:
+    <<: *debug
+    dependencies:
+        - tdlib-armhf
+    extends: teleports-armhf
+
+teleports-arm64-debug:
+    <<: *debug
+    dependencies:
+        - tdlib-arm64
+    extends: teleports-arm64
+
+teleports-amd64-debug:
+    <<: *debug
+    dependencies:
+        - tdlib-amd64
+    extends: teleports-amd64
 
 
 publish:
