@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-13 15:16+0000\n"
+"POT-Creation-Date: 2020-09-16 16:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,43 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/qml/components/ChatListDelegate.qml:37
+msgid "Leave chat"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:42
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+msgid "Clear history"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:53
+#: ../app/qml/pages/UserListPage.qml:114
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:270
+msgid "Do you want to forward the selected messages to %1?"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:272
+#: ../app/qml/delegates/MessageBubbleItem.qml:79
+msgid "Forward"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:285
+#: ../app/qml/components/ChatListDelegate.qml:309
+msgid "Enter optional message..."
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:293
+msgid "Do you want to send the imported files to %1?"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:295
+#: ../app/qml/pages/MessageListPage.qml:804
+msgid "Send"
+msgstr ""
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -90,11 +127,6 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:73
 msgid "Sticker Pack info"
-msgstr ""
-
-#: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:361
-msgid "Forward"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
@@ -176,11 +208,6 @@ msgstr ""
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:131
-msgid "Clear history"
-msgstr ""
-
 #: ../app/qml/middleware/ChatMiddleware.qml:31
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
@@ -193,11 +220,13 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:83
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:91
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
+#: ../app/qml/pages/AboutPage.qml:24
+#: ../app/qml/pages/ArchivedChatListPage.qml:29
+#: ../app/qml/pages/ChatInfoPage.qml:26 ../app/qml/pages/ChatListPage.qml:45
 #: ../app/qml/pages/ConnectivityPage.qml:46
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:18
 #: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
@@ -228,6 +257,11 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
+msgstr ""
+
+#: ../app/qml/pages/ArchivedChatListPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:116
+msgid "Archived chats"
 msgstr ""
 
 #: ../app/qml/pages/ChatInfoPage.qml:21
@@ -281,46 +315,21 @@ msgstr ""
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:64
+#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:72
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:54 ../libs/qtdlib/chat/qtdchat.cpp:85
+#: ../app/qml/pages/ChatListPage.qml:62 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:59 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:67 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:70
+#: ../app/qml/pages/ChatListPage.qml:78
 msgid "Night mode"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:126
-msgid "Leave chat"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:142 ../app/qml/pages/UserListPage.qml:114
-msgid "Info"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:359
-msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:374 ../app/qml/pages/ChatListPage.qml:398
-msgid "Enter optional message..."
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:382
-msgid "Do you want to send the imported files to %1?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:384
-#: ../app/qml/pages/MessageListPage.qml:804
-msgid "Send"
 msgstr ""
 
 #: ../app/qml/pages/ConnectivityPage.qml:24
@@ -450,7 +459,7 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:150
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
-"send using telegram except for data you have explicitly saved outside the "
+"sent using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
@@ -484,7 +493,7 @@ msgid "Code"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-msgid "We've send a code via telegram to your device. Please enter it here."
+msgid "We've sent a code via telegram to your device. Please enter it here."
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
@@ -570,47 +579,47 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:333
+#: ../libs/qtdlib/chat/qtdchat.cpp:335
 msgid "Draft:"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:619
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:620
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:625
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:629
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:630
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:634
 msgid "are doing something..."
 msgstr ""
 

@@ -23,6 +23,7 @@
         <file>pages/UserListPage.qml</file>
         <file>pages/ChatInfoPage.qml</file>
         <file>pages/SecretChatKeyHashPage.qml</file>
+        <file>pages/ArchivedChatListPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
@@ -114,5 +115,6 @@
         <file>actions/StickerActions.qml</file>
         <file>actions/StickerKey.qml</file>
         <file>components/MessageStatusIndicator.qml</file>
+        <file>components/ChatListDelegate.qml</file>
     </qresource>
 </RCC>
