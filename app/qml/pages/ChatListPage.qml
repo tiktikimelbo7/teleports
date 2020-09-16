@@ -120,24 +120,6 @@ Page {
                 onClicked: AppActions.chat.toggleArchivedChats()
                 visible: Telegram.chats.chatList_type == SortedChatList.Main
             }
-            delegate: UITK.ListItem {
-
-            // WORKAROUND: Fix for wrong grid unit size
-            Component.onCompleted: root.flickable_responsive_scroll_fix(chatList)
-
-            model: Telegram.chats.sortedList
-            header: UITK.ListItem {
-                height: visible ? archivedLayout.height : 0
-                UITK.ListItemLayout {
-                    id: archivedLayout
-                    title {
-                        text: i18n.tr("Archived chats")
-                        font.weight: Font.DemiBold
-                    }
-                }
-                onClicked: AppActions.chat.toggleArchivedChats()
-                visible: Telegram.chats.chatList_type == SortedChatList.Main
-            }
             delegate: ChatListDelegate {}
         }
     }

@@ -90,8 +90,7 @@ Store {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        property bool archivedChatList: false
-        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
+        chatList: SortedChatList.Main
     }
 
     SortedChatList {
@@ -484,11 +483,11 @@ Store {
             messageList.deleteVoiceNote(message.filename)
         }
     }
-    
+
     Filter {
         type: ChatKey.toggleArchivedChats
         onDispatched: {
-            sortedList.archivedChatList = !sortedList.archivedChatList
+            AppActions.view.pushToStack("qrc:/pages/ArchivedChatListPage.qml", {})
         }
     }
 
