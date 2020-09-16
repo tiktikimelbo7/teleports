@@ -502,13 +502,3 @@ void QTdChatListModel::handleUpdateChatChatList(const QJsonObject &data)
         emit contentsChanged();
     }
 }
-
-void QTdChatListModel::handleUpdateChatChatList(const QJsonObject &data)
-{
-    const qint64 id = qint64(data["chat_id"].toDouble());
-    QTdChat *tdchat = chatById(id);
-    if (tdchat) {
-        tdchat->updateChatChatList(data["chat_list"].toObject());
-        emit contentsChanged();
-    }
-}
