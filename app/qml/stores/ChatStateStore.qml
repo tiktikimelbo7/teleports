@@ -83,16 +83,22 @@ Store {
      * see qtdchatlistsortfiltermodel.h for all filter types.
      */
     property alias sortedList: sortedChatList
+    property alias archivedSortedList: archivedSortedChatList
     property alias chatList_type: sortedChatList.chatList
 
     SortedChatList {
         id: sortedChatList
         model: chatList
         chatFilters: SortedChatList.CurrentChats
-        property bool archivedChatList: false
-        chatList: archivedChatList ? SortedChatList.Archive : SortedChatList.Main
+        chatList: SortedChatList.Main
     }
 
+    SortedChatList {
+        id: archivedSortedChatList
+        model: chatList
+        chatFilters: SortedChatList.CurrentChats
+        chatList: SortedChatList.Archive
+    }
     /**
      *
      */
@@ -477,11 +483,11 @@ Store {
             messageList.deleteVoiceNote(message.filename)
         }
     }
-    
+
     Filter {
         type: ChatKey.toggleArchivedChats
         onDispatched: {
-            sortedList.archivedChatList = !sortedList.archivedChatList
+            AppActions.view.pushToStack("qrc:/pages/ArchivedChatListPage.qml", {})
         }
     }
 

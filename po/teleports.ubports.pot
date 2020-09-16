@@ -18,6 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: ../app/qml/components/ChatListDelegate.qml:37
+msgid "Leave chat"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:42
+#: ../app/qml/middleware/ChatMiddleware.qml:22
+msgid "Clear history"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:53
+#: ../app/qml/pages/UserListPage.qml:114
+msgid "Info"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:270
+msgid "Do you want to forward the selected messages to %1?"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:272
+#: ../app/qml/delegates/MessageBubbleItem.qml:79
+msgid "Forward"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:285
+#: ../app/qml/components/ChatListDelegate.qml:309
+msgid "Enter optional message..."
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:293
+msgid "Do you want to send the imported files to %1?"
+msgstr ""
+
+#: ../app/qml/components/ChatListDelegate.qml:295
+#: ../app/qml/pages/MessageListPage.qml:804
+msgid "Send"
+msgstr ""
+
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
 msgid "Choose a country"
@@ -249,11 +286,13 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:83
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:91
 msgid "About"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
+#: ../app/qml/pages/AboutPage.qml:24
+#: ../app/qml/pages/ArchivedChatListPage.qml:29
+#: ../app/qml/pages/ChatInfoPage.qml:26 ../app/qml/pages/ChatListPage.qml:45
 #: ../app/qml/pages/ConnectivityPage.qml:46
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:18
 #: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
@@ -284,6 +323,11 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:95
 msgid "Help translate"
+msgstr ""
+
+#: ../app/qml/pages/ArchivedChatListPage.qml:19
+#: ../app/qml/pages/ChatListPage.qml:116
+msgid "Archived chats"
 msgstr ""
 
 #: ../app/qml/pages/ChatInfoPage.qml:21
@@ -337,7 +381,7 @@ msgstr ""
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:64
+#: ../app/qml/pages/ChatListPage.qml:37 ../app/qml/pages/ChatListPage.qml:72
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr ""
@@ -346,11 +390,11 @@ msgstr ""
 msgid "Saved Messages"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:59 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:67 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:70
+#: ../app/qml/pages/ChatListPage.qml:78
 msgid "Night mode"
 msgstr ""
 
