@@ -223,41 +223,40 @@ UITK.ListItem {
                     rightMargin: extend_bubble ? -message_status_comp.width + (textFullWidth - textLastCharX) - 2*mcMargins : 0
                 }
 
-                    MessageStatusRow {
-                        id: message_status_comp
-                        anchors {
-                            right: parent.right
-                            rightMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
-                        }
+                MessageStatusRow {
+                    id: message_status_comp
+                    anchors {
+                        right: parent.right
+                        rightMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
+                    }
 
-                        MessageStatusIndicator {
-                            bgColor: contentCol.color
-                            enabled: base.indicatorsEnabled
+                    MessageStatusIndicator {
+                        bgColor: contentCol.color
+                        enabled: base.indicatorsEnabled
 
-                            state: {
-                                if(message.isOutgoing) {
-                                    if(message.content.type === QTdObject.MESSAGE_CALL) {
-                                        return "new";
-                                    }
-                                    if(message.sendingState) {
-                                        return "outgoing";
-                                    }
-                                    if(message.id > chat.lastReadOutboxMessageId) {
-                                        return "sent";
-                                    }
-                                    return "read";
+                        state: {
+                            if(message.isOutgoing) {
+                                if(message.content.type === QTdObject.MESSAGE_CALL) {
+                                    return "new";
                                 }
-                                return "incoming";
+                                if(message.sendingState) {
+                                    return "outgoing";
+                                }
+                                if(message.id > chat.lastReadOutboxMessageId) {
+                                    return "sent";
+                                }
+                                return "read";
                             }
+                            return "incoming";
                         }
                     }
                 }
             }
         }
+    }
 
-        Item {
-            Layout.fillWidth: !message.isOutgoing
-        }
+    Item {
+        Layout.fillWidth: !message.isOutgoing
     }
 
     ColorAnimation {
