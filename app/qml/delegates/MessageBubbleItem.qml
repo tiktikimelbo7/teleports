@@ -24,7 +24,7 @@ UITK.ListItem {
     property bool multimediaLayout: false
     property real mcMargins: Suru.units.dp(5)
     property real maximumAvailableContentWidth: maxAvailableWidthNoMargins - mc.horizontalMargins
-    property real maxAvailableWidthNoMargins: Math.min(Suru.units.gu(45), width * (3/4))
+    property real maxAvailableWidthNoMargins: Math.min(Suru.units.gu(55), width * (3/4))
     property alias senderLabelVisible: senderLabel.visible
 
     default property alias content: mainContent.data
