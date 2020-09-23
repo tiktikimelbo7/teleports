@@ -11,19 +11,12 @@ Item {
 
     visible: false
 
-    property int bottomMargin: 0
-
     signal sendStickerRequested(var sticker)
     signal open()
     signal close()
 
-    anchors {
-        right: parent.right
-        left: parent.left
-        bottom: parent.bottom
-    }
-
     clip: false
+    height: units.gu(24)
 
     onClose: sticker_panel.visible = false
     onOpen: sticker_panel.visible = true
@@ -36,19 +29,11 @@ Item {
 
     Rectangle {
         id: sticker_box
-        width: parent.width
-        height: units.gu(24) + bottomMargin
-        y: -height
-        radius: 4
+        anchors.fill: parent
         color: Suru.backgroundColor
-        border.color: Suru.neutralColor
-        border.width: 2
 
         Item {
-            anchors {
-                fill: parent
-                bottomMargin: bottomMargin
-            }
+            anchors.fill: parent
 
             BusyIndicator {
                 anchors.centerIn: parent
@@ -79,11 +64,11 @@ Item {
                 }
             }
         }
-
-        Rectangle {
-            Layout.fillWidth: true
-            height: 1
-            color: Suru.neutralColor
-        }
+    }
+    Rectangle {
+        width: parent.width
+        height: Suru.units.dp(1)
+        color: Suru.neutralColor
+        anchors.bottom: sticker_panel.top
     }
 }

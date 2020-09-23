@@ -344,6 +344,50 @@ Page {
         }
     }
 
+    AttachPanel {
+        id: attach_panel_object
+        anchors {
+            right: parent.right
+            left: parent.left
+            bottom: input.top
+        }
+        function requestMedia(mediaType) {
+            Qt.inputMethod.hide();
+            mediaImporter.contentType = mediaType;
+            mediaImporter.requestMedia();
+        }
+
+        function requestLocation() {
+            UITK_Popups.PopupUtils.open(sendLocationConfirmationDialog)
+        }
+        onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
+        onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
+        onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
+        onAudioRequested: requestMedia(ContentHub.ContentType.Music)
+        onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
+        onLocationRequested: requestLocation()
+    }
+
+    StickerPanel {
+        id: sticker_panel_object
+
+        anchors {
+            right: parent.right
+            left: parent.left
+            bottom: input.top
+        }
+
+        onSendStickerRequested: {
+            if (infoBox.replyingToMessage) {
+                AppActions.chat.sendSticker(sticker, d.messageOfInterest.id);
+                d.chatState = ChatState.Default;
+            } else {
+                AppActions.chat.sendSticker(sticker, 0);
+            }
+            sticker_panel_object.close();
+        }
+    }
+    
     Rectangle {
         id: input
         anchors {
@@ -362,41 +406,6 @@ Page {
             }
             height: Suru.units.dp(1)
             color: Suru.neutralColor
-        }
-
-        AttachPanel {
-            id: attach_panel_object
-            function requestMedia(mediaType) {
-                Qt.inputMethod.hide();
-                mediaImporter.contentType = mediaType;
-                mediaImporter.requestMedia();
-            }
-
-            function requestLocation() {
-                UITK_Popups.PopupUtils.open(sendLocationConfirmationDialog)
-            }
-            onPhotoRequested: requestMedia(ContentHub.ContentType.Pictures)
-            onDocumentRequested: requestMedia(ContentHub.ContentType.Documents)
-            onVideoRequested: requestMedia(ContentHub.ContentType.Videos)
-            onAudioRequested: requestMedia(ContentHub.ContentType.Music)
-            onContactRequested: requestMedia(ContentHub.ContentType.Contacts)
-            onLocationRequested: requestLocation()
-        }
-
-        StickerPanel {
-            id: sticker_panel_object
-
-            bottomMargin: input.height
-
-            onSendStickerRequested: {
-                if (infoBox.replyingToMessage) {
-                    AppActions.chat.sendSticker(sticker, d.messageOfInterest.id);
-                    d.chatState = ChatState.Default;
-                } else {
-                    AppActions.chat.sendSticker(sticker, 0);
-                }
-                sticker_panel_object.close();
-            }
         }
 
         MediaImport {

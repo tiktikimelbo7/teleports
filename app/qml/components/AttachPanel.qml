@@ -17,24 +17,15 @@ Item {
     signal locationRequested()
     signal close()
 
-    anchors {
-        right: parent.right
-        left: parent.left
-        bottom: parent.bottom
-    }
     clip: false
 
     onClose: attach_panel.visible = false
+    height: units.gu(6)
 
     Rectangle {
         id: attach_box
-        width: parent.width
-        height: units.gu(12)
-        y: -height
-        radius: 4
+        anchors.fill: parent
         color: Suru.backgroundColor
-        border.color: Suru.neutralColor
-        border.width: 2
         Grid {
             id: attachment_grid
             anchors {
@@ -98,4 +89,10 @@ Item {
         }
     }
 
+    Rectangle {
+        width: parent.width
+        height: Suru.units.dp(1)
+        color: Suru.neutralColor
+        anchors.bottom: attach_panel.top
+    }
 }
