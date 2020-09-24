@@ -80,6 +80,7 @@
         <file>delegates/MessageChatChangeTitle.qml</file>
         <file>delegates/MessageChatChangePhoto.qml</file>
         <file>delegates/MessageChatDeletePhoto.qml</file>
+        <file>delegates/MessageChatSetTTL.qml</file>
         <file>middleware/ChatMiddleware.qml</file>
         <file>middleware/StackMiddleware.qml</file>
         <file>delegates/MessageContentBase.qml</file>
