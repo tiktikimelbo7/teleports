@@ -128,3 +128,22 @@ QJsonArray QTdHelpers::formatPlainTextMessage(const QString &message, QString &p
 
     return entities;
 }
+
+QString QTdHelpers::initials(const QString &title)
+{
+    if (title != "") {
+        QString initials = "";
+        QStringList parts = title.trimmed().split(" ", QString::SkipEmptyParts);
+        for (int i = 0; i < parts.size(); i++) {
+            initials += parts[i][0].toUpper();
+            if (initials.length() >= 2) {
+                break;
+            }
+        }
+        if (initials.length() < 2) {
+            initials = title.trimmed().left(2).toUpper();
+        }
+        return initials;
+    }
+    return "N/A";
+}

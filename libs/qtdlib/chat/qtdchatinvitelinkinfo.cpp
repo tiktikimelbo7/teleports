@@ -1,9 +1,22 @@
 #include "qtdchatinvitelinkinfo.h"
 #include "client/qtdclient.h"
+#include "user/requests/qtdgetuserrequest.h"
+#include "utils/await.h"
+#include "user/qtdusers.h"
+#include "common/qtdhelpers.h"
 
 QTdChatInviteLinkInfo::QTdChatInviteLinkInfo(QObject *parent)
     : QObject(parent)
+    , m_inviteLink("")
+    , m_chatId(0)
+    , m_type(new QTdChatType)
+    , m_title("")
+    , m_photo(new QTdChatPhoto)
+    , m_memberCount(0)
+    , m_highlightedMemberCount(0)
+    , m_memberUsers(Q_NULLPTR)
 {
+    m_memberUsers.reset(new QQmlObjectListModel<QTdUser>(this));
 }
 
 QString QTdChatInviteLinkInfo::inviteLink() const
@@ -46,19 +59,71 @@ QString QTdChatInviteLinkInfo::qmlMemberCount() const
     return m_memberCount.toQmlValue();
 }
 
+QList<qint32> QTdChatInviteLinkInfo::memberUserIds() const
+{
+    return m_memberUserIds;
+}
+QString QTdChatInviteLinkInfo::highlightedMemberCount() const
+{
+    return m_highlightedMemberCount.toQmlValue();
+}
+
+QQmlObjectListModel<QTdUser> *QTdChatInviteLinkInfo::memberUsers() const
+{
+    return m_memberUsers.data();
+}
+
 bool QTdChatInviteLinkInfo::isPublic() const
 {
     return m_isPublic;
+}
+
+QString QTdChatInviteLinkInfo::initials() const
+{
+    return m_initials;
+}
+QString QTdChatInviteLinkInfo::avatarColor() const
+{
+    return m_avatarColor;
 }
 
 void QTdChatInviteLinkInfo::unmarshalJson(QJsonObject &json)
 {
     m_inviteLink = json["invite_link"].toString();
     m_chatId = json["chat_id"].toDouble();
-    // m_type = json["type"].toObject()->unmarshalJson();
+    m_type->unmarshalJson(json["type"].toObject());
     m_title = json["title"].toString();
-    // m_photo = json["photo"].toObject();
+    m_photo->unmarshalJson(json["photo"].toObject());
+    m_photo->small()->downloadFile();
     m_memberCount = json["member_count"].toInt();
+
+    auto userIds = json["member_user_ids"].toArray();
+    for (const QJsonValue &userId : userIds) {
+        m_memberUserIds << qint32(userId.toInt());
+    }
+    for (const qint32 &userId : m_memberUserIds) {
+        QScopedPointer<QTdUser> user(QTdUsers::instance()->model()->getByUid(QString::number(userId)));
+        if (user.isNull()) {
+            QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
+            req->setUserId(userId);
+            QFuture<QTdResponse> resp = req->sendAsync();
+            await(resp, 2000);
+            qDebug() << "Requested user" << resp.result().json();
+            if (resp.result().isError()) {
+                qWarning() << "Failed to get contacts with error: " << resp.result().errorString();
+                return;
+            }
+            QScopedPointer<QTdUser> reqUser(new QTdUser);
+            reqUser->unmarshalJson(resp.result().json());
+            m_memberUsers->append(reqUser.take());
+        } else {
+            m_memberUsers->append(user.take());
+        }
+    }
     m_isPublic = json["is_public"].toBool();
+    m_initials = QTdHelpers::initials(m_title);
+    m_highlightedMemberCount = m_memberUserIds.count();
+    qsrand(QTime::currentTime().msec());
+    m_avatarColor = QTdHelpers::avatarColor(rand());
     emit chatInviteLinkInfoChanged();
 }
