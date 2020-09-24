@@ -55,9 +55,6 @@ Store {
         onReady: {
             AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/ChatListPage.qml"})
         }
-        onClosed: {
-              Qt.quit();
-        }
         onPhoneNumberError: {
             if (message == "PHONE_NUMBER_INVALID") {
                 AppActions.auth.authPhoneNumberError(i18n.tr("Invalid phone number!"));
@@ -149,6 +146,8 @@ Store {
         type: AuthKey.logOut
         onDispatched: {
             authState.logOut()
+            AppDispatcher.dispatch("popAllButOneFromStack", {})
+            AppDispatcher.dispatch("replaceOnStack", {view: "qrc:/pages/LogoutPage.qml"})
         }
     }
 

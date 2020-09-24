@@ -213,7 +213,7 @@ void QTdAuthManager::handleAuthStateChanged(QTdAuthState *state)
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED: {
         m_state = Closed;
-        emit closed();
+        QCoreApplication::quit();
         break;
     }
     default:
