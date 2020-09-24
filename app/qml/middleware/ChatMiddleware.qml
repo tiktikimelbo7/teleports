@@ -30,7 +30,7 @@ Middleware {
                 height: Suru.units.gu(10)
                 width: height
             }
-            Label {
+            UITK.Label {
                 Suru.textLevel: Suru.HeadingTwo
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: inviteLinkInfo.title
@@ -40,7 +40,7 @@ Middleware {
                 elide: Text.ElideRight
                 wrapMode: Text.Wrap
             }
-            Label {
+            UITK.Label {
                 Suru.textStyle: Suru.TertiaryText
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: {
@@ -72,7 +72,7 @@ Middleware {
                                 height: Suru.units.gu(6)
                                 width: height
                             }
-                            Label {
+                            UITK.Label {
                                 width: parent.width
                                 elide: Text.ElideRight
                                 horizontalAlignment: Text.AlignHCenter
