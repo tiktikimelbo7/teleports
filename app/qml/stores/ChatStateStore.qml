@@ -267,16 +267,22 @@ Store {
                 switch(importedFileType) {
                     case ContentHub.ContentType.Pictures:
                         AppActions.chat.sendPhoto(importedFiles[i], message.text);
-                    break;
+                        break;
                     case ContentHub.ContentType.Videos:
                         AppActions.chat.sendVideo(importedFiles[i], message.text);
-                    break;
+                        break;
                     case ContentHub.ContentType.Music:
                         AppActions.chat.sendAudio(importedFiles[i], message.text);
-                    break;
+                        break;
                     case ContentHub.ContentType.Contacts:
                         AppActions.chat.sendContact(importedFiles[i], message.text);
-                    break;
+                        break;
+                    case ContentHub.ContentType.Text:
+                        AppActions.chat.sendMessage(message.text);
+                        break;
+                    case ContentHub.ContentType.Links:
+                        AppActions.chat.sendMessage(message.text);
+                        break;
                     default:
                         AppActions.chat.sendDocument(importedFiles[i], message.text);
                 }
