@@ -371,11 +371,13 @@ Page {
                 switch (currentChat.status.type) {
                 case QTdObject.CHAT_MEMBER_STATUS_CREATOR:
                     return !currentChat.status.isMember
-                    break
                 case QTdObject.CHAT_MEMBER_STATUS_LEFT:
                     return true
+                default:
+                    return false
                 }
             }
+            return false
         }
         text: i18n.tr("Join")
         onClicked: AppActions.chat.joinChat(currentChat.id)
