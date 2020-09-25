@@ -379,7 +379,8 @@ Page {
                     Component {
                         id: importConfirmationDialog
                         PopupDialog {
-                            text: i18n.tr("Do you want to send the imported files to %1?").arg(userSelectedChat.title)
+                            text: incomingTextFromContentHub == "" ? i18n.tr("Do you want to send the imported files to %1?").arg(userSelectedChat.title)
+                                                                   : i18n.tr("Do you want to send the imported text to %1?").arg(userSelectedChat.title)
                             confirmButtonColor: theme.palette.normal.focus
                             confirmButtonText: i18n.tr("Send")
                             onConfirmed: {
@@ -396,6 +397,7 @@ Page {
                                 }
                                 id: optionalMessage
                                 placeholderText: i18n.tr("Enter optional message...")
+                                text: incomingTextFromContentHub
                             }
                         }
                     }
@@ -435,14 +437,31 @@ Page {
         }
     }
 
+    property string incomingTextFromContentHub: ""
     function processContentHubIncoming(transfer) {
-        var fileNames = [ ]
-        for ( var i = 0; i < transfer.items.length; i++ ) {
-            var filePath = String(transfer.items[i].url).replace('file://', '')
-            var fileName = filePath.split("/").pop();
-            fileNames.push(filePath)
+        if (transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text) {
+            var message = ""
+            for (var i = 0; i < transfer.items.length; i++) {
+                if (String(transfer.items[i].text).length > 0) {
+                    message += String(transfer.items[i].text)
+                    message += "\n"
+                }
+                if (String(transfer.items[i].url).length > 0) {
+                    message += String(transfer.items[i].url)
+                    message += "\n"
+                }
+            }
+            incomingTextFromContentHub = message.trim()
+            AppActions.chat.importFromContentHub(transfer.contentType, [""]) // dummy filename list with length = 1
+        } else {
+            var fileNames = [ ]
+            for ( var i = 0; i < transfer.items.length; i++ ) {
+                var filePath = String(transfer.items[i].url).replace('file://', '')
+                var fileName = filePath.split("/").pop();
+                fileNames.push(filePath)
+            }
+            AppActions.chat.importFromContentHub(transfer.contentType, fileNames)
         }
-        AppActions.chat.importFromContentHub(transfer.contentType, fileNames)
     }
 
     Connections {
