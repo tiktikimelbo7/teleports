@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 10:23+0000\n"
+"POT-Creation-Date: 2020-09-25 19:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgid "Sticker Pack info"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:391
+#: ../app/qml/pages/ChatListPage.qml:361
 msgid "Forward"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:48
-#: ../app/qml/pages/MessageListPage.qml:32
+#: ../app/qml/pages/MessageListPage.qml:33
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
@@ -188,7 +188,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:95
-#: ../app/qml/pages/ChatListPage.qml:161
+#: ../app/qml/pages/ChatListPage.qml:131
 msgid "Clear history"
 msgstr ""
 
@@ -313,28 +313,28 @@ msgstr ""
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:156
+#: ../app/qml/pages/ChatListPage.qml:126
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:172 ../app/qml/pages/UserListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:142 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:389
+#: ../app/qml/pages/ChatListPage.qml:359
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:404 ../app/qml/pages/ChatListPage.qml:428
+#: ../app/qml/pages/ChatListPage.qml:374 ../app/qml/pages/ChatListPage.qml:398
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:412
+#: ../app/qml/pages/ChatListPage.qml:382
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:414
-#: ../app/qml/pages/MessageListPage.qml:856
+#: ../app/qml/pages/ChatListPage.qml:384
+#: ../app/qml/pages/MessageListPage.qml:852
 msgid "Send"
 msgstr ""
 
@@ -396,61 +396,61 @@ msgid ""
 "Please, don't close it manually!"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:34
+#: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:131
+#: ../app/qml/pages/MessageListPage.qml:132
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:334
+#: ../app/qml/pages/MessageListPage.qml:335
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:338
+#: ../app/qml/pages/MessageListPage.qml:339
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:340
+#: ../app/qml/pages/MessageListPage.qml:341
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:351
+#: ../app/qml/pages/MessageListPage.qml:349
 msgid "You left this group"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:354
+#: ../app/qml/pages/MessageListPage.qml:352
 msgid "You have been banned"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:357
+#: ../app/qml/pages/MessageListPage.qml:355
 msgid "You are not allowed to post in this group"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:361
+#: ../app/qml/pages/MessageListPage.qml:359
 msgid "You can't write here. Reason unkown"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:384
+#: ../app/qml/pages/MessageListPage.qml:382
 msgid "Join"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:524
+#: ../app/qml/pages/MessageListPage.qml:522
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:744
+#: ../app/qml/pages/MessageListPage.qml:740
 msgid "<<< Swipe to cancel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:854
+#: ../app/qml/pages/MessageListPage.qml:850
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:867
+#: ../app/qml/pages/MessageListPage.qml:863
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -493,7 +493,7 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:150
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
-"send using telegram except for data you have explicitly saved outside the "
+"sent using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
@@ -527,7 +527,7 @@ msgid "Code"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-msgid "We've send a code via telegram to your device. Please enter it here."
+msgid "We've sent a code via telegram to your device. Please enter it here."
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
@@ -593,16 +593,16 @@ msgstr ""
 msgid "Registration not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:39
-#: ../app/qml/stores/ChatStateStore.qml:42
+#: ../app/qml/stores/ChatStateStore.qml:41
+#: ../app/qml/stores/ChatStateStore.qml:44
 msgid "Error"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:39
+#: ../app/qml/stores/ChatStateStore.qml:41
 msgid "No valid location received after 180 seconds!"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:42
+#: ../app/qml/stores/ChatStateStore.qml:44
 msgid "Username <b>@%1</b> not found"
 msgstr ""
 
@@ -832,7 +832,7 @@ msgstr ""
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
 msgid "Unread Messages"
 msgstr ""
 
