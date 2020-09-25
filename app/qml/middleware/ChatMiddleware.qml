@@ -31,7 +31,7 @@ Middleware {
                 width: height
             }
             UITK.Label {
-                Suru.textLevel: Suru.HeadingTwo
+                textSize: UITK.Label.Large // Suru.textLevel: Suru.HeadingTwo
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: inviteLinkInfo.title
                 horizontalAlignment: Text.AlignHCenter
@@ -41,7 +41,7 @@ Middleware {
                 wrapMode: Text.Wrap
             }
             UITK.Label {
-                Suru.textStyle: Suru.TertiaryText
+                opacity: 0.6429 // Suru.textStyle: Suru.TertiaryText
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: {
                     if (inviteLinkInfo.memberCount == inviteLinkInfo.highlightedMemberCount) {
@@ -78,7 +78,7 @@ Middleware {
                                 horizontalAlignment: Text.AlignHCenter
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 text: modelData.firstName
-                                Suru.textStyle: Suru.SecondaryText
+                                opacity: 0.8571 // Suru.textStyle: Suru.SecondaryText
                             }
                         }
                     }
