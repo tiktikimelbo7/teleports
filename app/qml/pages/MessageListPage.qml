@@ -424,7 +424,7 @@ Page {
             sticker_panel_object.close();
         }
     }
-    
+
     Rectangle {
         id: input
         anchors {

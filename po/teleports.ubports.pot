@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 16:15+0000\n"
+"POT-Creation-Date: 2020-09-25 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgid "Sticker Pack info"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:361
+#: ../app/qml/pages/ChatListPage.qml:391
 msgid "Forward"
 msgstr ""
 
@@ -172,35 +172,35 @@ msgstr ""
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:49
+#: ../app/qml/middleware/ChatMiddleware.qml:48
 #: ../app/qml/pages/MessageListPage.qml:32
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:51
+#: ../app/qml/middleware/ChatMiddleware.qml:50
 msgid "%1 members, among them:"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:92
+#: ../app/qml/middleware/ChatMiddleware.qml:94
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:93
-#: ../app/qml/pages/ChatListPage.qml:146
+#: ../app/qml/middleware/ChatMiddleware.qml:95
+#: ../app/qml/pages/ChatListPage.qml:161
 msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:102
+#: ../app/qml/middleware/ChatMiddleware.qml:104
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:103
+#: ../app/qml/middleware/ChatMiddleware.qml:105
 msgid "Leave"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:120
+#: ../app/qml/middleware/ChatMiddleware.qml:114
 msgid "Join group"
 msgstr ""
 
@@ -313,28 +313,28 @@ msgstr ""
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:141
+#: ../app/qml/pages/ChatListPage.qml:156
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:157 ../app/qml/pages/UserListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:172 ../app/qml/pages/UserListPage.qml:114
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:374
+#: ../app/qml/pages/ChatListPage.qml:389
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:389 ../app/qml/pages/ChatListPage.qml:413
+#: ../app/qml/pages/ChatListPage.qml:404 ../app/qml/pages/ChatListPage.qml:428
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:397
+#: ../app/qml/pages/ChatListPage.qml:412
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:399
-#: ../app/qml/pages/MessageListPage.qml:840
+#: ../app/qml/pages/ChatListPage.qml:414
+#: ../app/qml/pages/MessageListPage.qml:856
 msgid "Send"
 msgstr ""
 
@@ -392,15 +392,9 @@ msgstr ""
 
 #: ../app/qml/pages/LogoutPage.qml:37
 msgid ""
-"The app will close by itself when the log out process ends.\n"
-"Please, don't close it manually"
+"The app will close automatically when the logout process ends.\n"
+"Please, don't close it manually!"
 msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:32
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
 
 #: ../app/qml/pages/MessageListPage.qml:34
 msgid ", %1 online"
@@ -440,23 +434,23 @@ msgstr ""
 msgid "You can't write here. Reason unkown"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:379
+#: ../app/qml/pages/MessageListPage.qml:384
 msgid "Join"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:510
+#: ../app/qml/pages/MessageListPage.qml:524
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:692
+#: ../app/qml/pages/MessageListPage.qml:744
 msgid "<<< Swipe to cancel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:802
+#: ../app/qml/pages/MessageListPage.qml:854
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:815
+#: ../app/qml/pages/MessageListPage.qml:867
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -575,27 +569,27 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:63
+#: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:70
+#: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:77
+#: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:97
+#: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:103
+#: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:122
+#: ../app/qml/stores/AuthStateStore.qml:119
 msgid "Registration not expected right now"
 msgstr ""
 
@@ -624,47 +618,47 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:333
+#: ../libs/qtdlib/chat/qtdchat.cpp:319
 msgid "Draft:"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:599
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:600
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:603
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:604
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:609
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:624
+#: ../libs/qtdlib/chat/qtdchat.cpp:610
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:628
+#: ../libs/qtdlib/chat/qtdchat.cpp:614
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are doing something..."
 msgstr ""
 

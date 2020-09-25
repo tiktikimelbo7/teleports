@@ -535,6 +535,10 @@ void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
     QJsonObject json = resp.result().json();
     info->unmarshalJson(json);
     if (info->chatId() != 0) {
+        if (currentChat()) {
+            currentChat()->closeChat();
+            clearCurrentChat();
+        }
         setCurrentChatById(info->chatId());
     } else {
         emit showChatInviteLinkInfo(info, inviteLink);
