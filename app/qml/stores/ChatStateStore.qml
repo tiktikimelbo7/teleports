@@ -462,6 +462,7 @@ Store {
     Filter {
         type: ChatKey.joinChat
         onDispatched: {
+            // AppActions.chat.closeCurrentChat()
             chatList.joinChat(chatList.currentChat.id);
         }
     }
@@ -469,6 +470,7 @@ Store {
     Filter {
         type: ChatKey.checkChatInviteLink
         onDispatched: {
+            // AppActions.chat.closeCurrentChat()
             chatList.checkChatInviteLink(message.inviteLink);
         }
     }
@@ -476,7 +478,7 @@ Store {
     Filter {
         type: ChatKey.joinChatByInviteLink
         onDispatched: {
-            AppActions.chat.closeCurrentChat()
+            // AppActions.chat.closeCurrentChat()
             chatList.joinChatByInviteLink(message.inviteLink);
         }
     }
@@ -601,7 +603,7 @@ Store {
                 var value = args[i].split("=")[1]
                 switch(param) {
                 case "domain":
-                    AppActions.chat.closeCurrentChat()
+                    // AppActions.chat.closeCurrentChat()
                     AppActions.chat.setCurrentChatByUsername(value)
                     break;
                 default:
