@@ -24,7 +24,7 @@ Store {
     ChatList {
         id: chatList
         onCurrentChatChanged: {
-            if (chatList.currentChat) {
+            if (chatList.currentChatValid) {
                 AppActions.view.pushToStack("qrc:/pages/MessageListPage.qml", {})
             } else {
                 AppActions.view.popFromStack()
@@ -86,7 +86,7 @@ Store {
         onDispatched: {
             if (message.chat) {
                 console.log("Opening new chat...")
-                if (chatList.currentChat  && message.chat.id !== chatList.currentChat.id) {
+                if (chatList.currentChatValid  && message.chat.id !== chatList.currentChat.id) {
                     console.log("Wrong chat open...")
                     return
                 }

@@ -21,6 +21,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     : QObject(parent)
     , m_model(Q_NULLPTR)
     , m_currentChat(Q_NULLPTR)
+    , m_currentChatValid(false)
     , m_forwardedFromChat(Q_NULLPTR)
     , m_forwardingMessages(QStringList())
     , m_listMode(ListMode::Idle)
@@ -57,6 +58,11 @@ QObject *QTdChatListModel::model() const
 QTdChat *QTdChatListModel::currentChat() const
 {
     return m_currentChat;
+}
+
+bool QTdChatListModel::currentChatValid() const
+{
+    return m_currentChatValid;
 }
 
 QTdChat *QTdChatListModel::chatById(const qint64 &chatId) const
@@ -128,10 +134,12 @@ qint32 QTdChatListModel::forwardingMessagesCount() const
 
 void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
 {
-    if (m_currentChat == currentChat)
+    Q_ASSERT(currentChat != nullptr);
+    if (m_currentChat == currentChat && currentChatValid())
         return;
     m_currentChat = currentChat;
-    emit currentChatChanged(m_currentChat);
+    m_currentChatValid = true;
+    emit currentChatChanged();
 }
 
 QTdChat *QTdChatListModel::forwardedFromChat() const
@@ -160,8 +168,8 @@ void QTdChatListModel::setForwardingMessages(QStringList forwardingMessages)
 
 void QTdChatListModel::clearCurrentChat()
 {
-    m_currentChat = Q_NULLPTR;
-    emit currentChatChanged(m_currentChat);
+    m_currentChatValid = false;
+    emit currentChatChanged();
 }
 
 void QTdChatListModel::handleChat(const QJsonObject &data)
