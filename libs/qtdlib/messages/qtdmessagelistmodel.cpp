@@ -102,8 +102,6 @@ bool QTdMessageListModel::hasNewer() const
 
 void QTdMessageListModel::setChat(QTdChat *chat)
 {
-    if (m_chat == chat)
-        return;
     if (m_chat)
     {
         disconnect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);

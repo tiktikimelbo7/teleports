@@ -20,6 +20,7 @@ Page {
     property int currentMessageIndex: currentChat.currentMessageIndex
     property var locationWaitDialog: null
     Suru.highlightType: Suru.PositiveHighlight
+    StackView.onRemoved: AppActions.chat.closeCurrentChat()
 
     header: UITK.PageHeader {
         title: Telegram.chats && currentChat ? currentChat.title : ""
@@ -45,7 +46,7 @@ Page {
                 text: "Back"
                 onTriggered: {
                     entry.saveDraft()
-                    AppActions.chat.closeCurrentChat()
+                    AppActions.view.popFromStack()
                 }
             }
         ]
