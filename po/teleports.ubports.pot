@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 15:56+0000\n"
+"POT-Creation-Date: 2020-09-30 09:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
 #: ../app/qml/components/ChatListDelegate.qml:295
-#: ../app/qml/pages/MessageListPage.qml:804
+#: ../app/qml/pages/MessageListPage.qml:814
 msgid "Send"
 msgstr ""
 
@@ -332,35 +332,6 @@ msgstr ""
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:126
-msgid "Leave chat"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:142 ../app/qml/pages/UserListPage.qml:114
-msgid "Info"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:359
-msgid "Do you want to forward the selected messages to %1?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:374 ../app/qml/pages/ChatListPage.qml:399
-msgid "Enter optional message..."
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:382
-msgid "Do you want to send the imported files to %1?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:383
-msgid "Do you want to send the imported text to %1?"
-msgstr ""
-
-#: ../app/qml/pages/ChatListPage.qml:385
-#: ../app/qml/pages/MessageListPage.qml:813
-msgid "Send"
-msgstr ""
-
 #: ../app/qml/pages/ConnectivityPage.qml:24
 #: ../app/qml/pages/ConnectivityPage.qml:28
 msgid "Connecting"
@@ -419,47 +390,47 @@ msgid ""
 "Please, don't close it manually!"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:32
+#: ../app/qml/pages/MessageListPage.qml:33
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:34
+#: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
 msgid_plural ", %1 online"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:131
+#: ../app/qml/pages/MessageListPage.qml:132
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:334
+#: ../app/qml/pages/MessageListPage.qml:335
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:338
+#: ../app/qml/pages/MessageListPage.qml:339
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:340
+#: ../app/qml/pages/MessageListPage.qml:341
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:474
+#: ../app/qml/pages/MessageListPage.qml:484
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:692
+#: ../app/qml/pages/MessageListPage.qml:702
 msgid "<<< Swipe to cancel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:802
+#: ../app/qml/pages/MessageListPage.qml:812
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:815
+#: ../app/qml/pages/MessageListPage.qml:825
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -578,27 +549,27 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:63
+#: ../app/qml/stores/AuthStateStore.qml:60
 msgid "Invalid phone number!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:70
+#: ../app/qml/stores/AuthStateStore.qml:67
 msgid "Invalid code!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:77
+#: ../app/qml/stores/AuthStateStore.qml:74
 msgid "Invalid password!"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:97
+#: ../app/qml/stores/AuthStateStore.qml:94
 msgid "Auth code not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:103
+#: ../app/qml/stores/AuthStateStore.qml:100
 msgid "Oops! Internal error."
 msgstr ""
 
-#: ../app/qml/stores/AuthStateStore.qml:122
+#: ../app/qml/stores/AuthStateStore.qml:119
 msgid "Registration not expected right now"
 msgstr ""
 
@@ -836,7 +807,7 @@ msgstr ""
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
 msgid "Unread Messages"
 msgstr ""
 
