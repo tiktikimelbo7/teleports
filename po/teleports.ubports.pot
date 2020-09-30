@@ -51,7 +51,7 @@ msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
 #: ../app/qml/components/ChatListDelegate.qml:295
-#: ../app/qml/pages/MessageListPage.qml:804
+#: ../app/qml/pages/MessageListPage.qml:814
 msgid "Send"
 msgstr ""
 
@@ -926,7 +926,7 @@ msgstr ""
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
 msgid "Unread Messages"
 msgstr ""
 
