@@ -96,6 +96,8 @@ set(
     chat/requests/qtdforwardmessagesrequest.cpp
     chat/requests/qtdclosesecretchatrequest.cpp
     chat/requests/qtdsetchatnotificationsettings.cpp
+    chat/requests/qtdsearchpublicchatrequest.cpp
+    chat/requests/qtdjoinchatrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp

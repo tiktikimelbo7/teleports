@@ -9,6 +9,8 @@
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
 #include "chat/requests/qtdsetchatdraftrequest.h"
+#include "chat/requests/qtdsearchpublicchatrequest.h"
+#include "chat/requests/qtdjoinchatrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -125,6 +127,23 @@ void QTdChatListModel::setCurrentChatById(const qint64 &chatId)
 {
     QTdChat *currentChat = chatById(chatId);
     setCurrentChat(currentChat);
+}
+
+void QTdChatListModel::setCurrentChatByUsername(const QString &username)
+{
+    qDebug() << "OPENING CHAT" << username;
+    QScopedPointer<QTdSearchPublicChatRequest> req(new QTdSearchPublicChatRequest);
+    req->setChatUsername(username);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Error during public chat search:" << resp.result().errorString();
+        if (resp.result().errorCode() == 400)
+            emit invalidChatUsername(username);
+        return;
+    }
+    qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
+    setCurrentChatById(chatId);
 }
 
 qint32 QTdChatListModel::forwardingMessagesCount() const
@@ -486,4 +505,16 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
     QTdClient::instance()->send(request.data());
+}
+
+void QTdChatListModel::joinChat(const qint64 &chatId) const
+{
+    QScopedPointer<QTdJoinChatRequest> req(new QTdJoinChatRequest);
+    req->setChatId(chatId);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during chat joining:" << resp.result().errorString();
+    }
 }
