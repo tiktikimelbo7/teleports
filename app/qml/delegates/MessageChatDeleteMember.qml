@@ -3,12 +3,12 @@ import "../actions"
 
 MessageActionItem {
     text: message.senderUserId == content.userId
-            ? i18n.tr("%1 left the group").arg(getUsersString())
+            ? i18n.tr("%1 left the group").arg(getUserString())
             : i18n.tr("%1 removed %2").arg(getRemovingUserString()).arg(getUserString())
 
     onClicked: AppActions.user.showUserInfo(message.sender, null)
 
-        function getRemovingUserString() {
+    function getRemovingUserString() {
         if (message.isCollapsed) {
             return ""
         }
@@ -18,7 +18,7 @@ MessageActionItem {
                 fullName = fullName + " " + message.sender.lastName
             return fullName
         } else {
-            return message.sender.username  
+            return message.sender.username
         }
     }
 
