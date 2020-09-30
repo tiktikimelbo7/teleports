@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QScopedPointer>
-#include "files/qtdphoto.h"
+#include "files/qtdphotos.h"
 #include "messages/qtdmessagecontent.h"
 
 /**
@@ -14,11 +14,11 @@
 class QTdMessageChatChangePhoto : public QTdMessageContent
 {
     Q_OBJECT
-    Q_PROPERTY(QTdPhoto *photo READ photo NOTIFY contentChanged)
+    Q_PROPERTY(QTdPhotos *photo READ photo NOTIFY contentChanged)
 public:
     explicit QTdMessageChatChangePhoto(QObject *parent = nullptr);
 
-    QTdPhoto *photo() const;
+    QTdPhotos *photo() const;
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -26,7 +26,7 @@ signals:
     void contentChanged();
 
 private:
-    QScopedPointer<QTdPhoto> m_photo;
+    QScopedPointer<QTdPhotos> m_photo;
 };
 
 #endif // QTDMESSAGECHATCHANGEPHOTO_H

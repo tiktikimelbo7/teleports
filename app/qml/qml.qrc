@@ -61,6 +61,10 @@
         <file>delegates/MessageVideoItem.qml</file>
         <file>delegates/MessageVideoNote.qml</file>
         <file>delegates/MessageVoiceNote.qml</file>
+        <file>delegates/MessageChatChangeTitle.qml</file>
+	    <file>delegates/MessageChatChangePhoto.qml</file>
+	    <file>delegates/MessageChatDeletePhoto.qml</file>
+	    <file>delegates/MessageChatSetTTL.qml</file>
         <file>stores/ViewStore.qml</file>
         <file>delegates/NotImplementedYet.qml</file>
         <file>components/WebPagePreview.qml</file>

@@ -9,10 +9,9 @@ Item {
     property QTdMessage message: null
     property QTdChat chat: null
     property alias text: label.text
-
+    property real maximumAvailableContentWidth: Math.min(units.gu(55), parent.width * (3/4)) - units.dp(10)
     signal clicked()
-
-    height: message.isCollapsed ? childrenRect.height : Suru.units.gu(5)
+    height: message.isCollapsed ? childrenRect.height : container.height + Suru.units.gu(2)
     width: childrenRect.width
 
     Label {
@@ -24,37 +23,47 @@ Item {
         width: contentWidth
     }
 
-    RowLayout {
+    Item {
         visible: !message.isCollapsed
         anchors {
             topMargin: Suru.units.gu(1)
-            fill: parent
+            left: parent.left
+            right: parent.right
+            top: parent.top
         }
-        Rectangle {
-            color: Suru.overlayColor
-            opacity: 0.8
-            radius: 4
-            width: dl.contentWidth + Suru.units.gu(2)
-            height: units.gu(3)
+        AbstractButton {
+            id: containerButton
+            height: dl.height + Suru.units.dp(8)
+            width: dl.width
             anchors.horizontalCenter: parent.horizontalCenter
-            AbstractButton {
-                height: parent.height
-                width: dl.contentWidth
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: action.clicked()
-                Label {
-                    id: dl
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        top: parent.top
-                        topMargin: Suru.units.dp(4)
-                    }
-                    text: label.text
-                    opacity: 1
-                    color: "white"
+            onClicked: action.clicked()
+            Label {
+                id: dl
+                width: Math.min(action.maximumAvailableContentWidth, implicitWidth)
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    top: parent.top
+                    topMargin: Suru.units.dp(4)
                 }
+                text: label.text
+                horizontalAlignment: Label.AlignHCenter
+                wrapMode: Label.WordWrap
+                color: "white"
             }
-            Layout.alignment: Qt.AlignCenter
+            Rectangle {
+                id: container
+                color: Suru.overlayColor
+                opacity: 0.8
+                radius: 4
+                anchors {
+                    fill: dl
+                    topMargin: -Suru.units.gu(0.5)
+                    bottomMargin: anchors.topMargin
+                    rightMargin: -Suru.units.gu(1)
+                    leftMargin: anchors.rightMargin
+                }
+                z: dl.z -1
+            }
         }
     }
 }
