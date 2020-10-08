@@ -8,7 +8,7 @@ Item {
     height: childrenRect.height
 
     Label {
-        text: "Message Unavailable..."
+        text: i18n.tr("Message Unavailable...")
         width: contentWidth
         height: Suru.units.gu(2.5)
     }
