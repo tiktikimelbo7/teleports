@@ -7,6 +7,6 @@ MessageActionItem {
               ? ""
               : message.sender.firstName
                 ? message.sender.firstName
-                : message.sender.username)
+                : message.sender.username).trim()
     onClicked: AppActions.user.showUserInfo(message.sender, null)
 }

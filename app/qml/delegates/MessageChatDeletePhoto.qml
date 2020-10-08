@@ -4,11 +4,9 @@ import "../actions"
 MessageActionItem {
     text:  message.isChannelPost
         ? i18n.tr("Channel photo has been removed")
-        : i18n.tr("%1 deleted the chat photo").arg(message.isCollapsed
-              ? ""
-              : getAddingUserString())
+        : i18n.tr("%1 deleted the chat photo").arg(getAddingUserString()).trim()
 
-        function getAddingUserString() {
+      function getAddingUserString() {
         if (message.isCollapsed) {
             return ""
         }
@@ -20,7 +18,7 @@ MessageActionItem {
                 fullName = fullName + " " + message.sender.lastName
             return fullName
         } else {
-            return message.sender.username  
+            return message.sender.username
         }
     }
 }

@@ -2,10 +2,7 @@ import QtQuick 2.9
 import "../actions"
 
 MessageActionItem {
-    text: i18n.tr("%1 has joined Telegram!".arg(
-              message.isCollapsed
-              ? ""
-              : getAddingUserString()))
+    text: i18n.tr("%1 has joined Telegram!").arg(getAddingUserString()).trim()
 
     function getAddingUserString() {
         if (message.isCollapsed) {
@@ -17,7 +14,7 @@ MessageActionItem {
                 fullName = fullName + " " + message.sender.lastName
             return fullName
         } else {
-            return message.sender.username  
+            return message.sender.username
         }
     }
 }

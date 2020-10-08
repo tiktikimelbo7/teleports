@@ -7,6 +7,7 @@ import QTelegram 1.0
 Item {
     id: action
     property QTdMessage message: null
+    property QTdMessageContent content: message ? message.content : null
     property QTdChat chat: null
     property alias text: label.text
     property real maximumAvailableContentWidth: Math.min(units.gu(55), parent.width * (3/4)) - units.dp(10)

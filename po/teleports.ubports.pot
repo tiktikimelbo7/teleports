@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-27 16:18+0000\n"
+"POT-Creation-Date: 2020-10-02 21:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,11 +68,11 @@ msgid "Members: %1"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-msgid "Channel called << %1 >> created"
+msgid "Channel called <b>%1</b> created"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-msgid "%1 created a group called << %2 >>"
+msgid "%1 created a group called <b>%2</b>"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
@@ -97,25 +97,29 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
 msgid "%1 joined the group"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
 msgid "%1 added %2"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:35
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+msgid "Unknown joined group"
+msgstr ""
+
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:34
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/delegates/MessageChatChangePhoto.qml:17
+#: ../app/qml/delegates/MessageChatChangePhoto.qml:32
 msgid "Channel photo has been changed:"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatChangePhoto.qml:18
+#: ../app/qml/delegates/MessageChatChangePhoto.qml:33
 msgid "%1 changed the chat photo:"
 msgstr ""
 
@@ -171,11 +175,16 @@ msgstr ""
 msgid "Voice note"
 msgstr ""
 
+#: ../app/qml/delegates/MessageDateItem.qml:4
+msgid "Some date missing"
+msgstr ""
+
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
 msgstr ""
 
-#: ../app/qml/delegates/MessagePinMessage.qml:5 ../push/pushhelper.cpp:301
+#: ../app/qml/delegates/MessagePinMessage.qml:6
+#: ../app/qml/delegates/MessagePinMessage.qml:7 ../push/pushhelper.cpp:301
 msgid "%1 pinned a message"
 msgstr ""
 
@@ -185,6 +194,10 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageStickerItem.qml:20
 msgid "Animated stickers not supported yet :("
+msgstr ""
+
+#: ../app/qml/delegates/MessageUnavailable.qml:11
+msgid "Message Unavailable..."
 msgstr ""
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
