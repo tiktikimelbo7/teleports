@@ -11,7 +11,7 @@ Column {
 
     spacing: Suru.units.gu(2)
 
-    width: textEdit.width
+    Layout.preferredWidth: textEdit.contentWidth
 
     TextEdit {
         id: textEdit

@@ -15,7 +15,6 @@ MessageContentBase {
             id: text
             isPreview: message.isCollapsed
             maximumWidth: maximumAvailableContentWidth
-            Layout.fillWidth: true
             formattedText: textContent.text
         }
         // loading asynchronous with yet undefined height makes jumping
