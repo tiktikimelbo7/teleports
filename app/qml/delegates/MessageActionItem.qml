@@ -57,12 +57,13 @@ Item {
                 opacity: 0.8
                 radius: 4
                 anchors {
-                    fill: dl
+                    top: dl.top
+                    bottom: dl.bottom
+                    horizontalCenter: dl.horizontalCenter
                     topMargin: -Suru.units.gu(0.5)
                     bottomMargin: anchors.topMargin
-                    rightMargin: -Suru.units.gu(1)
-                    leftMargin: anchors.rightMargin
                 }
+                width: dl.contentWidth + Suru.units.gu(2)
                 z: dl.z -1
             }
         }
