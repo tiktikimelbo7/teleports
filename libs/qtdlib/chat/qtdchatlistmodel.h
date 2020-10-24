@@ -8,6 +8,7 @@
 #include "auth/qtdauthstate.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchat.h"
+#include "chat/qtdchatinvitelinkinfo.h"
 
 typedef QList<qint64> PinnedChats;
 
@@ -61,6 +62,8 @@ public slots:
                              const qint64 &replyToMessageId,
                              const qint64 &chatId);
     void joinChat(const qint64 &chatId) const;
+    void checkChatInviteLink(const QString &inviteLink);
+    void joinChatByInviteLink(const QString &inviteLink);
 
 signals:
     void modelChanged(QObject *model);
@@ -71,6 +74,7 @@ signals:
     void positionInfoReceived(double latitude, double longitude);
     void positionInfoTimeout();
     void invalidChatUsername(const QString &username);
+    void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
     void modelPolulatedCompleted();
 
 private slots:
