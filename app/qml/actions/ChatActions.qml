@@ -8,6 +8,7 @@ ActionCreator {
     signal createOrOpenSecretChat(var user)
     signal createOrOpenSavedMessages()
     signal setCurrentChatById(string chatId)
+    signal setCurrentChatByUsername(string username)
     signal closeCurrentChat()
 
     signal loadNewerMessages();
@@ -48,6 +49,7 @@ ActionCreator {
     signal registerVoiceNote(string filename)
     signal stopVoiceNote()
     signal deleteVoiceNote(string filename)
+    signal joinChat()
 
     signal jumpToMessage(string id)
 

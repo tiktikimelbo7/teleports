@@ -2,6 +2,7 @@ import QtQuick 2.4
 import QuickFlux 1.1
 import QTelegram 1.0
 import Ubuntu.Content 1.1 as ContentHub
+import Ubuntu.Components 1.3 as UITK
 import "../actions"
 
 Store {
@@ -20,6 +21,7 @@ Store {
     property alias list: chatList.model
     property alias currentChat: chatList.currentChat
     property alias forwardChatId: chatList.forwardedFromChat
+    property bool uriHaveBeenProcessed: false
 
     ChatList {
         id: chatList
@@ -37,6 +39,21 @@ Store {
         onPositionInfoTimeout: {
             AppActions.chat.stopWaitLocation();
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("No valid location received after 180 seconds!"), "");
+        }
+        onInvalidChatUsername: {
+            AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
+        }
+        onModelPolulatedCompleted: {
+            // habdle URIs only the first time this signal is emitted
+            if (uriHaveBeenProcessed) {
+                return
+            }
+            if (Qt.application.arguments && Qt.application.arguments.length > 0) {
+                for (var i = 1; i < Qt.application.arguments.length; i++) {
+                    processUri(Qt.application.arguments[i]);
+                }
+            }
+            uriHaveBeenProcessed = true
         }
     }
 
@@ -129,17 +146,30 @@ Store {
         onDispatched: {
             var chatById = chatList.model.get(message.chatId)
             if (chatById) {
-                AppActions.chat.closeCurrentChat()
+                if (chatList.currentChatValid) {
+                    AppActions.chat.closeCurrentChat()
+                }
                 AppActions.chat.setCurrentChat(chatById)
             } else
                 console.log("Could not find chat by id")
         }
     }
 
+
+    Filter {
+        type: ChatKey.setCurrentChatByUsername
+        onDispatched: {
+            // if (chatList.currentChatValid) {
+            //     AppActions.chat.closeCurrentChat()
+            // }
+            chatList.setCurrentChatByUsername(message.username)
+        }
+    }
+
     Filter {
         type: ChatKey.closeCurrentChat
         onDispatched: {
-            if (chatList.currentChat) {
+            if (chatList.currentChatValid) {
                 console.log("Closing current chat...")
                 chatList.currentChat.closeChat()
                 chatList.clearCurrentChat()
@@ -246,9 +276,9 @@ Store {
           chatList.listMode = ChatList.ImportingAttachments
           importedFileType = message.contentType
           importedFiles = message.filePaths
-          if(chatList.currentChat) {
-            chatList.currentChat.closeChat()
-            chatList.clearCurrentChat()
+          if (chatList.currentChatValid) {
+              chatList.currentChat.closeChat()
+              chatList.clearCurrentChat()
           }
           AppActions.view.popAllButOneFromStack()
        }
@@ -435,6 +465,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.joinChat
+        onDispatched: {
+            // AppActions.chat.closeCurrentChat()
+            chatList.joinChat(chatList.currentChat.id);
+        }
+    }
 
     Timer {
         id: enableLoadTimer
@@ -446,5 +483,127 @@ Store {
     QtObject {
         id: d
         property bool canLoadMoreMessages: true
+    }
+
+
+    Connections {
+        target: UITK.UriHandler
+        onOpened: {
+            console.log('Open from UriHandler: '+uris)
+            processUri(uris[0]);
+        }
+    }
+    function processUri(uri) {
+        if (typeof uri === "undefined") {
+            return;
+        }
+        var protocol = uri.split(":")[0]
+        switch (protocol) {
+        case "teleports":
+            // User clicked a notification
+            var commands = uri.split("://")[1].split("/");
+            if (commands) {
+                switch(commands[0].toLowerCase()) {
+                case "chat":
+                    var chatId = parseInt(commands[1]);
+                    if (isNaN(chatId) || chatId === 0) {
+                        console.warn("Cannot parse chat id to open!");
+                    } else {
+                        console.info("Opening chat: " + chatId);
+                        AppActions.chat.setCurrentChatById(chatId)
+                    }
+                    break;
+                case "launch":
+                    //userTapBackHome = true;
+                    // Nothing to do.
+                    break
+                default:
+                    console.warn("Unmanaged URI: " + commands)
+                }
+            }
+            break
+        case "https":
+            var tgUri = httpsToTg(uri)
+            if (tgUri != undefined && tgUri != "") {
+                processTgUri(tgUri)
+            }
+            break
+        case "tg":
+            processTgUri(uri)
+            break
+        default:
+            console.log("Unhandled protocol: "+protocol+"\nPayload: "+uri.split(":")[1])
+        }
+    }
+    /**
+     * @brief httpsToTg function
+     *
+     * convert https URI into tg format
+     */
+    function httpsToTg(command) {
+        if (command.startsWith("https://")) {
+            command = command.substr(8)
+        }
+        if (command.startsWith("www.")) {
+            command = command.substr(4)
+        }
+        if (command.startsWith("t.me/")) {
+            command = command.substr(5)
+        } else if (command.startsWith("telegram.me/")) {
+            command = command.substr(12)
+        } else if (command.startsWith("telegram.dog/")) {
+            command = command.substr(13)
+        } else {
+            return
+        }
+        command = command.split("/")
+        var tgUri
+        switch (command[0]) {
+        case "joinchat": case "addstickers": case "addtheme": case "setlanguage": case "share": case "confirmphone": case "socks": case "proxy": case "bg":
+            break
+        default:
+            // https://t.me/<username>
+            tgUri = "tg://resolve?domain=" + command[0]
+            break
+        }
+        console.log("new uri: "+tgUri)
+        return tgUri
+    }
+    /**
+     * @brief processTgUri function
+     *
+     * User opened a deep link to a chat or something
+     */
+    function processTgUri(uri) {
+        var command
+        if (uri.startsWith("tg://")) {
+            command = uri.substr(5)
+        } else if (uri.startsWith("tg:")) {
+            command = uri.substr(3)
+        } else {
+            return
+        }
+        command = command.split("?")
+        switch (command[0]) {
+        case "resolve":
+            // tg://resolve?domain=<username>
+            var args = command[1].split("&")
+            for (var i = 0; i < args.length; i++) {
+                var param = args[i].split("=")[0]
+                var value = args[i].split("=")[1]
+                switch(param) {
+                case "domain":
+                    // AppActions.chat.closeCurrentChat()
+                    AppActions.chat.setCurrentChatByUsername(value)
+                    break;
+                default:
+                    console.log("undhandled argument: " + args[i])
+                    break
+                }
+            }
+            break
+        default:
+            console.log("Unhandled command: " + command)
+        }
     }
 }

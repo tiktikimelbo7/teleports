@@ -40,10 +40,12 @@ KeyTable {
     property string cancelForwardMessage
     property string viewGroupInfo
     property string setCurrentChatById
+    property string setCurrentChatByUsername
     property string jumpToMessage
     property string setChatDraftMessage
     property string muteChat
     property string registerVoiceNote
     property string stopVoiceNote
     property string deleteVoiceNote
+    property string joinChat
 }
