@@ -17,4 +17,5 @@ public:
                                        QJsonArray &entities);
     static QJsonArray formatPlainTextMessage(const QString &messageText,
                                              QString &plainText);
+    static QString initials(const QString &title);
 };

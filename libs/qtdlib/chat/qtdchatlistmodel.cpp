@@ -11,6 +11,8 @@
 #include "chat/requests/qtdsetchatdraftrequest.h"
 #include "chat/requests/qtdsearchpublicchatrequest.h"
 #include "chat/requests/qtdjoinchatrequest.h"
+#include "chat/requests/qtdcheckchatinvitelinkrequest.h"
+#include "chat/requests/qtdjoinchatbyinvitelinkrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -518,4 +520,44 @@ void QTdChatListModel::joinChat(const qint64 &chatId) const
     if (resp.result().isError()) {
         qWarning() << "Error during chat joining:" << resp.result().errorString();
     }
+}
+
+void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
+{
+    QScopedPointer<QTdCheckChatInviteLinkRequest> req(new QTdCheckChatInviteLinkRequest);
+    req->setInviteLink(inviteLink);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Error during checking invite link:" << resp.result().errorString();
+    }
+    QPointer<QTdChatInviteLinkInfo> info(new QTdChatInviteLinkInfo);
+    QJsonObject json = resp.result().json();
+    info->unmarshalJson(json);
+    if (info->chatId() != 0) {
+        if (currentChatValid()) {
+            currentChat()->closeChat();
+            // clearCurrentChat();
+        }
+        setCurrentChatById(info->chatId());
+    } else {
+        emit showChatInviteLinkInfo(info, inviteLink);
+    }
+}
+
+void QTdChatListModel::joinChatByInviteLink(const QString &inviteLink)
+{
+    qDebug() << inviteLink;
+    QScopedPointer<QTdJoinChatByInviteLinkRequest> req(new QTdJoinChatByInviteLinkRequest);
+    req->setInviteLink(inviteLink);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during joining chat by invite link:" << resp.result().errorString();
+    }
+    QScopedPointer<QTdChat> chat(new QTdChat);
+    QJsonObject json = resp.result().json();
+    chat->unmarshalJson(json);
+    setCurrentChat(chat.take());
 }

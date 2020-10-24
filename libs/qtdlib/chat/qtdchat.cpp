@@ -98,21 +98,7 @@ QTdChatPhoto *QTdChat::chatPhoto() const
 
 QString QTdChat::initials() const
 {
-    if (m_title != "") {
-        QString initials = "";
-        QStringList parts = m_title.trimmed().split(" ", QString::SkipEmptyParts);
-        for (int i = 0; i < parts.size(); i++) {
-            initials += parts[i][0].toUpper();
-            if (initials.length() >= 2) {
-                break;
-            }
-        }
-        if (initials.length() < 2) {
-            initials = m_title.trimmed().left(2).toUpper();
-        }
-        return initials;
-    }
-    return "N/A";
+    return QTdHelpers::initials(m_title);
 }
 
 QString QTdChat::avatarColor(unsigned int userId)
