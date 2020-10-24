@@ -4,6 +4,17 @@
     },
     {
         "protocol": "https",
-        "domain-suffix": "t.me/#"
+        "domain-suffix": "t.me"
+    },
+    {
+        "protocol": "https",
+        "domain-suffix": "telegram.me"
+    },
+    {
+        "protocol": "https",
+        "domain-suffix": "telegram.dog"
+    },
+    {
+        "protocol": "tg"
     }
 ]

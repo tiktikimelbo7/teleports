@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 21:32+0000\n"
+"POT-Creation-Date: 2020-10-24 14:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,19 +97,19 @@ msgstr ""
 msgid "Forward"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:8
 msgid "%1 joined the group"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:11
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:9
 msgid "%1 added %2"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:12
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
 msgid "Unknown joined group"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatAddMembersItem.qml:34
+#: ../app/qml/delegates/MessageChatAddMembersItem.qml:32
 msgid "%1 user(s)"
 msgid_plural ""
 msgstr[0] ""
@@ -364,7 +364,7 @@ msgid "Do you want to send the imported text to %1?"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:385
-#: ../app/qml/pages/MessageListPage.qml:814
+#: ../app/qml/pages/MessageListPage.qml:852
 msgid "Send"
 msgstr ""
 
@@ -454,19 +454,39 @@ msgstr ""
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:484
+#: ../app/qml/pages/MessageListPage.qml:349
+msgid "You left this group"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:352
+msgid "You have been banned"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:355
+msgid "You are not allowed to post in this group"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:359
+msgid "You can't write here. Reason unkown"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:382
+msgid "Join"
+msgstr ""
+
+#: ../app/qml/pages/MessageListPage.qml:522
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:702
+#: ../app/qml/pages/MessageListPage.qml:740
 msgid "<<< Swipe to cancel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:812
+#: ../app/qml/pages/MessageListPage.qml:850
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:825
+#: ../app/qml/pages/MessageListPage.qml:863
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -609,12 +629,17 @@ msgstr ""
 msgid "Registration not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:39
+#: ../app/qml/stores/ChatStateStore.qml:41
+#: ../app/qml/stores/ChatStateStore.qml:44
 msgid "Error"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:39
+#: ../app/qml/stores/ChatStateStore.qml:41
 msgid "No valid location received after 180 seconds!"
+msgstr ""
+
+#: ../app/qml/stores/ChatStateStore.qml:44
+msgid "Username <b>@%1</b> not found"
 msgstr ""
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
