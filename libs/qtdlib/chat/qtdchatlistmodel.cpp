@@ -9,6 +9,10 @@
 #include "chat/requests/qtdleavechatrequest.h"
 #include "chat/requests/qtdforwardmessagesrequest.h"
 #include "chat/requests/qtdsetchatdraftrequest.h"
+#include "chat/requests/qtdsearchpublicchatrequest.h"
+#include "chat/requests/qtdjoinchatrequest.h"
+#include "chat/requests/qtdcheckchatinvitelinkrequest.h"
+#include "chat/requests/qtdjoinchatbyinvitelinkrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
@@ -127,6 +131,23 @@ void QTdChatListModel::setCurrentChatById(const qint64 &chatId)
     setCurrentChat(currentChat);
 }
 
+void QTdChatListModel::setCurrentChatByUsername(const QString &username)
+{
+    qDebug() << "OPENING CHAT" << username;
+    QScopedPointer<QTdSearchPublicChatRequest> req(new QTdSearchPublicChatRequest);
+    req->setChatUsername(username);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Error during public chat search:" << resp.result().errorString();
+        if (resp.result().errorCode() == 400)
+            emit invalidChatUsername(username);
+        return;
+    }
+    qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
+    setCurrentChatById(chatId);
+}
+
 qint32 QTdChatListModel::forwardingMessagesCount() const
 {
     return m_forwardingMessages.length();
@@ -195,6 +216,7 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     foreach (QJsonValue chatToRequest, chats) {
         m_receivedChatIds.append((qint64)chatToRequest.toDouble());
     }
+    emit modelPolulatedCompleted();
     auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
     if (!lastChat) {
         return;
@@ -486,4 +508,56 @@ void QTdChatListModel::setChatDraftMessage(const QString &draftText,
     request->setChatId(chatId);
     request->setDraftMessage(draftMessage.take());
     QTdClient::instance()->send(request.data());
+}
+
+void QTdChatListModel::joinChat(const qint64 &chatId) const
+{
+    QScopedPointer<QTdJoinChatRequest> req(new QTdJoinChatRequest);
+    req->setChatId(chatId);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during chat joining:" << resp.result().errorString();
+    }
+}
+
+void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
+{
+    QScopedPointer<QTdCheckChatInviteLinkRequest> req(new QTdCheckChatInviteLinkRequest);
+    req->setInviteLink(inviteLink);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    if (resp.result().isError()) {
+        qWarning() << "Error during checking invite link:" << resp.result().errorString();
+    }
+    QPointer<QTdChatInviteLinkInfo> info(new QTdChatInviteLinkInfo);
+    QJsonObject json = resp.result().json();
+    info->unmarshalJson(json);
+    if (info->chatId() != 0) {
+        if (currentChatValid()) {
+            currentChat()->closeChat();
+            // clearCurrentChat();
+        }
+        setCurrentChatById(info->chatId());
+    } else {
+        emit showChatInviteLinkInfo(info, inviteLink);
+    }
+}
+
+void QTdChatListModel::joinChatByInviteLink(const QString &inviteLink)
+{
+    qDebug() << inviteLink;
+    QScopedPointer<QTdJoinChatByInviteLinkRequest> req(new QTdJoinChatByInviteLinkRequest);
+    req->setInviteLink(inviteLink);
+    QFuture<QTdResponse> resp = req->sendAsync();
+    await(resp, 2000);
+    qDebug() << resp.result().json();
+    if (resp.result().isError()) {
+        qWarning() << "Error during joining chat by invite link:" << resp.result().errorString();
+    }
+    QScopedPointer<QTdChat> chat(new QTdChat);
+    QJsonObject json = resp.result().json();
+    chat->unmarshalJson(json);
+    setCurrentChat(chat.take());
 }

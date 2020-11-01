@@ -3,14 +3,11 @@ import QTelegram 1.0
 import "../actions"
 
 MessageActionItem {
-
-    property QTdMessageChatAddMembers content: message.content
-
-    text: content.members.count 
+    text: content.members.count
         ? message.senderUserId == content.firstMemberId
-            ? i18n.tr("%1 joined the group").arg(getUsersString())
-            : i18n.tr("%1 added %2").arg(message.sender.fullName).arg(getUsersString())
-        : "Unknown joined group"
+            ? i18n.tr("%1 joined the group").arg(getUsersString(false)).trim()
+            : i18n.tr("%1 added %2").arg(message.isCollapsed ? "" : message.sender.fullName).arg(getUsersString(true)).trim()
+        : i18n.tr("Unknown joined group")
 
     onClicked: {
         // 99 times out of 100 members only contains a single
@@ -23,12 +20,12 @@ MessageActionItem {
         }
     }
 
-    function getUsersString() {
+    function getUsersString(ignoreCollapsed) {
 
-        if (message.isCollapsed && content.members.count == 1) {
+        if (!ignoreCollapsed && message.isCollapsed && content.members.count == 1) {
             return "";
         }
-       
+
         // If more than 3 users display a string like
         // "5 users joined the group"
         if (content.members.count > 3) {
