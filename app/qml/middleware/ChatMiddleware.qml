@@ -1,5 +1,7 @@
 import QtQuick 2.9
 import QuickFlux 1.1
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.Popups 1.3
 import "../actions"
@@ -12,8 +14,12 @@ Middleware {
         id: confirmationDlg
         PopupDialog {
             confirmButtonColor: theme.palette.normal.negative
-            onConfirmed: next(action, message)
         }
+    }
+
+    Component {
+        id: inviteLinkDialog
+        GroupPreviewDialog {}
     }
 
     function deleteChatHistory(message) {
@@ -33,6 +39,16 @@ Middleware {
                         })
         dlg.confirmed.connect(function(){
             next(ChatKey.leaveChat, message)
+        })
+    }
+
+    function showChatInviteLinkInfo(message) {
+        var dlg = PopupUtils.open(inviteLinkDialog, null, {
+                        confirmButtonText: i18n.tr("Join group"),
+                        inviteLinkInfo: message.info,
+                        })
+        dlg.confirmed.connect(function(){
+            next(ChatKey.joinChatByInviteLink, message)
         })
     }
 }

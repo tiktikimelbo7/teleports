@@ -8,4 +8,5 @@ KeyTable {
     property string popFromStack
     property string popAllButOneFromStack
     property string showError
+    property string showChatInviteLinkInfo
 }

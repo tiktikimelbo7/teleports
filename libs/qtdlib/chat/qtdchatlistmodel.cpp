@@ -30,6 +30,7 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     , m_forwardingMessages(QStringList())
     , m_listMode(ListMode::Idle)
     , m_positionWaitTimer(new QTimer(this))
+    , m_chatToOpenOnUpdate(0)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
     m_positionWaitTimer->setInterval(180000);
@@ -100,8 +101,6 @@ void QTdChatListModel::createOrOpenSecretChat(const int &userId)
             return;
         }
     }
-    if (currentChat())
-        currentChat()->closeChat();
     setCurrentChatById(chatId);
 }
 
@@ -116,8 +115,6 @@ void QTdChatListModel::createOrOpenPrivateChat(const int &userId)
         return;
     }
     qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
-    if (currentChat())
-        currentChat()->closeChat();
     setCurrentChatById(chatId);
 }
 
@@ -155,9 +152,16 @@ qint32 QTdChatListModel::forwardingMessagesCount() const
 
 void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
 {
-    Q_ASSERT(currentChat != nullptr);
-    if (m_currentChat == currentChat && currentChatValid())
+    if (currentChat == nullptr) {
         return;
+    }
+    if (currentChatValid()) {
+        if (m_currentChat == currentChat)
+            return;
+        else
+            m_currentChat->closeChat();
+    }
+
     m_currentChat = currentChat;
     m_currentChatValid = true;
     emit currentChatChanged();
@@ -230,6 +234,8 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
     req->setOffsetOrder(lastChat->order());
     req->sendAsync();
 }
+
+
 void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
 {
     const qint64 id = qint64(data["id"].toDouble());
@@ -251,6 +257,11 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
         }
     }
     emit contentsChanged();
+    if (m_chatToOpenOnUpdate == tdchat->id()) {
+        qWarning() << "Auto-opening chat" << tdchat->id();
+        setCurrentChat(tdchat);
+        m_chatToOpenOnUpdate = 0;
+    }
 }
 
 void QTdChatListModel::handleUpdateChatOrder(const QJsonObject &data)
@@ -522,6 +533,11 @@ void QTdChatListModel::joinChat(const qint64 &chatId) const
     }
 }
 
+void QTdChatListModel::setChatToOpenOnUpdate(const qint64 &chatId)
+{
+    m_chatToOpenOnUpdate = chatId;
+}
+
 void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
 {
     QScopedPointer<QTdCheckChatInviteLinkRequest> req(new QTdCheckChatInviteLinkRequest);
@@ -535,10 +551,6 @@ void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)
     QJsonObject json = resp.result().json();
     info->unmarshalJson(json);
     if (info->chatId() != 0) {
-        if (currentChatValid()) {
-            currentChat()->closeChat();
-            // clearCurrentChat();
-        }
         setCurrentChatById(info->chatId());
     } else {
         emit showChatInviteLinkInfo(info, inviteLink);
@@ -559,5 +571,6 @@ void QTdChatListModel::joinChatByInviteLink(const QString &inviteLink)
     QScopedPointer<QTdChat> chat(new QTdChat);
     QJsonObject json = resp.result().json();
     chat->unmarshalJson(json);
-    setCurrentChat(chat.take());
+    setChatToOpenOnUpdate(chat->id());
+    setCurrentChatById(chat->id());
 }
