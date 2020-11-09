@@ -64,6 +64,7 @@ public slots:
     void joinChat(const qint64 &chatId) const;
     void checkChatInviteLink(const QString &inviteLink);
     void joinChatByInviteLink(const QString &inviteLink);
+    void setChatToOpenOnUpdate(const qint64 &chatId);
 
 signals:
     void modelChanged(QObject *model);
@@ -74,8 +75,8 @@ signals:
     void positionInfoReceived(double latitude, double longitude);
     void positionInfoTimeout();
     void invalidChatUsername(const QString &username);
-    void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
     void modelPolulatedCompleted();
+    void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
 
 private slots:
     void handleChats(const QJsonObject &data);
@@ -111,6 +112,7 @@ private:
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
+    qint64 m_chatToOpenOnUpdate;
     bool m_currentChatValid;
     ListMode m_listMode;
     QStringList m_forwardingMessages;
@@ -118,7 +120,6 @@ private:
     QList<qint64> m_receivedChatIds;
     QPointer<QGeoPositionInfoSource> m_positionInfoSource;
     QTimer *m_positionWaitTimer;
-
 };
 
 #endif // QTDCHATLISTMODEL_H

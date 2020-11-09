@@ -8,7 +8,7 @@ ActionCreator {
     signal replaceOnStack(string view, var properties)
     signal popFromStack()
     signal popAllButOneFromStack()
-    
+
     /**
      * Show error in popup dialog
      *
@@ -17,4 +17,11 @@ ActionCreator {
      * callback: the ActionKey to call on closing of the dialog
      */
     signal showError(string title, string description, string callback)
+
+    /**
+     * Show popup dialog to join a private chat
+     *
+     * info: QTdChatInviteLinkInfo
+     */
+    signal showChatInviteLinkInfo(var info, string inviteLink)
 }

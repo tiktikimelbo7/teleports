@@ -40,11 +40,14 @@ Store {
             AppActions.chat.stopWaitLocation();
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("No valid location received after 180 seconds!"), "");
         }
+        onShowChatInviteLinkInfo: {
+            AppActions.view.showChatInviteLinkInfo(info, inviteLink);
+        }
         onInvalidChatUsername: {
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
         }
         onModelPolulatedCompleted: {
-            // habdle URIs only the first time this signal is emitted
+            // handle URIs only the first time this signal is emitted
             if (uriHaveBeenProcessed) {
                 return
             }
@@ -473,6 +476,23 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.checkChatInviteLink
+        onDispatched: {
+            // AppActions.chat.closeCurrentChat()
+            chatList.checkChatInviteLink(message.inviteLink);
+        }
+    }
+
+    Filter {
+        type: ChatKey.joinChatByInviteLink
+        onDispatched: {
+            AppActions.chat.closeCurrentChat()
+            chatList.joinChatByInviteLink(message.inviteLink);
+        }
+    }
+
+
     Timer {
         id: enableLoadTimer
         interval: 1000
@@ -559,7 +579,18 @@ Store {
         command = command.split("/")
         var tgUri
         switch (command[0]) {
-        case "joinchat": case "addstickers": case "addtheme": case "setlanguage": case "share": case "confirmphone": case "socks": case "proxy": case "bg":
+        case "joinchat":
+            // https://t.me/joinchat/XXXXXXXXXX
+            tgUri = "tg://join?invite=" + command[1]
+            break
+        case "addstickers":
+        case "addtheme":
+        case "setlanguage":
+        case "share":
+        case "confirmphone":
+        case "socks":
+        case "proxy":
+        case "bg":
             break
         default:
             // https://t.me/<username>
@@ -601,6 +632,12 @@ Store {
                     break
                 }
             }
+            break
+        case "join":
+            // tg://join?invite=XXXXXXXXXX
+            var args = command[1].split("&")
+            var inviteId = args[0].split("=")[1]
+            AppActions.chat.checkChatInviteLink(inviteId)
             break
         default:
             console.log("Unhandled command: " + command)

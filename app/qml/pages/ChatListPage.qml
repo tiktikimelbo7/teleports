@@ -407,7 +407,6 @@ Page {
         }
     }
 
-
     property string incomingTextFromContentHub: ""
     function processContentHubIncoming(transfer) {
         if (transfer.contentType === ContentType.Links || transfer.contentType === ContentType.Text) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-24 14:47+0000\n"
+"POT-Creation-Date: 2020-10-25 11:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,17 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
+msgstr ""
+
+#: ../app/qml/components/GroupPreviewDialog.qml:33
+#: ../app/qml/pages/MessageListPage.qml:33
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/qml/components/GroupPreviewDialog.qml:35
+msgid "%1 members, among them:"
 msgstr ""
 
 #: ../app/qml/components/InputInfoBox.qml:91
@@ -213,21 +224,25 @@ msgstr ""
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:21
+#: ../app/qml/middleware/ChatMiddleware.qml:28
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:22
-#: ../app/qml/pages/ChatListPage.qml:131
+#: ../app/qml/middleware/ChatMiddleware.qml:29
+#: ../app/qml/pages/ChatListPage.qml:161
 msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:31
+#: ../app/qml/middleware/ChatMiddleware.qml:38
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:32
+#: ../app/qml/middleware/ChatMiddleware.qml:39
 msgid "Leave"
+msgstr ""
+
+#: ../app/qml/middleware/ChatMiddleware.qml:48
+msgid "Join group"
 msgstr ""
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
@@ -425,12 +440,6 @@ msgid ""
 "The app will close automatically when the logout process ends.\n"
 "Please, don't close it manually!"
 msgstr ""
-
-#: ../app/qml/pages/MessageListPage.qml:33
-msgid "%1 member"
-msgid_plural "%1 members"
-msgstr[0] ""
-msgstr[1] ""
 
 #: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
@@ -630,7 +639,7 @@ msgid "Registration not expected right now"
 msgstr ""
 
 #: ../app/qml/stores/ChatStateStore.qml:41
-#: ../app/qml/stores/ChatStateStore.qml:44
+#: ../app/qml/stores/ChatStateStore.qml:47
 msgid "Error"
 msgstr ""
 
@@ -638,7 +647,7 @@ msgstr ""
 msgid "No valid location received after 180 seconds!"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:44
+#: ../app/qml/stores/ChatStateStore.qml:47
 msgid "Username <b>@%1</b> not found"
 msgstr ""
 
@@ -654,47 +663,47 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:332
+#: ../libs/qtdlib/chat/qtdchat.cpp:318
 msgid "Draft:"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:599
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:603
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:609
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:613
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:630
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:631
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "are doing something..."
 msgstr ""
 
