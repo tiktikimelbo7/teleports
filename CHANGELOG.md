@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.9
+### Added
+- Implemented sending of voice notes (tap and hold the mike!)
+- Implemented joining a chat by public or invite link
+
+### Changed
+- A lot of translations have been updated, thanks!
+- Pinned message action is shown correctly
+- All action text is now resized and multi-line to allow loooong user names ;)
+
+### Bugfix
+- TELEports icon in system settings is now visible
+- Show chat photo change or removal
+- Fixed the attachment bar not to overlap the message area in some cases
+
 ## 0.8
 ### Added
 - Option to turn notifications on and off per group or user
