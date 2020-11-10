@@ -41,7 +41,6 @@ Page {
             text: i18n.tr('Send message')
             visible: !isGroup
             onTriggered: {
-                AppActions.chat.closeCurrentChat()
                 AppActions.chat.createOrOpenPrivateChat(user)
             }
         }
