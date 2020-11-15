@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-13 15:16+0000\n"
-"PO-Revision-Date: 2020-09-04 18:18+0000\n"
-"Last-Translator: Dmitriy Krivtsov <dmitrek@mail.ru>\n"
+"PO-Revision-Date: 2020-11-15 05:10+0000\n"
+"Last-Translator: Vladimir <kerneltestuser@gmail.com>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
 "teleports/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
@@ -196,12 +196,13 @@ msgid "Leave"
 msgstr "Покинуть"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
+#, fuzzy
 msgid "Close"
 msgstr "Закрыть"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:83
 msgid "About"
-msgstr "О приложении"
+msgstr "О системе"
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
 #: ../app/qml/pages/ConnectivityPage.qml:46
