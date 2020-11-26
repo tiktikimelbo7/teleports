@@ -1,6 +1,8 @@
+[![pipeline status](https://gitlab.com/ubports/apps/teleports/badges/master/pipeline.svg)](https://gitlab.com/ubports/apps/teleports/commits/master)
+
 # TELEports - An Ubuntu Touch Telegram client
 
-[![OpenStore](https://open-store.io/badges/en_US.svg)](https://open-store.io/app/teleports.ubports)
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/teleports.ubports)
 
 ## Building
 
