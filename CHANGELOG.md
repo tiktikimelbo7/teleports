@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+##0.9.1
+### Bugfix
+- Change loading of supergroup informations, helps to prevent crashes with many chats
+
 ## 0.9
 ### Added
 - Implemented sending of voice notes (tap and hold the mike!)
