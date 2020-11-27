@@ -220,7 +220,6 @@ qint64 QTdSuperGroupChat::upgradedFromMaxMessageId() const
 void QTdSuperGroupChat::onChatDeserialized()
 {
     getSuperGroupData();
-    getSuperGroupFullInfo();
 }
 
 void QTdSuperGroupChat::parseSuperGroupId() {
@@ -287,6 +286,7 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
     emit isWritableChanged();
     emit superGroupChanged();
     emit chatStatusChanged();
+    getSuperGroupFullInfo();
 }
 
 void QTdSuperGroupChat::updateSuperGroupFullInfo(const QJsonObject &json)
