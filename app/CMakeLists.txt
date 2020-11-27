@@ -17,7 +17,8 @@ link_directories("${PROJECT_BINARY_DIR}/QuickFlux/lib")
 #"qtdclient.cpp" "qtdthread.cpp" "qml.qrc"
 add_definitions(-DBUILD_VERSION="${BUILD_VERSION}" -DGIT_HASH="${GIT_HASH}")
 add_executable(${PROJECT_NAME} "main.cpp" "messagedelegatemap.cpp" "messagecontentdelegatemap.cpp" "qml/qml.qrc" "qml/icons/icons.qrc")
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Qt5::QuickControls2 quickflux QTdlib)
+target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Quick Qt5::QuickControls2 quickflux$<$<CONFIG:DEBUG>:d> QTdlib)
+
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/libs
     ${CMAKE_SOURCE_DIR}/libs/qtdlib
