@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-13 15:16+0000\n"
-"PO-Revision-Date: 2020-12-18 13:26+0000\n"
+"PO-Revision-Date: 2020-12-25 08:26+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
 "teleports/he/>\n"
@@ -45,7 +45,7 @@ msgstr "ההודעה תימחק רק עבורך. האם אתה באמת רוצה
 #: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:104
 #: ../app/qml/pages/UserListPage.qml:198
 msgid "Delete"
-msgstr "מחק"
+msgstr "מחיקה"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
@@ -79,16 +79,16 @@ msgstr "%1 יצר קבוצה בשם << %2 >>"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
-msgstr "העתק"
+msgstr "העתקה"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
-msgstr "ערוך"
+msgstr "עריכה"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:67
 msgid "Reply"
-msgstr "השב"
+msgstr "מענה"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:73
 msgid "Sticker Pack info"
