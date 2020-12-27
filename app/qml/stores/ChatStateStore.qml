@@ -46,7 +46,7 @@ Store {
         onInvalidChatUsername: {
             AppActions.view.showError(i18n.tr("Error"), i18n.tr("Username <b>@%1</b> not found").arg(username), "");
         }
-        onModelPolulatedCompleted: {
+        onModelPopulatedCompleted: {
             // handle URIs only the first time this signal is emitted
             if (uriHaveBeenProcessed) {
                 return
@@ -628,7 +628,7 @@ Store {
                     AppActions.chat.setCurrentChatByUsername(value)
                     break;
                 default:
-                    console.log("undhandled argument: " + args[i])
+                    console.log("Unhandled argument: " + args[i])
                     break
                 }
             }
