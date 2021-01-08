@@ -18,5 +18,5 @@
     "version": "@BUILD_VERSION@",
     "icon": "assets/icon.svg",
     "maintainer": "UBports <dev@ubports.com>",
-    "framework" : "ubuntu-sdk-16.04"
+    "framework" : "ubuntu-sdk-16.04.3"
 }
