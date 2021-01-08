@@ -75,7 +75,7 @@ signals:
     void positionInfoReceived(double latitude, double longitude);
     void positionInfoTimeout();
     void invalidChatUsername(const QString &username);
-    void modelPolulatedCompleted();
+    void modelPopulatedCompleted();
     void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
 
 private slots:
