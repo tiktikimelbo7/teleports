@@ -39,6 +39,11 @@ of TELEports on Gitlab:
 
 ## Debugging
 
+### Enable Tdlib Debug Output
+
+Prepend the `clickable` call with `CLICKABLE_ENV_TDLIB_DEBUG=1` on building to produce
+a build with Tdlib debug output enabled or trigger the debug CI job.
+
 ### Desktop Mode
 
 Run debug build in Desktop Mode:

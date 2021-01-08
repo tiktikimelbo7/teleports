@@ -14,7 +14,6 @@ find_package(Qt5Positioning REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Multimedia REQUIRED)
 
-
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
@@ -230,6 +229,10 @@ add_library(${QTDLIB} SHARED ${SRC})
 target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Qt5::Multimedia Td::tdjson auxdb)
 target_include_directories(${QTDLIB} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
+
+if(DEFINED ENV{TDLIB_DEBUG})
+    target_compile_definitions(${QTDLIB} PRIVATE TDLIB_DEBUG)
+endif()
 
 execute_process(
     COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH

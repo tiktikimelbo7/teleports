@@ -8,7 +8,7 @@ stages:
 variables:
     GIT_SUBMODULE_STRATEGY: 'recursive'
     DOCKER_DRIVER: overlay2
-    CLICKABLE_VERSION: "6.12.2"
+    CLICKABLE_VERSION: "6.21.0"
 
 cache: &tdlib_cache
     key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.6'
@@ -18,6 +18,7 @@ cache: &tdlib_cache
     stage: debug
     variables:
         CLICKABLE_DEBUG_BUILD: "1"
+        CLICKABLE_ENV_TDLIB_DEBUG: "1"
     when: manual
 
 .armhf: &armhf
@@ -111,20 +112,14 @@ teleports-amd64:
 
 teleports-armhf-debug:
     <<: *debug
-    dependencies:
-        - tdlib-armhf
     extends: teleports-armhf
 
 teleports-arm64-debug:
     <<: *debug
-    dependencies:
-        - tdlib-arm64
     extends: teleports-arm64
 
 teleports-amd64-debug:
     <<: *debug
-    dependencies:
-        - tdlib-amd64
     extends: teleports-amd64
 
 

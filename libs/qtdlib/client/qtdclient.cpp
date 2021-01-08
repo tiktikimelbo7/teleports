@@ -52,6 +52,10 @@ QTdClient::QTdClient(QObject *parent)
         m_debug = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
 
+#ifdef TDLIB_DEBUG
+    m_debug = true;
+#endif
+
     init();
     QTdWorker *w = new QTdWorker;
     w->moveToThread(m_worker.data());
