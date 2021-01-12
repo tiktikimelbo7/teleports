@@ -97,6 +97,15 @@ Page {
                 AppActions.chat.createOrOpenPrivateChat(user)
             }
 
+            //disables the FastScroll when a list item is swiped
+            onSwipedChanged: {
+                if (swiped === false && userListView.height >= fastScroll.minimumHeight) {
+                    fastScroll.enabled = true
+                } else {
+                    fastScroll.enabled = false
+                }
+            }
+
             leadingActions: UITK.ListItemActions {
                 actions: [
                 UITK.Action {
