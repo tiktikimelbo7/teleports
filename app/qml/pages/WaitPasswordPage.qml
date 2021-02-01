@@ -15,7 +15,7 @@ Page {
 
     header: UITK.PageHeader {
         id: header
-        title: i18n.tr('Enter Password')
+        title: i18n.tr("Enter Password")
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -33,7 +33,7 @@ Page {
             top: parent.top
             topMargin: Suru.units.gu(2)
         }
-        TextField {
+        UITK.TextField {
             id: passwordField
             width: parent.width
             placeholderText: i18n.tr("Password")
@@ -54,7 +54,7 @@ Page {
 
         Label {
             id: hintLabel
-            text: qsTr("Password hint: %1").arg(hint)
+            text: i18n.tr("Password hint: %1").arg(hint)
             width: parent.width
         }
 

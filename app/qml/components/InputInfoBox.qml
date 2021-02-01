@@ -84,7 +84,7 @@ Item {
 
             Column {
                 Layout.fillWidth: true
-                anchors.verticalCenter: parent.verticalCenter
+                Layout.alignment: Qt.AlignVCenter
                 spacing: units.dp(4)
 
                 Label {
