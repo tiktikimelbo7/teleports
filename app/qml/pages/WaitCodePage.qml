@@ -51,7 +51,7 @@ Page {
         Label {
             width: parent.width
             wrapMode: Text.Wrap
-            text: i18n.tr("We've sent a code via telegram to your device. Please enter it here.")
+            text: i18n.tr("A code was sent via Telegram to your other devices. Please enter it here.")
         }
 
         Label {
