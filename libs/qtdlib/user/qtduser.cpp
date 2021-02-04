@@ -7,7 +7,7 @@
 
 QTdUser::QTdUser(QObject *parent)
     : QAbstractInt32Id(parent)
-    , m_fullInfo(Q_NULLPTR)
+    , m_fullInfo(new QTdUserFullInfo)
     , m_status(Q_NULLPTR)
     , m_profilePhoto(new QTdProfilePhoto)
     , m_isVerified(false)
@@ -97,18 +97,6 @@ QTdProfilePhoto *QTdUser::profilePhoto() const
 
 QTdUserFullInfo *QTdUser::fullInfo()
 {
-    if (m_fullInfo.isNull()) {
-        QScopedPointer<QTdGetUserFullInfoRequest> req(new QTdGetUserFullInfoRequest);
-        req->setUserId(id());
-        QFuture<QTdResponse> resp = req->sendAsync();
-        await(resp, 2000);
-        if (resp.result().isError()) {
-            qWarning() << "Failed to get user full info with error: " << resp.result().errorString();
-        } else {
-            m_fullInfo.reset(new QTdUserFullInfo);
-            m_fullInfo->unmarshalJson(resp.result().json());
-        }
-    }
     return m_fullInfo.data();
 }
 
