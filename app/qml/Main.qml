@@ -57,4 +57,11 @@ UITK.MainView {
             ChatMiddleware{}
         }
     }
+
+    // Placed in MainView for convenience.
+    function flickable_responsive_scroll_fix(flickable) {
+        // WORKAROUND: Fix for wrong grid unit size
+        flickable.flickDeceleration = 1500 * units.gridUnit / 8
+        flickable.maximumFlickVelocity = 2500 * units.gridUnit / 8
+    }
 }
