@@ -1,7 +1,8 @@
 #include "qtdregisterdevicerequest.h"
+#include "client/qtdclient.h"
 
 QTdRegisterDeviceRequest::QTdRegisterDeviceRequest(QObject *parent)
-    : QTdOkRequest(parent)
+    : QTdRequest(parent)
 {
 }
 
@@ -18,4 +19,9 @@ QJsonObject QTdRegisterDeviceRequest::marshalJson()
                                   { "@type", "deviceTokenUbuntuPush" },
                                   { "token", m_token } } }
     };
+}
+
+QFuture<QTdResponse> QTdRegisterDeviceRequest::sendAsync()
+{
+    return QTdClient::instance()->sendAsync(this, &QTdClient::pushReceiverId);
 }

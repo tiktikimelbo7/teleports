@@ -52,6 +52,11 @@ QTdClient::QTdClient(QObject *parent)
         m_debug = qgetenv("TDLIB_DEBUG") == QByteArrayLiteral("1");
     }
 
+#ifdef TDLIB_DEBUG
+    m_debug = true;
+#endif
+
+    QThreadPool::globalInstance()->setMaxThreadCount(99);
     init();
     QTdWorker *w = new QTdWorker;
     w->moveToThread(m_worker.data());
@@ -263,6 +268,7 @@ void QTdClient::init()
     //Option handling - more or less global constants, still could change during execution
     m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data) { emit updateOption(data); });
 
+    m_events.insert(QStringLiteral("pushReceiverId"), [=](const QJsonObject &data) { emit pushReceiverId(data); });
     //Message updates to add to existing chats or channel views
     m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data) { emit updateNewMessage(data); });
     m_events.insert(QStringLiteral("updateMessageViews"), [=](const QJsonObject &data) { emit updateMessageViews(data); });
