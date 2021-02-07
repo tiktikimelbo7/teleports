@@ -9,6 +9,9 @@
   "dependencies_host": [
     "ccache"
   ],
+  "install_lib": [
+    "${RLOTTIE_LIB_INSTALL_DIR}/lib/*so*"
+  ],
   "libraries": {
     "tdlib-prepare": {
       "builder": "cmake",
