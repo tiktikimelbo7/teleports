@@ -16,13 +16,16 @@ Build tdlib (approx. 45 min per architecture):
     git submodule update --init
     clickable build-libs tdlib-prepare --arch amd64 # your host architecture (probably amd64)
     clickable build-libs tdlib --arch armhf # or arm64 or amd64
-    clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
 
 Alternatively one can download the tdlib build from our CI. Open the
 [latest master pipeline](https://gitlab.com/ubports/apps/teleports/-/pipelines?page=1&scope=all&ref=master),
 navigate to the respective job (`tdlib-armhf`, `tdlib-arm64` or `tdlib-amd64`),
 download the Job Artifacts and extract them to your project directory conserving
 the structure (`build/<ARCH_TRIPLET>/tdlib/install`).
+
+Build rlottie:
+
+    clickable build-libs rlottie --arch armhf # or arm64 or amd64
 
 ### App
 

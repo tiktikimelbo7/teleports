@@ -32,6 +32,14 @@
         "-DTHREADS_PTHREAD_ARG=0",
         "-DCMAKE_CROSSCOMPILING=ON"
       ]
+    },
+    "rlottie": {
+      "builder": "cmake",
+      "src_dir": "libs/vendor/rlottie",
+      "build_args": [
+        "-DCMAKE_CXX_FLAGS=-Wno-sign-compare",
+        "-DLIB_INSTALL_DIR=lib"
+      ]
     }
   }
 }
