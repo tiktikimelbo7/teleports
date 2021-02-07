@@ -37,6 +37,16 @@ cache: &tdlib_cache
         ARCH_TRIPLET: "x86_64-linux-gnu"
 
 
+.rlottie:
+    image: "clickable/ci-16.04-$ARCH:$CLICKABLE_VERSION"
+    stage: deps
+    script: 'clickable build-libs rlottie --arch $ARCH'
+    artifacts:
+        paths:
+            - "build/$ARCH_TRIPLET/rlottie/install"
+        expire_in: 1 week
+
+
 .tdlib:
     image: "clickable/ci-16.04-$ARCH:$CLICKABLE_VERSION"
     stage: deps
@@ -91,21 +101,37 @@ tdlib-amd64:
     extends: .tdlib
 
 
+rlottie-armhf:
+    <<: *armhf
+    extends: .rlottie
+
+rlottie-arm64:
+    <<: *arm64
+    extends: .rlottie
+
+rlottie-amd64:
+    <<: *amd64
+    extends: .rlottie
+
+
 teleports-armhf:
     <<: *armhf
     dependencies:
+        - rlottie-armhf
         - tdlib-armhf
     extends: .teleports
 
 teleports-arm64:
     <<: *arm64
     dependencies:
+        - rlottie-arm64
         - tdlib-arm64
     extends: .teleports
 
 teleports-amd64:
     <<: *amd64
     dependencies:
+        - rlottie-amd64
         - tdlib-amd64
     extends: .teleports
 
