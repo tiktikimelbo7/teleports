@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-25 11:34+0000\n"
-"PO-Revision-Date: 2021-02-01 13:27+0000\n"
+"PO-Revision-Date: 2021-02-07 10:08+0100\n"
 "Last-Translator: imrufbd <imrufbd@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://translate.ubports.com/projects/"
 "ubports/teleports/bn_BD/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.11.3\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -979,28 +979,12 @@ msgstr ""
 msgid "%1 changed the chat title to <i>%2</i>"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatDeletePhoto.qml:6
-msgid "Channel photo has been removed"
-msgstr ""
-
-#: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
-msgid "%1 deleted the chat photo"
-msgstr ""
-
-#: ../app/qml/delegates/NotImplementedYet.qml:12
-msgid "Unknown message type, see logfile for details..."
-msgstr ""
-
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:26
 msgid "Channel photo has been changed"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:27
 msgid "%1 changed the chat photo"
-msgstr ""
-
-#: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
-msgid "Missing label..."
 msgstr ""
 
 #: ../push/pushhelper.cpp:201
