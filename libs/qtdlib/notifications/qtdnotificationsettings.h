@@ -23,6 +23,7 @@ public:
 
 
     bool useDefaultMuteFor() const;
+    void setUseDefaultMuteFor(const bool &value);
     qint32 muteFor() const;
     void setMuteFor(const qint32 &duration);
     bool useDefaultSound() const;

@@ -24,6 +24,11 @@ bool QTdNotificationSettings::useDefaultMuteFor() const
     return m_useDefaultMuteFor;
 }
 
+void QTdNotificationSettings::setUseDefaultMuteFor(const bool &value)
+{
+    m_useDefaultMuteFor = value;
+}
+
 QString QTdNotificationSettings::sound() const
 {
     return m_sound;
