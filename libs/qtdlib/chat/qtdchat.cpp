@@ -578,6 +578,7 @@ void QTdChat::mute(const qint32 &duration) {
     req->setNotificationSettings(m_notifySettings.data());
     req->setChatId(id());
     m_notifySettings->setMuteFor(duration);
+    m_notifySettings->setUseDefaultMuteFor(false);
     QTdClient::instance()->send(req.data());
 }
 
