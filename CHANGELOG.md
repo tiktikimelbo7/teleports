@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+##0.9.2
+### Bugfix
+
+- Remove excessive loading of userinfos
+- Fix empty chats where history wont load
+
+### Changed
+- Increase max thread pool size, should make TELEports faster during many operations
+
 ##0.9.1
 ### Bugfix
 - Change loading of supergroup informations, helps to prevent crashes with many chats
