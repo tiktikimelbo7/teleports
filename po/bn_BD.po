@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-25 11:34+0000\n"
+"POT-Creation-Date: 2021-02-01 23:19+0000\n"
 "PO-Revision-Date: 2021-02-07 10:08+0100\n"
 "Last-Translator: imrufbd <imrufbd@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://translate.ubports.com/projects/"
@@ -46,14 +46,14 @@ msgstr ""
 msgid "Delete"
 msgstr "মুছুন"
 
-#: ../app/qml/components/GroupPreviewDialog.qml:33
+#: ../app/qml/components/GroupPreviewDialog.qml:35
 #: ../app/qml/pages/MessageListPage.qml:33
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/components/GroupPreviewDialog.qml:35
+#: ../app/qml/components/GroupPreviewDialog.qml:37
 msgid "%1 members, among them:"
 msgstr ""
 
@@ -225,24 +225,24 @@ msgstr ""
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:27
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:29
-#: ../app/qml/pages/ChatListPage.qml:161
+#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/pages/ChatListPage.qml:131
 msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:37
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:39
+#: ../app/qml/middleware/ChatMiddleware.qml:38
 msgid "Leave"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:48
+#: ../app/qml/middleware/ChatMiddleware.qml:47
 msgid "Join group"
 msgstr ""
 
@@ -573,7 +573,8 @@ msgid "Code"
 msgstr ""
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-msgid "We've sent a code via telegram to your device. Please enter it here."
+msgid ""
+"A code was sent via Telegram to your other devices. Please enter it here."
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
@@ -582,6 +583,10 @@ msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:39
 msgid "Password"
+msgstr ""
+
+#: ../app/qml/pages/WaitPasswordPage.qml:57
+msgid "Password hint: %1"
 msgstr ""
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
@@ -639,16 +644,16 @@ msgstr ""
 msgid "Registration not expected right now"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:41
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:43
+#: ../app/qml/stores/ChatStateStore.qml:49
 msgid "Error"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:41
+#: ../app/qml/stores/ChatStateStore.qml:43
 msgid "No valid location received after 180 seconds!"
 msgstr ""
 
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:49
 msgid "Username <b>@%1</b> not found"
 msgstr ""
 
@@ -878,7 +883,7 @@ msgstr ""
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:252
 msgid "Unread Messages"
 msgstr ""
 
@@ -970,23 +975,6 @@ msgstr ""
 msgid "%1 sent a GIF to the group"
 msgstr ""
 
-#: ../app/qml/delegates/MessageChatChangeTitle.qml:5
-#: ../app/qml/delegates/MessageChatChangeTitle.qml:6
-msgid "Channel title has been changed to <i>%1</i>"
-msgstr ""
-
-#: ../app/qml/delegates/MessageChatChangeTitle.qml:7
-msgid "%1 changed the chat title to <i>%2</i>"
-msgstr ""
-
-#: ../app/qml/delegates/MessageChatChangePhoto.qml:26
-msgid "Channel photo has been changed"
-msgstr ""
-
-#: ../app/qml/delegates/MessageChatChangePhoto.qml:27
-msgid "%1 changed the chat photo"
-msgstr ""
-
 #: ../push/pushhelper.cpp:201
 msgid "%1 sent a contact to the group"
 msgstr ""
@@ -1018,14 +1006,6 @@ msgstr ""
 
 #: ../push/pushhelper.cpp:248
 msgid "%1 has left the group"
-msgstr ""
-
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-msgid "Channel called <i>%1</i> created"
-msgstr ""
-
-#: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-msgid "%1 created a group called <i>%2</i>"
 msgstr ""
 
 #: ../push/pushhelper.cpp:253
