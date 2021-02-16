@@ -25,7 +25,6 @@
         <file>pages/SecretChatKeyHashPage.qml</file>
         <file>pages/ArchivedChatListPage.qml</file>
         <file>pages/LogoutPage.qml</file>
-        <file>pages/ArchivedChatListPage.qml</file>
         <file>stores/UsersStateStore.qml</file>
         <file>stores/ChatStateStore.qml</file>
         <file>pages/MessageListPage.qml</file>
