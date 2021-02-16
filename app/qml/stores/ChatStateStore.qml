@@ -28,8 +28,6 @@ Store {
         onCurrentChatChanged: {
             if (chatList.currentChatValid) {
                 AppActions.view.pushToStack("qrc:/pages/MessageListPage.qml", {})
-            } else {
-                AppActions.view.popFromStack()
             }
         }
         onPositionInfoReceived: {
