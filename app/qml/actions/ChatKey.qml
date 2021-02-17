@@ -8,6 +8,7 @@ KeyTable {
     property string createOrOpenSavedMessages
     property string createOrOpenSecretChat
     property string closeCurrentChat
+    property string loadMoreChats
     property string loadOlderMessages
     property string loadNewerMessages
     property string sendMessage

@@ -14,7 +14,7 @@ QJsonObject QTdGetChatsRequest::marshalJson()
         { "@type", "getChats" },
         { "offset_order", QString::number(m_offset_order) },
         { "offset_chat_id", m_offset_chat_id },
-        { "limit", 25 },
+        { "limit", m_limit },
     };
 }
 
@@ -26,6 +26,11 @@ void QTdGetChatsRequest::setOffsetOrder(const qint64 value)
 void QTdGetChatsRequest::setOffsetChatId(const qint64 value)
 {
     m_offset_chat_id = value;
+}
+
+void QTdGetChatsRequest::setLimit(const qint64 value)
+{
+    m_limit = value;
 }
 
 QFuture<QTdResponse> QTdGetChatsRequest::sendAsync()

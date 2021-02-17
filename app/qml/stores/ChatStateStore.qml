@@ -203,6 +203,16 @@ Store {
     }
 
     Filter {
+        type: ChatKey.loadMoreChats
+        onDispatched: {
+            if (d.canLoadMoreMessages) {
+                chatList.loadMoreChats()
+                d.canLoadMoreMessages = false
+                enableLoadTimer.start()
+            }
+        }
+    }
+    Filter {
         type: ChatKey.jumpToMessage
         onDispatched: {
             messageList.jumpToMessage(message.id)

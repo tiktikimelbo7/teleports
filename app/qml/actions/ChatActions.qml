@@ -11,6 +11,7 @@ ActionCreator {
     signal setCurrentChatByUsername(string username)
     signal closeCurrentChat()
 
+    signal loadMoreChats();
     signal loadNewerMessages();
     signal loadOlderMessages();
 
