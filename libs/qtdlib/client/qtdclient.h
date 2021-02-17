@@ -130,6 +130,7 @@ signals:
     void updateSecretChat(const QJsonObject &chat);
     void updateSuperGroup(const QJsonObject &group);
     void updateSupergroupFullInfo(const QJsonObject &group);
+    void updateChatChatList(const QJsonObject &update);
     void updateChatReadInbox(const QJsonObject &chat);
     void updateChatReadOutbox(const QJsonObject &chat);
     void updateChatIsPinned(const QJsonObject &chat);
@@ -172,6 +173,7 @@ signals:
     void stickerSet(QJsonObject stickerSet);
     void updateInstalledStickerSets(QJsonObject stickerSetsUpdate);
     void chatInviteLinkInfo(QJsonObject chatInviteLinkInfo);
+    void pushReceiverId(QJsonObject);
 
 private slots:
     void handleRecv(const QJsonObject &data);

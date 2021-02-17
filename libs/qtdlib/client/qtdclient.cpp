@@ -56,6 +56,7 @@ QTdClient::QTdClient(QObject *parent)
     m_debug = true;
 #endif
 
+    QThreadPool::globalInstance()->setMaxThreadCount(99);
     init();
     QTdWorker *w = new QTdWorker;
     w->moveToThread(m_worker.data());
@@ -115,7 +116,11 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*sig
                 if (extra == tag) {
                     result.setJson(resp);
                     loop.quit();
+                } else {
+                    qWarning() << "Received answer in thread with unknown extra tag" << extra;
                 }
+            } else {
+                qWarning() << "Received answer in thread without extra tag";
             }
         };
 
@@ -234,6 +239,7 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data) { emit updateSupergroupFullInfo(data); });
     m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data) { emit supergroupFullInfo(data); });
     m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data) { emit updateSuperGroup(data["supergroup"].toObject()); });
+    m_events.insert(QStringLiteral("updateChatChatList"), [=](const QJsonObject &data) { emit updateChatChatList(data); });
     m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data) { emit updateChatOrder(data); });
     m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data) { emit updateChatLastMessage(data); });
     m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data) { emit updateMessageContent(data); });
@@ -267,6 +273,7 @@ void QTdClient::init()
     //Option handling - more or less global constants, still could change during execution
     m_events.insert(QStringLiteral("updateOption"), [=](const QJsonObject &data) { emit updateOption(data); });
 
+    m_events.insert(QStringLiteral("pushReceiverId"), [=](const QJsonObject &data) { emit pushReceiverId(data); });
     //Message updates to add to existing chats or channel views
     m_events.insert(QStringLiteral("updateNewMessage"), [=](const QJsonObject &data) { emit updateNewMessage(data); });
     m_events.insert(QStringLiteral("updateMessageViews"), [=](const QJsonObject &data) { emit updateMessageViews(data); });

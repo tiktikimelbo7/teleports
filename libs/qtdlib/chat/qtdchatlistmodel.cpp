@@ -208,33 +208,29 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
 {
     QJsonArray chats = data["chat_ids"].toArray();
     if (chats.count() == 0) {
-        if (m_receivedChatIds.count() > 0) {
-            QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
-            foreach (qint64 chatToRequest, m_receivedChatIds) {
-                chatReq->setChatId(chatToRequest);
-                chatReq->sendAsync();
-            }
-        }
+        qWarning() << "No more chats found, completing initial load.";
+        m_receivedChatIds.clear();
         return;
     }
-    foreach (QJsonValue chatToRequest, chats) {
-        m_receivedChatIds.append((qint64)chatToRequest.toDouble());
+    qWarning() << "Received" << chats.count() << "chats";
+    foreach (QJsonValue chat, chats) {
+        auto chatId = chat.toInt();
+        if (chatId == 0) {
+            continue;
+        }
+        m_receivedChatIds.append(chatId);
+        //Only request chats that we did not receive already
+        if (!chatById(chatId)) {
+            QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
+            chatReq->setChatId(chatId);
+            qWarning() << "Request chat id" << chatId << "to be added to chatmodel";
+            chatReq->sendAsync();
+        } else {
+            qWarning() << "Chat" << chatId << "already received, ignoring";
+        }
     }
     emit modelPopulatedCompleted();
-    auto lastChat = m_model->getByUid(QString::number(m_receivedChatIds.last()));
-    if (!lastChat) {
-        return;
-    }
-    //TODO: Make loading of chats really asyncrhonous and load only visible chats at a time
-    QTime sleepTime = QTime::currentTime().addMSecs(500);
-    while (QTime::currentTime() < sleepTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-    QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
-    req->setOffsetChatId(lastChat->id());
-    req->setOffsetOrder(lastChat->order());
-    req->sendAsync();
 }
-
 
 void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
 {
@@ -289,10 +285,6 @@ void QTdChatListModel::handleAuthStateChanges(const QTdAuthState *state)
 {
     switch (state->type()) {
     case QTdAuthState::Type::AUTHORIZATION_STATE_READY: {
-        QTdClient::instance()->send(QJsonObject{ { "@type", "clearRecentlyFoundChats" } });
-        m_receivedChatIds.clear();
-        QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
-        req->sendAsync();
         break;
     }
     case QTdAuthState::Type::AUTHORIZATION_STATE_CLOSED: {
@@ -536,6 +528,23 @@ void QTdChatListModel::joinChat(const qint64 &chatId) const
 void QTdChatListModel::setChatToOpenOnUpdate(const qint64 &chatId)
 {
     m_chatToOpenOnUpdate = chatId;
+}
+
+void QTdChatListModel::loadMoreChats() {
+    QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
+
+    if (m_model->isEmpty()) {
+        req->setOffsetChatId(0);
+        req->setOffsetOrder(9223372036854775807);
+        qWarning() << "Requesting 10 chats initially";
+    } else {
+        auto lastChat = m_model->first();
+        req->setOffsetChatId(lastChat->id());
+        req->setOffsetOrder(lastChat->order());
+        qWarning() << "Requesting 10 more chats from offset chat" << lastChat->id() << "order" << lastChat->order();
+    }
+    req->setLimit(10);
+    req->sendAsync();
 }
 
 void QTdChatListModel::checkChatInviteLink(const QString &inviteLink)

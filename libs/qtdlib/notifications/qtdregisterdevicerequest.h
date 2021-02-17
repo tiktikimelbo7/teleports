@@ -9,7 +9,7 @@
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1register_device.html
  */
-class QTdRegisterDeviceRequest : public QTdOkRequest
+class QTdRegisterDeviceRequest : public QTdRequest
 {
     Q_OBJECT
 public:
@@ -18,6 +18,8 @@ public:
     void setToken(const QString &token);
 
     QJsonObject marshalJson() Q_DECL_FINAL;
+
+    QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 
 private:
     QString m_token;

@@ -404,8 +404,21 @@ Page {
                 }
 
             }
+
+            visibleArea.onYPositionChanged: {
+                if (visibleArea.yPosition > 1 - visibleArea.heightRatio - 0.05 && model.count > 5) {
+                    console.log("chat list scrolled to the end, loading more chats");
+                    AppActions.chat.loadMoreChats()
+                }
+            }
+        }
+
+        Component.onCompleted : {
+            console.log("Chat ListView loaded, requesting chats...");
+            AppActions.chat.loadMoreChats();
         }
     }
+
 
     property string incomingTextFromContentHub: ""
     function processContentHubIncoming(transfer) {

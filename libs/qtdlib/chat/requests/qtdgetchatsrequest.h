@@ -21,6 +21,8 @@ public:
 
     void setOffsetChatId(const qint64 value);
 
+    void setLimit(const qint64 value);
+
     QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
@@ -28,6 +30,7 @@ public:
 private:
     qint64 m_offset_order;
     qint64 m_offset_chat_id;
+    qint64 m_limit;
 };
 
 #endif // QTDGETCHATSREQUEST_H
