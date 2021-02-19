@@ -186,6 +186,7 @@ set(
     messages/requests/content/qtdinputmessagelocation.cpp
     messages/requests/content/qtdinputmessagesticker.cpp
     messages/requests/qtddeletemessagesrequest.cpp
+    messages/requests/qtdgetchathistoryrequest.cpp
     messages/requests/qtdeditmessagecaptionrequest.cpp
     messages/requests/qtdeditmessagetextrequest.cpp
     messages/requests/qtdgetmessagerequest.cpp
