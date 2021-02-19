@@ -50,7 +50,6 @@ ActionCreator {
     signal registerVoiceNote(string filename)
     signal stopVoiceNote()
     signal deleteVoiceNote(string filename)
-    signal toggleArchivedChats()
     signal checkChatInviteLink(var inviteLink)
     signal joinChatByInviteLink(var inviteLink)
     signal joinChat()
