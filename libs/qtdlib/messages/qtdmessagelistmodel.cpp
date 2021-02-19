@@ -7,6 +7,7 @@
 #include <QAudioRecorder>
 #include "client/qtdclient.h"
 #include "requests/qtdsendmessagerequest.h"
+#include "requests/qtdgetchathistoryrequest.h"
 #include "requests/qtdeditmessagetextrequest.h"
 #include "requests/qtdeditmessagecaptionrequest.h"
 #include "requests/content/qtdinputmessagetext.h"
@@ -36,7 +37,7 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     , m_model(Q_NULLPTR)
     , m_chat(Q_NULLPTR)
     , m_messageHandler(Q_NULLPTR)
-    , m_jumpToMessageId("")
+    , m_jumpToMessageId(0)
     , m_isHandleUpdateLastChatMessageConnected(false)
 {
     m_model = new QQmlObjectListModel<QTdMessage>(this, "", "id");
@@ -113,28 +114,24 @@ void QTdMessageListModel::setChat(QTdChat *chat)
     }
 
     m_chat = chat;
+    emit chatChanged(m_chat);
 
     if (!m_chat) {
         return;
     }
-
-    if (m_chat) {
-        connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
-        if (m_chat->hasUnreadMessages()) {
-
-            m_jumpToMessageId = m_chat->qmlLastReadInboxMessageId();
-            m_messageHandler = &jumpToWindowMessageHandler;
-            loadMessages(m_chat->qmlLastReadInboxMessageId(), MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
-        } else {
-            m_messageHandler = &olderMessagesHandler;
-            QScopedPointer<QTdMessage> lastMessage(new QTdMessage());
-            lastMessage->unmarshalJson(m_chat->lastMessageJson());
-            loadMessages(lastMessage->jsonId(), MESSAGE_LOAD_WINDOW, 1);
-            connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
-        }
-    }
+    connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
     m_chat->openChat();
-    emit chatChanged(m_chat);
+    if (m_chat->hasUnreadMessages()) {
+        m_jumpToMessageId = m_chat->lastReadInboxMessageId();
+        m_messageHandler = &jumpToWindowMessageHandler;
+        loadMessages(m_chat->lastReadInboxMessageId(), MESSAGE_LOAD_WINDOW / 2, MESSAGE_LOAD_WINDOW / 2);
+    } else {
+        m_messageHandler = &olderMessagesHandler;
+        QScopedPointer<QTdMessage> lastMessage(new QTdMessage());
+        lastMessage->unmarshalJson(m_chat->lastMessageJson());
+        loadMessages(lastMessage->id(), MESSAGE_LOAD_WINDOW, 1);
+        connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
+    }
 }
 
 void QTdMessageListModel::loadNewer()
@@ -149,7 +146,7 @@ void QTdMessageListModel::loadNewer()
         return;
     }
     m_messageHandler = &newerMessagesHandler;
-    loadMessages(m_model->first()->jsonId(), 0, MESSAGE_LOAD_WINDOW);
+    loadMessages(m_model->first()->id(), 0, MESSAGE_LOAD_WINDOW);
 }
 
 void QTdMessageListModel::loadOlder()
@@ -161,7 +158,7 @@ void QTdMessageListModel::loadOlder()
         return;
     }
     m_messageHandler = &olderMessagesHandler;
-    loadMessages(m_model->last()->jsonId(), MESSAGE_LOAD_WINDOW, 0);
+    loadMessages(m_model->last()->id(), MESSAGE_LOAD_WINDOW, 0);
 }
 
 void QTdMessageListModel::cleanUp()
@@ -199,13 +196,11 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
     if (m_model->count() < MESSAGE_LOAD_WINDOW) {
         m_messageHandler = &olderMessagesHandler;
         qint64 lastValidMessageId;
-        QJsonValue(jsonMessageId);
         auto i = m_model->count() - 1;
         do {
             lastValidMessageId = m_model->at(i)->id();
-            jsonMessageId = m_model->at(i)->jsonId();
         } while (--i > 0 && lastValidMessageId == 0);
-        loadMessages(jsonMessageId, MESSAGE_LOAD_WINDOW, 0);
+        loadMessages(lastValidMessageId, MESSAGE_LOAD_WINDOW, 0);
     } else {
         m_messageHandler = Q_NULLPTR;
     }
@@ -255,7 +250,7 @@ void QTdMessageListModel::QTdJumpToWindowMessageHandler::handle(QTdMessageListMo
         unreadMessages << message->id();
     }
 
-    int jumpToMessageIndex = messageListModel.m_model->indexOf(messageListModel.m_jumpToMessageId);
+    int jumpToMessageIndex = messageListModel.m_model->indexOf(QString::number(messageListModel.m_jumpToMessageId));
     messageListModel.m_chat->positionMessageListViewAtIndex(jumpToMessageIndex+1);
     messageListModel.setMessagesRead(unreadMessages);
 }
@@ -323,16 +318,14 @@ void QTdMessageListModel::prependMessage(QTdMessage *message)
     m_model->prepend(message);
 }
 
-void QTdMessageListModel::loadMessages(const QJsonValue &fromMsgId, unsigned int amountOlder, unsigned int amountNewer)
+void QTdMessageListModel::loadMessages(qint64 fromMsgId, unsigned int amountOlder, unsigned int amountNewer)
 {
-    QTdClient::instance()->send(QJsonObject{
-            { "@type", "getChatHistory" },
-            { "chat_id", m_chat->jsonId() },
-            { "from_message_id", fromMsgId },
-            { "offset", static_cast<int>(-amountNewer) },
-            { "limit", static_cast<int>(amountOlder + amountNewer + 1) },
-            { "only_local", false },
-    });
+    QScopedPointer<QTdGetChatHistoryRequest> request(new QTdGetChatHistoryRequest);
+    request->setChatId(m_chat->id());
+    request->setFromMessageId(fromMsgId);
+    request->setLimit(static_cast<int>(amountOlder + amountNewer + 1));
+    request->setOffset(static_cast<int>(-amountNewer));
+    request->sendAsync();
 }
 
 void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
@@ -491,7 +484,7 @@ void QTdMessageListModel::prepareAndSendAttachmentMessage(QTdInputMessageContent
     request->setChatId(m_chat->id());
     request->setContent(content);
     request->setReplyToMessageId(replyToMessageId);
-    QTdClient::instance()->send(request.data());
+    QTdClient::instance()->sendAsync(request.data(), &QTdClient::message);
 }
 
 void QTdMessageListModel::sendPhoto(const QString &url, const QString &caption, const qint64 &replyToMessageId)
@@ -641,7 +634,7 @@ void QTdMessageListModel::setMessagesRead(QList<qint64> &messages)
     }
 }
 
-void QTdMessageListModel::jumpToMessage(const QString &messageId)
+void QTdMessageListModel::jumpToMessage(const qint64 messageId)
 {
     cleanUp();
     m_chat->positionMessageListViewAtIndex(-1);

@@ -86,7 +86,7 @@ public slots:
     void sendReplyToMessage(const QString &replyToMessageId, const QString &message);
     void deleteMessage(const qint64 messageId);
     void deleteMessages(const QList<qint64> &messageIds);
-    void jumpToMessage(const QString &messageId);
+    void jumpToMessage(const qint64 messageId);
     void registerVoiceNote(const QString &filename);
     void stopVoiceNote();
     void deleteVoiceNote(const QString &filename);
@@ -103,7 +103,7 @@ private slots:
     void handleUpdateDeleteMessages(const QJsonObject &json);
     void handleUpdateMessageEdited(const QJsonObject &json);
     void handleUpdateMessageViews(const QJsonObject &json);
-    void loadMessages(const QJsonValue &fromMsgId,
+    void loadMessages(qint64 fromMsgId,
                       unsigned int amountBefore,
                       unsigned int amountAfter);
 
@@ -116,7 +116,7 @@ private:
     QTdOlderMessagesHandler olderMessagesHandler;
     QTdJumpToWindowMessageHandler jumpToWindowMessageHandler;
     bool m_isHandleUpdateLastChatMessageConnected;
-    QString m_jumpToMessageId;
+    qint64 m_jumpToMessageId;
     QString m_fileGenerationId;
     QString m_tempVoiceNotePath;
 
