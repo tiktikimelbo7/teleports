@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-01 23:19+0000\n"
-"PO-Revision-Date: 2020-10-15 10:02+0000\n"
-"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"PO-Revision-Date: 2021-02-15 21:27+0000\n"
+"Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -54,7 +54,7 @@ msgstr[0] "%1 名成員"
 
 #: ../app/qml/components/GroupPreviewDialog.qml:37
 msgid "%1 members, among them:"
-msgstr ""
+msgstr "%1 成員，他們之中："
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
@@ -79,16 +79,12 @@ msgid "Members: %1"
 msgstr "成員: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-#, fuzzy
-#| msgid "Channel called << %1 >> created"
 msgid "Channel called <b>%1</b> created"
-msgstr "名為 << %1 >> 的頻道已建立"
+msgstr "建立了名為 <b>%1</b> 的頻道"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-#, fuzzy
-#| msgid "%1 created a group called << %2 >>"
 msgid "%1 created a group called <b>%2</b>"
-msgstr "%1 建立了名為 << %2 >> 的群組"
+msgstr "%1 建立了名為 <b>%2 </b> 的群組"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
@@ -121,10 +117,8 @@ msgid "%1 added %2"
 msgstr "%1 新增了 %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "Unknown joined group"
-msgstr "%1 加入了群組"
+msgstr "未知人士加入了群組"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:32
 msgid "%1 user(s)"
@@ -132,26 +126,20 @@ msgid_plural ""
 msgstr[0] "%1 名使用者"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:32
-#, fuzzy
-#| msgid "message TTL has been changed"
 msgid "Channel photo has been changed:"
-msgstr "訊息 TTL 已變更"
+msgstr "頻道的圖片已變更："
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:33
-#, fuzzy
-#| msgid "changed the chat photo"
 msgid "%1 changed the chat photo:"
-msgstr "更改了聊天的圖片"
+msgstr "%1 更改了聊天的圖片："
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:6
 msgid "Channel title has been changed to <b>%1</b>"
-msgstr ""
+msgstr "頻道的標題已變更 <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:7
-#, fuzzy
-#| msgid "changed the chat title"
 msgid "%1 changed the chat title to <b>%2</b>"
-msgstr "更改了聊天的標題"
+msgstr "%1 更改了聊天的標題為 <b>%2</b>"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
@@ -165,17 +153,15 @@ msgstr "%1 移除了 %2"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:6
 msgid "Channel photo has been removed"
-msgstr ""
+msgstr "頻道的圖片已移除"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
-#, fuzzy
-#| msgid "deleted the chat photo"
 msgid "%1 deleted the chat photo"
-msgstr "刪除了聊天的圖片"
+msgstr "%1 刪除了聊天的圖片"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr ""
+msgstr "訊息保留時間已經設置為 <b>%1</b> 秒"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -201,7 +187,7 @@ msgstr "語音訊息"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "Some date missing"
-msgstr ""
+msgstr "一些日期缺少"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
@@ -222,7 +208,7 @@ msgstr "尚不支援動態貼圖 :("
 
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
-msgstr ""
+msgstr "訊息不可用⋯"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -255,10 +241,8 @@ msgid "Leave"
 msgstr "離開"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:47
-#, fuzzy
-#| msgid "joined the group"
 msgid "Join group"
-msgstr "加入了群組"
+msgstr "加入群組"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -389,10 +373,8 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "您是否要將匯入的檔案傳給 %1？"
 
 #: ../app/qml/pages/ChatListPage.qml:383
-#, fuzzy
-#| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
-msgstr "您是否要將匯入的檔案傳給 %1？"
+msgstr "您是否要將匯入的文字傳給 %1？"
 
 #: ../app/qml/pages/ChatListPage.qml:385
 #: ../app/qml/pages/MessageListPage.qml:852
@@ -445,19 +427,19 @@ msgstr "Ubuntu Touch 寬頻不受限"
 
 #: ../app/qml/pages/LogoutPage.qml:14
 msgid "Good bye!"
-msgstr ""
+msgstr "再見!"
 
 #: ../app/qml/pages/LogoutPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Disconnecting..."
-msgstr "連線中"
+msgstr "中斷連線中…"
 
 #: ../app/qml/pages/LogoutPage.qml:37
 msgid ""
 "The app will close automatically when the logout process ends.\n"
 "Please, don't close it manually!"
 msgstr ""
+"應用程式將自動關閉。\n"
+"結束退出前，請不要手動關閉它！"
 
 #: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
@@ -481,30 +463,24 @@ msgid "Secret chat has been closed"
 msgstr "私密聊天已結束"
 
 #: ../app/qml/pages/MessageListPage.qml:349
-#, fuzzy
-#| msgid "left the group"
 msgid "You left this group"
-msgstr "%1 離開了群組"
+msgstr "您已離開了群組"
 
 #: ../app/qml/pages/MessageListPage.qml:352
-#, fuzzy
-#| msgid "You have a new message"
 msgid "You have been banned"
-msgstr "您有新的訊息"
+msgstr "您已被禁止"
 
 #: ../app/qml/pages/MessageListPage.qml:355
-#, fuzzy
-#| msgid "You are not allowed to post in this channel"
 msgid "You are not allowed to post in this group"
-msgstr "您沒有在此頻道貼文的權限"
+msgstr "您沒有在此群組貼文的權限"
 
 #: ../app/qml/pages/MessageListPage.qml:359
 msgid "You can't write here. Reason unkown"
-msgstr ""
+msgstr "您無法在這裡輸入， 原因未知"
 
 #: ../app/qml/pages/MessageListPage.qml:382
 msgid "Join"
-msgstr ""
+msgstr "加入"
 
 #: ../app/qml/pages/MessageListPage.qml:522
 msgid "Type a message..."
@@ -561,20 +537,14 @@ msgstr ""
 "嗎？"
 
 #: ../app/qml/pages/SettingsPage.qml:150
-#, fuzzy
-#| msgid ""
-#| "Warning: Deleting the account will delete all the data you ever received "
-#| "or send using telegram except for data you have explicitly saved outside "
-#| "the telegram cloud. Are you really really sure you want to delete your "
-#| "telegram account?"
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "sent using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"警告：刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確"
-"保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 Telegram 帳戶嗎？"
+"警告：刪除帳戶將會刪除您曾經使用 Telegram 來接收或發送的所有資料，但您已明確保存在 Telegram 雲端之外的資料除外。您真的確定要刪除你的 "
+"Telegram 帳戶嗎？"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
@@ -605,11 +575,9 @@ msgid "Code"
 msgstr "代碼"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-#, fuzzy
-#| msgid "We've send a code via telegram to your device. Please enter it here."
 msgid ""
 "A code was sent via Telegram to your other devices. Please enter it here."
-msgstr "我們已經透過 Telegram 向您的裝置發送了驗證碼。請在這裡輸入。"
+msgstr "已經透過 Telegram 向您其他的裝置發送了驗證碼，請在這裡輸入。"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -620,10 +588,8 @@ msgid "Password"
 msgstr "密碼"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:57
-#, fuzzy
-#| msgid "Password"
 msgid "Password hint: %1"
-msgstr "密碼"
+msgstr "密碼提示：%1"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92
@@ -691,7 +657,7 @@ msgstr "180秒之後並未收到有效位置！"
 
 #: ../app/qml/stores/ChatStateStore.qml:49
 msgid "Username <b>@%1</b> not found"
-msgstr ""
+msgstr "用戶名稱 <b>@%1</b> 找不到"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
