@@ -46,8 +46,24 @@ void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
     invalidateFilter();
 }
 
+void QTdChatListSortFilterModel::setChatNameFilter(const QString &chatNameFilter)
+{
+    m_chatNameFilter = chatNameFilter;
+    invalidateFilter();
+}
+
 bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
+    QTdChat *chat = model->at(source_row);
+
+    if (m_chatNameFilter == "") {
+        return true;
+    }
+    if (!chat || !chat->title().contains(m_chatNameFilter, Qt::CaseInsensitive)) {
+        return false;
+    }
+
     // First check for Everything flag as we just want to
     // show well... everything! even if other flags are set
     if (m_chatFilters & ChatFilters::Everything) {
@@ -56,8 +72,6 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
 
     // Ok so the filters want something a little more fine grained.
     // So first we need to get rid of the chats with status banned or left
-    QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
-    QTdChat *chat = model->at(source_row);
     if (!chat) {
         return false;
     }

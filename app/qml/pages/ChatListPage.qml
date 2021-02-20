@@ -16,9 +16,10 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: Telegram.chats.listMode != ChatList.Idle
+        title: Telegram.chats.listMode == ChatList.ForwardingMessages
+            || Telegram.chats.listMode == ChatList.ImportingAttachments
             ? i18n.tr("Select destination or cancel...")
-            : i18n.tr("TELEports")
+            : ""
 
         UITK.StyleHints {
             foregroundColor: hf
@@ -31,7 +32,8 @@ Page {
                 text: i18n.tr("Cancel")
                 iconName: "cancel"
                 onTriggered: AppActions.chat.cancelForwardMessage()
-                visible: Telegram.chats.listMode != ChatList.Idle
+                visible: Telegram.chats.listMode == ChatList.ForwardingMessages
+                        || Telegram.chats.listMode == ChatList.ImportingAttachments
             },
             UITK.Action {
                 text: i18n.tr("Settings")
@@ -42,7 +44,55 @@ Page {
                 visible: Telegram.chats.listMode == ChatList.Idle
             }
         ]
-        trailingActionBar.actions: [ ]
+        contents: Item {
+            anchors.fill: parent
+            Item {
+                id: searchBox
+                anchors.fill: parent
+                TextField {
+                    id: searchText
+                    anchors.fill: parent
+                    anchors.margins: Suru.units.gu(1)
+                    placeholderText: i18n.tr("Search")
+                    onTextChanged: searchTimer.restart()
+                    inputMethodHints: Qt.ImhNoPredictiveText
+                }
+                UITK.Icon {
+                    anchors.right: searchText.right
+                    anchors.margins: Suru.units.gu(1)
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: hf
+                    width: units.gu(3)
+                    height: width
+                    name: "edit-clear"
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            searchTimer.stop()
+                            searchText.text = ""
+                            AppActions.chat.searchChat("")
+                        }
+                    }
+                    visible: searchText.text.length > 0
+                    }
+                Timer {
+                    id: searchTimer
+                    interval: 500;
+                    running: false;
+                    repeat: false;
+                    onTriggered: {
+                        AppActions.chat.searchChat(searchText.text)
+                    }
+                }
+                visible: Telegram.chats.listMode == ChatList.Idle
+            }
+            Label {
+                anchors.centerIn: parent
+                text: header.title
+                color: hf
+            }
+        }
+        
     }
 
     Menu {
