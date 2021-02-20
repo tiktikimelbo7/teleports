@@ -279,6 +279,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.searchChat
+        onDispatched: {
+            sortedList.setChatNameFilter(message.searchText)
+        }
+    }
+
     property var importedFiles: []
     property var importedFileType
 

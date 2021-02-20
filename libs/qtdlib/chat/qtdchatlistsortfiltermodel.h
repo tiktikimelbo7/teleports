@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QPointer>
 #include <QFlags>
+#include <QString>
 #include <QSortFilterProxyModel>
 #include "qtdchatlistmodel.h"
 
@@ -39,6 +40,7 @@ public:
 
 public slots:
     void setChatFilters(int chatFilters);
+    void setChatNameFilter(const QString &nameFilter);
 
 signals:
     void modelChanged();
@@ -46,13 +48,14 @@ signals:
     void chatFiltersChanged(int chatFilters);
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
 
 private:
     Q_DISABLE_COPY(QTdChatListSortFilterModel)
     QPointer<QTdChatListModel> m_chatList;
     int m_chatFilters;
+    QString m_chatNameFilter;
 };
 
 #endif // QTDCHATLISTSORTFILTERMODEL_H

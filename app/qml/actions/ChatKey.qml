@@ -51,4 +51,5 @@ KeyTable {
     property string checkChatInviteLink
     property string joinChatByInviteLink
     property string joinChat
+    property string searchChat
 }
