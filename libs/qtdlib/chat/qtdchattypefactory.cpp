@@ -3,6 +3,19 @@
 #include "qtdsecretchat.h"
 #include "qtdsupergroupchat.h"
 
+QTdChatList *QTdChatFactory::createList(const QJsonObject &json, QObject *parent)
+{
+    const QString list = json["@type"].toString();
+    QTdChatList *chatList = Q_NULLPTR;
+    if (list == "chatListMain") {
+        chatList = new QTdChatListMain(parent);
+    } else if (list == "chatListArchive") {
+        chatList = new QTdChatListArchive(parent);
+    } else {
+        chatList = new QTdChatList(parent);
+    }
+    return chatList;
+}
 QTdChatType *QTdChatFactory::createType(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();

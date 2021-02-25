@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtConcurrent>
+#include <QString>
 #include "common/qtdrequest.h"
 #include "common/qtdresponse.h"
 
@@ -17,6 +18,8 @@ class QTdGetChatsRequest : public QTdRequest
 public:
     explicit QTdGetChatsRequest(QObject *parent = nullptr);
 
+    void setChatList(const QString chatList);
+
     void setOffsetOrder(const qint64 value);
 
     void setOffsetChatId(const qint64 value);
@@ -28,6 +31,7 @@ public:
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 
 private:
+    QString m_chatList;
     qint64 m_offset_order;
     qint64 m_offset_chat_id;
     qint64 m_limit;

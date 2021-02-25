@@ -3,6 +3,7 @@
 
 QTdGetChatsRequest::QTdGetChatsRequest(QObject *parent)
     : QTdRequest(parent)
+    , m_chatList(QStringLiteral("chatListMain"))
     , m_offset_chat_id(0)
     , m_offset_order(std::numeric_limits<std::int64_t>::max())
 {
@@ -10,12 +11,19 @@ QTdGetChatsRequest::QTdGetChatsRequest(QObject *parent)
 
 QJsonObject QTdGetChatsRequest::marshalJson()
 {
-    return QJsonObject{
+    return QJsonObject {
         { "@type", "getChats" },
-        { "offset_order", QString::number(m_offset_order) },
-        { "offset_chat_id", m_offset_chat_id },
-        { "limit", m_limit },
-    };
+
+                    { "chat_list", QJsonObject { { "@type", m_chatList } } },
+                    { "offset_order", QString::number(m_offset_order) },
+                    { "offset_chat_id", m_offset_chat_id },
+                    { "limit", m_limit },
+                };
+}
+
+void QTdGetChatsRequest::setChatList(const QString chatList)
+{
+    m_chatList = chatList;
 }
 
 void QTdGetChatsRequest::setOffsetOrder(const qint64 value)
