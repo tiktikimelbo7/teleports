@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-18 23:17+0000\n"
-"PO-Revision-Date: 2021-02-03 23:27+0000\n"
+"PO-Revision-Date: 2021-02-22 19:27+0000\n"
 "Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
@@ -346,7 +346,7 @@ msgstr "Nastavení"
 
 #: ../app/qml/pages/ChatListPage.qml:54
 msgid "Search"
-msgstr ""
+msgstr "Hledat"
 
 #: ../app/qml/pages/ChatListPage.qml:94 ../libs/qtdlib/chat/qtdchat.cpp:84
 msgid "Saved Messages"

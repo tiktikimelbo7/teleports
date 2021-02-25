@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-18 23:17+0000\n"
-"PO-Revision-Date: 2021-02-19 12:56+0000\n"
+"PO-Revision-Date: 2021-02-22 19:27+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://translate.ubports.com/projects/"
 "ubports/teleports/nb_NO/>\n"
@@ -82,16 +82,12 @@ msgid "Members: %1"
 msgstr "Medlemmer: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-#, fuzzy
-#| msgid "Channel called << %1 >> created"
 msgid "Channel called <b>%1</b> created"
-msgstr "Kanal med navnet << %1 >> ble opprettet"
+msgstr "Kanal ved navn <b>%1</b> opprettet"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-#, fuzzy
-#| msgid "%1 created a group called << %2 >>"
 msgid "%1 created a group called <b>%2</b>"
-msgstr "%1 opprettet en gruppe med navnet << %2 >>"
+msgstr "%1 opprettet en gruppe ved navn <b>%2</b>"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
@@ -124,10 +120,8 @@ msgid "%1 added %2"
 msgstr "%1 la til %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "Unknown joined group"
-msgstr "%1 ble med i gruppa"
+msgstr "Ukjent tok del i gruppen"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:32
 msgid "%1 user(s)"
@@ -136,26 +130,20 @@ msgstr[0] "%1 bruker"
 msgstr[1] "%1 brukere"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:32
-#, fuzzy
-#| msgid "message TTL has been changed"
 msgid "Channel photo has been changed:"
-msgstr "meldings-TTL har blitt endret"
+msgstr "Kanalbilde endret:"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:33
-#, fuzzy
-#| msgid "changed the chat photo"
 msgid "%1 changed the chat photo:"
-msgstr "endret chat bildet"
+msgstr "%1 endret sludringsbildet:"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:6
 msgid "Channel title has been changed to <b>%1</b>"
 msgstr "Kanaltittelen har blitt endret til <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:7
-#, fuzzy
-#| msgid "changed the chat title"
 msgid "%1 changed the chat title to <b>%2</b>"
-msgstr "endret navnet på chat-en"
+msgstr "%1 endret sludingstittelen til <b>%2</b>"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
@@ -172,10 +160,8 @@ msgid "Channel photo has been removed"
 msgstr "Kanalbilde har blitt fjernet"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
-#, fuzzy
-#| msgid "deleted the chat photo"
 msgid "%1 deleted the chat photo"
-msgstr "slettet chatbildet"
+msgstr "%1 slettet sludringsbildet"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
@@ -259,10 +245,8 @@ msgid "Leave"
 msgstr "Forlat"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:47
-#, fuzzy
-#| msgid "joined the group"
 msgid "Join group"
-msgstr "ble med i gruppa"
+msgstr "Ta del i gruppen"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -363,7 +347,7 @@ msgstr "Innstillinger"
 
 #: ../app/qml/pages/ChatListPage.qml:54
 msgid "Search"
-msgstr ""
+msgstr "Søk"
 
 #: ../app/qml/pages/ChatListPage.qml:94 ../libs/qtdlib/chat/qtdchat.cpp:84
 msgid "Saved Messages"
@@ -398,10 +382,8 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Ønsker du å sende de importerte filene til %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:428
-#, fuzzy
-#| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
-msgstr "Ønsker du å sende de importerte filene til %1?"
+msgstr "Ønsker du å sende den importerte teksten til %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:430
 #: ../app/qml/pages/MessageListPage.qml:855
@@ -457,10 +439,8 @@ msgid "Good bye!"
 msgstr "Adjø."
 
 #: ../app/qml/pages/LogoutPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Disconnecting..."
-msgstr "Kobler opp"
+msgstr "Kobler fra …"
 
 #: ../app/qml/pages/LogoutPage.qml:37
 msgid ""
@@ -493,22 +473,16 @@ msgid "Secret chat has been closed"
 msgstr "Lukket chat har blitt avsluttet"
 
 #: ../app/qml/pages/MessageListPage.qml:352
-#, fuzzy
-#| msgid "left the group"
 msgid "You left this group"
-msgstr "forlot gruppa"
+msgstr "Du forlot denne gruppen"
 
 #: ../app/qml/pages/MessageListPage.qml:355
-#, fuzzy
-#| msgid "You have a new message"
 msgid "You have been banned"
-msgstr "Du har en ny melding"
+msgstr "Du har blitt bannlyst"
 
 #: ../app/qml/pages/MessageListPage.qml:358
-#, fuzzy
-#| msgid "You are not allowed to post in this channel"
 msgid "You are not allowed to post in this group"
-msgstr "Du har ikke tillatelse til å skrive i denne kanalen"
+msgstr "Du tillates ikke å poste i denne gruppen"
 
 #: ../app/qml/pages/MessageListPage.qml:362
 msgid "You can't write here. Reason unkown"
@@ -575,12 +549,6 @@ msgstr ""
 "inkluderte lukkede chat-er. Er du sikker på at du vil logge ut?"
 
 #: ../app/qml/pages/SettingsPage.qml:150
-#, fuzzy
-#| msgid ""
-#| "Warning: Deleting the account will delete all the data you ever received "
-#| "or send using telegram except for data you have explicitly saved outside "
-#| "the telegram cloud. Are you really really sure you want to delete your "
-#| "telegram account?"
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "sent using telegram except for data you have explicitly saved outside the "
@@ -620,12 +588,9 @@ msgid "Code"
 msgstr "Kode"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-#, fuzzy
-#| msgid "We've send a code via telegram to your device. Please enter it here."
 msgid ""
 "A code was sent via Telegram to your other devices. Please enter it here."
-msgstr ""
-"Vi har sendt en kode via Telegram til din enhet. Vennligst angi den her."
+msgstr "En kode har blitt sendt via Telegram til din enhet. Angi den her."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -636,10 +601,8 @@ msgid "Password"
 msgstr "Passord"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:57
-#, fuzzy
-#| msgid "Password"
 msgid "Password hint: %1"
-msgstr "Passord"
+msgstr "Passordhint: %1"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92

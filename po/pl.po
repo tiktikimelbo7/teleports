@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-18 23:17+0000\n"
-"PO-Revision-Date: 2021-02-03 23:27+0000\n"
-"Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
+"PO-Revision-Date: 2021-02-25 20:39+0000\n"
+"Last-Translator: Carlod <carlod@disroot.org>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
 "Language: pl\n"
@@ -352,7 +352,7 @@ msgstr "Ustawienia"
 
 #: ../app/qml/pages/ChatListPage.qml:54
 msgid "Search"
-msgstr ""
+msgstr "Szukaj"
 
 #: ../app/qml/pages/ChatListPage.qml:94 ../libs/qtdlib/chat/qtdchat.cpp:84
 msgid "Saved Messages"
