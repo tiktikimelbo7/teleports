@@ -23,6 +23,7 @@
 QTdChat::QTdChat(QObject *parent)
     : QAbstractInt64Id(parent)
     , m_chatType(0)
+    , m_chatList(Q_NULLPTR)
     , m_chatPhoto(new QTdChatPhoto)
     , m_lastMessage(new QTdMessage)
     , m_order(0)
@@ -57,6 +58,8 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     }
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
+
+    updateChatChatList(json["chat_list"].toObject());
 
     if (isSecret()) {
         auto c = static_cast<QTdSecretChat *>(this);
@@ -471,6 +474,14 @@ void QTdChat::updateChatIsPinned(const QJsonObject &json)
     updateChatOrder(json);
 }
 
+void QTdChat::updateChatChatList(const QJsonObject &json) {
+    if (m_chatList) {
+        delete m_chatList;
+    }
+    m_chatList = QTdChatFactory::createList(json["chat_list"].toObject(), this);
+    m_chatList->unmarshalJson(json);
+    emit chatListChanged(m_chatList);
+}
 void QTdChat::updateChatPhoto(const QJsonObject &photo)
 {
     m_chatPhoto->unmarshalJson(photo);
@@ -580,6 +591,11 @@ void QTdChat::mute(const qint32 &duration) {
     m_notifySettings->setMuteFor(duration);
     m_notifySettings->setUseDefaultMuteFor(false);
     QTdClient::instance()->send(req.data());
+}
+
+QTdChatList *QTdChat::chatList() const
+{
+    return m_chatList;
 }
 
 void QTdChat::updateChatAction(const QJsonObject &json)

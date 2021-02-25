@@ -6,6 +6,7 @@
 #include <QScopedPointer>
 #include "common/qabstractint64id.h"
 #include "qtdchattype.h"
+#include "qtdchatlist.h"
 #include "messages/qtdmessage.h"
 #include "files/qtdphoto.h"
 #include "models/QmlObjectListModel.h"
@@ -32,6 +33,7 @@ class QTdChat : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_PROPERTY(QTdChatType *chatType READ chatType NOTIFY chatTypeChanged)
+    Q_PROPERTY(QTdChatList *chatList READ chatList NOTIFY chatListChanged)
     Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QTdChatPhoto *chatPhoto READ chatPhoto NOTIFY chatPhotoChanged)
     Q_PROPERTY(QString initials READ initials NOTIFY initialsChanged)
@@ -72,6 +74,10 @@ public:
      * @brief Type of the chat
      */
     QTdChatType *chatType() const;
+    /**
+     * @brief A chat list to which the chat belongs; may be null.
+     */
+    QTdChatList *chatList() const;
     /**
      * @brief Chat title
      */
@@ -312,6 +318,7 @@ public:
 
 signals:
     void chatTypeChanged(QTdChatType *chatType);
+    void chatListChanged(QTdChatList *chatList);
     void titleChanged(QString title);
     void lastMessageChanged(QTdMessage *lastMessage);
     void chatPhotoChanged(QTdChatPhoto *chatPhoto);
@@ -352,6 +359,7 @@ public slots:
     void updateChatReplyMarkup(const QJsonObject &json);
     void updateChatDraftMessage(const QJsonObject &json);
     void updateChatTitle(const QJsonObject &json);
+    void updateChatChatList(const QJsonObject &json);
     void updateChatUnreadMentionCount(const QJsonObject &json);
     void updateChatOnlineMemberCount(const QJsonObject &json);
     void updateChatNotificationSettings(const QJsonObject &json);
@@ -370,6 +378,7 @@ protected:
 private:
     Q_DISABLE_COPY(QTdChat)
     QPointer<QTdChatType> m_chatType;
+    QPointer<QTdChatList> m_chatList;
     QString m_title;
     qint64 m_my_id;
     QScopedPointer<QTdMessage> m_lastMessage;
