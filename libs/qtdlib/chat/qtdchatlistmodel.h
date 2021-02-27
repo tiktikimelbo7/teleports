@@ -18,7 +18,6 @@ class QTdChatListModel : public QObject
     Q_OBJECT
     Q_PROPERTY(QObject *model READ model NOTIFY modelChanged)
     Q_PROPERTY(QTdChat *currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
-    Q_PROPERTY(bool currentChatValid READ currentChatValid)
     Q_PROPERTY(ListMode listMode READ listMode WRITE setListMode NOTIFY listModeChanged)
     Q_PROPERTY(qint32 forwardingMessagesCount READ forwardingMessagesCount NOTIFY modelChanged)
     Q_PROPERTY(QTdChat *forwardedFromChat READ forwardedFromChat WRITE setForwardedFromChat NOTIFY modelChanged)
@@ -34,7 +33,6 @@ public:
 
     QObject *model() const;
     QTdChat *currentChat() const;
-    bool currentChatValid() const;
     QTdChat *chatById(const qint64 &chatId) const;
     QTdChat *forwardedFromChat() const;
     qint32 forwardingMessagesCount() const;
@@ -51,7 +49,6 @@ public slots:
     void setForwardedFromChat(QTdChat *currentChat);
     void setForwardingMessages(QStringList forwardingMessages);
     void setListMode(ListMode listMode);
-    void clearCurrentChat();
     void sendForwardMessage(const QStringList &forwardMessageIds,
                             const qint64 &recievingChatId,
                             const qint64 &fromChatId,
@@ -116,7 +113,6 @@ private:
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
     qint64 m_chatToOpenOnUpdate;
-    bool m_currentChatValid;
     ListMode m_listMode;
     QStringList m_forwardingMessages;
     QPointer<QTdChat> m_forwardedFromChat;

@@ -103,6 +103,8 @@ bool QTdMessageListModel::hasNewer() const
 
 void QTdMessageListModel::setChat(QTdChat *chat)
 {
+    if (m_chat == chat && chat && chat->isOpen())
+        return;
     if (m_chat)
     {
         disconnect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
@@ -119,8 +121,8 @@ void QTdMessageListModel::setChat(QTdChat *chat)
     if (!m_chat) {
         return;
     }
+
     connect(m_chat, &QTdChat::closed, this, &QTdMessageListModel::cleanUp);
-    m_chat->openChat();
     if (m_chat->hasUnreadMessages()) {
         m_jumpToMessageId = m_chat->lastReadInboxMessageId();
         m_messageHandler = &jumpToWindowMessageHandler;
@@ -132,6 +134,7 @@ void QTdMessageListModel::setChat(QTdChat *chat)
         loadMessages(lastMessage->id(), MESSAGE_LOAD_WINDOW, 1);
         connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
     }
+    m_chat->openChat();
 }
 
 void QTdMessageListModel::loadNewer()
@@ -164,6 +167,7 @@ void QTdMessageListModel::loadOlder()
 void QTdMessageListModel::cleanUp()
 {
     m_isHandleUpdateLastChatMessageConnected = false;
+    qWarning() << "disconnect updateChatLastMessage";
     disconnect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
     if (m_model->isEmpty()) {
         return;
@@ -206,6 +210,7 @@ void QTdMessageListModel::handleMessages(const QJsonObject &json)
     }
 
     if (!hasNewer() && !m_isHandleUpdateLastChatMessageConnected) {
+        qWarning() << "handleMessages: connect updateChatLastMessage";
         connect(QTdClient::instance(), &QTdClient::updateChatLastMessage, this, &QTdMessageListModel::handleUpdateChatLastMessage);
         m_isHandleUpdateLastChatMessageConnected = true;
         m_chat->positionMessageListViewAtIndex(-1);

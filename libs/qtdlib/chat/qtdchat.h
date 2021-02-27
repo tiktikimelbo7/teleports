@@ -47,6 +47,7 @@ class QTdChat : public QAbstractInt64Id
     Q_PROPERTY(bool isChannel READ isChannel NOTIFY isChannelChanged)
     Q_PROPERTY(bool isPrivate READ isPrivate NOTIFY isPrivateChanged)
     Q_PROPERTY(bool isMyself READ isMyself NOTIFY isMyselfChanged)
+    Q_PROPERTY(bool isOpen READ isOpen NOTIFY isOpenChanged)
     Q_PROPERTY(bool canBeReported READ canBeReported NOTIFY canBeReportedChanged)
     Q_PROPERTY(bool hasUnreadMessages READ hasUnreadMessages NOTIFY unreadCountChanged)
     Q_PROPERTY(QString unreadCount READ qmlUnreadCount NOTIFY unreadCountChanged)
@@ -145,6 +146,8 @@ public:
      * @brief True if chat is a conversation with myself (Saved messages)
      */
     bool isMyself() const;
+
+    bool isOpen() const;
     /**
      * @brief True if chat is writable, i.e. messages can be sent by the user
      * This method must be overridden in child classes
@@ -332,6 +335,7 @@ signals:
     void isMyselfChanged();
     void isWritableChanged();
     void isMutedChanged();
+    void isOpenChanged();
     void canBeReportedChanged();
     void unreadCountChanged();
     void lastReadInboxMessageIdChanged();

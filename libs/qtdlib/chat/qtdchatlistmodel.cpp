@@ -25,7 +25,6 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     : QObject(parent)
     , m_model(Q_NULLPTR)
     , m_currentChat(Q_NULLPTR)
-    , m_currentChatValid(false)
     , m_forwardedFromChat(Q_NULLPTR)
     , m_forwardingMessages(QStringList())
     , m_listMode(ListMode::Idle)
@@ -64,11 +63,6 @@ QObject *QTdChatListModel::model() const
 QTdChat *QTdChatListModel::currentChat() const
 {
     return m_currentChat;
-}
-
-bool QTdChatListModel::currentChatValid() const
-{
-    return m_currentChatValid;
 }
 
 QTdChat *QTdChatListModel::chatById(const qint64 &chatId) const
@@ -156,7 +150,7 @@ void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
     if (currentChat == nullptr) {
         return;
     }
-    if (currentChatValid()) {
+    if (m_currentChat && m_currentChat->isOpen()) {
         if (m_currentChat == currentChat)
             return;
         else
@@ -164,7 +158,6 @@ void QTdChatListModel::setCurrentChat(QTdChat *currentChat)
     }
 
     m_currentChat = currentChat;
-    m_currentChatValid = true;
     emit currentChatChanged();
 }
 
@@ -192,12 +185,6 @@ void QTdChatListModel::setForwardingMessages(QStringList forwardingMessages)
     m_forwardingMessages = forwardingMessages;
 }
 
-void QTdChatListModel::clearCurrentChat()
-{
-    m_currentChatValid = false;
-    emit currentChatChanged();
-}
-
 void QTdChatListModel::handleChat(const QJsonObject &data)
 {
     QScopedPointer<QTdChat> chat(new QTdChat);
@@ -209,11 +196,11 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
 {
     QJsonArray chats = data["chat_ids"].toArray();
     if (chats.count() == 0) {
-        qWarning() << "No more chats found, completing initial load.";
+        qDebug() << "No more chats found, completing initial load.";
         m_receivedChatIds.clear();
         return;
     }
-    qWarning() << "Received" << chats.count() << "chats";
+    qDebug() << "Received" << chats.count() << "chats";
     foreach (QJsonValue chat, chats) {
         auto chatId = chat.toInt();
         if (chatId == 0) {
@@ -224,10 +211,10 @@ void QTdChatListModel::handleChats(const QJsonObject &data)
         if (!chatById(chatId)) {
             QScopedPointer<QTdGetChatRequest> chatReq(new QTdGetChatRequest);
             chatReq->setChatId(chatId);
-            qWarning() << "Request chat id" << chatId << "to be added to chatmodel";
+            qDebug() << "Request chat id" << chatId << "to be added to chatmodel";
             chatReq->sendAsync();
         } else {
-            qWarning() << "Chat" << chatId << "already received, ignoring";
+            qDebug() << "Chat" << chatId << "already received, ignoring";
         }
     }
     emit modelPopulatedCompleted();
@@ -255,7 +242,7 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
     }
     emit contentsChanged();
     if (m_chatToOpenOnUpdate == tdchat->id()) {
-        qWarning() << "Auto-opening chat" << tdchat->id();
+        qDebug() << "Auto-opening chat" << tdchat->id();
         setCurrentChat(tdchat);
         m_chatToOpenOnUpdate = 0;
     }
@@ -547,12 +534,12 @@ void QTdChatListModel::loadMoreChats() {
     if (m_model->isEmpty()) {
         req->setOffsetChatId(0);
         req->setOffsetOrder(9223372036854775807);
-        qWarning() << "Requesting 10 chats initially";
+        qDebug() << "Requesting 10 chats initially";
     } else {
         auto lastChat = m_model->first();
         req->setOffsetChatId(lastChat->id());
         req->setOffsetOrder(lastChat->order());
-        qWarning() << "Requesting 10 more chats from offset chat" << lastChat->id() << "order" << lastChat->order();
+        qDebug() << "Requesting 10 more chats from offset chat" << lastChat->id() << "order" << lastChat->order();
     }
     req->setLimit(10);
     req->sendAsync();

@@ -136,7 +136,6 @@ MessageContentBase {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                console.log("photo clicked")
                 var largeSize = photoContent.photo.sizes.get(photoContent.photo.sizes.size() - 1);
                 var largePhoto = largeSize.photo;
 

@@ -36,7 +36,6 @@ Column {
             Component.onCompleted: {
                 var bigPhoto = isGroup ? chat.chatPhoto.big : user.profilePhoto.big
                 if (bigPhoto.local.canBeDownloaded && !bigPhoto.local.isDownloadingCompleted) {
-                    console.log("downloading...")
                     bigPhoto.downloadFile();
                 }
             }
