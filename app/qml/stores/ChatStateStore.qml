@@ -26,7 +26,7 @@ Store {
     ChatList {
         id: chatList
         onCurrentChatChanged: {
-            if (chatList.currentChatValid) {
+            if (currentChat && !currentChat.isOpen) {
                 AppActions.view.pushToStack("qrc:/pages/MessageListPage.qml", {})
             } else {
                 AppActions.view.popFromStack()
@@ -105,8 +105,7 @@ Store {
         type: ChatKey.setCurrentChat
         onDispatched: {
             if (message.chat) {
-                console.log("Opening new chat...")
-                if (chatList.currentChatValid  && message.chat.id !== chatList.currentChat.id) {
+                if (chatList.currentChat && chatList.currentChat.isOpen  && message.chat.id !== chatList.currentChat.id) {
                     console.log("Wrong chat open...")
                     return
                 }
@@ -149,7 +148,7 @@ Store {
         onDispatched: {
             var chatById = chatList.model.get(message.chatId)
             if (chatById) {
-                if (chatList.currentChatValid) {
+                if (chatList.currentChat && chatList.currentChat.isOpen) {
                     AppActions.chat.closeCurrentChat()
                 }
                 AppActions.chat.setCurrentChat(chatById)
@@ -162,9 +161,6 @@ Store {
     Filter {
         type: ChatKey.setCurrentChatByUsername
         onDispatched: {
-            // if (chatList.currentChatValid) {
-            //     AppActions.chat.closeCurrentChat()
-            // }
             chatList.setCurrentChatByUsername(message.username)
         }
     }
@@ -172,10 +168,8 @@ Store {
     Filter {
         type: ChatKey.closeCurrentChat
         onDispatched: {
-            if (chatList.currentChatValid) {
-                console.log("Closing current chat...")
+            if (chatList.currentChat && chatList.currentChat.isOpen) {
                 chatList.currentChat.closeChat()
-                chatList.clearCurrentChat()
             } else
                 console.log("No chat open, ignoring close request")
         }
@@ -256,7 +250,6 @@ Store {
           chatList.forwardingMessages = messageIds;
           chatList.listMode = ChatList.ForwardingMessages
           chatList.currentChat.closeChat()
-          chatList.clearCurrentChat()
        }
    }
 
@@ -296,9 +289,8 @@ Store {
           chatList.listMode = ChatList.ImportingAttachments
           importedFileType = message.contentType
           importedFiles = message.filePaths
-          if (chatList.currentChatValid) {
+          if (chatList.currentChat && chatList.currentChat.isOpen) {
               chatList.currentChat.closeChat()
-              chatList.clearCurrentChat()
           }
           AppActions.view.popAllButOneFromStack()
        }

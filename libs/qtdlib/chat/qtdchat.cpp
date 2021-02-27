@@ -171,6 +171,11 @@ bool QTdChat::isWritable() const
     return true;
 }
 
+bool QTdChat::isOpen() const
+{
+    return m_chatOpen;
+}
+
 bool QTdChat::canBeReported() const
 {
     return m_canBeReported;
@@ -345,6 +350,7 @@ QObject *QTdChat::messages() const
 void QTdChat::openChat()
 {
     m_chatOpen = true;
+    emit isOpenChanged();
     QScopedPointer<QTdOpenChatRequest> req(new QTdOpenChatRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
@@ -360,6 +366,7 @@ void QTdChat::closeChat()
     QTdClient::instance()->send(req.data());
     m_currentMessageIndex = -1;
     emit closed();
+    emit isOpenChanged();
 }
 
 void QTdChat::pinChat()
