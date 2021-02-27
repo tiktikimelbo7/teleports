@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 23:17+0000\n"
+"POT-Creation-Date: 2021-02-25 22:29+0000\n"
 "PO-Revision-Date: 2020-07-31 22:11+0000\n"
 "Last-Translator: Young Kim <rsyh93@gmail.com>\n"
 "Language-Team: Korean <https://translate.ubports.com/projects/ubports/"
@@ -74,7 +74,7 @@ msgstr "확인"
 msgid "Cancel"
 msgstr "취소"
 
-#: ../app/qml/components/UserProfile.qml:72
+#: ../app/qml/components/UserProfile.qml:71
 msgid "Members: %1"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgid "Sticker Pack info"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:406
+#: ../app/qml/pages/ChatListPage.qml:416
 msgid "Forward"
 msgstr "전달"
 
@@ -228,7 +228,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:176
+#: ../app/qml/pages/ChatListPage.qml:186
 msgid "Clear history"
 msgstr ""
 
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Close"
 msgstr "닫기"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:123
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:133
 msgid "About"
 msgstr "정보"
 
@@ -335,52 +335,52 @@ msgstr ""
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:104
+#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:114
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr "설정"
 
-#: ../app/qml/pages/ChatListPage.qml:54
+#: ../app/qml/pages/ChatListPage.qml:56
 msgid "Search"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:94 ../libs/qtdlib/chat/qtdchat.cpp:84
+#: ../app/qml/pages/ChatListPage.qml:104 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:99 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:109 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr "연락처"
 
-#: ../app/qml/pages/ChatListPage.qml:110
+#: ../app/qml/pages/ChatListPage.qml:120
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:171
+#: ../app/qml/pages/ChatListPage.qml:181
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:187 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:197 ../app/qml/pages/UserListPage.qml:123
 msgid "Info"
 msgstr "정보"
 
-#: ../app/qml/pages/ChatListPage.qml:404
+#: ../app/qml/pages/ChatListPage.qml:414
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:419 ../app/qml/pages/ChatListPage.qml:444
+#: ../app/qml/pages/ChatListPage.qml:429 ../app/qml/pages/ChatListPage.qml:454
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:427
+#: ../app/qml/pages/ChatListPage.qml:437
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:428
+#: ../app/qml/pages/ChatListPage.qml:438
 msgid "Do you want to send the imported text to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:430
+#: ../app/qml/pages/ChatListPage.qml:440
 #: ../app/qml/pages/MessageListPage.qml:855
 msgid "Send"
 msgstr "전송"
@@ -673,47 +673,47 @@ msgstr ""
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:318
+#: ../libs/qtdlib/chat/qtdchat.cpp:326
 msgid "Draft:"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:599
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:600
+#: ../libs/qtdlib/chat/qtdchat.cpp:623
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:603
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:604
+#: ../libs/qtdlib/chat/qtdchat.cpp:627
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:609
+#: ../libs/qtdlib/chat/qtdchat.cpp:632
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:610
+#: ../libs/qtdlib/chat/qtdchat.cpp:633
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:613
+#: ../libs/qtdlib/chat/qtdchat.cpp:636
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:614
+#: ../libs/qtdlib/chat/qtdchat.cpp:637
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:617
+#: ../libs/qtdlib/chat/qtdchat.cpp:640
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:618
+#: ../libs/qtdlib/chat/qtdchat.cpp:641
 msgid "are doing something..."
 msgstr ""
 
