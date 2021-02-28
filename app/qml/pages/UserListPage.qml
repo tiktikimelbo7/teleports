@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Suru 2.2
 import Ubuntu.Components 1.3 as UITK
 import Ubuntu.Components.Popups 1.3 as UITK_Popups
+import Ubuntu.Content 1.3 as ContentHub
 import QTelegram 1.0
 import "../components"
 import "../actions"
@@ -37,6 +38,11 @@ Page {
             iconName: "add"
             text: i18n.tr('Add Contact')
             onTriggered: UITK_Popups.PopupUtils.open(addDialog)
+        },
+        UITK.Action {
+            iconName: "address-book-app-symbolic"   // "import"
+            text: i18n.tr('Import Contact')
+            onTriggered: contactsImporter.requestMedia();
         }
         ]
     }
@@ -44,6 +50,9 @@ Page {
     Component {
         id: addDialog
         PopupDialog {
+            property alias phone: userName.text
+            property alias firstName: firstName.text
+            property alias lastName: lastName.text
             text: i18n.tr("The contact will be added. First and last name are optional")
             confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Add")
@@ -238,6 +247,65 @@ Page {
         anchors {
             right: parent.right
             verticalCenter: parent.verticalCenter
+        }
+    }
+    MediaImport {
+        id: contactsImporter
+        contentType: ContentHub.ContentType.Contacts
+        onMediaReceived: contact_parser.vCardUrl = importedFiles[0].url;
+    }
+    VCardParser {
+        id: contact_parser
+
+        property int importedContactCount: 0
+        property string dialogTitle: ""
+        property string dialogText: ""
+
+        signal contactsImportedContacts(int importedCount, int retryCount)
+
+        function parseContact(vcardContact) {
+            var contact = {};
+            contact['phone'] = vcardContact.phoneNumber.number;
+            contact['firstName'] = vcardContact.name.firstName;
+            contact['lastName'] = vcardContact.name.lastName;
+            if (contact['firstName'] === "") {
+                var labelName = vcardContact.displayLabel.label.split(" ");
+                contact['firstName'] = labelName[0];
+                if (labelName.length > 1) {
+                    labelName.shift();
+                    contact['lastName'] = labelName.toString().replace(",", "");
+                } else {
+                    contact['lastName'] = "";
+                }
+            }
+            return contact;
+        }
+
+        onVcardParsed: {
+            if (contacts.length === 0) {
+                return;
+            }
+            console.log("Parsed " + contacts.length + " contacts.");
+            if (contacts.length === 1) {
+                var singleContact = parseContact(contacts[0]);
+                importedContactCount = 1;
+                UITK_Popups.PopupUtils.open(addDialog, contactsImporter, {
+                    "firstName": singleContact["firstName"],
+                    "lastName": singleContact["lastName"],
+                    "phone": singleContact["phone"]
+                })
+            }
+            else {
+                importedContactCount = 0;
+                for (var i = 0; i < contacts.length; i++) {
+                    var contact = parseContact(contacts[i]);
+                    if (contact.phone !== "" && contact.firstName !== "") {
+                        AppActions.user.addUser(contact['phone'],contact['firstName'] ,contact['lastName'])
+                        console.log("added user "+contact['firstName'])
+                        importedContactCount++;
+                    }
+                }
+            }
         }
     }
 }
