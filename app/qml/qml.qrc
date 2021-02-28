@@ -50,6 +50,7 @@
         <file>components/BusyPercentageIndicator.qml</file>
         <file>components/MessageStatusRow.qml</file>
         <file>components/ReplyMarkupShowKeyboard.qml</file>
+        <file>components/VCardParser.qml</file>
         <file>components/GroupPreviewDialog.qml</file>
         <file>delegates/MessageTextItem.qml</file>
         <file>delegates/MessageActionItem.qml</file>
