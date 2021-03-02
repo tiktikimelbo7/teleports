@@ -45,6 +45,8 @@ KeyTable {
     property string jumpToMessage
     property string setChatDraftMessage
     property string muteChat
+    property string toggleFilterBar
+    property string setChatListFilter
     property string registerVoiceNote
     property string stopVoiceNote
     property string deleteVoiceNote

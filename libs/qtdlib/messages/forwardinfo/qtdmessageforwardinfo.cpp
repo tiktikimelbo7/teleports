@@ -76,7 +76,7 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
             if (resp.result().isError()) {
                 qWarning() << "Failed to get chat with error: " << resp.result().errorString();
                 m_displayedName = "";
-            } else {
+            } else if (!resp.result().json().isEmpty()) {
                 auto tempChat = new QTdChat(this);
                 tempChat->unmarshalJson(resp.result().json());
                 m_displayedName = tempChat->title();
@@ -101,7 +101,7 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
                 if (resp.result().isError()) {
                     qWarning() << "Failed to get user with error: " << resp.result().errorString();
                     m_displayedName = "";
-                } else {
+                } else if (!resp.result().json().isEmpty()) {
                     auto tempUser = new QTdUser(this);
                     tempUser->unmarshalJson(resp.result().json());
                     m_displayedName = tempUser->firstName() + " " + tempUser->lastName();

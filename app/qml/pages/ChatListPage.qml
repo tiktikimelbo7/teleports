@@ -44,6 +44,12 @@ Page {
                 visible: Telegram.chats.listMode == ChatList.Idle
             }
         ]
+        trailingActionBar.actions: [
+            UITK.Action {
+                iconName: "filters"
+                onTriggered: AppActions.chat.toggleFilterBar()
+            }
+        ]
         contents: Item {
             anchors.fill: parent
             Item {
@@ -74,7 +80,7 @@ Page {
                         }
                     }
                     visible: searchText.text.length > 0
-                    }
+                }
                 Timer {
                     id: searchTimer
                     interval: 500;
@@ -92,7 +98,23 @@ Page {
                 color: hf
             }
         }
-        
+
+        extension: UITK.Sections {
+            height: Telegram.chats.chatFilterBarVisible ? Suru.units.gu(5) : 0
+            visible: Telegram.chats.chatFilterBarVisible
+            anchors {
+                left: parent.left
+                right: parent.right
+                leftMargin: units.gu(2)
+                rightMargin: anchors.leftMargin
+                bottom: parent.bottom
+            }
+            model: [ i18n.tr("All"), i18n.tr("Personal"), i18n.tr("Unread"), i18n.tr("Archived") ]
+            onSelectedIndexChanged: {
+                AppActions.chat.setChatListFilter(selectedIndex);
+            }
+            Behavior on height { UITK.UbuntuNumberAnimation {} }
+        }
     }
 
     Menu {
@@ -107,12 +129,12 @@ Page {
         MenuPanelItem {
             icon: "address-book-app-symbolic"
             label: i18n.tr("Contacts")
-        onTriggered: AppActions.settings.viewUserList()
+            onTriggered: AppActions.settings.viewUserList()
         }
         MenuPanelItem {
             icon: "settings"
             label: i18n.tr("Settings")
-        onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
+            onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
         }
         MenuPanelItem {
             id: nightModeMenuItem
@@ -134,6 +156,7 @@ Page {
             onTriggered: AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
         }
     }
+
 
     WaitingBar {
         id: waitingBar
@@ -469,7 +492,6 @@ Page {
         }
 
         Component.onCompleted : {
-            console.log("Chat ListView loaded, requesting chats...");
             AppActions.chat.loadMoreChats();
         }
     }

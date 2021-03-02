@@ -528,18 +528,17 @@ void QTdChatListModel::setChatToOpenOnUpdate(const qint64 &chatId)
     m_chatToOpenOnUpdate = chatId;
 }
 
-void QTdChatListModel::loadMoreChats() {
+void QTdChatListModel::loadMoreChats(const QString &chatList) {
     QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
 
     if (m_model->isEmpty()) {
         req->setOffsetChatId(0);
         req->setOffsetOrder(9223372036854775807);
-        qDebug() << "Requesting 10 chats initially";
+        req->setChatList(chatList);
     } else {
         auto lastChat = m_model->first();
         req->setOffsetChatId(lastChat->id());
         req->setOffsetOrder(lastChat->order());
-        qDebug() << "Requesting 10 more chats from offset chat" << lastChat->id() << "order" << lastChat->order();
     }
     req->setLimit(10);
     req->sendAsync();
