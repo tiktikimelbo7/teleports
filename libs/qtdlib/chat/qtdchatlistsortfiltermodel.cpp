@@ -8,7 +8,7 @@
 QTdChatListSortFilterModel::QTdChatListSortFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
     , m_chatList(0)
-    , m_chatFilters(CurrentChats)
+    , m_chatFilters(Everything)
 {
 }
 
@@ -52,91 +52,77 @@ void QTdChatListSortFilterModel::setChatNameFilter(const QString &chatNameFilter
     invalidateFilter();
 }
 
+bool QTdChatListSortFilterModel::filterBarVisible() const {
+    return m_filterBarVisible;
+}
+
+void QTdChatListSortFilterModel::toggleFilterBar(const bool &value) {
+    m_filterBarVisible = value;
+    if (!m_filterBarVisible) {
+        m_chatFilters |= ChatFilters::Everything;
+    } else {
+        m_chatFilters &= ~ChatFilters::Everything;
+    }
+    invalidateFilter();
+}
+
+void QTdChatListSortFilterModel::setChatListFilter(const int &value) {
+
+    switch(value) {
+        case 0:
+            m_chatFilters = ChatFilters::Everything;
+            break;
+        case 1:
+            m_chatFilters = ChatFilters::Personal;
+            break;
+        case 2:
+            m_chatFilters = ChatFilters::Unread;
+            break;
+        case 3:
+            m_chatFilters = ChatFilters::Archived;
+            break;
+    }
+    invalidateFilter();
+}
+
 bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
     QTdChat *chat = model->at(source_row);
 
-    if (m_chatNameFilter == "") {
-        return true;
-    }
-    if (!chat || !chat->title().contains(m_chatNameFilter, Qt::CaseInsensitive)) {
+    if (!chat || !chat->order()) {
         return false;
     }
 
-    // First check for Everything flag as we just want to
-    // show well... everything! even if other flags are set
+    bool showRow = true;
+    bool archived = chat->chatList() && chat->chatList()->typeString() == "chatListArchive";
+
+    //Apply chat title filter, if set
+    if (!chat->title().contains(m_chatNameFilter, Qt::CaseInsensitive)) {
+        showRow = false;
+    }
+
     if (m_chatFilters & ChatFilters::Everything) {
-        return true;
+        return showRow & !archived;
     }
 
-    // Ok so the filters want something a little more fine grained.
-    // So first we need to get rid of the chats with status banned or left
-    if (!chat) {
-        return false;
+    if (m_chatFilters & ChatFilters::Unread && !(chat->hasUnreadMessages() || chat->hasUnreadMentions())) {
+        showRow = false;
     }
 
-    switch (chat->chatType()->type()) {
-    case QTdChatType::Type::CHAT_TYPE_BASIC_GROUP: {
-        QTdBasicGroupChat *gc = static_cast<QTdBasicGroupChat *>(chat);
-        if (!gc->status()) {
-            return false;
-        }
-        switch (gc->status()->type()) {
-        case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_LEFT:
-        case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_BANNED: {
-            return false;
-        }
-        default:
-            break;
-        }
-        break;
+    if (m_chatFilters & ChatFilters::Personal && !(chat->isPrivate() || chat->isSecret())) {
+        showRow = false;
     }
-    case QTdChatType::Type::CHAT_TYPE_SUPERGROUP: {
-        QTdSuperGroupChat *gc = static_cast<QTdSuperGroupChat *>(chat);
-        if (!gc->status()) {
-            return false;
-        }
-        switch (gc->status()->type()) {
-        case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_LEFT:
-        case QTdChatMemberStatus::Type::CHAT_MEMBER_STATUS_BANNED: {
-            return false;
-        }
-        default:
-            break;
-        }
-        break;
-    }
-    default:
-        // Secret and Private groups get their order set to 0 after leaving
-        // a chat
-        if (!chat->order()) {
-            return false;
+
+    if (chat->chatList()) {
+        if (m_chatFilters & ChatFilters::Archived) {
+            showRow = showRow & archived;
+        } else {
+            showRow = showRow & !archived;
         }
     }
 
-    // If current chats is defined we are just going to show all the remaining chats
-    // after the filtering above has been applied. Otherwise filter on a per chat
-    // basis filtering on the remaining filters.
-    bool allow = false;
-    if (m_chatFilters & ChatFilters::CurrentChats) {
-        allow = true;
-    } else if (m_chatFilters & ChatFilters::PrivateChats) {
-        allow = chat->chatType()->type() == QTdChatType::Type::CHAT_TYPE_PRIVATE;
-    } else if (m_chatFilters & ChatFilters::SecretChats) {
-        allow = chat->chatType()->type() == QTdChatType::Type::CHAT_TYPE_SECRET;
-    } else if (m_chatFilters & ChatFilters::SuperGroups) {
-        allow = chat->chatType()->type() == QTdChatType::Type::CHAT_TYPE_SUPERGROUP;
-    } else if (m_chatFilters & ChatFilters::BasicGroups) {
-        allow = chat->chatType()->type() == QTdChatType::Type::CHAT_TYPE_BASIC_GROUP;
-    }
-
-    // Finally if PinnedChats is set then only allow pinned chats
-    // This allows us to only show pinned chats for each type above
-    if (m_chatFilters & ChatFilters::PinnedChats) {
-        allow = chat->isPinned();
-    }
-    return allow;
+    return showRow;
 }
 
 bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const

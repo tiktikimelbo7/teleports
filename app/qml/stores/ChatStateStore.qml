@@ -22,6 +22,7 @@ Store {
     property alias currentChat: chatList.currentChat
     property alias forwardChatId: chatList.forwardedFromChat
     property bool uriHaveBeenProcessed: false
+    property bool chatFilterBarVisible: false
 
     ChatList {
         id: chatList
@@ -86,7 +87,6 @@ Store {
     SortedChatList {
         id: sortedChatList
         model: chatList
-        chatFilters: SortedChatList.CurrentChats
     }
 
     /**
@@ -200,7 +200,8 @@ Store {
         type: ChatKey.loadMoreChats
         onDispatched: {
             if (d.canLoadMoreMessages) {
-                chatList.loadMoreChats()
+                chatList.loadMoreChats("chatListMain")
+                chatList.loadMoreChats("chatListArchive")
                 d.canLoadMoreMessages = false
                 enableLoadTimer.start()
             }
@@ -455,6 +456,21 @@ Store {
         type: ChatKey.muteChat
         onDispatched: {
             message.chat.mute(message.duration)
+        }
+    }
+
+    Filter {
+        type: ChatKey.toggleFilterBar
+        onDispatched: {
+            chatFilterBarVisible = !chatFilterBarVisible
+            sortedList.toggleFilterBar(chatFilterBarVisible)
+        }
+    }
+
+    Filter {
+        type: ChatKey.setChatListFilter
+        onDispatched: {
+            sortedList.setChatListFilter(message.chatListFilterIndex)
         }
     }
 

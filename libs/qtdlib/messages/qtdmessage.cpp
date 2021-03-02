@@ -211,9 +211,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     const QJsonObject forwardInfo = json["forward_info"].toObject();
     if (!forwardInfo.isEmpty()) {
         m_forwardInfo = new QTdMessageForwardInfo(this);
-        if (m_forwardInfo) {
-            m_forwardInfo->unmarshalJson(forwardInfo);
-        }
+        m_forwardInfo->unmarshalJson(forwardInfo);
     }
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
