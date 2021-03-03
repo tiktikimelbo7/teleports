@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.10
+### Added
+- Chat filters for title and type of chat
+- Add handling of archived chats
+- Contacts import via Contacts list
+
+### Bugfix
+- Various fixes for initial chat loading
+- Try to utilize more threads and prevent deadlocks on opening the app
+- New messages in the chat that was left just before are no longer marked as read
+- Notifications can now be properly turned on and off also from TELEports
+- Fixed translations on the password page and other layout issues in the login workflow
+
 ## 0.9
 ### Added
 - Implemented sending of voice notes (tap and hold the mike!)
