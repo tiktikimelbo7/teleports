@@ -7,6 +7,7 @@
 #include "user/requests/qtdgetuserrequest.h"
 #include "chat/requests/qtdgetchatrequest.h"
 #include "chat/qtdchat.h"
+#include "chat/qtdchats.h"
 #include "utils/await.h"
 #include "user/qtdusers.h"
 
@@ -64,10 +65,11 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
     const QJsonObject origin = json["origin"].toObject();
     m_origin = QTdMessageForwardOriginFactory::create(origin, this);
     if (m_origin) {
+        qint64 originId;
         switch (m_origin->type()) {
         case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHAT:
         case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHANNEL:
-            auto *chat = QTdChats::instance()->model()->getByUid(QString::number(originId));
+            auto *chat = QTdChats::instance()->chatById(originId);
             if (!chat) {
                 QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
                 req->setChatId(originId);

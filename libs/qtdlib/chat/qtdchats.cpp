@@ -55,6 +55,20 @@ QTdChats::QTdChats(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateChatChatList, this, &QTdChats::handleUpdateChatChatList);
 }
 
+QTdChats::~QTdChats()
+{
+    m_model->clear();
+}
+
+static QPointer<QTdChats> s_chats;
+QTdChats *QTdChats::instance()
+{
+    if (s_chats.isNull()) {
+        s_chats = new QTdChats();
+    }
+    return s_chats;
+}
+
 QObject *QTdChats::model() const
 {
     return m_model;
