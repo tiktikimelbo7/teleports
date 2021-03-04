@@ -1,29 +1,29 @@
-#ifndef QTDCHATLISTSORTFILTERMODEL_H
-#define QTDCHATLISTSORTFILTERMODEL_H
+#ifndef QTDSORTEDCHATS_H
+#define QTDSORTEDCHATS_H
 
 #include <QObject>
 #include <QPointer>
 #include <QFlags>
 #include <QString>
 #include <QSortFilterProxyModel>
-#include "qtdchatlistmodel.h"
+#include "qtdchats.h"
 
 /**
- * @brief The QTdChatListSortFilterModel class
+ * @brief The QTdSortedChats class
  *
  * Sorts chat list in descending order based on QTdChat::order()
  *
  * Filters can be applied to show certain QTdChatType's
  */
-class QTdChatListSortFilterModel : public QSortFilterProxyModel
+class QTdSortedChats : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QTdChatListModel *model READ model WRITE setModel NOTIFY modelChanged)
+    Q_PROPERTY(QTdChats *model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int chatFilters READ chatFilters WRITE setChatFilters NOTIFY chatFiltersChanged)
     Q_PROPERTY(bool filterBarVisible READ filterBarVisible NOTIFY filterBarVisibleChanged)
 
 public:
-    explicit QTdChatListSortFilterModel(QObject *parent = nullptr);
+    explicit QTdSortedChats(QObject *parent = nullptr);
 
     enum ChatFilters {
         Everything = 1, // this includes banned or left chats
@@ -33,8 +33,8 @@ public:
     };
     Q_ENUM(ChatFilters)
 
-    QTdChatListModel *model() const;
-    void setModel(QTdChatListModel *model);
+    QTdChats *model() const;
+    void setModel(QTdChats *model);
     int chatFilters() const;
     bool filterBarVisible() const;
 
@@ -55,11 +55,11 @@ protected:
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
 
 private:
-    Q_DISABLE_COPY(QTdChatListSortFilterModel)
-    QPointer<QTdChatListModel> m_chatList;
+    Q_DISABLE_COPY(QTdSortedChats)
+    QPointer<QTdChats> m_chatList;
     int m_chatFilters;
     bool m_filterBarVisible;
     QString m_chatNameFilter;
 };
 
-#endif // QTDCHATLISTSORTFILTERMODEL_H
+#endif // QTDSORTEDCHATS_H

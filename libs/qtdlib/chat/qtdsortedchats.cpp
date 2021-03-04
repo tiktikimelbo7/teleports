@@ -1,27 +1,27 @@
-#include "qtdchatlistsortfiltermodel.h"
+#include "qtdsortedchats.h"
 #include <QDebug>
 #include "client/qtdclient.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdbasicgroupchat.h"
 #include "qtdsupergroupchat.h"
 
-QTdChatListSortFilterModel::QTdChatListSortFilterModel(QObject *parent)
+QTdSortedChats::QTdSortedChats(QObject *parent)
     : QSortFilterProxyModel(parent)
     , m_chatList(0)
     , m_chatFilters(Everything)
 {
 }
 
-QTdChatListModel *QTdChatListSortFilterModel::model() const
+QTdChats *QTdSortedChats::model() const
 {
     return m_chatList;
 }
 
-void QTdChatListSortFilterModel::setModel(QTdChatListModel *model)
+void QTdSortedChats::setModel(QTdChats *model)
 {
     m_chatList = model;
     setSourceModel(static_cast<QAbstractItemModel *>(m_chatList->model()));
-    connect(model, &QTdChatListModel::chatStatusChanged, [=]() {
+    connect(model, &QTdChats::chatStatusChanged, [=]() {
         invalidateFilter();
     });
     emit modelChanged();
@@ -31,12 +31,12 @@ void QTdChatListSortFilterModel::setModel(QTdChatListModel *model)
     sort(0, Qt::DescendingOrder);
 }
 
-int QTdChatListSortFilterModel::chatFilters() const
+int QTdSortedChats::chatFilters() const
 {
     return m_chatFilters;
 }
 
-void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
+void QTdSortedChats::setChatFilters(int chatFilters)
 {
     if (m_chatFilters == chatFilters)
         return;
@@ -46,17 +46,19 @@ void QTdChatListSortFilterModel::setChatFilters(int chatFilters)
     invalidateFilter();
 }
 
-void QTdChatListSortFilterModel::setChatNameFilter(const QString &chatNameFilter)
+void QTdSortedChats::setChatNameFilter(const QString &chatNameFilter)
 {
     m_chatNameFilter = chatNameFilter;
     invalidateFilter();
 }
 
-bool QTdChatListSortFilterModel::filterBarVisible() const {
+bool QTdSortedChats::filterBarVisible() const
+{
     return m_filterBarVisible;
 }
 
-void QTdChatListSortFilterModel::toggleFilterBar(const bool &value) {
+void QTdSortedChats::toggleFilterBar(const bool &value)
+{
     m_filterBarVisible = value;
     if (!m_filterBarVisible) {
         m_chatFilters |= ChatFilters::Everything;
@@ -66,7 +68,8 @@ void QTdChatListSortFilterModel::toggleFilterBar(const bool &value) {
     invalidateFilter();
 }
 
-void QTdChatListSortFilterModel::setChatListFilter(const int &value) {
+void QTdSortedChats::setChatListFilter(const int &value)
+{
 
     switch(value) {
         case 0:
@@ -85,7 +88,7 @@ void QTdChatListSortFilterModel::setChatListFilter(const int &value) {
     invalidateFilter();
 }
 
-bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+bool QTdSortedChats::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
     QTdChat *chat = model->at(source_row);
@@ -125,7 +128,7 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     return showRow;
 }
 
-bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+bool QTdSortedChats::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
     /**
      * TDlib suggests to use QTdChat::order() for ordering of the chat list

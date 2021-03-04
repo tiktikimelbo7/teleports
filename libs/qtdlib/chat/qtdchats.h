@@ -1,5 +1,5 @@
-#ifndef QTDCHATLISTMODEL_H
-#define QTDCHATLISTMODEL_H
+#ifndef QTDCHATS_H
+#define QTDCHATS_H
 
 #include <QObject>
 #include <QPointer>
@@ -12,24 +12,13 @@
 
 typedef QList<qint64> PinnedChats;
 
-class QTdChatListModel : public QObject
+class QTdChats : public QObject
 {
 
     Q_OBJECT
-    Q_PROPERTY(QObject *model READ model NOTIFY modelChanged)
-    Q_PROPERTY(QTdChat *currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
-    Q_PROPERTY(ListMode listMode READ listMode WRITE setListMode NOTIFY listModeChanged)
-    Q_PROPERTY(qint32 forwardingMessagesCount READ forwardingMessagesCount NOTIFY modelChanged)
-    Q_PROPERTY(QTdChat *forwardedFromChat READ forwardedFromChat WRITE setForwardedFromChat NOTIFY modelChanged)
-    Q_PROPERTY(QStringList forwardingMessages READ forwardingMessages WRITE setForwardingMessages NOTIFY modelChanged)
 
 public:
-    enum ListMode { Idle,
-                    ForwardingMessages,
-                    ImportingAttachments };
-    Q_ENUM(ListMode)
-
-    explicit QTdChatListModel(QObject *parent = nullptr);
+    explicit QTdChats(QObject *parent = nullptr);
 
     QObject *model() const;
     QTdChat *currentChat() const;
@@ -108,7 +97,7 @@ private slots:
     void handlePinChatAction(const qint64 &chatId, const bool &pinned);
 
 private:
-    Q_DISABLE_COPY(QTdChatListModel)
+    Q_DISABLE_COPY(QTdChats)
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
@@ -121,4 +110,4 @@ private:
     QTimer *m_positionWaitTimer;
 };
 
-#endif // QTDCHATLISTMODEL_H
+#endif // QTDCHATS_H
