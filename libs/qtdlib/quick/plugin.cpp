@@ -10,8 +10,8 @@
 #include "auth/qtdauthstate.h"
 #include "call/qtdcalldiscardreason.h"
 #include "chat/qtdchat.h"
-#include "chat/qtdchatlistmodel.h"
-#include "chat/qtdchatlistsortfiltermodel.h"
+#include "chats.h"
+#include "sortedchats.h"
 #include "connections/qtdconnectionstate.h"
 #include "user/qtduser.h"
 #include "files/qtdfile.h"
@@ -75,8 +75,8 @@ void QTdLib::registerQmlTypes()
     qmlRegisterType<QTdAuthParams>(uri, 1, 0, "AuthParams");
     qmlRegisterType<Users>(uri, 1, 0, "Users");
     qmlRegisterType<Contacts>(uri, 1, 0, "Contacts");
-    qmlRegisterType<QTdChatListModel>(uri, 1, 0, "ChatList");
-    qmlRegisterType<QTdChatListSortFilterModel>(uri, 1, 0, "SortedChatList");
+    qmlRegisterType<Chats>(uri, 1, 0, "Chats");
+    qmlRegisterType<SortedChats>(uri, 1, 0, "SortedChats");
     qmlRegisterType<QTdMessageListModel>(uri, 1, 0, "MessageList");
 
     qmlRegisterUncreatableType<QTdChatState>(uri, 1, 0, "ChatState", "Enum type is uncreatable");

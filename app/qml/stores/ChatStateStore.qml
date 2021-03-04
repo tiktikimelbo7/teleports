@@ -12,7 +12,7 @@ Store {
      *
      * Model containing all chats for the configured account.
      * the model is not sorted in anyway but is exposed to
-     * be able to access the undelying QTdChatListModel->model
+     * be able to access the underlying QTdChats::instance()->model
      * property and it's QList like API from qml.
      *
      * If you want a sorted list use SortedChatList below.
@@ -24,7 +24,7 @@ Store {
     property bool uriHaveBeenProcessed: false
     property bool chatFilterBarVisible: false
 
-    ChatList {
+    Chats {
         id: chatList
         onCurrentChatChanged: {
             if (currentChat && !currentChat.isOpen) {
@@ -81,12 +81,11 @@ Store {
      *    chatFilters: SortedChatList.PrivateChats | SortedChatList.SecretChats | SortedChatList.SuperGroups
      *
      * The above will only show chats of those three types.
-     * see qtdchatlistsortfiltermodel.h for all filter types.
+     * see qtdsortedchats.h for all filter types.
      */
     property alias sortedList: sortedChatList
-    SortedChatList {
+    SortedChats {
         id: sortedChatList
-        model: chatList
     }
 
     /**
@@ -321,8 +320,6 @@ Store {
                         AppActions.chat.sendContact(importedFiles[i], message.text);
                         break;
                     case ContentHub.ContentType.Text:
-                        AppActions.chat.sendMessage(message.text);
-                        break;
                     case ContentHub.ContentType.Links:
                         AppActions.chat.sendMessage(message.text);
                         break;

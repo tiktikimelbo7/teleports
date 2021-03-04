@@ -65,8 +65,8 @@ set(
     chat/qtdchat.cpp
     chat/qtdchataction.cpp
     chat/qtdchatactionfactory.cpp
-    chat/qtdchatlistmodel.cpp
-    chat/qtdchatlistsortfiltermodel.cpp
+    chat/qtdchats.cpp
+    chat/qtdsortedchats.cpp
     chat/qtdchatmember.cpp
     chat/qtdchatmemberstatus.cpp
     chat/qtdchattype.cpp
@@ -206,6 +206,8 @@ set(
     quick/plugin.cpp
     quick/users.cpp
     quick/contacts.cpp
+    quick/chats.cpp
+    quick/sortedchats.cpp
     stickers/qtdstickersets.cpp
     stickers/qtdstickerset.cpp
     user/qtdprofilephoto.cpp
