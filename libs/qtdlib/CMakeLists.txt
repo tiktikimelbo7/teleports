@@ -175,6 +175,7 @@ set(
     messages/replymarkup/qtdkeyboardbuttontype.cpp
     messages/replymarkup/qtdreplymarkup.cpp
     messages/forwardinfo/qtdmessageforwardinfo.cpp
+    messages/forwardinfo/qtdmessageforwardoriginfactory.cpp
     messages/forwardinfo/qtdmessageforwardorigin.cpp
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp

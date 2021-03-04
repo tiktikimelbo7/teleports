@@ -18,6 +18,35 @@ public:
 };
 
 /**
+     * @brief The QTdMessageForwardOriginChat class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1message_forward_origin_chat.html
+ */
+class QTdMessageForwardOriginChat : public QTdMessageForwardOrigin
+{
+    Q_OBJECT
+    // Q_DISABLE_COPY(QTdMessageForwardOriginChat)
+    Q_PROPERTY(QString chatId READ qmlChatId NOTIFY forwardOriginChanged)
+    Q_PROPERTY(QString authorSignature READ authorSignature NOTIFY forwardOriginChanged)
+public:
+    explicit QTdMessageForwardOriginChat(QObject *parent = nullptr);
+
+    QString qmlChatId() const;
+    qint64 chatId() const;
+    QString authorSignature() const;
+
+    void unmarshalJson(const QJsonObject &json);
+
+signals:
+    void forwardOriginChanged();
+
+private:
+    QTdInt64 m_chatId;
+    QTdInt64 m_messageId;
+    QString m_authorSignature;
+};
+
+/**
      * @brief The QTdMessageForwardOriginChannel class
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1message_forward_origin_channel.html

@@ -2,6 +2,7 @@
 #include <QJsonValue>
 #include <QDateTime>
 #include "qtdmessageforwardinfo.h"
+#include "qtdmessageforwardoriginfactory.h"
 #include "common/qtdhelpers.h"
 #include "user/requests/qtdgetuserrequest.h"
 #include "chat/requests/qtdgetchatrequest.h"
@@ -61,37 +62,38 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
         return;
     }
     const QJsonObject origin = json["origin"].toObject();
-    if (!origin.isEmpty()) {
-        qint64 originId = 0;
-        const QString originType = origin["@type"].toString();
-        if (originType == "messageForwardOriginChannel") {
-            auto tempOrigin = new QTdMessageForwardOriginChannel(this);
-            tempOrigin->unmarshalJson(origin);
-            m_origin = tempOrigin;
-            originId = tempOrigin->chatId();
-            QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
-            req->setChatId(originId);
-            QFuture<QTdResponse> resp = req->sendAsync();
-            await(resp, 2000);
-            if (resp.result().isError()) {
-                qWarning() << "Failed to get chat with error: " << resp.result().errorString();
-                m_displayedName = "";
-            } else if (!resp.result().json().isEmpty()) {
-                auto tempChat = new QTdChat(this);
-                tempChat->unmarshalJson(resp.result().json());
-                m_displayedName = tempChat->title();
-                delete tempChat;
+    m_origin = QTdMessageForwardOriginFactory::create(origin, this);
+    if (m_origin) {
+        switch (m_origin->type()) {
+        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHAT:
+        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHANNEL:
+            auto *chat = QTdChats::instance()->model()->getByUid(QString::number(originId));
+            if (!chat) {
+                QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
+                req->setChatId(originId);
+                QFuture<QTdResponse> resp = req->sendAsync();
+                await(resp, 2000);
+                if (resp.result().isError()) {
+                    qWarning() << "Failed to get chat with error: " << resp.result().errorString();
+                    m_displayedName = "";
+                } else {
+                    if (!resp.result().json().isEmpty()) {
+                        auto tempChat = new QTdChat(this);
+                        tempChat->unmarshalJson(resp.result().json());
+                        m_displayedName = tempChat->title();
+                        delete tempChat;
+                    }
+                }
+            } else {
+                m_displayedName = chat->title();
             }
-        } else if (originType == "messageForwardOriginHiddenUser") {
-            auto tempOrigin = new QTdMessageForwardOriginHiddenUser(this);
-            tempOrigin->unmarshalJson(origin);
-            m_origin = tempOrigin;
-            m_displayedName = tempOrigin->senderName();
-        } else if (originType == "messageForwardOriginUser") {
-            auto tempOrigin = new QTdMessageForwardOriginUser(this);
-            tempOrigin->unmarshalJson(origin);
-            m_origin = tempOrigin;
-            originId = tempOrigin->senderUserId();
+            break;
+        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_HIDDEN_USER:
+            auto hiddenUserOrigin = qobject_cast<QTdMessageForwardOriginHiddenUser *>(m_origin);
+            m_displayedName = hiddenUserOrigin->senderName();
+            break;
+        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_USER:
+            auto originId = qobject_cast<QTdMessageForwardOriginUser *>(m_origin)->senderUserId();
             auto *user = QTdUsers::instance()->model()->getByUid(QString::number(originId));
             if (!user) {
                 QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
@@ -101,15 +103,18 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
                 if (resp.result().isError()) {
                     qWarning() << "Failed to get user with error: " << resp.result().errorString();
                     m_displayedName = "";
-                } else if (!resp.result().json().isEmpty()) {
-                    auto tempUser = new QTdUser(this);
-                    tempUser->unmarshalJson(resp.result().json());
-                    m_displayedName = tempUser->firstName() + " " + tempUser->lastName();
-                    delete tempUser;
+                } else {
+                    if (!resp.result().json().isEmpty()) {
+                        auto tempUser = new QTdUser(this);
+                        tempUser->unmarshalJson(resp.result().json());
+                        m_displayedName = tempUser->firstName() + " " + tempUser->lastName();
+                        delete tempUser;
+                    }
                 }
             } else {
                 m_displayedName = user->firstName() + " " + user->lastName();
             }
+            break;
         }
     }
     m_date = json["date"].toInt();

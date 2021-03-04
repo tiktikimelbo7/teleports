@@ -7,6 +7,38 @@ QTdMessageForwardOrigin::QTdMessageForwardOrigin(QObject *parent)
 {
 }
 
+QTdMessageForwardOriginChat::QTdMessageForwardOriginChat(QObject *parent)
+    : QTdMessageForwardOrigin(parent)
+    , m_chatId(0)
+    , m_messageId(0)
+{
+    setType(MESSAGE_FORWARD_ORIGIN_CHAT);
+}
+
+QString QTdMessageForwardOriginChat::qmlChatId() const
+{
+    return m_chatId.toQmlValue();
+}
+qint64 QTdMessageForwardOriginChat::chatId() const
+{
+    return m_chatId.value();
+}
+
+QString QTdMessageForwardOriginChat::authorSignature() const
+{
+    return m_authorSignature;
+}
+
+void QTdMessageForwardOriginChat::unmarshalJson(const QJsonObject &json)
+{
+    if (json.isEmpty()) {
+        return;
+    }
+    m_chatId = json["sender_chat_id"].toDouble();
+    m_authorSignature = json["author_signature"].toString();
+    emit forwardOriginChanged();
+}
+
 QTdMessageForwardOriginChannel::QTdMessageForwardOriginChannel(QObject *parent)
     : QTdMessageForwardOrigin(parent)
     , m_chatId(0)
