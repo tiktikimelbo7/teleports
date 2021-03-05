@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 22:29+0000\n"
+"POT-Creation-Date: 2021-02-27 19:35+0000\n"
 "PO-Revision-Date: 2020-10-01 09:09+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -113,7 +113,7 @@ msgid "Sticker Pack info"
 msgstr "Informatzione de su pachete de adesivos"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:416
+#: ../app/qml/pages/ChatListPage.qml:438
 msgid "Forward"
 msgstr "Torra a imbiare"
 
@@ -248,7 +248,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "Seguru chi boles isboidare sa cronologia?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:186
+#: ../app/qml/pages/ChatListPage.qml:208
 msgid "Clear history"
 msgstr "Isbòida sa cronologia"
 
@@ -270,7 +270,7 @@ msgstr "at aderidu a su grupu"
 msgid "Close"
 msgstr "Serra"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:133
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
 msgid "About"
 msgstr "Informatziones"
 
@@ -358,54 +358,72 @@ msgstr "Crae de tzifradura"
 msgid "Select destination or cancel..."
 msgstr "Sèbera una destinatzione o annulla..."
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:135
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr "Cunfiguratziones"
 
-#: ../app/qml/pages/ChatListPage.qml:56
+#: ../app/qml/pages/ChatListPage.qml:62
 msgid "Search"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:104 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "All"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:112
+#, fuzzy
+#| msgid "Archived chats"
+msgid "Archived"
+msgstr "Tzarradas archiviadas"
+
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "Personal"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "Unread"
+msgstr ""
+
+#: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr "Messàgios sarvados"
 
-#: ../app/qml/pages/ChatListPage.qml:109 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:130 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr "Cuntatos"
 
-#: ../app/qml/pages/ChatListPage.qml:120
+#: ../app/qml/pages/ChatListPage.qml:141
 msgid "Night mode"
 msgstr "Modalidade noturna"
 
-#: ../app/qml/pages/ChatListPage.qml:181
+#: ../app/qml/pages/ChatListPage.qml:203
 msgid "Leave chat"
 msgstr "Essi·nche dae sa tzarrada"
 
-#: ../app/qml/pages/ChatListPage.qml:197 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
 msgid "Info"
 msgstr "Informatziones"
 
-#: ../app/qml/pages/ChatListPage.qml:414
+#: ../app/qml/pages/ChatListPage.qml:436
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Boles torrare a imbiare is messàgios seletzionados a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:429 ../app/qml/pages/ChatListPage.qml:454
+#: ../app/qml/pages/ChatListPage.qml:451 ../app/qml/pages/ChatListPage.qml:476
 msgid "Enter optional message..."
 msgstr "Iscrie unu messàgiu optzionale..."
 
-#: ../app/qml/pages/ChatListPage.qml:437
+#: ../app/qml/pages/ChatListPage.qml:459
 msgid "Do you want to send the imported files to %1?"
 msgstr "Boles imbiare is archìvios importados a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:438
+#: ../app/qml/pages/ChatListPage.qml:460
 #, fuzzy
 #| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
 msgstr "Boles imbiare is archìvios importados a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:440
+#: ../app/qml/pages/ChatListPage.qml:462
 #: ../app/qml/pages/MessageListPage.qml:855
 msgid "Send"
 msgstr "Imbia"
@@ -700,16 +718,16 @@ msgstr "Cess! Faddina interna."
 msgid "Registration not expected right now"
 msgstr "Registratzione no isetada immoe"
 
-#: ../app/qml/stores/ChatStateStore.qml:41
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:42
+#: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Error"
 msgstr "Faddina"
 
-#: ../app/qml/stores/ChatStateStore.qml:41
+#: ../app/qml/stores/ChatStateStore.qml:42
 msgid "No valid location received after 180 seconds!"
 msgstr "Peruna positzione vàlida retzida a pustis de 180 segundos"
 
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Username <b>@%1</b> not found"
 msgstr ""
 
@@ -1103,9 +1121,6 @@ msgstr "Tenes unu messàgiu nou"
 
 #~ msgid "not available"
 #~ msgstr "no est a disponimentu"
-
-#~ msgid "Archived chats"
-#~ msgstr "Tzarradas archiviadas"
 
 #~ msgid "MMMM dd, yyyy"
 #~ msgstr "dd MMMM yyyy"

@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-27 19:35+0000\n"
-"PO-Revision-Date: 2021-02-07 10:08+0100\n"
-"Last-Translator: imrufbd <imrufbd@gmail.com>\n"
-"Language-Team: Bengali (Bangladesh) <https://translate.ubports.com/projects/"
-"ubports/teleports/bn_BD/>\n"
-"Language: bn_BD\n"
+"PO-Revision-Date: 2021-03-04 18:27+0000\n"
+"Last-Translator: helabasa <R45XvezA@pm.me>\n"
+"Language-Team: Sinhala <https://translate.ubports.com/projects/ubports/"
+"teleports/si/>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -44,7 +44,7 @@ msgstr ""
 #: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:113
 #: ../app/qml/pages/UserListPage.qml:207
 msgid "Delete"
-msgstr "মুছুন"
+msgstr ""
 
 #: ../app/qml/components/GroupPreviewDialog.qml:35
 #: ../app/qml/pages/MessageListPage.qml:33
@@ -73,7 +73,7 @@ msgstr ""
 #: ../app/qml/components/PopupWaitCancel.qml:13
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
-msgstr "বাতিল"
+msgstr "අවලංගු"
 
 #: ../app/qml/components/UserProfile.qml:71
 msgid "Members: %1"
@@ -89,12 +89,12 @@ msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
-msgstr "কপি"
+msgstr "පිටපත්"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
 #: ../app/qml/pages/ChatInfoPage.qml:35
 msgid "Edit"
-msgstr "সম্পাদন"
+msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:67
 msgid "Reply"
@@ -252,7 +252,7 @@ msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
 msgid "About"
-msgstr ""
+msgstr "පිළිබඳව"
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
 #: ../app/qml/pages/ConnectivityPage.qml:46
@@ -381,7 +381,7 @@ msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
 msgid "Info"
-msgstr "তথ্য"
+msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:436
 msgid "Do you want to forward the selected messages to %1?"
@@ -574,7 +574,7 @@ msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:49
 msgid "Add"
-msgstr "সংযোগ"
+msgstr ""
 
 #: ../app/qml/pages/UserListPage.qml:128
 msgid "Secret Chat"
@@ -1035,7 +1035,7 @@ msgstr ""
 #. TRANSLATORS: This format string tells location, like: @ McDonals, New York
 #: ../push/pushhelper.cpp:258
 msgid "@ %1"
-msgstr ""
+msgstr "@ %1"
 
 #. TRANSLATORS: This format string tells who has checked in (in a geographical location).
 #: ../push/pushhelper.cpp:260
@@ -1054,7 +1054,7 @@ msgstr ""
 #. TRANSLATORS: This format string indicates new login of: (device name) at (location).
 #: ../push/pushhelper.cpp:276
 msgid "%1 @ %2"
-msgstr ""
+msgstr "%1 @ %2"
 
 #: ../push/pushhelper.cpp:281
 msgid "updated profile photo"

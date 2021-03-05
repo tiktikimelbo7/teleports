@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.ubports.teleports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-25 22:29+0000\n"
-"PO-Revision-Date: 2021-02-03 23:27+0000\n"
+"POT-Creation-Date: 2021-02-27 19:35+0000\n"
+"PO-Revision-Date: 2021-03-04 18:27+0000\n"
 "Last-Translator: Mike <miguel2000@livecom.it>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports/"
 "teleports/it/>\n"
@@ -108,7 +108,7 @@ msgid "Sticker Pack info"
 msgstr "Info pacchetto di sticker"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:416
+#: ../app/qml/pages/ChatListPage.qml:438
 msgid "Forward"
 msgstr "Inoltra"
 
@@ -166,7 +166,7 @@ msgstr "%1 ha eliminato la foto della chat"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr ""
+msgstr "La durata del messaggio è stata impostata a <b>%1</b> secondi"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -233,7 +233,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "Sei sicuro?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:186
+#: ../app/qml/pages/ChatListPage.qml:208
 msgid "Clear history"
 msgstr "Cancella cronologia"
 
@@ -253,7 +253,7 @@ msgstr "Entra nel gruppo"
 msgid "Close"
 msgstr "Chiudi"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:133
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
 msgid "About"
 msgstr "Informazioni"
 
@@ -341,52 +341,68 @@ msgstr "Chiave di crittografia"
 msgid "Select destination or cancel..."
 msgstr "Seleziona destinazione o annulla..."
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:114
+#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:135
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: ../app/qml/pages/ChatListPage.qml:56
+#: ../app/qml/pages/ChatListPage.qml:62
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
-#: ../app/qml/pages/ChatListPage.qml:104 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "All"
+msgstr "Tutte"
+
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "Archived"
+msgstr "Archiviate"
+
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "Personal"
+msgstr "Personali"
+
+#: ../app/qml/pages/ChatListPage.qml:112
+msgid "Unread"
+msgstr "Non lette"
+
+#: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr "Messaggi Salvati"
 
-#: ../app/qml/pages/ChatListPage.qml:109 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:130 ../app/qml/pages/UserListPage.qml:18
 msgid "Contacts"
 msgstr "Contatti"
 
-#: ../app/qml/pages/ChatListPage.qml:120
+#: ../app/qml/pages/ChatListPage.qml:141
 msgid "Night mode"
 msgstr "Modalità notte"
 
-#: ../app/qml/pages/ChatListPage.qml:181
+#: ../app/qml/pages/ChatListPage.qml:203
 msgid "Leave chat"
 msgstr "Lascia chat"
 
-#: ../app/qml/pages/ChatListPage.qml:197 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
 msgid "Info"
 msgstr "Info"
 
-#: ../app/qml/pages/ChatListPage.qml:414
+#: ../app/qml/pages/ChatListPage.qml:436
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "Vuoi inoltrare il messaggio selezionato a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:429 ../app/qml/pages/ChatListPage.qml:454
+#: ../app/qml/pages/ChatListPage.qml:451 ../app/qml/pages/ChatListPage.qml:476
 msgid "Enter optional message..."
 msgstr "Scrivi un messaggio opzionale..."
 
-#: ../app/qml/pages/ChatListPage.qml:437
+#: ../app/qml/pages/ChatListPage.qml:459
 msgid "Do you want to send the imported files to %1?"
 msgstr "Vuoi inviare i file importati a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:438
+#: ../app/qml/pages/ChatListPage.qml:460
 msgid "Do you want to send the imported text to %1?"
 msgstr "Vuoi inviare il testo importato a %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:440
+#: ../app/qml/pages/ChatListPage.qml:462
 #: ../app/qml/pages/MessageListPage.qml:855
 msgid "Send"
 msgstr "Invia"
@@ -665,16 +681,16 @@ msgstr "Oops! errore interno."
 msgid "Registration not expected right now"
 msgstr "Codice di registrazione non atteso adesso"
 
-#: ../app/qml/stores/ChatStateStore.qml:41
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:42
+#: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Error"
 msgstr "Errore"
 
-#: ../app/qml/stores/ChatStateStore.qml:41
+#: ../app/qml/stores/ChatStateStore.qml:42
 msgid "No valid location received after 180 seconds!"
 msgstr "Nessuna posizione valida ricevuta dopo 180 secondi!"
 
-#: ../app/qml/stores/ChatStateStore.qml:47
+#: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Username <b>@%1</b> not found"
 msgstr "Utente <b>%1</b> non trovato"
 
@@ -1068,9 +1084,6 @@ msgstr "Hai un nuovo messaggio"
 
 #~ msgid "not available"
 #~ msgstr "non disponibile"
-
-#~ msgid "Archived chats"
-#~ msgstr "Discussioni archiviate"
 
 #~ msgid "MMMM dd, yyyy"
 #~ msgstr "MMMM gg, aaaa"
