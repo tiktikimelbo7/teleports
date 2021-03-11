@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-27 19:35+0000\n"
-"PO-Revision-Date: 2021-02-22 19:27+0000\n"
+"PO-Revision-Date: 2021-03-09 20:27+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/teleports/zh_Hant/>\n"
@@ -346,19 +346,19 @@ msgstr "搜尋"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "Archived"
-msgstr ""
+msgstr "已封存"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "Personal"
-msgstr ""
+msgstr "個人"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "Unread"
-msgstr ""
+msgstr "未讀"
 
 #: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
