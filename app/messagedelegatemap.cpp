@@ -1,5 +1,5 @@
 #include "messagedelegatemap.h"
-#include <qtdlib/common/qabstracttdobject.h>
+#include <common/qabstracttdobject.h>
 
 MessageDelegateMap::MessageDelegateMap(QObject *parent)
     : QObject(parent)
