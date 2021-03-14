@@ -1,7 +1,7 @@
 {
     "name": "teleports.ubports",
     "description": "An Ubuntu Touch Telegram client",
-    "architecture": "@CLICK_ARCH@",
+    "architecture": "$ENV{ARCH}",
     "title": "TELEports",
     "hooks": {
         "teleports": {

@@ -37,13 +37,6 @@ set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
 
-# This command figures out the target architecture for use in the manifest file
-execute_process(
-    COMMAND dpkg-architecture -qDEB_HOST_ARCH
-    OUTPUT_VARIABLE CLICK_ARCH
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-
 # Sets BUILD_VERSION: Either tag of the current git HEAD or devel build version with git hash
 execute_process(
   COMMAND git describe --tags --abbrev=0 --exact-match
