@@ -16,7 +16,9 @@ Build tdlib (approx. 45 min per architecture):
     git submodule update --init
     clickable build-libs tdlib-prepare --arch amd64 # your host architecture (probably amd64)
     clickable build-libs tdlib --arch armhf # or arm64 or amd64
+    clickable build-libs quickflux --arch armhf # or arm64 or amd64
     clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
+    clickable build-libs quickflux --arch amd64 #if you want to build teleports on desktop, too
 
 Alternatively one can download the tdlib build from our CI. Open the
 [latest master pipeline](https://gitlab.com/ubports/apps/teleports/-/pipelines?page=1&scope=all&ref=master),
