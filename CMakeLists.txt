@@ -10,6 +10,8 @@ endif(CCACHE_FOUND)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+include(GNUInstallDirs)
+
 find_package(Qt5Core)
 find_package(Qt5Qml)
 find_package(Qt5Quick)
@@ -32,8 +34,7 @@ set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
 set(PROJECT_NAME "teleports")
 set(FULL_PROJECT_NAME "teleports.ubports")
-set(CMAKE_INSTALL_PREFIX /)
-set(DATA_DIR /)
+set(DATA_DIR ${CMAKE_INSTALL_PREFIX})
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)
 set(CURRENT_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/libs)
 
@@ -73,7 +74,7 @@ message(STATUS "Build version is: ${BUILD_VERSION}")
 #Version for the app is set in app/CMakeLists.txt
 configure_file(manifest.json.in ${CMAKE_CURRENT_BINARY_DIR}/manifest.json)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.apparmor DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.content-hub DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
