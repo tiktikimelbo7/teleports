@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationName(QStringLiteral("teleports.ubports"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("teleports.ubports"));
+    QGuiApplication::setApplicationDisplayName(QStringLiteral("TELEports"));
 
     registerQuickFluxQmlTypes();
     QTdLib::registerQmlTypes();
