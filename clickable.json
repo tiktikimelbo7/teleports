@@ -2,6 +2,9 @@
   "clickable_minimum_required": "6.12.2",
   "builder": "cmake",
   "kill": "teleports",
+  "install_lib": [
+    "${TDLIB_LIB_INSTALL_DIR}/lib/${ARCH_TRIPLET}/libtdjson.so.*"
+  ],
   "dependencies_target": [
     "gperf",
     "libssl-dev"
@@ -30,7 +33,8 @@
       ],
       "build_args": [
         "-DTHREADS_PTHREAD_ARG=0",
-        "-DCMAKE_CROSSCOMPILING=ON"
+        "-DCMAKE_CROSSCOMPILING=ON",
+        "-DCMAKE_INSTALL_LIBDIR=lib/${ARCH_TRIPLET}"
       ]
     }
   }
