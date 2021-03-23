@@ -82,13 +82,13 @@ Item {
             Layout.preferredWidth: imageOnly ? parent.width : height
             Layout.preferredHeight: imageOnly ? width * source.height / source.width : implicitHeight
             Layout.maximumHeight: imageOnly ? parent.width : pageDescription.height
-            anchors.verticalCenter: parent.verticalCenter
+            Layout.alignment: Qt.AlignBottom //Qt.AlignVCenter
 
             source: Image {
                 asynchronous: true
                 source: preview.photo.sizes.count > 0 ? Qt.resolvedUrl("file://" + preview.photo.sizes.get(imageOnly ? 2 : 1).photo.local.path) : ""
             }
-            Layout.alignment: Qt.AlignTop
+
 
             MouseArea {
                 anchors.fill: parent
