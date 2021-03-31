@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.10.1
+### Bugfix
+- Stop certain animations playing in the background to improve CPU resource usage
+
 ## 0.10
 ### Added
 - Chat filters for title and type of chat
