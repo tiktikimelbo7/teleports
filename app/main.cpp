@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QQmlContext>
 #include <QuickFlux>
-#include <qtdlib/quick/plugin.h>
+#include <quick/plugin.h>
 #include <QtQuickControls2/QQuickStyle>
 #include "messagedelegatemap.h"
 #include "messagecontentdelegatemap.h"
