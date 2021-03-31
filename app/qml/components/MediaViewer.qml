@@ -66,8 +66,8 @@ Item {
     UITK.ActivityIndicator {
         id: activity
         anchors.centerIn: parent
-        visible: running && !viewer.isVideo && !viewer.isAudio
-        running: image.status != Image.Ready
+        visible: running 
+        running: !viewer.isVideo && !viewer.isAudio && image.status != Image.Ready
     }
 
     PinchArea {
