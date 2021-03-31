@@ -36,6 +36,11 @@
         "-DCMAKE_CROSSCOMPILING=ON",
         "-DCMAKE_INSTALL_LIBDIR=lib/${ARCH_TRIPLET}"
       ]
+    },
+    "quickflux": {
+      "builder": "cmake",
+      "src_dir": "libs/quickflux",
+      "build_args": "-DCMAKE_CXX_FLAGS=-DQUICK_FLUX_DISABLE_AUTO_QML_REGISTER=1"
     }
   }
 }
