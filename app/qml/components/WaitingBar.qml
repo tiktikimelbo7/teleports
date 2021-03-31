@@ -39,14 +39,14 @@ Item {
 
         SequentialAnimation on x {
             id: animation
-            // loops: Animation.Infinite
+            running: visible
             onStopped: start() // Workaround for animation length to be updated on screen rotation (width change)
 
-            XAnimator {
+            NumberAnimation  {
                 from: flyer.xStart; to: flyer.xEnd
                 easing.type: Easing.InOutCubic; duration: 1000
             }
-            XAnimator {
+            NumberAnimation  {
                 from: flyer.xEnd; to: flyer.xStart
                 easing.type: Easing.InOutCubic; duration: 1400
             }
