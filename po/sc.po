@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-27 19:35+0000\n"
-"PO-Revision-Date: 2020-10-01 09:09+0000\n"
+"PO-Revision-Date: 2021-04-22 10:44+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -59,7 +59,7 @@ msgstr[1] "%1 membros"
 
 #: ../app/qml/components/GroupPreviewDialog.qml:37
 msgid "%1 members, among them:"
-msgstr ""
+msgstr "%1 persones, intre issas:"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
@@ -84,16 +84,12 @@ msgid "Members: %1"
 msgstr "Membros: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-#, fuzzy
-#| msgid "Channel called << %1 >> created"
 msgid "Channel called <b>%1</b> created"
-msgstr "Canale <<%1>> creadu"
+msgstr "Canale <b>%1</b> creadu"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-#, fuzzy
-#| msgid "%1 created a group called << %2 >>"
 msgid "%1 created a group called <b>%2</b>"
-msgstr "%1 at creadu unu grupu tzerriadu << %2 >>"
+msgstr "%1 at creadu su grupu <b>%2</b>"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
@@ -126,10 +122,8 @@ msgid "%1 added %2"
 msgstr "%1 at agiuntu a %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "Unknown joined group"
-msgstr "%1 at aderidu a su grupu"
+msgstr "Una persone at aderidu a su grupu"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:32
 msgid "%1 user(s)"
@@ -138,26 +132,20 @@ msgstr[0] "%1 usuàriu(/-os)"
 msgstr[1] ""
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:32
-#, fuzzy
-#| msgid "message TTL has been changed"
 msgid "Channel photo has been changed:"
-msgstr "TTL de su messàgiu modificadu"
+msgstr "Fotografia de su canale modificada:"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:33
-#, fuzzy
-#| msgid "changed the chat photo"
 msgid "%1 changed the chat photo:"
-msgstr "at mudadu sa fotografia de sa tzarrada"
+msgstr "%1 at mudadu sa fotografia de sa tzarrada:"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:6
 msgid "Channel title has been changed to <b>%1</b>"
-msgstr ""
+msgstr "Tìtulu de su canale modificadu: <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:7
-#, fuzzy
-#| msgid "changed the chat title"
 msgid "%1 changed the chat title to <b>%2</b>"
-msgstr "at mudadu su tìtulu de sa tzarrada"
+msgstr "%1 at mudadu su tìtulu de sa tzarrada: <b>%2</b>"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
@@ -171,17 +159,15 @@ msgstr "%1 nch'at bogadu %2"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:6
 msgid "Channel photo has been removed"
-msgstr ""
+msgstr "Fotografia de su canale cantzellada"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
-#, fuzzy
-#| msgid "deleted the chat photo"
 msgid "%1 deleted the chat photo"
-msgstr "at cantzelladu sa foto de sa tzarrada"
+msgstr "%1 at cantzelladu sa foto de sa tzarrada"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr ""
+msgstr "Durada de su messàgiu cunfigurada in <b>%1</b> segundos"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -207,7 +193,7 @@ msgstr "Nota vocale"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "Some date missing"
-msgstr ""
+msgstr "Ammancant datos"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
@@ -228,7 +214,7 @@ msgstr "No ddoe est ancora suportu pro is adesivos animados :("
 
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
-msgstr ""
+msgstr "Su messàgiu no est a disponimentu..."
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -261,10 +247,8 @@ msgid "Leave"
 msgstr "Essi·nche"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:47
-#, fuzzy
-#| msgid "joined the group"
 msgid "Join group"
-msgstr "at aderidu a su grupu"
+msgstr "Aderi a su grupu"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -365,25 +349,23 @@ msgstr "Cunfiguratziones"
 
 #: ../app/qml/pages/ChatListPage.qml:62
 msgid "Search"
-msgstr ""
+msgstr "Chirca"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "All"
-msgstr ""
+msgstr "Totus"
 
 #: ../app/qml/pages/ChatListPage.qml:112
-#, fuzzy
-#| msgid "Archived chats"
 msgid "Archived"
-msgstr "Tzarradas archiviadas"
+msgstr "Archiviadas"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "Personal"
-msgstr ""
+msgstr "Personales"
 
 #: ../app/qml/pages/ChatListPage.qml:112
 msgid "Unread"
-msgstr ""
+msgstr "Non lèghidos"
 
 #: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
@@ -418,10 +400,8 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "Boles imbiare is archìvios importados a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:460
-#, fuzzy
-#| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
-msgstr "Boles imbiare is archìvios importados a %1?"
+msgstr "Boles imbiare su testu importadu a %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:462
 #: ../app/qml/pages/MessageListPage.qml:855
@@ -474,19 +454,20 @@ msgstr "Àmpiu de banda de Ubuntu Touch non limitadu"
 
 #: ../app/qml/pages/LogoutPage.qml:14
 msgid "Good bye!"
-msgstr ""
+msgstr "A si bìdere!"
 
 #: ../app/qml/pages/LogoutPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Disconnecting..."
-msgstr "Connetende"
+msgstr "Disconnetende..."
 
 #: ../app/qml/pages/LogoutPage.qml:37
 msgid ""
 "The app will close automatically when the logout process ends.\n"
 "Please, don't close it manually!"
 msgstr ""
+"S'aplicatzione at a èssere serrada in automàticu comente as a essire de sa "
+"sessione.\n"
+"Non dda serres a manu."
 
 #: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
@@ -511,30 +492,24 @@ msgid "Secret chat has been closed"
 msgstr "Tzarrada segreta serrada"
 
 #: ../app/qml/pages/MessageListPage.qml:352
-#, fuzzy
-#| msgid "left the group"
 msgid "You left this group"
-msgstr "at lassadu su grupu"
+msgstr "As lassadu custu grupu"
 
 #: ../app/qml/pages/MessageListPage.qml:355
-#, fuzzy
-#| msgid "You have a new message"
 msgid "You have been banned"
-msgstr "Tenes unu messàgiu nou"
+msgstr "T'ant bandidu"
 
 #: ../app/qml/pages/MessageListPage.qml:358
-#, fuzzy
-#| msgid "You are not allowed to post in this channel"
 msgid "You are not allowed to post in this group"
-msgstr "Non podes publicare in custu canale"
+msgstr "Non podes publicare in custu grupu"
 
 #: ../app/qml/pages/MessageListPage.qml:362
 msgid "You can't write here. Reason unkown"
-msgstr ""
+msgstr "Non podes iscrìere inoghe. Resone disconnota"
 
 #: ../app/qml/pages/MessageListPage.qml:385
 msgid "Join"
-msgstr ""
+msgstr "Aderi"
 
 #: ../app/qml/pages/MessageListPage.qml:525
 msgid "Type a message..."
@@ -593,12 +568,6 @@ msgstr ""
 "de custu dispositivu, fintzas is tzarradas segretas. Seguru chi boles essire?"
 
 #: ../app/qml/pages/SettingsPage.qml:150
-#, fuzzy
-#| msgid ""
-#| "Warning: Deleting the account will delete all the data you ever received "
-#| "or send using telegram except for data you have explicitly saved outside "
-#| "the telegram cloud. Are you really really sure you want to delete your "
-#| "telegram account?"
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "sent using telegram except for data you have explicitly saved outside the "
@@ -640,12 +609,10 @@ msgid "Code"
 msgstr "Còdighe"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-#, fuzzy
-#| msgid "We've send a code via telegram to your device. Please enter it here."
 msgid ""
 "A code was sent via Telegram to your other devices. Please enter it here."
 msgstr ""
-"Amus imbiadu pro mèdiu de Telegram unu còdighe a su dispositivu tuo. "
+"Amus imbiadu pro mèdiu de Telegram unu còdighe a un'àteru dispositivu tuo. "
 "Inserta·nche·ddu inoghe."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
@@ -657,10 +624,8 @@ msgid "Password"
 msgstr "Crae"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:57
-#, fuzzy
-#| msgid "Password"
 msgid "Password hint: %1"
-msgstr "Crae"
+msgstr "Cussìgiu de sa crae: %1"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92
@@ -729,7 +694,7 @@ msgstr "Peruna positzione vàlida retzida a pustis de 180 segundos"
 
 #: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Username <b>@%1</b> not found"
-msgstr ""
+msgstr "Nòmine utente <b>@%1</b> no agatadu"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
