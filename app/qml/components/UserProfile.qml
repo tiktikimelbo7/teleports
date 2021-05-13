@@ -145,6 +145,23 @@ Column {
                     linkColor: Suru.highlightColor
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
+                Rectangle {
+                    height: parent.title.font.pixelSize * 2.5
+                    width: height
+                    color: chatLinkCopy.pressed ? Suru.tertiaryForegroundColor : "transparent"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                    MouseArea {
+                        id: chatLinkCopy
+                        anchors.fill: parent
+                        onClicked: UITK.Clipboard.push("https://t.me/" + chat.userName)
+                    }
+                    UITK.Icon {
+                        height: parent.height * 0.6
+                        anchors.centerIn: parent
+                        width: height
+                        name: "edit-copy"
+                    }
+                }
             }
         }
         UITK.ListItem {
@@ -167,6 +184,23 @@ Column {
                     elide: Text.ElideRight
                     linkColor: Suru.highlightColor
                     onLinkActivated: Qt.openUrlExternally(link)
+                }
+                Rectangle {
+                    height: parent.title.font.pixelSize * 2.5
+                    width: height
+                    color: inviteLinkCopy.pressed ? Suru.tertiaryForegroundColor : "transparent"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                    MouseArea {
+                        id: inviteLinkCopy
+                        anchors.fill: parent
+                        onClicked: UITK.Clipboard.push(chat.inviteLink)
+                    }
+                    UITK.Icon {
+                        height: parent.height * 0.6
+                        anchors.centerIn: parent
+                        width: height
+                        name: "edit-copy"
+                    }
                 }
             }
         }
@@ -211,6 +245,23 @@ Column {
                     UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
                 }
                 title.text: visible ? "@" + user.username : ""
+                Rectangle {
+                    height: parent.title.font.pixelSize * 2.5
+                    width: height
+                    color: userNameCopy.pressed ? Suru.tertiaryForegroundColor : "transparent"
+                    UITK.SlotsLayout.position: UITK.SlotsLayout.Trailing
+                    MouseArea {
+                        id: userNameCopy
+                        anchors.fill: parent
+                        onClicked: UITK.Clipboard.push("@" + user.username)
+                    }
+                    UITK.Icon {
+                        anchors.centerIn: parent
+                        height: parent.height * 0.6
+                        width: height
+                        name: "edit-copy"
+                    }
+                }
             }
         }
     }
