@@ -122,23 +122,23 @@ Page {
         width: parent.width * 0.75
         Suru.theme: rootItem.Suru.theme
         MenuPanelItem {
-            icon: "inbox"
+            iconName: "inbox"
             label: i18n.tr("Saved Messages")
             onTriggered: AppActions.chat.createOrOpenSavedMessages()
         }
         MenuPanelItem {
-            icon: "address-book-app-symbolic"
+            iconName: "address-book-app-symbolic"
             label: i18n.tr("Contacts")
             onTriggered: AppActions.settings.viewUserList()
         }
         MenuPanelItem {
-            icon: "settings"
+            iconName: "settings"
             label: i18n.tr("Settings")
             onTriggered: AppActions.view.pushToStack("qrc:/pages/SettingsPage.qml", {})
         }
         MenuPanelItem {
             id: nightModeMenuItem
-            icon: "night-mode"
+            iconName: "night-mode"
             label: i18n.tr("Night mode")
             Switch {
                 id: theme_switch
@@ -151,7 +151,7 @@ Page {
             onTriggered: AppActions.settings.setTheme(theme_switch.checked ? Suru.Light : Suru.Dark)
         }
         MenuPanelItem {
-            icon: "help"
+            iconName: "help"
             label: i18n.tr("About")
             onTriggered: AppActions.view.pushToStack("qrc:///pages/AboutPage.qml", {})
         }
