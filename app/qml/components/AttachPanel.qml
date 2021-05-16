@@ -41,21 +41,21 @@ Item {
 
             AttachPanelItem {
                 id: attach_photo_item
-                icon: "stock_image"
+                iconName: "stock_image"
                 onClicked: {
                     attach_panel.photoRequested()
                     attach_panel.close()
                 }
             }
             AttachPanelItem {
-                icon: "stock_document"
+                iconName: "stock_document"
                 onClicked: {
                     attach_panel.documentRequested()
                     attach_panel.close()
                 }
             }
             AttachPanelItem {
-                icon: "stock_video"
+                iconName: "stock_video"
                 onClicked: {
                     attach_panel.videoRequested()
                     attach_panel.close()
@@ -63,7 +63,7 @@ Item {
             }
 
             AttachPanelItem {
-                icon: "stock_music"
+                iconName: "stock_music"
                 onClicked: {
                     attach_panel.audioRequested()
                     attach_panel.close()
@@ -71,7 +71,7 @@ Item {
             }
 
              AttachPanelItem {
-                icon: "location-active"
+                iconName: "location-active"
                 onClicked: {
                     attach_panel.locationRequested()
                     attach_panel.close()
@@ -79,7 +79,7 @@ Item {
             }
 
             AttachPanelItem {
-                icon: "stock_contact"
+                iconName: "stock_contact"
                 onClicked: {
                     attach_panel.contactRequested()
                     attach_panel.close()
