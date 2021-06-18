@@ -5,6 +5,7 @@ import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
 import QuickFlux 1.1
 import "../components"
+import QLottieFrameProvider 1.0
 
 MessageContentBase {
     property QTdMessageSticker stickerContent: message.content
@@ -12,37 +13,49 @@ MessageContentBase {
     // TODO: Consider thumbnail
     // property QTdFile thumbnail: stickerContent.sticker.thumbnail
     property QTdLocalFile localFile: file.local
+    property url localFileSource: localFile.path !== "" ? Qt.resolvedUrl("file://" + localFile.path)
+                                                        : Qt.resolvedUrl("")
 
-    Image {
-        id: image
-
-        property url localFileSource: localFile.path !== "" && !stickerContent.sticker.isAnimated
-                                      ? Qt.resolvedUrl("file://" + localFile.path)
-                                      : Qt.resolvedUrl("")
-
-        function reload() {
-            image.source = Qt.resolvedUrl();
-            image.source = localFileSource;
-        }
-
+    Loader {
+        id: stickerLoader
+        sourceComponent: stickerContent.sticker.isAnimated ? lottie : image
         width: Math.min(d.maxStickerSize, maximumAvailableContentWidth)
         height: width * (stickerContent.sticker.height/stickerContent.sticker.width)
-        source: localFileSource
+    }
+    Component {
+        id: image
+        Image {
+            source: localFileSource
 
-        // TODO: Handle Image.Error
+            function reload() {
+                source = Qt.resolvedUrl("")
+                source = localFileSource
+            }
 
-        BusyIndicator {
-            anchors.centerIn: parent
-            running: image.status === Image.Loading
-                     || image.status === Image.Null
+            // TODO: Handle Image.Error
+            BusyIndicator {
+                anchors.centerIn: parent
+                running: image.status === Image.Loading
+                         || image.status === Image.Null
+            }
         }
     }
+    Component {
+        id: lottie
+        LottieAnimation {
+            source: localFileSource
 
+            function reload() {
+                source = localFileSource
+                play = true
+            }
+
+            Component.onCompleted: play = true
+        }
+    }
     Connections {
         target: file
-        onFileChanged: {
-            image.reload();
-        }
+        onFileChanged: stickerLoader.item.reload()
     }
 
     QtObject {

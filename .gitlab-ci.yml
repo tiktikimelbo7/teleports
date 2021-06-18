@@ -52,6 +52,24 @@ cache: &tdlib_cache
             - "build/$ARCH_TRIPLET/tdlib/install"
         expire_in: 1 week
 
+.rlottie:
+    image: "clickable/ci-16.04-$ARCH:$CLICKABLE_VERSION"
+    stage: deps-prepare
+    script: 'clickable build-libs rlottie --arch $ARCH'
+    artifacts:
+        paths:
+            - "build/$ARCH_TRIPLET/rlottie/install"
+        expire_in: 1 week
+
+.rlottie-qml:
+    image: "clickable/ci-16.04-$ARCH:$CLICKABLE_VERSION"
+    stage: deps
+    script: 'clickable build-libs rlottie-qml --arch $ARCH'
+    artifacts:
+        paths:
+            - "build/$ARCH_TRIPLET/rlottie-qml/install"
+        expire_in: 1 week
+
 .quickflux:
     image: "clickable/ci-16.04-$ARCH:$CLICKABLE_VERSION"
     stage: deps
@@ -98,6 +116,36 @@ tdlib-amd64:
     <<: *amd64
     extends: .tdlib
 
+rlottie-armhf:
+    <<: *armhf
+    extends: .rlottie
+
+rlottie-arm64:
+    <<: *arm64
+    extends: .rlottie
+
+rlottie-amd64:
+    <<: *amd64
+    extends: .rlottie
+
+rlottie-qml-armhf:
+    <<: *armhf
+    extends: .rlottie-qml
+    dependencies:
+        - rlottie-armhf
+
+rlottie-qml-arm64:
+    <<: *arm64
+    extends: .rlottie-qml
+    dependencies:
+        - rlottie-arm64
+
+rlottie-qml-amd64:
+    <<: *amd64
+    extends: .rlottie-qml
+    dependencies:
+        - rlottie-amd64
+
 quickflux-armhf:
     <<: *armhf
     extends: .quickflux
@@ -115,6 +163,8 @@ teleports-armhf:
     dependencies:
         - tdlib-armhf
         - quickflux-armhf
+        - rlottie-armhf
+        - rlottie-qml-armhf
     extends: .teleports
 
 teleports-arm64:
@@ -122,6 +172,8 @@ teleports-arm64:
     dependencies:
         - tdlib-arm64
         - quickflux-arm64
+        - rlottie-arm64
+        - rlottie-qml-arm64
     extends: .teleports
 
 teleports-amd64:
@@ -129,6 +181,8 @@ teleports-amd64:
     dependencies:
         - tdlib-amd64
         - quickflux-amd64
+        - rlottie-amd64
+        - rlottie-qml-amd64
     extends: .teleports
 
 
