@@ -30,9 +30,6 @@ void QTdStickerSets::handleStickerSets(const QJsonObject &json)
     for (auto value : array) {
         auto newSet = new QTdStickerSet(this);
         newSet->unmarshalJson(value.toObject());
-        // TODO - remove if statement when animated stickers are supported
-        if (!newSet->isAnimated()) {
-            m_stickerSets->append(newSet);
-        }
+        m_stickerSets->append(newSet);
     }
 }

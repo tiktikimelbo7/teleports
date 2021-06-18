@@ -3,9 +3,15 @@
   "builder": "cmake",
   "kill": "teleports",
   "install_lib": [
-    "${TDLIB_LIB_INSTALL_DIR}/lib/${ARCH_TRIPLET}/libtdjson.so.*"
+    "/usr/lib/${ARCH_TRIPLET}/libquazip5.so.*",
+    "${TDLIB_LIB_INSTALL_DIR}/lib/${ARCH_TRIPLET}/libtdjson.so.*",
+    "${RLOTTIE_LIB_INSTALL_DIR}/lib/*so*"
+  ],
+  "install_qml": [
+      "${RLOTTIE_QML_LIB_INSTALL_DIR}/lib/${ARCH_TRIPLET}/rLottieQml/QLottieFrameProvider"
   ],
   "dependencies_target": [
+    "libquazip5-dev",
     "gperf",
     "libssl-dev"
   ],
@@ -41,6 +47,24 @@
       "builder": "cmake",
       "src_dir": "libs/quickflux",
       "build_args": "-DCMAKE_CXX_FLAGS=-DQUICK_FLUX_DISABLE_AUTO_QML_REGISTER=1"
+    },
+    "rlottie": {
+      "builder": "cmake",
+      "src_dir": "libs/vendor/rlottie",
+      "build_args": [
+        "-DCMAKE_CXX_FLAGS=-Wno-sign-compare",
+        "-DLIB_INSTALL_DIR=lib"
+      ]
+    },
+    "rlottie-qml": {
+      "builder": "cmake",
+      "src_dir": "libs/rlottie-qml",
+      "build_args": [
+        "-DCMAKE_PREFIX_PATH=${ROOT}/build/${ARCH_TRIPLET}/rlottie/install/"
+      ],
+      "dependencies_target": [
+        "libquazip5-dev"
+      ]
     }
   }
 }

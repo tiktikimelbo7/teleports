@@ -4,3 +4,9 @@
 [submodule "libs/quickflux"]
 	path = libs/quickflux
 	url = https://github.com/benlau/quickflux
+[submodule "libs/vendor/rlottie"]
+	path = libs/vendor/rlottie
+	url = https://github.com/TelegramMessenger/rlottie
+[submodule "libs/rlottie-qml"]
+	path = libs/rlottie-qml
+	url = https://gitlab.com/mymike00/rlottie-qml
