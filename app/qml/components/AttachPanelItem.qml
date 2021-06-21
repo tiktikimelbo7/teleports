@@ -7,7 +7,7 @@ Column {
     id: attach_item
 
     property alias text: attach_label.text
-    property alias icon: attach_icon.name
+    property alias iconName: attach_icon.name
     signal clicked(var mouse)
 
     Item {
