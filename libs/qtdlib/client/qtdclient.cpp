@@ -65,6 +65,7 @@ QTdClient::QTdClient(QObject *parent)
     connect(this, &QTdClient::updateOption, this, &QTdClient::handleUpdateOption);
     m_worker->start();
     qWarning() << "App Paths:" << QGuiApplication::applicationDirPath();
+    m_auxdb.getAvatarMapTable()->resetUnreadMap();
 }
 
 static QPointer<QTdClient> s_tdclient;
@@ -351,6 +352,12 @@ void QTdClient::setAvatarMapEntry(const qint64 id, const QString path)
 {
     if (path != "")
         m_auxdb.getAvatarMapTable()->setMapEntry(id, path);
+}
+
+void QTdClient::removeMapEntry(const qint64 id)
+{
+    m_auxdb.getAvatarMapTable()->removeMapEntry(id);
+    m_postalClient.setCount(m_auxdb.getAvatarMapTable()->getTotalUnread());
 }
 
 void QTdClient::setUnreadMapEntry(const qint64 id, const qint32 unread_count)

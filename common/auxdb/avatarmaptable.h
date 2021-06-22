@@ -13,9 +13,11 @@ class AvatarMapTable : public QObject
 public:
     explicit AvatarMapTable(AuxDatabase *db, QObject *parent = 0);
 
-    QString getAvatarPathbyId(qint64 id);
-    void setMapEntry(qint64 id, QString path);
-    void setUnreadMapEntry(qint64 id, qint32 unread_count);
+    QString getAvatarPathbyId(const qint64 id);
+    void setMapEntry(const qint64 id, const QString path);
+    void setUnreadMapEntry(const qint64 id, const qint32 unread_count);
+    void removeMapEntry(const qint64 id);
+    void resetUnreadMap();
     qint32 getTotalUnread();
 
 private:

@@ -111,6 +111,7 @@ public:
 
     void setAvatarMapEntry(const qint64 id, const QString path);
     void setUnreadMapEntry(const qint64 id, const qint32 unread_count);
+    void removeMapEntry(const qint64 id);
     void clearNotificationFor(const qint64 id);
 
 signals:
