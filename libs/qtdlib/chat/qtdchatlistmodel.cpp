@@ -255,6 +255,11 @@ void QTdChatListModel::handleUpdateChatOrder(const QJsonObject &data)
     if (tdchat) {
         tdchat->updateChatOrder(data);
         emit contentsChanged();
+        if (tdchat->order() == 0)
+        {
+            m_model->remove(tdchat);
+            QTdClient::instance()->removeMapEntry(tdchat->id());
+        }
     }
 }
 
