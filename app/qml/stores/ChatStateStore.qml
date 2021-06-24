@@ -250,7 +250,7 @@ Store {
           messageIds.push(message.id)
           chatList.forwardingMessages = messageIds;
           chatList.listMode = ChatList.ForwardingMessages
-          chatList.currentChat.closeChat()
+          AppActions.view.popFromStack()
        }
    }
 
