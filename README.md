@@ -17,6 +17,8 @@ Build tdlib (approx. 45 min per architecture):
     clickable build-libs tdlib-prepare --arch amd64 # your host architecture (probably amd64)
     clickable build-libs tdlib --arch armhf # or arm64 or amd64
     clickable build-libs quickflux --arch armhf # or arm64 or amd64
+    clickable build-libs rlottie --arch armhf # or arm64 or amd64
+    clickable build-libs rlottie-qml --arch armhf # or arm64 or amd64
     clickable build-libs tdlib --arch amd64 #if you want to build teleports on desktop, too
     clickable build-libs quickflux --arch amd64 #if you want to build teleports on desktop, too
 
@@ -72,7 +74,7 @@ details.
 Once you see the `<gdb>` prompt in the second terminal, you can start TELEports
 by running the gdb command `continue`. For detailed instructions on how to use
 gdb check out
-[gdb documentation](https://sourceware.org/gdb/current/onlinedocs/gdb/).  
+[gdb documentation](https://sourceware.org/gdb/current/onlinedocs/gdb/).
 
 ## C++ Code Style/Formatting
 
