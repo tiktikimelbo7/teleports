@@ -76,8 +76,6 @@ install(FILES ${PROJECT_NAME}.content-hub DESTINATION ${DATA_DIR})
 install(FILES ${PROJECT_NAME}.url-dispatcher DESTINATION ${DATA_DIR})
 install(DIRECTORY assets DESTINATION ${DATA_DIR})
 
-install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/app/${PROJECT_NAME} DESTINATION ${DATA_DIR})
-
 # Translations
 file(GLOB_RECURSE I18N_SRC_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po push/*.cpp libs/qtdlib/*.cpp app/qml/*.qml app/qml/*.js)
 list(APPEND I18N_SRC_FILES ${DESKTOP_FILE_NAME}.in.h)

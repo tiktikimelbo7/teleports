@@ -18,6 +18,9 @@
   "dependencies_host": [
     "ccache"
   ],
+  "build_args": [
+    "-DCMAKE_INSTALL_BINDIR=."
+  ],
   "libraries": {
     "tdlib-prepare": {
       "builder": "cmake",
