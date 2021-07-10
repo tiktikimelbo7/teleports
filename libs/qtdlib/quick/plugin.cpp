@@ -99,6 +99,7 @@ void QTdLib::registerQmlTypes()
 
     // qtdlib chat
     qmlRegisterUncreatableType<QTdChat>(uri, 1, 0, "QTdChat", "c++ class");
+    qmlRegisterUncreatableType<QTdChats>(uri, 1, 0, "QTdChats", "c++ class");
     qmlRegisterUncreatableType<QTdChatType>(uri, 1, 0, "QTdChatType", "abstract c++ class");
     qmlRegisterUncreatableType<QTdChatTypeBasicGroup>(uri, 1, 0, "QTdChatTypeBasicGroup", "c++ class");
     qmlRegisterUncreatableType<QTdChatTypePrivate>(uri, 1, 0, "QTdChatTypePrivate", "c++ class");

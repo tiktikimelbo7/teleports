@@ -16,8 +16,8 @@ Page {
     property color hb: Suru.backgroundColor
     property color hd: Suru.neutralColor
     header: UITK.PageHeader {
-        title: Telegram.chats.listMode == ChatList.ForwardingMessages
-            || Telegram.chats.listMode == ChatList.ImportingAttachments
+        title: Telegram.chats.listMode == QTdChats.ForwardingMessages
+            || Telegram.chats.listMode == QTdChats.ImportingAttachments
             ? i18n.tr("Select destination or cancel...")
             : ""
 
@@ -32,8 +32,8 @@ Page {
                 text: i18n.tr("Cancel")
                 iconName: "cancel"
                 onTriggered: AppActions.chat.cancelForwardMessage()
-                visible: Telegram.chats.listMode == ChatList.ForwardingMessages
-                        || Telegram.chats.listMode == ChatList.ImportingAttachments
+                visible: Telegram.chats.listMode == QTdChats.ForwardingMessages
+                        || Telegram.chats.listMode == QTdChats.ImportingAttachments
             },
             UITK.Action {
                 text: i18n.tr("Settings")
@@ -41,7 +41,7 @@ Page {
                 onTriggered: {
                     mainMenuPanel.visible ? mainMenuPanel.close() : mainMenuPanel.open()
                 }
-                visible: Telegram.chats.listMode == ChatList.Idle
+                visible: Telegram.chats.listMode == QTdChats.Idle
             }
         ]
         trailingActionBar.actions: [
@@ -90,7 +90,7 @@ Page {
                         AppActions.chat.searchChat(searchText.text)
                     }
                 }
-                visible: Telegram.chats.listMode == ChatList.Idle
+                visible: Telegram.chats.listMode == QTdChats.Idle
             }
             Label {
                 anchors.centerIn: parent
@@ -187,10 +187,10 @@ Page {
                 color: chat.isSecret ? Qt.rgba(Suru.highlightColor.r, Suru.highlightColor.g, Suru.highlightColor.b, 0.4) : "transparent"
 
                 onClicked: {
-                    if (Telegram.chats.listMode == ChatList.ForwardingMessages) {
+                    if (Telegram.chats.listMode == QTdChats.ForwardingMessages) {
                         userSelectedChat = chat;
                         UITK_Popups.PopupUtils.open(forwardConfirmationDialog);
-                    } else if (Telegram.chats.listMode == ChatList.ImportingAttachments) {
+                    } else if (Telegram.chats.listMode == QTdChats.ImportingAttachments) {
                         userSelectedChat = chat;
                         UITK_Popups.PopupUtils.open(importConfirmationDialog);
                     } else

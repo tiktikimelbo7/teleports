@@ -91,6 +91,7 @@ Store {
     /**
      *
      */
+    property alias chat: chatList.currentChat
     property alias messageList: messageList.model
     MessageList {
         id: messageList
@@ -247,7 +248,7 @@ Store {
           var messageIds = [];
           messageIds.push(message.id)
           chatList.forwardingMessages = messageIds;
-          listMode = ChatList.ForwardingMessages
+          listMode = QTdChats.ForwardingMessages
           currentChat.closeChat()
        }
    }
@@ -255,7 +256,7 @@ Store {
     Filter {
         type: ChatKey.sendForwardMessage
         onDispatched: {
-          listMode = ChatList.Idle
+          listMode = QTdChats.Idle
           AppActions.chat.setCurrentChat(message.chat);
           chatList.sendForwardMessage(chatList.forwardingMessages,
                                            message.chat.id,
@@ -267,7 +268,7 @@ Store {
         type: ChatKey.cancelForwardMessage
         onDispatched: {
           AppActions.chat.setCurrentChat(forwardChatId)
-          listMode = ChatList.Idle
+          listMode = QTdChats.Idle
         }
     }
 
@@ -285,7 +286,7 @@ Store {
        type: ChatKey.importFromContentHub
        onDispatched: {
           forwardChatId = currentChat
-          listMode = ChatList.ImportingAttachments
+          listMode = QTdChats.ImportingAttachments
           importedFileType = message.contentType
           importedFiles = message.filePaths
           if (currentChat && currentChat.isOpen) {
@@ -298,7 +299,7 @@ Store {
     Filter {
         type: ChatKey.sendImportData
         onDispatched: {
-            listMode = ChatList.Idle;
+            listMode = QTdChats.Idle;
             AppActions.chat.setCurrentChat(message.chat);
             if (message.text.length > 0 && importedFiles.length > 1) {
                 AppActions.chat.sendMessage(message.text);
