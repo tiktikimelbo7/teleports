@@ -24,7 +24,7 @@
 QTdChats::QTdChats(QObject *parent)
     : QObject(parent)
     , m_model(Q_NULLPTR)
-    , m_sortedmodel(new QTdSortedChats)
+    , m_sortedmodel(new QTdSortedChats(this))
     , m_currentChat(Q_NULLPTR)
     , m_forwardedFromChat(Q_NULLPTR)
     , m_forwardingMessages(QStringList())
@@ -33,6 +33,7 @@ QTdChats::QTdChats(QObject *parent)
     , m_chatToOpenOnUpdate(0)
 {
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
+    m_sortedmodel->setModel(this);
     m_positionWaitTimer->setInterval(180000);
     m_positionWaitTimer->setSingleShot(true);
     connect(this->m_positionWaitTimer, &QTimer::timeout, this, &QTdChats::onPositionInfoTimeout);
@@ -73,6 +74,21 @@ QTdChats *QTdChats::instance()
 QObject *QTdChats::model() const
 {
     return m_model;
+}
+
+QObject *QTdChats::sortedModel() const
+{
+    return m_sortedmodel;
+}
+
+int QTdChats::chatFilters() const
+{
+    return m_sortedmodel->chatFilters();
+}
+
+bool QTdChats::filterBarVisible() const
+{
+    return m_sortedmodel->filterBarVisible();
 }
 
 QTdChat *QTdChats::currentChat() const
@@ -154,11 +170,6 @@ void QTdChats::setCurrentChatByUsername(const QString &username)
     }
     qint64 chatId = (qint64)resp.result().json()["id"].toDouble();
     setCurrentChatById(chatId);
-}
-
-qint32 QTdChats::forwardingMessagesCount() const
-{
-    return m_forwardingMessages.length();
 }
 
 void QTdChats::setCurrentChat(QTdChat *currentChat)
@@ -418,7 +429,7 @@ void QTdChats::handleUpdateChatOnlineMemberCount(const QJsonObject &data)
 }
 
 void QTdChats::sendForwardMessage(const QStringList &forwardMessageIds,
-                                  const qint64 &recievingChatId,
+                                  const qint64 &receivingChatId,
                                   const qint64 &fromChatId,
                                   const QString &message)
 {
@@ -429,10 +440,10 @@ void QTdChats::sendForwardMessage(const QStringList &forwardMessageIds,
     messageText->setText(message);
     messageText->setEntities(formatEntities);
     QScopedPointer<QTdForwardMessagesRequest> request(new QTdForwardMessagesRequest);
-    request->setChatId(recievingChatId);
+    request->setChatId(receivingChatId);
     request->setFromChatId(fromChatId);
     QScopedPointer<QTdSendMessageRequest> additionalTextMessagerequest(new QTdSendMessageRequest);
-    additionalTextMessagerequest->setChatId(recievingChatId);
+    additionalTextMessagerequest->setChatId(receivingChatId);
     additionalTextMessagerequest->setContent(messageText);
     QList<qint64> forwardingMessageIntIds;
     foreach (QString msgId, forwardMessageIds) {
@@ -596,4 +607,19 @@ void QTdChats::joinChatByInviteLink(const QString &inviteLink)
     chat->unmarshalJson(json);
     setChatToOpenOnUpdate(chat->id());
     setCurrentChatById(chat->id());
+}
+
+void QTdChats::setChatFilters(int chatFilters)
+{
+    m_sortedmodel->setChatFilters(chatFilters);
+}
+
+void QTdChats::setChatNameFilter(const QString &nameFilter)
+{
+    m_sortedmodel->setChatNameFilter(nameFilter);
+}
+
+void QTdChats::toggleFilterBar(const bool &value)
+{
+    m_sortedmodel->toggleFilterBar(value);
 }

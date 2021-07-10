@@ -15,6 +15,13 @@ public:
     explicit SortedChats(QObject *parent = nullptr);
 
     QObject* model() const;
+    int chatFilters() const;
+    bool filterBarVisible() const;
+
+public slots:
+    void setChatFilters(int chatFilters);
+    void setChatNameFilter(const QString &nameFilter);
+    void toggleFilterBar(const bool &value);
 
 signals:
     void modelChanged();

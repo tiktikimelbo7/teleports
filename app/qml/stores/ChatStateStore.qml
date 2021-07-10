@@ -92,10 +92,9 @@ Store {
      *
      */
     property alias messageList: messageList.model
-    property alias chat: chatList.currentChat
     MessageList {
         id: messageList
-        chat: chatList.currentChat
+        chat: currentChat
         // TODO: Implement UI for error handling
         onError: console.error(errorMessage)
     }
@@ -104,11 +103,11 @@ Store {
         type: ChatKey.setCurrentChat
         onDispatched: {
             if (message.chat) {
-                if (chatList.currentChat && chatList.currentChat.isOpen  && message.chat.id !== chatList.currentChat.id) {
+                if (currentChat && currentChat.isOpen  && message.chat.id !== currentChat.id) {
                     console.log("Wrong chat open...")
                     return
                 }
-                chatList.currentChat = message.chat
+                currentChat = message.chat
             }
         }
     }
@@ -145,9 +144,9 @@ Store {
     Filter {
         type: ChatKey.setCurrentChatById
         onDispatched: {
-            var chatById = chatList.model.get(message.chatId)
+            var chatById = list.get(message.chatId)
             if (chatById) {
-                if (chatList.currentChat && chatList.currentChat.isOpen) {
+                if (currentChat && currentChat.isOpen) {
                     AppActions.chat.closeCurrentChat()
                 }
                 AppActions.chat.setCurrentChat(chatById)
@@ -167,8 +166,8 @@ Store {
     Filter {
         type: ChatKey.closeCurrentChat
         onDispatched: {
-            if (chatList.currentChat && chatList.currentChat.isOpen) {
-                chatList.currentChat.closeChat()
+            if (currentChat && currentChat.isOpen) {
+                currentChat.closeChat()
             } else
                 console.log("No chat open, ignoring close request")
         }
@@ -244,31 +243,31 @@ Store {
     Filter {
        type: ChatKey.forwardMessage
        onDispatched: {
-          chatList.forwardedFromChat = chatList.currentChat
+          forwardChatId = currentChat
           var messageIds = [];
           messageIds.push(message.id)
           chatList.forwardingMessages = messageIds;
-          chatList.listMode = ChatList.ForwardingMessages
-          chatList.currentChat.closeChat()
+          listMode = ChatList.ForwardingMessages
+          currentChat.closeChat()
        }
    }
 
     Filter {
         type: ChatKey.sendForwardMessage
         onDispatched: {
-          chatList.listMode = ChatList.Idle
+          listMode = ChatList.Idle
           AppActions.chat.setCurrentChat(message.chat);
           chatList.sendForwardMessage(chatList.forwardingMessages,
                                            message.chat.id,
-                                           chatList.forwardedFromChat.id,
+                                           forwardChatId.id,
                                            message.text);
         }
     }
     Filter {
         type: ChatKey.cancelForwardMessage
         onDispatched: {
-          AppActions.chat.setCurrentChat(chatList.forwardedFromChat)
-          chatList.listMode = ChatList.Idle
+          AppActions.chat.setCurrentChat(forwardChatId)
+          listMode = ChatList.Idle
         }
     }
 
@@ -285,12 +284,12 @@ Store {
     Filter {
        type: ChatKey.importFromContentHub
        onDispatched: {
-          chatList.forwardedFromChat = chatList.currentChat
-          chatList.listMode = ChatList.ImportingAttachments
+          forwardChatId = currentChat
+          listMode = ChatList.ImportingAttachments
           importedFileType = message.contentType
           importedFiles = message.filePaths
-          if (chatList.currentChat && chatList.currentChat.isOpen) {
-              chatList.currentChat.closeChat()
+          if (currentChat && currentChat.isOpen) {
+              currentChat.closeChat()
           }
           AppActions.view.popAllButOneFromStack()
        }
@@ -299,7 +298,7 @@ Store {
     Filter {
         type: ChatKey.sendImportData
         onDispatched: {
-            chatList.listMode = ChatList.Idle;
+            listMode = ChatList.Idle;
             AppActions.chat.setCurrentChat(message.chat);
             if (message.text.length > 0 && importedFiles.length > 1) {
                 AppActions.chat.sendMessage(message.text);
@@ -408,7 +407,7 @@ Store {
     Filter {
         type: ChatKey.sendChatAction
         onDispatched: {
-            chatList.currentChat.sendChatAction(true);
+            currentChat.sendChatAction(true);
         }
     }
 
@@ -423,7 +422,7 @@ Store {
     Filter {
         type: ChatKey.leaveChat
         onDispatched: {
-            var chat = chatList.model.get(message.chatId)
+            var chat = list.get(message.chatId)
             if (chat) {
                 chat.leaveChat()
             }
@@ -433,7 +432,7 @@ Store {
     Filter {
         type: ChatKey.deleteChatHistory
         onDispatched: {
-            var chat = chatList.model.get(message.chatId)
+            var chat = list.get(message.chatId)
             if (chat) {
                 chat.deleteChatHistory()
             }
@@ -445,7 +444,7 @@ Store {
         onDispatched: {
           chatList.setChatDraftMessage(message.draftText,
                                        message.replyToMessageId,
-                                       chatList.currentChat.id);
+                                       currentChat.id);
         }
     }
 
@@ -494,7 +493,7 @@ Store {
         type: ChatKey.joinChat
         onDispatched: {
             // AppActions.chat.closeCurrentChat()
-            chatList.joinChat(chatList.currentChat.id);
+            chatList.joinChat(currentChat.id);
         }
     }
 

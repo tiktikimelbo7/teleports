@@ -1,5 +1,5 @@
-#include "qtdsortedchats.h"
 #include "qtdchats.h"
+#include "qtdsortedchats.h"
 #include <QDebug>
 #include "client/qtdclient.h"
 #include "models/QmlObjectListModel.h"
@@ -11,6 +11,26 @@ QTdSortedChats::QTdSortedChats(QObject *parent)
     , m_chatFilters(Everything)
 {
 }
+
+QTdChats *QTdSortedChats::model() const
+{
+    return m_chatList;
+}
+
+void QTdSortedChats::setModel(QTdChats *model)
+{
+    m_chatList = model;
+    setSourceModel(static_cast<QAbstractItemModel *>(m_chatList->model()));
+    connect(model, &QTdChats::chatStatusChanged, [=]() {
+        invalidateFilter();
+    });
+    emit modelChanged();
+    setSortRole(static_cast<QQmlObjectListModel<QTdChat> *>(m_chatList->model())->roleForName("lastMessage"));
+    setFilterRole(static_cast<QQmlObjectListModel<QTdChat> *>(m_chatList->model())->roleForName("chatType"));
+    setDynamicSortFilter(true);
+    sort(0, Qt::DescendingOrder);
+}
+
 
 int QTdSortedChats::chatFilters() const
 {
