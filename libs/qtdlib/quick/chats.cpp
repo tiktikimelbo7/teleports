@@ -5,7 +5,19 @@
 Chats::Chats(QObject *parent)
     : QObject(parent)
 {
-    emit modelChanged();
+    connect(QTdChats::instance(), &QTdChats::modelChanged, this, &Chats::modelChanged);
+    connect(QTdChats::instance(), &QTdChats::sortedModelChanged, this, &Chats::sortedModelChanged);
+    connect(QTdChats::instance(), &QTdChats::contentsChanged, this, &Chats::contentsChanged);
+    connect(QTdChats::instance(), &QTdChats::chatStatusChanged, this, &Chats::chatStatusChanged);
+    connect(QTdChats::instance(), &QTdChats::currentChatChanged, this, &Chats::currentChatChanged);
+    connect(QTdChats::instance(), &QTdChats::listModeChanged, this, &Chats::listModeChanged);
+    connect(QTdChats::instance(), &QTdChats::positionInfoReceived, this, &Chats::positionInfoReceived);
+    connect(QTdChats::instance(), &QTdChats::positionInfoTimeout, this, &Chats::positionInfoTimeout);
+    connect(QTdChats::instance(), &QTdChats::invalidChatUsername, this, &Chats::invalidChatUsername);
+    connect(QTdChats::instance(), &QTdChats::modelPopulatedCompleted, this, &Chats::modelPopulatedCompleted);
+    connect(QTdChats::instance(), &QTdChats::showChatInviteLinkInfo, this, &Chats::showChatInviteLinkInfo);
+
+    emit modelChanged(QTdChats::instance()->model());
 }
 
 QObject *Chats::model() const

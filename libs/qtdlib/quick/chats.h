@@ -49,9 +49,17 @@ public slots:
     void joinChatByInviteLink(const QString &inviteLink);
 
 signals:
-    void modelChanged();
+    void modelChanged(QObject *model);
+    void sortedModelChanged(QObject *model);
+    void contentsChanged();
+    void chatStatusChanged();
     void currentChatChanged();
     void listModeChanged();
+    void positionInfoReceived(double latitude, double longitude);
+    void positionInfoTimeout();
+    void invalidChatUsername(const QString &username);
+    void modelPopulatedCompleted();
+    void showChatInviteLinkInfo(QTdChatInviteLinkInfo *info, const QString &inviteLink);
 };
 
 #endif // CHATS_H
