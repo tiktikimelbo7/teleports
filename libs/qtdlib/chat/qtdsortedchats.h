@@ -6,7 +6,6 @@
 #include <QFlags>
 #include <QString>
 #include <QSortFilterProxyModel>
-#include "qtdchats.h"
 
 /**
  * @brief The QTdSortedChats class
@@ -18,7 +17,6 @@
 class QTdSortedChats : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QTdChats *model READ model WRITE setModel NOTIFY modelChanged)
     Q_PROPERTY(int chatFilters READ chatFilters WRITE setChatFilters NOTIFY chatFiltersChanged)
     Q_PROPERTY(bool filterBarVisible READ filterBarVisible NOTIFY filterBarVisibleChanged)
 
@@ -33,8 +31,6 @@ public:
     };
     Q_ENUM(ChatFilters)
 
-    QTdChats *model() const;
-    void setModel(QTdChats *model);
     int chatFilters() const;
     bool filterBarVisible() const;
 
@@ -45,7 +41,6 @@ public slots:
     void setChatListFilter(const int &value);
 
 signals:
-    void modelChanged();
     void countChanged();
     void chatFiltersChanged(int chatFilters);
     void filterBarVisibleChanged();
@@ -56,7 +51,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(QTdSortedChats)
-    QPointer<QTdChats> m_chatList;
     int m_chatFilters;
     bool m_filterBarVisible;
     QString m_chatNameFilter;

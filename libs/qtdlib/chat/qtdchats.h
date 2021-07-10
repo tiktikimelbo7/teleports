@@ -8,6 +8,7 @@
 #include "auth/qtdauthstate.h"
 #include "models/QmlObjectListModel.h"
 #include "qtdchat.h"
+#include "qtdsortedchats.h"
 #include "chat/qtdchatinvitelinkinfo.h"
 
 typedef QList<qint64> PinnedChats;
@@ -17,6 +18,7 @@ class QTdChats : public QObject
 
     Q_OBJECT
     Q_PROPERTY(QObject *model READ model NOTIFY modelChanged)
+    Q_PROPERTY(QObject *sortedModel READ sortedModel NOTIFY sortedModelChanged)
     Q_PROPERTY(QTdChat *currentChat READ currentChat WRITE setCurrentChat NOTIFY currentChatChanged)
     Q_PROPERTY(ListMode listMode READ listMode WRITE setListMode NOTIFY listModeChanged)
     Q_PROPERTY(qint32 forwardingMessagesCount READ forwardingMessagesCount NOTIFY modelChanged)
@@ -34,6 +36,7 @@ class QTdChats : public QObject
         static QTdChats *instance();
 
         QObject *model() const;
+        QObject *sortedModel() const;
         QTdChat *currentChat() const;
         QTdChat *chatById(const qint64 &chatId) const;
         QTdChat *forwardedFromChat() const;
@@ -69,6 +72,7 @@ class QTdChats : public QObject
 
     signals:
         void modelChanged(QObject *model);
+        void sortedModelChanged(QObject *model);
         void contentsChanged();
         void chatStatusChanged();
         void currentChatChanged();
@@ -112,6 +116,7 @@ class QTdChats : public QObject
     private:
         Q_DISABLE_COPY(QTdChats)
         QPointer<QQmlObjectListModel<QTdChat>> m_model;
+        QTdSortedChats *m_sortedmodel;
         PinnedChats m_pinnedChats;
         QPointer<QTdChat> m_currentChat;
         qint64 m_chatToOpenOnUpdate;

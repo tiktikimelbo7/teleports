@@ -15,6 +15,7 @@ class QTdMessageForwardOrigin : public QTdObject
     // Q_DISABLE_COPY(QTdMessageForwardOrigin)
 public:
     explicit QTdMessageForwardOrigin(QObject *parent = nullptr);
+    virtual QString originSummary() const = 0;
 };
 
 /**
@@ -31,6 +32,7 @@ class QTdMessageForwardOriginChat : public QTdMessageForwardOrigin
 public:
     explicit QTdMessageForwardOriginChat(QObject *parent = nullptr);
 
+    virtual QString originSummary() const;
     QString qmlChatId() const;
     qint64 chatId() const;
     QString authorSignature() const;
@@ -41,8 +43,7 @@ signals:
     void forwardOriginChanged();
 
 private:
-    QTdInt64 m_chatId;
-    QTdInt64 m_messageId;
+    QTdInt64 m_senderChatId;
     QString m_authorSignature;
 };
 
@@ -56,11 +57,11 @@ class QTdMessageForwardOriginChannel : public QTdMessageForwardOrigin
     Q_OBJECT
     // Q_DISABLE_COPY(QTdMessageForwardOriginChannel)
     Q_PROPERTY(QString chatId READ qmlChatId NOTIFY forwardOriginChanged)
-    Q_PROPERTY(QString messageId READ qmlMessageId NOTIFY forwardOriginChanged)
     Q_PROPERTY(QString authorSignature READ authorSignature NOTIFY forwardOriginChanged)
 public:
     explicit QTdMessageForwardOriginChannel(QObject *parent = nullptr);
 
+    virtual QString originSummary() const;
     QString qmlChatId() const;
     qint64 chatId() const;
     QString qmlMessageId() const;
@@ -75,6 +76,7 @@ signals:
 private:
     QTdInt64 m_chatId;
     QTdInt64 m_messageId;
+
     QString m_authorSignature;
 };
 
@@ -91,6 +93,7 @@ class QTdMessageForwardOriginHiddenUser : public QTdMessageForwardOrigin
 public:
     explicit QTdMessageForwardOriginHiddenUser(QObject *parent = nullptr);
 
+    virtual QString originSummary() const;
     QString senderName() const;
 
     void unmarshalJson(const QJsonObject &json);
@@ -115,6 +118,7 @@ class QTdMessageForwardOriginUser : public QTdMessageForwardOrigin
 public:
     explicit QTdMessageForwardOriginUser(QObject *parent = nullptr);
 
+    virtual QString originSummary() const;
     QString qmlSenderUserId() const;
     qint32 senderUserId() const;
 

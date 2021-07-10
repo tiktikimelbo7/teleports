@@ -1,6 +1,6 @@
 #include "chats.h"
 #include <QDebug>
-#include "chat/qtchats.h"
+#include "chat/qtdchats.h"
 
 Chats::Chats(QObject *parent)
     : QObject(parent)

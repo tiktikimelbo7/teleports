@@ -24,6 +24,7 @@
 QTdChats::QTdChats(QObject *parent)
     : QObject(parent)
     , m_model(Q_NULLPTR)
+    , m_sortedmodel(new QTdSortedChats)
     , m_currentChat(Q_NULLPTR)
     , m_forwardedFromChat(Q_NULLPTR)
     , m_forwardingMessages(QStringList())

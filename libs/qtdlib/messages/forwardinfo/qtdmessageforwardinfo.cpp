@@ -65,59 +65,7 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
     const QJsonObject origin = json["origin"].toObject();
     m_origin = QTdMessageForwardOriginFactory::create(origin, this);
     if (m_origin) {
-        qint64 originId;
-        switch (m_origin->type()) {
-        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHAT:
-        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_CHANNEL:
-            auto *chat = QTdChats::instance()->chatById(originId);
-            if (!chat) {
-                QScopedPointer<QTdGetChatRequest> req(new QTdGetChatRequest);
-                req->setChatId(originId);
-                QFuture<QTdResponse> resp = req->sendAsync();
-                await(resp, 2000);
-                if (resp.result().isError()) {
-                    qWarning() << "Failed to get chat with error: " << resp.result().errorString();
-                    m_displayedName = "";
-                } else {
-                    if (!resp.result().json().isEmpty()) {
-                        auto tempChat = new QTdChat(this);
-                        tempChat->unmarshalJson(resp.result().json());
-                        m_displayedName = tempChat->title();
-                        delete tempChat;
-                    }
-                }
-            } else {
-                m_displayedName = chat->title();
-            }
-            break;
-        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_HIDDEN_USER:
-            auto hiddenUserOrigin = qobject_cast<QTdMessageForwardOriginHiddenUser *>(m_origin);
-            m_displayedName = hiddenUserOrigin->senderName();
-            break;
-        case QTdMessageForwardOrigin::Type::MESSAGE_FORWARD_ORIGIN_USER:
-            auto originId = qobject_cast<QTdMessageForwardOriginUser *>(m_origin)->senderUserId();
-            auto *user = QTdUsers::instance()->model()->getByUid(QString::number(originId));
-            if (!user) {
-                QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);
-                req->setUserId(originId);
-                QFuture<QTdResponse> resp = req->sendAsync();
-                await(resp, 2000);
-                if (resp.result().isError()) {
-                    qWarning() << "Failed to get user with error: " << resp.result().errorString();
-                    m_displayedName = "";
-                } else {
-                    if (!resp.result().json().isEmpty()) {
-                        auto tempUser = new QTdUser(this);
-                        tempUser->unmarshalJson(resp.result().json());
-                        m_displayedName = tempUser->firstName() + " " + tempUser->lastName();
-                        delete tempUser;
-                    }
-                }
-            } else {
-                m_displayedName = user->firstName() + " " + user->lastName();
-            }
-            break;
-        }
+        m_displayedName = m_origin->originSummary();
     }
     m_date = json["date"].toInt();
     m_fromChatId = json["forwarded_from_chat_id"].toInt();

@@ -1,6 +1,8 @@
 #include "common/qabstracttdobject.h"
 #include "qtdmessageforwardorigin.h"
 #include "common/qtdhelpers.h"
+#include "chat/qtdchats.h"
+#include "user/qtdusers.h"
 
 QTdMessageForwardOrigin::QTdMessageForwardOrigin(QObject *parent)
     : QTdObject(parent)
@@ -9,19 +11,27 @@ QTdMessageForwardOrigin::QTdMessageForwardOrigin(QObject *parent)
 
 QTdMessageForwardOriginChat::QTdMessageForwardOriginChat(QObject *parent)
     : QTdMessageForwardOrigin(parent)
-    , m_chatId(0)
-    , m_messageId(0)
+    , m_senderChatId(0)
 {
     setType(MESSAGE_FORWARD_ORIGIN_CHAT);
 }
 
+QString QTdMessageForwardOriginChat::originSummary() const
+{
+    auto *chat = QTdChats::instance()->chatById(m_senderChatId.value());
+    if (chat) {
+        return chat->title();
+    }
+    return "";
+}
+
 QString QTdMessageForwardOriginChat::qmlChatId() const
 {
-    return m_chatId.toQmlValue();
+    return m_senderChatId.toQmlValue();
 }
 qint64 QTdMessageForwardOriginChat::chatId() const
 {
-    return m_chatId.value();
+    return m_senderChatId.value();
 }
 
 QString QTdMessageForwardOriginChat::authorSignature() const
@@ -34,7 +44,7 @@ void QTdMessageForwardOriginChat::unmarshalJson(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
-    m_chatId = json["sender_chat_id"].toDouble();
+    m_senderChatId = json["sender_chat_id"].toDouble();
     m_authorSignature = json["author_signature"].toString();
     emit forwardOriginChanged();
 }
@@ -45,6 +55,15 @@ QTdMessageForwardOriginChannel::QTdMessageForwardOriginChannel(QObject *parent)
     , m_messageId(0)
 {
     setType(MESSAGE_FORWARD_ORIGIN_CHANNEL);
+}
+
+QString QTdMessageForwardOriginChannel::originSummary() const
+{
+    auto *chat = QTdChats::instance()->chatById(m_chatId.value());
+    if (chat) {
+        return chat->title();
+    }
+    return "";
 }
 
 QString QTdMessageForwardOriginChannel::qmlChatId() const
@@ -87,6 +106,11 @@ QTdMessageForwardOriginHiddenUser::QTdMessageForwardOriginHiddenUser(QObject *pa
     setType(MESSAGE_FORWARD_ORIGIN_HIDDEN_USER);
 }
 
+QString QTdMessageForwardOriginHiddenUser::originSummary() const
+{
+    return senderName();
+}
+
 QString QTdMessageForwardOriginHiddenUser::senderName() const
 {
     return m_senderName;
@@ -106,6 +130,15 @@ QTdMessageForwardOriginUser::QTdMessageForwardOriginUser(QObject *parent)
     , m_senderUserId(0)
 {
     setType(MESSAGE_FORWARD_ORIGIN_USER);
+}
+
+QString QTdMessageForwardOriginUser::originSummary() const
+{
+    auto *user = QTdUsers::instance()->model()->getByUid(QString::number(m_senderUserId.value()));
+    if (user) {
+        return user->firstName() + " " + user->lastName();
+    }
+    return "";
 }
 
 QString QTdMessageForwardOriginUser::qmlSenderUserId() const
