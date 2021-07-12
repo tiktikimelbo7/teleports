@@ -21,6 +21,8 @@
 #include "chat/qtdchattypefactory.h"
 #include "qtdsecretchat.h"
 
+QPointer<QTdChatListModel> QTdChatListModel::s_chatlistmodel;
+
 QTdChatListModel::QTdChatListModel(QObject *parent)
     : QObject(parent)
     , m_model(Q_NULLPTR)
@@ -31,6 +33,10 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     , m_positionWaitTimer(new QTimer(this))
     , m_chatToOpenOnUpdate(0)
 {
+    if (s_chatlistmodel.isNull()) {
+        s_chatlistmodel = this;
+    }
+
     m_model = new QQmlObjectListModel<QTdChat>(this, "", "id");
     m_positionWaitTimer->setInterval(180000);
     m_positionWaitTimer->setSingleShot(true);
@@ -53,6 +59,11 @@ QTdChatListModel::QTdChatListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateChatNotificationSettings, this, &QTdChatListModel::handleUpdateChatNotificationSettings);
     connect(QTdClient::instance(), &QTdClient::updateChatOnlineMemberCount, this, &QTdChatListModel::handleUpdateChatOnlineMemberCount);
     connect(QTdClient::instance(), &QTdClient::updateChatChatList, this, &QTdChatListModel::handleUpdateChatChatList);
+}
+
+QTdChatListModel *QTdChatListModel::instance()
+{
+    return s_chatlistmodel;
 }
 
 QObject *QTdChatListModel::model() const

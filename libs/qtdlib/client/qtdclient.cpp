@@ -117,11 +117,7 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*sig
                 if (extra == tag) {
                     result.setJson(resp);
                     loop.quit();
-                } else {
-                    qWarning() << "Received answer in thread with unknown extra tag" << extra;
                 }
-            } else {
-                qWarning() << "Received answer in thread without extra tag";
             }
         };
 

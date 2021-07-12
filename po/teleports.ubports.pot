@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 19:35+0000\n"
+"POT-Creation-Date: 2021-07-12 09:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,8 +40,8 @@ msgstr ""
 
 #: ../app/qml/components/DeleteDialog.qml:12
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:113
-#: ../app/qml/pages/UserListPage.qml:207
+#: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:122
+#: ../app/qml/pages/UserListPage.qml:216
 msgid "Delete"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgid "Sticker Pack info"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:438
+#: ../app/qml/pages/ChatListPage.qml:439
 msgid "Forward"
 msgstr ""
 
@@ -203,10 +203,6 @@ msgstr ""
 msgid "A screenshot has been taken"
 msgstr ""
 
-#: ../app/qml/delegates/MessageStickerItem.qml:20
-msgid "Animated stickers not supported yet :("
-msgstr ""
-
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
 msgstr ""
@@ -229,7 +225,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr ""
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:208
+#: ../app/qml/pages/ChatListPage.qml:209
 msgid "Clear history"
 msgstr ""
 
@@ -249,14 +245,14 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:155
 msgid "About"
 msgstr ""
 
 #: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
 #: ../app/qml/pages/ConnectivityPage.qml:46
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:18
-#: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
+#: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:30
 msgid "Back"
 msgstr ""
 
@@ -306,15 +302,15 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
+#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:68
 msgid "Phone no"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
+#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:76
 msgid "First name"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
+#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:84
 msgid "Last name"
 msgstr ""
 
@@ -337,7 +333,7 @@ msgstr ""
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:135
+#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:136
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr ""
@@ -362,43 +358,43 @@ msgstr ""
 msgid "Unread"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:126 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:130 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:131 ../app/qml/pages/UserListPage.qml:19
 msgid "Contacts"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:141
+#: ../app/qml/pages/ChatListPage.qml:142
 msgid "Night mode"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:203
+#: ../app/qml/pages/ChatListPage.qml:204
 msgid "Leave chat"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:220 ../app/qml/pages/UserListPage.qml:132
 msgid "Info"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:436
+#: ../app/qml/pages/ChatListPage.qml:437
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:451 ../app/qml/pages/ChatListPage.qml:476
+#: ../app/qml/pages/ChatListPage.qml:452 ../app/qml/pages/ChatListPage.qml:477
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:459
+#: ../app/qml/pages/ChatListPage.qml:460
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:460
+#: ../app/qml/pages/ChatListPage.qml:461
 msgid "Do you want to send the imported text to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:462
+#: ../app/qml/pages/ChatListPage.qml:463
 #: ../app/qml/pages/MessageListPage.qml:855
 msgid "Send"
 msgstr ""
@@ -563,23 +559,27 @@ msgid ""
 "account?"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:38
+#: ../app/qml/pages/UserListPage.qml:39
 msgid "Add Contact"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:47
+#: ../app/qml/pages/UserListPage.qml:44
+msgid "Import Contact"
+msgstr ""
+
+#: ../app/qml/pages/UserListPage.qml:56
 msgid "The contact will be added. First and last name are optional"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:49
+#: ../app/qml/pages/UserListPage.qml:58
 msgid "Add"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:128
+#: ../app/qml/pages/UserListPage.qml:137
 msgid "Secret Chat"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:205
+#: ../app/qml/pages/UserListPage.qml:214
 msgid "The contact will be deleted. Are you sure?"
 msgstr ""
 
@@ -894,7 +894,11 @@ msgstr ""
 msgid "Voice message,"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:84
+#: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
+msgid "Unknown origin"
+msgstr ""
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
 msgstr ""
 

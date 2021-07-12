@@ -13,8 +13,39 @@ class QTdMessageForwardOrigin : public QTdObject
 {
     Q_OBJECT
     // Q_DISABLE_COPY(QTdMessageForwardOrigin)
+    Q_PROPERTY(QString originSummary READ originSummary NOTIFY forwardOriginChanged)
 public:
     explicit QTdMessageForwardOrigin(QObject *parent = nullptr);
+    virtual QString originSummary() const = 0;
+
+signals:
+    void forwardOriginChanged();
+};
+
+/**
+     * @brief The QTdMessageForwardOriginChat class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1message_forward_origin_chat.html
+ */
+class QTdMessageForwardOriginChat : public QTdMessageForwardOrigin
+{
+    Q_OBJECT
+    // Q_DISABLE_COPY(QTdMessageForwardOriginChat)
+
+public:
+    explicit QTdMessageForwardOriginChat(QObject *parent = nullptr);
+
+    QString originSummary() const;
+    QString qmlChatId() const;
+    qint64 chatId() const;
+    QString authorSignature() const;
+
+    void unmarshalJson(const QJsonObject &json);
+
+private:
+    QTdInt64 m_senderChatId;
+    QString m_authorSignature;
+    QString m_senderChatname;
 };
 
 /**
@@ -26,12 +57,11 @@ class QTdMessageForwardOriginChannel : public QTdMessageForwardOrigin
 {
     Q_OBJECT
     // Q_DISABLE_COPY(QTdMessageForwardOriginChannel)
-    Q_PROPERTY(QString chatId READ qmlChatId NOTIFY forwardOriginChanged)
-    Q_PROPERTY(QString messageId READ qmlMessageId NOTIFY forwardOriginChanged)
-    Q_PROPERTY(QString authorSignature READ authorSignature NOTIFY forwardOriginChanged)
+
 public:
     explicit QTdMessageForwardOriginChannel(QObject *parent = nullptr);
 
+    QString originSummary() const;
     QString qmlChatId() const;
     qint64 chatId() const;
     QString qmlMessageId() const;
@@ -40,13 +70,11 @@ public:
 
     void unmarshalJson(const QJsonObject &json);
 
-signals:
-    void forwardOriginChanged();
-
 private:
     QTdInt64 m_chatId;
     QTdInt64 m_messageId;
     QString m_authorSignature;
+    QString m_senderChannelname;
 };
 
 /**
@@ -58,16 +86,14 @@ class QTdMessageForwardOriginHiddenUser : public QTdMessageForwardOrigin
 {
     Q_OBJECT
     // Q_DISABLE_COPY(QTdMessageForwardOriginHiddenUser)
-    Q_PROPERTY(QString senderName READ senderName NOTIFY senderNameChanged)
+
 public:
     explicit QTdMessageForwardOriginHiddenUser(QObject *parent = nullptr);
 
+    QString originSummary() const;
     QString senderName() const;
 
     void unmarshalJson(const QJsonObject &json);
-
-signals:
-    void senderNameChanged();
 
 private:
     QString m_senderName;
@@ -82,20 +108,19 @@ class QTdMessageForwardOriginUser : public QTdMessageForwardOrigin
 {
     Q_OBJECT
     // Q_DISABLE_COPY(QTdMessageForwardOriginUser)
-    Q_PROPERTY(QString senderUserId READ qmlSenderUserId NOTIFY senderUserIdChanged)
+
 public:
     explicit QTdMessageForwardOriginUser(QObject *parent = nullptr);
 
+    QString originSummary() const;
     QString qmlSenderUserId() const;
     qint32 senderUserId() const;
 
     void unmarshalJson(const QJsonObject &json);
 
-signals:
-    void senderUserIdChanged();
-
 private:
     QTdInt32 m_senderUserId;
+    QString m_senderUsername;
 };
 
 #endif // QTDMESSAGEFORWARDORIGIN_H

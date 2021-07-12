@@ -174,6 +174,7 @@ set(
     messages/replymarkup/qtdreplymarkup.cpp
     messages/forwardinfo/qtdmessageforwardinfo.cpp
     messages/forwardinfo/qtdmessageforwardorigin.cpp
+    messages/forwardinfo/qtdmessageforwardoriginfactory.cpp
     messages/requests/content/qtdinputmessagedocument.cpp
     messages/requests/content/qtdinputmessagephoto.cpp
     messages/requests/content/qtdinputmessagevideo.cpp

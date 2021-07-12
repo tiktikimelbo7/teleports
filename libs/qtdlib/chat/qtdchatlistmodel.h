@@ -31,6 +31,8 @@ public:
 
     explicit QTdChatListModel(QObject *parent = nullptr);
 
+    static QTdChatListModel *instance();
+
     QObject *model() const;
     QTdChat *currentChat() const;
     QTdChat *chatById(const qint64 &chatId) const;
@@ -110,6 +112,7 @@ private slots:
 private:
     Q_DISABLE_COPY(QTdChatListModel)
     QPointer<QQmlObjectListModel<QTdChat>> m_model;
+    static QPointer<QTdChatListModel> s_chatlistmodel;
     PinnedChats m_pinnedChats;
     QPointer<QTdChat> m_currentChat;
     qint64 m_chatToOpenOnUpdate;
