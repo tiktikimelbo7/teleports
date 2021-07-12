@@ -48,6 +48,7 @@ QTdChat::QTdChat(QObject *parent)
 
 void QTdChat::unmarshalJson(const QJsonObject &json)
 {
+    QAbstractInt64Id::unmarshalJson(json);
     updateChatReadInbox(json);
     updateChatReadOutbox(json);
     updateChatTitle(json);
@@ -76,7 +77,6 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     updateChatDraftMessage(json["draft_message"].toObject());
     m_notifySettings->unmarshalJson(json["notification_settings"].toObject());
     emit notificationSettingsChanged();
-    QAbstractInt64Id::unmarshalJson(json);
     updateChatPhoto(json["photo"].toObject());
     onChatDeserialized();
 }
