@@ -45,10 +45,13 @@ Column {
                 onClicked: {
                     var smallPhoto = isGroup ? chat.chatPhoto.small : user.profilePhoto.small
                     var bigPhoto = isGroup ? chat.chatPhoto.big : user.profilePhoto.big
-                    // wait for the photo be downloaded? or pass to the PreviewPage the photo object s.t. it can show the photo as soon as the download finished?
-                    AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
-                        "photoPreviewSource": Qt.resolvedUrl("file://" + (bigPhoto.local.isDownloadingCompleted ? bigPhoto.local.path : smallPhoto.local.path))
-                    });
+                    // only test if a photo is available at all, generally no photos are available for generic letter images
+                    if (bigPhoto.local.isDownloadingCompleted || smallPhoto.local.isDownloadingCompleted) {
+                        // wait for the photo be downloaded? or pass to the PreviewPage the photo object s.t. it can show the photo as soon as the download finished?
+                        AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
+                            "photoPreviewSource": Qt.resolvedUrl("file://" + (bigPhoto.local.isDownloadingCompleted ? bigPhoto.local.path : smallPhoto.local.path))
+                        });
+                    }
                 }
             }
         }
