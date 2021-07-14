@@ -44,11 +44,12 @@ Item {
                     property QTdFile thumbnailFile: stickerSet.thumbnail.photo
                     property QTdLocalFile localFile: thumbnailFile.local
 
-                    property url localFileSource: localFile.path !== "" ? Qt.resolvedUrl("file://" + localFile.path)
-                                                                        : Qt.resolvedUrl("")
+                    property string localFileSource: localFile && localFile.path !== ""
+                                                                 ? "file:///" + localFile.path
+                                                                 : ""
 
                     function reload() {
-                        img.source = Qt.resolvedUrl();
+                        img.source = "";
                         img.source = localFileSource;
                     }
 
@@ -162,12 +163,12 @@ Item {
                         property QTdFile file: sticker.thumbnail.photo
                         property QTdLocalFile localFile: file.local
 
-                        property url localFileSource: localFile.path !== ""
-                                                      ? Qt.resolvedUrl("file://" + localFile.path)
-                                                      : Qt.resolvedUrl("")
+                        property string localFileSource: localFile && localFile.path !== ""
+                                                      ? "file:///" + localFile.path
+                                                      : ""
 
                         function reload() {
-                            image.source = Qt.resolvedUrl();
+                            image.source = "";
                             image.source = localFileSource;
                         }
 
