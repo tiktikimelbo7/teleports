@@ -5,6 +5,11 @@ QTdTextEntityType::QTdTextEntityType(QObject *parent)
 {
 }
 
+QString QTdTextEntityType::additionalInfo() const
+{
+    return m_additionalInfo;
+}
+
 QTdTextEntityType *QTdTextEntityFactory::create(const QJsonObject &json, QObject *parent)
 {
     const QString type = json["@type"].toString();
@@ -37,7 +42,9 @@ QTdTextEntityType *QTdTextEntityFactory::create(const QJsonObject &json, QObject
     } else if (type == "textEntityTypeUnderline") {
         return new QTdTextEntityTypeUnderline(parent);
     } else if (type == "textEntityTypeTextUrl") {
-        return new QTdTextEntityTypeTextUrl(parent);
+        auto entityTypeTextUrl = new QTdTextEntityTypeTextUrl(parent);
+        entityTypeTextUrl->unmarshalJson(json);
+        return entityTypeTextUrl;
     } else if (type == "textEntityTypeUrl") {
         return new QTdTextEntityTypeUrl(parent);
     }

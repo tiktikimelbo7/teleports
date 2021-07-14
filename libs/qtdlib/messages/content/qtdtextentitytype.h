@@ -7,8 +7,16 @@
 class QTdTextEntityType : public QTdObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString additionalInfo READ additionalInfo NOTIFY additionalInfoChanged)
 public:
     explicit QTdTextEntityType(QObject *parent = nullptr);
+    QString additionalInfo() const;
+
+signals:
+    void additionalInfoChanged();
+
+protected:
+    QString m_additionalInfo;
 };
 
 #define TEXT_ENTITY_CLASS(name, type)                         \
@@ -36,14 +44,33 @@ TEXT_ENTITY_CLASS(PhoneNumber, QTdObject::TEXT_ENTITY_TYPE_PHONE_NUMBER)
 TEXT_ENTITY_CLASS(Cashtag, QTdObject::TEXT_ENTITY_TYPE_CASHTAG)
 TEXT_ENTITY_CLASS(Pre, QTdObject::TEXT_ENTITY_TYPE_PRE)
 TEXT_ENTITY_CLASS(PreCode, QTdObject::TEXT_ENTITY_TYPE_PRE_CODE)
-TEXT_ENTITY_CLASS(TextUrl, QTdObject::TEXT_ENTITY_TYPE_TEXT_URL)
 TEXT_ENTITY_CLASS(Strikethrough, QTdObject::TEXT_ENTITY_TYPE_STRIKETHROUGH)
 TEXT_ENTITY_CLASS(Underline, QTdObject::TEXT_ENTITY_TYPE_UNDERLINE)
 TEXT_ENTITY_CLASS(Url, QTdObject::TEXT_ENTITY_TYPE_URL)
 
+//TODO
+//TEXT_ENTITY_CLASS(BankCardNumber, QTdObject::TEXT_ENTITY_TYPE_BANKCARDNUMBER)
+
 struct QTdTextEntityFactory
 {
     static QTdTextEntityType *create(const QJsonObject &json, QObject *parent = Q_NULLPTR);
+};
+
+class QTdTextEntityTypeTextUrl : public QTdTextEntityType
+{
+    Q_OBJECT
+public:
+    explicit QTdTextEntityTypeTextUrl(QObject *parent = 0)
+        : QTdTextEntityType(parent)
+    {
+        setType(QTdObject::TEXT_ENTITY_TYPE_TEXT_URL);
+    };
+
+    void unmarshalJson(const QJsonObject &json)
+    {
+        m_additionalInfo = json["url"].toString();
+        emit additionalInfoChanged();
+    }
 };
 
 #endif // QTDTEXTENTITYTYPE_H
