@@ -38,14 +38,17 @@ Item {
     Component {
         id: contentHubDialog
 
-        Popups.PopupBase {
+        Popups.Popover {
             id: dialogue
 
             property alias activeTransfer: signalConnections.target
             focus: true
+            autoClose: true
+            contentWidth: parent.width
 
             Rectangle {
-                anchors.fill: parent
+                width: dialogue.parent.width
+                height: dialogue.parent.height
 
                 ContentHub.ContentPeerPicker {
                     id: peerPicker

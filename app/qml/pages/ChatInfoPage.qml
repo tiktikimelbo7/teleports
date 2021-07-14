@@ -21,9 +21,8 @@ Page {
         title: chatInfoPage.isGroup ? i18n.tr('Group Details') : i18n.tr('Profile')
 
         leadingActionBar.actions: [
-        UITK.Action {
-            iconName: "back"
-            text: i18n.tr('Back')
+        BackAction {
+            enableShortcut: pageStack.currentItem == chatInfoPage
             onTriggered: {
                 AppActions.view.popFromStack()
             }

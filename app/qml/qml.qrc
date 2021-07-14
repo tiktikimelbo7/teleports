@@ -121,5 +121,6 @@
         <file>actions/StickerActions.qml</file>
         <file>actions/StickerKey.qml</file>
         <file>components/MessageStatusIndicator.qml</file>
+        <file>actions/BackAction.qml</file>
     </qresource>
 </RCC>
