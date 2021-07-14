@@ -56,10 +56,12 @@ Item {
             property QTdFile photo: size ? size.photo : null
             property QTdLocalFile photoLocal: photo ? photo.local : null
 
-            property string localFileSource: photo && photoLocal.path ? photoLocal.path : ""
+            property string localFileSource: photo && photoLocal.path !== ""
+                                                      ? photoLocal.path
+                                                      : ""
 
             function reload() {
-                thumbnailImg.photoPath = Qt.resolvedUrl();
+                thumbnailImg.photoPath = "";
                 thumbnailImg.photoPath = localFileSource;
             }
             photoPath: localFileSource

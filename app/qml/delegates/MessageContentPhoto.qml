@@ -49,9 +49,9 @@ MessageContentBase {
             id: media_img
             anchors.fill: parent
             fillMode: message.isCollapsed ? Image.PreserveAspectCrop : Image.PreserveAspectFit
-            property url localFileSource: photo && photoLocal.path ? Qt.resolvedUrl("file://" + photo.local.path) : ""
+            property string localFileSource: photo && photoLocal.path ? "file:///" + photoLocal.path : ""
             function reload() {
-                media_img.source = Qt.resolvedUrl();
+                media_img.source = "";
                 media_img.source = localFileSource;
             }
             source: localFileSource
@@ -76,6 +76,7 @@ MessageContentBase {
                     opacity: 1
                 }
             }
+
         }
         BusyPercentageIndicator {
             width: units.gu(7)
