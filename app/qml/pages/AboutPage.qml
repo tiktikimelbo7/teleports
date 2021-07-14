@@ -19,9 +19,8 @@ Page {
         }
 
         leadingActionBar.actions: [
-            UITK.Action {
-                iconName: "back"
-                text: i18n.tr('Back')
+            BackAction {
+                enableShortcut: pageStack.currentItem == aboutPage
                 onTriggered: {
                     AppActions.view.popFromStack()
                 }

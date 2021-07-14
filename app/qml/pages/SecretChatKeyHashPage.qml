@@ -5,6 +5,8 @@ import QtQuick.Controls.Suru 2.2
 import "../actions"
 
 Page {
+    id: secretChatKeyHashPage
+
     property var keyHashMap: null
     property string keyHashString: ""
     property string userFirstName: ""
@@ -13,9 +15,8 @@ Page {
         title: i18n.tr('Encryption Key')
 
         leadingActionBar.actions: [
-        UITK.Action {
-            iconName: "back"
-            text: i18n.tr('Back')
+        BackAction {
+            enableShortcut: pageStack.currentItem == secretChatKeyHashPage
             onTriggered: {
                 AppActions.view.popFromStack()
             }

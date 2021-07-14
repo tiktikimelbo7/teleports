@@ -41,9 +41,8 @@ Page {
             return "";
         }
         leadingActionBar.actions: [
-            UITK.Action {
-                iconName: "back"
-                text: "Back"
+            BackAction {
+                enableShortcut: pageStack.currentItem == messageListPage
                 onTriggered: {
                     entry.saveDraft()
                     AppActions.view.popFromStack()

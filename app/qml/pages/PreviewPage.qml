@@ -34,9 +34,9 @@ Page {
     header:UITK.PageHeader{
         title: i18n.tr("File: ") + fileName
         leadingActionBar.actions:[
-            UITK.Action {
+            BackAction {
                 id: backAction
-                iconName: "back"
+                enableShortcut: pageStack.currentItem == previewPage
                 onTriggered:{
                     AppActions.view.popFromStack()
                 }

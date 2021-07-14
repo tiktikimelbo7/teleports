@@ -15,9 +15,9 @@ Page {
     header:UITK.PageHeader{
         title: i18n.tr("Content Picker")
         leadingActionBar.actions:[
-            UITK.Action {
+            BackAction {
                 id: backAction
-                iconName: "back"
+                enableShortcut: pageStack.currentItem == picker
                 onTriggered:{
                     AppActions.view.popFromStack()
                 }

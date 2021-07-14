@@ -31,6 +31,7 @@ Page {
             UITK.Action {
                 text: i18n.tr("Cancel")
                 iconName: "cancel"
+                shortcut: StandardKey.Cancel
                 onTriggered: AppActions.chat.cancelForwardMessage()
                 visible: Telegram.chats.listMode == ChatList.ForwardingMessages
                         || Telegram.chats.listMode == ChatList.ImportingAttachments
