@@ -167,8 +167,18 @@ void QTdTextFormatter::doFormat()
             cursor.mergeCharFormat(format);
             break;
         }
-        case QTdTextEntity::TEXT_ENTITY_TYPE_TEXT_URL:
+        case QTdTextEntity::TEXT_ENTITY_TYPE_TEXT_URL: {
+            QTextCharFormat format;
+            format.setAnchor(true);
+            auto textUrlEntity = static_cast<const QTdTextEntityTypeTextUrl *>(entity->entityType());
+            format.setAnchorHref(textUrlEntity->additionalInfo());
+            format.setFontUnderline(true);
+            if (m_linkColor.isValid()) {
+                format.setForeground(m_linkColor);
+            }
+            cursor.mergeCharFormat(format);
             break;
+        }
         case QTdTextEntity::TEXT_ENTITY_TYPE_URL: {
             QTextCharFormat format;
             format.setAnchor(true);
