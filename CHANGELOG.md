@@ -1,6 +1,38 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.11
+### Added
+- Added button to copy group or username shortcut from profile to clipboard
+- Added support for animated stickers, finally (playback speed will be improved)!
+- The ESC key is now a shortcut to go back, improves keyboard usage
+
+### Changed
+- A lot of translations have been updated, thanks!
+
+### Bugfix
+- Ghost notifications on the launcher icon (emblem counter) should be gone
+- When forwarding chats the chat list to select the target is visible again
+- embedded URLs with a link text were not clickable
+- reworked how "Forwarded from:" info is built, this should prevent empty and missing chats
+- Clicking on an empty picture in profiles does not open media viewer
+- Pictures in various places were not displayed instantly when coming from new messages
+- Stickers loaded for the first time were also not always shown immediately
+
+## 0.10
+### Added
+- Chat filters for title and type of chat
+- Add handling of archived chats
+- Contacts import via Contacts list
+
+### Bugfix
+- Various fixes for initial chat loading
+- Try to utilize more threads and prevent deadlocks on opening the app
+- New messages in the chat that was left just before are no longer marked as read
+- Notifications can now be properly turned on and off also from TELEports
+- Fixed translations on the password page and other layout issues in the login workflow
+- Stop certain animations playing in the background to improve CPU resource usage (fixed in 0.10.1)
+
 ## 0.9
 ### Added
 - Implemented sending of voice notes (tap and hold the mike!)
