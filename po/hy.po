@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 19:35+0000\n"
+"POT-Creation-Date: 2021-07-14 20:46+0000\n"
 "PO-Revision-Date: 2021-03-09 20:27+0000\n"
 "Last-Translator: TigranKhachatryan0 <tigrank2008@gmail.com>\n"
 "Language-Team: Armenian <https://translate.ubports.com/projects/ubports/"
@@ -18,6 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.11.3\n"
+
+#: ../app/qml/actions/BackAction.qml:10
+msgid "Back"
+msgstr "Հետ"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -41,8 +45,8 @@ msgstr "Այս հաղորդագրությունը կջնջվի միայն Ձեզ
 
 #: ../app/qml/components/DeleteDialog.qml:12
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:113
-#: ../app/qml/pages/UserListPage.qml:207
+#: ../app/qml/pages/SettingsPage.qml:151 ../app/qml/pages/UserListPage.qml:121
+#: ../app/qml/pages/UserListPage.qml:215
 msgid "Delete"
 msgstr "Ջնջել"
 
@@ -75,7 +79,7 @@ msgstr "Լավ"
 msgid "Cancel"
 msgstr "Չեղարկել"
 
-#: ../app/qml/components/UserProfile.qml:71
+#: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
 msgstr "Անդամներ․ %1"
 
@@ -92,7 +96,7 @@ msgid "Copy"
 msgstr "Պատճենել"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
-#: ../app/qml/pages/ChatInfoPage.qml:35
+#: ../app/qml/pages/ChatInfoPage.qml:34
 msgid "Edit"
 msgstr "Ուղղել"
 
@@ -105,7 +109,7 @@ msgid "Sticker Pack info"
 msgstr "Պիտակի փաթեթի մասին"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:438
+#: ../app/qml/pages/ChatListPage.qml:440
 msgid "Forward"
 msgstr "Փոխանցել"
 
@@ -205,10 +209,6 @@ msgstr "%1-ը ամրացրեց հաղորդագրություն"
 msgid "A screenshot has been taken"
 msgstr "Կատարվել է էկրանի կադրահանում"
 
-#: ../app/qml/delegates/MessageStickerItem.qml:20
-msgid "Animated stickers not supported yet :("
-msgstr "Շնչավոր պիտակները այժմ չեն նվագարկվում :-("
-
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
 msgstr "Հաղորդագրությունը հասանելի չէ..."
@@ -231,7 +231,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "Համոզվա՞ծ եք, որ ուզում եք ջնջել հիշողությունը։"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:208
+#: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "Ջնջել հիշողությունը"
 
@@ -251,40 +251,33 @@ msgstr "Միանալ խմբին"
 msgid "Close"
 msgstr "Փակել"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:156
 msgid "About"
 msgstr "Հավելվածի մասին"
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
-#: ../app/qml/pages/ConnectivityPage.qml:46
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:18
-#: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
-msgid "Back"
-msgstr "Հետ"
-
 #. TRANSLATORS: Application name.
-#: ../app/qml/pages/AboutPage.qml:66 ../push/pushhelper.cpp:114
+#: ../app/qml/pages/AboutPage.qml:65 ../push/pushhelper.cpp:114
 #: teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
 
-#: ../app/qml/pages/AboutPage.qml:72
+#: ../app/qml/pages/AboutPage.qml:71
 msgid "Version %1"
 msgstr "Տարբերակ %1"
 
-#: ../app/qml/pages/AboutPage.qml:74
+#: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
 msgstr " (git# %1)"
 
-#: ../app/qml/pages/AboutPage.qml:93
+#: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
 msgstr "Ստանալ ելակետային կոդը"
 
-#: ../app/qml/pages/AboutPage.qml:94
+#: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
 msgstr "Զեկուցել խնդրի մասին"
 
-#: ../app/qml/pages/AboutPage.qml:95
+#: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
 msgstr "Օգնել թարգմանել"
 
@@ -296,42 +289,42 @@ msgstr "Խմբի մասին"
 msgid "Profile"
 msgstr "Պրոֆիլ"
 
-#: ../app/qml/pages/ChatInfoPage.qml:41
+#: ../app/qml/pages/ChatInfoPage.qml:40
 msgid "Send message"
 msgstr "Ուղարկել հաղորդագրություն"
 
-#: ../app/qml/pages/ChatInfoPage.qml:61
+#: ../app/qml/pages/ChatInfoPage.qml:60
 msgid "Edit user data and press Save"
 msgstr "Փոփոխեք տվյալները և սեղմեք «Պահպանել»"
 
-#: ../app/qml/pages/ChatInfoPage.qml:63 ../app/qml/pages/PreviewPage.qml:49
+#: ../app/qml/pages/ChatInfoPage.qml:62 ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
 msgstr "Պահպանել"
 
-#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
+#: ../app/qml/pages/ChatInfoPage.qml:73 ../app/qml/pages/UserListPage.qml:67
 msgid "Phone no"
 msgstr "Հեռախոսահամար"
 
-#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
+#: ../app/qml/pages/ChatInfoPage.qml:82 ../app/qml/pages/UserListPage.qml:75
 msgid "First name"
 msgstr "Անուն"
 
-#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
+#: ../app/qml/pages/ChatInfoPage.qml:91 ../app/qml/pages/UserListPage.qml:83
 msgid "Last name"
 msgstr "Ազգանուն"
 
-#: ../app/qml/pages/ChatInfoPage.qml:131
+#: ../app/qml/pages/ChatInfoPage.qml:130
 msgid "Notifications"
 msgstr "Ծանուցումներ"
 
-#: ../app/qml/pages/ChatInfoPage.qml:160
+#: ../app/qml/pages/ChatInfoPage.qml:159
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
 msgstr[0] "%1 ընդհանուր խումբ"
 msgstr[1] "%1 ընդհանուր խումբ"
 
-#: ../app/qml/pages/ChatInfoPage.qml:185
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:13
+#: ../app/qml/pages/ChatInfoPage.qml:184
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "Կոդավորման Բանալի"
 
@@ -339,69 +332,69 @@ msgstr "Կոդավորման Բանալի"
 msgid "Select destination or cancel..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:135
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/ChatListPage.qml:137
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr "Կարգավորումներ"
 
-#: ../app/qml/pages/ChatListPage.qml:62
+#: ../app/qml/pages/ChatListPage.qml:63
 msgid "Search"
 msgstr "Փնտրել"
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "All"
 msgstr "Ամբողջը"
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Archived"
 msgstr "Արխիվացված"
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Personal"
 msgstr "Անձնական"
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Unread"
 msgstr "Չկարդացածներ"
 
-#: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr "Պահպանված Նամակներ"
 
-#: ../app/qml/pages/ChatListPage.qml:130 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:132 ../app/qml/pages/UserListPage.qml:19
 msgid "Contacts"
 msgstr "Կոնտակտներ"
 
-#: ../app/qml/pages/ChatListPage.qml:141
+#: ../app/qml/pages/ChatListPage.qml:143
 msgid "Night mode"
 msgstr "Գիշերային ռեժիմ"
 
-#: ../app/qml/pages/ChatListPage.qml:203
+#: ../app/qml/pages/ChatListPage.qml:205
 msgid "Leave chat"
 msgstr "Դուրս գալ զրույցից"
 
-#: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:221 ../app/qml/pages/UserListPage.qml:131
 msgid "Info"
 msgstr "Տվյալներ"
 
-#: ../app/qml/pages/ChatListPage.qml:436
+#: ../app/qml/pages/ChatListPage.qml:438
 msgid "Do you want to forward the selected messages to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:451 ../app/qml/pages/ChatListPage.qml:476
+#: ../app/qml/pages/ChatListPage.qml:453 ../app/qml/pages/ChatListPage.qml:478
 msgid "Enter optional message..."
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:459
+#: ../app/qml/pages/ChatListPage.qml:461
 msgid "Do you want to send the imported files to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:460
+#: ../app/qml/pages/ChatListPage.qml:462
 msgid "Do you want to send the imported text to %1?"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:462
-#: ../app/qml/pages/MessageListPage.qml:855
+#: ../app/qml/pages/ChatListPage.qml:464
+#: ../app/qml/pages/MessageListPage.qml:854
 msgid "Send"
 msgstr ""
 
@@ -433,19 +426,19 @@ msgstr ""
 msgid "Connectivity"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:73
 msgid "Telegram connectivity status:"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:80
 msgid "Ubuntu Touch connectivity status:"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:87
 msgid "Ubuntu Touch bandwith limited"
 msgstr ""
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:87
 msgid "Ubuntu Touch bandwith not limited"
 msgstr ""
 
@@ -469,55 +462,55 @@ msgid_plural ", %1 online"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/MessageListPage.qml:132
+#: ../app/qml/pages/MessageListPage.qml:131
 msgid "Telegram"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:338
+#: ../app/qml/pages/MessageListPage.qml:337
 msgid "You are not allowed to post in this channel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:342
+#: ../app/qml/pages/MessageListPage.qml:341
 msgid "Waiting for other party to accept the secret chat..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:344
+#: ../app/qml/pages/MessageListPage.qml:343
 msgid "Secret chat has been closed"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:352
+#: ../app/qml/pages/MessageListPage.qml:351
 msgid "You left this group"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:355
+#: ../app/qml/pages/MessageListPage.qml:354
 msgid "You have been banned"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:358
+#: ../app/qml/pages/MessageListPage.qml:357
 msgid "You are not allowed to post in this group"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:362
+#: ../app/qml/pages/MessageListPage.qml:361
 msgid "You can't write here. Reason unkown"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:385
+#: ../app/qml/pages/MessageListPage.qml:384
 msgid "Join"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:525
+#: ../app/qml/pages/MessageListPage.qml:524
 msgid "Type a message..."
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:743
+#: ../app/qml/pages/MessageListPage.qml:742
 msgid "<<< Swipe to cancel"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:853
+#: ../app/qml/pages/MessageListPage.qml:852
 msgid "Do you want to share your location with %1?"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:866
+#: ../app/qml/pages/MessageListPage.qml:865
 msgid "Requesting location from OS..."
 msgstr ""
 
@@ -529,35 +522,35 @@ msgstr ""
 msgid "File: "
 msgstr ""
 
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:65
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:66
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:70 ../app/qml/pages/SettingsPage.qml:142
+#: ../app/qml/pages/SettingsPage.qml:69 ../app/qml/pages/SettingsPage.qml:141
 msgid "Logout"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:85
 msgid "Delete account"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:102
+#: ../app/qml/pages/SettingsPage.qml:101
 msgid "Connectivity status"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:119
+#: ../app/qml/pages/SettingsPage.qml:118
 msgid "Toggle message status indicators"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:140
+#: ../app/qml/pages/SettingsPage.qml:139
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
 
-#: ../app/qml/pages/SettingsPage.qml:150
+#: ../app/qml/pages/SettingsPage.qml:149
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "sent using telegram except for data you have explicitly saved outside the "
@@ -569,19 +562,25 @@ msgstr ""
 msgid "Add Contact"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:47
+#: ../app/qml/pages/UserListPage.qml:43
+#, fuzzy
+#| msgid "Contacts"
+msgid "Import Contact"
+msgstr "Կոնտակտներ"
+
+#: ../app/qml/pages/UserListPage.qml:55
 msgid "The contact will be added. First and last name are optional"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:49
+#: ../app/qml/pages/UserListPage.qml:57
 msgid "Add"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:128
+#: ../app/qml/pages/UserListPage.qml:136
 msgid "Secret Chat"
 msgstr ""
 
-#: ../app/qml/pages/UserListPage.qml:205
+#: ../app/qml/pages/UserListPage.qml:213
 msgid "The contact will be deleted. Are you sure?"
 msgstr ""
 
@@ -896,7 +895,13 @@ msgstr ""
 msgid "Voice message,"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:84
+#: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
+#, fuzzy
+#| msgid "Unknown joined group"
+msgid "Unknown origin"
+msgstr "Անհայտ անդամ միացավ խմբին"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
 msgstr ""
 
@@ -1065,3 +1070,6 @@ msgstr ""
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr ""
+
+#~ msgid "Animated stickers not supported yet :("
+#~ msgstr "Շնչավոր պիտակները այժմ չեն նվագարկվում :-("

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 19:35+0000\n"
+"POT-Creation-Date: 2021-07-14 20:46+0000\n"
 "PO-Revision-Date: 2020-12-25 08:26+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 3.11.3\n"
+
+#: ../app/qml/actions/BackAction.qml:10
+msgid "Back"
+msgstr "אחורה"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
@@ -42,8 +46,8 @@ msgstr "ההודעה תימחק רק עבורך. האם אתה באמת רוצה
 
 #: ../app/qml/components/DeleteDialog.qml:12
 #: ../app/qml/delegates/MessageBubbleItem.qml:37
-#: ../app/qml/pages/SettingsPage.qml:152 ../app/qml/pages/UserListPage.qml:113
-#: ../app/qml/pages/UserListPage.qml:207
+#: ../app/qml/pages/SettingsPage.qml:151 ../app/qml/pages/UserListPage.qml:121
+#: ../app/qml/pages/UserListPage.qml:215
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -78,7 +82,7 @@ msgstr "בסדר"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: ../app/qml/components/UserProfile.qml:71
+#: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
 msgstr "חברים: %1"
 
@@ -99,7 +103,7 @@ msgid "Copy"
 msgstr "העתקה"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
-#: ../app/qml/pages/ChatInfoPage.qml:35
+#: ../app/qml/pages/ChatInfoPage.qml:34
 msgid "Edit"
 msgstr "עריכה"
 
@@ -112,7 +116,7 @@ msgid "Sticker Pack info"
 msgstr "מידע על חבילת סטיקר"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:79
-#: ../app/qml/pages/ChatListPage.qml:438
+#: ../app/qml/pages/ChatListPage.qml:440
 msgid "Forward"
 msgstr "העבר"
 
@@ -223,10 +227,6 @@ msgstr "%1 הצמיד הודעה"
 msgid "A screenshot has been taken"
 msgstr "נלקח צילום מסך"
 
-#: ../app/qml/delegates/MessageStickerItem.qml:20
-msgid "Animated stickers not supported yet :("
-msgstr "מדבקות מונפשות עדיין לא נתמכות :("
-
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
 msgstr ""
@@ -249,7 +249,7 @@ msgid "Are you sure you want to clear the history?"
 msgstr "האם אתה בטוח שברצונך לנקות את ההיסטוריה?"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:28
-#: ../app/qml/pages/ChatListPage.qml:208
+#: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "נקה היסטוריה"
 
@@ -271,40 +271,33 @@ msgstr "הצטרף לקבוצה"
 msgid "Close"
 msgstr "סגור"
 
-#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:154
+#: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:156
 msgid "About"
 msgstr "אודות"
 
-#: ../app/qml/pages/AboutPage.qml:24 ../app/qml/pages/ChatInfoPage.qml:26
-#: ../app/qml/pages/ConnectivityPage.qml:46
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:18
-#: ../app/qml/pages/SettingsPage.qml:33 ../app/qml/pages/UserListPage.qml:29
-msgid "Back"
-msgstr "אחורה"
-
 #. TRANSLATORS: Application name.
-#: ../app/qml/pages/AboutPage.qml:66 ../push/pushhelper.cpp:114
+#: ../app/qml/pages/AboutPage.qml:65 ../push/pushhelper.cpp:114
 #: teleports.desktop.in.h:1
 msgid "TELEports"
 msgstr "TELEports"
 
-#: ../app/qml/pages/AboutPage.qml:72
+#: ../app/qml/pages/AboutPage.qml:71
 msgid "Version %1"
 msgstr "גרסה %1"
 
-#: ../app/qml/pages/AboutPage.qml:74
+#: ../app/qml/pages/AboutPage.qml:73
 msgid " (git# %1)"
 msgstr " (git# %1)"
 
-#: ../app/qml/pages/AboutPage.qml:93
+#: ../app/qml/pages/AboutPage.qml:92
 msgid "Get the source"
 msgstr "קבל את המקור"
 
-#: ../app/qml/pages/AboutPage.qml:94
+#: ../app/qml/pages/AboutPage.qml:93
 msgid "Report issues"
 msgstr "דיווח על בעיות"
 
-#: ../app/qml/pages/AboutPage.qml:95
+#: ../app/qml/pages/AboutPage.qml:94
 msgid "Help translate"
 msgstr "סייע בתרגום"
 
@@ -316,35 +309,35 @@ msgstr "פרטי הקבוצה"
 msgid "Profile"
 msgstr "פרופיל"
 
-#: ../app/qml/pages/ChatInfoPage.qml:41
+#: ../app/qml/pages/ChatInfoPage.qml:40
 msgid "Send message"
 msgstr "שלח הודעה"
 
-#: ../app/qml/pages/ChatInfoPage.qml:61
+#: ../app/qml/pages/ChatInfoPage.qml:60
 msgid "Edit user data and press Save"
 msgstr "ערוך פרטי המשתמש ולחץ על שמור"
 
-#: ../app/qml/pages/ChatInfoPage.qml:63 ../app/qml/pages/PreviewPage.qml:49
+#: ../app/qml/pages/ChatInfoPage.qml:62 ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
 msgstr "שמירה"
 
-#: ../app/qml/pages/ChatInfoPage.qml:74 ../app/qml/pages/UserListPage.qml:59
+#: ../app/qml/pages/ChatInfoPage.qml:73 ../app/qml/pages/UserListPage.qml:67
 msgid "Phone no"
 msgstr "מספר טלפון"
 
-#: ../app/qml/pages/ChatInfoPage.qml:83 ../app/qml/pages/UserListPage.qml:67
+#: ../app/qml/pages/ChatInfoPage.qml:82 ../app/qml/pages/UserListPage.qml:75
 msgid "First name"
 msgstr "שם פרטי"
 
-#: ../app/qml/pages/ChatInfoPage.qml:92 ../app/qml/pages/UserListPage.qml:75
+#: ../app/qml/pages/ChatInfoPage.qml:91 ../app/qml/pages/UserListPage.qml:83
 msgid "Last name"
 msgstr "שם משפחה"
 
-#: ../app/qml/pages/ChatInfoPage.qml:131
+#: ../app/qml/pages/ChatInfoPage.qml:130
 msgid "Notifications"
 msgstr "התראות"
 
-#: ../app/qml/pages/ChatInfoPage.qml:160
+#: ../app/qml/pages/ChatInfoPage.qml:159
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
 msgstr[0] "קבוצה משותפת %1"
@@ -352,8 +345,8 @@ msgstr[1] "קבוצות משותפות %1"
 msgstr[2] "קבוצות משותפות %1"
 msgstr[3] "קבוצות משותפות %1"
 
-#: ../app/qml/pages/ChatInfoPage.qml:185
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:13
+#: ../app/qml/pages/ChatInfoPage.qml:184
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "מפתח הצפנה"
 
@@ -361,71 +354,71 @@ msgstr "מפתח הצפנה"
 msgid "Select destination or cancel..."
 msgstr "בחר יעד או בטל ..."
 
-#: ../app/qml/pages/ChatListPage.qml:39 ../app/qml/pages/ChatListPage.qml:135
+#: ../app/qml/pages/ChatListPage.qml:40 ../app/qml/pages/ChatListPage.qml:137
 #: ../app/qml/pages/SettingsPage.qml:22
 msgid "Settings"
 msgstr "הגדרות"
 
-#: ../app/qml/pages/ChatListPage.qml:62
+#: ../app/qml/pages/ChatListPage.qml:63
 msgid "Search"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "All"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Archived"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Personal"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:112
+#: ../app/qml/pages/ChatListPage.qml:113
 msgid "Unread"
 msgstr ""
 
-#: ../app/qml/pages/ChatListPage.qml:125 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
 msgstr "הודעות שמורות"
 
-#: ../app/qml/pages/ChatListPage.qml:130 ../app/qml/pages/UserListPage.qml:18
+#: ../app/qml/pages/ChatListPage.qml:132 ../app/qml/pages/UserListPage.qml:19
 msgid "Contacts"
 msgstr "אנשי קשר"
 
-#: ../app/qml/pages/ChatListPage.qml:141
+#: ../app/qml/pages/ChatListPage.qml:143
 msgid "Night mode"
 msgstr "מצב לילה"
 
-#: ../app/qml/pages/ChatListPage.qml:203
+#: ../app/qml/pages/ChatListPage.qml:205
 msgid "Leave chat"
 msgstr "צא מהצ'אט"
 
-#: ../app/qml/pages/ChatListPage.qml:219 ../app/qml/pages/UserListPage.qml:123
+#: ../app/qml/pages/ChatListPage.qml:221 ../app/qml/pages/UserListPage.qml:131
 msgid "Info"
 msgstr "מידע"
 
-#: ../app/qml/pages/ChatListPage.qml:436
+#: ../app/qml/pages/ChatListPage.qml:438
 msgid "Do you want to forward the selected messages to %1?"
 msgstr "האם ברצונך להעביר את ההודעות שנבחרו אל %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:451 ../app/qml/pages/ChatListPage.qml:476
+#: ../app/qml/pages/ChatListPage.qml:453 ../app/qml/pages/ChatListPage.qml:478
 msgid "Enter optional message..."
 msgstr "הזן הודעה אופציונלית ..."
 
-#: ../app/qml/pages/ChatListPage.qml:459
+#: ../app/qml/pages/ChatListPage.qml:461
 msgid "Do you want to send the imported files to %1?"
 msgstr "האם ברצונך לשלוח את הקבצים המיובאים ל %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:460
+#: ../app/qml/pages/ChatListPage.qml:462
 #, fuzzy
 #| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
 msgstr "האם ברצונך לשלוח את הקבצים המיובאים ל %1?"
 
-#: ../app/qml/pages/ChatListPage.qml:462
-#: ../app/qml/pages/MessageListPage.qml:855
+#: ../app/qml/pages/ChatListPage.qml:464
+#: ../app/qml/pages/MessageListPage.qml:854
 msgid "Send"
 msgstr "שלח"
 
@@ -457,19 +450,19 @@ msgstr "מעדכן"
 msgid "Connectivity"
 msgstr "קישוריות"
 
-#: ../app/qml/pages/ConnectivityPage.qml:74
+#: ../app/qml/pages/ConnectivityPage.qml:73
 msgid "Telegram connectivity status:"
 msgstr "מצב קישוריות טליגרם:"
 
-#: ../app/qml/pages/ConnectivityPage.qml:81
+#: ../app/qml/pages/ConnectivityPage.qml:80
 msgid "Ubuntu Touch connectivity status:"
 msgstr "מצב קישוריות של אובונטו טאץ ':"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:87
 msgid "Ubuntu Touch bandwith limited"
 msgstr "רוחב הפס של אובונטו טאץ' מוגבל"
 
-#: ../app/qml/pages/ConnectivityPage.qml:88
+#: ../app/qml/pages/ConnectivityPage.qml:87
 msgid "Ubuntu Touch bandwith not limited"
 msgstr "רוחב הפס של אובונטו טאץ' לא מוגבל"
 
@@ -497,61 +490,61 @@ msgstr[1] "מחוברים %1"
 msgstr[2] "מחוברים %1"
 msgstr[3] "מחוברים %1"
 
-#: ../app/qml/pages/MessageListPage.qml:132
+#: ../app/qml/pages/MessageListPage.qml:131
 msgid "Telegram"
 msgstr "טליגרם"
 
-#: ../app/qml/pages/MessageListPage.qml:338
+#: ../app/qml/pages/MessageListPage.qml:337
 msgid "You are not allowed to post in this channel"
 msgstr "אינך רשאי לפרסם בערוץ זה"
 
-#: ../app/qml/pages/MessageListPage.qml:342
+#: ../app/qml/pages/MessageListPage.qml:341
 msgid "Waiting for other party to accept the secret chat..."
 msgstr "מחכה שהצד השני יאשר את הצ'אט הסודי ..."
 
-#: ../app/qml/pages/MessageListPage.qml:344
+#: ../app/qml/pages/MessageListPage.qml:343
 msgid "Secret chat has been closed"
 msgstr "הצ'אט הסודי נסגר"
 
-#: ../app/qml/pages/MessageListPage.qml:352
+#: ../app/qml/pages/MessageListPage.qml:351
 #, fuzzy
 #| msgid "left the group"
 msgid "You left this group"
 msgstr "עזב את הקבוצה"
 
-#: ../app/qml/pages/MessageListPage.qml:355
+#: ../app/qml/pages/MessageListPage.qml:354
 #, fuzzy
 #| msgid "You have a new message"
 msgid "You have been banned"
 msgstr "יש לך הודעה חדשה"
 
-#: ../app/qml/pages/MessageListPage.qml:358
+#: ../app/qml/pages/MessageListPage.qml:357
 #, fuzzy
 #| msgid "You are not allowed to post in this channel"
 msgid "You are not allowed to post in this group"
 msgstr "אינך רשאי לפרסם בערוץ זה"
 
-#: ../app/qml/pages/MessageListPage.qml:362
+#: ../app/qml/pages/MessageListPage.qml:361
 msgid "You can't write here. Reason unkown"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:385
+#: ../app/qml/pages/MessageListPage.qml:384
 msgid "Join"
 msgstr ""
 
-#: ../app/qml/pages/MessageListPage.qml:525
+#: ../app/qml/pages/MessageListPage.qml:524
 msgid "Type a message..."
 msgstr "הקלד הודעה..."
 
-#: ../app/qml/pages/MessageListPage.qml:743
+#: ../app/qml/pages/MessageListPage.qml:742
 msgid "<<< Swipe to cancel"
 msgstr "החלק על מנת לבטל >>>"
 
-#: ../app/qml/pages/MessageListPage.qml:853
+#: ../app/qml/pages/MessageListPage.qml:852
 msgid "Do you want to share your location with %1?"
 msgstr "האם אתה רוצה לשתף את המיקום שלך עם %1?"
 
-#: ../app/qml/pages/MessageListPage.qml:866
+#: ../app/qml/pages/MessageListPage.qml:865
 msgid "Requesting location from OS..."
 msgstr "מבקש מיקום ממערכת ההפעלה ..."
 
@@ -563,7 +556,7 @@ msgstr "בוחר תוכן"
 msgid "File: "
 msgstr "קובץ: "
 
-#: ../app/qml/pages/SecretChatKeyHashPage.qml:65
+#: ../app/qml/pages/SecretChatKeyHashPage.qml:66
 msgid ""
 "Check the image or the text. If they match with the ones on <b>%1</b>'s "
 "device, end-to-end cryptography is granted."
@@ -571,23 +564,23 @@ msgstr ""
 "בדוק את התמונה או את הטקסט. אם הם תואמים את אלה במכשירים של <b>%1</b>, "
 "הוענקה הצפנה מקצה לקצה."
 
-#: ../app/qml/pages/SettingsPage.qml:70 ../app/qml/pages/SettingsPage.qml:142
+#: ../app/qml/pages/SettingsPage.qml:69 ../app/qml/pages/SettingsPage.qml:141
 msgid "Logout"
 msgstr "להתנתק"
 
-#: ../app/qml/pages/SettingsPage.qml:86
+#: ../app/qml/pages/SettingsPage.qml:85
 msgid "Delete account"
 msgstr "מחק חשבון"
 
-#: ../app/qml/pages/SettingsPage.qml:102
+#: ../app/qml/pages/SettingsPage.qml:101
 msgid "Connectivity status"
 msgstr "מצב קישוריות"
 
-#: ../app/qml/pages/SettingsPage.qml:119
+#: ../app/qml/pages/SettingsPage.qml:118
 msgid "Toggle message status indicators"
 msgstr "החלף מחוון מצב ההודעה"
 
-#: ../app/qml/pages/SettingsPage.qml:140
+#: ../app/qml/pages/SettingsPage.qml:139
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
@@ -595,7 +588,7 @@ msgstr ""
 "אזהרה: התנתקות תמחק את כל הנתונים המקומיים מהתקן זה, כולל צ'אטים סודיים. האם "
 "את/ה עדיין רוצה להתנתק?"
 
-#: ../app/qml/pages/SettingsPage.qml:150
+#: ../app/qml/pages/SettingsPage.qml:149
 #, fuzzy
 #| msgid ""
 #| "Warning: Deleting the account will delete all the data you ever received "
@@ -616,19 +609,25 @@ msgstr ""
 msgid "Add Contact"
 msgstr "הוסף איש קשר"
 
-#: ../app/qml/pages/UserListPage.qml:47
+#: ../app/qml/pages/UserListPage.qml:43
+#, fuzzy
+#| msgid "Contact"
+msgid "Import Contact"
+msgstr "איש קשר"
+
+#: ../app/qml/pages/UserListPage.qml:55
 msgid "The contact will be added. First and last name are optional"
 msgstr "איש הקשר יתווסף. שם פרטי ושם משפחה הם אופציונליים"
 
-#: ../app/qml/pages/UserListPage.qml:49
+#: ../app/qml/pages/UserListPage.qml:57
 msgid "Add"
 msgstr "הוספה"
 
-#: ../app/qml/pages/UserListPage.qml:128
+#: ../app/qml/pages/UserListPage.qml:136
 msgid "Secret Chat"
 msgstr "צ'אט סודי"
 
-#: ../app/qml/pages/UserListPage.qml:205
+#: ../app/qml/pages/UserListPage.qml:213
 msgid "The contact will be deleted. Are you sure?"
 msgstr "איש הקשר יימחק. האם את/ה בטוח/ה?"
 
@@ -947,7 +946,13 @@ msgstr "הודעה קולית"
 msgid "Voice message,"
 msgstr "הודעה קולית,"
 
-#: ../libs/qtdlib/messages/qtdmessage.cpp:84
+#: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
+#, fuzzy
+#| msgid "%1 joined the group"
+msgid "Unknown origin"
+msgstr "%1 הצטרף לקבוצה"
+
+#: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
 msgstr "אני"
 
@@ -1116,3 +1121,6 @@ msgstr "תמונת פרופיל מעודכנת"
 #: ../push/pushhelper.cpp:296
 msgid "You have a new message"
 msgstr "יש לך הודעה חדשה"
+
+#~ msgid "Animated stickers not supported yet :("
+#~ msgstr "מדבקות מונפשות עדיין לא נתמכות :("
