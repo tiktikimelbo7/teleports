@@ -148,9 +148,9 @@ Store {
         onDispatched: {
             var chatById = chatList.model.get(message.chatId)
             if (chatById) {
-                if (chatList.currentChat && chatList.currentChat.isOpen) {
-                    AppActions.chat.closeCurrentChat()
-                }
+                //if (chatList.currentChat && chatList.currentChat.isOpen) {
+                //    AppActions.chat.closeCurrentChat()
+                //}
                 AppActions.chat.setCurrentChat(chatById)
             } else
                 console.log("Could not find chat by id")
