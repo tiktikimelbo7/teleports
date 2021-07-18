@@ -24,6 +24,10 @@
 #include "content/qtdmessagevideo.h"
 #include "content/qtdmessagevideonote.h"
 #include "content/qtdmessagevoicenote.h"
+#include "content/qtdmessageexpiredvideo.h"
+#include "content/qtdmessageexpiredphoto.h"
+#include "content/qtdmessagepoll.h"
+#include "content/qtdmessagewebsiteconnected.h"
 #include "content/qtdmessagecustomserviceaction.h"
 #include "content/qtdmessagecontactregistered.h"
 #include "content/qtdmessagecontact.h"
@@ -92,13 +96,19 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessagePinMessage(parent);
     } else if (type == "messageContact") {
         return new QTdMessageContact(parent);
-/*
-      else if (type == "messageWebsiteConnected") {
-        return new QTdMessageWebsiteConnected(parent);
-    } else if (type == "messageVenue") {
-        return new QTdMessageVenue(parent);
+    } else if (type == "messageExpiredVideo") {
+        return new QTdMessageExpiredVideo(parent);
+    } else if (type == "messageExpiredPhoto") {
+        return new QTdMessageExpiredPhoto(parent);
     } else if (type == "messagePoll") {
         return new QTdMessagePoll(parent);
+    } else if (type == "messageWebsiteConnected") {
+        return new QTdMessageWebsiteConnected(parent);
+    }
+
+/*
+    } else if (type == "messageVenue") {
+        return new QTdMessageVenue(parent);
     } else if (type == "messagePassportDataReceived") {
         return new QTdMessagePassportDataReceived(parent);
     } else if (type == "messagePassportDataSent") {
@@ -115,16 +125,7 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageGame(parent);
     } else if (type == "messageGameScore") {
         return new QTdMessageGameScore(parent);
-    } else if (type == "message") {
-        return new QTdMessage(parent);
-    } else if (type == "message") {
-        return new QTdMessage(parent);
-    } else if (type == "message") {
-        return new QTdMessage(parent);
-    } else if (type == "message") {
-        return new QTdMessage(parent);
     }
-
 */
     }
 
