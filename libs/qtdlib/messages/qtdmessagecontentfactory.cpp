@@ -127,7 +127,6 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
         return new QTdMessageGameScore(parent);
     }
 */
-    }
 
     qWarning() << "Received unknown message type" << type << json;
     QScopedPointer<QTdMessageContent> uknMSg(new QTdMessageContent(parent));
