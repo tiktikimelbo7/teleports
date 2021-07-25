@@ -15,11 +15,11 @@ QDateTime QTdMessageDate::date() const
 
 QString QTdMessageDate::dateString() const
 {
-    if (date().date().day() == QDate::currentDate().day()) {
+    if (date().date() == QDate::currentDate()) {
         return gettext("Today");
-    } else if (date().date().day() == QDate::currentDate().addDays(-1).day()) {
+    } else if (date().date() == QDate::currentDate().addDays(-1)) {
         return gettext(gettext("Yesterday"));
-    } else if (date().date().day() > QDate::currentDate().addDays(-7).day()) {
+    } else if (date().date() > QDate::currentDate().addDays(-7)) {
         //TRANSLATORS: String in date separator label. For messages within a week: full weekday name
         return date().toString(gettext("dddd"));
     } else if (date().date().year() < QDate::currentDate().year()) {
