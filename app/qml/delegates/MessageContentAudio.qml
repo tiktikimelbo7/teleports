@@ -71,8 +71,23 @@ MessageContentBase {
                 top: parent.top
                 leftMargin: Suru.units.gu(2)
             }
-            text: audioContent.audio.performer + " - " + audioContent.audio.title
+            text: getAudioTitle()
             color: Suru.foregroundColor
+            function getAudioTitle() {
+                var title = "";
+                if (audioContent.audio.performer != "") {
+                    title = audioContent.audio.performer;
+                }
+                if (title.length > 0 && audioContent.audio.title != "") {
+                    title += " - " + audioContent.audio.title;
+                } else if (audioContent.audio.title != "") {
+                    title = audioContent.audio.title;
+                }
+                if (title == "") {
+                    title = audioContent.audio.fileName;
+                }
+                return title;
+            }
         }
     }
 
