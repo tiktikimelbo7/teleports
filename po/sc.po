@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2021-04-22 10:44+0000\n"
+"PO-Revision-Date: 2021-08-20 23:16+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -577,10 +577,8 @@ msgid "Add Contact"
 msgstr "Agiunghe cuntatu"
 
 #: ../app/qml/pages/UserListPage.qml:43
-#, fuzzy
-#| msgid "Contact"
 msgid "Import Contact"
-msgstr "Cuntatu"
+msgstr "Importa unu cuntatu"
 
 #: ../app/qml/pages/UserListPage.qml:55
 msgid "The contact will be added. First and last name are optional"
@@ -914,10 +912,8 @@ msgid "Voice message,"
 msgstr "Messàgiu vocale,"
 
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
-#, fuzzy
-#| msgid "Unknown joined group"
 msgid "Unknown origin"
-msgstr "Una persone at aderidu a su grupu"
+msgstr "Orìgine disconnotu"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
