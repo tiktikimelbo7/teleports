@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2021-03-15 12:27+0000\n"
+"PO-Revision-Date: 2021-08-29 10:49+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
 "teleports/es/>\n"
@@ -577,10 +577,8 @@ msgid "Add Contact"
 msgstr "Añadir contacto"
 
 #: ../app/qml/pages/UserListPage.qml:43
-#, fuzzy
-#| msgid "Contact"
 msgid "Import Contact"
-msgstr "Contacto"
+msgstr "Importar contacto"
 
 #: ../app/qml/pages/UserListPage.qml:55
 msgid "The contact will be added. First and last name are optional"
@@ -912,10 +910,8 @@ msgid "Voice message,"
 msgstr "Mensaje de voz,"
 
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
-#, fuzzy
-#| msgid "Unknown joined group"
 msgid "Unknown origin"
-msgstr "Desconocido se unió al grupo"
+msgstr "Origen desconocido"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
