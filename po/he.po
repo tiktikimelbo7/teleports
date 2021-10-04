@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2020-12-25 08:26+0000\n"
+"PO-Revision-Date: 2021-10-04 00:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
 "teleports/he/>\n"
@@ -22,16 +22,16 @@ msgstr ""
 
 #: ../app/qml/actions/BackAction.qml:10
 msgid "Back"
-msgstr "אחורה"
+msgstr "חזרה"
 
 #: ../app/qml/components/CountryPicker.qml:21
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:36
 msgid "Choose a country"
-msgstr "בחר מדינה"
+msgstr "בחירת מדינה"
 
 #: ../app/qml/components/CountryPicker.qml:38
 msgid "Search country name..."
-msgstr "חפש שם מדינה ..."
+msgstr "חיפוש שם מדינה…"
 
 #: ../app/qml/components/DeleteDialog.qml:9
 msgid ""
@@ -87,16 +87,12 @@ msgid "Members: %1"
 msgstr "חברים: %1"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:6
-#, fuzzy
-#| msgid "Channel called << %1 >> created"
 msgid "Channel called <b>%1</b> created"
-msgstr "נוצר ערוץ בשם << %1 >>"
+msgstr "נוצר ערוץ בשם <b>%1</b>"
 
 #: ../app/qml/delegates/MessageBasicGroupChatCreate.qml:7
-#, fuzzy
-#| msgid "%1 created a group called << %2 >>"
 msgid "%1 created a group called <b>%2</b>"
-msgstr "%1 יצר קבוצה בשם << %2 >>"
+msgstr "נוצרה קבוצה בשם <b>%2</b> ע״י %1"
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:49
 msgid "Copy"
@@ -143,20 +139,16 @@ msgstr[2] "%1 משתמשים"
 msgstr[3] "%1 משתמשים"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:32
-#, fuzzy
-#| msgid "message TTL has been changed"
 msgid "Channel photo has been changed:"
-msgstr "ההודעה TTL שונתה"
+msgstr "תמונת הקבוצה השתנתה:"
 
 #: ../app/qml/delegates/MessageChatChangePhoto.qml:33
-#, fuzzy
-#| msgid "changed the chat photo"
 msgid "%1 changed the chat photo:"
-msgstr "שינה את תמונת הצ'אט"
+msgstr "תמונת הצ׳אט הוחלפה ע״י %1:"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:6
 msgid "Channel title has been changed to <b>%1</b>"
-msgstr ""
+msgstr "כותרת הערוץ הוחלפה לכדי <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:7
 #, fuzzy
@@ -176,13 +168,11 @@ msgstr "%1 הסיר %2"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:6
 msgid "Channel photo has been removed"
-msgstr ""
+msgstr "תמונת הערוץ הוסרה"
 
 #: ../app/qml/delegates/MessageChatDeletePhoto.qml:7
-#, fuzzy
-#| msgid "deleted the chat photo"
 msgid "%1 deleted the chat photo"
-msgstr "מחק את תמונת הצ'אט"
+msgstr "תמונת הצ׳אט נמחקה ע״י %1"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
@@ -191,7 +181,7 @@ msgstr ""
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
 msgid "Group has been upgraded to Supergroup"
-msgstr "הקבוצה שודרגה ל- Supergroup"
+msgstr "הקבוצה שודרגה לקבוצת על"
 
 #: ../app/qml/delegates/MessageContactRegistered.qml:5
 msgid "%1 has joined Telegram!"
@@ -273,7 +263,7 @@ msgstr "סגור"
 
 #: ../app/qml/pages/AboutPage.qml:13 ../app/qml/pages/ChatListPage.qml:156
 msgid "About"
-msgstr "אודות"
+msgstr "על אודות"
 
 #. TRANSLATORS: Application name.
 #: ../app/qml/pages/AboutPage.qml:65 ../push/pushhelper.cpp:114
@@ -361,11 +351,11 @@ msgstr "הגדרות"
 
 #: ../app/qml/pages/ChatListPage.qml:63
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
 #: ../app/qml/pages/ChatListPage.qml:113
 msgid "All"
-msgstr ""
+msgstr "הכול"
 
 #: ../app/qml/pages/ChatListPage.qml:113
 msgid "Archived"
@@ -538,15 +528,15 @@ msgstr "הקלד הודעה..."
 
 #: ../app/qml/pages/MessageListPage.qml:742
 msgid "<<< Swipe to cancel"
-msgstr "החלק על מנת לבטל >>>"
+msgstr "החלקה מבטלת >>>"
 
 #: ../app/qml/pages/MessageListPage.qml:852
 msgid "Do you want to share your location with %1?"
-msgstr "האם אתה רוצה לשתף את המיקום שלך עם %1?"
+msgstr "לשתף את המיקום שלך עם %1?"
 
 #: ../app/qml/pages/MessageListPage.qml:865
 msgid "Requesting location from OS..."
-msgstr "מבקש מיקום ממערכת ההפעלה ..."
+msgstr "מתבקש מיקום ממערכת ההפעלה…"
 
 #: ../app/qml/pages/PickerPage.qml:16
 msgid "Content Picker"
@@ -566,11 +556,11 @@ msgstr ""
 
 #: ../app/qml/pages/SettingsPage.qml:69 ../app/qml/pages/SettingsPage.qml:141
 msgid "Logout"
-msgstr "להתנתק"
+msgstr "יציאה"
 
 #: ../app/qml/pages/SettingsPage.qml:85
 msgid "Delete account"
-msgstr "מחק חשבון"
+msgstr "מחיקת חשבון"
 
 #: ../app/qml/pages/SettingsPage.qml:101
 msgid "Connectivity status"
@@ -578,46 +568,37 @@ msgstr "מצב קישוריות"
 
 #: ../app/qml/pages/SettingsPage.qml:118
 msgid "Toggle message status indicators"
-msgstr "החלף מחוון מצב ההודעה"
+msgstr "החלפת מחווני מצב ההודעה"
 
 #: ../app/qml/pages/SettingsPage.qml:139
 msgid ""
 "Warning: Logging out will delete all local data from this device, including "
 "secret chats. Are you still sure you want to log out?"
 msgstr ""
-"אזהרה: התנתקות תמחק את כל הנתונים המקומיים מהתקן זה, כולל צ'אטים סודיים. האם "
-"את/ה עדיין רוצה להתנתק?"
+"אזהרה: יציאה תמחק את כל הנתונים המקומיים מהתקן זה, כולל צ׳אטים סודיים. לצאת "
+"בכל זאת?"
 
 #: ../app/qml/pages/SettingsPage.qml:149
-#, fuzzy
-#| msgid ""
-#| "Warning: Deleting the account will delete all the data you ever received "
-#| "or send using telegram except for data you have explicitly saved outside "
-#| "the telegram cloud. Are you really really sure you want to delete your "
-#| "telegram account?"
 msgid ""
 "Warning: Deleting the account will delete all the data you ever received or "
 "sent using telegram except for data you have explicitly saved outside the "
 "telegram cloud. Are you really really sure you want to delete your telegram "
 "account?"
 msgstr ""
-"אזהרה: מחיקת החשבון תמחק את כל הנתונים שקיבלת אי פעם או תשלח באמצעות מברק "
-"למעט נתונים ששמרת במפורש מחוץ לענן המברק. האם את/ה רוצה למחוק את חשבון "
-"הטליגרם שלך?"
+"אזהרה: מחיקת החשבון תמחק את כל הנתונים שקיבלת או שלחת אי פעם באמצעות טלגרם "
+"למעט נתונים ששמרת במפורש מחוץ לענן של טלגרם. למחוק את חשבון הטלגרם שלך?"
 
 #: ../app/qml/pages/UserListPage.qml:38
 msgid "Add Contact"
-msgstr "הוסף איש קשר"
+msgstr "הוספת איש קשר"
 
 #: ../app/qml/pages/UserListPage.qml:43
-#, fuzzy
-#| msgid "Contact"
 msgid "Import Contact"
-msgstr "איש קשר"
+msgstr "ייבוא איש קשר"
 
 #: ../app/qml/pages/UserListPage.qml:55
 msgid "The contact will be added. First and last name are optional"
-msgstr "איש הקשר יתווסף. שם פרטי ושם משפחה הם אופציונליים"
+msgstr "איש הקשר יתווסף. שם פרטי ושם משפחה הם בגדר רשות"
 
 #: ../app/qml/pages/UserListPage.qml:57
 msgid "Add"
