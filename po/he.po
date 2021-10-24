@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2021-10-04 00:37+0000\n"
+"PO-Revision-Date: 2021-10-24 12:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
 "teleports/he/>\n"
@@ -62,7 +62,7 @@ msgstr[3] "חברים %1"
 
 #: ../app/qml/components/GroupPreviewDialog.qml:37
 msgid "%1 members, among them:"
-msgstr ""
+msgstr "%1 חברים, ביניהם:"
 
 #: ../app/qml/components/InputInfoBox.qml:91
 msgid "Edit message"
@@ -125,10 +125,8 @@ msgid "%1 added %2"
 msgstr "%1 הוסיף %2"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:10
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "Unknown joined group"
-msgstr "%1 הצטרף לקבוצה"
+msgstr "לא ידוע הצטרף לקבוצה"
 
 #: ../app/qml/delegates/MessageChatAddMembersItem.qml:32
 msgid "%1 user(s)"
@@ -151,10 +149,8 @@ msgid "Channel title has been changed to <b>%1</b>"
 msgstr "כותרת הערוץ הוחלפה לכדי <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatChangeTitle.qml:7
-#, fuzzy
-#| msgid "changed the chat title"
 msgid "%1 changed the chat title to <b>%2</b>"
-msgstr "שינה את כותרת הצ'אט"
+msgstr "כותרת הצ׳אט הוחלפה לכדי <b>%2</b> ע״י %1"
 
 #: ../app/qml/delegates/MessageChatDeleteMember.qml:6
 msgid "%1 left the group"
@@ -176,7 +172,7 @@ msgstr "תמונת הצ׳אט נמחקה ע״י %1"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr ""
+msgstr "זמן חיי ההודעה הוגדר לכדי <b>%1</b> שניות"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -202,7 +198,7 @@ msgstr "הודעה קולית"
 
 #: ../app/qml/delegates/MessageDateItem.qml:4
 msgid "Some date missing"
-msgstr ""
+msgstr "תאריך כלשהו חסר"
 
 #: ../app/qml/delegates/MessageJoinByLink.qml:5
 msgid "%1 joined by invite link"
@@ -219,7 +215,7 @@ msgstr "נלקח צילום מסך"
 
 #: ../app/qml/delegates/MessageUnavailable.qml:11
 msgid "Message Unavailable..."
-msgstr ""
+msgstr "ההודעה אינה זמינה…"
 
 #: ../app/qml/delegates/MessageUnreadLabelItem.qml:4
 msgid "Missing label..."
@@ -252,10 +248,8 @@ msgid "Leave"
 msgstr "לצאת"
 
 #: ../app/qml/middleware/ChatMiddleware.qml:47
-#, fuzzy
-#| msgid "joined the group"
 msgid "Join group"
-msgstr "הצטרף לקבוצה"
+msgstr "הצטרפות לקבוצה"
 
 #: ../app/qml/middleware/ErrorsMiddleware.qml:19
 msgid "Close"
@@ -359,15 +353,15 @@ msgstr "הכול"
 
 #: ../app/qml/pages/ChatListPage.qml:113
 msgid "Archived"
-msgstr ""
+msgstr "הועבר לארכיון"
 
 #: ../app/qml/pages/ChatListPage.qml:113
 msgid "Personal"
-msgstr ""
+msgstr "אישי"
 
 #: ../app/qml/pages/ChatListPage.qml:113
 msgid "Unread"
-msgstr ""
+msgstr "לא נקרא"
 
 #: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
 msgid "Saved Messages"
@@ -402,10 +396,8 @@ msgid "Do you want to send the imported files to %1?"
 msgstr "האם ברצונך לשלוח את הקבצים המיובאים ל %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:462
-#, fuzzy
-#| msgid "Do you want to send the imported files to %1?"
 msgid "Do you want to send the imported text to %1?"
-msgstr "האם ברצונך לשלוח את הקבצים המיובאים ל %1?"
+msgstr "לשלוח את ההודעות המיובאות אל %1?"
 
 #: ../app/qml/pages/ChatListPage.qml:464
 #: ../app/qml/pages/MessageListPage.qml:854
@@ -458,19 +450,19 @@ msgstr "רוחב הפס של אובונטו טאץ' לא מוגבל"
 
 #: ../app/qml/pages/LogoutPage.qml:14
 msgid "Good bye!"
-msgstr ""
+msgstr "להתראות!"
 
 #: ../app/qml/pages/LogoutPage.qml:27
-#, fuzzy
-#| msgid "Connecting"
 msgid "Disconnecting..."
-msgstr "מתחבר"
+msgstr "מתבצעת התנתקות…"
 
 #: ../app/qml/pages/LogoutPage.qml:37
 msgid ""
 "The app will close automatically when the logout process ends.\n"
 "Please, don't close it manually!"
 msgstr ""
+"היישומון ייסגר אוטומטית עם סיום תהליך היציאה מהמערכת.\n"
+"נא לא לסגור אותו ידנית!"
 
 #: ../app/qml/pages/MessageListPage.qml:35
 msgid ", %1 online"
@@ -497,30 +489,24 @@ msgid "Secret chat has been closed"
 msgstr "הצ'אט הסודי נסגר"
 
 #: ../app/qml/pages/MessageListPage.qml:351
-#, fuzzy
-#| msgid "left the group"
 msgid "You left this group"
-msgstr "עזב את הקבוצה"
+msgstr "עזבת את הקבוצה"
 
 #: ../app/qml/pages/MessageListPage.qml:354
-#, fuzzy
-#| msgid "You have a new message"
 msgid "You have been banned"
-msgstr "יש לך הודעה חדשה"
+msgstr "נחסמת"
 
 #: ../app/qml/pages/MessageListPage.qml:357
-#, fuzzy
-#| msgid "You are not allowed to post in this channel"
 msgid "You are not allowed to post in this group"
-msgstr "אינך רשאי לפרסם בערוץ זה"
+msgstr "אסור לך לפרסם בקבוצה הזאת"
 
 #: ../app/qml/pages/MessageListPage.qml:361
 msgid "You can't write here. Reason unkown"
-msgstr ""
+msgstr "אסור לך לכתוב כאן. הסיבה לא ידועה"
 
 #: ../app/qml/pages/MessageListPage.qml:384
 msgid "Join"
-msgstr ""
+msgstr "הצטרפות"
 
 #: ../app/qml/pages/MessageListPage.qml:524
 msgid "Type a message..."
@@ -621,11 +607,9 @@ msgid "Code"
 msgstr "קוד"
 
 #: ../app/qml/pages/WaitCodePage.qml:54
-#, fuzzy
-#| msgid "We've send a code via telegram to your device. Please enter it here."
 msgid ""
 "A code was sent via Telegram to your other devices. Please enter it here."
-msgstr "שלחנו קוד למכשירך באמצעות טליגרם. אנא הכנס/י אותו לכאן."
+msgstr "נשלח קוד דרך טלגרם לשאר המכשירים שלך. נא למלא אותו כאן."
 
 #: ../app/qml/pages/WaitPasswordPage.qml:18
 msgid "Enter Password"
@@ -636,10 +620,8 @@ msgid "Password"
 msgstr "ססמה"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:57
-#, fuzzy
-#| msgid "Password"
 msgid "Password hint: %1"
-msgstr "ססמה"
+msgstr "רמז לססמה: %1"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:62
 #: ../app/qml/pages/WaitPhoneNumberPage.qml:92
@@ -707,7 +689,7 @@ msgstr "לא התקבל מיקום תקין לאחר 180 שניות!"
 
 #: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Username <b>@%1</b> not found"
-msgstr ""
+msgstr "שם המשתמש <b>‎@%1‎</b> לא נמצא"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:12
 msgid "Push Registration Failed"
@@ -928,10 +910,8 @@ msgid "Voice message,"
 msgstr "הודעה קולית,"
 
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
-#, fuzzy
-#| msgid "%1 joined the group"
 msgid "Unknown origin"
-msgstr "%1 הצטרף לקבוצה"
+msgstr "מקור לא ידוע"
 
 #: ../libs/qtdlib/messages/qtdmessage.cpp:85
 msgid "Me"
