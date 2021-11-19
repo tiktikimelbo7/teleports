@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2021-07-20 10:04+0000\n"
-"Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
+"PO-Revision-Date: 2021-11-19 22:39+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "teleports/pt/>\n"
 "Language: pt\n"
@@ -616,7 +616,7 @@ msgstr "Introduza a palavra-chave"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:39
 msgid "Password"
-msgstr "Palavra-chave"
+msgstr "Palavra-passe"
 
 #: ../app/qml/pages/WaitPasswordPage.qml:57
 msgid "Password hint: %1"
