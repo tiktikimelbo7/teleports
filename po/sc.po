@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 20:46+0000\n"
-"PO-Revision-Date: 2021-08-20 23:16+0000\n"
+"PO-Revision-Date: 2021-11-21 15:09+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
 "teleports/sc/>\n"
@@ -419,7 +419,7 @@ msgstr "In lìnia"
 
 #: ../app/qml/pages/ConnectivityPage.qml:27
 msgid "Connecting To Proxy"
-msgstr "Connetende a su server intermediàriu"
+msgstr "Connetende a su serbidore intermediàriu"
 
 #: ../app/qml/pages/ConnectivityPage.qml:29
 msgid "Updating"
@@ -687,7 +687,7 @@ msgstr "Faddina"
 
 #: ../app/qml/stores/ChatStateStore.qml:42
 msgid "No valid location received after 180 seconds!"
-msgstr "Peruna positzione vàlida retzida a pustis de 180 segundos"
+msgstr "Nissuna positzione vàlida retzida a pustis de 180 segundos"
 
 #: ../app/qml/stores/ChatStateStore.qml:48
 msgid "Username <b>@%1</b> not found"
@@ -699,7 +699,7 @@ msgstr "Faddina in in su registru Push"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:23
 msgid "No Ubuntu One"
-msgstr "Perunu Ubuntu One"
+msgstr "Nissunu contu Ubuntu One"
 
 #: ../app/qml/stores/NotificationsStateStore.qml:24
 msgid "Please connect to Ubuntu One to receive push notifications."
