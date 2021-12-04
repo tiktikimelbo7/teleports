@@ -13,7 +13,7 @@ void QTdDownloadFileRequest::setPriority(const QTdDownloadFileRequest::Priority 
     m_priority = priority;
 }
 
-void QTdDownloadFileRequest::setFileId(const qint32 &fileId)
+void QTdDownloadFileRequest::setFileId(const qint64 &fileId)
 {
     m_fileId = fileId;
 }

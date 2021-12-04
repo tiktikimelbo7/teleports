@@ -10,14 +10,14 @@ void QTdBlockUserRequest::setUser(QTdUser *user)
     m_userId = user->id();
 }
 
-void QTdBlockUserRequest::setUserId(const qint32 &id)
+void QTdBlockUserRequest::setUserId(const qint64 &id)
 {
     m_userId = id;
 }
 
 void QTdBlockUserRequest::setUserId(const QString &id)
 {
-    m_userId = qint32(id.toInt());
+    m_userId = id.toLongLong();
 }
 
 QJsonObject QTdBlockUserRequest::marshalJson()

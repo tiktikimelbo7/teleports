@@ -37,7 +37,7 @@ QString QTdSuperGroupChat::qmlSuperGroupId() const
     return m_sgId.toQmlValue();
 }
 
-qint32 QTdSuperGroupChat::superGroupId() const
+qint64 QTdSuperGroupChat::superGroupId() const
 {
     return m_sgId.value();
 }
@@ -202,7 +202,7 @@ QString QTdSuperGroupChat::qmlUpgradedFromBasicGroupId() const
     return m_upgradeGroupId.toQmlValue();
 }
 
-qint32 QTdSuperGroupChat::upgradedFromBasicGroupId() const
+qint64 QTdSuperGroupChat::upgradedFromBasicGroupId() const
 {
     return m_upgradeGroupId.value();
 }
@@ -250,7 +250,7 @@ void QTdSuperGroupChat::getSuperGroupData()
 
 void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
 {
-    const qint32 gid = qint32(json["id"].toInt());
+    const qint64 gid = json["id"].toVariant().toLongLong();
     if (gid != superGroupId()) {
         return;
     }
@@ -291,7 +291,7 @@ void QTdSuperGroupChat::updateSuperGroup(const QJsonObject &json)
 
 void QTdSuperGroupChat::updateSuperGroupFullInfo(const QJsonObject &json)
 {
-    const qint32 sid = qint32(json["supergroup_id"].toInt());
+    const qint64 sid = json["supergroup_id"].toVariant().toLongLong();
     if (sid != superGroupId()) {
         return;
     }

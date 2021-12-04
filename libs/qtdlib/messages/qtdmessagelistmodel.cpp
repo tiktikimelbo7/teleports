@@ -287,8 +287,8 @@ void QTdMessageListModel::appendMessage(QTdMessage *message)
         return;
     }
     auto *last = m_model->last();
-    message->setPreviousSenderId(last->senderUserId());
-    last->setNextSenderId(message->senderUserId());
+    message->setPreviousSender(last->sender());
+    last->setNextSender(message->sender());
 
     if (!message->sendingState()) {
         auto dateMessage = getDateLabelIfNeeded(last, message);
@@ -310,8 +310,8 @@ void QTdMessageListModel::prependMessage(QTdMessage *message)
         return;
     }
     auto *first = m_model->first();
-    message->setNextSenderId(first->senderUserId());
-    first->setPreviousSenderId(message->senderUserId());
+    message->setNextSender(first->sender());
+    first->setPreviousSender(message->sender());
 
     if (!message->sendingState()) {
         auto dateMessage = getDateLabelIfNeeded(message, first);
@@ -339,14 +339,14 @@ void QTdMessageListModel::handleUpdateChatLastMessage(const QJsonObject &json)
         return;
     }
 
-    const qint64 id = qint64(json["chat_id"].toDouble());
+    const qint64 id = json["chat_id"].toVariant().toLongLong();
     if (id != m_chat->id()) {
         return;
     }
 
     const QJsonObject messageJson = json["last_message"].toObject();
 
-    const qint64 messageId = qint64(messageJson["id"].toDouble());
+    const qint64 messageId = messageJson["id"].toVariant().toLongLong();
     if (!m_model->isEmpty() && m_model->getByUid(QString::number(messageId))) {
         return;
     }
@@ -368,7 +368,7 @@ void QTdMessageListModel::handleUpdateMessageSendSucceeded(const QJsonObject &js
     if (json.isEmpty()) {
         return;
     }
-    const qint64 oldMid = qint64(json["old_message_id"].toDouble());
+    const qint64 oldMid = json["old_message_id"].toVariant().toLongLong();
     auto *msgSent = m_model->getByUid(QString::number(oldMid));
     const QJsonObject message = json["message"].toObject();
     if (msgSent) {
@@ -382,7 +382,7 @@ void QTdMessageListModel::handleUpdateMessageEdited(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
-    auto messageId = QString::number(json["message_id"].toDouble(), 'f', 0);
+    auto messageId = QString::number(json["message_id"].toVariant().toLongLong(), 'f', 0);
     QTdMessage *message = m_model->getByUid(messageId);
     if (message == nullptr) {
         return;
@@ -395,7 +395,7 @@ void QTdMessageListModel::handleUpdateMessageViews(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
-    auto messageId = QString::number(json["message_id"].toDouble(), 'f', 0);
+    auto messageId = QString::number(json["message_id"].toVariant().toLongLong(), 'f', 0);
     QTdMessage *message = m_model->getByUid(messageId);
     if (message == nullptr) {
         return;
@@ -411,7 +411,7 @@ void QTdMessageListModel::handleUpdateDeleteMessages(const QJsonObject &json)
     }
     const QJsonArray messagesToDelete = json["message_ids"].toArray();
     foreach (QJsonValue messageToDelete, messagesToDelete) {
-        auto messageId = QString::number(messageToDelete.toDouble(), 'f', 0);
+        auto messageId = QString::number(messageToDelete.toVariant().toLongLong(), 'f', 0);
         QTdMessage *message = m_model->getByUid(messageId);
         if (message == nullptr) {
             continue;
@@ -426,7 +426,7 @@ void QTdMessageListModel::handleUpdateMessageContent(const QJsonObject &json)
         return;
     }
 
-    const qint64 messageId = qint64(json["message_id"].toDouble());
+    const qint64 messageId = json["message_id"].toVariant().toLongLong();
     const QJsonObject newContent = json["new_content"].toObject();
     QTdMessage *message = m_model->getByUid(QString::number(messageId));
     if (message == nullptr) {

@@ -114,12 +114,12 @@ public:
 
     QString originSummary() const;
     QString qmlSenderUserId() const;
-    qint32 senderUserId() const;
+    qint64 senderUserId() const;
 
     void unmarshalJson(const QJsonObject &json);
 
 private:
-    QTdInt32 m_senderUserId;
+    QTdInt64 m_senderUserId;
     QString m_senderUsername;
 };
 

@@ -45,7 +45,7 @@ void QTdMessageForwardOriginChat::unmarshalJson(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
-    m_senderChatId = json["sender_chat_id"].toDouble();
+    m_senderChatId = json["sender_chat_id"].toVariant().toLongLong();
     m_authorSignature = json["author_signature"].toString();
 
     auto *chat = QTdChatListModel::instance()->chatById(m_senderChatId.value());
@@ -107,8 +107,8 @@ void QTdMessageForwardOriginChannel::unmarshalJson(const QJsonObject &json)
     if (json.isEmpty()) {
         return;
     }
-    m_chatId = json["chat_id"].toDouble();
-    m_messageId = json["message_id"].toInt();
+    m_chatId = json["chat_id"].toVariant().toLongLong();
+    m_messageId = json["message_id"].toVariant().toLongLong();
     m_authorSignature = json["author_signature"].toString();
     auto *chat = QTdChatListModel::instance()->chatById(m_chatId.value());
     if (chat) {
@@ -170,7 +170,7 @@ QString QTdMessageForwardOriginUser::qmlSenderUserId() const
     return m_senderUserId.toQmlValue();
 }
 
-qint32 QTdMessageForwardOriginUser::senderUserId() const
+qint64 QTdMessageForwardOriginUser::senderUserId() const
 {
     return m_senderUserId.value();
 }
@@ -181,8 +181,8 @@ void QTdMessageForwardOriginUser::unmarshalJson(const QJsonObject &json)
 
     if (json.isEmpty()) {
         return;
-    }    
-    m_senderUserId = json["sender_user_id"].toInt();
+    }
+    m_senderUserId = json["sender_user_id"].toVariant().toLongLong();
     auto *user = QTdUsers::instance()->model()->getByUid(QString::number(m_senderUserId.value()));
     if (user) {
         firstName = user->firstName();

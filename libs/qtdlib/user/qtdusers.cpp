@@ -90,7 +90,7 @@ void QTdUsers::addUser(const QString &userName, const QString &firstName, const 
 
 void QTdUsers::deleteUser(const int &userId)
 {
-    QList<qint32> deleteUserIds;
+    QList<qint64> deleteUserIds;
     deleteUserIds.append(userId);
     QScopedPointer<QTdRemoveContactsRequest> deleteUserReq(new QTdRemoveContactsRequest);
     deleteUserReq->setUserIds(deleteUserIds);
@@ -105,7 +105,7 @@ void QTdUsers::deleteUser(const int &userId)
 
 void QTdUsers::handleUpdateUser(const QJsonObject &user)
 {
-    const qint32 uid = qint32(user["id"].toInt());
+    const qint64 uid = user["id"].toVariant().toLongLong();
     // Need to remember the model actually indexes on the qmlId variant which is a QString
     QTdUser *tduser = m_model->getByUid(QString::number(uid));
     if (!tduser) {
@@ -117,7 +117,7 @@ void QTdUsers::handleUpdateUser(const QJsonObject &user)
         tduser->unmarshalJson(user);
     }
 
-    const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    const qint64 myId = QTdClient::instance()->getOption("my_id").toLongLong();
     if (uid == myId) {
         m_meMyself->unmarshalJson(user);
         emit meMyselfChanged(m_meMyself);
@@ -131,8 +131,8 @@ void QTdUsers::handleUpdateUserStatus(const QString &userId, const QJsonObject &
         tduser->setStatus(QTdUserStatusFactory::create(status, tduser));
     }
 
-    const qint32 uid = qint32(userId.toInt());
-    const qint32 myId = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    const qint64 uid = userId.toLongLong();
+    const qint64 myId = QTdClient::instance()->getOption("my_id").toLongLong();
     if (uid == myId) {
         m_meMyself->setStatus(QTdUserStatusFactory::create(status, m_meMyself));
     }
@@ -172,7 +172,7 @@ void QTdUsers::handleContacts(const QJsonObject &contacts)
     QScopedPointer<QTdGetUserRequest> getUserReq(new QTdGetUserRequest);
     m_contact_ids.clear();
     for (const QJsonValue &contact : contactlist) {
-        auto contactId = (qint32)contact.toDouble();
+        qint64 contactId = contact.toVariant().toLongLong();
         QTdUser *contactObj = m_model->getByUid(QString::number(contactId));
         m_contact_ids.append(contactId);
         if (!contactObj) {
@@ -214,7 +214,7 @@ QTdUser *QTdUsersSortFilterModel::get(const int &row)
     return nullptr;
 }
 
-void QTdUsersSortFilterModel::setAllowedUsers(QList<qint32> user_ids)
+void QTdUsersSortFilterModel::setAllowedUsers(QList<qint64> user_ids)
 {
     if (user_ids == m_uids) {
         return;

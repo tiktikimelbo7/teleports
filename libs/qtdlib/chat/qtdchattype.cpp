@@ -19,7 +19,7 @@ QString QTdChatTypeBasicGroup::qmlBasicGroupId() const
     return m_groupId.toQmlValue();
 }
 
-qint32 QTdChatTypeBasicGroup::basicGroupId() const
+qint64 QTdChatTypeBasicGroup::basicGroupId() const
 {
     return m_groupId.value();
 }
@@ -44,7 +44,7 @@ QString QTdChatTypePrivate::qmlUserId() const
     return m_userId.toQmlValue();
 }
 
-qint32 QTdChatTypePrivate::userId() const
+qint64 QTdChatTypePrivate::userId() const
 {
     return m_userId.value();
 }
@@ -56,13 +56,13 @@ QTdUser *QTdChatTypePrivate::user() const
 
 void QTdChatTypePrivate::unmarshalJson(const QJsonObject &json)
 {
-    m_userId = json["user_id"];
+    m_userId = json["user_id"].toVariant().toLongLong();
     emit userIdChanged();
     updateUser(m_userId.value());
     QTdChatType::unmarshalJson(json);
 }
 
-void QTdChatTypePrivate::updateUser(const qint32 &userId)
+void QTdChatTypePrivate::updateUser(const qint64 &userId)
 {
     if (userId != m_userId.value()) {
         return;
@@ -100,14 +100,14 @@ QString QTdChatTypeSecret::qmlSecretChatId() const
     return m_chatId.toQmlValue();
 }
 
-qint32 QTdChatTypeSecret::secretChatId() const
+qint64 QTdChatTypeSecret::secretChatId() const
 {
     return m_chatId.value();
 }
 
 void QTdChatTypeSecret::unmarshalJson(const QJsonObject &json)
 {
-    m_chatId = json["secret_chat_id"];
+    m_chatId = json["secret_chat_id"].toVariant().toLongLong();
     emit secretChatIdChanged();
     QTdChatTypePrivate::unmarshalJson(json);
 }
@@ -125,7 +125,7 @@ QString QTdChatTypeSuperGroup::qmlSuperGroupId() const
     return m_groupId.toQmlValue();
 }
 
-qint32 QTdChatTypeSuperGroup::superGroupId() const
+qint64 QTdChatTypeSuperGroup::superGroupId() const
 {
     return m_groupId.value();
 }

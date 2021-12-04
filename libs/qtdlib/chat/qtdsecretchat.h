@@ -58,9 +58,9 @@ public:
     explicit QTdSecretChat(QObject *parent = nullptr);
 
     QString qmlSecretChatId() const;
-    qint32 secretChatId() const;
+    qint64 secretChatId() const;
     QString qmlUserId() const;
-    qint32 userId() const;
+    qint64 userId() const;
     bool isOutbound() const;
     bool isWritable() const override;
     bool isPending() const;
@@ -85,8 +85,8 @@ private slots:
     void updateSecretChat(const QJsonObject &data);
 
 private:
-    QTdInt32 m_secretChatId;
-    QTdInt32 m_userId;
+    QTdInt64 m_secretChatId;
+    QTdInt64 m_userId;
     bool m_isOutbound;
     qint32 m_ttl;
     QByteArray m_keyHash;

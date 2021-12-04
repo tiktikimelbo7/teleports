@@ -15,6 +15,6 @@ qint64 QTdMessagePinMessage::message_id() const
 
 void QTdMessagePinMessage::unmarshalJson(const QJsonObject &json)
 {
-    m_message_id = json["message_id"].toInt();
+    m_message_id = json["message_id"].toVariant().toLongLong();
     m_typeText = gettext("Pinned Message");
 }

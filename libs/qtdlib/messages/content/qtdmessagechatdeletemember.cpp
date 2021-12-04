@@ -22,7 +22,7 @@ QString QTdMessageChatDeleteMember::qmlUserId() const
     return m_uid.toQmlValue();
 }
 
-qint32 QTdMessageChatDeleteMember::userId() const
+qint64 QTdMessageChatDeleteMember::userId() const
 {
     return m_uid.value();
 }
@@ -32,7 +32,7 @@ void QTdMessageChatDeleteMember::updateTypeText()
     m_typeText = m_senderUserId == userId() ? gettext("left the group") : gettext("removed a member");
 }
 
-void QTdMessageChatDeleteMember::setSenderUserId(const qint32 senderUserId)
+void QTdMessageChatDeleteMember::setSenderUserId(const qint64 senderUserId)
 {
     m_senderUserId = senderUserId;
     updateTypeText();
@@ -41,7 +41,7 @@ void QTdMessageChatDeleteMember::setSenderUserId(const qint32 senderUserId)
 void QTdMessageChatDeleteMember::unmarshalJson(const QJsonObject &json)
 {
     if (json.contains("user_id")) {
-        m_uid = json["user_id"];
+        m_uid = json["user_id"].toVariant().toLongLong();
         emit contentChanged();
 
         updateTypeText();

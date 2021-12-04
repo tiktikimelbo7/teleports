@@ -8,7 +8,7 @@ QTdJoinChatRequest::QTdJoinChatRequest(QObject *parent)
 
 void QTdJoinChatRequest::setChatId(const QString &chatId)
 {
-    setChatId(chatId.toInt());
+    setChatId(chatId.toLongLong());
 }
 
 void QTdJoinChatRequest::setChatId(const qint64 &chatId)

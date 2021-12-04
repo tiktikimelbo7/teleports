@@ -23,8 +23,8 @@ public:
 
     QTdUser *user() const;
     QString qmlUserId() const;
-    qint32 userId() const;
-    void setSenderUserId(const qint32 senderUserId);
+    qint64 userId() const;
+    void setSenderUserId(const qint64 senderUserId);
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
 
@@ -38,9 +38,9 @@ private slots:
 private:
     void updateTypeText();
     QPointer<QTdUser> m_user;
-    QTdInt32 m_uid;
+    QTdInt64 m_uid;
     QFutureWatcher<QTdResponse> m_watcher;
-    qint32 m_senderUserId;
+    qint64 m_senderUserId;
 };
 
 #endif // QTDMESSAGECHATDELETEMEMBER_H

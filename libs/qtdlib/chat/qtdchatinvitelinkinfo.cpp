@@ -59,7 +59,7 @@ QString QTdChatInviteLinkInfo::qmlMemberCount() const
     return m_memberCount.toQmlValue();
 }
 
-QList<qint32> QTdChatInviteLinkInfo::memberUserIds() const
+QList<qint64> QTdChatInviteLinkInfo::memberUserIds() const
 {
     return m_memberUserIds;
 }
@@ -90,7 +90,7 @@ QString QTdChatInviteLinkInfo::avatarColor() const
 void QTdChatInviteLinkInfo::unmarshalJson(QJsonObject &json)
 {
     m_inviteLink = json["invite_link"].toString();
-    m_chatId = json["chat_id"].toDouble();
+    m_chatId = json["chat_id"].toVariant().toLongLong();
     m_type->unmarshalJson(json["type"].toObject());
     m_title = json["title"].toString();
     m_photo->unmarshalJson(json["photo"].toObject());
@@ -99,9 +99,9 @@ void QTdChatInviteLinkInfo::unmarshalJson(QJsonObject &json)
 
     auto userIds = json["member_user_ids"].toArray();
     for (const QJsonValue &userId : userIds) {
-        m_memberUserIds << qint32(userId.toInt());
+        m_memberUserIds << userId.toVariant().toLongLong();
     }
-    for (const qint32 &userId : m_memberUserIds) {
+    for (const qint64 &userId : m_memberUserIds) {
         QScopedPointer<QTdUser> user(QTdUsers::instance()->model()->getByUid(QString::number(userId)));
         if (user.isNull()) {
             QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);

@@ -8,10 +8,10 @@ QTdGetUserRequest::QTdGetUserRequest(QObject *parent)
 
 void QTdGetUserRequest::setUserId(const QString &id)
 {
-    setUserId(id.toInt());
+    setUserId(id.toLongLong());
 }
 
-void QTdGetUserRequest::setUserId(const qint32 &id)
+void QTdGetUserRequest::setUserId(const qint64 &id)
 {
     m_uid = id;
 }

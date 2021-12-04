@@ -15,7 +15,7 @@ QString QTdMessageChatUpgradeTo::qmlSuperGroupId() const
     return m_sgId.toQmlValue();
 }
 
-qint32 QTdMessageChatUpgradeTo::superGroupId() const
+qint64 QTdMessageChatUpgradeTo::superGroupId() const
 {
     return m_sgId.value();
 }

@@ -3,11 +3,11 @@
 
 #include <QObject>
 #include <QScopedPointer>
-#include "common/qabstractint32id.h"
+#include "common/qabstractint64id.h"
 #include "qtdlocalfile.h"
 #include "qtdremotefile.h"
 
-class QTdFile : public QAbstractInt32Id
+class QTdFile : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_PROPERTY(QString size READ qmlSize NOTIFY fileChanged)

@@ -7,7 +7,7 @@ QTdGetSecretChatRequest::QTdGetSecretChatRequest(QObject *parent)
 {
 }
 
-void QTdGetSecretChatRequest::setSecretChatId(const qint32 &id)
+void QTdGetSecretChatRequest::setSecretChatId(const qint64 &id)
 {
     m_chatId = id;
 }

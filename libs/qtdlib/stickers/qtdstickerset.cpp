@@ -72,12 +72,13 @@ void QTdStickerSet::unmarshalJson(const QJsonObject &json)
     m_id = json["id"];
     m_title = json["title"].toString();
     m_name = json["name"].toString();
-    if (json.contains("thumbnail")) {
-        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-        m_hasThumbnail = true;
-    } else {
-        m_hasThumbnail = false;
-    }
+    // TODO: Repair this after upgrade to tdlib 1.7.9
+    // if (json.contains("thumbnail")) {
+    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    //     m_hasThumbnail = true;
+    // } else {
+    //     m_hasThumbnail = false;
+    // }
     m_isAnimated = json["is_animated"].toBool();
     if (json.contains("covers") && !m_hasThumbnail) {
         auto coversArray = json["covers"].toArray();

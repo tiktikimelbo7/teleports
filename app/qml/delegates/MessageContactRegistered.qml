@@ -6,15 +6,9 @@ MessageActionItem {
 
     function getAddingUserString() {
         if (message.isCollapsed) {
-            return ""
+            return "";
         }
-        if (message.sender.firstName !== "") {
-            var fullName = message.sender.firstName
-            if (message.sender.lastName !== "")
-                fullName = fullName + " " + message.sender.lastName
-            return fullName
-        } else {
-            return message.sender.username
-        }
+
+        return message.sender.fullName;
     }
 }

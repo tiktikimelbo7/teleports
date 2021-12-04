@@ -36,16 +36,11 @@ Item {
                 if (message.isCollapsed) {
                     return ""
                 }
-                if(!message.sender)
-                return "";
-                if (message.sender.firstName !== "") {
-                    var fullName = message.sender.firstName
-                    if (message.sender.lastName !== "")
-                    fullName = fullName + " " + message.sender.lastName
-                    return fullName
-                } else {
-                    return message.sender.username
+                if (!message.sender) {
+                    return "";
                 }
+                
+                return message.sender.fullName;
             }
             anchors.horizontalCenter: parent.horizontalCenter
         }

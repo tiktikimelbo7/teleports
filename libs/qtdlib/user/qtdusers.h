@@ -26,7 +26,7 @@ public:
     Q_INVOKABLE QTdUser *get(const int &row);
 
 public slots:
-    void setAllowedUsers(QList<qint32> user_ids);
+    void setAllowedUsers(QList<qint64> user_ids);
 
 signals:
     void countChanged();
@@ -38,7 +38,7 @@ protected:
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const;
 
 private:
-    QList<qint32> m_uids;
+    QList<qint64> m_uids;
 };
 
 class QTdUsers : public QObject
@@ -67,7 +67,7 @@ public slots:
 
 signals:
     void modelChanged(QObject* model);
-    void userCreated(qint32 id);
+    void userCreated(qint64 id);
     void meMyselfChanged(QTdUser *meMyself);
     void contactsChanged();
     void contactsImported(int existingUsers, int importedContacts);
@@ -84,7 +84,7 @@ private:
     QQmlObjectListModel<QTdUser> *m_model;
     QPointer<QTdUser> m_meMyself;
     QTdUsersSortFilterModel *m_contactsmodel;
-    QList<qint32> m_contact_ids;
+    QList<qint64> m_contact_ids;
     void getAllContacts();
 };
 

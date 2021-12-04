@@ -14,7 +14,7 @@ public:
 
     QString qmlSuperGroupId() const;
 
-    qint32 superGroupId() const;
+    qint64 superGroupId() const;
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -22,7 +22,7 @@ signals:
     void contentChanged();
 
 private:
-    QTdInt32 m_sgId;
+    QTdInt64 m_sgId;
 };
 
 #endif // QTDMESSAGECHATUPGRADETO_H

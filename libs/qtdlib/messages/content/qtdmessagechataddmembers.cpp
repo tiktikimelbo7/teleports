@@ -19,12 +19,12 @@ QObject *QTdMessageChatAddMembers::members() const
     return m_model.data();
 }
 
-QList<qint32> QTdMessageChatAddMembers::memberUserIds() const
+QList<qint64> QTdMessageChatAddMembers::memberUserIds() const
 {
     return m_member_user_ids;
 }
 
-qint32 QTdMessageChatAddMembers::firstMemberId() const
+qint64 QTdMessageChatAddMembers::firstMemberId() const
 {
     return m_member_user_ids.first();
 }
@@ -34,7 +34,7 @@ void QTdMessageChatAddMembers::updateTypeText()
     m_typeText = m_senderUserId == firstMemberId() ? gettext("joined the group") : gettext("added one or more members");
 }
 
-void QTdMessageChatAddMembers::setSenderUserId(const qint32 senderUserId)
+void QTdMessageChatAddMembers::setSenderUserId(const qint64 senderUserId)
 {
     m_senderUserId = senderUserId;
     updateTypeText();
@@ -45,13 +45,13 @@ void QTdMessageChatAddMembers::unmarshalJson(const QJsonObject &json)
     const QJsonArray ids = json["member_user_ids"].toArray();
     QScopedPointer<QTdGetUserRequest> request(new QTdGetUserRequest);
     for (const QJsonValue &val : ids) {
-        m_member_user_ids << qint32(val.toInt());
+        m_member_user_ids << val.toVariant().toLongLong();
     }
     m_model->setAllowedUsers(m_member_user_ids);
     emit membersChanged();
 
     // Now fetch any users that aren't already in the model
-    for (const qint32 &id : m_member_user_ids) {
+    for (const qint64 &id : m_member_user_ids) {
         const QTdUser *user = QTdUsers::instance()->model()->getByUid(QString::number(id));
         if (!user) {
             QScopedPointer<QTdGetUserRequest> req(new QTdGetUserRequest);

@@ -11,12 +11,12 @@ class QTdRemoveContactsRequest : public QTdOkRequest
 public:
     explicit QTdRemoveContactsRequest(QObject *parent = nullptr);
 
-    void setUserIds(const QList<qint32> &userIds);
+    void setUserIds(const QList<qint64> &userIds);
     QJsonObject marshalJson() Q_DECL_FINAL;
 
 private:
     Q_DISABLE_COPY(QTdRemoveContactsRequest)
-    QList<qint32> m_userIds;
+    QList<qint64> m_userIds;
 };
 
 #endif // QTDREMOVECONTACTSREQUEST_H

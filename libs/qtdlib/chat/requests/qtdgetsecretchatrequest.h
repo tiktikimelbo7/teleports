@@ -15,14 +15,14 @@ class QTdGetSecretChatRequest : public QTdRequest
 public:
     explicit QTdGetSecretChatRequest(QObject *parent = nullptr);
 
-    void setSecretChatId(const qint32 &id);
+    void setSecretChatId(const qint64 &id);
     QJsonObject marshalJson() Q_DECL_FINAL;
 
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 
 private:
     Q_DISABLE_COPY(QTdGetSecretChatRequest)
-    qint32 m_chatId;
+    qint64 m_chatId;
 };
 
 #endif // QTDGETSECRETCHATREQUEST_H

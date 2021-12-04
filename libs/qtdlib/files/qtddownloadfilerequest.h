@@ -23,7 +23,7 @@ public:
     Q_ENUM(Priority)
 
     void setPriority(const Priority &priority);
-    void setFileId(const qint32 &fileId);
+    void setFileId(const qint64 &fileId);
 
     QJsonObject marshalJson() Q_DECL_FINAL;
 
@@ -32,7 +32,7 @@ public:
 private:
     Q_DISABLE_COPY(QTdDownloadFileRequest)
     Priority m_priority;
-    qint32 m_fileId;
+    qint64 m_fileId;
 };
 
 #endif // QTDDOWNLOADFILEREQUEST_H

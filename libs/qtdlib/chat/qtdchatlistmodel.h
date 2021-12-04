@@ -45,9 +45,9 @@ public slots:
     void setCurrentChat(QTdChat *currentChat);
     void setCurrentChatById(const qint64 &chatId);
     void setCurrentChatByUsername(const QString &username);
-    void createOrOpenPrivateChat(const int &userId);
+    void createOrOpenPrivateChat(const qint64 &userId);
     void createOrOpenSavedMessages();
-    void createOrOpenSecretChat(const int &userId);
+    void createOrOpenSecretChat(const qint64 &userId);
     void setForwardedFromChat(QTdChat *currentChat);
     void setForwardingMessages(QStringList forwardingMessages);
     void setListMode(ListMode listMode);
@@ -83,12 +83,11 @@ private slots:
     void handleChats(const QJsonObject &data);
     void handleChat(const QJsonObject &data);
     void handleUpdateNewChat(const QJsonObject &data);
-    void handleUpdateChatOrder(const QJsonObject &data);
+    void handleUpdateChatPosition(const QJsonObject &data);
     void handleUpdateChatLastMessage(const QJsonObject &data);
     void handleAuthStateChanges(const QTdAuthState *state);
     void updateChatReadInbox(const QJsonObject &data);
     void updateChatReadOutbox(const QJsonObject &data);
-    void handleUpdateChatIsPinned(const QJsonObject &data);
     void handleUpdateChatPhoto(const QJsonObject &data);
     void handleUpdateChatReplyMarkup(const QJsonObject &data);
     void handleUpdateChatDraftMessage(const QJsonObject &data);
@@ -97,7 +96,6 @@ private slots:
     void handleUpdateChatNotificationSettings(const QJsonObject &data);
     void handleUpdateChatOnlineMemberCount(const QJsonObject &data);
     void handleForwardingMessagesAction();
-    void handleUpdateChatChatList(const QJsonObject &data);
     void positionUpdated(const QGeoPositionInfo &info);
     void onPositionInfoTimeout();
 

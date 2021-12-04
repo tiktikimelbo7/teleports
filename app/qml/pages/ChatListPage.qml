@@ -423,7 +423,7 @@ Page {
                                     topMargin: units.gu(0.5)
                                 }
 
-                                visible: chat.isPinned
+                                visible: chat.position.isPinned
                                 source: "qrc:/qml/icons/attach.svg"
                                 color: Suru.foregroundColor
                                 Suru.textStyle: Suru.TertiaryText

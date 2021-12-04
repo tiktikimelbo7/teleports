@@ -94,6 +94,7 @@ private:
     QString m_type;
     QString m_siteName;
     QString m_title;
+    //TODO 1.7.9 change to formattedText
     QString m_description;
     QScopedPointer<QTdPhotos> m_photo;
     bool m_containsPhoto;
