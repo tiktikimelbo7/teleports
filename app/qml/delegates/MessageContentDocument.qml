@@ -120,11 +120,17 @@ MessageContentBase {
                 tdFile.downloadFile();
             }
             if(localFile.isDownloadingCompleted){
-                AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
-                                                "url": localFileSource,
-                                                "handler": ContentHandler.Destination,
-                                                "contentType": ContentType.Documents
-                                            });
+                if (documentContent.document.mimeType.includes("image")) {
+                    AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
+                                                    "photoPreviewSource": localFileSource
+                                                });
+                } else {
+                    AppActions.view.pushToStack("qrc:///pages/PickerPage.qml", {
+                                                    "url": localFileSource,
+                                                    "handler": ContentHandler.Destination,
+                                                    "contentType": ContentType.Documents
+                                                });
+                }
             }
         }
     }
