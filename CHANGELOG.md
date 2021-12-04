@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.12
+
+### Changed
+- Upgraded tdlib to unpublished version 1.7.9 due to massive 1.6.0 API breakage by Telegram
+- Check complete date when showing date change markers in the message list (Bjarne Roß)
+- Different palette for the avatar background color if no profile pic is present
+
+### Bugfix
+- Audio message content displays correctly even if some details of the audio clip are missing
+
 ## 0.11
 ### Added
 - Added button to copy group or username shortcut from profile to clipboard
