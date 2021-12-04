@@ -11,7 +11,7 @@ variables:
     CLICKABLE_VERSION: "6.21.0"
 
 cache: &tdlib_cache
-    key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.6'
+    key: '$CI_JOB_NAME-$CI_COMMIT_REF_SLUG-1.7.9'
     untracked: true
 
 .debug: &debug
