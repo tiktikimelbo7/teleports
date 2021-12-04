@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 20:46+0000\n"
+"POT-Creation-Date: 2021-12-04 00:09+0000\n"
 "PO-Revision-Date: 2021-07-14 20:06+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
@@ -359,7 +359,7 @@ msgstr "Personals"
 msgid "Unread"
 msgstr "No llegits"
 
-#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:83
 msgid "Saved Messages"
 msgstr "Missatges desats"
 
@@ -701,47 +701,51 @@ msgstr "Cap Ubuntu One"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Connecteu amb l'Ubuntu One per rebre notificacions «push»."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:326
+#: ../libs/qtdlib/chat/qtdchat.cpp:311
 msgid "Draft:"
 msgstr "Esborrany:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:322
+msgid "Me"
+msgstr "Jo"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:597
 msgid "is choosing contact..."
 msgstr "està triant un contacte…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "are choosing contact..."
 msgstr "estan triant un contacte…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:601
 msgid "is choosing location..."
 msgstr "està triant una posició…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "are choosing location..."
 msgstr "estan triant una posició..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is recording..."
 msgstr "està gravant…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are recording..."
 msgstr "estan gravant…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is typing..."
 msgstr "està teclejant…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are typing..."
 msgstr "estan teclejant…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is doing something..."
 msgstr "està fent qualque cosa…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are doing something..."
 msgstr "estan fent qualque cosa…"
 
@@ -910,10 +914,6 @@ msgstr "Missatge de veu,"
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
 msgid "Unknown origin"
 msgstr "Origen desconegut"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:85
-msgid "Me"
-msgstr "Jo"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"

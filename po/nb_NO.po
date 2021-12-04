@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 20:46+0000\n"
+"POT-Creation-Date: 2021-12-04 00:09+0000\n"
 "PO-Revision-Date: 2021-03-11 21:27+0000\n"
 "Last-Translator: Jan Christian Sherdahl <jan@sherdahl.no>\n"
 "Language-Team: Norwegian Bokmål <https://translate.ubports.com/projects/"
@@ -358,7 +358,7 @@ msgstr "Personlig"
 msgid "Unread"
 msgstr "Ulest"
 
-#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:83
 msgid "Saved Messages"
 msgstr "Lagrede meldinger"
 
@@ -699,47 +699,51 @@ msgstr "Intet Ubuntu One"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Vennligst koble til Ubuntu One for å motta pushvarlser."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:326
+#: ../libs/qtdlib/chat/qtdchat.cpp:311
 msgid "Draft:"
 msgstr "Utkast:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:322
+msgid "Me"
+msgstr "Jeg"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:597
 msgid "is choosing contact..."
 msgstr "velger kontakt..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "are choosing contact..."
 msgstr "velger kontakt..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:601
 msgid "is choosing location..."
 msgstr "velger posisjon..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "are choosing location..."
 msgstr "velger posisjon..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is recording..."
 msgstr "tar opp..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are recording..."
 msgstr "tar opp..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is typing..."
 msgstr "skriver..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are typing..."
 msgstr "skriver..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is doing something..."
 msgstr "gjør noe..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are doing something..."
 msgstr "gjør noe..."
 
@@ -910,10 +914,6 @@ msgstr "Stemmeopptak,"
 #| msgid "Unknown joined group"
 msgid "Unknown origin"
 msgstr "Ukjent tok del i gruppen"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:85
-msgid "Me"
-msgstr "Jeg"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"

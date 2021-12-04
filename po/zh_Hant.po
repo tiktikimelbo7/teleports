@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 20:46+0000\n"
+"POT-Creation-Date: 2021-12-04 00:09+0000\n"
 "PO-Revision-Date: 2021-07-15 04:28+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -353,7 +353,7 @@ msgstr "個人"
 msgid "Unread"
 msgstr "未讀"
 
-#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:83
 msgid "Saved Messages"
 msgstr "已儲存的訊息"
 
@@ -688,47 +688,51 @@ msgstr "沒有 Ubuntu One"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "請連接到 Ubuntu One 來接收推送通知。"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:326
+#: ../libs/qtdlib/chat/qtdchat.cpp:311
 msgid "Draft:"
 msgstr "草稿："
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:322
+msgid "Me"
+msgstr "我"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:597
 msgid "is choosing contact..."
 msgstr "正在選擇聯絡人..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "are choosing contact..."
 msgstr "正在選擇聯絡人中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:601
 msgid "is choosing location..."
 msgstr "正在選擇位置..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "are choosing location..."
 msgstr "正在選擇位置中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is recording..."
 msgstr "正在錄製..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are recording..."
 msgstr "正在錄製中..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is typing..."
 msgstr "正在輸入..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are typing..."
 msgstr "正在輸入中…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is doing something..."
 msgstr "正在做某些事..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are doing something..."
 msgstr "正在做某些事..."
 
@@ -897,10 +901,6 @@ msgstr "語音訊息，"
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
 msgid "Unknown origin"
 msgstr "不明來源"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:85
-msgid "Me"
-msgstr "我"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"

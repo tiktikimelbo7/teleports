@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 20:46+0000\n"
+"POT-Creation-Date: 2021-12-04 00:09+0000\n"
 "PO-Revision-Date: 2021-07-12 14:21+0000\n"
 "Last-Translator: German Semenov <GermanAizek@yandex.ru>\n"
 "Language-Team: Russian <https://translate.ubports.com/projects/ubports/"
@@ -363,7 +363,7 @@ msgstr "Личное"
 msgid "Unread"
 msgstr "Не прочитано"
 
-#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:83
 msgid "Saved Messages"
 msgstr "Сохраненные сообщения"
 
@@ -710,47 +710,51 @@ msgstr ""
 "Для получения уведомлений, пожалуйста, подключитесь к учётной записи Ubuntu "
 "One."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:326
+#: ../libs/qtdlib/chat/qtdchat.cpp:311
 msgid "Draft:"
 msgstr "Черновик:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:322
+msgid "Me"
+msgstr "Я"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:597
 msgid "is choosing contact..."
 msgstr "выбирает контакт..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "are choosing contact..."
 msgstr "выбирают контакт..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:601
 msgid "is choosing location..."
 msgstr "выбирает местоположение..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "are choosing location..."
 msgstr "выбирают местоположение..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is recording..."
 msgstr "записывает сообщение..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are recording..."
 msgstr "записывают сообщения..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is typing..."
 msgstr "пишет сообщение..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are typing..."
 msgstr "пишут сообщения..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is doing something..."
 msgstr "что-то делает..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are doing something..."
 msgstr "что-то делают..."
 
@@ -919,10 +923,6 @@ msgstr "Голосовое сообщение,"
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
 msgid "Unknown origin"
 msgstr "Неизвестное происхождение"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:85
-msgid "Me"
-msgstr "Я"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"

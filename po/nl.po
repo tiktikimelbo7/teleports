@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 20:46+0000\n"
+"POT-Creation-Date: 2021-12-04 00:09+0000\n"
 "PO-Revision-Date: 2021-07-12 15:25+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
@@ -360,7 +360,7 @@ msgstr "Persoonlijk"
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:87
+#: ../app/qml/pages/ChatListPage.qml:127 ../libs/qtdlib/chat/qtdchat.cpp:83
 msgid "Saved Messages"
 msgstr "Opgeslagen berichten"
 
@@ -702,47 +702,51 @@ msgstr "Geen Ubuntu One"
 msgid "Please connect to Ubuntu One to receive push notifications."
 msgstr "Koppel je Ubuntu One-account om pushmeldingen te ontvangen."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:326
+#: ../libs/qtdlib/chat/qtdchat.cpp:311
 msgid "Draft:"
 msgstr "Concept:"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:622
+#: ../libs/qtdlib/chat/qtdchat.cpp:322
+msgid "Me"
+msgstr "Ik"
+
+#: ../libs/qtdlib/chat/qtdchat.cpp:597
 msgid "is choosing contact..."
 msgstr "kiest een contactpersoon…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:623
+#: ../libs/qtdlib/chat/qtdchat.cpp:598
 msgid "are choosing contact..."
 msgstr "kiezen een contactpersoon…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:626
+#: ../libs/qtdlib/chat/qtdchat.cpp:601
 msgid "is choosing location..."
 msgstr "kiest een locatie…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:627
+#: ../libs/qtdlib/chat/qtdchat.cpp:602
 msgid "are choosing location..."
 msgstr "kiezen een locatie…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:632
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is recording..."
 msgstr "is aan het opnemen…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:633
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are recording..."
 msgstr "zijn aan het opnemen…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:636
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is typing..."
 msgstr "is aan het typen…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:637
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are typing..."
 msgstr "zijn aan het typen…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:640
+#: ../libs/qtdlib/chat/qtdchat.cpp:615
 msgid "is doing something..."
 msgstr "is iets aan het doen…"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:641
+#: ../libs/qtdlib/chat/qtdchat.cpp:616
 msgid "are doing something..."
 msgstr "zijn iets aan het doen…"
 
@@ -911,10 +915,6 @@ msgstr "Spraakbericht,"
 #: ../libs/qtdlib/messages/forwardinfo/qtdmessageforwardinfo.cpp:61
 msgid "Unknown origin"
 msgstr "Onbekende herkomst"
-
-#: ../libs/qtdlib/messages/qtdmessage.cpp:85
-msgid "Me"
-msgstr "Ik"
 
 #: ../libs/qtdlib/messages/qtdmessagecontentfactory.cpp:133
 msgid "Unimplemented:"
