@@ -122,7 +122,7 @@ signals:
     void updateUserFullInfo(const QString &user_id, const QJsonObject &fullInfo);
     void updateFile(const QJsonObject &file);
     void updateNewChat(const QJsonObject &chat);
-    void updateChatOrder(const QJsonObject &chat);
+    void updateChatPosition(const QJsonObject &chat);
     void updateChatLastMessage(const QJsonObject &chat);
     void updateMessageSendSucceeded(const QJsonObject &chat);
     void updateMessageContent(const QJsonObject &chat);
@@ -131,10 +131,8 @@ signals:
     void updateSecretChat(const QJsonObject &chat);
     void updateSuperGroup(const QJsonObject &group);
     void updateSupergroupFullInfo(const QJsonObject &group);
-    void updateChatChatList(const QJsonObject &update);
     void updateChatReadInbox(const QJsonObject &chat);
     void updateChatReadOutbox(const QJsonObject &chat);
-    void updateChatIsPinned(const QJsonObject &chat);
     void updateChatPhoto(const QJsonObject &photo);
     void updateChatReplyMarkup(const QJsonObject &chat);
     void updateChatDraftMessage(const QJsonObject &chat);

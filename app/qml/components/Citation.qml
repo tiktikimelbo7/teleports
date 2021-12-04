@@ -40,9 +40,9 @@ Item {
             id: senderLabel
             height: Suru.units.gu(2.5)
             width: contentWidth
-            text: messageCited.sender ? "%1 %2".arg(messageCited.sender.firstName).arg(messageCited.sender.lastName) : ""
+            text: messageCited.sender ? messageCited.sender.fullName : ""
             font.bold: false
-            color: messageCited.sender ? messageCited.sender.avatarColor(messageCited.sender.id) : ""
+            color: messageCited.sender ? messageCited.sender.avatarColor : ""
         }
 
         TextMetrics {

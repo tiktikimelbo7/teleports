@@ -24,10 +24,8 @@
 QTdMessage::QTdMessage(QObject *parent)
     : QAbstractInt64Id(parent)
     , m_date(0)
-    , m_sender_user_id(0)
     , m_chatId(0)
     , m_sender(Q_NULLPTR)
-    , m_waitingForSender(false)
     , m_sendingState(Q_NULLPTR)
     , m_isOutgoing(false)
     , m_canBeEdited(false)
@@ -38,8 +36,8 @@ QTdMessage::QTdMessage(QObject *parent)
     , m_containsUnreadMention(false)
     , m_content(Q_NULLPTR)
     , m_isValid(false)
-    , m_previousSender(0)
-    , m_nextSender(0)
+    , m_previousSender(Q_NULLPTR)
+    , m_nextSender(Q_NULLPTR)
     , m_replyMarkup(Q_NULLPTR)
     , m_forwardInfo(Q_NULLPTR)
     , m_messageRepliedTo(Q_NULLPTR)
@@ -59,16 +57,6 @@ qint32 QTdMessage::date() const
     return m_date;
 }
 
-QString QTdMessage::qmlSenderUserId() const
-{
-    return m_sender_user_id.toQmlValue();
-}
-
-qint32 QTdMessage::senderUserId() const
-{
-    return m_sender_user_id.value();
-}
-
 QString QTdMessage::qmlChatId() const
 {
     return m_chatId.toQmlValue();
@@ -79,25 +67,7 @@ qint64 QTdMessage::chatId() const
     return m_chatId.value();
 }
 
-QString QTdMessage::senderName() const
-{
-    if (isOutgoing()) {
-        return gettext("Me");
-    }
-
-    if (!m_sender)
-        return QString();
-
-    QString name = m_sender->firstName();
-
-    if (name.isEmpty()) {
-        name = m_sender->username();
-    }
-
-    return name;
-}
-
-QTdUser *QTdMessage::sender() const
+QTdMessageSender *QTdMessage::sender() const
 {
     return m_sender;
 }
@@ -130,11 +100,12 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
 
     m_isValid = false;
     m_date = qint32(json["date"].toInt());
-    m_sender_user_id = json["sender_user_id"];
-    if (m_sender_user_id.isValid()) {
-        updateSender(m_sender_user_id.value());
-    }
-    m_chatId = json["chat_id"];
+
+    const QJsonObject sender = json["sender"].toObject();
+    m_sender = QTdMessageSender::create(sender, this);
+    m_sender->unmarshalJson(sender);
+
+    m_chatId = json["chat_id"].toVariant().toLongLong();
 
     updateSendingState(json);
 
@@ -170,13 +141,13 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
         auto *c = qobject_cast<QTdMessageChatAddMembers *>(temp_content);
-        c->setSenderUserId(senderUserId());
+        // c->setSenderUserId(senderUserId());
         temp_content = qobject_cast<QTdMessageContent *>(c);
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
         auto *c = qobject_cast<QTdMessageChatDeleteMember *>(temp_content);
-        c->setSenderUserId(senderUserId());
+        // c->setSenderUserId(senderUserId());
         temp_content = qobject_cast<QTdMessageContent *>(c);
         break;
     }
@@ -349,32 +320,32 @@ bool QTdMessage::isValid() const
     return m_isValid;
 }
 
-bool QTdMessage::sameUserAsPreviousMessage() const
+bool QTdMessage::sameSenderAsPreviousMessage() const
 {
-    return m_sender_user_id.value() == m_previousSender.value();
+    return !m_previousSender.isNull() && m_sender->type() == m_previousSender->type() && m_sender->id() == m_previousSender->id();
 }
 
-void QTdMessage::setPreviousSenderId(const qint32 &id)
+void QTdMessage::setPreviousSender(QTdMessageSender *sender)
 {
-    m_previousSender = id;
+    m_previousSender = sender;
     emit previousSenderChanged();
 }
 
-bool QTdMessage::sameUserAsNextMessage() const
+bool QTdMessage::sameSenderAsNextMessage() const
 {
-    return m_sender_user_id.value() == m_nextSender.value();
+    return !m_nextSender.isNull() && m_sender->type() == m_nextSender->type() && m_sender->id() == m_nextSender->id();
 }
 
-void QTdMessage::setNextSenderId(const qint32 &id)
+void QTdMessage::setNextSender(QTdMessageSender *sender)
 {
-    m_nextSender = id;
+    m_nextSender = sender;
     emit nextSenderChanged();
 }
 
 bool QTdMessage::isLatest() const
 {
-    // Only the latest message should not have a nextSenderId
-    return !m_nextSender.isValid();
+    // Only the latest message should not have a nextSender
+    return m_nextSender.isNull();
 }
 
 qint64 QTdMessage::replyToMessageId() const
@@ -385,32 +356,6 @@ qint64 QTdMessage::replyToMessageId() const
 QString QTdMessage::qmlReplyToMessageId() const
 {
     return m_replyToMessageId.toQmlValue();
-}
-
-void QTdMessage::updateSender(const qint32 &senderId)
-{
-    if (senderId != m_sender_user_id.value()) {
-        return;
-    }
-    if (m_sender) {
-        m_sender = Q_NULLPTR;
-    }
-
-    auto *users = QTdUsers::instance()->model();
-    m_sender = users->getByUid(QString::number(senderId));
-    if (m_sender) {
-        emit senderChanged();
-        if (m_waitingForSender) {
-            disconnect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdMessage::updateSender);
-            m_waitingForSender = false;
-        }
-        return;
-    }
-    connect(QTdUsers::instance(), &QTdUsers::userCreated, this, &QTdMessage::updateSender);
-    QTdClient::instance()->send(QJsonObject{
-            { "@type", "getUser" },
-            { "user_id", m_sender_user_id.value() } });
-    m_waitingForSender = true;
 }
 
 void QTdMessage::updateSendingState(const QJsonObject &json)

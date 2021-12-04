@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0.0)
 
 #set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Td 1.6.0 REQUIRED)
+find_package(Td 1.7.9 REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Qml REQUIRED)
 find_package(Qt5Quick REQUIRED)
@@ -74,6 +74,7 @@ set(
     chat/qtdsecretchatstate.cpp
     chat/qtdsupergroupchat.cpp
     chat/qtdchatinvitelinkinfo.cpp
+    chat/qtdchatposition.cpp
     chat/requests/qtdclosechatrequest.cpp
     chat/requests/qtdclosesecretchatrequest.cpp
     chat/requests/qtdcreateprivatechatrequest.cpp
@@ -102,8 +103,6 @@ set(
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp
-    common/qabstractint32id.cpp
-    common/qabstractint53id.cpp
     common/qabstractint64id.cpp
     common/qabstracttdobject.cpp
     common/qtdhelpers.cpp
@@ -167,6 +166,7 @@ set(
     messages/qtdmessage.cpp
     messages/qtdmessagecontent.cpp
     messages/qtdmessagecontentfactory.cpp
+    messages/qtdmessagesender.cpp
     messages/qtdmessagelistmodel.cpp
     messages/qtdmessagesendingstate.cpp
     messages/replymarkup/qtdkeyboardbutton.cpp
@@ -227,7 +227,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 add_library(${QTDLIB} SHARED ${SRC})
-target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Qt5::Multimedia Td::tdjson auxdb)
+target_link_libraries(${QTDLIB} Qt5::Core Qt5::Quick Qt5::Widgets Qt5::Qml Qt5::Concurrent Qt5::Positioning Qt5::Multimedia Td::tdjson Td::tdapi auxdb)
 target_include_directories(${QTDLIB} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 get_filename_component(QTDLIB_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 

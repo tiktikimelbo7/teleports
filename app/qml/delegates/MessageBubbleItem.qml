@@ -88,8 +88,8 @@ UITK.ListItem {
         anchors {
             fill: parent
             margins: Suru.units.gu(1)
-            topMargin: message.sameUserAsNextMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
-            bottomMargin: message.sameUserAsPreviousMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
+            topMargin: message.sameSenderAsNextMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
+            bottomMargin: message.sameSenderAsPreviousMessage && !message.isLatest ? Suru.units.dp(2) : Suru.units.dp(3)
         }
 
         Item {
@@ -99,15 +99,22 @@ UITK.ListItem {
             visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret || chat.isChannel)
 
             GenericPhoto {
-                visible: !message.sameUserAsPreviousMessage
+                visible: !message.sameSenderAsPreviousMessage
                 anchors.fill: parent
-                photoPath: message.sender && message.sender.profilePhoto ? message.sender.profilePhoto.small.local.path : ""
+                photoPath: message.sender && message.sender.photo ? message.sender.photo.small.local.path : ""
                 initials: message.sender ? message.sender.initials : "N/A"
-                avatarColor: message.sender ? message.sender.avatarColor(message.sender.id) : ""
+                avatarColor: message.sender ? message.sender.avatarColor : ""
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: AppActions.user.showUserInfo(message.sender, null)
+                // TODO: handle non-user sender
+                onClicked: {
+                    if (!message.sender.user) {
+                        return;
+                    }
+
+                    AppActions.user.showUserInfo(message.sender.user, null);
+                }
             }
         }
 
@@ -175,7 +182,7 @@ UITK.ListItem {
                 height: childrenRect.height
 
                 Item {
-                    visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameUserAsNextMessage
+                    visible: !(message.isOutgoing || chat.isPrivate || chat.isSecret) && !message.sameSenderAsNextMessage
                     width: parent.width
                     height: Suru.units.gu(mcMargins == 0 ? 3 : 2.5)
 
@@ -185,9 +192,9 @@ UITK.ListItem {
 
                         Label {
                             id: senderLabel
-                            text: message.sender ? "%1 %2".arg(message.sender.firstName).arg(message.sender.lastName) : ""
+                            text: message.sender ? message.sender.fullName : ""
                             font.bold: false
-                            color: message.sender ? message.sender.avatarColor(message.sender.id) : ""
+                            color: message.sender ? message.sender.avatarColor : ""
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                             Layout.leftMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
                         }

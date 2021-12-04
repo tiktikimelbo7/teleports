@@ -34,14 +34,14 @@ public:
     explicit QTdBlockUserRequest(QObject *parent = nullptr);
 
     void setUser(QTdUser *user);
-    void setUserId(const qint32 &id);
+    void setUserId(const qint64 &id);
     void setUserId(const QString &id);
 
     QJsonObject marshalJson() Q_DECL_FINAL;
 
 private:
     Q_DISABLE_COPY(QTdBlockUserRequest)
-    qint32 m_userId;
+    qint64 m_userId;
 };
 
 #endif // QTDBLOCKUSERREQUEST_H

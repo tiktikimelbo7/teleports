@@ -32,7 +32,7 @@ public:
     explicit QTdChatTypeBasicGroup(QObject *parent = Q_NULLPTR);
 
     QString qmlBasicGroupId() const;
-    qint32 basicGroupId() const;
+    qint64 basicGroupId() const;
 
     void unmarshalJson(const QJsonObject &json);
 signals:
@@ -40,7 +40,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(QTdChatTypeBasicGroup)
-    QTdInt32 m_groupId;
+    QTdInt64 m_groupId;
 };
 
 /**
@@ -57,7 +57,7 @@ public:
     explicit QTdChatTypePrivate(QObject *parent = Q_NULLPTR);
 
     QString qmlUserId() const;
-    qint32 userId() const;
+    qint64 userId() const;
     QTdUser *user() const;
 
     void unmarshalJson(const QJsonObject &json);
@@ -67,11 +67,11 @@ signals:
 
 private:
     Q_DISABLE_COPY(QTdChatTypePrivate)
-    QTdInt32 m_userId;
+    QTdInt64 m_userId;
     QTdUser *m_user;
     bool m_waitingForUser;
 
-    void updateUser(const qint32 &userId);
+    void updateUser(const qint64 &userId);
 };
 
 /**
@@ -87,7 +87,7 @@ public:
     explicit QTdChatTypeSecret(QObject *parent = Q_NULLPTR);
 
     QString qmlSecretChatId() const;
-    qint32 secretChatId() const;
+    qint64 secretChatId() const;
 
     void unmarshalJson(const QJsonObject &json);
 
@@ -96,7 +96,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(QTdChatTypeSecret)
-    QTdInt32 m_chatId;
+    QTdInt64 m_chatId;
 };
 
 /**
@@ -113,7 +113,7 @@ public:
     explicit QTdChatTypeSuperGroup(QObject *parent = Q_NULLPTR);
 
     QString qmlSuperGroupId() const;
-    qint32 superGroupId() const;
+    qint64 superGroupId() const;
     bool isChannel() const;
 
     void unmarshalJson(const QJsonObject &json);
@@ -124,7 +124,7 @@ signals:
 
 private:
     Q_DISABLE_COPY(QTdChatTypeSuperGroup)
-    QTdInt32 m_groupId;
+    QTdInt64 m_groupId;
     bool m_isChannel;
 };
 

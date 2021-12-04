@@ -39,7 +39,7 @@ public:
     qint32 memberCount() const;
     QString qmlMemberCount() const;
     QQmlObjectListModel<QTdUser> *memberUsers() const;
-    QList<qint32> memberUserIds() const;
+    QList<qint64> memberUserIds() const;
     bool isPublic() const;
 
     QString initials() const;
@@ -59,7 +59,7 @@ private:
     QScopedPointer<QTdChatPhoto> m_photo;
     QTdInt32 m_memberCount;
     QScopedPointer<QQmlObjectListModel<QTdUser>> m_memberUsers;
-    QList<qint32> m_memberUserIds;
+    QList<qint64> m_memberUserIds;
     bool m_isPublic;
 
     QString m_initials;

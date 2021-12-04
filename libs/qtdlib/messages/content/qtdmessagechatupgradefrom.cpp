@@ -17,7 +17,7 @@ QString QTdMessageChatUpgradeFrom::qmlBasicGroupId() const
     return m_groupdId.toQmlValue();
 }
 
-qint32 QTdMessageChatUpgradeFrom::basicGroupId() const
+qint64 QTdMessageChatUpgradeFrom::basicGroupId() const
 {
     return m_groupdId.value();
 }

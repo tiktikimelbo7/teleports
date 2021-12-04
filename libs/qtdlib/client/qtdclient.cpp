@@ -206,11 +206,11 @@ void QTdClient::init()
         emit updateUser(data["user"].toObject());
     });
     m_events.insert(QStringLiteral("updateUserFullInfo"), [=](const QJsonObject &data) {
-        const QString userId = QString::number(qint32(data["user_id"].toInt()));
+        const QString userId = data["user_id"].toString();
         emit updateUserFullInfo(userId, data["user_full_info"].toObject());
     });
     m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data) {
-        const QString userId = QString::number(qint32(data["user_id"].toInt()));
+        const QString userId = data["user_id"].toString();
         emit updateUserStatus(userId, data["status"].toObject());
     });
 
@@ -236,13 +236,11 @@ void QTdClient::init()
     m_events.insert(QStringLiteral("updateSupergroupFullInfo"), [=](const QJsonObject &data) { emit updateSupergroupFullInfo(data); });
     m_events.insert(QStringLiteral("supergroupFullInfo"), [=](const QJsonObject &data) { emit supergroupFullInfo(data); });
     m_events.insert(QStringLiteral("updateSupergroup"), [=](const QJsonObject &data) { emit updateSuperGroup(data["supergroup"].toObject()); });
-    m_events.insert(QStringLiteral("updateChatChatList"), [=](const QJsonObject &data) { emit updateChatChatList(data); });
-    m_events.insert(QStringLiteral("updateChatOrder"), [=](const QJsonObject &data) { emit updateChatOrder(data); });
+    m_events.insert(QStringLiteral("updateChatPosition"), [=](const QJsonObject &data) { emit updateChatPosition(data); });
     m_events.insert(QStringLiteral("updateChatLastMessage"), [=](const QJsonObject &data) { emit updateChatLastMessage(data); });
     m_events.insert(QStringLiteral("updateMessageContent"), [=](const QJsonObject &data) { emit updateMessageContent(data); });
     m_events.insert(QStringLiteral("updateMessageSendSucceeded"), [=](const QJsonObject &data) { emit updateMessageSendSucceeded(data); });
     m_events.insert(QStringLiteral("updateChatReadInbox"), [=](const QJsonObject &data) { emit updateChatReadInbox(data); });
-    m_events.insert(QStringLiteral("updateChatIsPinned"), [=](const QJsonObject &data) { emit updateChatIsPinned(data); });
     m_events.insert(QStringLiteral("updateChatPhoto"), [=](const QJsonObject &data) { emit updateChatPhoto(data); });
     m_events.insert(QStringLiteral("updateChatReadOutbox"), [=](const QJsonObject &data) { emit updateChatReadOutbox(data); });
     m_events.insert(QStringLiteral("updateChatReplyMarkup"), [=](const QJsonObject &data) { emit updateChatReplyMarkup(data); });
@@ -312,7 +310,6 @@ void QTdClient::init()
 
 void QTdClient::handleUpdateOption(const QJsonObject &json)
 {
-
     QString option_name = json["name"].toString();
     auto option_value = QVariant();
     auto value_obj = json["value"].toObject();
@@ -320,7 +317,7 @@ void QTdClient::handleUpdateOption(const QJsonObject &json)
     if (type == "optionValueString") {
         option_value = value_obj["value"].toString();
     } else if (type == "optionValueInteger") {
-        option_value = value_obj["value"].toInt();
+        option_value = value_obj["value"].toVariant().toLongLong();
     } else if (type == "optionValueBoolean") {
         option_value = value_obj["value"].toBool();
     } else {

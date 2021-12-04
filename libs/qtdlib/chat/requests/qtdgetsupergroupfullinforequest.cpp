@@ -7,7 +7,7 @@ QTdGetSuperGroupFullInfoRequest::QTdGetSuperGroupFullInfoRequest(QObject *parent
 {
 }
 
-void QTdGetSuperGroupFullInfoRequest::setSupergroupId(const qint32 &id)
+void QTdGetSuperGroupFullInfoRequest::setSupergroupId(const qint64 &id)
 {
     m_id = id;
 }

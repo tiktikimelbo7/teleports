@@ -90,12 +90,12 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
     QTdChat *chat = model->at(source_row);
 
-    if (!chat || !chat->order()) {
+    if (!chat || !chat->position()->order()) {
         return false;
     }
 
     bool showRow = true;
-    bool archived = chat->chatList() && chat->chatList()->typeString() == "chatListArchive";
+    bool archived = chat->position()->list() && chat->position()->list()->typeString() == "chatListArchive";
 
     //Apply chat title filter, if set
     if (!chat->title().contains(m_chatNameFilter, Qt::CaseInsensitive)) {
@@ -114,7 +114,7 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
         showRow = false;
     }
 
-    if (chat->chatList()) {
+    if (chat->position()->list()) {
         if (m_chatFilters & ChatFilters::Archived) {
             showRow = showRow & archived;
         } else {
@@ -148,10 +148,10 @@ bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const 
         The first part is the rule from tdlib, sort by order, but if equal order is given, sort by id
         The second part is a safeguard against sort order being 0, which happens with "Saved Messages" chat a lot
      */
-    auto result = left->order() != 0 && right->order() != 0 && left->order() < right->order()
-            || left->order() == right->order() && left->id() < right->id()
-            || (left->order() == 0 || right->order() == 0)
+    auto result = left->position()->order() != 0 && right->position()->order() != 0 && left->position()->order() < right->position()->order()
+            || left->position()->order() == right->position()->order() && left->id() < right->id()
+            || (left->position()->order() == 0 || right->position()->order() == 0)
                     && left->lastMessage() && right->lastMessage()
-                    && left->lastMessage()->date() < right->lastMessage()->date() && !left->isPinned();
+                    && left->lastMessage()->date() < right->lastMessage()->date() && !left->position()->isPinned();
     return result;
 }

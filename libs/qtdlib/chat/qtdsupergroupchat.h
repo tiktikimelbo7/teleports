@@ -34,7 +34,7 @@ public:
     explicit QTdSuperGroupChat(QObject *parent = nullptr);
 
     QString qmlSuperGroupId() const;
-    qint32 superGroupId() const;
+    qint64 superGroupId() const;
     QString userName() const;
     QDateTime qmlDate() const;
     qint32 date() const;
@@ -60,7 +60,7 @@ public:
     QString qmlPinnedMessageId() const;
     qint64 pinnedMessageId() const;
     QString qmlUpgradedFromBasicGroupId() const;
-    qint32 upgradedFromBasicGroupId() const;
+    qint64 upgradedFromBasicGroupId() const;
     QString qmlUpgradedFromMaxMessageId() const;
     qint64 upgradedFromMaxMessageId() const;
 
@@ -82,7 +82,7 @@ private slots:
 private:
     void parseSuperGroupId();
     Q_DISABLE_COPY(QTdSuperGroupChat)
-    QTdInt32 m_sgId;
+    QTdInt64 m_sgId;
     QString m_username;
     qint32 m_date;
     QPointer<QTdChatMemberStatus> m_status;

@@ -23,11 +23,9 @@
 QTdChat::QTdChat(QObject *parent)
     : QAbstractInt64Id(parent)
     , m_chatType(0)
-    , m_chatList(Q_NULLPTR)
     , m_chatPhoto(new QTdChatPhoto)
     , m_lastMessage(new QTdMessage)
-    , m_order(0)
-    , m_isPinned(false)
+    , m_position(new QTdChatPosition)
     , m_canBeReported(false)
     , m_unreadCount(0)
     , m_lastReadInboxMsg(0)
@@ -39,7 +37,7 @@ QTdChat::QTdChat(QObject *parent)
     , m_draftMessage(new QTdDraftMessage)
 {
     setType(CHAT);
-    m_my_id = QTdClient::instance()->getOption("my_id").toInt();
+    m_my_id = QTdClient::instance()->getOption("my_id").toLongLong();
     m_messages = new QQmlObjectListModel<QTdMessage>(this, "", "id");
     connect(QTdClient::instance(), &QTdClient::updateUserChatAction, this, &QTdChat::handleUpdateChatAction);
     connect(m_lastMessage.data(), &QTdMessage::senderChanged, this, &QTdChat::summaryChanged);
@@ -60,15 +58,13 @@ void QTdChat::unmarshalJson(const QJsonObject &json)
     m_chatType = QTdChatFactory::createType(json["type"].toObject(), this);
     emit chatTypeChanged(m_chatType);
 
-    updateChatChatList(json["chat_list"].toObject());
+    updateChatPosition(json);
 
     if (isSecret()) {
         auto c = static_cast<QTdSecretChat *>(this);
         c->getSecretChatData();
     }
     updateLastMessage(json["last_message"].toObject());
-    updateChatOrder(json);
-    updateChatIsPinned(json);
 
     m_canBeReported = json["can_be_reported"].toBool();
     emit canBeReportedChanged();
@@ -104,7 +100,7 @@ QString QTdChat::initials() const
     return QTdHelpers::initials(m_title);
 }
 
-QString QTdChat::avatarColor(unsigned int userId)
+QString QTdChat::avatarColor(qint64 userId)
 {
     return isMyself() ? QTdHelpers::selfColor() : QTdHelpers::avatarColor(userId);
 }
@@ -115,21 +111,6 @@ void QTdChat::sendChatAction(bool isTyping)
     QScopedPointer<QTdSendChatActionRequest> req(new QTdSendChatActionRequest);
     req->setChatId(id());
     QTdClient::instance()->send(req.data());
-}
-
-QString QTdChat::qmlOrder() const
-{
-    return m_order.toQmlValue();
-}
-
-qint64 QTdChat::order() const
-{
-    return m_order.value();
-}
-
-bool QTdChat::isPinned() const
-{
-    return m_isPinned;
 }
 
 bool QTdChat::isMuted() const
@@ -284,6 +265,10 @@ QTdNotificationSettings *QTdChat::notificationSettings() const
 {
     return m_notifySettings.data();
 }
+QTdChatPosition *QTdChat::position() const
+{
+    return m_position.data();
+}
 
 QString QTdChat::action() const
 {
@@ -333,8 +318,8 @@ QVariant QTdChat::summary()
             summary.insert(1, QString());
         } else if ((isPrivate() || isSecret()) && !m_lastMessage->isOutgoing()) {
             summary.insert(1, m_lastMessage->summary());
-        } else if (!m_lastMessage->senderName().isEmpty()) {
-            summary.insert(1, QString("%1: %2").arg(m_lastMessage->senderName(), m_lastMessage->summary()));
+        } else if (!m_lastMessage->sender()->displayName().isEmpty()) {
+            summary.insert(1, QString("%1: %2").arg(m_lastMessage->isOutgoing() ? gettext("Me") : m_lastMessage->sender()->displayName(), m_lastMessage->summary()));
         } else {
             summary.insert(1, m_lastMessage->summary());
         }
@@ -371,16 +356,16 @@ void QTdChat::closeChat()
 
 void QTdChat::pinChat()
 {
-    if (!m_isPinned) {
-        emit pinChatAction(id(), true);
-    }
+    // if (!m_isPinned) {
+    //     emit pinChatAction(id(), true);
+    // }
 }
 
 void QTdChat::unpinChat()
 {
-    if (m_isPinned) {
-        emit pinChatAction(id(), false);
-    }
+    // if (m_isPinned) {
+    //     emit pinChatAction(id(), false);
+    // }
 }
 
 void QTdChat::setTitle(const QString &title)
@@ -453,42 +438,37 @@ void QTdChat::leaveChat()
     QTdClient::instance()->send(req.data());
 }
 
-void QTdChat::updateChatOrder(const QJsonObject &json)
-{
-    m_order = json["order"];
-    emit orderChanged();
-}
-
 void QTdChat::updateChatReadInbox(const QJsonObject &json)
 {
-    m_lastReadInboxMsg = json["last_read_inbox_message_id"];
+    m_lastReadInboxMsg = json["last_read_inbox_message_id"].toVariant().toLongLong();
     emit lastReadInboxMessageIdChanged();
-    m_unreadCount = json["unread_count"];
+    m_unreadCount = json["unread_count"].toInt();
     emit unreadCountChanged();
     QTdClient::instance()->setUnreadMapEntry(id(), unreadCount());
 }
 
 void QTdChat::updateChatReadOutbox(const QJsonObject &json)
 {
-    m_lastReadOutboxMsg = json["last_read_outbox_message_id"];
+    m_lastReadOutboxMsg = json["last_read_outbox_message_id"].toVariant().toLongLong();
     emit lastReadOutboxMessageIdChanged();
 }
 
-void QTdChat::updateChatIsPinned(const QJsonObject &json)
+void QTdChat::updateChatPosition(const QJsonObject &json)
 {
-    m_isPinned = json["is_pinned"].toBool();
-    emit isPinnedChanged();
-    updateChatOrder(json);
+    m_position->unmarshalJson(json["position"].toObject());
+    emit positionChanged();
 }
 
-void QTdChat::updateChatChatList(const QJsonObject &json) {
-    if (m_chatList) {
-        delete m_chatList;
+void QTdChat::updateChatPositions(const QJsonObject &json)
+{
+    auto positions = json["positions"].toArray();
+    if (positions.size() > 0) {
+        // TODO: re: #258.2 - handle multiple chat lists
+        m_position->unmarshalJson(positions[0].toObject());
+        emit positionChanged();
     }
-    m_chatList = QTdChatFactory::createList(json["chat_list"].toObject(), this);
-    m_chatList->unmarshalJson(json);
-    emit chatListChanged(m_chatList);
 }
+
 void QTdChat::updateChatPhoto(const QJsonObject &photo)
 {
     m_chatPhoto->unmarshalJson(photo);
@@ -561,7 +541,7 @@ void QTdChat::updateLastMessage(const QJsonObject &json)
 
 void QTdChat::handleUpdateChatAction(const QJsonObject &json)
 {
-    const qint64 cid = qint64(json["chat_id"].toDouble());
+    const qint64 cid = json["chat_id"].toVariant().toLongLong();
     if (cid != id()) {
         return;
     }
@@ -600,14 +580,9 @@ void QTdChat::mute(const qint32 &duration) {
     QTdClient::instance()->send(req.data());
 }
 
-QTdChatList *QTdChat::chatList() const
-{
-    return m_chatList;
-}
-
 void QTdChat::updateChatAction(const QJsonObject &json)
 {
-    const qint32 user_id = qint32(json["user_id"].toInt());
+    const qint64 user_id = json["user_id"].toVariant().toLongLong();
     const QJsonObject data = json["action"].toObject();
     QTdChatAction *action = QTdChatActionFactory::create(data, this);
     if (action->type() == QTdChatAction::Type::CHAT_ACTION_CANCEL && m_chatActions.contains(user_id)) {

@@ -26,18 +26,20 @@ QTdInputMessageText *QTdDraftMessage::inputMessageText() const
 
 void QTdDraftMessage::unmarshalJson(const QJsonObject &json)
 {
-    m_replyToMessageId = qint64(json["reply_to_message_id"].toDouble());
-    emit replyToMessageIdChanged();
-    const QJsonObject inputMessageText = json["input_message_text"].toObject();
-    if (inputMessageText.isEmpty()) {
-        m_inputMessageText.reset(new QTdInputMessageText);
-        emit inputMessageTextChanged();
-    } else {
-        const QString inputMessageTextType = inputMessageText["@type"].toString();
-        //this should always be of type inputMessageText.
-        if (inputMessageTextType == "inputMessageText") {
-            m_inputMessageText->unmarshalJson(inputMessageText);
+    if (!json.isEmpty()) {
+        m_replyToMessageId = json["reply_to_message_id"].toVariant().toLongLong();
+        emit replyToMessageIdChanged();
+        const QJsonObject inputMessageText = json["input_message_text"].toObject();
+        if (inputMessageText.isEmpty()) {
+            m_inputMessageText.reset(new QTdInputMessageText);
             emit inputMessageTextChanged();
+        } else {
+            const QString inputMessageTextType = inputMessageText["@type"].toString();
+            //this should always be of type inputMessageText.
+            if (inputMessageTextType == "inputMessageText") {
+                m_inputMessageText->unmarshalJson(inputMessageText);
+                emit inputMessageTextChanged();
+            }
         }
     }
 }

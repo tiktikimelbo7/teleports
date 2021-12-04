@@ -5,7 +5,7 @@ QTdRemoveContactsRequest::QTdRemoveContactsRequest(QObject *parent)
 {
 }
 
-void QTdRemoveContactsRequest::setUserIds(const QList<qint32> &userIds)
+void QTdRemoveContactsRequest::setUserIds(const QList<qint64> &userIds)
 {
     m_userIds = userIds;
 }

@@ -6,7 +6,7 @@
 #include "utils/await.h"
 
 QTdUser::QTdUser(QObject *parent)
-    : QAbstractInt32Id(parent)
+    : QAbstractInt64Id(parent)
     , m_fullInfo(new QTdUserFullInfo)
     , m_status(Q_NULLPTR)
     , m_profilePhoto(new QTdProfilePhoto)
@@ -14,7 +14,7 @@ QTdUser::QTdUser(QObject *parent)
     , m_userType(Q_NULLPTR)
 {
     setType(USER);
-    m_my_id = qint32(QTdClient::instance()->getOption("my_id").toInt());
+    m_my_id = QTdClient::instance()->getOption("my_id").toLongLong();
 }
 
 void QTdUser::unmarshalJson(const QJsonObject &json)
@@ -59,7 +59,7 @@ void QTdUser::unmarshalJson(const QJsonObject &json)
         m_profilePhoto->small()->downloadFile();
     }
 
-    QAbstractInt32Id::unmarshalJson(json);
+    QAbstractInt64Id::unmarshalJson(json);
 }
 
 QTdUserType *QTdUser::userType() const
@@ -85,7 +85,7 @@ bool QTdUser::isVerified() const
 bool QTdUser::isMyself()
 {
     if (m_my_id == 0) {
-        m_my_id = qint32(QTdClient::instance()->getOption("my_id").toInt());
+        m_my_id = QTdClient::instance()->getOption("my_id").toLongLong();
     }
     return id() == m_my_id;
 }
@@ -214,7 +214,7 @@ QString QTdUser::initials() const
     return "N/A";
 }
 
-QString QTdUser::avatarColor(unsigned int userId)
+QString QTdUser::avatarColor(qint64 userId)
 {
     return QTdHelpers::avatarColor(userId);
 }

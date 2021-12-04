@@ -15,19 +15,32 @@ QString QTdHelpers::formatDate(const QDateTime &dt)
         return localdt.toString("dd.MM.yy");
 }
 
-QString QTdHelpers::avatarColor(unsigned int userId)
+QStringList QTdHelpers::colorPallete = {
+    "#a93226",
+    "#cb4335",
+    "#884ea0",
+    "#7d3c98",
+    "#2471a3",
+    "#2e86c1",
+    "#17a589",
+    "#138d75",
+    "#229954",
+    "#28b463",
+    "#d4ac0d",
+    "#d68910",
+    "#ca6f1e",
+    "#ba4a00",
+    "#d0d3d4",
+    "#a6acaf",
+    "#839192",
+    "#707b7c",
+    "#2e4053",
+    "#273746"
+};
+
+QString QTdHelpers::avatarColor(qint64 userId)
 {
-    QStringList colorPallete = {
-        "#8179d7", // violet
-        "#f2749a", // pink
-        "#7ec455", // green
-        "#f3c34a", // yellow
-        "#5b9dd8", // blue
-        "#62b8cd", // aqua
-        "#ed8b4a", // orange
-        "#d95848" // red
-    };
-    return colorPallete.at(userId % colorPallete.size());
+    return colorPallete.at(abs((int)(userId % colorPallete.size())));
 }
 
 QString QTdHelpers::selfColor()

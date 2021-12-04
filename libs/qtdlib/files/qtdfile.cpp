@@ -5,7 +5,7 @@
 #include "files/qtddownloadfilerequest.h"
 
 QTdFile::QTdFile(QObject *parent)
-    : QAbstractInt32Id(parent)
+    : QAbstractInt64Id(parent)
     , m_size(0)
     , m_expectedSize(0)
     , m_local(new QTdLocalFile)
@@ -51,7 +51,7 @@ void QTdFile::unmarshalJson(const QJsonObject &json)
     m_remote->unmarshalJson(json["remote"].toObject());
     m_size = json["size"];
     m_expectedSize = json["expected_size"];
-    QAbstractInt32Id::unmarshalJson(json);
+    QAbstractInt64Id::unmarshalJson(json);
     emit fileChanged();
 }
 
@@ -68,7 +68,7 @@ void QTdFile::downloadFile()
 
 void QTdFile::handleUpdateFile(const QJsonObject &json)
 {
-    if (qint32(json["id"].toInt()) != this->id()) {
+    if (json["id"].toVariant().toLongLong() != this->id()) {
         return;
     }
     this->unmarshalJson(json);

@@ -71,7 +71,7 @@ void QTdMessageForwardInfo::unmarshalJson(const QJsonObject &json)
     m_origin = QTdMessageForwardOriginFactory::create(origin, this);
     connect(m_origin, &QTdMessageForwardOrigin::forwardOriginChanged, this, &QTdMessageForwardInfo::forwardInfoChanged);
     m_date = json["date"].toInt();
-    m_fromChatId = json["forwarded_from_chat_id"].toInt();
-    m_fromMessageId = json["forwarded_from_message_id"].toInt();
+    m_fromChatId = json["forwarded_from_chat_id"].toVariant().toLongLong();
+    m_fromMessageId = json["forwarded_from_message_id"].toVariant().toLongLong();
     emit forwardInfoChanged();
 }

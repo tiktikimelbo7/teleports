@@ -32,9 +32,10 @@ void QTdDocument::unmarshalJson(const QJsonObject &json)
 {
     m_fileName = json["file_name"].toString();
     m_mimeType = json["mime_type"].toString();
-    if (json.contains("thumbnail")) {
-        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    }
+    // TODO: Repair this after upgrade to tdlib 1.7.9
+    // if (json.contains("thumbnail")) {
+    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    // }
     m_document->unmarshalJson(json["document"].toObject());
     emit documentChanged();
 }

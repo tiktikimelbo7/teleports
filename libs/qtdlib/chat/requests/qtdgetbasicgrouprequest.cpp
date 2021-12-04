@@ -7,7 +7,7 @@ QTdGetBasicGroupRequest::QTdGetBasicGroupRequest(QObject *parent)
 {
 }
 
-void QTdGetBasicGroupRequest::setGroupId(const qint32 groupId)
+void QTdGetBasicGroupRequest::setGroupId(const qint64 groupId)
 {
     m_groupId = groupId;
 }

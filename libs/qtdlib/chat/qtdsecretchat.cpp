@@ -22,7 +22,7 @@ QString QTdSecretChat::qmlSecretChatId() const
     return m_secretChatId.toQmlValue();
 }
 
-qint32 QTdSecretChat::secretChatId() const
+qint64 QTdSecretChat::secretChatId() const
 {
     return m_secretChatId.value();
 }
@@ -32,7 +32,7 @@ QString QTdSecretChat::qmlUserId() const
     return m_userId.toQmlValue();
 }
 
-qint32 QTdSecretChat::userId() const
+qint64 QTdSecretChat::userId() const
 {
     return m_userId.value();
 }
@@ -131,13 +131,13 @@ void QTdSecretChat::getSecretChatData()
 void QTdSecretChat::updateSecretChat(const QJsonObject &data)
 {
     QTdChatTypeSecret *secret = qobject_cast<QTdChatTypeSecret *>(chatType());
-    const qint32 sid = qint32(data["id"].toInt());
+    const qint64 sid = data["id"].toVariant().toLongLong();
     if (sid != secret->secretChatId()) {
         return;
     }
 
     m_secretChatId = sid;
-    m_userId = data["user_id"];
+    m_userId = data["user_id"].toVariant().toLongLong();
     if (m_state) {
         delete m_state;
         m_state = nullptr;

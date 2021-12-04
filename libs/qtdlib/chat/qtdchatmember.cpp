@@ -19,7 +19,7 @@ QString QTdChatMember::qmlUserId() const
     return m_userId.toQmlValue();
 }
 
-qint32 QTdChatMember::userId() const
+qint64 QTdChatMember::userId() const
 {
     return m_userId.value();
 }
@@ -34,7 +34,7 @@ QString QTdChatMember::qmlInviteUserId() const
     return m_inviteUserId.toQmlValue();
 }
 
-qint32 QTdChatMember::inviteUserId() const
+qint64 QTdChatMember::inviteUserId() const
 {
     return m_inviteUserId.value();
 }
@@ -56,8 +56,8 @@ QTdChatMemberStatus *QTdChatMember::status() const
 
 void QTdChatMember::unmarshalJson(const QJsonObject &json)
 {
-    m_userId = json["user_id"];
-    m_inviteUserId = json["inviter_user_id"];
+    m_userId = json["user_id"].toVariant().toLongLong();
+    m_inviteUserId = json["inviter_user_id"].toVariant().toLongLong();
     m_joinedChatDate = json["joined_chat_date"];
 
     if (m_status) {
@@ -97,7 +97,7 @@ void QTdChatMember::unmarshalJson(const QJsonObject &json)
     m_waitingForUser = true;
 }
 
-void QTdChatMember::isUserAvailable(const qint32 &userId)
+void QTdChatMember::isUserAvailable(const qint64 &userId)
 {
     if (userId != m_userId.value()) {
         return;

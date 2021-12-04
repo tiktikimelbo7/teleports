@@ -25,15 +25,15 @@ public:
     explicit QTdBasicGroupChat(QObject *parent = nullptr);
 
     QString qmlGroupId() const;
-    qint32 groupId() const;
+    qint64 groupId() const;
     QString qmlMemberCount() const;
     qint32 memberCount() const;
     QTdChatMemberStatus *status() const;
     bool isActive() const;
     QString qmlUpgradedToSuperGroupId() const;
-    qint32 upgradedToSuperGroupId() const;
+    qint64 upgradedToSuperGroupId() const;
     QString qmlCreatorUserId() const;
-    qint32 creatorUserId() const;
+    qint64 creatorUserId() const;
     QObject *qmlMembers() const;
     QQmlObjectListModel<QTdChatMember> *members() const;
     QString inviteLink() const;
@@ -54,12 +54,12 @@ private slots:
 
 private:
     Q_DISABLE_COPY(QTdBasicGroupChat)
-    QTdInt32 m_groupId;
+    QTdInt64 m_groupId;
     QTdInt32 m_memberCount;
     QPointer<QTdChatMemberStatus> m_status;
     bool m_isActive;
-    QTdInt32 m_upgradedSGID;
-    QTdInt32 m_creatorId;
+    QTdInt64 m_upgradedSGID;
+    QTdInt64 m_creatorId;
     QPointer<QQmlObjectListModel<QTdChatMember>> m_members;
     QString m_inviteLink;
 };

@@ -10,7 +10,7 @@ class QTdHelpers
 
 public:
     static QString formatDate(const QDateTime &dt);
-    static QString avatarColor(unsigned int userId);
+    static QString avatarColor(qint64 userId);
     static QString selfColor();
     static void getEntitiesFromMessage(const QString &messageText,
                                        QString &plainText,
@@ -18,4 +18,7 @@ public:
     static QJsonArray formatPlainTextMessage(const QString &messageText,
                                              QString &plainText);
     static QString initials(const QString &title);
+
+    private:
+        static QStringList colorPallete;
 };

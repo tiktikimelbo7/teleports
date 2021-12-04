@@ -50,9 +50,10 @@ void QTdSticker::unmarshalJson(const QJsonObject &json)
     m_emoji = json["emoji"].toString();
     m_isAnimated = json["is_animated"].toBool();
     m_isMask = json["is_mask"].toBool();
-    if (json.contains("thumbnail")) {
-        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    }
+    // TODO: Repair this after upgrade to tdlib 1.7.9
+    // if (json.contains("thumbnail")) {
+    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    // }
     m_sticker->unmarshalJson(json["sticker"].toObject());
     emit stickerChanged();
 }

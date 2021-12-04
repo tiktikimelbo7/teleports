@@ -19,7 +19,7 @@ public:
     explicit QTdMessageChatUpgradeFrom(QObject *parent = nullptr);
     QString title() const;
     QString qmlBasicGroupId() const;
-    qint32 basicGroupId() const;
+    qint64 basicGroupId() const;
     void unmarshalJson(const QJsonObject &json);
 
 signals:
@@ -27,7 +27,7 @@ signals:
 
 private:
     QString m_title;
-    QTdInt32 m_groupdId;
+    QTdInt64 m_groupdId;
 };
 
 #endif // QTDMESSAGECHATUPGRADEFROM_H

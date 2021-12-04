@@ -51,9 +51,10 @@ void QTdAudio::unmarshalJson(const QJsonObject &json)
     m_performer = json["performer"].toString();
     m_fileName = json["file_name"].toString();
     m_mimeType = json["mime_type"].toString();
-    if (json.contains("album_cover_thumbnail")) {
-        m_albumCoverThumbnail->unmarshalJson(json["album_cover_thumbnail"].toObject());
-    }
+    // TODO: Repair this after upgrade to tdlib 1.7.9
+    // if (json.contains("album_cover_thumbnail")) {
+    //     m_albumCoverThumbnail->unmarshalJson(json["album_cover_thumbnail"].toObject());
+    // }
     m_audio->unmarshalJson(json["audio"].toObject());
     emit audioChanged();
 }

@@ -12,11 +12,11 @@
 class QTdGetSuperGroupRequest : public QTdRequest
 {
     Q_OBJECT
-    qint32 m_sgId;
+    qint64 m_sgId;
 
 public:
     explicit QTdGetSuperGroupRequest(QObject *parent = nullptr);
-    void setSuperGroupId(const qint32 &id);
+    void setSuperGroupId(const qint64 &id);
     QJsonObject marshalJson() Q_DECL_FINAL;
     QFuture<QTdResponse> sendAsync() Q_DECL_FINAL;
 };

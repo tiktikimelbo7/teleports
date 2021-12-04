@@ -3,6 +3,7 @@
 
 #include "common/qabstractint64id.h"
 #include "qtdmessagecontent.h"
+#include "qtdmessagesender.h"
 #include "qtdmessagesendingstate.h"
 #include "replymarkup/qtdreplymarkup.h"
 #include "forwardinfo/qtdmessageforwardinfo.h"
@@ -15,7 +16,7 @@ class QTdMessage : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_PROPERTY(QDateTime date READ qmlDate NOTIFY messageChanged)
-    Q_PROPERTY(QString senderUserId READ qmlSenderUserId NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessageSender *sender READ sender NOTIFY senderChanged)
     Q_PROPERTY(QString chatId READ qmlChatId NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageSendingState *sendingState READ sendingState NOTIFY sendingStateChanged)
     Q_PROPERTY(bool isOutgoing READ isOutgoing NOTIFY messageChanged)
@@ -26,20 +27,18 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool canBeDeletedForAllUsers READ canBeDeletedForAllUsers NOTIFY messageChanged)
     Q_PROPERTY(bool isChannelPost READ isChannelPost NOTIFY messageChanged)
     Q_PROPERTY(QString views READ views NOTIFY messageChanged)
-    Q_PROPERTY(QString senderName READ senderName NOTIFY senderChanged)
     Q_PROPERTY(bool containsUnreadMention READ containsUnreadMention NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageForwardInfo *forwardInfo READ forwardInfo NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
-    Q_PROPERTY(QTdUser *sender READ sender NOTIFY senderChanged)
     // Provide a summary text for display in the chatlist
     Q_PROPERTY(QString summary READ summary NOTIFY senderChanged)
     // Shows if the sender of the previous message is the same as this one.
-    Q_PROPERTY(bool sameUserAsPreviousMessage READ sameUserAsPreviousMessage NOTIFY previousSenderChanged)
+    Q_PROPERTY(bool sameSenderAsPreviousMessage READ sameSenderAsPreviousMessage NOTIFY previousSenderChanged)
     // Shows if the sender of the next message is the same as this one.
-    Q_PROPERTY(bool sameUserAsNextMessage READ sameUserAsNextMessage NOTIFY nextSenderChanged)
+    Q_PROPERTY(bool sameSenderAsNextMessage READ sameSenderAsNextMessage NOTIFY nextSenderChanged)
     // Indicates if this message is the first/latest message in the model
     Q_PROPERTY(bool isLatest READ isLatest NOTIFY nextSenderChanged)
     Q_PROPERTY(QString replyToMessageId READ qmlReplyToMessageId NOTIFY messageChanged)
@@ -53,14 +52,11 @@ public:
 
     QDateTime qmlDate() const;
     qint32 date() const;
-    QString qmlSenderUserId() const;
-    qint32 senderUserId() const;
     QString qmlChatId() const;
     qint64 chatId() const;
     QString getSenderInitials() const;
-    QString senderName() const;
 
-    QTdUser *sender() const;
+    QTdMessageSender *sender() const;
 
     void unmarshalJson(const QJsonObject &json);
     void unmarshalUpdateContent(const QJsonObject &content);
@@ -103,13 +99,13 @@ public:
 
     bool isValid() const;
 
-    bool sameUserAsPreviousMessage() const;
+    bool sameSenderAsPreviousMessage() const;
 
-    void setPreviousSenderId(const qint32 &id);
+    void setPreviousSender(QTdMessageSender *sender);
 
-    bool sameUserAsNextMessage() const;
+    bool sameSenderAsNextMessage() const;
 
-    void setNextSenderId(const qint32 &id);
+    void setNextSender(QTdMessageSender *sender);
 
     bool isLatest() const;
 
@@ -131,17 +127,15 @@ signals:
     void messageRepliedToChanged();
 
 private slots:
-    void updateSender(const qint32 &senderId);
     void updateSendingState(const QJsonObject &json);
     void handleMessage(const QJsonObject &json);
 
 private:
     qint32 m_date;
-    QTdInt32 m_sender_user_id;
+    QTdInt64 m_sender_user_id;
     QTdInt64 m_chatId;
     QTdInt64 m_replyToMessageId;
-    QPointer<QTdUser> m_sender;
-    bool m_waitingForSender;
+    QPointer<QTdMessageSender> m_sender;
     QPointer<QTdMessageSendingState> m_sendingState;
     bool m_isOutgoing;
     bool m_isEdited;
@@ -154,7 +148,7 @@ private:
     bool m_containsUnreadMention;
     QPointer<QTdMessageContent> m_content;
     bool m_isValid;
-    QTdInt32 m_previousSender, m_nextSender;
+    QPointer<QTdMessageSender> m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;

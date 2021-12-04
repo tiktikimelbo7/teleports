@@ -5,7 +5,6 @@
 #include <QPointer>
 #include <QScopedPointer>
 #include <QList>
-#include "common/qabstractint32id.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
 #include "qtdusertype.h"

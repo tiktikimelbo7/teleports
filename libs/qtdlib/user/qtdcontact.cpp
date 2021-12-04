@@ -1,4 +1,5 @@
 #include "qtdcontact.h"
+#include <QVariant>
 
 QTdContact::QTdContact(QObject *parent)
     : QTdObject(parent)
@@ -51,12 +52,12 @@ void QTdContact::set_vcard(QString value)
     m_vcard = value;
 }
 
-qint32 QTdContact::user_id() const
+qint64 QTdContact::user_id() const
 {
     return m_user_id;
 }
 
-void QTdContact::set_user_id(qint32 value)
+void QTdContact::set_user_id(qint64 value)
 {
     m_user_id = value;
 }
@@ -67,7 +68,8 @@ void QTdContact::unmarshalJson(const QJsonObject &json)
     m_last_name = json["last_name"].toString();
     m_phone_number = json["phone_number"].toString();
     m_vcard = json["vcard"].toString();
-    m_user_id = json["user_id"].toInt();
+    m_user_id = json["user_id"].toVariant().toLongLong();
+    ;
     emit dataChanged();
 }
 

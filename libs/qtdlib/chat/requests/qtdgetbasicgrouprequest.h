@@ -15,7 +15,7 @@ class QTdGetBasicGroupRequest : public QTdRequest
 public:
     explicit QTdGetBasicGroupRequest(QObject *parent = nullptr);
 
-    void setGroupId(const qint32 groupId);
+    void setGroupId(const qint64 groupId);
 
     QJsonObject marshalJson() Q_DECL_FINAL;
 
@@ -23,7 +23,7 @@ public:
 
 private:
     Q_DISABLE_COPY(QTdGetBasicGroupRequest)
-    qint32 m_groupId;
+    qint64 m_groupId;
 };
 
 #endif // QTDGETBASICGROUPREQUEST_H

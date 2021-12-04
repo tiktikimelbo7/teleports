@@ -11,7 +11,7 @@ class QTdContact: public QTdObject {
     Q_PROPERTY(QString first_name READ first_name WRITE set_first_name NOTIFY dataChanged)
     Q_PROPERTY(QString last_name READ last_name WRITE set_last_name NOTIFY dataChanged)
     Q_PROPERTY(QString vcard READ vcard WRITE set_vcard NOTIFY dataChanged)
-    Q_PROPERTY(qint32 user_id READ user_id WRITE set_user_id NOTIFY dataChanged)
+    Q_PROPERTY(qint64 user_id READ user_id WRITE set_user_id NOTIFY dataChanged)
 
 public:
     explicit QTdContact(QObject *parent = nullptr);
@@ -20,13 +20,13 @@ public:
     QString first_name() const;
     QString last_name() const;
     QString vcard() const;
-    qint32 user_id() const;
+    qint64 user_id() const;
 
     void set_phone_number(QString value);
     void set_first_name(QString value);
     void set_last_name(QString value);
     void set_vcard(QString value);
-    void set_user_id(qint32 value);
+    void set_user_id(qint64 value);
 
     void unmarshalJson(const QJsonObject &json) Q_DECL_FINAL;
     QJsonObject marshalJson();
@@ -40,7 +40,7 @@ private:
     QString m_first_name;
     QString m_last_name;
     QString m_vcard;
-    qint32 m_user_id;
+    qint64 m_user_id;
 };
 
 #endif // QTDCONTACT_H

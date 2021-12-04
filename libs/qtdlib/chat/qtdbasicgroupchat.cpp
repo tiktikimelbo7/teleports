@@ -26,7 +26,7 @@ QString QTdBasicGroupChat::qmlGroupId() const
     return m_groupId.toQmlValue();
 }
 
-qint32 QTdBasicGroupChat::groupId() const
+qint64 QTdBasicGroupChat::groupId() const
 {
     return m_groupId.value();
 }
@@ -56,7 +56,7 @@ QString QTdBasicGroupChat::qmlUpgradedToSuperGroupId() const
     return m_upgradedSGID.toQmlValue();
 }
 
-qint32 QTdBasicGroupChat::upgradedToSuperGroupId() const
+qint64 QTdBasicGroupChat::upgradedToSuperGroupId() const
 {
     return m_upgradedSGID.value();
 }
@@ -66,7 +66,7 @@ QString QTdBasicGroupChat::qmlCreatorUserId() const
     return m_creatorId.toQmlValue();
 }
 
-qint32 QTdBasicGroupChat::creatorUserId() const
+qint64 QTdBasicGroupChat::creatorUserId() const
 {
     return m_creatorId.value();
 }
@@ -112,7 +112,7 @@ void QTdBasicGroupChat::requestGroupData()
 void QTdBasicGroupChat::updateGroupData(const QJsonObject &json)
 {
     QTdChatTypeBasicGroup *group = qobject_cast<QTdChatTypeBasicGroup *>(chatType());
-    const qint32 gid = qint32(json["id"].toInt());
+    const qint64 gid = json["id"].toVariant().toLongLong();
     if (gid != group->basicGroupId()) {
         return;
     }
@@ -150,7 +150,7 @@ void QTdBasicGroupChat::updateGroupData(const QJsonObject &json)
 
 void QTdBasicGroupChat::updateGroupInfo(const QJsonObject &json)
 {
-    const qint32 gid = qint32(json["basic_group_id"].toInt());
+    const qint64 gid = json["basic_group_id"].toVariant().toLongLong();
     if (gid != groupId()) {
         return;
     }
@@ -159,7 +159,7 @@ void QTdBasicGroupChat::updateGroupInfo(const QJsonObject &json)
     m_members->clear();
 
     const QJsonObject info = json["basic_group_full_info"].toObject();
-    m_creatorId = info["creator_user_id"];
+    m_creatorId = info["creator_user_id"].toVariant().toLongLong();
     m_inviteLink = info["invite_link"].toString();
 
     const QJsonArray members = info["members"].toArray();

@@ -26,10 +26,10 @@ public:
     explicit QTdChatMember(QObject *parent = nullptr);
 
     QString qmlUserId() const;
-    qint32 userId() const;
+    qint64 userId() const;
     QTdUser *user() const;
     QString qmlInviteUserId() const;
-    qint32 inviteUserId() const;
+    qint64 inviteUserId() const;
     QDateTime qmlJoinedChatDate() const;
     qint32 joinedChatDate() const;
     QTdChatMemberStatus *status() const;
@@ -43,12 +43,12 @@ signals:
     void userChanged();
 
 private slots:
-    void isUserAvailable(const qint32 &userId);
+    void isUserAvailable(const qint64 &userId);
 
 private:
     Q_DISABLE_COPY(QTdChatMember)
-    QTdInt32 m_userId;
-    QTdInt32 m_inviteUserId;
+    QTdInt64 m_userId;
+    QTdInt64 m_inviteUserId;
     QTdInt32 m_joinedChatDate;
     QPointer<QTdChatMemberStatus> m_status;
     bool m_waitingForUser;

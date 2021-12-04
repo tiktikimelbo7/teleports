@@ -5,7 +5,7 @@
 #include <QPointer>
 #include <QScopedPointer>
 #include <QList>
-#include "common/qabstractint32id.h"
+#include "common/qabstractint64id.h"
 #include "qtduserfullinfo.h"
 #include "qtduserstatus.h"
 #include "qtdprofilephoto.h"
@@ -16,7 +16,7 @@
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1user.html
  */
-class QTdUser : public QAbstractInt32Id
+class QTdUser : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_PROPERTY(QString firstName READ firstName WRITE setFirstName NOTIFY nameChanged)
@@ -42,7 +42,7 @@ public:
     QString fullName() const;
     QString phoneNumber() const;
     QString initials() const;
-    Q_INVOKABLE QString avatarColor(unsigned int userId);
+    Q_INVOKABLE QString avatarColor(qint64 userId);
     QTdUserFullInfo *fullInfo();
     QTdUserStatus *status() const;
     QTdProfilePhoto *profilePhoto() const;
@@ -82,7 +82,7 @@ private:
     QString m_lastName;
     QString m_username;
     QString m_phoneNumber;
-    qint32 m_my_id;
+    qint64 m_my_id;
     QScopedPointer<QTdUserFullInfo> m_fullInfo;
     QPointer<QTdUserStatus> m_status;
     QScopedPointer<QTdProfilePhoto> m_profilePhoto;
