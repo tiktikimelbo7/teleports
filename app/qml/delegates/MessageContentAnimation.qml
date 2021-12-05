@@ -91,6 +91,7 @@ MessageContentBase {
                 animation.animation.animation.downloadFile();
             }
             if(animationLocal.isDownloadingCompleted){
+                messageContentOpening()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": animation.animation.fileName,
                                                 "videoPreviewSource": localFileSource

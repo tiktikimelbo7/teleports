@@ -120,6 +120,7 @@ MessageContentBase {
                 tdFile.downloadFile();
             }
             if(localFile.isDownloadingCompleted){
+                messageContentOpening();
                 if (documentContent.document.mimeType.includes("image")) {
                     AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                     "photoPreviewSource": localFileSource

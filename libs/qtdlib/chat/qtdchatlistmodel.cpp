@@ -14,6 +14,7 @@
 #include "chat/requests/qtdcheckchatinvitelinkrequest.h"
 #include "chat/requests/qtdjoinchatbyinvitelinkrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
+#include "messages/requests/qtdopenmessagecontentrequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
 #include "common/qtdhelpers.h"
 
@@ -567,4 +568,12 @@ void QTdChatListModel::joinChatByInviteLink(const QString &inviteLink)
     chat->unmarshalJson(json);
     setChatToOpenOnUpdate(chat->id());
     setCurrentChatById(chat->id());
+}
+
+void QTdChatListModel::openMessageContent(const QString chatId, const QString messageId)
+{
+    QScopedPointer<QTdOpenMessageContentRequest> req(new QTdOpenMessageContentRequest);
+    req->setChatId(chatId);
+    req->setMessageId(messageId);
+    QFuture<QTdResponse> resp = req->sendAsync();
 }

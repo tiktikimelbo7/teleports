@@ -517,6 +517,13 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.openMessageContent
+        onDispatched: {
+            chatList.openMessageContent(message.chatId, message.messageId)
+        }
+    }
+
 
     Timer {
         id: enableLoadTimer

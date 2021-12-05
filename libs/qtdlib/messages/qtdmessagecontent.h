@@ -18,6 +18,7 @@ class QTdMessageContent : public QTdObject
     Q_DISABLE_COPY(QTdMessageContent)
     Q_PROPERTY(QString infoText READ infoText NOTIFY dataChanged)
     Q_PROPERTY(QString typeText READ typeText NOTIFY dataChanged)
+    Q_PROPERTY(bool isSecret READ isSecret NOTIFY dataChanged)
     Q_PROPERTY(QUrl infoImageUrl READ infoImageUrl NOTIFY dataChanged)
 public:
     explicit QTdMessageContent(QObject *parent = nullptr);
@@ -26,6 +27,7 @@ public:
     QString infoText() const;
     QString typeText() const;
     QUrl infoImageUrl() const;
+    bool isSecret() const;
     void setInfoText(const QString &infoText);
     void setTypeText(const QString &typeText);
 signals:
@@ -35,6 +37,8 @@ protected:
     QString m_infoText;
     QString m_typeText;
     QUrl m_infoImageUrl;
+    bool m_isSecret;
+
 };
 
 class QTdMessageAction : public QTdMessageContent

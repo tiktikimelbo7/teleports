@@ -25,7 +25,7 @@ signals:
     void contentChanged();
 
 private:
-    QString m_ttl;
+    qint32 m_ttl;
 };
 
 #endif // QTDMESSAGECHATSETTTL_H

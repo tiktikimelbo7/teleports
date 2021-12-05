@@ -69,6 +69,7 @@ MessageContentBase
                 videoNote.videoNote.video.downloadFile();
             }
             if(videoNoteLocal.isDownloadingCompleted){
+                messageContentOpening()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": videoNote.videoNote.fileName,
                                                 "videoPreviewSource": localFileSource

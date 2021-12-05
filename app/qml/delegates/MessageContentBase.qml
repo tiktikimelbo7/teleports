@@ -7,6 +7,7 @@ import QTelegram 1.0
 
 import "../components"
 import "../stores"
+import "../actions"
 
 Item {
     id: content
@@ -14,6 +15,8 @@ Item {
     default property alias content: mainContent.data
     property QTdMessage message: null
     property bool contentBeforeMain: forwardLoader.active || citationLoader.active
+
+    signal messageContentOpening()
 
     width: Math.max(implicitWidth, contentColumn.width)
     height: contentColumn.height + contentColumn.anchors.topMargin
@@ -89,5 +92,9 @@ Item {
             height: childrenRect.height
             implicitWidth: Math.max(childrenRect.width, content.implicitWidth)
         }
+    }
+
+    onMessageContentOpening: {
+        AppActions.chat.openMessageContent(message.chatId, message.id)
     }
 }

@@ -116,6 +116,12 @@ QFuture<QTdResponse> QTdClient::sendAsync(QTdRequest *obj, void (QTdClient::*sig
                 QString extra = resp.value("@extra").toString();
                 if (extra == tag) {
                     result.setJson(resp);
+                    if (result.isError()) {
+                        qWarning() << "-------------[ SENDASYNC ERROR ]-----------------------";
+                        qWarning() << result.errorString();
+                        qWarning() << data;
+                        qWarning() << "-------------------------------------------------------";
+                    }
                     loop.quit();
                 }
             }
@@ -163,6 +169,11 @@ void QTdClient::handleRecv(const QJsonObject &data)
         qDebug() << "TYPE >> " << type;
         qDebug() << "DATA >> " << data;
         qDebug() << "-------------------------------------------";
+    } else if (type == "error") {
+        qWarning() << "-------------[ RCV ERROR ]-----------------------";
+        qWarning() << "TYPE >> " << type;
+        qWarning() << "DATA >> " << data;
+        qWarning() << "-------------------------------------------------";
     }
 
     if (m_events.contains(type)) {

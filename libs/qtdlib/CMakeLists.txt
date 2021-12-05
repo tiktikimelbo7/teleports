@@ -194,6 +194,7 @@ set(
     messages/requests/qtdinputmessagecontentfactory.cpp
     messages/requests/qtdsendmessagerequest.cpp
     messages/requests/qtdviewmessagesrequest.cpp
+    messages/requests/qtdopenmessagecontentrequest.cpp
     models/QmlObjectListModel.cpp
     models/QmlVariantListModel.cpp
     network/qtdnetworktype.cpp

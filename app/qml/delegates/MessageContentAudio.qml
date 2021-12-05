@@ -109,6 +109,7 @@ MessageContentBase {
                 tdFile.downloadFile();
             }
             if(localFile.isDownloadingCompleted){
+                messageContentOpening()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": audioContent.audio.fileName,
                                                 "audioPreviewSource": localFileSource
