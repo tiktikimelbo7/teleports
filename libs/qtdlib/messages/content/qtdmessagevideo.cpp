@@ -21,6 +21,7 @@ void QTdMessageVideo::unmarshalJson(const QJsonObject &json)
 {
     m_video->unmarshalJson(json["video"].toObject());
     m_caption->unmarshalJson(json["caption"].toObject());
+    m_isSecret = json["is_secret"].toBool();
     m_infoText = m_caption->text() != "" ? m_caption->text() : "";
     m_typeText = m_caption->text() != "" ? gettext("Video,") : gettext("Video");
     m_infoImageUrl = QUrl("file://" + m_video->thumbnail()->photo()->local()->path());

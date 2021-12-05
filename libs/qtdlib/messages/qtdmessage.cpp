@@ -185,6 +185,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
         m_forwardInfo = new QTdMessageForwardInfo(this);
         m_forwardInfo->unmarshalJson(forwardInfo);
     }
+    m_ttl = json["ttl"].toInt();
     emit messageChanged();
     QAbstractInt64Id::unmarshalJson(json);
     m_isValid = true;
@@ -252,6 +253,11 @@ bool QTdMessage::canBeDeletedForAllUsers() const
 bool QTdMessage::isChannelPost() const
 {
     return m_isChannelPost;
+}
+
+qint32 QTdMessage::ttl() const
+{
+    return m_ttl;
 }
 
 QString QTdMessage::views() const

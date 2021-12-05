@@ -64,6 +64,7 @@ public slots:
     void checkChatInviteLink(const QString &inviteLink);
     void joinChatByInviteLink(const QString &inviteLink);
     void setChatToOpenOnUpdate(const qint64 &chatId);
+    void openMessageContent(const QString chatId, const QString messageId);
 
     void loadMoreChats(const QString &chatList);
 

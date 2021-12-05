@@ -77,6 +77,7 @@ MessageContentBase {
                 voiceNote.voiceNote.voice.downloadFile();
             }
             if(voiceLocal.isDownloadingCompleted){
+                messageContentOpening()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "fileName": voiceNote.voiceNote.voice.fileName,
                                                 "audioPreviewSource": localFileSource

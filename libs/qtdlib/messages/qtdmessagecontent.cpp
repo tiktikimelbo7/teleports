@@ -3,11 +3,12 @@
 #include "utils/i18n.h"
 
 QTdMessageContent::QTdMessageContent(QObject *parent)
-    : QTdObject(parent)
+    : QTdObject(parent),
+    m_infoText(""),
+    m_typeText(""),
+    m_isSecret(false),
+    m_infoImageUrl(QUrl())
 {
-    m_infoText = "";
-    m_typeText = "";
-    m_infoImageUrl = QUrl();
 }
 
 QString QTdMessageContent::infoText() const
@@ -23,6 +24,11 @@ QString QTdMessageContent::typeText() const
 QUrl QTdMessageContent::infoImageUrl() const
 {
     return m_infoImageUrl;
+}
+
+bool QTdMessageContent::isSecret() const
+{
+    return m_isSecret;
 }
 
 void QTdMessageContent::setInfoText(const QString &infoText)

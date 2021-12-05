@@ -46,6 +46,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(bool isReply READ isReply NOTIFY messageChanged)
     Q_PROPERTY(bool isCollapsed READ isCollapsed NOTIFY messageChanged)
     Q_PROPERTY(bool isForwarded READ isForwarded NOTIFY messageChanged)
+    Q_PROPERTY(qint32 ttl READ ttl NOTIFY messageChanged)
 
 public:
     explicit QTdMessage(QObject *parent = nullptr);
@@ -113,6 +114,8 @@ public:
 
     void collapse();
 
+    qint32 ttl() const;
+
     qint64 replyToMessageId() const;
     QString qmlReplyToMessageId() const;
     bool isReply() const;
@@ -153,6 +156,7 @@ private:
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;
+    qint32 m_ttl;
 };
 
 #endif // QTDMESSAGE_H

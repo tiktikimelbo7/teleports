@@ -78,6 +78,15 @@ MessageContentBase {
             }
 
         }
+
+        FastBlur {
+            id: image_blur
+            visible: false
+            source: media_img
+            anchors.fill: media_img
+            radius: 48
+        }
+
         BusyPercentageIndicator {
             width: units.gu(7)
             height: units.gu(7)
@@ -127,6 +136,11 @@ MessageContentBase {
             if (photo.canBeDownloaded && !photo.isDownloadingCompleted) {
                 photo.downloadFile();
             }
+            if (message.content.isSecret) {
+                console.log("secret photo detected")
+                radiusCornerMask.source = image_blur
+                image_blur.visible = true
+            }
             if (message.isCollapsed) {
                 imgContainer.width = Math.max(imgContainer.width, imgContainer.height)
                 imgContainer.height = Math.max(imgContainer.width, imgContainer.height)
@@ -139,10 +153,10 @@ MessageContentBase {
             onClicked: {
                 var largeSize = photoContent.photo.sizes.get(photoContent.photo.sizes.size() - 1);
                 var largePhoto = largeSize.photo;
-
                 if (largePhoto.canBeDownloaded && !largePhoto.isDownloadingCompleted) {
                     largePhoto.downloadFile();
                 }
+                messageContentOpening()
                 AppActions.view.pushToStack("qrc:///pages/PreviewPage.qml", {
                                                 "photoPreviewSource": Qt.resolvedUrl("file://" + largePhoto.local.path)
                                             });

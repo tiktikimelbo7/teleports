@@ -56,6 +56,7 @@ ActionCreator {
     signal joinChatByInviteLink(var inviteLink)
     signal joinChat()
     signal searchChat(string searchText)
+    signal openMessageContent(string chatId, string messageId)
 
     signal jumpToMessage(string id)
 

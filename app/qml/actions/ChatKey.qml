@@ -54,4 +54,5 @@ KeyTable {
     property string joinChatByInviteLink
     property string joinChat
     property string searchChat
+    property string openMessageContent
 }

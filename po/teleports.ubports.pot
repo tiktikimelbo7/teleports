@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
+"POT-Creation-Date: 2021-12-05 10:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgid "%1 deleted the chat photo"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
+msgid "Self-destruct timer was set to <b>%1</b>"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
@@ -177,7 +177,7 @@ msgstr ""
 msgid "%1 has joined Telegram!"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr ""
 
@@ -733,11 +733,11 @@ msgstr ""
 msgid "are doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr ""
 
@@ -815,8 +815,35 @@ msgstr ""
 msgid "joined the group via the public link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:28
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:30
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "1 minute"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:34
+msgid "1 hour"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:36
+msgid "1 day"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:38
+msgid "1 week"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:40
+msgid "Off"
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:48
+msgid "Self-destruct timer was set"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
@@ -859,11 +886,11 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr ""
 
@@ -875,15 +902,15 @@ msgstr ""
 msgid "Sticker"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr ""
 
