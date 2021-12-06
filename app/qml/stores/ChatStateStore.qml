@@ -524,6 +524,12 @@ Store {
         }
     }
 
+    Filter {
+        type: ChatKey.sendSetTTL
+        onDispatched: {
+          chatList.sendSetTTL(message.id, message.ttl);
+        }
+    }
 
     Timer {
         id: enableLoadTimer

@@ -22,4 +22,4 @@ public:
     QJsonObject marshalJson() Q_DECL_FINAL;
 };
 
-#endif // QTDCLOSECHATREQUEST_H
+#endif // QTDSENDCHATACTIONREQUEST_H

@@ -57,7 +57,8 @@ ActionCreator {
     signal joinChat()
     signal searchChat(string searchText)
     signal openMessageContent(string chatId, string messageId)
-
+    signal setTTL(var chat)
+    signal sendSetTTL(string id, int ttl)
     signal jumpToMessage(string id)
 
     function viewGroupInfo(chat) {

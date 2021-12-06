@@ -68,6 +68,7 @@ public slots:
 
     void loadMoreChats(const QString &chatList);
 
+    void sendSetTTL(const QString &chatId, const int &ttl);
 signals:
     void modelChanged(QObject *model);
     void contentsChanged();

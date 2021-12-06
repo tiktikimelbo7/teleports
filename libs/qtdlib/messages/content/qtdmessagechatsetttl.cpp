@@ -10,34 +10,18 @@ QTdMessageChatSetTTL::QTdMessageChatSetTTL(QObject *parent)
 QString QTdMessageChatSetTTL::ttl() const
 {
     switch (m_ttl) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-            return QString(ngettext("%1 second", "%1 seconds", m_ttl)).arg(m_ttl);
-        case 16:
-            return QString(ngettext("%1 second", "%1 seconds", m_ttl)).arg(m_ttl);
-        case 17:
+        case 0:
+            return gettext("Off");
+        case 60:
             return gettext("1 minute");
-        case 18:
+        case 3600:
             return gettext("1 hour");
-        case 19:
+        case 86400:
             return gettext("1 day");
-        case 20:
+        case 604800:
             return gettext("1 week");
         default:
-            return gettext("Off");
+            return QString(ngettext("%1 second", "%1 seconds", m_ttl)).arg(m_ttl);
         }
 }
 

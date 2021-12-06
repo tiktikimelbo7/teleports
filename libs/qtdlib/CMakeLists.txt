@@ -100,6 +100,7 @@ set(
     chat/requests/qtdjoinchatrequest.cpp
     chat/requests/qtdcheckchatinvitelinkrequest.cpp
     chat/requests/qtdjoinchatbyinvitelinkrequest.cpp
+    chat/requests/qtdsetchatmessagettlsettingrequest.cpp
     client/qtdclient.cpp
     client/qtdhandle.cpp
     client/qtdthread.cpp

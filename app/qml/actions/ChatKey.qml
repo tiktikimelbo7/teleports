@@ -55,4 +55,6 @@ KeyTable {
     property string joinChat
     property string searchChat
     property string openMessageContent
+    property string setTTL
+    property string sendSetTTL
 }

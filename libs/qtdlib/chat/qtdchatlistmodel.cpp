@@ -13,6 +13,7 @@
 #include "chat/requests/qtdjoinchatrequest.h"
 #include "chat/requests/qtdcheckchatinvitelinkrequest.h"
 #include "chat/requests/qtdjoinchatbyinvitelinkrequest.h"
+#include "chat/requests/qtdsetchatmessagettlsettingrequest.h"
 #include "messages/requests/qtdsendmessagerequest.h"
 #include "messages/requests/qtdopenmessagecontentrequest.h"
 #include "messages/requests/content/qtdinputmessagetext.h"
@@ -576,4 +577,12 @@ void QTdChatListModel::openMessageContent(const QString chatId, const QString me
     req->setChatId(chatId);
     req->setMessageId(messageId);
     QFuture<QTdResponse> resp = req->sendAsync();
+}
+
+void QTdChatListModel::sendSetTTL(const QString &chatId, const int &ttl)
+{
+    QScopedPointer<QTdSetChatMessageTtlSettingRequest> req(new QTdSetChatMessageTtlSettingRequest);
+    req->setChatId(chatId.toLong());
+    req->setTTL(ttl);
+    QTdClient::instance()->send(req.data());
 }
