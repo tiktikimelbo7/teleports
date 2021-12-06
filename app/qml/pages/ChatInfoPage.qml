@@ -185,6 +185,23 @@ Page {
                         UITK.ProgressionSlot {}
                     }
                 }
+                UITK.ListItem {
+                    width: parent.width
+                    height: ttlSetter.height
+                    visible: chat && chat.isSecret
+                    onClicked: AppActions.chat.setTTL(chat)
+                    UITK.ListItemLayout {
+                        id: ttlSetter
+                        UITK.Icon {
+                            height: parent.title.font.pixelSize * 2
+                            visible: parent.width > Suru.units.gu(20)
+                            width: height
+                            name: "burn-after-read"
+                            UITK.SlotsLayout.position: UITK.SlotsLayout.Leading
+                        }
+                        title.text: i18n.tr("Set self-destruct timer")
+                    }
+                }
             }
         }
     }

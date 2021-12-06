@@ -22,6 +22,11 @@ Middleware {
         GroupPreviewDialog {}
     }
 
+    Component {
+        id: setTTLDialog
+        SetTTLDialog {}
+    }
+
     function deleteChatHistory(message) {
         var dlg = PopupUtils.open(confirmationDlg, root, {
                         title: i18n.tr("Are you sure you want to clear the history?"),
@@ -50,5 +55,9 @@ Middleware {
         dlg.confirmed.connect(function(){
             next(ChatKey.joinChatByInviteLink, message)
         })
+    }
+
+    function setTTL(message) {
+        var dlg = PopupUtils.open(setTTLDialog, root, {secretChat: message.chat})
     }
 }
