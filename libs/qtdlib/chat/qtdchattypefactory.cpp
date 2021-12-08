@@ -11,6 +11,8 @@ QTdChatList *QTdChatFactory::createList(const QJsonObject &json, QObject *parent
         chatList = new QTdChatListMain(parent);
     } else if (list == "chatListArchive") {
         chatList = new QTdChatListArchive(parent);
+    } else if (list == "chatListFilter") {
+        chatList = new QTdChatListFilter(parent);
     } else {
         chatList = new QTdChatList(parent);
     }

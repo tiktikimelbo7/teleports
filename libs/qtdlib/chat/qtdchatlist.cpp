@@ -16,3 +16,10 @@ QTdChatListArchive::QTdChatListArchive(QObject *parent)
 {
     setType(CHAT_LIST_ARCHIVE);
 }
+
+QTdChatListFilter::QTdChatListFilter(QObject *parent)
+    : QTdChatList(parent)
+{
+    setType(CHAT_LIST_FILTER);
+}
+

@@ -341,6 +341,7 @@ public slots:
     void updateChatTitle(const QJsonObject &json);
     void updateChatPosition(const QJsonObject &json);
     void updateChatPositions(const QJsonObject &json);
+    void updateMainChatListPosition(const QJsonObject &new_position);
     void updateChatUnreadMentionCount(const QJsonObject &json);
     void updateChatOnlineMemberCount(const QJsonObject &json);
     void updateChatNotificationSettings(const QJsonObject &json);
