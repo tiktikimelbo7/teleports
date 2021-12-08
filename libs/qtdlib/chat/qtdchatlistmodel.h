@@ -72,6 +72,7 @@ public slots:
 signals:
     void modelChanged(QObject *model);
     void contentsChanged();
+    void chatCreated(const qint64 &chatId);
     void chatStatusChanged();
     void currentChatChanged();
     void listModeChanged();
