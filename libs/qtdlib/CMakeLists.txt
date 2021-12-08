@@ -167,6 +167,8 @@ set(
     messages/qtdmessagecontent.cpp
     messages/qtdmessagecontentfactory.cpp
     messages/qtdmessagesender.cpp
+    messages/qtdmessagesenderuser.cpp
+    messages/qtdmessagesenderchat.cpp
     messages/qtdmessagelistmodel.cpp
     messages/qtdmessagesendingstate.cpp
     messages/replymarkup/qtdkeyboardbutton.cpp

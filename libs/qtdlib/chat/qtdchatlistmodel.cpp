@@ -248,6 +248,7 @@ void QTdChatListModel::handleUpdateNewChat(const QJsonObject &data)
         if (tdchat->position()->isPinned()) {
             m_pinnedChats << tdchat->id();
         }
+        emit chatCreated(tdchat->id());
     }
     emit contentsChanged();
     if (m_chatToOpenOnUpdate == tdchat->id()) {
