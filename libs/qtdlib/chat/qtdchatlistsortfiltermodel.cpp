@@ -90,7 +90,7 @@ bool QTdChatListSortFilterModel::filterAcceptsRow(int source_row, const QModelIn
     QQmlObjectListModel<QTdChat> *model = static_cast<QQmlObjectListModel<QTdChat> *>(sourceModel());
     QTdChat *chat = model->at(source_row);
 
-    if (!chat || !chat->position()->order()) {
+    if (!chat || chat->position()->order() == 0) {
         return false;
     }
 
@@ -148,10 +148,7 @@ bool QTdChatListSortFilterModel::lessThan(const QModelIndex &source_left, const 
         The first part is the rule from tdlib, sort by order, but if equal order is given, sort by id
         The second part is a safeguard against sort order being 0, which happens with "Saved Messages" chat a lot
      */
-    auto result = left->position()->order() != 0 && right->position()->order() != 0 && left->position()->order() < right->position()->order()
-            || left->position()->order() == right->position()->order() && left->id() < right->id()
-            || (left->position()->order() == 0 || right->position()->order() == 0)
-                    && left->lastMessage() && right->lastMessage()
-                    && left->lastMessage()->date() < right->lastMessage()->date() && !left->position()->isPinned();
+    auto result = left->position()->order() < right->position()->order()
+            || left->position()->order() == right->position()->order() && left->id() < right->id();
     return result;
 }

@@ -266,11 +266,6 @@ void QTdChatListModel::handleUpdateChatPosition(const QJsonObject &data)
     if (tdchat) {
         tdchat->updateChatPosition(data);
         emit contentsChanged();
-        if (tdchat->position()->order() == 0)
-        {
-            //m_model->remove(tdchat);
-            //QTdClient::instance()->removeMapEntry(tdchat->id());
-        }
     }
 }
 

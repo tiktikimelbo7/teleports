@@ -43,4 +43,16 @@ public:
     explicit QTdChatListArchive(QObject *parent = Q_NULLPTR);
 };
 
+/**
+ * @brief The QTdChatListFilter class
+ *
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1chat_list_filter.html
+ */
+class QTdChatListFilter : public QTdChatList
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdChatListFilter)
+public:
+    explicit QTdChatListFilter(QObject *parent = Q_NULLPTR);
+};
 #endif // QTDCHATLIST_H
