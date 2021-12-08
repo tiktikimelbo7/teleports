@@ -453,19 +453,29 @@ void QTdChat::updateChatReadOutbox(const QJsonObject &json)
     emit lastReadOutboxMessageIdChanged();
 }
 
+void QTdChat::updateMainChatListPosition(const QJsonObject &new_position)
+{
+    auto chatList = new_position["list"].toObject();
+    if (!chatList.isEmpty() && chatList["@type"].toString() == "chatListMain") {
+        m_position->unmarshalJson(new_position);
+        emit positionChanged();
+    }
+}
+
 void QTdChat::updateChatPosition(const QJsonObject &json)
 {
-    m_position->unmarshalJson(json["position"].toObject());
-    emit positionChanged();
+    auto new_position = json["position"].toObject();
+    if (!new_position.isEmpty()) {
+        updateMainChatListPosition(new_position);
+    }
 }
 
 void QTdChat::updateChatPositions(const QJsonObject &json)
 {
     auto positions = json["positions"].toArray();
-    if (positions.size() > 0) {
+    for (auto position : positions) {
         // TODO: re: #258.2 - handle multiple chat lists
-        m_position->unmarshalJson(positions[0].toObject());
-        emit positionChanged();
+        updateMainChatListPosition(position.toObject());
     }
 }
 
