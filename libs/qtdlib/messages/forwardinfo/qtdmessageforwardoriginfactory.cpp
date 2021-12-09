@@ -7,7 +7,7 @@ QTdMessageForwardOrigin *QTdMessageForwardOriginFactory::create(const QJsonObjec
     QTdMessageForwardOrigin *origin = Q_NULLPTR;
     if (type == "messageForwardOriginChannel") {
         origin = new QTdMessageForwardOriginChannel(parent);
-    } else if (type == " messageForwardOriginChat") {
+    } else if (type == "messageForwardOriginChat") {
         origin = new QTdMessageForwardOriginChat(parent);
     } else if (type == "messageForwardOriginHiddenUser") {
         origin = new QTdMessageForwardOriginHiddenUser(parent);
