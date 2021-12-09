@@ -9,14 +9,6 @@ QTdTextFormatter::QTdTextFormatter(QObject *parent)
     , m_textDocument(Q_NULLPTR)
     , m_content(Q_NULLPTR)
 {
-    connect(this, &QTdTextFormatter::textDocumentChanged, this, [this] {
-        if (QTextDocument *doc = m_textDocument->textDocument()) {
-            connect(doc, &QTextDocument::contentsChange, this, &QTdTextFormatter::doFormat);
-            doFormat();
-        }
-    });
-
-    connect(this, &QTdTextFormatter::textDocumentChanged, this, &QTdTextFormatter::doFormat);
     connect(this, &QTdTextFormatter::contentChanged, this, &QTdTextFormatter::doFormat);
     m_codeColor = QColor("#798eaf");
     m_linkColor = QColor("#5d84c1");
@@ -83,7 +75,7 @@ void QTdTextFormatter::doFormat()
     if (!m_textDocument->textDocument() || !m_content) {
         return;
     }
-
+    
     const QList<QTdTextEntity *> entities = m_content->entities()->toList();
     QTextDocument *doc = m_textDocument->textDocument();
     if (doc->isEmpty()) {
@@ -91,7 +83,7 @@ void QTdTextFormatter::doFormat()
     }
     const QString rawText = doc->toRawText();
     for (const QTdTextEntity *entity : entities) {
-        QTextCursor cursor{ doc };
+        QTextCursor cursor { doc };
         cursor.setPosition(entity->offset(), QTextCursor::MoveAnchor);
         cursor.setPosition(entity->offset() + entity->length(), QTextCursor::KeepAnchor);
         const QString subText = rawText.mid(entity->offset(), entity->length());
