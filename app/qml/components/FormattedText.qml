@@ -17,7 +17,7 @@ Column {
         id: textEdit
 
         height: contentHeight
-        width: Math.min(maximumWidth, dummyTextEdit.contentWidth)
+        width: Math.min(maximumWidth, implicitWidth)
         readOnly: true
         text: isPreview ? elidedTextMetrics.elidedText : formattedText.text
         color: Suru.foregroundColor
@@ -36,13 +36,6 @@ Column {
         elideWidth: Math.max(maximumWidth, textEdit.width) - Suru.units.gu(2)
     }
 
-    TextEdit {
-        id: dummyTextEdit
-        visible: false
-        height: contentHeight
-        text: formattedText.text
-    }
-
     // Only load the formatter if there are
     // entities to be formatted.
     Loader {
@@ -59,12 +52,6 @@ Column {
                     content: formattedText
                     Suru.theme: rootItem.Suru.theme
                     Suru.textStyle: Suru.TertiaryText
-                }
-
-                TextFormatter {
-                    id: dummyTextFormatter
-                    textDocument: dummyTextEdit.textDocument
-                    content: formattedText
                 }
             }
         }
