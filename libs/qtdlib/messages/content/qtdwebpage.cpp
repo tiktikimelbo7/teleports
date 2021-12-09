@@ -128,7 +128,10 @@ void QTdWebPage::unmarshalJson(const QJsonObject &json)
     m_type = json["type"].toString();
     m_siteName = json["site_name"].toString();
     m_title = json["title"].toString();
-    m_description = json["description"].toString();
+    auto temp_description = json["description"].toObject();
+    if (!temp_description.isEmpty()) {
+        m_description = temp_description["text"].toString();
+    }
     if (json.contains("photo")) {
         m_containsPhoto = true;
         m_photo->unmarshalJson(json["photo"].toObject());
