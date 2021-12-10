@@ -15,8 +15,8 @@ MessageContentBase {
     property QTdFile tdFile: documentContent.document.document
     property QTdLocalFile localFile: tdFile.local
     property QTdRemoteFile remoteFile: tdFile.remote
-    property QTdPhotoSize thumbnail: documentContent.document.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
+    property QTdThumbnail thumbnail: documentContent.document.thumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.file.local ? thumbnail.file.local : null
     property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
     property url thumbnailLocalSource: thumbnail && thumbnailLocal.path ? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
 

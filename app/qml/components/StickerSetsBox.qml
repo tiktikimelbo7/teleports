@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Controls.Suru 2.2
 import QTelegram 1.0
+import QLottieFrameProvider 1.0
 import "../stores"
 import "../actions"
 
@@ -32,27 +33,46 @@ Item {
                 property bool isLast: index == (stickerSetSelection.count - 1)
 
                 property QTdStickerSet stickerSet: Telegram.stickers.stickerSets.get(index)
+                property QTdFile thumbnailFile: stickerSet.thumbnail.file
+                property QTdLocalFile localFile: thumbnailFile.local
+                property bool isThumbnailAnimated: stickerSet.thumbnail.format.type === QTdObject.THUMBNAIL_FORMAT_TGS
+
+                property string localFileSource: localFile && localFile.path !== ""
+                                                                ? "file:///" + localFile.path
+                                                                : ""
 
                 width: units.gu(6)
                 height: units.gu(5)
                         + (isFirst ? units.gu(1) : 0)
                         + (isLast ? units.gu(1) : 0)
 
-                Image {
-                    id: img
-
-                    property QTdFile thumbnailFile: stickerSet.thumbnail.photo
-                    property QTdLocalFile localFile: thumbnailFile.local
-
-                    property string localFileSource: localFile && localFile.path !== ""
-                                                                 ? "file:///" + localFile.path
-                                                                 : ""
-
-                    function reload() {
-                        img.source = "";
-                        img.source = localFileSource;
+                Connections {
+                    target: thumbnailFile
+                    onFileChanged: {
+                        thumbnailLoader.item.reload();
                     }
+                }
 
+                Connections {
+                    target: stickerSetDelegate.stickerSet
+                    onStickerSetChanged: {
+                        // Trigger reload of sticker grid
+                        stickerSetSelection.currentIndexChanged();
+                    }
+                }
+
+                Component.onCompleted: {
+                    if (localFile.canBeDownloaded && !localFile.isDownloadingCompleted) {
+                        thumbnailFile.downloadFile();
+                    }
+                    if (stickerSetSelection.currentIndex == index) {
+                        stickerSetDelegate.stickerSet.loadDetails();
+                    }
+                }
+
+                Loader {
+                    id: thumbnailLoader
+                    sourceComponent: isThumbnailAnimated ? thumbnailAnimated : thumbnailStatic
                     anchors {
                         fill: parent
                         topMargin: units.dp(4) + (isFirst ? units.gu(1) : 0)
@@ -60,33 +80,36 @@ Item {
                         leftMargin: units.gu(1)
                         rightMargin: units.gu(1)
                     }
+                }
 
-                    source: localFileSource
-                    sourceSize.width: img.width
-                    sourceSize.height: img.height
-                    asynchronous: true
+                Component {
+                    id: thumbnailAnimated
+                    LottieAnimation {
+                        source: isThumbnailAnimated ? localFileSource : ''
+                        anchors.fill: parent
+                        play: true
 
-                    Connections {
-                        target: img.thumbnailFile
-                        onFileChanged: {
-                            img.reload();
+                        function reload() {
+                            source = "";
+                            source = localFileSource;
+                            play = true
                         }
                     }
+                }
 
-                    Connections {
-                        target: stickerSetDelegate.stickerSet
-                        onStickerSetChanged: {
-                            // Trigger reload of sticker grid
-                            stickerSetSelection.currentIndexChanged();
-                        }
-                    }
+                Component {
+                    id: thumbnailStatic
 
-                    Component.onCompleted: {
-                        if (img.localFile.canBeDownloaded && !img.localFile.isDownloadingCompleted) {
-                            img.thumbnailFile.downloadFile();
-                        }
-                        if (stickerSetSelection.currentIndex == index) {
-                            stickerSetDelegate.stickerSet.loadDetails();
+                    Image {
+                        source: !isThumbnailAnimated ? localFileSource : ''
+                        sourceSize.width: width
+                        sourceSize.height: height
+                        asynchronous: true
+                        anchors.fill: parent
+
+                        function reload() {
+                            source = "";
+                            source = localFileSource;
                         }
                     }
                 }
@@ -160,7 +183,7 @@ Item {
                         clip: true
 
                         property QTdSticker sticker: currentStickerSet.stickers.get(index)
-                        property QTdFile file: sticker.thumbnail.photo
+                        property QTdFile file: sticker.thumbnail.file
                         property QTdLocalFile localFile: file.local
 
                         property string localFileSource: localFile && localFile.path !== ""

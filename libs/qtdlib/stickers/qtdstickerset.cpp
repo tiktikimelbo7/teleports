@@ -6,7 +6,7 @@ QTdStickerSet::QTdStickerSet(QObject *parent)
     , m_id(0)
     , m_title("")
     , m_name("")
-    , m_thumbnail(new QTdPhotoSize(this))
+    , m_thumbnail(new QTdThumbnail(this))
     , m_hasThumbnail(false)
     , m_isAnimated(false)
     , m_detailsLoaded(false)
@@ -25,7 +25,7 @@ QString QTdStickerSet::name() const
     return m_name;
 }
 
-QTdPhotoSize *QTdStickerSet::thumbnail() const
+QTdThumbnail *QTdStickerSet::thumbnail() const
 {
     return m_thumbnail.data();
 }
@@ -72,13 +72,12 @@ void QTdStickerSet::unmarshalJson(const QJsonObject &json)
     m_id = json["id"];
     m_title = json["title"].toString();
     m_name = json["name"].toString();
-    // TODO: Repair this after upgrade to tdlib 1.7.9
-    // if (json.contains("thumbnail")) {
-    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    //     m_hasThumbnail = true;
-    // } else {
-    //     m_hasThumbnail = false;
-    // }
+    if (json.contains("thumbnail")) {
+        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+        m_hasThumbnail = true;
+    } else {
+        m_hasThumbnail = false;
+    }
     m_isAnimated = json["is_animated"].toBool();
     if (json.contains("covers") && !m_hasThumbnail) {
         auto coversArray = json["covers"].toArray();

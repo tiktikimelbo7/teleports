@@ -13,8 +13,8 @@ MessageContentBase
 {
     property QTdMessageVideoNote videoNote: message.content
     property QTdLocalFile videoNoteLocal: videoNote.videoNote.video.local
-    property QTdPhotoSize thumbnail: videoNote.videoNote.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local
+    property QTdThumbnail thumbnail: videoNote.videoNote.thumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.file.local
     property real uniqeId: Math.floor(Math.random() * Math.floor(10000));
     property url localFileSource: videoNote && videoNoteLocal.path ? Qt.resolvedUrl("file://" + videoNoteLocal.path) : ""
     Item {

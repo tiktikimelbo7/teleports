@@ -21,6 +21,8 @@
 #include "files/qtdvideo.h"
 #include "files/qtddocument.h"
 #include "files/qtdsticker.h"
+#include "files/qtdthumbnail.h"
+#include "files/qtdminithumbnail.h"
 #include "messages/qtdmessage.h"
 #include "messages/qtdmessagelistmodel.h"
 #include "messages/qtdmessagecontent.h"
@@ -151,6 +153,8 @@ void QTdLib::registerQmlTypes()
     qmlRegisterUncreatableType<QTdAnimation>(uri, 1, 0, "QTdAnimation", "c++ class");
     qmlRegisterUncreatableType<QTdPhoto>(uri, 1, 0, "QTdPhoto", "c++ class");
     qmlRegisterUncreatableType<QTdPhotoSize>(uri, 1, 0, "QTdPhotoSize", "c++ class");
+    qmlRegisterUncreatableType<QTdThumbnail>(uri, 1, 0, "QTdThumbnail", "c++ class");
+    qmlRegisterUncreatableType<QTdMiniThumbnail>(uri, 1, 0, "QTdMiniThumbnail", "c++ class");
     qmlRegisterUncreatableType<QTdAudio>(uri, 1, 0, "QTdAudio", "c++ class");
     qmlRegisterUncreatableType<QTdVideo>(uri, 1, 0, "QTdVideo", "c++ class");
     qmlRegisterUncreatableType<QTdDocument>(uri, 1, 0, "QTdDocument", "c++ class");

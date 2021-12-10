@@ -5,7 +5,8 @@ QTdAnimation::QTdAnimation(QObject *parent)
     , m_duration(0)
     , m_width(0)
     , m_height(0)
-    , m_thumbnail(new QTdPhotoSize)
+    , m_thumbnail(new QTdThumbnail)
+    , m_minithumbnail(new QTdMiniThumbnail)
     , m_animation(new QTdFile)
 {
     setType(ANIMATION);
@@ -36,9 +37,14 @@ QString QTdAnimation::mimeType() const
     return m_mimeType;
 }
 
-QTdPhotoSize *QTdAnimation::thumbnail() const
+QTdThumbnail *QTdAnimation::thumbnail() const
 {
     return m_thumbnail.data();
+}
+
+QTdMiniThumbnail *QTdAnimation::miniThumbnail() const
+{
+    return m_minithumbnail.data();
 }
 
 QTdFile *QTdAnimation::animation() const
@@ -53,10 +59,12 @@ void QTdAnimation::unmarshalJson(const QJsonObject &json)
     m_height = qint32(json["height"].toInt());
     m_fileName = json["file_name"].toString();
     m_mimeType = json["mime_type"].toString();
-    // TODO: Repair this after upgrade to tdlib 1.7.9
-    // if (json.contains("thumbnail")) {
-    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    // }
+    if (json.contains("thumbnail")) {
+        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    }
+    if (json.contains("minithumbnail")) {
+        m_minithumbnail->unmarshalJson(json["minithumbnail"].toObject());
+    }
     m_animation->unmarshalJson(json["animation"].toObject());
     emit animationChanged();
 }

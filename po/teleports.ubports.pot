@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-07 23:23+0000\n"
+"POT-Creation-Date: 2021-12-10 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -734,43 +734,43 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
+#: ../libs/qtdlib/chat/qtdchat.cpp:607
 msgid "is choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
+#: ../libs/qtdlib/chat/qtdchat.cpp:608
 msgid "are choosing contact..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
+#: ../libs/qtdlib/chat/qtdchat.cpp:611
 msgid "is choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
+#: ../libs/qtdlib/chat/qtdchat.cpp:612
 msgid "are choosing location..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
+#: ../libs/qtdlib/chat/qtdchat.cpp:617
 msgid "is recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
+#: ../libs/qtdlib/chat/qtdchat.cpp:618
 msgid "are recording..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
+#: ../libs/qtdlib/chat/qtdchat.cpp:621
 msgid "is typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
+#: ../libs/qtdlib/chat/qtdchat.cpp:622
 msgid "are typing..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchat.cpp:625
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchat.cpp:626
 msgid "are doing something..."
 msgstr ""
 
