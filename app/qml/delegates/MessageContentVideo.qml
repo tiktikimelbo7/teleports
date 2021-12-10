@@ -15,8 +15,8 @@ MessageContentBase
     property QTdFile tdFile: videoContent.video.video
     property QTdLocalFile localFile: tdFile.local
     property QTdRemoteFile remoteFile: tdFile.remote
-    property QTdPhotoSize thumbnail: videoContent.video.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
+    property QTdThumbnail thumbnail: videoContent.video.thumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.file.local ? thumbnail.file.local : null
     property real uniqeId: Math.floor(Math.random() * Math.floor(10000));
 
     property real maximumMediaHeight: message.isCollapsed ? Suru.units.gu(24/5) : Suru.units.gu(24)

@@ -127,6 +127,9 @@ set(
     files/qtdvideo.cpp
     files/qtdvideonote.cpp
     files/qtdvoicenote.cpp
+    files/qtdthumbnailformat.cpp
+    files/qtdthumbnail.cpp
+    files/qtdminithumbnail.cpp
     messages/content/qtdformattedtext.cpp
     messages/content/qtdmessageanimation.cpp
     messages/content/qtdmessageunreadlabel.cpp

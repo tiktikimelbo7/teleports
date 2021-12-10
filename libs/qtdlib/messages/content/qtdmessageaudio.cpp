@@ -23,5 +23,5 @@ void QTdMessageAudio::unmarshalJson(const QJsonObject &json)
     m_caption->unmarshalJson(json["caption"].toObject());
     m_infoText = m_caption->text() != "" ? m_caption->oneLineText() : "";
     m_typeText = QString("%1 - %2%3").arg(m_audio->performer(), m_audio->title(), m_caption->text() != "" ? "," : "");
-    m_infoImageUrl = QUrl("file://" + m_audio->albumCoverThumbnail()->photo()->local()->path());
+    m_infoImageUrl = QUrl("file://" + m_audio->albumCoverThumbnail()->file()->local()->path());
 }

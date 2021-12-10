@@ -5,7 +5,7 @@
 #include <QPointer>
 #include "models/QmlObjectListModel.h"
 #include "common/qabstracttdobject.h"
-#include "files/qtdphotosize.h"
+#include "files/qtdthumbnail.h"
 #include "files/qtdsticker.h"
 
 class QTdStickerSet : public QTdObject
@@ -14,7 +14,7 @@ class QTdStickerSet : public QTdObject
 
     Q_PROPERTY(QString name READ name NOTIFY stickerSetChanged)
     Q_PROPERTY(QString title READ title NOTIFY stickerSetChanged)
-    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY stickerSetChanged)
+    Q_PROPERTY(QTdThumbnail *thumbnail READ thumbnail NOTIFY stickerSetChanged)
     Q_PROPERTY(bool hasThumbnail READ hasThumbnail NOTIFY stickerSetChanged)
     Q_PROPERTY(bool isAnimated READ isAnimated NOTIFY stickerSetChanged)
     Q_PROPERTY(QObject *stickers READ qmlModel NOTIFY stickerSetChanged)
@@ -23,7 +23,7 @@ public:
 
     QString title() const;
     QString name() const;
-    QTdPhotoSize *thumbnail() const;
+    QTdThumbnail *thumbnail() const;
     bool hasThumbnail() const;
     bool isAnimated() const;
 
@@ -43,7 +43,7 @@ private:
     QTdInt64 m_id;
     QString m_title;
     QString m_name;
-    QPointer<QTdPhotoSize> m_thumbnail;
+    QPointer<QTdThumbnail> m_thumbnail;
     bool m_hasThumbnail;
     bool m_isAnimated;
     bool m_detailsLoaded;

@@ -5,7 +5,7 @@ QTdVideo::QTdVideo(QObject *parent)
     , m_duration(0)
     , m_width(0)
     , m_height(0)
-    , m_thumbnail(new QTdPhotoSize)
+    , m_thumbnail(new QTdThumbnail)
     , m_video(new QTdFile)
 {
     setType(VIDEO);
@@ -36,7 +36,7 @@ QString QTdVideo::mimeType() const
     return m_mimeType;
 }
 
-QTdPhotoSize *QTdVideo::thumbnail() const
+QTdThumbnail *QTdVideo::thumbnail() const
 {
     return m_thumbnail.data();
 }
@@ -53,10 +53,9 @@ void QTdVideo::unmarshalJson(const QJsonObject &json)
     m_height = qint32(json["height"].toInt());
     m_fileName = json["file_name"].toString();
     m_mimeType = json["mime_type"].toString();
-    // TODO: Repair this after upgrade to tdlib 1.7.9
-    // if (json.contains("thumbnail")) {
-    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    // }
+    if (json.contains("thumbnail")) {
+        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    }
     m_video->unmarshalJson(json["video"].toObject());
     emit videoChanged();
 }

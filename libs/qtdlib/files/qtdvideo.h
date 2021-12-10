@@ -5,7 +5,7 @@
 #include <QScopedPointer>
 #include "common/qabstracttdobject.h"
 #include "common/qtdint.h"
-#include "qtdphotosize.h"
+#include "qtdthumbnail.h"
 #include "qtdfile.h"
 
 class QTdVideo : public QTdObject
@@ -16,7 +16,7 @@ class QTdVideo : public QTdObject
     Q_PROPERTY(qint32 height READ height NOTIFY videoChanged)
     Q_PROPERTY(QString fileName READ fileName NOTIFY videoChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY videoChanged)
-    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY videoChanged)
+    Q_PROPERTY(QTdThumbnail *thumbnail READ thumbnail NOTIFY videoChanged)
     Q_PROPERTY(QTdFile *video READ video NOTIFY videoChanged)
 public:
     explicit QTdVideo(QObject *parent = nullptr);
@@ -31,7 +31,7 @@ public:
 
     QString mimeType() const;
 
-    QTdPhotoSize *thumbnail() const;
+    QTdThumbnail *thumbnail() const;
 
     QTdFile *video() const;
 
@@ -46,7 +46,7 @@ private:
     qint32 m_height;
     QString m_fileName;
     QString m_mimeType;
-    QScopedPointer<QTdPhotoSize> m_thumbnail;
+    QScopedPointer<QTdThumbnail> m_thumbnail;
     QScopedPointer<QTdFile> m_video;
 };
 

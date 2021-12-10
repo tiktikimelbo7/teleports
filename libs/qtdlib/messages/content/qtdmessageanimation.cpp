@@ -24,5 +24,5 @@ void QTdMessageAnimation::unmarshalJson(const QJsonObject &json)
     m_isSecret = json["is_secret"].toBool();
     m_infoText = m_caption->text() != "" ? m_caption->oneLineText() : "";
     m_typeText = m_caption->text() != "" ? gettext("GIF,") : gettext("GIF");
-    m_infoImageUrl = QUrl("file://" + m_animation->thumbnail()->photo()->local()->path());
+    m_infoImageUrl = QUrl("file://" + m_animation->thumbnail()->file()->local()->path());
 }

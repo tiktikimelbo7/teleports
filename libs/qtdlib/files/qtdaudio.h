@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QScopedPointer>
 #include "common/qabstracttdobject.h"
-#include "qtdphotosize.h"
+#include "qtdthumbnail.h"
 
 class QTdAudio : public QTdObject
 {
@@ -14,7 +14,7 @@ class QTdAudio : public QTdObject
     Q_PROPERTY(QString performer READ performer NOTIFY audioChanged)
     Q_PROPERTY(QString fileName READ fileName NOTIFY audioChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY audioChanged)
-    Q_PROPERTY(QTdPhotoSize *albumCoverThumbnail READ albumCoverThumbnail NOTIFY audioChanged)
+    Q_PROPERTY(QTdThumbnail *albumCoverThumbnail READ albumCoverThumbnail NOTIFY audioChanged)
     Q_PROPERTY(QTdFile *audio READ audio NOTIFY audioChanged)
 public:
     explicit QTdAudio(QObject *parent = nullptr);
@@ -29,7 +29,7 @@ public:
 
     QString mimeType() const;
 
-    QTdPhotoSize *albumCoverThumbnail() const;
+    QTdThumbnail *albumCoverThumbnail() const;
 
     QTdFile *audio() const;
 
@@ -44,7 +44,7 @@ private:
     QString m_performer;
     QString m_fileName;
     QString m_mimeType;
-    QScopedPointer<QTdPhotoSize> m_albumCoverThumbnail;
+    QScopedPointer<QTdThumbnail> m_albumCoverThumbnail;
     QScopedPointer<QTdFile> m_audio;
 };
 
