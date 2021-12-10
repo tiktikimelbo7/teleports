@@ -4,7 +4,8 @@
 #include <QObject>
 #include <QScopedPointer>
 #include "common/qabstracttdobject.h"
-#include "qtdphotosize.h"
+#include "qtdthumbnail.h"
+#include "qtdminithumbnail.h"
 #include "qtdfile.h"
 
 /**
@@ -20,7 +21,8 @@ class QTdAnimation : public QTdObject
     Q_PROPERTY(qint32 height READ height NOTIFY animationChanged)
     Q_PROPERTY(QString fileName READ fileName NOTIFY animationChanged)
     Q_PROPERTY(QString mimeType READ mimeType NOTIFY animationChanged)
-    Q_PROPERTY(QTdPhotoSize *thumbnail READ thumbnail NOTIFY animationChanged)
+    Q_PROPERTY(QTdThumbnail *thumbnail READ thumbnail NOTIFY animationChanged)
+    Q_PROPERTY(QTdMiniThumbnail *miniThumbnail READ miniThumbnail NOTIFY animationChanged)
     Q_PROPERTY(QTdFile *animation READ animation NOTIFY animationChanged)
 public:
     explicit QTdAnimation(QObject *parent = nullptr);
@@ -35,7 +37,9 @@ public:
 
     QString mimeType() const;
 
-    QTdPhotoSize *thumbnail() const;
+    QTdThumbnail *thumbnail() const;
+
+    QTdMiniThumbnail *miniThumbnail() const;
 
     QTdFile *animation() const;
 
@@ -50,7 +54,8 @@ private:
     qint32 m_height;
     QString m_fileName;
     QString m_mimeType;
-    QScopedPointer<QTdPhotoSize> m_thumbnail;
+    QScopedPointer<QTdThumbnail> m_thumbnail;
+    QScopedPointer<QTdMiniThumbnail> m_minithumbnail;
     QScopedPointer<QTdFile> m_animation;
 };
 

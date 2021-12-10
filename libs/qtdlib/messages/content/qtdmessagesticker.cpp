@@ -16,6 +16,6 @@ QTdSticker *QTdMessageSticker::sticker() const
 void QTdMessageSticker::unmarshalJson(const QJsonObject &json)
 {
     m_sticker->unmarshalJson(json["sticker"].toObject());
-    m_infoImageUrl = QUrl("file://" + m_sticker->thumbnail()->photo()->local()->path());
+    m_infoImageUrl = QUrl("file://" + m_sticker->thumbnail()->file()->local()->path());
     m_typeText = m_sticker->emoji() + " " + gettext("Sticker");
 }

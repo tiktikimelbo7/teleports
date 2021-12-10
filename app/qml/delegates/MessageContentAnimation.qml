@@ -12,8 +12,9 @@ import "../components"
 MessageContentBase {
     property QTdMessageAnimation animation: message.content
     property QTdLocalFile animationLocal: animation.animation.animation.local
-    property QTdPhotoSize thumbnail: animation.animation.thumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local
+    property QTdThumbnail thumbnail: animation.animation.thumbnail
+    property QTdMiniThumbnail miniThumbnail: animation.animation.miniThumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.file.local
     property real uniqeId: Math.floor(Math.random() * Math.floor(10000));
     property real maximumMediaHeight: Suru.units.gu(24)
     property real minimumMediaHeight: Suru.units.gu(16)
@@ -35,8 +36,13 @@ MessageContentBase {
         Image {
             id: thumbnailImg
             anchors.fill: parent
-            source:animation && thumbnailLocal.path? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
+            source: animation
+                && thumbnail.format
+                && thumbnail.format.type !== QTdObject.THUMBNAIL_FORMAT_MPEG4
+                    ? thumbnailLocal.path ? Qt.resolvedUrl("file://" + thumbnailLocal.path) : ""
+                    : miniThumbnail.dataURL
         }
+
         Item {
             id: fileIcon
             width: units.gu(7)

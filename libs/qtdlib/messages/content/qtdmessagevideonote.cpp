@@ -24,5 +24,5 @@ void QTdMessageVideoNote::unmarshalJson(const QJsonObject &json)
     m_isViewed = json["is_viewed"].toBool();
     m_isSecret = json["is_secret"].toBool();
     m_typeText = gettext("Video message");
-    m_infoImageUrl = QUrl("file://" + m_videoNote->thumbnail()->photo()->local()->path());
+    m_infoImageUrl = QUrl("file://" + m_videoNote->thumbnail()->file()->local()->path());
 }

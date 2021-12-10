@@ -6,7 +6,7 @@ QTdSticker::QTdSticker(QObject *parent)
     , m_width(0)
     , m_height(0)
     , m_isMask(false)
-    , m_thumbnail(new QTdPhotoSize)
+    , m_thumbnail(new QTdThumbnail)
     , m_sticker(new QTdFile)
 {
     setType(STICKER);
@@ -50,15 +50,14 @@ void QTdSticker::unmarshalJson(const QJsonObject &json)
     m_emoji = json["emoji"].toString();
     m_isAnimated = json["is_animated"].toBool();
     m_isMask = json["is_mask"].toBool();
-    // TODO: Repair this after upgrade to tdlib 1.7.9
-    // if (json.contains("thumbnail")) {
-    //     m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
-    // }
+    if (json.contains("thumbnail")) {
+        m_thumbnail->unmarshalJson(json["thumbnail"].toObject());
+    }
     m_sticker->unmarshalJson(json["sticker"].toObject());
     emit stickerChanged();
 }
 
-QTdPhotoSize *QTdSticker::thumbnail() const
+QTdThumbnail *QTdSticker::thumbnail() const
 {
     return m_thumbnail.data();
 }

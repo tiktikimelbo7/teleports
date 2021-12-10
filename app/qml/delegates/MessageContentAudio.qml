@@ -14,8 +14,8 @@ MessageContentBase {
     property QTdFile tdFile: audioContent.audio.audio
     property QTdLocalFile localFile: tdFile.local
     property QTdRemoteFile remoteFile: tdFile.remote
-    property QTdPhotoSize thumbnail: audioContent.audio.albumCoverThumbnail
-    property QTdLocalFile thumbnailLocal: thumbnail.photo.local ? thumbnail.photo.local : null
+    property QTdThumbnail thumbnail: audioContent.audio.albumCoverThumbnail
+    property QTdLocalFile thumbnailLocal: thumbnail.file.local ? thumbnail.file.local : null
     property url localFileSource: tdFile && localFile.path ? Qt.resolvedUrl("file://" + localFile.path) : ""
 
     Item {
