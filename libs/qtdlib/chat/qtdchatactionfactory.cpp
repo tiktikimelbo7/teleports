@@ -10,6 +10,8 @@ QTdChatAction *QTdChatActionFactory::create(const QJsonObject &json, QObject *pa
         return new QTdChatActionChoosingContact(parent);
     } else if (type == "chatActionChoosingLocation") {
         return new QTdChatActionChoosingLocation(parent);
+    } else if (type == "chatActionRecordingAudio") {
+        return new QTdChatActionRecordingAudio(parent);
     } else if (type == "chatActionRecordingVideo") {
         return new QTdChatActionRecordingVideo(parent);
     } else if (type == "chatActionRecordingVideoNote") {
@@ -20,6 +22,8 @@ QTdChatAction *QTdChatActionFactory::create(const QJsonObject &json, QObject *pa
         return new QTdChatActionStartPlayingGame(parent);
     } else if (type == "chatActionTyping") {
         return new QTdChatActionTyping(parent);
+    } else if (type == "chatActionUploadingAudio") {
+        return new QTdChatActionUploadingAudio(parent);
     } else if (type == "chatActionUploadingDocument") {
         return new QTdChatActionUploadingDocument(parent);
     } else if (type == "chatActionUploadingPhoto") {
@@ -30,6 +34,8 @@ QTdChatAction *QTdChatActionFactory::create(const QJsonObject &json, QObject *pa
         return new QTdChatActionUploadingVideoNote(parent);
     } else if (type == "chatActionUploadingVoiceNote") {
         return new QTdChatActionUploadingVoiceNote(parent);
+    } else if (type == "chatActionChoosingSticker") {
+        return new QTdChatActionChoosingSticker(parent);
     }
     qWarning() << "Received unknown chat action" << type;
     return new QTdChatActionUnknown(parent);
