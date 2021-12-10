@@ -7,9 +7,18 @@
 class QTdChatAction : public QTdObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString singular_description READ singular_description)
+    Q_PROPERTY(QString plural_description READ plural_description)
     Q_DISABLE_COPY(QTdChatAction)
 public:
     explicit QTdChatAction(QObject *parent = nullptr);
+
+    QString singular_description();
+    QString plural_description();
+
+protected:
+    QString m_singular_description;
+    QString m_plural_description;
 };
 
 class QTdChatActionCancel : public QTdChatAction
@@ -114,6 +123,30 @@ class QTdChatActionUploadingVoiceNote : public QTdChatAction
     Q_DISABLE_COPY(QTdChatActionUploadingVoiceNote)
 public:
     explicit QTdChatActionUploadingVoiceNote(QObject *parent = nullptr);
+};
+
+class QTdChatActionChoosingSticker : public QTdChatAction
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdChatActionChoosingSticker)
+public:
+    explicit QTdChatActionChoosingSticker(QObject *parent = nullptr);
+};
+
+class QTdChatActionRecordingAudio : public QTdChatAction
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdChatActionRecordingAudio)
+public:
+    explicit QTdChatActionRecordingAudio(QObject *parent = nullptr);
+};
+
+class QTdChatActionUploadingAudio : public QTdChatAction
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(QTdChatActionUploadingAudio)
+public:
+    explicit QTdChatActionUploadingAudio(QObject *parent = nullptr);
 };
 
 class QTdChatActionUnknown : public QTdChatAction

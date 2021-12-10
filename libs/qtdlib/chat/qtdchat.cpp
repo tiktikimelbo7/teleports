@@ -598,36 +598,8 @@ void QTdChat::updateChatAction(const QJsonObject &json)
     if (action->type() == QTdChatAction::Type::CHAT_ACTION_CANCEL && m_chatActions.contains(user_id)) {
         m_chatActions.remove(user_id);
     } else if (action->type() != QTdChatAction::Type::CHAT_ACTION_CANCEL && !m_chatActions.contains(user_id)) {
-        QString singular_description;
-        QString plural_description;
-        switch (action->type()) {
-        case QTdChatAction::Type::CHAT_ACTION_CANCEL:
-            return;
-        case QTdChatAction::Type::CHAT_ACTION_CHOOSING_CONTACT:
-            singular_description = QString(gettext("is choosing contact..."));
-            plural_description = QString(gettext("are choosing contact..."));
-            break;
-        case QTdChatAction::Type::CHAT_ACTION_CHOOSING_LOCATION:
-            singular_description = QString(gettext("is choosing location..."));
-            plural_description = QString(gettext("are choosing location..."));
-            break;
-        case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO:
-        case QTdChatAction::Type::CHAT_ACTION_RECORDING_VIDEO_NOTE:
-        case QTdChatAction::Type::CHAT_ACTION_RECORDING_VOICE_NOTE:
-            singular_description = QString(gettext("is recording..."));
-            plural_description = QString(gettext("are recording..."));
-            break;
-        case QTdChatAction::Type::CHAT_ACTION_TYPING:
-            singular_description = QString(gettext("is typing..."));
-            plural_description = QString(gettext("are typing..."));
-            break;
-        default:
-            singular_description = QString(gettext("is doing something..."));
-            plural_description = QString(gettext("are doing something..."));
-            break;
-        }
-        m_chatActions.insert(user_id, useraction(user_id, singular_description,
-                                                 plural_description));
+        m_chatActions.insert(user_id, useraction(user_id, action->singular_description(),
+                                                 action->plural_description()));
     }
     action->deleteLater();
     emit summaryChanged();
