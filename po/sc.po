@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
+"POT-Creation-Date: 2021-12-10 20:28+0000\n"
 "PO-Revision-Date: 2021-11-21 15:09+0000\n"
 "Last-Translator: Adria <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports/"
@@ -82,6 +82,45 @@ msgstr "AB"
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
 msgstr "Annulla"
+
+#: ../app/qml/components/SetTTLDialog.qml:17
+msgid "Self-destruct timer for messages in this chat:"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:67
+#: ../app/qml/components/SetTTLDialog.qml:71
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/qml/components/SetTTLDialog.qml:75
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
+msgid "1 minute"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:79
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
+msgid "1 hour"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:83
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
+msgid "1 day"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:87
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
+msgid "1 week"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:91
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
+#, fuzzy
+#| msgid "Offline"
+msgid "Off"
+msgstr "Foras de lìnia"
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -170,8 +209,8 @@ msgid "%1 deleted the chat photo"
 msgstr "%1 at cantzelladu sa foto de sa tzarrada"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr "Durada de su messàgiu cunfigurada in <b>%1</b> segundos"
+msgid "Self-destruct timer was set to <b>%1</b>"
+msgstr ""
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -182,7 +221,7 @@ msgstr "Grupu atualizadu a supergrupu"
 msgid "%1 has joined Telegram!"
 msgstr "%1 at aderidu a Telegram!"
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr "Torradu a imbiare dae %1"
 
@@ -229,24 +268,24 @@ msgstr "Messàgiu no suportadu"
 msgid "Unknown message type, see logfile for details..."
 msgstr "Genia de messàgiu disconnota. Leghe is detàllios in su registru..."
 
-#: ../app/qml/middleware/ChatMiddleware.qml:27
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to clear the history?"
 msgstr "Seguru chi boles isboidare sa cronologia?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 #: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "Isbòida sa cronologia"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:37
+#: ../app/qml/middleware/ChatMiddleware.qml:42
 msgid "Are you sure you want to leave this chat?"
 msgstr "Seguru chi boles essire dae custa tzarrada?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:43
 msgid "Leave"
 msgstr "Essi·nche"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:47
+#: ../app/qml/middleware/ChatMiddleware.qml:52
 msgid "Join group"
 msgstr "Aderi a su grupu"
 
@@ -330,6 +369,10 @@ msgstr[1] "%1 grupos a cumone"
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "Crae de tzifradura"
+
+#: ../app/qml/pages/ChatInfoPage.qml:202
+msgid "Set self-destruct timer"
+msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:21
 msgid "Select destination or cancel..."
@@ -713,51 +756,195 @@ msgstr "Abbotzu:"
 msgid "Me"
 msgstr "Deo"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
-msgid "is choosing contact..."
-msgstr "est seberende unu cuntatu..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
-msgid "are choosing contact..."
-msgstr "sunt seberende unu cuntatu..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
-msgid "is choosing location..."
-msgstr "est seberende una positzione..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
-msgid "are choosing location..."
-msgstr "sunt seberende una positzione..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
-msgid "is recording..."
-msgstr "est registrende..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
-msgid "are recording..."
-msgstr "sunt registrende..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
-msgid "is typing..."
-msgstr "est iscriende..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
-msgid "are typing..."
-msgstr "sunt iscriende..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchataction.cpp:7
 msgid "is doing something..."
 msgstr "est faghende carchi cosa..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchataction.cpp:8
 msgid "are doing something..."
 msgstr "sunt faghende carchi cosa..."
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/chat/qtdchataction.cpp:31
+#, fuzzy
+#| msgid "is choosing contact..."
+msgid "is choosing a contact..."
+msgstr "est seberende unu cuntatu..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:32
+#, fuzzy
+#| msgid "are choosing contact..."
+msgid "are choosing a contact..."
+msgstr "sunt seberende unu cuntatu..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:39
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording a video..."
+msgstr "est registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:40
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video..."
+msgstr "sunt registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:47
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a location..."
+msgstr "est seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:48
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a location..."
+msgstr "sunt seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:55
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is recording a video note..."
+msgstr "at imbiadu una nota de vìdeu"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:56
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video note..."
+msgstr "sunt registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:63
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is recording a voice note..."
+msgstr "at imbiadu unu messàgiu vocale"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:64
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a voice note..."
+msgstr "sunt registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:71
+#, fuzzy
+#| msgid "Missing label..."
+msgid "is starting a game..."
+msgstr "Ammancat s'eticheta..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:72
+#, fuzzy
+#| msgid "are typing..."
+msgid "are starting a game..."
+msgstr "sunt iscriende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:79
+msgid "is typing..."
+msgstr "est iscriende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:80
+msgid "are typing..."
+msgstr "sunt iscriende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:87
+#, fuzzy
+#| msgid "is doing something..."
+msgid "is uploading a document..."
+msgstr "est faghende carchi cosa..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:88
+#, fuzzy
+#| msgid "are doing something..."
+msgid "are uploading a document..."
+msgstr "sunt faghende carchi cosa..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:95
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a photo..."
+msgstr "est seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:96
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a photo..."
+msgstr "sunt seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:103
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a video..."
+msgstr "est seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:104
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a video..."
+msgstr "sunt seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:111
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is uploading a video note..."
+msgstr "at imbiadu una nota de vìdeu"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:112
+#, fuzzy
+#| msgid "sent a video note"
+msgid "are uploading a video note..."
+msgstr "at imbiadu una nota de vìdeu"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:119
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is uploading a voice note..."
+msgstr "at imbiadu unu messàgiu vocale"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:120
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "are uploading a voice note..."
+msgstr "at imbiadu unu messàgiu vocale"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:127
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a sticker..."
+msgstr "est seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:128
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a sticker..."
+msgstr "sunt seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:135
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording audio..."
+msgstr "est registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:136
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording audio..."
+msgstr "sunt registrende..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:143
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading audio..."
+msgstr "est seberende una positzione..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:144
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading audio..."
+msgstr "sunt seberende una positzione..."
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr "GIF"
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr "GIF,"
 
@@ -835,9 +1022,9 @@ msgstr "at cantzelladu sa foto de sa tzarrada"
 msgid "joined the group via the public link"
 msgstr "at aderidu a su grupu pro mèdiu de su ligàmene pùblicu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr "TTL de su messàgiu modificadu"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "Self-destruct timer was set"
+msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
@@ -879,11 +1066,11 @@ msgstr "dd MMMM"
 msgid "Location"
 msgstr "Positzione"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr "Fotografias"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr "Fotografias,"
 
@@ -895,15 +1082,15 @@ msgstr "Messàgiu apicadu"
 msgid "Sticker"
 msgstr "Adesivu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr "Vìdeu"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr "Vìdeu,"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr "Messàgiu de vìdeu"
 
@@ -1085,6 +1272,12 @@ msgstr "at atualizadu sa foto de su profilu"
 msgid "You have a new message"
 msgstr "Tenes unu messàgiu nou"
 
+#~ msgid "Message time-to-live has been set to <b>%1</b> seconds"
+#~ msgstr "Durada de su messàgiu cunfigurada in <b>%1</b> segundos"
+
+#~ msgid "message TTL has been changed"
+#~ msgstr "TTL de su messàgiu modificadu"
+
 #~ msgid "Animated stickers not supported yet :("
 #~ msgstr "No ddoe est ancora suportu pro is adesivos animados :("
 
@@ -1111,12 +1304,6 @@ msgstr "Tenes unu messàgiu nou"
 
 #~ msgid "sent a video"
 #~ msgstr "at imbiadu unu vìdeu"
-
-#~ msgid "sent a video note"
-#~ msgstr "at imbiadu una nota de vìdeu"
-
-#~ msgid "sent a voice note"
-#~ msgstr "at imbiadu unu messàgiu vocale"
 
 #~ msgid "joined by invite link"
 #~ msgstr "at aderidu tràmite unu ligàmene de invitu"

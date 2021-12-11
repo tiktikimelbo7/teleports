@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
+"POT-Creation-Date: 2021-12-10 20:28+0000\n"
 "PO-Revision-Date: 2021-07-15 04:28+0000\n"
 "Last-Translator: louies0623 <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
@@ -77,6 +77,44 @@ msgstr "好的"
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
 msgstr "取消"
+
+#: ../app/qml/components/SetTTLDialog.qml:17
+msgid "Self-destruct timer for messages in this chat:"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:67
+#: ../app/qml/components/SetTTLDialog.qml:71
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+
+#: ../app/qml/components/SetTTLDialog.qml:75
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
+msgid "1 minute"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:79
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
+msgid "1 hour"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:83
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
+msgid "1 day"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:87
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
+msgid "1 week"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:91
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
+#, fuzzy
+#| msgid "Offline"
+msgid "Off"
+msgstr "離線"
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -164,8 +202,8 @@ msgid "%1 deleted the chat photo"
 msgstr "%1 刪除了聊天的圖片"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr "訊息保留時間已經設置為 <b>%1</b> 秒"
+msgid "Self-destruct timer was set to <b>%1</b>"
+msgstr ""
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -176,7 +214,7 @@ msgstr "群組被升級為超級群組"
 msgid "%1 has joined Telegram!"
 msgstr "%1 已經加入了 Telegram！"
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr "轉寄自 %1"
 
@@ -223,24 +261,24 @@ msgstr "不支援的訊息"
 msgid "Unknown message type, see logfile for details..."
 msgstr "未知訊息類型，請參考日誌文件來了解詳細內容..."
 
-#: ../app/qml/middleware/ChatMiddleware.qml:27
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to clear the history?"
 msgstr "您確定要清除歷史記錄嗎？"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 #: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "清除歷史記錄"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:37
+#: ../app/qml/middleware/ChatMiddleware.qml:42
 msgid "Are you sure you want to leave this chat?"
 msgstr "您確定要離開此聊天嗎？"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:43
 msgid "Leave"
 msgstr "離開"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:47
+#: ../app/qml/middleware/ChatMiddleware.qml:52
 msgid "Join group"
 msgstr "加入群組"
 
@@ -323,6 +361,10 @@ msgstr[0] "%1 個共通群組"
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "加密金鑰"
+
+#: ../app/qml/pages/ChatInfoPage.qml:202
+msgid "Set self-destruct timer"
+msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:21
 msgid "Select destination or cancel..."
@@ -696,51 +738,195 @@ msgstr "草稿："
 msgid "Me"
 msgstr "我"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
-msgid "is choosing contact..."
-msgstr "正在選擇聯絡人..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
-msgid "are choosing contact..."
-msgstr "正在選擇聯絡人中..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
-msgid "is choosing location..."
-msgstr "正在選擇位置..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
-msgid "are choosing location..."
-msgstr "正在選擇位置中..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
-msgid "is recording..."
-msgstr "正在錄製..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
-msgid "are recording..."
-msgstr "正在錄製中..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
-msgid "is typing..."
-msgstr "正在輸入..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
-msgid "are typing..."
-msgstr "正在輸入中…"
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchataction.cpp:7
 msgid "is doing something..."
 msgstr "正在做某些事..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchataction.cpp:8
 msgid "are doing something..."
 msgstr "正在做某些事..."
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/chat/qtdchataction.cpp:31
+#, fuzzy
+#| msgid "is choosing contact..."
+msgid "is choosing a contact..."
+msgstr "正在選擇聯絡人..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:32
+#, fuzzy
+#| msgid "are choosing contact..."
+msgid "are choosing a contact..."
+msgstr "正在選擇聯絡人中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:39
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording a video..."
+msgstr "正在錄製..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:40
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video..."
+msgstr "正在錄製中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:47
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a location..."
+msgstr "正在選擇位置..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:48
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a location..."
+msgstr "正在選擇位置中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:55
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is recording a video note..."
+msgstr "發送了一段影片"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:56
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video note..."
+msgstr "正在錄製中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:63
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is recording a voice note..."
+msgstr "發送了一則語音訊息"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:64
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a voice note..."
+msgstr "正在錄製中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:71
+#, fuzzy
+#| msgid "Missing label..."
+msgid "is starting a game..."
+msgstr "缺少標籤..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:72
+#, fuzzy
+#| msgid "are typing..."
+msgid "are starting a game..."
+msgstr "正在輸入中…"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:79
+msgid "is typing..."
+msgstr "正在輸入..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:80
+msgid "are typing..."
+msgstr "正在輸入中…"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:87
+#, fuzzy
+#| msgid "is doing something..."
+msgid "is uploading a document..."
+msgstr "正在做某些事..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:88
+#, fuzzy
+#| msgid "are doing something..."
+msgid "are uploading a document..."
+msgstr "正在做某些事..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:95
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a photo..."
+msgstr "正在選擇位置..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:96
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a photo..."
+msgstr "正在選擇位置中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:103
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a video..."
+msgstr "正在選擇位置..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:104
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a video..."
+msgstr "正在選擇位置中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:111
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is uploading a video note..."
+msgstr "發送了一段影片"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:112
+#, fuzzy
+#| msgid "sent a video note"
+msgid "are uploading a video note..."
+msgstr "發送了一段影片"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:119
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is uploading a voice note..."
+msgstr "發送了一則語音訊息"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:120
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "are uploading a voice note..."
+msgstr "發送了一則語音訊息"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:127
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a sticker..."
+msgstr "正在選擇位置..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:128
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a sticker..."
+msgstr "正在選擇位置中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:135
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording audio..."
+msgstr "正在錄製..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:136
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording audio..."
+msgstr "正在錄製中..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:143
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading audio..."
+msgstr "正在選擇位置..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:144
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading audio..."
+msgstr "正在選擇位置中..."
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr "GIF"
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr "GIF,"
 
@@ -818,9 +1004,9 @@ msgstr "刪除了聊天的圖片"
 msgid "joined the group via the public link"
 msgstr "經由公開連結加入了群組"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr "訊息 TTL 已變更"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "Self-destruct timer was set"
+msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
@@ -862,11 +1048,11 @@ msgstr "MMMM dd"
 msgid "Location"
 msgstr "位置"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr "相片"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr "相片，"
 
@@ -878,15 +1064,15 @@ msgstr "釘選的訊息"
 msgid "Sticker"
 msgstr "貼紙"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr "影片"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr "影片，"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr "影片訊息"
 
@@ -1068,6 +1254,12 @@ msgstr "更新了個人資料圖片"
 msgid "You have a new message"
 msgstr "您有新的訊息"
 
+#~ msgid "Message time-to-live has been set to <b>%1</b> seconds"
+#~ msgstr "訊息保留時間已經設置為 <b>%1</b> 秒"
+
+#~ msgid "message TTL has been changed"
+#~ msgstr "訊息 TTL 已變更"
+
 #~ msgid "Animated stickers not supported yet :("
 #~ msgstr "尚不支援動態貼圖 :("
 
@@ -1088,12 +1280,6 @@ msgstr "您有新的訊息"
 
 #~ msgid "sent a video"
 #~ msgstr "發送了一段影片"
-
-#~ msgid "sent a video note"
-#~ msgstr "發送了一段影片"
-
-#~ msgid "sent a voice note"
-#~ msgstr "發送了一則語音訊息"
 
 #~ msgid "joined by invite link"
 #~ msgstr "已透過邀請連結加入"

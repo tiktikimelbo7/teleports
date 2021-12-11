@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
+"POT-Creation-Date: 2021-12-10 20:28+0000\n"
 "PO-Revision-Date: 2021-08-29 10:49+0000\n"
 "Last-Translator: Josué <j2g2rp@gmail.com>\n"
 "Language-Team: Spanish <https://translate.ubports.com/projects/ubports/"
@@ -81,6 +81,45 @@ msgstr "Aceptar"
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
 msgstr "Cancelar"
+
+#: ../app/qml/components/SetTTLDialog.qml:17
+msgid "Self-destruct timer for messages in this chat:"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:67
+#: ../app/qml/components/SetTTLDialog.qml:71
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/qml/components/SetTTLDialog.qml:75
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
+msgid "1 minute"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:79
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
+msgid "1 hour"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:83
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
+msgid "1 day"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:87
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
+msgid "1 week"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:91
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
+#, fuzzy
+#| msgid "Offline"
+msgid "Off"
+msgstr "Sin conexión"
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -169,8 +208,8 @@ msgid "%1 deleted the chat photo"
 msgstr "%1 eliminó la foto del chat"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr "Tiempo de vida del mensaje definido en <b>%1</b> segundos"
+msgid "Self-destruct timer was set to <b>%1</b>"
+msgstr ""
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -181,7 +220,7 @@ msgstr "El grupo se ha actualizado a Supergrupo"
 msgid "%1 has joined Telegram!"
 msgstr "¡%1 se ha unido a Telegram!"
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr "Reenviado desde %1"
 
@@ -229,24 +268,24 @@ msgid "Unknown message type, see logfile for details..."
 msgstr ""
 "Tipo de mensaje desconocido, vea el archivo de registro para más detalles..."
 
-#: ../app/qml/middleware/ChatMiddleware.qml:27
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to clear the history?"
 msgstr "¿Confirma que quiere borrar el historial?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 #: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "Borrar historial"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:37
+#: ../app/qml/middleware/ChatMiddleware.qml:42
 msgid "Are you sure you want to leave this chat?"
 msgstr "¿Confirma que quiere abandonar este chat?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:43
 msgid "Leave"
 msgstr "Abandonar"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:47
+#: ../app/qml/middleware/ChatMiddleware.qml:52
 msgid "Join group"
 msgstr "Unirse al grupo"
 
@@ -330,6 +369,10 @@ msgstr[1] "%1 grupos en común"
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "Clave de cifrado"
+
+#: ../app/qml/pages/ChatInfoPage.qml:202
+msgid "Set self-destruct timer"
+msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:21
 msgid "Select destination or cancel..."
@@ -711,51 +754,195 @@ msgstr "Borrador:"
 msgid "Me"
 msgstr "Yo"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
-msgid "is choosing contact..."
-msgstr "está seleccionando un contacto..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
-msgid "are choosing contact..."
-msgstr "están seleccionando un contacto..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
-msgid "is choosing location..."
-msgstr "está eligiendo una localización..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
-msgid "are choosing location..."
-msgstr "están seleccionando una localización..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
-msgid "is recording..."
-msgstr "está grabando..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
-msgid "are recording..."
-msgstr "están grabando..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
-msgid "is typing..."
-msgstr "está escribiendo..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
-msgid "are typing..."
-msgstr "están escribiendo..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchataction.cpp:7
 msgid "is doing something..."
 msgstr "está haciendo algo..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchataction.cpp:8
 msgid "are doing something..."
 msgstr "están haciendo algo..."
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/chat/qtdchataction.cpp:31
+#, fuzzy
+#| msgid "is choosing contact..."
+msgid "is choosing a contact..."
+msgstr "está seleccionando un contacto..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:32
+#, fuzzy
+#| msgid "are choosing contact..."
+msgid "are choosing a contact..."
+msgstr "están seleccionando un contacto..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:39
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording a video..."
+msgstr "está grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:40
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video..."
+msgstr "están grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:47
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a location..."
+msgstr "está eligiendo una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:48
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a location..."
+msgstr "están seleccionando una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:55
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is recording a video note..."
+msgstr "enviada nota de vídeo"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:56
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video note..."
+msgstr "están grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:63
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is recording a voice note..."
+msgstr "enviado mensaje de voz"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:64
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a voice note..."
+msgstr "están grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:71
+#, fuzzy
+#| msgid "Missing label..."
+msgid "is starting a game..."
+msgstr "Falta la etiqueta..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:72
+#, fuzzy
+#| msgid "are typing..."
+msgid "are starting a game..."
+msgstr "están escribiendo..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:79
+msgid "is typing..."
+msgstr "está escribiendo..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:80
+msgid "are typing..."
+msgstr "están escribiendo..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:87
+#, fuzzy
+#| msgid "is doing something..."
+msgid "is uploading a document..."
+msgstr "está haciendo algo..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:88
+#, fuzzy
+#| msgid "are doing something..."
+msgid "are uploading a document..."
+msgstr "están haciendo algo..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:95
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a photo..."
+msgstr "está eligiendo una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:96
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a photo..."
+msgstr "están seleccionando una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:103
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a video..."
+msgstr "está eligiendo una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:104
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a video..."
+msgstr "están seleccionando una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:111
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is uploading a video note..."
+msgstr "enviada nota de vídeo"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:112
+#, fuzzy
+#| msgid "sent a video note"
+msgid "are uploading a video note..."
+msgstr "enviada nota de vídeo"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:119
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is uploading a voice note..."
+msgstr "enviado mensaje de voz"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:120
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "are uploading a voice note..."
+msgstr "enviado mensaje de voz"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:127
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a sticker..."
+msgstr "está eligiendo una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:128
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a sticker..."
+msgstr "están seleccionando una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:135
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording audio..."
+msgstr "está grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:136
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording audio..."
+msgstr "están grabando..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:143
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading audio..."
+msgstr "está eligiendo una localización..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:144
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading audio..."
+msgstr "están seleccionando una localización..."
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr "GIF"
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr "GIF,"
 
@@ -833,9 +1020,9 @@ msgstr "eliminó la foto del chat"
 msgid "joined the group via the public link"
 msgstr "se unió al grupo a través del enlace público"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr "se ha modificado el mensaje TTL"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "Self-destruct timer was set"
+msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
@@ -877,11 +1064,11 @@ msgstr "dd MMMM"
 msgid "Location"
 msgstr "Ubicación"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr "Foto"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr "Foto,"
 
@@ -893,15 +1080,15 @@ msgstr "Mensaje anclado"
 msgid "Sticker"
 msgstr "Pegatina"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr "Vídeo"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr "Vídeo,"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr "Mensaje de vídeo"
 
@@ -1083,6 +1270,12 @@ msgstr "Foto de perfil actualizada"
 msgid "You have a new message"
 msgstr "Tiene un nuevo mensaje"
 
+#~ msgid "Message time-to-live has been set to <b>%1</b> seconds"
+#~ msgstr "Tiempo de vida del mensaje definido en <b>%1</b> segundos"
+
+#~ msgid "message TTL has been changed"
+#~ msgstr "se ha modificado el mensaje TTL"
+
 #~ msgid "Animated stickers not supported yet :("
 #~ msgstr "Aún no hay soporte para las pegatinas animadas :("
 
@@ -1103,12 +1296,6 @@ msgstr "Tiene un nuevo mensaje"
 
 #~ msgid "sent a video"
 #~ msgstr "enviado un vídeo"
-
-#~ msgid "sent a video note"
-#~ msgstr "enviada nota de vídeo"
-
-#~ msgid "sent a voice note"
-#~ msgstr "enviado mensaje de voz"
 
 #~ msgid "joined by invite link"
 #~ msgstr "se unió con un enlace de invitación"

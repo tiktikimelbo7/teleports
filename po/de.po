@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
-"PO-Revision-Date: 2021-07-12 20:06+0000\n"
-"Last-Translator: Florian Leeber <flori@bin.org.in>\n"
+"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"PO-Revision-Date: 2021-12-09 19:11+0000\n"
+"Last-Translator: Daniel Frost <one@frostinfo.de>\n"
 "Language-Team: German <https://translate.ubports.com/projects/ubports/"
 "teleports/de/>\n"
 "Language: de\n"
@@ -81,6 +81,43 @@ msgstr "OK"
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: ../app/qml/components/SetTTLDialog.qml:17
+msgid "Self-destruct timer for messages in this chat:"
+msgstr "Selbstzerstörungs-Timer für Nachrichten in diesen Chat:"
+
+#: ../app/qml/components/SetTTLDialog.qml:67
+#: ../app/qml/components/SetTTLDialog.qml:71
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] "%1 Sekunde"
+msgstr[1] "%1 Sekunden"
+
+#: ../app/qml/components/SetTTLDialog.qml:75
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
+msgid "1 minute"
+msgstr "1 Minute"
+
+#: ../app/qml/components/SetTTLDialog.qml:79
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
+msgid "1 hour"
+msgstr "1 Stunde"
+
+#: ../app/qml/components/SetTTLDialog.qml:83
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
+msgid "1 day"
+msgstr "1 Tag"
+
+#: ../app/qml/components/SetTTLDialog.qml:87
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
+msgid "1 week"
+msgstr "1 Woche"
+
+#: ../app/qml/components/SetTTLDialog.qml:91
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
+msgid "Off"
+msgstr "aus"
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -169,8 +206,8 @@ msgid "%1 deleted the chat photo"
 msgstr "%1 hat das Chat-Foto gelöscht"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
-msgstr "Die Nachrichtenlebenszeit wurde auf <b>%1</b> Sekunden gesetzt"
+msgid "Self-destruct timer was set to <b>%1</b>"
+msgstr "Selbstzerstörungs-Timer wurde auf <b>%1</b> gestellt."
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -181,7 +218,7 @@ msgstr "Gruppe wurde zur Supergruppe umgewandelt"
 msgid "%1 has joined Telegram!"
 msgstr "%1 ist Telegram beigetreten!"
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr "Weitergeleitet von  %1"
 
@@ -228,24 +265,24 @@ msgstr "Nicht unterstützte Nachricht"
 msgid "Unknown message type, see logfile for details..."
 msgstr "Unbekannter Nachrichtentyp, Details im Logfile..."
 
-#: ../app/qml/middleware/ChatMiddleware.qml:27
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to clear the history?"
 msgstr "Sind Sie sicher das sie den Verlauf löschen wollen?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 #: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr "Verlauf löschen"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:37
+#: ../app/qml/middleware/ChatMiddleware.qml:42
 msgid "Are you sure you want to leave this chat?"
 msgstr "Sind Sie sicher das sie den Chat verlassen wollen?"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:43
 msgid "Leave"
 msgstr "Verlassen"
 
-#: ../app/qml/middleware/ChatMiddleware.qml:47
+#: ../app/qml/middleware/ChatMiddleware.qml:52
 msgid "Join group"
 msgstr "Gruppe beitreten"
 
@@ -329,6 +366,10 @@ msgstr[1] "%1 gemeinsame Gruppen"
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr "Verschlüsselungsschlüssel"
+
+#: ../app/qml/pages/ChatInfoPage.qml:202
+msgid "Set self-destruct timer"
+msgstr "Selbstzerstörungs-Timer setzen"
 
 #: ../app/qml/pages/ChatListPage.qml:21
 msgid "Select destination or cancel..."
@@ -710,51 +751,195 @@ msgstr "Entwurf:"
 msgid "Me"
 msgstr "Ich"
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
-msgid "is choosing contact..."
-msgstr "wählt einen Kontakt aus..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
-msgid "are choosing contact..."
-msgstr "wählen einen Kontakt aus..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
-msgid "is choosing location..."
-msgstr "wählt einen Standort aus..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
-msgid "are choosing location..."
-msgstr "wählen einen Standort aus..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
-msgid "is recording..."
-msgstr "nimmt auf..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
-msgid "are recording..."
-msgstr "nehmen auf..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
-msgid "is typing..."
-msgstr "tippt..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
-msgid "are typing..."
-msgstr "tippen..."
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchataction.cpp:7
 msgid "is doing something..."
 msgstr "macht etwas..."
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchataction.cpp:8
 msgid "are doing something..."
 msgstr "machen etwas..."
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/chat/qtdchataction.cpp:31
+#, fuzzy
+#| msgid "is choosing contact..."
+msgid "is choosing a contact..."
+msgstr "wählt einen Kontakt aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:32
+#, fuzzy
+#| msgid "are choosing contact..."
+msgid "are choosing a contact..."
+msgstr "wählen einen Kontakt aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:39
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording a video..."
+msgstr "nimmt auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:40
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video..."
+msgstr "nehmen auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:47
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a location..."
+msgstr "wählt einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:48
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a location..."
+msgstr "wählen einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:55
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is recording a video note..."
+msgstr "hat eine Video-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:56
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a video note..."
+msgstr "nehmen auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:63
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is recording a voice note..."
+msgstr "hat eine Audio-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:64
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording a voice note..."
+msgstr "nehmen auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:71
+#, fuzzy
+#| msgid "Missing label..."
+msgid "is starting a game..."
+msgstr "Fehlendes Label..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:72
+#, fuzzy
+#| msgid "are typing..."
+msgid "are starting a game..."
+msgstr "tippen..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:79
+msgid "is typing..."
+msgstr "tippt..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:80
+msgid "are typing..."
+msgstr "tippen..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:87
+#, fuzzy
+#| msgid "is doing something..."
+msgid "is uploading a document..."
+msgstr "macht etwas..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:88
+#, fuzzy
+#| msgid "are doing something..."
+msgid "are uploading a document..."
+msgstr "machen etwas..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:95
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a photo..."
+msgstr "wählt einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:96
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a photo..."
+msgstr "wählen einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:103
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading a video..."
+msgstr "wählt einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:104
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading a video..."
+msgstr "wählen einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:111
+#, fuzzy
+#| msgid "sent a video note"
+msgid "is uploading a video note..."
+msgstr "hat eine Video-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:112
+#, fuzzy
+#| msgid "sent a video note"
+msgid "are uploading a video note..."
+msgstr "hat eine Video-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:119
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "is uploading a voice note..."
+msgstr "hat eine Audio-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:120
+#, fuzzy
+#| msgid "sent a voice note"
+msgid "are uploading a voice note..."
+msgstr "hat eine Audio-Notiz geschickt"
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:127
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is choosing a sticker..."
+msgstr "wählt einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:128
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are choosing a sticker..."
+msgstr "wählen einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:135
+#, fuzzy
+#| msgid "is recording..."
+msgid "is recording audio..."
+msgstr "nimmt auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:136
+#, fuzzy
+#| msgid "are recording..."
+msgid "are recording audio..."
+msgstr "nehmen auf..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:143
+#, fuzzy
+#| msgid "is choosing location..."
+msgid "is uploading audio..."
+msgstr "wählt einen Standort aus..."
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:144
+#, fuzzy
+#| msgid "are choosing location..."
+msgid "are uploading audio..."
+msgstr "wählen einen Standort aus..."
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr "GIF"
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr "GIF"
 
@@ -832,9 +1017,9 @@ msgstr "Hat das Chat-Foto gelöscht"
 msgid "joined the group via the public link"
 msgstr "ist der Gruppe beigetreten"
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
-msgstr "Nachrichten-TTL wurde geändert"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "Self-destruct timer was set"
+msgstr "Selbstzerstörungs-Timer wurde gesetzt"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
@@ -876,11 +1061,11 @@ msgstr "d. MMMM"
 msgid "Location"
 msgstr "Standort"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr "Foto"
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr "Foto,"
 
@@ -892,15 +1077,15 @@ msgstr "Angeheftete Nachricht"
 msgid "Sticker"
 msgstr "Sticker"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr "Video"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr "Video,"
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr "Videonachricht"
 
@@ -1082,6 +1267,12 @@ msgstr "Profilfoto aktualisiert"
 msgid "You have a new message"
 msgstr "Du hast eine neue Nachricht"
 
+#~ msgid "Message time-to-live has been set to <b>%1</b> seconds"
+#~ msgstr "Die Nachrichtenlebenszeit wurde auf <b>%1</b> Sekunden gesetzt"
+
+#~ msgid "message TTL has been changed"
+#~ msgstr "Nachrichten-TTL wurde geändert"
+
 #~ msgid "Animated stickers not supported yet :("
 #~ msgstr "Animierte Sticker werden noch nicht unterstützt :("
 
@@ -1102,12 +1293,6 @@ msgstr "Du hast eine neue Nachricht"
 
 #~ msgid "sent a video"
 #~ msgstr "hat ein Video geschickt"
-
-#~ msgid "sent a video note"
-#~ msgstr "hat eine Video-Notiz geschickt"
-
-#~ msgid "sent a voice note"
-#~ msgstr "hat eine Audio-Notiz geschickt"
 
 #~ msgid "joined by invite link"
 #~ msgstr "ist per Einladungslink beigetreten"

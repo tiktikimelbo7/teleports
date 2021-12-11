@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-04 00:09+0000\n"
+"POT-Creation-Date: 2021-12-10 20:28+0000\n"
 "PO-Revision-Date: 2021-02-07 10:08+0100\n"
 "Last-Translator: imrufbd <imrufbd@gmail.com>\n"
 "Language-Team: Bengali (Bangladesh) <https://translate.ubports.com/projects/"
@@ -78,6 +78,43 @@ msgstr ""
 #: ../app/qml/pages/ChatListPage.qml:32
 msgid "Cancel"
 msgstr "বাতিল"
+
+#: ../app/qml/components/SetTTLDialog.qml:17
+msgid "Self-destruct timer for messages in this chat:"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:67
+#: ../app/qml/components/SetTTLDialog.qml:71
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
+msgid "%1 second"
+msgid_plural "%1 seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/qml/components/SetTTLDialog.qml:75
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
+msgid "1 minute"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:79
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
+msgid "1 hour"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:83
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
+msgid "1 day"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:87
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
+msgid "1 week"
+msgstr ""
+
+#: ../app/qml/components/SetTTLDialog.qml:91
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
+msgid "Off"
+msgstr ""
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -166,7 +203,7 @@ msgid "%1 deleted the chat photo"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
-msgid "Message time-to-live has been set to <b>%1</b> seconds"
+msgid "Self-destruct timer was set to <b>%1</b>"
 msgstr ""
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
@@ -178,7 +215,7 @@ msgstr ""
 msgid "%1 has joined Telegram!"
 msgstr ""
 
-#: ../app/qml/delegates/MessageContentBase.qml:37
+#: ../app/qml/delegates/MessageContentBase.qml:40
 msgid "Forwarded from %1"
 msgstr ""
 
@@ -225,24 +262,24 @@ msgstr ""
 msgid "Unknown message type, see logfile for details..."
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:27
+#: ../app/qml/middleware/ChatMiddleware.qml:32
 msgid "Are you sure you want to clear the history?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:28
+#: ../app/qml/middleware/ChatMiddleware.qml:33
 #: ../app/qml/pages/ChatListPage.qml:210
 msgid "Clear history"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:37
+#: ../app/qml/middleware/ChatMiddleware.qml:42
 msgid "Are you sure you want to leave this chat?"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:38
+#: ../app/qml/middleware/ChatMiddleware.qml:43
 msgid "Leave"
 msgstr ""
 
-#: ../app/qml/middleware/ChatMiddleware.qml:47
+#: ../app/qml/middleware/ChatMiddleware.qml:52
 msgid "Join group"
 msgstr ""
 
@@ -325,6 +362,10 @@ msgstr[1] ""
 #: ../app/qml/pages/ChatInfoPage.qml:184
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
+msgstr ""
+
+#: ../app/qml/pages/ChatInfoPage.qml:202
+msgid "Set self-destruct timer"
 msgstr ""
 
 #: ../app/qml/pages/ChatListPage.qml:21
@@ -694,51 +735,139 @@ msgstr ""
 msgid "Me"
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:597
-msgid "is choosing contact..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:598
-msgid "are choosing contact..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:601
-msgid "is choosing location..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:602
-msgid "are choosing location..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:607
-msgid "is recording..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:608
-msgid "are recording..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:611
-msgid "is typing..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:612
-msgid "are typing..."
-msgstr ""
-
-#: ../libs/qtdlib/chat/qtdchat.cpp:615
+#: ../libs/qtdlib/chat/qtdchataction.cpp:7
 msgid "is doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/chat/qtdchat.cpp:616
+#: ../libs/qtdlib/chat/qtdchataction.cpp:8
 msgid "are doing something..."
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/chat/qtdchataction.cpp:31
+msgid "is choosing a contact..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:32
+msgid "are choosing a contact..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:39
+msgid "is recording a video..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:40
+msgid "are recording a video..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:47
+msgid "is choosing a location..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:48
+msgid "are choosing a location..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:55
+msgid "is recording a video note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:56
+msgid "are recording a video note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:63
+msgid "is recording a voice note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:64
+msgid "are recording a voice note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:71
+msgid "is starting a game..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:72
+msgid "are starting a game..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:79
+msgid "is typing..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:80
+msgid "are typing..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:87
+msgid "is uploading a document..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:88
+msgid "are uploading a document..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:95
+msgid "is uploading a photo..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:96
+msgid "are uploading a photo..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:103
+msgid "is uploading a video..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:104
+msgid "are uploading a video..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:111
+msgid "is uploading a video note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:112
+msgid "are uploading a video note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:119
+msgid "is uploading a voice note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:120
+msgid "are uploading a voice note..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:127
+msgid "is choosing a sticker..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:128
+msgid "are choosing a sticker..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:135
+msgid "is recording audio..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:136
+msgid "are recording audio..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:143
+msgid "is uploading audio..."
+msgstr ""
+
+#: ../libs/qtdlib/chat/qtdchataction.cpp:144
+msgid "are uploading audio..."
+msgstr ""
+
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF,"
 msgstr ""
 
@@ -816,8 +945,8 @@ msgstr ""
 msgid "joined the group via the public link"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:19
-msgid "message TTL has been changed"
+#: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
+msgid "Self-destruct timer was set"
 msgstr ""
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
@@ -860,11 +989,11 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:26
+#: ../libs/qtdlib/messages/content/qtdmessagephoto.cpp:27
 msgid "Photo,"
 msgstr ""
 
@@ -876,15 +1005,15 @@ msgstr ""
 msgid "Sticker"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:25
+#: ../libs/qtdlib/messages/content/qtdmessagevideo.cpp:26
 msgid "Video,"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:30
+#: ../libs/qtdlib/messages/content/qtdmessagevideonote.cpp:26
 msgid "Video message"
 msgstr ""
 
