@@ -12,29 +12,23 @@
 class QTdMessageSenderUser : public QTdMessageSender
 {
     Q_OBJECT
-    Q_PROPERTY(QString userId READ qmlUserId NOTIFY userIdChanged)
     Q_PROPERTY(QTdUser *user READ user NOTIFY userChanged)
 public:
     explicit QTdMessageSenderUser(QObject *parent = nullptr);
 
-    QString qmlUserId() const;
-    qint64 userId() const;
     QTdUser *user() const;
-    QString id() const;
     QString displayName() const;
     QString fullName() const;
     QTdPhoto *photo() const;
     QString avatarColor() const;
     QString initials() const;
 
-    void unmarshalJson(const QJsonObject &json);
+    void unmarshalJson(const QJsonObject &json, const QString &id_key = "user_id") override;
 signals:
-    void userIdChanged();
     void userChanged();
 
 private:
     Q_DISABLE_COPY(QTdMessageSenderUser)
-    QTdInt64 m_userId;
     QTdUser *m_user;
     bool m_waitingForUser;
 

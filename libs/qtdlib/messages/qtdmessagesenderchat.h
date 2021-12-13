@@ -12,27 +12,21 @@
 class QTdMessageSenderChat : public QTdMessageSender
 {
     Q_OBJECT
-    Q_PROPERTY(QString chatId READ qmlChatId NOTIFY chatIdChanged)
 public:
     explicit QTdMessageSenderChat(QObject *parent = nullptr);
 
-    QString qmlChatId() const;
-    qint64 chatId() const;
-    QString id() const;
     QString displayName() const;
     QString fullName() const;
     QTdPhoto *photo() const;
     QString avatarColor() const;
     QString initials() const;
 
-    void unmarshalJson(const QJsonObject &json);
+    void unmarshalJson(const QJsonObject &json, const QString &id_key = "chat_id") override;
 signals:
-    void chatIdChanged();
     void chatChanged();
 
 private:
     Q_DISABLE_COPY(QTdMessageSenderChat)
-    QTdInt64 m_chatId;
     QTdChat *m_chat;
     bool m_waitingForChat;
 

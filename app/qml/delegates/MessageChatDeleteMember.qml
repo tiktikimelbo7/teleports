@@ -2,7 +2,7 @@ import QtQuick 2.9
 import "../actions"
 
 MessageActionItem {
-    text: message.sender.user && message.sender.userId == content.userId
+    text: message.sender.user && message.sender.id == content.userId
             ? i18n.tr("%1 left the group").arg(getUserString())
             : i18n.tr("%1 removed %2").arg(getRemovingUserString()).arg(getUserString())
 

@@ -2,35 +2,23 @@
 #include "client/qtdclient.h"
 #include "common/qtdhelpers.h"
 #include "chat/qtdchatlistmodel.h"
+#include "utils/debug.h"
 
 QTdMessageSenderChat::QTdMessageSenderChat(QObject *parent)
     : QTdMessageSender(parent)
-    , m_chatId(0)
 {
     setType(MESSAGE_SENDER_CHAT);
 }
 
-QString QTdMessageSenderChat::qmlChatId() const
+void QTdMessageSenderChat::unmarshalJson(const QJsonObject &json, const QString &id_key)
 {
-    return m_chatId.toQmlValue();
-}
-
-qint64 QTdMessageSenderChat::chatId() const
-{
-    return m_chatId.value();
-}
-
-void QTdMessageSenderChat::unmarshalJson(const QJsonObject &json)
-{
-    m_chatId = json["chat_id"].toVariant().toLongLong();
-    emit chatIdChanged();
-    updateChat(m_chatId.value());
-    QTdMessageSender::unmarshalJson(json);
+    QTdMessageSender::unmarshalJson(json, "chat_id");
+    updateChat(id());
 }
 
 void QTdMessageSenderChat::updateChat(const qint64 &chatId)
 {
-    if (chatId != m_chatId.value()) {
+    if (chatId != id()) {
         return;
     }
     if (m_chat) {
@@ -53,11 +41,6 @@ void QTdMessageSenderChat::updateChat(const qint64 &chatId)
             { "@type", "getChat" },
             { "chat_id", chatId } });
     m_waitingForChat = true;
-}
-
-QString QTdMessageSenderChat::id() const
-{
-    return m_chatId.toQmlValue();
 }
 
 QString QTdMessageSenderChat::displayName() const
@@ -85,7 +68,7 @@ QTdPhoto *QTdMessageSenderChat::photo() const
 
 QString QTdMessageSenderChat::avatarColor() const
 {
-    return QTdHelpers::avatarColor(m_chatId.value());
+    return QTdHelpers::avatarColor(id());
 }
 
 QString QTdMessageSenderChat::initials() const

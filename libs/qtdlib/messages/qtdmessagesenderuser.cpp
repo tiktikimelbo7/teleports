@@ -2,24 +2,14 @@
 #include "client/qtdclient.h"
 #include "common/qtdhelpers.h"
 #include "user/qtdusers.h"
+#include "utils/debug.h"
 
 QTdMessageSenderUser::QTdMessageSenderUser(QObject *parent)
     : QTdMessageSender(parent)
-    , m_userId(0)
     , m_user(nullptr)
     , m_waitingForUser(false)
 {
     setType(MESSAGE_SENDER_USER);
-}
-
-QString QTdMessageSenderUser::qmlUserId() const
-{
-    return m_userId.toQmlValue();
-}
-
-qint64 QTdMessageSenderUser::userId() const
-{
-    return m_userId.value();
 }
 
 QTdUser *QTdMessageSenderUser::user() const
@@ -27,17 +17,15 @@ QTdUser *QTdMessageSenderUser::user() const
     return m_user;
 }
 
-void QTdMessageSenderUser::unmarshalJson(const QJsonObject &json)
+void QTdMessageSenderUser::unmarshalJson(const QJsonObject &json, const QString &id_key)
 {
-    m_userId = json["user_id"].toVariant().toLongLong();
-    emit userIdChanged();
-    updateUser(m_userId.value());
-    QTdMessageSender::unmarshalJson(json);
+    QTdMessageSender::unmarshalJson(json, "user_id");
+    updateUser(id());
 }
 
 void QTdMessageSenderUser::updateUser(const qint64 &userId)
 {
-    if (userId != m_userId.value()) {
+    if (userId != id()) {
         return;
     }
     if (m_user) {
@@ -60,11 +48,6 @@ void QTdMessageSenderUser::updateUser(const qint64 &userId)
             { "@type", "getUser" },
             { "user_id", userId } });
     m_waitingForUser = true;
-}
-
-QString QTdMessageSenderUser::id() const
-{
-    return qmlUserId();
 }
 
 QString QTdMessageSenderUser::displayName() const
@@ -102,7 +85,7 @@ QTdPhoto *QTdMessageSenderUser::photo() const
 
 QString QTdMessageSenderUser::avatarColor() const
 {
-    return QTdHelpers::avatarColor(m_userId.value());
+    return QTdHelpers::avatarColor(id());
 }
 
 QString QTdMessageSenderUser::initials() const
