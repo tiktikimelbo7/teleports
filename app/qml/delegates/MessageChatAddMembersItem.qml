@@ -4,7 +4,7 @@ import "../actions"
 
 MessageActionItem {
     text: content.members.count
-        ? message.sender.user && message.sender.userId == content.firstMemberId
+        ? message.sender.user && message.sender.id == content.firstMemberId
             ? i18n.tr("%1 joined the group").arg(getUsersString(false)).trim()
             : i18n.tr("%1 added %2").arg(message.isCollapsed ? "" : message.sender.fullName).arg(getUsersString(true)).trim()
         : i18n.tr("Unknown joined group")

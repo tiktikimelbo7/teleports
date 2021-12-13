@@ -22,7 +22,7 @@ public:
     QJsonValue jsonId() const;
 
     // QAbstractTdObject interface
-    virtual void unmarshalJson(const QJsonObject &json);
+    virtual void unmarshalJson(const QJsonObject &json, const QString &id_key = "id");
 
     static QAbstractInt64Id *create(const QJsonObject &json, QObject *parent);
 

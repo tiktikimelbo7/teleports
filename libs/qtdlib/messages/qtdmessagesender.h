@@ -11,11 +11,10 @@
  *
  * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1_message_sender.html
  */
-class QTdMessageSender : public QTdObject
+class QTdMessageSender : public QAbstractInt64Id
 {
     Q_OBJECT
     Q_DISABLE_COPY(QTdMessageSender)
-    Q_PROPERTY(QString id READ id NOTIFY dataChanged)
     Q_PROPERTY(QString fullName READ fullName NOTIFY dataChanged)
     Q_PROPERTY(QString displayName READ displayName NOTIFY dataChanged)
     Q_PROPERTY(QTdPhoto *photo READ photo NOTIFY dataChanged)
@@ -26,7 +25,6 @@ public:
 
     static QTdMessageSender *create(const QJsonObject &json, QObject *parent = nullptr);
 
-    virtual QString id() const = 0;
     virtual QString displayName() const = 0;
     virtual QString fullName() const = 0;
     virtual QTdPhoto *photo() const = 0;
@@ -47,7 +45,6 @@ class QTdMessageSenderUnimplemented : public QTdMessageSender
 public:
     explicit QTdMessageSenderUnimplemented(QObject *parent = nullptr);
 
-    QString id() const;
     QString displayName() const;
     QString fullName() const;
     QTdPhoto *photo() const;

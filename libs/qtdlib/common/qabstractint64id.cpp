@@ -22,9 +22,9 @@ QJsonValue QAbstractInt64Id::jsonId() const
     return m_id.toJsonValue();
 }
 
-void QAbstractInt64Id::unmarshalJson(const QJsonObject &json)
+void QAbstractInt64Id::unmarshalJson(const QJsonObject &json, const QString &id_key)
 {
-    m_id = json["id"];
+    m_id = json[id_key].toVariant().toLongLong();
     emit idChanged(m_id.value());
     QTdObject::unmarshalJson(json);
 }

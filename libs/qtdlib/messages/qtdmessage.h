@@ -135,7 +135,6 @@ private slots:
 
 private:
     qint32 m_date;
-    QTdInt64 m_sender_user_id;
     QTdInt64 m_chatId;
     QTdInt64 m_replyToMessageId;
     QPointer<QTdMessageSender> m_sender;

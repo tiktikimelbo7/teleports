@@ -3,7 +3,7 @@
 #include "qtdmessagesenderchat.h"
 
 QTdMessageSender::QTdMessageSender(QObject *parent)
-    : QTdObject(parent)
+    : QAbstractInt64Id(parent)
 {
 }
 
@@ -23,11 +23,6 @@ QTdMessageSender *QTdMessageSender::create(const QJsonObject &json, QObject *par
 QTdMessageSenderUnimplemented::QTdMessageSenderUnimplemented(QObject *parent)
     : QTdMessageSender(parent)
 {
-}
-
-QString QTdMessageSenderUnimplemented::id() const
-{
-    return QString("unimplemented");
 }
 
 QString QTdMessageSenderUnimplemented::displayName() const

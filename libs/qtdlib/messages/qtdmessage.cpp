@@ -141,13 +141,13 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     }
     case QTdObject::MESSAGE_CHAT_ADD_MEMBERS: {
         auto *c = qobject_cast<QTdMessageChatAddMembers *>(temp_content);
-        // c->setSenderUserId(senderUserId());
+        c->setSenderUserId(m_sender->id());
         temp_content = qobject_cast<QTdMessageContent *>(c);
         break;
     }
     case QTdObject::MESSAGE_CHAT_DELETE_MEMBER: {
         auto *c = qobject_cast<QTdMessageChatDeleteMember *>(temp_content);
-        // c->setSenderUserId(senderUserId());
+        c->setSenderUserId(m_sender->id());
         temp_content = qobject_cast<QTdMessageContent *>(c);
         break;
     }
