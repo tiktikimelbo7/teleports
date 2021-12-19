@@ -15,7 +15,15 @@ QTdSticker *QTdMessageSticker::sticker() const
 
 void QTdMessageSticker::unmarshalJson(const QJsonObject &json)
 {
-    m_sticker->unmarshalJson(json["sticker"].toObject());
+    QTdMessageContent::unmarshalJson(json);
+    if (m_typeString == "messageAnimatedEmoji") {
+        auto tempAnimatedEmoji = json["animated_emoji"].toObject();
+        if (!tempAnimatedEmoji.isEmpty() && tempAnimatedEmoji["@type"] == "animatedEmoji") {
+            m_sticker->unmarshalJson(tempAnimatedEmoji["sticker"].toObject());
+        }
+    } else {
+        m_sticker->unmarshalJson(json["sticker"].toObject());
+    }
     m_infoImageUrl = QUrl("file://" + m_sticker->thumbnail()->file()->local()->path());
     m_typeText = m_sticker->emoji() + " " + gettext("Sticker");
 }

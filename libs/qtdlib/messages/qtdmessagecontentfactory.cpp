@@ -38,7 +38,7 @@ QTdMessageContent *QTdMessageContentFactory::create(const QJsonObject &json, QOb
     // types
     if (type == "messageText") {
         return new QTdMessageText(parent);
-    } else if (type == "messageSticker") {
+    } else if (type == "messageSticker" || type == "messageAnimatedEmoji") {
         return new QTdMessageSticker(parent);
     } else if (type == "messagePhoto") {
         return new QTdMessagePhoto(parent);
