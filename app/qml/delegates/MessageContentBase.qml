@@ -24,6 +24,7 @@ Item {
     Component {
         id: citation
         Citation {
+            width: parent.width
             messageCited: message.messageRepliedTo
         }
     }

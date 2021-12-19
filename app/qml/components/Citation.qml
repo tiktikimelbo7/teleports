@@ -11,7 +11,6 @@ Item {
     property QTdMessage messageCited: null
 
     height: column.height + Suru.units.gu(0.5)
-    width: Math.min(maximumAvailableContentWidth, childrenRect.width)
 
     Rectangle {
         id: colorBlock
@@ -29,20 +28,26 @@ Item {
         id: column
 
         spacing: 0
-
+        width: parent.width
         anchors {
             left: colorBlock.right
             leftMargin: Suru.units.gu(1)
             top: parent.top
         }
 
-        Label {
+        UITK.Label {
             id: senderLabel
             height: Suru.units.gu(2.5)
-            width: contentWidth
             text: messageCited.sender ? messageCited.sender.fullName : ""
-            font.bold: false
             color: messageCited.sender ? messageCited.sender.avatarColor : ""
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Layout.leftMargin: Suru.units.dp(5)
+            Layout.preferredWidth: implicitWidth
+            Layout.maximumWidth: parent.width
+            wrapMode: Text.NoWrap
+            elide: Text.ElideRight
+            maximumLineCount: 1
+            font.weight: Font.DemiBold
         }
 
         TextMetrics {

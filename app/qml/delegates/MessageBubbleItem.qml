@@ -177,7 +177,6 @@ UITK.ListItem {
 
                 width: Math.min(maximumAvailableContentWidth,
                                 Math.max(mainContent.width,
-                                         senderLabel.contentWidth,
                                          message_status_comp.implicitWidth))
                 height: childrenRect.height
 
@@ -190,13 +189,18 @@ UITK.ListItem {
                         id: topBar
                         anchors.fill: parent
 
-                        Label {
+                        UITK.Label {
                             id: senderLabel
                             text: message.sender ? message.sender.fullName : ""
-                            font.bold: false
                             color: message.sender ? message.sender.avatarColor : ""
                             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                             Layout.leftMargin: mcMargins == 0 ? Suru.units.dp(5) : 0
+                            Layout.preferredWidth: implicitWidth
+                            Layout.maximumWidth: parent.width
+                            wrapMode: Text.NoWrap
+                            elide: Text.ElideRight
+                            maximumLineCount: 1
+                            font.weight: Font.DemiBold
                         }
                     }
                 }
