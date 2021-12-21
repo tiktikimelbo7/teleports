@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.13
+
+### Added
+- Added support for animated emojis
+- Secret chats can now display and set self-destruct timers
+- Secret chats report media as viewed, thereby properly destructing them when a self-destruct timer is set
+
+### Changed
+- Textformatter has got speed improvements when opening a message list
+- Uncompressed images will be previewed with builtin viewer if MIME type is recognized
+
+### Bugfix
+- Fixed a few more regressions from tdlib update like misleading add/remove notices for users in chats
+- Fixed sticker and other thumbnails to display again correctly
+
 ## 0.12
 
 ### Changed
