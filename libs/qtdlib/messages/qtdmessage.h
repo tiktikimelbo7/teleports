@@ -3,6 +3,7 @@
 
 #include "common/qabstractint64id.h"
 #include "qtdmessagecontent.h"
+#include "qtdmessageinteractioninfo.h"
 #include "qtdmessagesender.h"
 #include "qtdmessagesendingstate.h"
 #include "replymarkup/qtdreplymarkup.h"
@@ -31,6 +32,7 @@ class QTdMessage : public QAbstractInt64Id
     Q_PROPERTY(QTdMessageContent *content READ content NOTIFY messageChanged)
     Q_PROPERTY(QTdReplyMarkup *replyMarkup READ replyMarkup NOTIFY messageChanged)
     Q_PROPERTY(QTdMessageForwardInfo *forwardInfo READ forwardInfo NOTIFY messageChanged)
+    Q_PROPERTY(QTdMessageInteractionInfo *interactionInfo READ interactionInfo NOTIFY messageChanged)
     // These aren't original properties of the tdlib message class but we can
     // can make life easier for use in QML.
     // Provide a summary text for display in the chatlist
@@ -82,8 +84,6 @@ public:
 
     QString views() const;
 
-    void setViews(const qint32 value);
-
     bool containsUnreadMention() const;
 
     QTdMessageContent *content() const;
@@ -91,6 +91,8 @@ public:
     QTdReplyMarkup *replyMarkup() const;
 
     QTdMessageForwardInfo *forwardInfo() const;
+
+    QTdMessageInteractionInfo *interactionInfo() const;
 
     bool isForwarded() const;
 
@@ -146,13 +148,13 @@ private:
     bool m_canBeDeletedOnlyForSelf;
     bool m_canBeDeletedForAllUsers;
     bool m_isChannelPost;
-    qint32 m_views;
     bool m_containsUnreadMention;
     QPointer<QTdMessageContent> m_content;
     bool m_isValid;
     QPointer<QTdMessageSender> m_previousSender, m_nextSender;
     QPointer<QTdReplyMarkup> m_replyMarkup;
     QPointer<QTdMessageForwardInfo> m_forwardInfo;
+    QPointer<QTdMessageInteractionInfo> m_interactionInfo;
     QPointer<QTdMessage> m_messageRepliedTo;
     bool m_isCollapsed;
     qint32 m_ttl;
