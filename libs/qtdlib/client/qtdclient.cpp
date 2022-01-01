@@ -217,7 +217,7 @@ void QTdClient::init()
         emit updateUser(data["user"].toObject());
     });
     m_events.insert(QStringLiteral("updateUserFullInfo"), [=](const QJsonObject &data) {
-        const QString userId = data["user_id"].toString();
+        const QString userId = data["user_id"].toVariant().toString();
         emit updateUserFullInfo(userId, data["user_full_info"].toObject());
     });
     m_events.insert(QStringLiteral("updateUserStatus"), [=](const QJsonObject &data) {
