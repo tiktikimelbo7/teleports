@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-10 20:28+0000\n"
-"PO-Revision-Date: 2021-12-10 18:01+0000\n"
+"PO-Revision-Date: 2022-01-04 21:54+0000\n"
 "Last-Translator: Carlod <carlod@disroot.org>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/"
 "teleports/pl/>\n"
@@ -766,76 +766,52 @@ msgid "are doing something..."
 msgstr "coś robią..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:31
-#, fuzzy
-#| msgid "is choosing contact..."
 msgid "is choosing a contact..."
 msgstr "wybiera kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:32
-#, fuzzy
-#| msgid "are choosing contact..."
 msgid "are choosing a contact..."
-msgstr "wybieramy kontakt..."
+msgstr "wybierają kontakt..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:39
-#, fuzzy
-#| msgid "is recording..."
 msgid "is recording a video..."
-msgstr "nagrywa..."
+msgstr "nagrywa wideo..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:40
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a video..."
-msgstr "nagrywamy..."
+msgstr "nagrywają wideo..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:47
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is choosing a location..."
 msgstr "wybiera lokalizację..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:48
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are choosing a location..."
 msgstr "wybierają lokalizację..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:55
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is recording a video note..."
-msgstr "wysłał notatkę wideo"
+msgstr "nagrywa notatkę wideo..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:56
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a video note..."
-msgstr "nagrywamy..."
+msgstr "nagrywają..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:63
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is recording a voice note..."
-msgstr "wysłał notatkę głosową"
+msgstr "nagrywa notatkę głosową..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:64
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a voice note..."
-msgstr "nagrywamy..."
+msgstr "nagrywają notatkę głosową..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:71
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is starting a game..."
-msgstr "Brak etykiety..."
+msgstr "gra w grę..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:72
-#, fuzzy
-#| msgid "are typing..."
 msgid "are starting a game..."
-msgstr "piszą..."
+msgstr "grają w grę..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:79
 msgid "is typing..."
@@ -846,100 +822,68 @@ msgid "are typing..."
 msgstr "piszą..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:87
-#, fuzzy
-#| msgid "is doing something..."
 msgid "is uploading a document..."
-msgstr "coś robi..."
+msgstr "przesyła dokument..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:88
-#, fuzzy
-#| msgid "are doing something..."
 msgid "are uploading a document..."
-msgstr "coś robią..."
+msgstr "przesyłają dokument..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:95
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading a photo..."
-msgstr "wybiera lokalizację..."
+msgstr "przesyła zdjęcie..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:96
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading a photo..."
-msgstr "wybierają lokalizację..."
+msgstr "przesyłają zdjęcie..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:103
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading a video..."
-msgstr "wybiera lokalizację..."
+msgstr "przesyła wideo..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:104
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading a video..."
-msgstr "wybierają lokalizację..."
+msgstr "przesyłają wideo..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:111
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is uploading a video note..."
-msgstr "wysłał notatkę wideo"
+msgstr "wysyła notatkę wideo"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:112
-#, fuzzy
-#| msgid "sent a video note"
 msgid "are uploading a video note..."
-msgstr "wysłał notatkę wideo"
+msgstr "wysyłają notatkę wideo.."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:119
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is uploading a voice note..."
-msgstr "wysłał notatkę głosową"
+msgstr "wysyła notatkę głosową..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:120
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "are uploading a voice note..."
-msgstr "wysłał notatkę głosową"
+msgstr "wysyłają notatkę głosową..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:127
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is choosing a sticker..."
-msgstr "wybiera lokalizację..."
+msgstr "wybiera naklejkę..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:128
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are choosing a sticker..."
-msgstr "wybierają lokalizację..."
+msgstr "wybierają naklejkę..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:135
-#, fuzzy
-#| msgid "is recording..."
 msgid "is recording audio..."
-msgstr "nagrywa..."
+msgstr "nagrywa dźwięk..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:136
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording audio..."
-msgstr "nagrywamy..."
+msgstr "nagrywają dźwięk..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:143
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading audio..."
-msgstr "wybiera lokalizację..."
+msgstr "wysyła dźwięk..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:144
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading audio..."
-msgstr "wybierają lokalizację..."
+msgstr "wysyłają dźwięk..."
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
