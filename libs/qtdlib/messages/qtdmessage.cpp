@@ -40,6 +40,7 @@ QTdMessage::QTdMessage(QObject *parent)
     , m_nextSender(Q_NULLPTR)
     , m_replyMarkup(Q_NULLPTR)
     , m_forwardInfo(Q_NULLPTR)
+    , m_interactionInfo(Q_NULLPTR)
     , m_messageRepliedTo(Q_NULLPTR)
     , m_replyToMessageId(0)
     , m_isCollapsed(false)
@@ -116,7 +117,6 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_canBeDeletedOnlyForSelf = json["can_be_deleted_only_for_self"].toBool();
     m_canBeDeletedForAllUsers = json["can_be_deleted_for_all_users"].toBool();
     m_isChannelPost = json["is_channel_post"].toBool();
-    m_views = json["views"].toInt();
     m_containsUnreadMention = json["contains_unread_mention"].toBool();
     m_replyToMessageId = json["reply_to_message_id"];
     if (isReply() && !isCollapsed()) {
@@ -173,6 +173,16 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
         if (m_replyMarkup) {
             m_replyMarkup->unmarshalJson(replyMarkup);
         }
+    }
+
+    if (m_interactionInfo) {
+        delete m_interactionInfo;
+        m_interactionInfo = nullptr;
+    }
+    const QJsonObject interactionInfo = json["interaction_info"].toObject();
+    if (!interactionInfo.isEmpty()) {
+        m_interactionInfo = new QTdMessageInteractionInfo(this);
+        m_interactionInfo->unmarshalJson(interactionInfo);
     }
 
     if (m_forwardInfo) {
@@ -262,19 +272,19 @@ qint32 QTdMessage::ttl() const
 
 QString QTdMessage::views() const
 {
+    if (!m_interactionInfo) {
+        return QString("0");
+    }
 
-    if (m_views > 9999 && m_views <= 999999)
-        return QString("%1K").arg(((double)(m_views / 100)) / 10, 0, 'd', 1);
-    else if (m_views > 999999)
-        return QString("%1M").arg(((double)(m_views / 100000)) / 10, 0, 'd', 1);
-    else
-        return QString("%1").arg(m_views);
-}
+    qint32 viewCount = m_interactionInfo->viewCount();
 
-void QTdMessage::setViews(const qint32 value)
-{
-    m_views = value;
-    emit messageChanged();
+    if (viewCount > 9999 && viewCount <= 999999) {
+        return QString("%1K").arg(((double)(viewCount / 100)) / 10, 0, 'd', 1);
+    } else if (viewCount > 999999) {
+        return QString("%1M").arg(((double)(viewCount / 100000)) / 10, 0, 'd', 1);
+    } else {
+        return QString("%1").arg(viewCount);
+    }
 }
 
 bool QTdMessage::containsUnreadMention() const
@@ -295,6 +305,11 @@ QTdReplyMarkup *QTdMessage::replyMarkup() const
 QTdMessageForwardInfo *QTdMessage::forwardInfo() const
 {
     return m_forwardInfo;
+}
+
+QTdMessageInteractionInfo *QTdMessage::interactionInfo() const
+{
+    return m_interactionInfo;
 }
 
 bool QTdMessage::isForwarded() const

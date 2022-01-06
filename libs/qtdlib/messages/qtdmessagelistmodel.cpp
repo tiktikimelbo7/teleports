@@ -46,7 +46,6 @@ QTdMessageListModel::QTdMessageListModel(QObject *parent)
     connect(QTdClient::instance(), &QTdClient::updateMessageContent, this, &QTdMessageListModel::handleUpdateMessageContent);
     connect(QTdClient::instance(), &QTdClient::updateDeleteMessages, this, &QTdMessageListModel::handleUpdateDeleteMessages);
     connect(QTdClient::instance(), &QTdClient::updateMessageEdited, this, &QTdMessageListModel::handleUpdateMessageEdited);
-    connect(QTdClient::instance(), &QTdClient::updateMessageViews, this, &QTdMessageListModel::handleUpdateMessageViews);
     connect(QTdClient::instance(), &QTdClient::updateFileGenerationStart, this, &QTdMessageListModel::handleUpdateFileGenerationStart);
     connect(QTdClient::instance(), &QTdClient::updateFileGenerationStop, this, &QTdMessageListModel::handleUpdateFileGenerationStop);
 
@@ -388,20 +387,6 @@ void QTdMessageListModel::handleUpdateMessageEdited(const QJsonObject &json)
         return;
     }
     message->setIsEdited(true);
-}
-
-void QTdMessageListModel::handleUpdateMessageViews(const QJsonObject &json)
-{
-    if (json.isEmpty()) {
-        return;
-    }
-    auto messageId = QString::number(json["message_id"].toVariant().toLongLong(), 'f', 0);
-    QTdMessage *message = m_model->getByUid(messageId);
-    if (message == nullptr) {
-        return;
-    }
-    auto views = (qint32)json["views"].toDouble();
-    message->setViews(views);
 }
 
 void QTdMessageListModel::handleUpdateDeleteMessages(const QJsonObject &json)

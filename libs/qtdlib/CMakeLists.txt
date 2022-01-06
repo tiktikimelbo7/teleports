@@ -170,6 +170,7 @@ set(
     messages/qtdmessage.cpp
     messages/qtdmessagecontent.cpp
     messages/qtdmessagecontentfactory.cpp
+    messages/qtdmessageinteractioninfo.cpp
     messages/qtdmessagesender.cpp
     messages/qtdmessagesenderuser.cpp
     messages/qtdmessagesenderchat.cpp
