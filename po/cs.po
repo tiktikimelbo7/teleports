@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-01 00:06+0000\n"
-"PO-Revision-Date: 2021-12-07 00:11+0000\n"
-"Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
+"PO-Revision-Date: 2022-01-09 17:32+0000\n"
+"Last-Translator: c4pp4 <c4pp4@seznam.cz>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "teleports/cs/>\n"
 "Language: cs\n"
@@ -790,10 +790,8 @@ msgid "are choosing a location..."
 msgstr "vybírají polohu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:55
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is recording a video note..."
-msgstr "zaslána video poznámka"
+msgstr "nahrává video..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:56
 #, fuzzy
@@ -802,10 +800,8 @@ msgid "are recording a video note..."
 msgstr "nahrávají…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:63
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is recording a voice note..."
-msgstr "zaslána hlasová zpráva"
+msgstr "nahrává hlasovou zprávu..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:64
 #, fuzzy
@@ -870,28 +866,20 @@ msgid "are uploading a video..."
 msgstr "vybírají polohu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:111
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is uploading a video note..."
-msgstr "zaslána video poznámka"
+msgstr "posílá video..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:112
-#, fuzzy
-#| msgid "sent a video note"
 msgid "are uploading a video note..."
-msgstr "zaslána video poznámka"
+msgstr "posílají video..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:119
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is uploading a voice note..."
-msgstr "zaslána hlasová zpráva"
+msgstr "posílá hlasovou zprávu..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:120
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "are uploading a voice note..."
-msgstr "zaslána hlasová zpráva"
+msgstr "posílají hlasovou zprávu..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:127
 #, fuzzy
