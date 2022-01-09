@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"POT-Creation-Date: 2022-01-01 00:06+0000\n"
 "PO-Revision-Date: 2021-07-14 20:06+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
@@ -1074,7 +1074,7 @@ msgstr "Foto,"
 msgid "Pinned Message"
 msgstr "Missatge fixat"
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:28
 msgid "Sticker"
 msgstr "Adhesiu"
 
@@ -1106,7 +1106,7 @@ msgstr "Origen desconegut"
 msgid "Unimplemented:"
 msgstr "Sense implementació:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:249
 msgid "Unread Messages"
 msgstr "Missatges sense llegir"
 

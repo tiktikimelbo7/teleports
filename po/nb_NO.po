@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"POT-Creation-Date: 2022-01-01 00:06+0000\n"
 "PO-Revision-Date: 2021-03-11 21:27+0000\n"
 "Last-Translator: Jan Christian Sherdahl <jan@sherdahl.no>\n"
 "Language-Team: Norwegian Bokmål <https://translate.ubports.com/projects/"
@@ -1066,7 +1066,7 @@ msgstr "Bilde,"
 msgid "Pinned Message"
 msgstr "Festet melding"
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:28
 msgid "Sticker"
 msgstr "Klistermerke"
 
@@ -1100,7 +1100,7 @@ msgstr "Ukjent tok del i gruppen"
 msgid "Unimplemented:"
 msgstr "Ikke implementert:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:249
 msgid "Unread Messages"
 msgstr "Uleste meldinger"
 

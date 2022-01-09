@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"POT-Creation-Date: 2022-01-01 00:06+0000\n"
 "PO-Revision-Date: 2021-12-11 18:14+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
@@ -1017,7 +1017,7 @@ msgstr "Foto,"
 msgid "Pinned Message"
 msgstr "Vastgemaakt berichten"
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:28
 msgid "Sticker"
 msgstr "Sticker"
 
@@ -1049,7 +1049,7 @@ msgstr "Onbekende herkomst"
 msgid "Unimplemented:"
 msgstr "Niet geïmplementeerd:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:249
 msgid "Unread Messages"
 msgstr "Ongelezen berichten"
 

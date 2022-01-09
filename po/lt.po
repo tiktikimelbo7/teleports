@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"POT-Creation-Date: 2022-01-01 00:06+0000\n"
 "PO-Revision-Date: 2019-09-25 20:51+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
@@ -1065,7 +1065,7 @@ msgstr ""
 msgid "Pinned Message"
 msgstr "Neskaitytos žinutės"
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:28
 msgid "Sticker"
 msgstr "Lipdukas"
 
@@ -1102,7 +1102,7 @@ msgstr "%1 prisijungė prie grupės"
 msgid "Unimplemented:"
 msgstr "Neįgyvendinta:"
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:249
 msgid "Unread Messages"
 msgstr "Neskaitytos žinutės"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: telegram-plus.dpniel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 20:28+0000\n"
+"POT-Creation-Date: 2022-01-01 00:06+0000\n"
 "PO-Revision-Date: 2019-06-22 15:04+0000\n"
 "Last-Translator: lxdb <dinia200719@gmail.com>\n"
 "Language-Team: English (United States) <https://translate.ubports.com/"
@@ -1018,7 +1018,7 @@ msgstr ""
 msgid "Pinned Message"
 msgstr ""
 
-#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:20
+#: ../libs/qtdlib/messages/content/qtdmessagesticker.cpp:28
 msgid "Sticker"
 msgstr ""
 
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Unimplemented:"
 msgstr ""
 
-#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:250
+#: ../libs/qtdlib/messages/qtdmessagelistmodel.cpp:249
 msgid "Unread Messages"
 msgstr ""
 
