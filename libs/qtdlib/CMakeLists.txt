@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0.0)
 
 #set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Td 1.7.9 REQUIRED)
+find_package(Td 1.8.0 REQUIRED)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Qml REQUIRED)
 find_package(Qt5Quick REQUIRED)
