@@ -102,7 +102,7 @@ void QTdMessage::unmarshalJson(const QJsonObject &json)
     m_isValid = false;
     m_date = qint32(json["date"].toInt());
 
-    const QJsonObject sender = json["sender"].toObject();
+    const QJsonObject sender = json["sender_id"].toObject();
     m_sender = QTdMessageSender::create(sender, this);
     m_sender->unmarshalJson(sender);
 
