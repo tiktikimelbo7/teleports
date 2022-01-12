@@ -1,7 +1,7 @@
 #include "qtdchatlistmodel.h"
 #include <QScopedPointer>
 #include "client/qtdclient.h"
-#include "chat/requests/qtdgetchatsrequest.h"
+#include "chat/requests/qtdloadchatsrequest.h"
 #include "chat/requests/qtdcreatenewsecretchatrequest.h"
 #include "chat/requests/qtdcreateprivatechatrequest.h"
 #include "chat/requests/qtdgetchatrequest.h"
@@ -515,16 +515,10 @@ void QTdChatListModel::setChatToOpenOnUpdate(const qint64 &chatId)
 }
 
 void QTdChatListModel::loadMoreChats(const QString &chatList) {
-    QScopedPointer<QTdGetChatsRequest> req(new QTdGetChatsRequest);
+    QScopedPointer<QTdLoadChatsRequest> req(new QTdLoadChatsRequest);
 
     if (m_model->isEmpty()) {
-        req->setOffsetChatId(0);
-        req->setOffsetOrder(9223372036854775807);
         req->setChatList(chatList);
-    } else {
-        auto lastChat = m_model->first();
-        req->setOffsetChatId(lastChat->id());
-        req->setOffsetOrder(lastChat->position()->order());
     }
     req->setLimit(10);
     req->sendAsync();

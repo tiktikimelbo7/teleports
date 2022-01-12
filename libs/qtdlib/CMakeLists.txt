@@ -87,6 +87,7 @@ set(
     chat/requests/qtdgetsupergroupfullinforequest.cpp
     chat/requests/qtdgetsupergrouprequest.cpp
     chat/requests/qtdleavechatrequest.cpp
+    chat/requests/qtdloadchatsrequest.cpp
     chat/requests/qtdopenchatrequest.cpp
     chat/requests/qtdreportchatrequest.cpp
     chat/requests/qtdsendchatactionrequest.cpp

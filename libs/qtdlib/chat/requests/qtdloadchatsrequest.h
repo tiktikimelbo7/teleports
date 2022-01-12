@@ -1,5 +1,5 @@
-#ifndef QTDGETCHATSREQUEST_H
-#define QTDGETCHATSREQUEST_H
+#ifndef QTDLOADCHATSREQUEST_H
+#define QTDLOADCHATSREQUEST_H
 
 #include <QObject>
 #include <QtConcurrent>
@@ -10,13 +10,13 @@
 /**
  * @brief The QTdGetChatsRequest class
  *
- * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chats.html
+ * https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1load_chats.html
  */
-class QTdGetChatsRequest : public QTdRequest
+class QTdLoadChatsRequest : public QTdRequest
 {
     Q_OBJECT
 public:
-    explicit QTdGetChatsRequest(QObject *parent = nullptr);
+    explicit QTdLoadChatsRequest(QObject *parent = nullptr);
 
     void setChatList(const QString chatList);
 
@@ -31,4 +31,4 @@ private:
     qint64 m_limit;
 };
 
-#endif // QTDGETCHATSREQUEST_H
+#endif // QTDLOADCHATSREQUEST_H

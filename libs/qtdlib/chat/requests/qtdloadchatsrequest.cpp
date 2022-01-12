@@ -1,32 +1,32 @@
-#include "qtdgetchatsrequest.h"
+#include "qtdloadchatsrequest.h"
 #include "client/qtdclient.h"
 
-QTdGetChatsRequest::QTdGetChatsRequest(QObject *parent)
+QTdLoadChatsRequest::QTdLoadChatsRequest(QObject *parent)
     : QTdRequest(parent)
     , m_chatList(QStringLiteral("chatListMain"))
 {
 }
 
-QJsonObject QTdGetChatsRequest::marshalJson()
+QJsonObject QTdLoadChatsRequest::marshalJson()
 {
     return QJsonObject {
-        { "@type", "getChats" },
+        { "@type", "loadChats" },
         { "chat_list", QJsonObject { { "@type", m_chatList } } },
         { "limit", m_limit },
     };
 }
 
-void QTdGetChatsRequest::setChatList(const QString chatList)
+void QTdLoadChatsRequest::setChatList(const QString chatList)
 {
     m_chatList = chatList;
 }
 
-void QTdGetChatsRequest::setLimit(const qint64 value)
+void QTdLoadChatsRequest::setLimit(const qint64 value)
 {
     m_limit = value;
 }
 
-QFuture<QTdResponse> QTdGetChatsRequest::sendAsync()
+QFuture<QTdResponse> QTdLoadChatsRequest::sendAsync()
 {
     return QTdClient::instance()->sendAsync(this, &QTdClient::chats);
 }
