@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-01 00:06+0000\n"
-"PO-Revision-Date: 2021-07-14 20:06+0000\n"
+"PO-Revision-Date: 2022-01-22 21:58+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "teleports/ca/>\n"
@@ -84,42 +84,40 @@ msgstr "Cancel·la"
 
 #: ../app/qml/components/SetTTLDialog.qml:17
 msgid "Self-destruct timer for messages in this chat:"
-msgstr ""
+msgstr "Temporitzador d'autodestrucció per als missatges d'aquest xat:"
 
 #: ../app/qml/components/SetTTLDialog.qml:67
 #: ../app/qml/components/SetTTLDialog.qml:71
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:24
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 segon"
+msgstr[1] "%1 segons"
 
 #: ../app/qml/components/SetTTLDialog.qml:75
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:16
 msgid "1 minute"
-msgstr ""
+msgstr "1 minut"
 
 #: ../app/qml/components/SetTTLDialog.qml:79
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:18
 msgid "1 hour"
-msgstr ""
+msgstr "1 hora"
 
 #: ../app/qml/components/SetTTLDialog.qml:83
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:20
 msgid "1 day"
-msgstr ""
+msgstr "1 dia"
 
 #: ../app/qml/components/SetTTLDialog.qml:87
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:22
 msgid "1 week"
-msgstr ""
+msgstr "1 setmana"
 
 #: ../app/qml/components/SetTTLDialog.qml:91
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:14
-#, fuzzy
-#| msgid "Offline"
 msgid "Off"
-msgstr "Fora de línia"
+msgstr "Inactiu"
 
 #: ../app/qml/components/UserProfile.qml:74
 msgid "Members: %1"
@@ -209,7 +207,7 @@ msgstr "%1 ha eliminat la foto del xat"
 
 #: ../app/qml/delegates/MessageChatSetTTL.qml:4
 msgid "Self-destruct timer was set to <b>%1</b>"
-msgstr ""
+msgstr "S'ha definit el temporitzador d'autodestrucció a <b>%1</b>"
 
 #: ../app/qml/delegates/MessageChatUpgradeFrom.qml:4
 #: ../app/qml/delegates/MessageChatUpgradeTo.qml:4
@@ -371,7 +369,7 @@ msgstr "Clau d'encriptació"
 
 #: ../app/qml/pages/ChatInfoPage.qml:202
 msgid "Set self-destruct timer"
-msgstr ""
+msgstr "Temporitzador d'autodestrucció"
 
 #: ../app/qml/pages/ChatListPage.qml:21
 msgid "Select destination or cancel..."
@@ -761,76 +759,52 @@ msgid "are doing something..."
 msgstr "estan fent qualque cosa…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:31
-#, fuzzy
-#| msgid "is choosing contact..."
 msgid "is choosing a contact..."
 msgstr "està triant un contacte…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:32
-#, fuzzy
-#| msgid "are choosing contact..."
 msgid "are choosing a contact..."
 msgstr "estan triant un contacte…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:39
-#, fuzzy
-#| msgid "is recording..."
 msgid "is recording a video..."
-msgstr "està gravant…"
+msgstr "està gravant un vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:40
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a video..."
-msgstr "estan gravant…"
+msgstr "estan gravant un vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:47
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is choosing a location..."
 msgstr "està triant una posició…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:48
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are choosing a location..."
 msgstr "estan triant una posició..."
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:55
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is recording a video note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "està gravant una nota de vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:56
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a video note..."
-msgstr "estan gravant…"
+msgstr "estan gravant una nota de vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:63
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is recording a voice note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "està gravant una nota de veu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:64
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording a voice note..."
-msgstr "estan gravant…"
+msgstr "estan gravant una nota de veu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:71
-#, fuzzy
-#| msgid "Missing label..."
 msgid "is starting a game..."
-msgstr "Falta l'etiqueta…"
+msgstr "està iniciant un joc…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:72
-#, fuzzy
-#| msgid "are typing..."
 msgid "are starting a game..."
-msgstr "estan teclejant…"
+msgstr "estan iniciant un joc…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:79
 msgid "is typing..."
@@ -841,100 +815,68 @@ msgid "are typing..."
 msgstr "estan teclejant…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:87
-#, fuzzy
-#| msgid "is doing something..."
 msgid "is uploading a document..."
-msgstr "està fent qualque cosa…"
+msgstr "està pujant un document…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:88
-#, fuzzy
-#| msgid "are doing something..."
 msgid "are uploading a document..."
-msgstr "estan fent qualque cosa…"
+msgstr "estan pujant un document…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:95
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading a photo..."
-msgstr "està triant una posició…"
+msgstr "està pujant una foto…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:96
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading a photo..."
-msgstr "estan triant una posició..."
+msgstr "estan pujant una foto…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:103
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading a video..."
-msgstr "està triant una posició…"
+msgstr "està pujant un vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:104
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading a video..."
-msgstr "estan triant una posició..."
+msgstr "estan pujant un vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:111
-#, fuzzy
-#| msgid "sent a video note"
 msgid "is uploading a video note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "està pujant una nota de vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:112
-#, fuzzy
-#| msgid "sent a video note"
 msgid "are uploading a video note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "estan pujant una nota de vídeo…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:119
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "is uploading a voice note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "està pujant una nota de veu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:120
-#, fuzzy
-#| msgid "sent a voice note"
 msgid "are uploading a voice note..."
-msgstr "s'ha enviat una nota de veu"
+msgstr "estan pujant una nota de veu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:127
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is choosing a sticker..."
-msgstr "està triant una posició…"
+msgstr "està triant un adhesiu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:128
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are choosing a sticker..."
-msgstr "estan triant una posició..."
+msgstr "estan triant un adhesiu…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:135
-#, fuzzy
-#| msgid "is recording..."
 msgid "is recording audio..."
-msgstr "està gravant…"
+msgstr "està gravant àudio…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:136
-#, fuzzy
-#| msgid "are recording..."
 msgid "are recording audio..."
-msgstr "estan gravant…"
+msgstr "estan gravant àudio…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:143
-#, fuzzy
-#| msgid "is choosing location..."
 msgid "is uploading audio..."
-msgstr "està triant una posició…"
+msgstr "està pujant un àudio…"
 
 #: ../libs/qtdlib/chat/qtdchataction.cpp:144
-#, fuzzy
-#| msgid "are choosing location..."
 msgid "are uploading audio..."
-msgstr "estan triant una posició..."
+msgstr "estan pujant un àudio…"
 
 #: ../libs/qtdlib/messages/content/qtdmessageanimation.cpp:26
 msgid "GIF"
@@ -1020,7 +962,7 @@ msgstr "s'ha unit al grup via l'enllaç públic"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatsetttl.cpp:32
 msgid "Self-destruct timer was set"
-msgstr ""
+msgstr "S'ha definit el temporitzador d'autodestrucció"
 
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradefrom.cpp:29
 #: ../libs/qtdlib/messages/content/qtdmessagechatupgradeto.cpp:29
