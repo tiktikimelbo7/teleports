@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: teleports.ubports\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-01 00:06+0000\n"
+"POT-Creation-Date: 2022-02-07 05:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,7 @@ msgid "Copy"
 msgstr ""
 
 #: ../app/qml/delegates/MessageBubbleItem.qml:59
-#: ../app/qml/pages/ChatInfoPage.qml:34
+#: ../app/qml/pages/ChatInfoPage.qml:38
 msgid "Edit"
 msgstr ""
 
@@ -316,54 +316,62 @@ msgstr ""
 msgid "Help translate"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:21
+#: ../app/qml/pages/ChatInfoPage.qml:25
 msgid "Group Details"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:21
+#: ../app/qml/pages/ChatInfoPage.qml:25
 msgid "Profile"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:40
+#: ../app/qml/pages/ChatInfoPage.qml:44
 msgid "Send message"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:60
+#: ../app/qml/pages/ChatInfoPage.qml:64
 msgid "Edit user data and press Save"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:62 ../app/qml/pages/PreviewPage.qml:49
+#: ../app/qml/pages/ChatInfoPage.qml:66 ../app/qml/pages/PreviewPage.qml:49
 msgid "Save"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:73 ../app/qml/pages/UserListPage.qml:67
+#: ../app/qml/pages/ChatInfoPage.qml:108
+msgid "Hidden Number"
+msgstr ""
+
+#: ../app/qml/pages/ChatInfoPage.qml:111 ../app/qml/pages/UserListPage.qml:67
 msgid "Phone no"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:82 ../app/qml/pages/UserListPage.qml:75
+#: ../app/qml/pages/ChatInfoPage.qml:118
+msgid "User status"
+msgstr ""
+
+#: ../app/qml/pages/ChatInfoPage.qml:130 ../app/qml/pages/UserListPage.qml:75
 msgid "First name"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:91 ../app/qml/pages/UserListPage.qml:83
+#: ../app/qml/pages/ChatInfoPage.qml:139 ../app/qml/pages/UserListPage.qml:83
 msgid "Last name"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:130
+#: ../app/qml/pages/ChatInfoPage.qml:178
 msgid "Notifications"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:159
+#: ../app/qml/pages/ChatInfoPage.qml:207
 msgid "%1 group in common"
 msgid_plural "%1 groups in common"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:184
+#: ../app/qml/pages/ChatInfoPage.qml:232
 #: ../app/qml/pages/SecretChatKeyHashPage.qml:15
 msgid "Encryption Key"
 msgstr ""
 
-#: ../app/qml/pages/ChatInfoPage.qml:202
+#: ../app/qml/pages/ChatInfoPage.qml:250
 msgid "Set self-destruct timer"
 msgstr ""
 

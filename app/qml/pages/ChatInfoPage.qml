@@ -9,6 +9,7 @@ import "../actions"
 import "../components"
 import "../stores"
 
+import QtGraphicalEffects 1.0
 
 Page {
     id: chatInfoPage
@@ -16,6 +17,9 @@ Page {
     property bool isGroup: false
     property QTdUser user: null
     property QTdChat chat: null
+    property bool myself: false
+    property string photoPath: isGroup ? chat.chatPhoto.small.local.path : user.profilePhoto.small.local.path
+    property bool photoExists: photoPath != "" ? true : false
 
     header: UITK.PageHeader {
         title: chatInfoPage.isGroup ? i18n.tr('Group Details') : i18n.tr('Profile')
@@ -60,17 +64,61 @@ Page {
             text: i18n.tr("Edit user data and press Save")
             confirmButtonColor: theme.palette.normal.positive
             confirmButtonText: i18n.tr("Save")
-            onConfirmed: AppActions.user.addUser(userName.text, firstName.text, lastName.text)
-            UITK.TextField {
+            onConfirmed: AppActions.user.addUser(user.phoneNumber ? userPhone.text : user.username, firstName.text, lastName.text)
+            Row {
+                spacing: 2
                 anchors {
                     left: parent.left
                     right: parent.right
                 }
-                id: userName
-                text: '+' + user.phoneNumber
-                readOnly: true
-                inputMethodHints: Qt.ImhFormattedNumbersOnly
-                placeholderText: i18n.tr("Phone no")
+                Rectangle {
+                    color: myself ? "#65aadd" : (photoExists ? "transparent" : avatarColor)
+                    height: units.gu(5)
+                    width: units.gu(5)
+                    radius:5
+                    Image {
+                        id: itemPictureOnEdit
+                        width: parent.width
+                        height: parent.height
+                        source: myself ? "qrc:/qml/icons/bookmark.svg" : (photoExists ? Qt.resolvedUrl("file://" + photoPath) : "")
+                        sourceSize: Qt.size(width, height)
+                        antialiasing: true
+                        asynchronous: true
+                        layer.enabled: true
+                        layer.effect: OpacityMask {
+                            maskSource: Item {
+                                width: itemPictureOnEdit.width
+                                height: itemPictureOnEdit.height
+                                Rectangle {
+                                    anchors.centerIn: parent
+                                    width: Math.min(itemPictureOnEdit.width, itemPictureOnEdit.height)
+                                    height: width
+                                    radius: Math.min(width, height) / 5
+                                }
+                            }
+                        }
+                    }
+                }
+                Column {
+                    UITK.TextField {
+                        id: userPhone
+                        height: units.gu(2)
+                        font.pixelSize: 17
+                        font.weight: Font.Medium
+                        text: user.phoneNumber ? '+' + user.phoneNumber : i18n.tr("Hidden Number")
+                        readOnly: true
+                        inputMethodHints: Qt.ImhFormattedNumbersOnly
+                        placeholderText: i18n.tr("Phone no")
+                    }
+                    UITK.TextField {
+                        id: userStatus
+                        height: units.gu(3)
+                        text: i18n.tr(user.status.string)
+                        readOnly: true
+                        placeholderText: i18n.tr("User status")
+                    }
+
+                }
             }
             UITK.TextField {
                 anchors {
